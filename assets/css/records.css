@@ -1,0 +1,52 @@
+#record-type-list li,
+#record-list li {
+	padding: 5px 10px;
+	position: relative;
+}
+
+#record-type-list li.even,
+#record-list li.even {
+		background-color: #f3f3f3;
+}
+
+#record-list li span.additionalInformations {
+	position: absolute;
+	right: 400px;
+}
+
+#record-list li span.delete {
+	cursor: pointer;
+	height: 16px;
+	position: absolute;
+	right: 30px;
+	width: 16px;
+	background: transparent url(../img/icons.png) no-repeat 0px -240px;
+}
+
+#record-list li span.edit {
+	cursor: pointer;
+	height: 16px;
+	position: absolute;
+	right: 5px;
+	width: 16px;
+	background: transparent url(../img/icons.png) no-repeat 0px -180px;
+}
+
+#list .headerLine .createNew	{
+	padding-left: 20px;
+	background: transparent url(../img/icons.png) no-repeat 0px -384px;
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+}
+
+#list form fieldset {
+	float:left;
+	width:100%;
+}
+
+#list .headerLine .back {
+	padding-left: 20px;
+	background: transparent url(../img/icons.png) no-repeat 0px -410px;
+	cursor: pointer;
+}

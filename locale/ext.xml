@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<locallang>
+	<labels lang="en">
+		<label index="ext.title">Title</label>
+		<label index="ext.key">Extension Key</label>
+		<label index="ext.version">Version / State</label>
+		<label index="ext.description">Description</label>
+		<label index="ext.author">Author</label>
+		<label index="ext.dependencies">Depending on</label>
+		<label index="ext.conflicts">Conflicts with</label>
+		<label index="ext.status">Status</label>
+		<label index="createNew">Create new</label>
+		<label index="backToTypeList">Back to type list</label>
+		<label index="save">Save</label>
+		<label index="rightsHeader">Rights</label>
+	</labels>
+	<labels lang="de">
+		<label index="ext.title">Titel</label>
+		<label index="ext.key">Extension Key</label>
+		<label index="ext.version">Version / State</label>
+		<label index="ext.description">Beschreibung</label>
+		<label index="ext.author">Author</label>
+		<label index="ext.dependencies">Abhängig von</label>
+		<label index="ext.conflicts">Konflikte mit</label>
+		<label index="ext.status">Status</label>
+		<label index="createNew">Neuer Datensatz: </label>
+		<label index="backToTypeList">Zurück zur Typenliste</label>
+		<label index="save">Speichern</label>
+	</labels>
+</locallang>

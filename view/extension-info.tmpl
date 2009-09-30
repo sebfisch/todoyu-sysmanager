@@ -1,0 +1,37 @@
+<div class="overflow">
+	<h1 class="headerLine"><span>{extIcon $extKey} {$ext.title} ({$extKey})</span><span class="rgt"><!-- --></span></h1>
+	<table style="line-height:18px;" width="660" border="0" cellspacing="2" cellpadding="3">
+		<tr class="odd">
+			<th width="150" scope="row">{Label sysmanager.ext.title}</th>
+			<td width="538">{$ext.title}</td>
+		</tr>
+		<tr class="even">
+			<th scope="row">{Label sysmanager.ext.key}</th>
+			<td>{$extKey}</td>
+		</tr>
+		<tr class="odd">
+			<th scope="row">{Label sysmanager.ext.version}</th>
+			<td>{$ext.version} / {$ext.state}</td>
+		</tr>
+		<tr class="even">
+			<th scope="row">{Label sysmanager.ext.description}</th>
+			<td>{$ext.description}</td>
+		</tr>
+		<tr class="odd">
+			<th scope="row">{Label sysmanager.ext.author}</th>
+			<td>{if $ext.author.name}{$ext.author.name}, {/if} {$ext.author.company} ({$ext.author.email})</td>
+		</tr>
+		<tr class="even">
+			<th scope="row">{Label sysmanager.ext.dependencies}</th>
+			<td>{$ext.dependencies}</td>
+		</tr>
+		<tr class="odd">
+			<th scope="row">{Label sysmanager.ext.conflicts}</th>
+			<td>{$ext.conflicts}</td>
+		</tr>
+		<tr class="even">
+			<th scope="row">{Label sysmanager.ext.status}</th>
+			<td>{$ext.status}</td>
+		</tr>
+	</table>
+</div>

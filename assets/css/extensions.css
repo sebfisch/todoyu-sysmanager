@@ -1,0 +1,93 @@
+	/* Extension list */
+#extlist {
+	margin-top:6px;
+	border-collapse: separate;
+}
+
+#extlist th,
+#extlist td {
+	padding:5px;
+}
+
+#extlist td {
+	border-top:1px dotted #AAA;
+}
+
+#extlist th {
+	font-weight: bold;
+}
+
+	/* List columns */
+#extlist th.icon {
+	width:20px;
+}
+
+#extlist th.key {
+	width:120px;
+}
+
+#extlist th.title {
+	width:255px;
+}
+
+#extlist th.edit {
+	width:120px;
+}
+
+#extlist th.version {
+	width:40px;
+}
+
+#extlist th.download {
+	width:20px;
+}
+
+#extlist th.doc {
+	width:20px;
+}
+
+#extlist th.status {
+	width:50px;
+}
+
+
+	/* List icons */
+#extlist .icon {
+	margin-right:2px;
+	width:20px;
+}
+
+#extList td.edit a.disabled	{
+	cursor: default;
+}
+
+#extlist td.edit a.info {
+	background:url(../img/icons.png) no-repeat 0 -120px;
+}
+#extlist td.edit a.disabledinfo {
+	background:url(../img/icons.png) no-repeat 0 -359px;
+}
+#extlist td.edit a.config {
+	background:url(../img/icons.png) no-repeat 0 -210px;
+}
+#extlist td.edit a.disabledconfig {
+	background:url(../img/icons.png) no-repeat 0 -330px;
+}
+#extlist td.edit a.records {
+	background:url(../img/icons.png) no-repeat 0 -180px;
+}
+#extlist td.edit a.disabledrecords {
+	background:url(../img/icons.png) no-repeat 0 -270px;
+}
+#extlist td.edit a.rights {
+	background:url(../img/icons.png) no-repeat 0 -150px;
+}
+#extlist td.edit a.disabledrights {
+	background:url(../img/icons.png) no-repeat 0 -300px;
+}
+#extlist td.doc a.doc {
+	background:url(../img/icons.png) no-repeat 0 -90px;
+}
+#extlist td.download a.download {
+	background:url(../img/icons.png) no-repeat 0 -60px;
+}

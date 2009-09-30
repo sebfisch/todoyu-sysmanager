@@ -1,0 +1,10 @@
+<div id="list">
+	<h1 class="headerLine">
+		<span class="rgt"><!--right--></span>
+	</h1>
+	<ul id="record-type-list">
+{foreach $types key type}
+		<li class="{odd_even $key}"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Records.showList('{$extKey}', '{$type.key}')">{$type.label} ({count($type.records)})</a></li>
+{/foreach}
+	</ul>
+</div>
