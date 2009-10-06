@@ -28,6 +28,7 @@
 
 class TodoyuExtRecordRenderer {
 
+
 	/**
 	 * Render type list
 	 *

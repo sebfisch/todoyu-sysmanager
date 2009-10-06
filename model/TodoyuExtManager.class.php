@@ -36,7 +36,7 @@ class TodoyuExtManager {
 	 */
 	public static function getTabConfig($extKey = '') {
 		$extKey	= trim($extKey);
-		
+
 			// Listing tab
 		$tabs = array(
 			array(
@@ -157,6 +157,28 @@ class TodoyuExtManager {
 		}
 
 		return $config;
+	}
+
+
+
+	/**
+	 * Get all extensio record configurations
+	 *
+	 * @return	Array
+	 */
+	public static function getAllRecordsConfig() {
+		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
+		$extRecords	= array();
+
+		foreach($extKeys as $extKey) {
+			$records	= self::getRecordConfigs($extKey);
+
+			if( sizeof($records) > 0 ) {
+				$extRecords[$extKey] = $records;
+			}
+		}
+
+		return $extRecords;
 	}
 
 

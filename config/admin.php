@@ -19,7 +19,13 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
+	// Add extension manager
 TodoyuAdminManager::addModule('extensions', 'Extensions', 'TodoyuExtRenderer::renderModule', 50, array('sysmanager', 'public'));
+
+	// Add records manager
+TodoyuAdminManager::addModule('records', 'All Records', 'TodoyuRecordsOverviewRenderer::renderModule', 60, array('sysmanager', 'public'));
+
+
 
 //TodoyuAdminManager::addModule('rights', 'Rights Management', 'TodoyuRightsEditorRenderer::renderModule', 60, array('sysmanager', 'public'));
 
