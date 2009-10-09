@@ -38,6 +38,8 @@ class TodoyuExtRenderer {
 		$extKey	= $params['extkey'];
 		$tab	= $params['tab'];
 
+		TodoyuDebug::printInFirebug($params);
+
 //		TodoyuDebug::printInFirebug($params, 'ExtRenderer');
 
 		return self::renderTabView($extKey, $tab, $params);
@@ -160,15 +162,7 @@ class TodoyuExtRenderer {
 	 * @return	String
 	 */
 	public static function renderConfig($extKey, array $params = array()) {
-
-		TodoyuDebug::printInFirebug($params, $extKey);
-//		TodoyuExtConfManager::updateExtConf('project', array('test'=>'123'));
-
-//		TodoyuExtConfManager::saveExtConf();
-
-
-
-		return 'config';
+		return TodoyuExtConfRenderer::renderForm($extKey);
 	}
 
 
