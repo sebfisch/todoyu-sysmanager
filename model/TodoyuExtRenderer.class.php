@@ -100,11 +100,11 @@ class TodoyuExtRenderer {
 		$class		= 'admin tabs';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Extensions.onTabClick.bind(Todoyu.Ext.sysmanager.Extensions)';
 		$tabs		= TodoyuExtManager::getTabConfig($extKey);
-		
+
 		if( is_null($active) )	{
 			$active = $tabs[0]['id'];
 		}
-		
+
 		return TodoyuTabheadRenderer::renderTabs($htmlID, $class, $jsHandler, $tabs, $active);
 	}
 
@@ -160,6 +160,13 @@ class TodoyuExtRenderer {
 	 * @return	String
 	 */
 	public static function renderConfig($extKey, array $params = array()) {
+
+		TodoyuDebug::printInFirebug($params, $extKey);
+//		TodoyuExtConfManager::updateExtConf('project', array('test'=>'123'));
+
+//		TodoyuExtConfManager::saveExtConf();
+
+
 
 		return 'config';
 	}

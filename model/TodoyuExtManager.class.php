@@ -228,9 +228,12 @@ class TodoyuExtManager {
 	 * @return	Bool
 	 */
 	public static function extensionHasConfig($extKey)	{
+		$xmlPath	= TodoyuExtConfManager::getXmlPath($extKey);
 
-		return false;
+		return TodoyuFileManager::isFile($xmlPath);
 	}
+
+
 
 
 }
