@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<attributes>
+		<attribute name="name">ext</attribute>
+	</attributes>
+
+	<fieldsets>
+
+		<fieldset name="save">
+
+			<elements>
+				<field type="button" name="save">
+					<text>Save</text>
+					<type>submit</type>
+					<noStorage />
+				</field>
+				<field type="button" name="cancel">
+					<text>Reset</text>
+					<type>reset</type>
+					<noStorage />
+				</field>
+			</elements>
+
+		</fieldset>
+
+	</fieldsets>
+</form>

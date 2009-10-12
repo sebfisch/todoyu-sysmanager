@@ -7,18 +7,18 @@
     <th width="40" scope="col">#</th>
     <th width="30" scope="col">&nbsp;</th>
   </tr>
-  
+
 	{foreach $extensions extKey records}
 		{foreach $records recordKey record}
 			<tr>
-				<td>{Label cat($extKey '.title')}</td>
+				<td>{Label cat($extKey '.ext.title')}</td>
 				<td>{Label $record.label}</td>
 				<td>123</td>
 				<td>edit</td>
 			</tr>
 		{/foreach}
 	{/foreach}
-	
+
 </table>
 
 

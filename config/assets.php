@@ -56,6 +56,10 @@ $CONFIG['EXT']['sysmanager']['assets'] = array(
 			array(
 				'file'		=> 'ext/sysmanager/assets/js/Records.js',
 				'position'	=> 103
+			),
+			array(
+				'file'		=> 'ext/sysmanager/assets/js/ExtConf.js',
+				'position'	=> 103
 			)
 		),
 		'css' => array(
