@@ -56,7 +56,7 @@ class TodoyuRightsEditorRenderer {
 	 * @return	String
 	 */
 	private static function renderGroupSelector() {
-		$usergroups	= TodoyuUsergroupManager::getUsergroups();
+		$usergroups	= TodoyuUsergroupManager::getAllUsergroups();
 		$options	= TodoyuDiv::reformArray($usergroups, array('id'=>'value','title'=>'label'));
 
 		foreach($options as $key => $option) {
