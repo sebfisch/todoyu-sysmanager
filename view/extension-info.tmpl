@@ -1,5 +1,6 @@
 <div class="overflow">
-	<h1 class="headerLine"><span>{extIcon $extKey} {$ext.title} ({$extKey})</span><span class="rgt"><!-- --></span></h1>
+	{Header(cat(extIcon($extKey) " " $ext.title " (" $extKey ")"))}
+
 	<table style="line-height:18px;" width="660" border="0" cellspacing="2" cellpadding="3">
 		<tr class="odd">
 			<th width="150" scope="row">{Label sysmanager.ext.title}</th>

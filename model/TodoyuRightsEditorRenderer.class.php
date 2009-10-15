@@ -38,11 +38,7 @@ class TodoyuRightsEditorRenderer {
 		$data	= array(
 			'groupselector'	=> self::renderGroupSelector(),
 			'matrix'		=> self::renderRightsMatrix($extKey),
-			'extKey'		=> $extKey,
-			'labels'		=> array(
-									'save' => 'LLL:sysmanager.save',
-									'header' => 'LLL:sysmanager.rightsHeader',
-			)
+			'extKey'		=> $extKey
 		);
 
 		return render('ext/sysmanager/view/rightseditor.tmpl', $data);
