@@ -267,7 +267,7 @@ class TodoyuRightsEditorManager {
 	 * @return	Array
 	 */
 	public static function getGroupInfos(array $groupIDs) {
-		$groupIDs	= TodoyuDiv::intvalArray($groupIDs, true, true);
+		$groupIDs	= TodoyuArray::intval($groupIDs, true, true);
 
 		$fields	= 'id, title, is_active';
 		$table	= 'ext_user_group';

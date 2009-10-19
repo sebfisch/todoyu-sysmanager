@@ -44,8 +44,8 @@ class TodoyuExtRecordRenderer {
 		$typeConfigs	= TodoyuExtManager::getRecordConfigs($extKey);
 
 		foreach($typeConfigs as $typeName => $config) {
-			if(TodoyuDiv::checkOnMethodString($config['list']))	{
-				$records = call_user_func(explode('::', $config['list']));
+			if( TodoyuDiv::isFunctionReference($config['list']) )	{
+				$records = TodoyuDiv::callUserFunction($config['list']);
 			}
 
 			$data['types'][] = array(
@@ -73,8 +73,8 @@ class TodoyuExtRecordRenderer {
 
 		$typeConfigs = TodoyuExtManager::getRecordTypeConfig($extKey, $type);
 
-		if(TodoyuDiv::checkOnMethodString($typeConfigs['list']))	{
-			$records = call_user_func(explode('::', $typeConfigs['list']));
+		if( TodoyuDiv::isFunctionReference($typeConfigs['list']) )	{
+			$records = TodoyuDiv::callUserFunction($typeConfigs['list']);
 
 			$data = array('records'	=> $records,
 						  'extKey'	=> $extKey,

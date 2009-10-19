@@ -53,7 +53,7 @@ class TodoyuRightsEditorRenderer {
 	 */
 	private static function renderGroupSelector() {
 		$usergroups	= TodoyuUsergroupManager::getAllUsergroups();
-		$options	= TodoyuDiv::reformArray($usergroups, array('id'=>'value','title'=>'label'));
+		$options	= TodoyuArray::reform($usergroups, array('id'=>'value','title'=>'label'));
 
 		foreach($options as $key => $option) {
 			$options[$key]['selected'] = true;

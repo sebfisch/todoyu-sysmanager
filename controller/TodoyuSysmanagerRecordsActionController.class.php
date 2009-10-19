@@ -53,11 +53,10 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	public function deleteRecordAction(array $params) {
 		$recordConfig = TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
 		if($recordConfig['delete'])	{
-			if(TodoyuDiv::checkOnMethodString($recordConfig['delete']))	{
+			if( TodoyuDiv::isFunctionReference($recordConfig['delete']) ) {
+				$idRecord = intval($params['recordID']);
 
-				$recordID = intval($params['recordID']);
-
-				call_user_func(explode('::', $recordConfig['delete']), $recordID);
+				TodoyuDiv::callUserFunction($recordConfig['delete'], $idRecord);
 			}
 		}
 
