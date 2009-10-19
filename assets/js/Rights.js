@@ -37,7 +37,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	 *
 	 */
 	installObservers: function() {
-		Event.observe('groups', 'change', this.updateEditor.bindAsEventListener(this))
+		Event.observe('rightseditor-groups', 'change', this.updateEditor.bindAsEventListener(this))
 	},
 
 
@@ -49,12 +49,16 @@ Todoyu.Ext.sysmanager.Rights = {
 	updateEditor: function() {
 		$('rightseditor-form').request({
 			'parameters': {
-				'cmd': 'update'
+				'cmd': 'updateMatrix'
 			},
 			'onComplete': function(response) {
 				$('grouprights').update(response.responseText);
 			}
 		});
+	},
+	
+	onEditorUpdated: function(response) {
+		
 	},
 
 

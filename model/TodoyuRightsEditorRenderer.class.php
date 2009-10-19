@@ -35,10 +35,18 @@ class TodoyuRightsEditorRenderer {
 	 * @return	String	HTML
 	 */
 	public static function renderExtRightsEditor($extKey) {
+			// Usergroups
+		$usergroups	= TodoyuUsergroupManager::getAllUsergroups();
+		$reform		= array(
+			'id'	=> 'value',
+			'title'	=> 'label'
+		);
+		$groupOptions = TodoyuArray::reform($usergroups, $reform);
+
 		$data	= array(
-			'groupselector'	=> self::renderGroupSelector(),
-			'matrix'		=> self::renderRightsMatrix($extKey),
-			'extKey'		=> $extKey
+			'usergroups'=> $usergroups,
+			'matrix'	=> self::renderRightsMatrix($extKey),
+			'extKey'	=> $extKey
 		);
 
 		return render('ext/sysmanager/view/rightseditor.tmpl', $data);
@@ -52,22 +60,22 @@ class TodoyuRightsEditorRenderer {
 	 * @return	String
 	 */
 	private static function renderGroupSelector() {
-		$usergroups	= TodoyuUsergroupManager::getAllUsergroups();
-		$options	= TodoyuArray::reform($usergroups, array('id'=>'value','title'=>'label'));
+
 
 		foreach($options as $key => $option) {
 			$options[$key]['selected'] = true;
 		}
 
+		$tmpl	= 'ext/sysmanager/view/groupselector.tmpl';
 		$data	= array(
 			'name'		=> 'groups[]',
-			'id'		=> 'groups',
+			'id'		=> 'rightseditor-groups',
 			'size'		=> 8,
 			'attributes'=> 'multiple="multiple"',
 			'options'	=> $options
 		);
 
-		return render('ext/sysmanager/view/selector.tmpl', $data);
+		return render($tmpl, $data);
 	}
 
 
@@ -87,10 +95,10 @@ class TodoyuRightsEditorRenderer {
 		}
 
 			// Read rights XML file
-		$rights		= TodoyuRightsEditorManager::readExtRights($ext);
+		$rights	= TodoyuRightsEditorManager::readExtRights($ext);
 
 			// Get current group infos
-		$groupInfos	= TodoyuRightsEditorManager::getGroupInfos($groups);
+		$groups	= TodoyuRightsEditorManager::getGroupInfos($groups);
 
 			// Get current checked rights (default or db)
 		if( $useDefaults === true ) {
@@ -102,7 +110,7 @@ class TodoyuRightsEditorRenderer {
 		$data	= array(
 			'extension'		=> $ext,
 			'rights'		=> $rights,
-			'groups'		=> $groupInfos,
+			'groups'		=> $groups,
 			'activeRights'	=> $activeRights
 		);
 

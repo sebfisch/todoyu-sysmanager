@@ -1,39 +1,40 @@
-<div id="grouprights">
-	<div id="groups">
-		<table class="groupmatrix">
-{foreach $groups key group 'groups'}
-		  <tr>
-		    <td class="name g{$.foreach.groups.iteration}"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Rights.toggleGroup({$.foreach.groups.iteration})">{$group.title}</a></td>
-	{for gA 1 $.foreach.groups.total-$.foreach.groups.index-1}
-		    	<td class="g{$.foreach.groups.iteration}">&nbsp;</td>
-	{/for}
-	{if $.foreach.groups.iteration > 1 }
-		{for gA 1 $.foreach.groups.iteration-1}
-			    <td class="g{$.foreach.groups.iteration-$gA}">&nbsp;</td>
-		{/for}
-	{/if}
-		  </tr>
-{/foreach}
-		</table>
-	</div>
-	<div id="rights">
-		<form action="?ext=sysmanager&amp;controller=rights" method="post" name="rightseditor-rightsform" id="rightseditor-rightsform">
-			<input type="hidden" name="extension" value="{$extension}" />
-	{foreach $rights section}
-			<fieldset>
-				<legend>{$section.label}</legend>
-					<table class="sectionrights"><tbody>
-		{foreach $section.rights right}
-					    <tr class="right" id="right-{$right.right}">
-					      <td class="label"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Rights.toggleRight('{$right.right}')">{$right.label}</a></td>
-			{foreach reverse($groups) key group grouprights}
-					      	<td class="g{$.foreach.grouprights.total-$.foreach.grouprights.index}"><input type="checkbox" id="{$right.right}-{$.foreach.grouprights.total-$.foreach.grouprights.index}" name="rights[{$right.right}][{$group.id}]" value="1" {if $activeRights[$right.right][$group.id]}checked="checked"{/if} /></td>
-			{/foreach}
-					    </tr>
-		{/foreach}
-					</tbody></table>
-				</fieldset>
+{* Group selector *}
+<table class="groups">
+	{foreach $groups key group 'groups'}
+		<tr>
+			<td class="name g{$.foreach.groups.iteration}">
+				<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Rights.toggleGroup({$.foreach.groups.iteration})">{$group.title}</a>
+			</td>
+			{for gA 1 $.foreach.groups.total-$.foreach.groups.index-1}
+				<td class="g{$.foreach.groups.iteration}">&nbsp;</td>
+			{/for}
+			{if $.foreach.groups.iteration > 1 }
+				{for gA 1 $.foreach.groups.iteration-1}
+				    <td class="g{$.foreach.groups.iteration-$gA}">&nbsp;</td>
+				{/for}
+			{/if}
+		</tr>
 	{/foreach}
-		</form>
-	</div>
+</table>
+
+{* Rights matrix *}
+<div class="rights">
+<form action="?ext=sysmanager&amp;controller=rights" method="post" name="rightseditor-rightsform" id="rightseditor-rightsform">
+	{foreach $rights section}
+		<fieldset>
+		<legend>{$section.label}</legend>
+		<table class="sectionrights"><tbody>
+		{foreach $section.rights right}
+			<tr class="right" id="right-{$right.right}">
+				<td class="label"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Rights.toggleRight('{$right.right}')">{$right.label}</a></td>
+				{foreach reverse($groups) key group grouprights}
+					<td class="g{$.foreach.grouprights.total-$.foreach.grouprights.index}"><input type="checkbox" id="{$right.right}-{$.foreach.grouprights.total-$.foreach.grouprights.index}" name="rights[{$right.right}][{$group.id}]" value="1" {if $activeRights[$right.right][$group.id]}checked="checked"{/if} /></td>
+				{/foreach}
+			</tr>
+		{/foreach}
+		</tbody></table>
+			</fieldset>
+	{/foreach}
+	<input type="hidden" name="extension" value="{$extension}" />
+</form>
 </div>

@@ -1,0 +1,112 @@
+/* Rightseditor */
+div.groupSelector {
+	margin:10px;
+	margin-right:50px;
+	width:400px;	
+	display:inline-block;
+}
+
+div.groupSelector option {
+	padding:5px;
+	padding-left:40px;
+	background:url(../../../user/assets/img/icons.png) no-repeat 8px -207px;
+}
+
+div.saveButtonBox {
+	width:150px;
+	display:inline-block;
+}
+
+
+/******** Matrix *********/
+/* Groups */
+.groups {
+	margin-top:20px;
+	margin-left:11px;
+	border:none;
+}
+
+.groups .name {
+	width:200px;
+	font-weight:bold;
+	text-align:left;
+}
+
+.groups td {
+	padding:2px 5px;
+	width:20px;
+	text-align:center;
+}
+
+/* Rights */
+div.groupRights .rights fieldset {
+	width:600px;
+}
+div.groupRights .rights .right .label {
+	width:200px;
+	font-weight:bold;
+	text-align:left;;
+}
+
+div.groupRights .rights .right td {
+	width:20px;
+	text-align:center;
+	padding:6px 5px;
+}
+
+div.groupRights .rights .right input {
+	cursor:pointer;
+}
+
+div.groupRights .rights fieldset {
+	border:1px solid #AAA;
+	padding:10px;
+	margin-bottom:10px;
+}
+
+div.groupRights .rights fieldset legend {
+	display:inline;
+	font-weight:bold;
+	font-size:14px;
+	padding:0px 5px;
+}
+
+div.groupRights .rights {
+	height:400px;
+	overflow:scroll;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+
+
+
+
+/* Rights */
+div.groupRights .g1 {
+	background-color:#00caca;
+}
+div.groupRights .g2 {
+	background-color:#36fe9a;
+}
+div.groupRights .g3 {
+	background-color:#f9ce4f;
+}
+div.groupRights .g4 {
+	background-color:#eca555;
+}
+div.groupRights .g5 {
+	background-color:#00ff00;
+}
+div.groupRights .g6 {
+	background-color:#ffff80;
+}
+div.groupRights .g7 {
+	background-color:#804040;
+}
+div.groupRights .g8 {
+	background-color:#3cd5dd;
+}
+
+div.groupRights tr.odd {
+	background-color:#F4F4F4;
+}

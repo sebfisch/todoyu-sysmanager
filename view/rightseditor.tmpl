@@ -1,13 +1,24 @@
-{Header "LLL:sysmanager.rightsHeader"}
+{Header "LLL:sysmanager.rights.header"}
 
-<button href="javascript:void(0)" class="button" onclick="Todoyu.Ext.sysmanager.Rights.save()"><span>{Label sysmanager.save}</span><span class="rgt" /></button>
-<form id="rightseditor-form" action="?ext=sysmanager&amp;controller=rightsmatrix" method="POST">
-	<div id="groupselector">
-		{$groupselector}
-	</div>
-	<input type="hidden" name="extension" value="{$extKey}" />
-</form>
-{$matrix}
+<div class="groupSelector">
+	<form id="rightseditor-form" action="?ext=sysmanager&amp;controller=rights">
+		<select name="groups[]" size="8" id="rightseditor-groups" class="filter" multiple="multiple">
+		{foreach $usergroups usergroup}
+			<option value="{$usergroup.id}" selected="selected">{$usergroup.title}</option>
+		{/foreach}
+		</select>
+		<input type="hidden" name="extension" value="{$extKey}" />
+	</form>
+</div>
+
+<div class="saveButtonBox">
+	{Button label="sysmanager.rights.save" onclick="Todoyu.Ext.sysmanager.Rights.save()"}
+</div>
+
+<div class="groupRights">
+	{$matrix}
+</div>
+
 <script type="text/javascript">
 Todoyu.Ext.sysmanager.Rights.init();
 </script>

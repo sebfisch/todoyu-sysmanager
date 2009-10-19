@@ -26,7 +26,7 @@
  * @subpackage	Sysmanager
  */
 
-class TodoyuExtRenderer {
+class TodoyuExtManagerRenderer {
 
 	/**
 	 * Render extension management module
@@ -37,10 +37,6 @@ class TodoyuExtRenderer {
 	public static function renderModule(array $params) {
 		$extKey	= $params['extkey'];
 		$tab	= $params['tab'];
-
-		TodoyuDebug::printInFirebug($params);
-
-//		TodoyuDebug::printInFirebug($params, 'ExtRenderer');
 
 		return self::renderTabView($extKey, $tab, $params);
 	}

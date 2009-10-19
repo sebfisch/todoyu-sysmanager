@@ -6,9 +6,19 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 		$extKey	= $params['extension'];
 		$rights	= $params['rights'];
 
-		TodoyuRightsEditorManager::saveGroupRights($extKey, $rights);	
+		TodoyuRightsEditorManager::saveGroupRights($extKey, $rights);
 	}
-	
+
+	public function updateMatrixAction(array $params) {
+		$groups	= $params['groups'];
+		$groups	= TodoyuArray::intval($groups, true, true);
+		$extKey	= $params['extension'];
+
+		TodoyuRightsEditorManager::saveCurrentExtension($extKey);
+
+		return TodoyuRightsEditorRenderer::renderRightsMatrix($extKey, $groups);
+	}
+
 }
 
 ?>

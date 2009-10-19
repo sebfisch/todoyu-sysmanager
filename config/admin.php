@@ -20,7 +20,7 @@
 ***************************************************************/
 
 	// Add extension manager
-TodoyuAdminManager::addModule('extensions', 'Extensions', 'TodoyuExtRenderer::renderModule', 50, array('sysmanager', 'public'));
+TodoyuAdminManager::addModule('extensions', 'Extensions', 'TodoyuExtManagerRenderer::renderModule', 50, array('sysmanager', 'public'));
 
 	// Add records manager
 TodoyuAdminManager::addModule('records', 'All Records', 'TodoyuRecordsOverviewRenderer::renderModule', 60, array('sysmanager', 'public'));
