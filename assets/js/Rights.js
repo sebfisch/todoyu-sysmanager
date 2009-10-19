@@ -51,14 +51,12 @@ Todoyu.Ext.sysmanager.Rights = {
 			'parameters': {
 				'cmd': 'updateMatrix'
 			},
-			'onComplete': function(response) {
-				$('grouprights').update(response.responseText);
-			}
+			'onComplete': this.onEditorUpdated.bind(this)
 		});
 	},
 	
 	onEditorUpdated: function(response) {
-		
+		$('grouprights').update(response.responseText);
 	},
 
 
@@ -133,6 +131,6 @@ Todoyu.Ext.sysmanager.Rights = {
 	 *
 	 */
 	onSaved: function(response) {
-
+		Todoyu.notifySuccess('Rights saved');
 	}
 };

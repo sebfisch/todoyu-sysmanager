@@ -106,6 +106,9 @@ class TodoyuRightsEditorRenderer {
 		} else {
 			$activeRights = TodoyuRightsEditorManager::getCurrentActiveRights($rights, $ext);
 		}
+//
+//		TodoyuDebug::printHtml($rights);
+//		TodoyuDebug::printHtml($activeRights);
 
 		$data	= array(
 			'extension'		=> $ext,

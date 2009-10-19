@@ -15,7 +15,7 @@
 <tbody>
 {foreach $extensions extKey extInfo}
 	<tr class="{cycle values="odd,even"}">
-		<td class="icon">{if hasExtensionInfo($extKey)}<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{/if}{extIcon $extKey}{if hasExtensionInfo($extKey)}</a>{/if}</a></td>
+		<td class="icon">{if hasExtensionInfo($extKey)}<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{/if}{extIcon $extKey}{if hasExtensionInfo($extKey)}</a>{/if}</td>
 		<td class="key">{if hasExtensionInfo($extKey)}<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{/if}{$extKey}{if hasExtensionInfo($extKey)}</a>{/if}</td>
 		<td class="title">{$extInfo.title}</td>
 		<td class="edit">

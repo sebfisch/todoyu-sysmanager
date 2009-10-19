@@ -86,15 +86,15 @@ class TodoyuRightsEditorManager {
 			$data[$sectionKey]['label']	= TodoyuLocale::getLabel($localIdent . '.section.' . $sectionKey);
 			$data[$sectionKey]['rights']= array();
 
-
 			foreach($section->allow as $allow) {
-				$right	= (string)$allow['right'];
+				$right			= (string)$allow['right'];
+
 				$data[$sectionKey]['rights'][$right] = array(
 					'right'		=> $right,
 					'label'		=> TodoyuLocale::getLabel($localIdent . '.right.' . $right),
 					'default'	=> explode(',', (string)$allow['default']),
 					'depends'	=> explode(',', (string)$allow['depends']),
-					'comment'	=> (string)$allow['comment']
+					'comment'	=> TodoyuLocale::getLabelIfExists($localIdent . '.right.' . $right . '.comment')
 				);
 			}
 		}

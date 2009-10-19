@@ -21,8 +21,7 @@ div.saveButtonBox {
 /******** Matrix *********/
 /* Groups */
 .groups {
-	margin-top:20px;
-	margin-left:11px;
+	margin:20px 0px 10px 11px;
 	border:none;
 }
 
@@ -61,6 +60,7 @@ div.groupRights .rights .right input {
 div.groupRights .rights fieldset {
 	border:1px solid #AAA;
 	padding:10px;
+	padding-top:0px;
 	margin-bottom:10px;
 }
 

@@ -26,9 +26,13 @@
 		<table class="sectionrights"><tbody>
 		{foreach $section.rights right}
 			<tr class="right" id="right-{$right.right}">
-				<td class="label"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Rights.toggleRight('{$right.right}')">{$right.label}</a></td>
+				<td class="label">
+					<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Rights.toggleRight('{$right.right}')" title="{$right.comment}">{$right.label}</a>
+				</td>
 				{foreach reverse($groups) key group grouprights}
-					<td class="g{$.foreach.grouprights.total-$.foreach.grouprights.index}"><input type="checkbox" id="{$right.right}-{$.foreach.grouprights.total-$.foreach.grouprights.index}" name="rights[{$right.right}][{$group.id}]" value="1" {if $activeRights[$right.right][$group.id]}checked="checked"{/if} /></td>
+					<td class="g{$.foreach.grouprights.total-$.foreach.grouprights.index}">
+						<input type="checkbox" id="{$right.right}-{$.foreach.grouprights.total-$.foreach.grouprights.index}" name="rights[{$right.right}][{$group.id}]" value="1" {if $activeRights[$right.right][$group.id]}checked="checked"{/if} />
+					</td>
 				{/foreach}
 			</tr>
 		{/foreach}
