@@ -1,4 +1,7 @@
-	/* Extension list */
+/* -------------------
+	extension list
+   ------------------- */
+
 #extlist {
 	margin-top:6px;
 	border-collapse: separate;
@@ -17,7 +20,7 @@
 	font-weight: bold;
 }
 
-	/* List columns */
+	/* list columns */
 #extlist th.icon {
 	width:20px;
 }
@@ -50,8 +53,7 @@
 	width:50px;
 }
 
-
-	/* List icons */
+	/* list icons */
 #extlist .icon {
 	margin-right:2px;
 	width:20px;
