@@ -17,40 +17,46 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 		$this->type		= $params['type'];
 	}
 
-	public function showRecordListAction(array $params) {
+
+	public function listTypesAction(array $params) {
+		return TodoyuExtManagerRenderer::renderRecords($this->extKey, $params);
+	}
+
+	public function listExtTypesAction(array $params) {
 		return TodoyuExtRecordRenderer::renderRecordList($this->extKey, $this->type);
 	}
 
 
-	public function recordFormAction(array $params) {
-		$editID		= intval($params['recordID']);
+
+
+	public function editAction(array $params) {
+		$idRecord	= intval($params['record']);
+		$config		= TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
 		$content	= '';
 
-		$recordConfig = TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
 
-		if( $recordConfig['form'] ) {
-			$form = new TodoyuForm($recordConfig['form']);
+		$form = new TodoyuForm($config['form']);
 
-			if($recordConfig['object'])	{
-				$record = new $recordConfig['object']($editID);
-//				if(method_exists($record, 'loadForeignData'))	{
-//					$record->loadForeignData();
-//				}
-			} else if($recordConfig['table'])	{
-				$record = new TodoyuBaseObject($editID, $recordConfig['table']);
-			}
+		if( ! empty($config['object']) )	{
+			$className	= $config['object'];
+			$record = new $className($idRecord);
+		} elseif( ! empty($config['table']) )	{
+			$record = new TodoyuBaseObject($idRecord, $config['table']);
+		}
 
-			if(is_object($record))	{
-				$form->setFormData($record->getTemplateData(true));
-				$content = $form->render();
-			}
+		if( is_object($record) ) {
+			$data	= $record->getTemplateData(true);
+			$form->setFormData($data);
+			$content= $form->render();
+		} else {
+			$content= 'ERROR';
 		}
 
 		return $content;
 	}
 
 
-	public function deleteRecordAction(array $params) {
+	public function deleteAction(array $params) {
 		$recordConfig = TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
 		if($recordConfig['delete'])	{
 			if( TodoyuDiv::isFunctionReference($recordConfig['delete']) ) {

@@ -21,9 +21,23 @@
 Todoyu.Ext.sysmanager.Extensions.Records = {
 
 	ext: Todoyu.Ext.sysmanager,
+	
+	url: Todoyu.getUrl('sysmanager', 'records'),
+	
 	extKey: '',
 	type:	'',
 
+
+	showRecordTypes: function(extKey) {
+		var options	= {
+			'parameters': {
+				'cmd': 'listTypes',
+				'extKey': extKey
+			}
+		};
+		
+		Todoyu.Ui.replace('list', this.url, options);
+	},
 
 
 	/**
@@ -32,23 +46,52 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 * @param unknown_type extKey
 	 * @param unknown_type type
 	 */
-	showList: function(extKey, type) {
-		this.type = type;
-		this.extKey = extKey;
+	showTypeList: function(extKey, type) {
+		//this.type = type;
+		//this.extKey = extKey;
 
-		this.ext.Extensions.showTab(extKey, 'records', {'type': type});
-
-		var url = this.getSysmanagerRecordsUrl();
+		//this.ext.Extensions.showTab(extKey, 'records', {'type': type});
+		//return;
 
 		var options = {
 			'parameters': {
-				'cmd': 'showRecordList',
-				'type': type,
-				'extKey': extKey
+				'cmd': 'listExtTypes',
+				'extKey': extKey,
+				'type': type
 			}
 		};
 
-		Todoyu.Ui.replace('list', url, options);
+		Todoyu.Ui.replace('list', this.url, options);
+	},
+	
+	add: function(extKey, type) {
+		this.edit(extKey, type, 0);
+	},
+	
+	
+
+	/**
+	 * Enter description here...
+	 *
+	 * @param unknown_type recordID
+	 */
+	edit: function(extKey, type, idRecord)	{
+
+		var options = {
+			'parameters': {
+				'cmd':		'edit',
+				'extKey':	extKey,
+				'type':		type,
+				'record':	idRecord				
+			},
+			'onComplete': this.onEdit.bind(this, extKey, type, idRecord)
+		};
+
+		Todoyu.Ui.replace('record-list', this.url, options);
+	},
+	
+	onEdit: function(extKey, type, idRecord, response) {
+		
 	},
 
 
@@ -58,42 +101,21 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 *
 	 * @param unknown_type idRecord
 	 */
-	deleteRecord: function(idRecord)	{
-		var url = this.getSysmanagerRecordsUrl();
-
+	remove: function(extKey, type, idRecord)	{
 		var options = {
 			'parameters': {
-				'cmd':		'deleteRecord',
-				'recordID':	idRecord,
-				'extKey':	this.extKey,
-				'type':		this.type
+				'cmd':		'delete',
+				'extKey':	extKey,
+				'type':		type,
+				'record':	idRecord				
 			}
 		}
 
-		Todoyu.Ui.replace('list', url, options);
+		Todoyu.Ui.replace('list', this.url, options);
 	},
 
 
 
-	/**
-	 * Enter description here...
-	 *
-	 * @param unknown_type recordID
-	 */
-	recordForm: function(recordID)	{
-		var url = this.getSysmanagerRecordsUrl();
-
-		var options = {
-			'parameters': {
-				'cmd':		'recordForm',
-				'recordID':	recordID,
-				'extKey':	this.extKey,
-				'type':		this.type
-			}
-		};
-
-		Todoyu.Ui.replace('record-list', url, options);
-	},
 
 
 
@@ -134,15 +156,6 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 		this.showList(this.extKey, this.type);
 	},
 
-
-
-	/**
-	 * Enter description here...
-	 *
-	 */
-	getSysmanagerRecordsUrl: function()	{
-		return Todoyu.getUrl('sysmanager', 'records');
-	},
 
 
 

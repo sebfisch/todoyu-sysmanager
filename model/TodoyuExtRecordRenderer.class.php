@@ -36,9 +36,10 @@ class TodoyuExtRecordRenderer {
 	 * @return	String	HTML
 	 */
 	public static function renderTypeList($extKey) {
+		$tmpl	= 'ext/sysmanager/view/extension-record-typelist.tmpl';
 		$data	= array(
-			'types'		=> array(),
-			'extKey'	=> $extKey
+			'extKey'	=> $extKey,
+			'types'		=> array()
 		);
 
 		$typeConfigs	= TodoyuExtManager::getRecordConfigs($extKey);
@@ -53,10 +54,9 @@ class TodoyuExtRecordRenderer {
 				'label'		=> Label( $config['label'] ),
 				'records'	=> $records
 			);
-
 		}
 
-		return render('ext/sysmanager/view/extension-record-typelist.tmpl', $data);
+		return render($tmpl, $data);
 	}
 
 
@@ -69,21 +69,20 @@ class TodoyuExtRecordRenderer {
 	 * @return	String
 	 */
 	public static function renderRecordList($extKey, $type)	{
-		$tmpl = 'ext/sysmanager/view/extension-record-list.tmpl';
-
 		$typeConfigs = TodoyuExtManager::getRecordTypeConfig($extKey, $type);
 
 		if( TodoyuDiv::isFunctionReference($typeConfigs['list']) )	{
 			$records = TodoyuDiv::callUserFunction($typeConfigs['list']);
 
-			$data = array('records'	=> $records,
-						  'extKey'	=> $extKey,
-						  'type'	=> $type,
-						  'labels'	=> array(
-								'createNew' => 'LLL:sysmanager.createNew',
-								'typeLabel' => $typeConfigs['label'],
-								'backbutton'=> 'LLL:sysmanager.backToTypeList'
-						  ));
+			$tmpl = 'ext/sysmanager/view/extension-record-list.tmpl';
+			$data = array(
+				'records'	=> $records,
+				'extKey'	=> $extKey,
+				'type'		=> $type,
+				'labels'	=> array(
+					'typeLabel' => $typeConfigs['label']
+				)
+			);
 
 			return render($tmpl, $data);
 		} else {

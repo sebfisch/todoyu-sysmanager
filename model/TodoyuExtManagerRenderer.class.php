@@ -186,8 +186,10 @@ class TodoyuExtManagerRenderer {
 	 */
 	public static function renderRecords($extKey, array $params = array()) {
 		$type		= trim($params['type']);
-		$idRecord	= intval($params['record']);
-		$content	= '';
+//		$idRecord	= intval($params['record']);
+//		$content	= '';
+
+		return TodoyuExtRecordRenderer::renderTypeList($extKey);
 
 //		TodoyuDebug::printInFirebug($params);
 
@@ -202,7 +204,8 @@ class TodoyuExtManagerRenderer {
 //				$content .= implode(', ', $types);
 //
 			} else {
-				$content = 'list of type ' . $type;
+				$content	= TodoyuExtRecordRenderer::renderRecordList($extKey, $type);
+//				$content = 'list of type ' . $type;
 			}
 
 

@@ -1,17 +1,22 @@
 <div id="list">
+
 	<h1 class="headerLine">
-		<span class="back" onclick="Todoyu.Ext.sysmanager.Extensions.Records.backtoRecordTypeList();">{Label $labels.backbutton}</span>
-		<span class="createNew" onclick="Todoyu.Ext.sysmanager.Extensions.Records.recordForm(0);">{Label $labels.createNew} {Label $labels.typeLabel}</span>
+		<span class="back" onclick="Todoyu.Ext.sysmanager.Extensions.Records.showTypeList('{$extKey}', '{$type}')">{Label LLL:sysmanager.backToTypeList}</span>
+		<span class="createNew" onclick="Todoyu.Ext.sysmanager.Extensions.Records.add('{$extKey}', '{$type}')">{Label LLL:sysmanager.createNew} {Label $labels.typeLabel}</span>
 		<span class="rgt"><!--right--></span>
 	</h1>
+
 	<ul id="record-list">
-{foreach $records key record}
-			<li id="listElement-{$key}" class="{odd_even $key}">
-				<span class="recordlabel"><a onclick="Todoyu.Ext.sysmanager.Extensions.Records.recordForm({$record.id});">{$record.label}</a></span>
-				<span class="additionalInformations">{$record.additionalInformations}</span>
-				<span class="delete" onclick="Todoyu.Ext.sysmanager.Extensions.Records.deleteRecord({$record.id});"></span>
-				<span class="edit" onclick="Todoyu.Ext.sysmanager.Extensions.Records.recordForm({$record.id});"></span>
-			</li>
-{/foreach}
+	{foreach $records key record}
+		<li id="listElement-{$key}" class="{cycle values='odd,even'}">
+			<span class="recordlabel">
+				<a onclick="Todoyu.Ext.sysmanager.Extensions.Records.recordForm({$record.id})">{$record.label}</a>
+			</span>
+			<span class="additionalInformations">{$record.additionalInformations}</span>
+			<span class="delete" onclick="Todoyu.Ext.sysmanager.Extensions.Records.remove('{$extKey}', '{$type}', {$record.id});"></span>
+			<span class="edit" onclick="Todoyu.Ext.sysmanager.Extensions.Records.edit('{$extKey}', '{$type}', {$record.id});"></span>
+		</li>
+	{/foreach}
 	</ul>
+
 </div>

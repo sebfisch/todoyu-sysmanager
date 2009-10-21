@@ -1,9 +1,9 @@
 <div id="list">
-	{Header "Records"}
+	{Header "Recordtypes of extension"}
 
 	<ul id="record-type-list">
-{foreach $types key type}
-		<li class="{odd_even $key}"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Records.showList('{$extKey}', '{$type.key}')">{$type.label} ({count($type.records)})</a></li>
-{/foreach}
+	{foreach $types key type}
+			<li class="{odd_even $key}"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Records.showTypeList('{$extKey}', '{$type.key}')">{$type.label} ({count($type.records)})</a></li>
+	{/foreach}
 	</ul>
 </div>
