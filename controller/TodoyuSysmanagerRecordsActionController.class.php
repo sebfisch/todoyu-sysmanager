@@ -3,26 +3,42 @@
 class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 
 	/**
-	 * @var	Extension key
+	 * @var	String		Extension parameter of the request
 	 */
 	protected $extKey;
 
 	/**
-	 * @var	Type
+	 * @var	String		Type parameter of the request
 	 */
 	protected $type;
 
+
+
+	/**
+	 * Set extKey and type on request start because its used by all functions
+	 *
+	 * @param	Array		$params
+	 */
 	public function init(array $params) {
 		$this->extKey	= $params['extKey'];
 		$this->type		= $params['type'];
 	}
 
 
-	public function listTypesAction(array $params) {
-		return TodoyuExtManagerRenderer::renderRecords($this->extKey, $params);
+
+	/**
+	 * Get list of record types for an extension
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	public function listRecordTypesAction(array $params) {
+		return TodoyuExtRecordRenderer::renderTypeList($this->extKey);
 	}
 
-	public function listExtTypesAction(array $params) {
+
+
+	public function listTypeRecordsAction(array $params) {
 		return TodoyuExtRecordRenderer::renderRecordList($this->extKey, $this->type);
 	}
 
@@ -31,81 +47,39 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 
 	public function editAction(array $params) {
 		$idRecord	= intval($params['record']);
-		$config		= TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
-		$content	= '';
 
+		$form		= TodoyuRecordsManager::getRecordForm($this->extKey, $this->type, $idRecord);
 
-		$form = new TodoyuForm($config['form']);
-
-		if( ! empty($config['object']) )	{
-			$className	= $config['object'];
-			$record = new $className($idRecord);
-		} elseif( ! empty($config['table']) )	{
-			$record = new TodoyuBaseObject($idRecord, $config['table']);
-		}
-
-		if( is_object($record) ) {
-			$data	= $record->getTemplateData(true);
-			$form->setFormData($data);
-			$content= $form->render();
-		} else {
-			$content= 'ERROR';
-		}
-
-		return $content;
+		return $form->render();
 	}
 
 
 	public function deleteAction(array $params) {
-		$recordConfig = TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
-		if($recordConfig['delete'])	{
-			if( TodoyuDiv::isFunctionReference($recordConfig['delete']) ) {
-				$idRecord = intval($params['recordID']);
+		$idRecord	= intval($params['record']);
 
-				TodoyuDiv::callUserFunction($recordConfig['delete'], $idRecord);
-			}
-		}
-
-		return TodoyuExtRecordRenderer::renderRecordList($this->extKey, $this->type);
+		TodoyuRecordsManager::deleteRecord($this->extKey, $this->type, $idRecord);
 	}
 
 
-	public function saveRecordAction(array $params) {
-		$jsonResponse	= new stdClass();
-		$recordConfig	= TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
+	public function saveAction(array $params) {
+		$data		= $params['record'];
+		$idRecord	= intval($data['id']);
+		$config		= TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
 
-			// Load form data
-		$formName	= $params['form'];
-		$formData 	= $params[$formName];
+		$form		= TodoyuRecordsManager::getRecordForm($this->extKey, $this->type, $idRecord);
 
-		$idForm	= 0;
+		$form->addFormData($data);
 
-		$formData	= TodoyuFormHook::callLoadData($recordConfig['form'], $formData, $idForm);
-
-			// Construct form object
-		$form 		= new TodoyuForm($recordConfig['form']);
-		$form		= TodoyuFormHook::callBuildForm($recordConfig['form'], $form, $idForm);
-
-			// Set form data
-		$form->setFormData($formData);
-
-			// Validate, render
+			// Validate, save, render
 		if( $form->isValid() )	{
-			$saveFunc = $recordConfig['save'];
+			$recordData	= $form->getStorageData();
 
-			if( TodoyuDiv::isFunctionReference($saveFunc) ) {
-				TodoyuDiv::callUserFunction($saveFunc, $formData, $recordConfig['form']);
-			}
-			$jsonResponse->saved = true;
+			$idRecord	= TodoyuRecordsManager::saveRecord($this->extKey, $this->type, $recordData);
 		} else {
-				// Not valid: re-render with errors marked
-			$jsonResponse->saved	= false;
-			$jsonResponse->formHTML = $form->render();
+			TodoyuHeader::sendTodoyuErrorHeader();
+
+			return $form->render();
 		}
-
-		TodoyuHeader::sendHeaderJSON();
-
-		return json_encode($jsonResponse);
 	}
 
 }

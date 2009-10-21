@@ -185,42 +185,7 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderRecords($extKey, array $params = array()) {
-		$type		= trim($params['type']);
-//		$idRecord	= intval($params['record']);
-//		$content	= '';
-
 		return TodoyuExtRecordRenderer::renderTypeList($extKey);
-
-//		TodoyuDebug::printInFirebug($params);
-
-		if( $idRecord === 0 ) {
-
-			if( $type === '' ) {
-//				$types	= TodoyuExtManager::getRecordTypes($extKey);
-
-				$content	= TodoyuExtRecordRenderer::renderTypeList($extKey);
-
-//				$content = 'select type: ';
-//				$content .= implode(', ', $types);
-//
-			} else {
-				$content	= TodoyuExtRecordRenderer::renderRecordList($extKey, $type);
-//				$content = 'list of type ' . $type;
-			}
-
-
-
-
-
-//			$listData	= TodoyuExtManager::getRecordListData($extKey)
-
-
-
-		} else {
-			$content = 'edit';
-		}
-
-		return $content;
 	}
 
 

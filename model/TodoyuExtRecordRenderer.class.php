@@ -25,7 +25,6 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-
 class TodoyuExtRecordRenderer {
 
 
@@ -36,7 +35,7 @@ class TodoyuExtRecordRenderer {
 	 * @return	String	HTML
 	 */
 	public static function renderTypeList($extKey) {
-		$tmpl	= 'ext/sysmanager/view/extension-record-typelist.tmpl';
+		$tmpl	= 'ext/sysmanager/view/records-typelist.tmpl';
 		$data	= array(
 			'extKey'	=> $extKey,
 			'types'		=> array()
@@ -74,7 +73,7 @@ class TodoyuExtRecordRenderer {
 		if( TodoyuDiv::isFunctionReference($typeConfigs['list']) )	{
 			$records = TodoyuDiv::callUserFunction($typeConfigs['list']);
 
-			$tmpl = 'ext/sysmanager/view/extension-record-list.tmpl';
+			$tmpl = 'ext/sysmanager/view/records-recordlist.tmpl';
 			$data = array(
 				'records'	=> $records,
 				'extKey'	=> $extKey,

@@ -26,13 +26,26 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	
 	extKey: '',
 	type:	'',
+	
+
+	showTypeList: function(extKey) {
+		var options = {
+			'parameters': {
+				'cmd': 'listRecordTypes',
+				'extKey': extKey
+			}
+		};
+
+		Todoyu.Ui.replace('list', this.url, options);
+	},
 
 
-	showRecordTypes: function(extKey) {
+	showTypeRecords: function(extKey, type) {
 		var options	= {
 			'parameters': {
-				'cmd': 'listTypes',
-				'extKey': extKey
+				'cmd': 'listTypeRecords',
+				'extKey': extKey,
+				'type': type
 			}
 		};
 		
@@ -40,29 +53,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	},
 
 
-	/**
-	 * Enter description here...
-	 *
-	 * @param unknown_type extKey
-	 * @param unknown_type type
-	 */
-	showTypeList: function(extKey, type) {
-		//this.type = type;
-		//this.extKey = extKey;
 
-		//this.ext.Extensions.showTab(extKey, 'records', {'type': type});
-		//return;
-
-		var options = {
-			'parameters': {
-				'cmd': 'listExtTypes',
-				'extKey': extKey,
-				'type': type
-			}
-		};
-
-		Todoyu.Ui.replace('list', this.url, options);
-	},
 	
 	add: function(extKey, type) {
 		this.edit(extKey, type, 0);
@@ -102,16 +93,23 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 * @param unknown_type idRecord
 	 */
 	remove: function(extKey, type, idRecord)	{
-		var options = {
-			'parameters': {
-				'cmd':		'delete',
-				'extKey':	extKey,
-				'type':		type,
-				'record':	idRecord				
+		if( confirm('Delete record?') ) {
+			var options = {
+				'parameters': {
+					'cmd':		'delete',
+					'extKey':	extKey,
+					'type':		type,
+					'record':	idRecord				
+				},
+				'onComplete': this.onRemoved.bind(this, extKey, type, idRecord)
 			}
+	
+			Todoyu.send(this.url, options);
 		}
-
-		Todoyu.Ui.replace('list', this.url, options);
+	},
+	
+	onRemoved: function(extKey, type, idRecord, response) {
+		this.showTypeRecords(extKey, type);
 	},
 
 
@@ -124,47 +122,38 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 *
 	 * @param unknown_type form
 	 */
-	saveRecord: function(form)	{
+	save: function(form, extKey, type)	{
+		
 		$(form).request ({
-				'parameters': {
-					'cmd': 'saveRecord',
-					'form': form.name,
-					'extKey': this.extKey,
-					'type': this.type
-				},
-				'onComplete': function(response)	{
-					var JSON = response.responseJSON;
-
-					if(JSON.saved == true)	{
-						Todoyu.Ext.sysmanager.Extensions.Records.closeForm();
-					} else {
-						$(form.id).update(JSON.formHTML);
-					}
-				}
-			});
+			'parameters': {
+				'cmd': 'save',
+				'extKey': extKey,
+				'type': type
+			},
+			'onComplete': this.onSaved.bind(this, form, extKey, type)
+		});
+		
 
 		return false;
 	},
-
-
-
-	/**
-	 * Enter description here...
-	 *
-	 */
-	closeForm: function()	{
-		this.showList(this.extKey, this.type);
+	
+	onSaved: function(form, extKey, type, response) {
+		if( response.hasTodoyuError() ) {
+			Todoyu.notifyError('Saving record failed');
+			$(form.id).update(response.responseText);
+		} else {
+			Todoyu.notifySuccess('Record saved');
+			this.showTypeRecords(extKey, type);
+		}
 	},
 
 
 
-
 	/**
 	 * Enter description here...
 	 *
 	 */
-	backtoRecordTypeList: function()	{
-		this.ext.Extensions.showTab(this.extKey, 'records', {'type': this.type});
+	closeForm: function(extKey, type)	{
+		this.showTypeRecords(extKey, type);
 	}
-
 };
