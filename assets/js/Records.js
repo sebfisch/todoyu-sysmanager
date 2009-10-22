@@ -77,8 +77,14 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 			},
 			'onComplete': this.onEdit.bind(this, extKey, type, idRecord)
 		};
+		
+		if( Todoyu.exists('record-list') ) {
+			var target = 'record-list';
+		} else {
+			var target = $('content').select('form').first().getAttribute('id');
+		}
 
-		Todoyu.Ui.replace('record-list', this.url, options);
+		Todoyu.Ui.replace(target, this.url, options);
 	},
 	
 	onEdit: function(extKey, type, idRecord, response) {
