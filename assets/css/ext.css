@@ -1,26 +1,9 @@
+/* Extension : Config */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#admin-tabs li.tabkey-extensions span.icon {
-	background: url('/../img/icons.png') no-repeat 0 0;
+#content .noExtConf {
+	padding: 20px;
+	display: block;
+	clear: both; 
+	font-weight: bold;
+	font-size: 16px;
 }
-
-#admin-tabs li.tabkey-rights span.icon {
-	background: url('../img/icons.png') no-repeat 0 -30px;
-}
-
-
-

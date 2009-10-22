@@ -11,9 +11,13 @@
 		<label index="ext.status">Status</label>
 		<label index="createNew">Create new</label>
 		<label index="backToTypeList">Back to type list</label>
-		
+
 		<label index="rights.header">Rights Manager</label>
 		<label index="rights.save">Save rights</label>
+
+		<label index="extconf.header">Extension configuration</label>
+		<label index="extconf.noExtConf">There is no configuration available for this extension</label>
+
 	</labels>
 	<labels lang="de">
 		<label index="ext.title">Titel</label>

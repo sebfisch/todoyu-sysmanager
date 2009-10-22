@@ -158,7 +158,7 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderConfig($extKey, array $params = array()) {
-		return TodoyuExtConfRenderer::renderForm($extKey);
+		return TodoyuExtConfRenderer::renderConfig($extKey);
 	}
 
 

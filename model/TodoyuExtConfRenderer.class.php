@@ -2,14 +2,22 @@
 
 class TodoyuExtConfRenderer {
 
-	public static function renderForm($extKey) {
+	public static function renderConfig($extKey) {
+		$tmpl	= 'ext/sysmanager/view/extension-config.tmpl';
+		$data	= array(
+			'hasConf'	=> false
+		);
+
+
 		if( TodoyuExtConfManager::hasExtConf($extKey) ) {
 			$form	= TodoyuExtConfManager::getForm($extKey);
-
-			return $form->render();
+			$data['hasConf']	= true;
+			$data['form']		=  $form->render();
 		} else {
-			return 'No config available';
+
 		}
+
+		return render($tmpl, $data);
 	}
 
 
