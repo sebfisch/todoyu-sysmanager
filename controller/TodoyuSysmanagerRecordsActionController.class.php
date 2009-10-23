@@ -61,6 +61,12 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	}
 
 
+	/**
+	 * Save extension record
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
 	public function saveAction(array $params) {
 		$data		= $params['record'];
 		$idRecord	= intval($data['id']);

@@ -84,7 +84,7 @@ class TodoyuRecordsManager {
 
 
 	/**
-	 * Save record
+	 * Save extension record
 	 *
 	 * @param	String		$ext
 	 * @param	String		$type
@@ -93,7 +93,7 @@ class TodoyuRecordsManager {
 	 */
 	public static function saveRecord($ext, $type, array $data) {
 		$config		= TodoyuExtManager::getRecordTypeConfig($ext, $type);
-		$idRecord	= 0;
+		$idRecord	= intval($data['id']);
 
 		if( TodoyuDiv::isFunctionReference($config['save']) ) {
 			$idRecord = TodoyuDiv::callUserFunction($config['save'], $data);
