@@ -25,7 +25,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuRecordsManager {
+class TodoyuExtRecordManager {
 
 	/**
 	 * Get record form object with injected save buttons
