@@ -29,15 +29,17 @@
 if( ! defined('TODOYU') ) die('NO ACCESS');
 
 
-	// declare ext ID, path
+
+	// Declare ext ID, path
 define('EXTID_SYSMANAGER', 118);
 define('PATH_EXT_SYSMANAGER', PATH_EXT . '/sysmanager');
 
-	// request configurations, dwoo plugins
+	// Register module locales
+TodoyuLocale::register('sysmanager', PATH_EXT_SYSMANAGER . '/locale/ext.xml');
+
+	// Request configurations
 require_once( PATH_EXT_SYSMANAGER . '/config/extension.php' );
 require_once( PATH_EXT_SYSMANAGER . '/config/admin.php' );
 require_once( PATH_EXT_SYSMANAGER . '/dwoo/plugins.php');
-
-TodoyuLocale::register('sysmanager', PATH_EXT_SYSMANAGER . '/locale/ext.xml');
 
 ?>
