@@ -21,13 +21,18 @@
 Todoyu.Ext.sysmanager.Extensions.Records = {
 
 	ext: Todoyu.Ext.sysmanager,
-	
+
 	url: Todoyu.getUrl('sysmanager', 'records'),
-	
+
 	extKey: '',
 	type:	'',
 	
 
+	/**
+	 *	Show type list
+	 *	
+	 *	@param	String	extKey
+	 */
 	showTypeList: function(extKey) {
 		var options = {
 			'parameters': {
@@ -40,6 +45,13 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	},
 
 
+
+	/**
+	 *	Show type records
+	 *
+	 *	@param	String	extKey
+	 *	@param	String	type
+	 */
 	showTypeRecords: function(extKey, type) {
 		var options	= {
 			'parameters': {
@@ -54,12 +66,17 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 
 
-	
+	/**
+	 *	Add record (create and edit)
+	 *
+	 * 	@param	String	extKey
+	 * 	@param	String	type
+	 */
 	add: function(extKey, type) {
 		this.edit(extKey, type, 0);
 	},
-	
-	
+
+
 
 	/**
 	 * Enter description here...
@@ -73,7 +90,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 				'cmd':		'edit',
 				'extKey':	extKey,
 				'type':		type,
-				'record':	idRecord				
+				'record':	idRecord
 			},
 			'onComplete': this.onEdit.bind(this, extKey, type, idRecord)
 		};
@@ -86,7 +103,17 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 		Todoyu.Ui.replace(target, this.url, options);
 	},
-	
+
+
+
+	/**
+	 *	On edit handler
+	 *	
+	 *	@param	String	extKey
+	 *	@param	String	type
+	 *	@param	Integer	idRecord
+	 *	@param	Array	response
+	 */
 	onEdit: function(extKey, type, idRecord, response) {
 		
 	},
@@ -94,9 +121,11 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 
 	/**
-	 * Enter description here...
+	 * Remove record
 	 *
-	 * @param unknown_type idRecord
+	 * @param String	extKey
+	 * @param String	type
+	 * @param Integer	idRecord
 	 */
 	remove: function(extKey, type, idRecord)	{
 		if( confirm('Delete record?') ) {
@@ -105,7 +134,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 					'cmd':		'delete',
 					'extKey':	extKey,
 					'type':		type,
-					'record':	idRecord				
+					'record':	idRecord
 				},
 				'onComplete': this.onRemoved.bind(this, extKey, type, idRecord)
 			}
@@ -113,20 +142,29 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 			Todoyu.send(this.url, options);
 		}
 	},
-	
+
+
+
+	/**
+	 *	On removed (record) handler
+	 *
+	 *	@param	String	extKey
+	 *	@param	String	type
+	 *	@param	Integer	idRecord
+	 *	@param	Array	response
+	 */
 	onRemoved: function(extKey, type, idRecord, response) {
 		this.showTypeRecords(extKey, type);
 	},
 
 
 
-
-
-
 	/**
-	 * Enter description here...
+	 * Save record
 	 *
-	 * @param unknown_type form
+	 * @param	String	form
+	 * @param	String	extKey
+	 * @param	String	type
 	 */
 	save: function(form, extKey, type)	{
 		
@@ -142,7 +180,17 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 		return false;
 	},
-	
+
+
+
+	/**
+	 *	On saved handler
+	 *
+	 * @param	String	form
+	 * @param	String	extKey
+	 * @param	String	type
+	 * @param	Array	Response
+	 */
 	onSaved: function(form, extKey, type, response) {
 		if( response.hasTodoyuError() ) {
 			Todoyu.notifyError('Saving record failed');
@@ -156,8 +204,10 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 
 	/**
-	 * Enter description here...
-	 *
+	 *	Close form
+	 * 
+	 * 	@param	String	extKey
+	 * 	@param	String	type
 	 */
 	closeForm: function(extKey, type)	{
 		this.showTypeRecords(extKey, type);

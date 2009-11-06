@@ -24,8 +24,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Enter description here...
 	 *
-	 * @param unknown_type extKey
-	 * @param unknown_type tab
+	 * @param	String	extKey
+	 * @param	String	tab
 	 * @param unknown_type params
 	 */
 	showTab: function(extKey, tab, params) {
@@ -48,10 +48,10 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 
 	/**
-	 * Enter description here...
+	 * On tab click handler
 	 *
 	 * @param unknown_type event
-	 * @param unknown_type tabKey
+	 * @param	String	tabKey
 	 */
 	onTabClick: function(event, tabKey) {
 		var li		= event.findElement('li');

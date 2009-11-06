@@ -23,8 +23,7 @@ Todoyu.Ext.sysmanager.Rights = {
 
 
 	/**
-	 * Enter description here...
-	 *
+	 * Init
 	 */
 	init: function() {
 		this.installObservers();
@@ -33,8 +32,7 @@ Todoyu.Ext.sysmanager.Rights = {
 
 
 	/**
-	 * Enter description here...
-	 *
+	 * Install observers
 	 */
 	installObservers: function() {
 		Event.observe('rightseditor-groups', 'change', this.updateEditor.bindAsEventListener(this))
@@ -43,8 +41,7 @@ Todoyu.Ext.sysmanager.Rights = {
 
 
 	/**
-	 * Enter description here...
-	 *
+	 * Update editor
 	 */
 	updateEditor: function() {
 		$('rightseditor-form').request({
@@ -55,6 +52,13 @@ Todoyu.Ext.sysmanager.Rights = {
 		});
 	},
 	
+	
+	
+	/**
+	 *	On editor updated handler
+	 *
+	 *	@param	Array	response
+	 */
 	onEditorUpdated: function(response) {
 		$('grouprights').update(response.responseText);
 	},
@@ -62,9 +66,9 @@ Todoyu.Ext.sysmanager.Rights = {
 
 
 	/**
-	 * Enter description here...
+	 * Toggle right
 	 *
-	 * @param unknown_type right
+	 * @param	String	right
 	 */
 	toggleRight: function(right) {
 		var checkboxes = $('right-' + right).select('input');
@@ -75,9 +79,9 @@ Todoyu.Ext.sysmanager.Rights = {
 
 
 	/**
-	 * Enter description here...
+	 *	Toggle group
 	 *
-	 * @param unknown_type idGroup
+	 *	@param	String	idGroup
 	 */
 	toggleGroup: function(idGroup) {
 		var checkboxes= $('rightseditor-rightsform').select('input[id$='+idGroup+']');
@@ -88,9 +92,9 @@ Todoyu.Ext.sysmanager.Rights = {
 
 
 	/**
-	 * Enter description here...
+	 *	Toggle checkboxes
 	 *
-	 * @param unknown_type checkboxes
+	 *	@param	Array	checkboxes
 	 */
 	toggleCheckboxes: function(checkboxes) {
 		this.allOn	= true;
@@ -112,8 +116,7 @@ Todoyu.Ext.sysmanager.Rights = {
 
 
 	/**
-	 * Enter description here...
-	 *
+	 *	Save
 	 */
 	save: function() {
 		$('rightseditor-rightsform').request({
@@ -127,8 +130,9 @@ Todoyu.Ext.sysmanager.Rights = {
 
 
 	/**
-	 * Enter description here...
-	 *
+	 *	On saved handler
+	 * 
+	 *	@param	Array	response
 	 */
 	onSaved: function(response) {
 		Todoyu.notifySuccess('Rights saved');
