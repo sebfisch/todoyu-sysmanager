@@ -3,18 +3,18 @@
 <table width="650" border="0" cellspacing="0" cellpadding="3">
   <tr>
     <th width="180" scope="col">Extension</th>
-    <th width="376" scope="col">Recordtype</th>
+    <th width="356" scope="col">Recordtype</th>
     <th width="40" scope="col">#</th>
-    <th width="30" scope="col">&nbsp;</th>
+    <th width="50" scope="col">&nbsp;</th>
   </tr>
 
-	{foreach $extensions extKey records}
-		{foreach $records recordKey record}
+	{foreach $extensions extKey extension}
+		{foreach $extension.records type record}
 			<tr>
-				<td>{Label cat($extKey '.ext.title')}</td>
-				<td>{Label $record.label}</td>
-				<td>123</td>
-				<td>edit</td>
+				<td>{$extension.title}</td>
+				<td>{$record.title}</td>
+				<td>{$record.count}</td>
+				<td><a href="?ext=admin&mod=extensions&extkey={$extKey}&tab=records&type={$type}">edit link</a></td>
 			</tr>
 		{/foreach}
 	{/foreach}

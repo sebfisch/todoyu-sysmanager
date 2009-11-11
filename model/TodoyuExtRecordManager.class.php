@@ -125,6 +125,17 @@ class TodoyuExtRecordManager {
 		}
 	}
 
+
+	public static function getRecordCount($table) {
+		$fields	= 'COUNT(*) as total';
+		$where	= 'deleted = 0';
+		$group	= 'id';
+
+		$res	= Todoyu::db()->doSelect($fields, $table, $where, $group);
+
+		return Todoyu::db()->getNumRows($res);
+	}
+
 }
 
 ?>

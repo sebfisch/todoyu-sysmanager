@@ -185,7 +185,7 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderRecords($extKey, array $params = array()) {
-		return TodoyuExtRecordRenderer::renderTypeList($extKey);
+		return TodoyuExtRecordRenderer::renderRecords($extKey, $params);
 	}
 
 

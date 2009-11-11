@@ -27,6 +27,23 @@
  */
 class TodoyuExtRecordRenderer {
 
+	/**
+	 * Render extension records
+	 * If parameter type is set, render type records, else render a list of record types
+	 *
+	 * @param	String		$extKey
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	public static function renderRecords($extKey, array $params = array()) {
+		if( isset($params['type']) ) {
+			return self::renderRecordList($extKey, $params['type']);
+		} else {
+			return self::renderTypeList($extKey);
+		}
+	}
+
+
 
 	/**
 	 * Render type list
@@ -43,15 +60,11 @@ class TodoyuExtRecordRenderer {
 
 		$typeConfigs	= TodoyuExtManager::getRecordConfigs($extKey);
 
-		foreach($typeConfigs as $typeName => $config) {
-			if( TodoyuDiv::isFunctionReference($config['list']) )	{
-				$records = TodoyuDiv::callUserFunction($config['list']);
-			}
-
-			$data['types'][] = array(
-				'key'		=> $typeName,
-				'label'		=> Label( $config['label'] ),
-				'records'	=> $records
+		foreach($typeConfigs as $type => $config) {
+			$data['types'][$type] = array(
+				'type'	=> $type,
+				'label'	=> Label($config['label']),
+				'count'	=> TodoyuExtRecordManager::getRecordCount($config['table'])
 			);
 		}
 

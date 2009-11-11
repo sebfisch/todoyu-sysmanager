@@ -26,7 +26,7 @@ if( allowed('sysmanager', 'extensions.use') ) {
 
 
 	// Add records manager
-//TodoyuAdminManager::addModule('records', 'All Records', 'TodoyuRecordsOverviewRenderer::renderModule', 60, array('sysmanager', 'public'));
+TodoyuAdminManager::addModule('records', 'All Records', 'TodoyuRecordsOverviewRenderer::renderModule', 60, array('sysmanager', 'public'));
 
 
 

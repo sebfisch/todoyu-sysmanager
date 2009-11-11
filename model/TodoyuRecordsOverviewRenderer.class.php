@@ -4,15 +4,15 @@
 class TodoyuRecordsOverviewRenderer {
 
 	public static function renderModule(array $params) {
-		$extRecords	= TodoyuRecordsOverviewManager::getAllRecordConfigs();
+		$recordInfos	= TodoyuRecordsOverviewManager::getAllRecordInfos();
 
-		$tmpl	= 'ext/sysmanager/view/recordsoverview.tmpl';
+		$tmpl	= 'ext/sysmanager/view/records-overview.tmpl';
 		$data	= array(
 			'tabs'		=> self::renderRecordlistTabs(),
-			'extensions'=> $extRecords
+			'extensions'=> $recordInfos
 		);
 
-//		TodoyuDebug::printHtml($extRecords);
+//		TodoyuDebug::printHtml($recordInfos);
 
 		return render($tmpl, $data);
 	}
@@ -38,7 +38,7 @@ class TodoyuRecordsOverviewRenderer {
 			'htmlId'	=> 'list',
 			'class'		=> 'recordstab',
 			'classKey'	=> 'list',
-			'label'		=> 'All Records'
+			'label'		=> 'All extension records'
 		);
 
 		return $tabs;
