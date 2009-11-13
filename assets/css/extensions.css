@@ -1,5 +1,5 @@
 /* -------------------
-	extension list
+	Extension list
    ------------------- */
 
 #extlist {
@@ -66,30 +66,39 @@
 #extlist td.edit a.info {
 	background:url(../img/icons.png) no-repeat 0 -120px;
 }
+
 #extlist td.edit a.disabledinfo {
 	background:url(../img/icons.png) no-repeat 0 -359px;
 }
+
 #extlist td.edit a.config {
 	background:url(../img/icons.png) no-repeat 0 -210px;
 }
+
 #extlist td.edit a.disabledconfig {
 	background:url(../img/icons.png) no-repeat 0 -330px;
 }
+
 #extlist td.edit a.records {
 	background:url(../img/icons.png) no-repeat 0 -180px;
 }
+
 #extlist td.edit a.disabledrecords {
 	background:url(../img/icons.png) no-repeat 0 -270px;
 }
+
 #extlist td.edit a.rights {
 	background:url(../img/icons.png) no-repeat 0 -150px;
 }
+
 #extlist td.edit a.disabledrights {
 	background:url(../img/icons.png) no-repeat 0 -300px;
 }
+
 #extlist td.doc a.doc {
 	background:url(../img/icons.png) no-repeat 0 -90px;
 }
+
 #extlist td.download a.download {
 	background:url(../img/icons.png) no-repeat 0 -60px;
 }

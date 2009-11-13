@@ -2,15 +2,19 @@
 .recordsoverview th.icon {
 	width:15px;
 }
+
 .recordsoverview th.extension {
 	width:250px;
 }
+
 .recordsoverview th.recordtype {
 	width:200px;
 }
+
 .recordsoverview th.records {
 	width:100px;
 }
+
 .recordsoverview th.actions {
 	width:50px;
 }
@@ -19,6 +23,7 @@
 .recordsoverview td.icon {
 	background:url(../img/icons.png) no-repeat 6px -176px;	
 }
+
 .recordsoverview td.actions div.icon {
 	cursor:pointer;
 	margin-right:5px;
