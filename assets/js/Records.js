@@ -36,7 +36,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	showTypeList: function(extKey) {
 		var options = {
 			'parameters': {
-				'cmd': 'listRecordTypes',
+				'action': 'listRecordTypes',
 				'extKey': extKey
 			}
 		};
@@ -55,7 +55,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	showTypeRecords: function(extKey, type) {
 		var options	= {
 			'parameters': {
-				'cmd': 'listTypeRecords',
+				'action': 'listTypeRecords',
 				'extKey': extKey,
 				'type': type
 			}
@@ -87,7 +87,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 		var options = {
 			'parameters': {
-				'cmd':		'edit',
+				'action':		'edit',
 				'extKey':	extKey,
 				'type':		type,
 				'record':	idRecord
@@ -131,7 +131,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 		if( confirm('Delete record?') ) {
 			var options = {
 				'parameters': {
-					'cmd':		'delete',
+					'action':		'delete',
 					'extKey':	extKey,
 					'type':		type,
 					'record':	idRecord
@@ -170,7 +170,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 		
 		$(form).request ({
 			'parameters': {
-				'cmd': 'save',
+				'action': 'save',
 				'extKey': extKey,
 				'type': type
 			},

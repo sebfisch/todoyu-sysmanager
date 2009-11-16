@@ -32,7 +32,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 		var options	= {
 			'parameters': {
-				'cmd': 'tabview',
+				'action': 'tabview',
 				'tab': tab,
 				'extension': extKey
 			}
