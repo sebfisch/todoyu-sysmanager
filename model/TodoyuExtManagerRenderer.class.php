@@ -58,27 +58,31 @@ class TodoyuExtManagerRenderer {
 
 			case 'info':
 				$content .= self::renderInfo($extKey, $params);
-			break;
+				break;
 
 			case 'config':
 				$content .= self::renderConfig($extKey, $params);
-			break;
+				break;
 
 			case 'rights':
 				$content .= self::renderRights($extKey, $params);
-			break;
+				break;
 
 			case 'records':
 				$content .= self::renderRecords($extKey, $params);
-			break;
+				break;
 
 			case 'install':
 				$content .= self::renderInstall($params);
-			break;
+				break;
+
+			case 'update':
+				$content .= self::renderUpdate($params);
+				break;
 
 			default:
 				$content .=self::renderList($params);
-			break;
+				break;
 		}
 
 		return $content;
@@ -115,19 +119,19 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderList(array $params = array()) {
-		$content	= '';
-
-		$data		= array('extensions'=> array());
+		$tmpl		= 'ext/sysmanager/view/extension-list.tmpl';
+		$data		= array(
+			'extensions' => array()
+		);
 
 		$extensions	= TodoyuExtensions::getInstalledExtKeys();
-
 		sort($extensions);
 
 		foreach($extensions as $extension) {
 			$data['extensions'][$extension] = TodoyuExtensions::getExtInfo($extension);
 		}
 
-		return render('ext/sysmanager/view/extensionlist.tmpl', $data);
+		return render($tmpl, $data);
 	}
 
 
@@ -197,9 +201,21 @@ class TodoyuExtManagerRenderer {
 	 * @param	Array $params
 	 * @return	String
 	 */
-	public static function renderInstall($extKey, array $params = array()) {
+	public static function renderInstall(array $params = array()) {
+		$extFolders		= TodoyuFileManager::getFoldersInFolder(PATH_EXT);
+		$extInstalled	= TodoyuExtensions::getInstalledExtKeys();
+
+		$notInstalled	= array_diff($extFolders, $extInstalled);
+
+
+		return "NOT INSTALLED: " . implode(' - ', $notInstalled);
 
 		return 'installer';
+	}
+
+
+	public static function renderUpdate(array $params = array()) {
+		return 'update';
 	}
 
 }

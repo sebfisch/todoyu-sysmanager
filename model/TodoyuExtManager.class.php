@@ -40,7 +40,7 @@ class TodoyuExtManager {
 			// Listing tab
 		$tabs = array(
 			array(
-				'id'		=> 'none',
+				'id'		=> 'list',
 				'htmlId'	=> 'exttab-none-list',
 				'key'		=> 'list',
 				'classKey'	=> 'list',
@@ -85,6 +85,15 @@ class TodoyuExtManager {
 			);
 		}
 
+			// Update tab
+		$tabs[] = array(
+			'id'		=> 'update',
+			'htmlId'	=> 'exttab-none-update',
+			'key'		=> 'update',
+			'classKey'	=> 'update',
+			'class'		=> '',
+			'label'		=> 'Update'
+		);
 			// Installer tab
 		$tabs[] = array(
 			'id'		=> 'install',
@@ -92,7 +101,7 @@ class TodoyuExtManager {
 			'key'		=> 'install',
 			'classKey'	=> 'install',
 			'class'		=> '',
-			'label'		=> 'Install/Update'
+			'label'		=> 'Install'
 		);
 
 		return $tabs;

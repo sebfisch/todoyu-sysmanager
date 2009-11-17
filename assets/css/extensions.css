@@ -2,103 +2,96 @@
 	Extension list
    ------------------- */
 
-#extlist {
+.extlist {
 	margin-top:6px;
-	border-collapse: separate;
-}
-
-#extlist th,
-#extlist td {
-	padding:5px;
-}
-
-#extlist td {
-	border-top:1px dotted #AAA;
-}
-
-#extlist th {
-	font-weight: bold;
 }
 
 	/* list columns */
-#extlist th.icon {
+.extlist th.icon {
 	width:20px;
 }
-
-#extlist th.key {
-	width:120px;
+.extlist th.extkey {
+	width:90px;
 }
-
-#extlist th.title {
+.extlist th.title {
 	width:255px;
 }
-
-#extlist th.edit {
+.extlist th.edit {
 	width:120px;
 }
-
-#extlist th.version {
+.extlist th.version {
 	width:40px;
 }
-
-#extlist th.download {
+.extlist th.download {
 	width:20px;
 }
-
-#extlist th.doc {
+.extlist th.doc {
 	width:20px;
 }
-
-#extlist th.status {
+.extlist th.status {
 	width:50px;
 }
 
 	/* list icons */
-#extlist .icon {
-	margin-right:2px;
-	width:20px;
+.extlist td.edit a {
+	width:18px;
+	height:18px;
+	display:inline-block;
+}
+.extlist td.edit a.disabled	{
+	cursor:default;
+}
+.extlist td.edit a {
+	background-image:url(../img/icons.png);
+	background-repeat:no-repeat;
+}
+.extlist td.edit a.uninstall {
+	background-position:0 -450px;
 }
 
-#extList td.edit a.disabled	{
-	cursor: default;
+.extlist td.edit a.info {
+	background-position:0 -120px;
 }
 
-#extlist td.edit a.info {
-	background:url(../img/icons.png) no-repeat 0 -120px;
+.extlist td.edit a.info.disabled {
+	background-position:0 -360px;
 }
 
-#extlist td.edit a.disabledinfo {
-	background:url(../img/icons.png) no-repeat 0 -359px;
+.extlist td.edit a.config {
+	background-position:0 -210px;
 }
 
-#extlist td.edit a.config {
-	background:url(../img/icons.png) no-repeat 0 -210px;
+.extlist td.edit a.config.disabled {
+	background-position:0 -330px;
 }
 
-#extlist td.edit a.disabledconfig {
-	background:url(../img/icons.png) no-repeat 0 -330px;
+.extlist td.edit a.records {
+	background-position:0 -180px;
 }
 
-#extlist td.edit a.records {
-	background:url(../img/icons.png) no-repeat 0 -180px;
+.extlist td.edit a.records.disabled {
+	background-position:0 -270px;
 }
 
-#extlist td.edit a.disabledrecords {
-	background:url(../img/icons.png) no-repeat 0 -270px;
+.extlist td.edit a.rights {
+	background-position:0 -150px;
 }
 
-#extlist td.edit a.rights {
-	background:url(../img/icons.png) no-repeat 0 -150px;
+.extlist td.edit a.rights.disabled {
+	background-position:0 -300px;
 }
 
-#extlist td.edit a.disabledrights {
-	background:url(../img/icons.png) no-repeat 0 -300px;
+.extlist td.doc a.doc {
+	background-position:0 -90px;
 }
 
-#extlist td.doc a.doc {
-	background:url(../img/icons.png) no-repeat 0 -90px;
+.extlist td.download a.download {
+	background-position:0 -60px;
 }
 
-#extlist td.download a.download {
-	background:url(../img/icons.png) no-repeat 0 -60px;
+
+/* Update and install tab */
+#extension-tabs li.install,
+#extension-tabs li.update {
+	float:right;
 }

@@ -62,5 +62,12 @@ Todoyu.Ext.sysmanager.Extensions = {
 		}
 
 		this.showTab(extKey, tabKey);
+	},
+	
+	uninstall: function(extKey) {
+		if( confirm('[LLL:sysmanager.extensions.uninstall.confirm]') ) {
+			
+			
+		}
 	}
 };
