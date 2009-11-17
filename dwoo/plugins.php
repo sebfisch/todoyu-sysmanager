@@ -38,10 +38,8 @@
  * @param	String	$extKey
  * @return	Bool
  */
-function Dwoo_Plugin_hasRecordRegistered(Dwoo $dwoo, $extKey)	{
-	$arrayToCheck = TodoyuExtManager::getRecordTypes($extKey);
-
-	return (count($arrayToCheck) > 0) ? true : false;
+function Dwoo_Plugin_hasRecordRegistered_compile(Dwoo_Compiler $dwoo, $extKey)	{
+	return 'sizeof(TodoyuExtManager::getRecordTypes(' . $extKey . ')) > 0';
 }
 
 
@@ -56,8 +54,8 @@ function Dwoo_Plugin_hasRecordRegistered(Dwoo $dwoo, $extKey)	{
  * @param	String	$extKey
  * @return	Bool
  */
-function Dwoo_Plugin_hasRightsConfiguration(Dwoo $dwoo, $extKey)	{
-	return TodoyuRightsEditorManager::hasRightsConfig($extKey);
+function Dwoo_Plugin_hasRightsConfiguration_compile(Dwoo_Compiler $dwoo, $extKey)	{
+	return 'TodoyuRightsEditorManager::hasRightsConfig(' . $extKey . ')';
 }
 
 
@@ -72,8 +70,8 @@ function Dwoo_Plugin_hasRightsConfiguration(Dwoo $dwoo, $extKey)	{
  * @param	String	$extKey
  * @return	Bool
  */
-function Dwoo_Plugin_hasRegisteredConfigurations(Dwoo $dwoo, $extKey)	{
-	return TodoyuExtManager::extensionHasConfig($extKey);
+function Dwoo_Plugin_hasRegisteredConfigurations_compile(Dwoo_Compiler $dwoo, $extKey)	{
+	return 'TodoyuExtManager::extensionHasConfig(' . $extKey . ')';
 }
 
 
@@ -88,8 +86,8 @@ function Dwoo_Plugin_hasRegisteredConfigurations(Dwoo $dwoo, $extKey)	{
  * @param	String	$extKey
  * @return	Bool
  */
-function Dwoo_Plugin_hasExtensionInfo(Dwoo $dwoo, $extKey)	{
-	return TodoyuExtManager::getExtInfos($extKey) !== false;
+function Dwoo_Plugin_hasExtensionInfo_compile(Dwoo_Compiler $dwoo, $extKey)	{
+	return 'TodoyuExtManager::getExtInfos(' . $extKey . ') !== false';
 }
 
 
@@ -105,16 +103,12 @@ function Dwoo_Plugin_hasExtensionInfo(Dwoo $dwoo, $extKey)	{
  * @return	String
  *
  */
-function Dwoo_Plugin_extIcon(Dwoo $dwoo, $extKey)	{
-	$iconTag 	= '';
-	$extPath	= constant( 'PATH_EXT_' . strtoupper($extKey) );
-	$extPathRel	= str_replace( realpath('.'), '', $extPath );
-	$extInfo	= TodoyuExtManager::getExtInfos($extKey);
-	$altText	= $extKey. ' Extension' . ($extInfo ? ' version ' . $extInfo['version'] : '');
+function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $dwoo, $extKey)	{
+//	$iconPath	= TodoyuDiv::pathWeb(PATH_EXT . '/' . strtolower($extKey));
+//	$extInfo	= TodoyuExtManager::getExtInfos($extKey);
+//	$altText	= $extKey. ' Extension' . ($extInfo ? ' version ' . $extInfo['version'] : '');
 
-	$iconTag	= '<img style="border:1px solid #BDD1AF; background-color:#DCECD2;" src="' . 'ext/' . $extKey . '/assets/img/exticon.png" width="16" height="16" alt="' . $altText . '"/>';
-
-	return $iconTag;
+	return "'<img src=\"ext/' . " . $extKey . " . '/assets/img/exticon.png\" width=\"16\" height=\"16\" />'";
 }
 
 

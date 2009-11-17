@@ -33,6 +33,10 @@
 }
 
 	/* list icons */
+.extlist td.icon img {
+	border:1px solid #BDD1AF;
+	background-color:#DCECD2;
+}
 .extlist td.edit a {
 	width:18px;
 	height:18px;
@@ -46,6 +50,9 @@
 	background-repeat:no-repeat;
 }
 .extlist td.edit a.uninstall {
+	background-position:0 -480px;
+}
+.extlist td.edit a.install {
 	background-position:0 -450px;
 }
 
@@ -82,11 +89,11 @@
 }
 
 .extlist td.doc a.doc {
-	background-position:0 -90px;
+	background:url(../img/icons.png) no-repeat 0 -90px;
 }
 
 .extlist td.download a.download {
-	background-position:0 -60px;
+	background:url(../img/icons.png) no-repeat 0 -60px;
 }
 
 

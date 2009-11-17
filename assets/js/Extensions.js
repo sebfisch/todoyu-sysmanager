@@ -21,6 +21,11 @@
 Todoyu.Ext.sysmanager.Extensions = {
 
 
+	showList: function() {
+		this.showTab();
+	},
+	
+
 	/**
 	 * Enter description here...
 	 *
@@ -64,10 +69,48 @@ Todoyu.Ext.sysmanager.Extensions = {
 		this.showTab(extKey, tabKey);
 	},
 	
+	install: function(extKey) {
+		if( confirm('[LLL:sysmanager.extensions.install.confirm]') ) {
+			var url		= Todoyu.getUrl('sysmanager', 'extensions');
+			var options	= {
+				'parameters': {
+					'action': 'install',
+					'extension': extKey
+				},
+				'onComplete': this.onInstalled.bind(this, extKey)				
+			}
+			
+			Todoyu.send(url, options);		
+		}	
+	},
+	
+	onInstalled: function(extKey, response) {
+		this.showList();
+		Todoyu.notifySuccess('Extension sucessfully installed: ' + response.responseText);
+		
+	},
+	
 	uninstall: function(extKey) {
 		if( confirm('[LLL:sysmanager.extensions.uninstall.confirm]') ) {
+			var url		= Todoyu.getUrl('sysmanager', 'extensions');
+			var options	= {
+				'parameters': {
+					'action': 'uninstall',
+					'extension': extKey
+				},
+				'onComplete': this.onUninstalled.bind(this, extKey)				
+			}
 			
-			
-		}
+			Todoyu.send(url, options);		
+		}		
+	},
+	
+	onUninstalled: function(extKey, response) {
+		this.showList();
+		Todoyu.notifySuccess('Extension sucessfully uninstalled: ' + response.responseText);
+	},
+	
+	showImportForm: function() {
+		Effect.BlindDown('extension-import-form');
 	}
 };

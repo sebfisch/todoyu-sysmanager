@@ -35,7 +35,8 @@ class TodoyuExtManager {
 	 * @return	String
 	 */
 	public static function getTabConfig($extKey = '') {
-		$extKey	= trim($extKey);
+		$extKey		= trim($extKey);
+		$installed	= TodoyuExtensions::isInstalled($extKey);
 
 			// Listing tab
 		$tabs = array(
@@ -59,30 +60,33 @@ class TodoyuExtManager {
 				'class'		=> '',
 				'label'		=> 'Info: ' . $extKey
 			);
-			$tabs[] = array(
-				'id'		=> 'config',
-				'htmlId'	=> 'exttab-' . $extKey . '-config',
-				'key'		=> 'config',
-				'classKey'	=> 'config',
-				'class'		=> '',
-				'label'		=> 'Config'
-			);
-			$tabs[] = array(
-				'id'		=> 'rights',
-				'htmlId'	=> 'exttab-' . $extKey . '-rights',
-				'key'		=> 'rights',
-				'classKey'	=> 'rights',
-				'class'		=> '',
-				'label'		=> 'Rights'
-			);
-			$tabs[] = array(
-				'id'		=> 'records',
-				'htmlId'	=> 'exttab-' . $extKey . '-records',
-				'key'		=> 'records',
-				'classKey'	=> 'records',
-				'class'		=> '',
-				'label'		=> 'Records'
-			);
+
+			if( $installed === true ) {
+				$tabs[] = array(
+					'id'		=> 'config',
+					'htmlId'	=> 'exttab-' . $extKey . '-config',
+					'key'		=> 'config',
+					'classKey'	=> 'config',
+					'class'		=> '',
+					'label'		=> 'Config'
+				);
+				$tabs[] = array(
+					'id'		=> 'rights',
+					'htmlId'	=> 'exttab-' . $extKey . '-rights',
+					'key'		=> 'rights',
+					'classKey'	=> 'rights',
+					'class'		=> '',
+					'label'		=> 'Rights'
+				);
+				$tabs[] = array(
+					'id'		=> 'records',
+					'htmlId'	=> 'exttab-' . $extKey . '-records',
+					'key'		=> 'records',
+					'classKey'	=> 'records',
+					'class'		=> '',
+					'label'		=> 'Records'
+				);
+			}
 		}
 
 			// Update tab
@@ -241,10 +245,6 @@ class TodoyuExtManager {
 
 		return TodoyuFileManager::isFile($xmlPath);
 	}
-
-
-
-
 }
 
 ?>

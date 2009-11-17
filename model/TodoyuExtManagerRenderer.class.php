@@ -202,15 +202,19 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderInstall(array $params = array()) {
-		$extFolders		= TodoyuFileManager::getFoldersInFolder(PATH_EXT);
-		$extInstalled	= TodoyuExtensions::getInstalledExtKeys();
+		$notInstalled	= TodoyuExtensions::getNotInstalledExtKeys();
+		$tmpl			= 'ext/sysmanager/view/extension-list-notinstalled.tmpl';
+		$data			= array(
+			'extensions' => array()
+		);
 
-		$notInstalled	= array_diff($extFolders, $extInstalled);
+		sort($notInstalled);
 
+		foreach($notInstalled as $extension) {
+			$data['extensions'][$extension] = TodoyuExtensions::getExtInfo($extension);
+		}
 
-		return "NOT INSTALLED: " . implode(' - ', $notInstalled);
-
-		return 'installer';
+		return render($tmpl, $data);
 	}
 
 

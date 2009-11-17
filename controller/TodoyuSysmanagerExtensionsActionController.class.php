@@ -15,6 +15,28 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		return TodoyuExtManagerRenderer::renderTabView($extKey, $tab, $params);
 	}
 
+
+	public function installAction(array $params) {
+		$extKey	= $params['extension'];
+
+		TodoyuExtensions::install($extKey);
+
+		$infos	= TodoyuExtManager::getExtInfos($extKey);
+
+		return $infos['title'];
+	}
+
+
+	public function uninstallAction(array $params) {
+		$extKey	= $params['extension'];
+
+		TodoyuExtensions::uninstall($extKey);
+
+		$infos	= TodoyuExtManager::getExtInfos($extKey);
+
+		return $infos['title'];
+	}
+
 }
 
 ?>
