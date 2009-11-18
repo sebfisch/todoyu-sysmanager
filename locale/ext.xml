@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <locallang>
 	<labels lang="en">
-		<label index="ext.title">Title</label>
 		<label index="ext.key">Extension Key</label>
 		<label index="ext.version">Version / State</label>
 		<label index="ext.description">Description</label>
@@ -13,7 +12,6 @@
 		<label index="recordType">Recordtype</label>
 		<label index="extension.importExtArchive">Import extension archive</label>
 		<label index="extension.key">Ext-Key</label>
-		<label index="extension.title">Title</label>
 		<label index="extension.version">Version</label>
 		<label index="extension.installExtension">Install extension</label>
 		<label index="extension.uninstallExtension">Uninstall extension</label>
@@ -37,7 +35,6 @@
 		<label index="installedExtensions">Installed extensions</label>
 	</labels>
 	<labels lang="de">
-		<label index="ext.title">Titel</label>
 		<label index="ext.key">Extension Key</label>
 		<label index="ext.version">Version / State</label>
 		<label index="ext.description">Beschreibung</label>
@@ -49,7 +46,6 @@
 		<label index="recordType">Datensatz-typ</label>
 		<label index="extension.importExtArchive">Extension Archiv importieren</label>
 		<label index="extension.key">Ext-Key</label>
-		<label index="extension.title">Titel</label>
 		<label index="extension.version">Version</label>
 		<label index="extension.installExtension">Extension installieren</label>
 		<label index="extension.uninstallExtension">Extension deinstallieren</label>
