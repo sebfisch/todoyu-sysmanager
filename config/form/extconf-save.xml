@@ -10,12 +10,12 @@
 
 			<elements>
 				<field type="button" name="save">
-					<text>Save</text>
+					<text>LLL:form.field.save</text>
 					<type>submit</type>
 					<noStorage />
 				</field>
 				<field type="button" name="cancel">
-					<text>Reset</text>
+					<text>LLL:sysmanager.form.field.reset</text>
 					<type>reset</type>
 					<noStorage />
 				</field>

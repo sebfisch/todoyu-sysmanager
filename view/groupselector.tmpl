@@ -1,5 +1,7 @@
 <select name="{$name}" size="{$size}" id="{$id}" class="filter" {$attributes}>
 {foreach $options index option}
-	<option value="{$option.value}" class="{odd_even $index}"  {if $option.selected}selected="selected"{/if}>{$option.label}</option>
+	<option value="{$option.value}" class="{odd_even $index}"  {if $option.selected}selected="selected"{/if}>
+		{$option.label}
+	</option>
 {/foreach}
 </select>

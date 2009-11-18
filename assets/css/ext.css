@@ -7,3 +7,22 @@
 	font-weight: bold;
 	font-size: 16px;
 }
+
+table.extInfo {
+	line-height:20px;
+	width:660px;
+	border:0;
+	margin:0 0 12px 0; 
+}
+
+	table.extInfo th.label {
+		width:150px; 
+	}
+	
+	table.extInfo th.value {
+		width:538px;
+	}
+	
+	table.extInfo tr.even {
+		background-color:#f7f7f7;
+	}
