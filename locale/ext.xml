@@ -33,31 +33,5 @@
 		<label index="notInstalledExtensions">Not installed extensions</label>
 		<label index="installedExtensions">Installed extensions</label>
 	</labels>
-	<labels lang="de">
-		<label index="ext.key">Extension Key</label>
-		<label index="ext.version">Version / State</label>
-		<label index="ext.author">Author</label>
-		<label index="ext.dependencies">Abhängig von</label>
-		<label index="ext.conflicts">Konflikte mit</label>
-		<label index="ext.status">Status</label>
-		<label index="extension">Erweiterung</label>
-		<label index="recordType">Datensatz-typ</label>
-		<label index="extension.importExtArchive">Extension Archiv importieren</label>
-		<label index="extension.key">Ext-Key</label>
-		<label index="extension.version">Version</label>
-		<label index="extension.installExtension">Extension installieren</label>
-		<label index="extension.uninstallExtension">Extension deinstallieren</label>
-		<label index="extension.showInfo">Extension info anzeigen</label>
-		<label index="extension.download">Extension herunterladen</label>
-		<label index="extension.rights">Rechte</label>
-		<label index="extension.documentation">Dokumentation</label>
-		<label index="createNew">Neuer Datensatz: </label>
-		<label index="backToTypeList">Zurück zur Typenliste</label>
-		<label index="save">Speichern</label>
-		<label index="form.field.reset">Zurücksetzen</label>
-		<label index="download">Herunterladen</label>
-		<label index="uninstall">Deinstallieren</label>
-		<label index="notInstalledExtensions">Nicht installierte Extensions</label>
-		<label index="installedExtensions">Installierte Extensions</label>
-	</labels>
+	<labels lang="de"></labels>
 </locallang>
