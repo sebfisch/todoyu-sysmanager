@@ -3,7 +3,6 @@
 	<labels lang="en">
 		<label index="ext.key">Extension Key</label>
 		<label index="ext.version">Version / State</label>
-		<label index="ext.description">Description</label>
 		<label index="ext.author">Author</label>
 		<label index="ext.dependencies">Depending on</label>
 		<label index="ext.conflicts">Conflicts with</label>
@@ -37,7 +36,6 @@
 	<labels lang="de">
 		<label index="ext.key">Extension Key</label>
 		<label index="ext.version">Version / State</label>
-		<label index="ext.description">Beschreibung</label>
 		<label index="ext.author">Author</label>
 		<label index="ext.dependencies">Abhängig von</label>
 		<label index="ext.conflicts">Konflikte mit</label>
