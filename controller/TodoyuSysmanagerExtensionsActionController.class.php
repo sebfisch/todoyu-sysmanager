@@ -19,7 +19,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function installAction(array $params) {
 		$extKey	= $params['extension'];
 
-		TodoyuExtensions::install($extKey);
+		TodoyuExtInstaller::install($extKey);
 
 		$infos	= TodoyuExtManager::getExtInfos($extKey);
 
@@ -30,7 +30,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function uninstallAction(array $params) {
 		$extKey	= $params['extension'];
 
-		TodoyuExtensions::uninstall($extKey);
+		TodoyuExtInstaller::uninstall($extKey);
 
 		$infos	= TodoyuExtManager::getExtInfos($extKey);
 
