@@ -13,4 +13,3 @@
 {foreach $extConf extKey confString}
 $CONFIG['EXT']['{$extKey}']['extConf'] = unserialize(stripslashes('{$confString}'));
 {/foreach}
-
