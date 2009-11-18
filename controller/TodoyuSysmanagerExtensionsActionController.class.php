@@ -29,12 +29,26 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 	public function uninstallAction(array $params) {
 		$extKey	= $params['extension'];
+		$message= '';
 
-		TodoyuExtInstaller::uninstall($extKey);
+		if( TodoyuExtInstaller::canUninstall($extKey) ) {
+			TodoyuExtInstaller::uninstall($extKey);
+
+			$infos	= TodoyuExtManager::getExtInfos($extKey);
+
+			$message= 'Extension ' . htmlentities($infos['title']) . ' sucessfully uninstalled';
+		} else {
+			$dependents	= TodoyuExtensions::getDependents($extKey);
+
+			//$message	=
+
+		}
+
+
 
 		$infos	= TodoyuExtManager::getExtInfos($extKey);
 
-		return $infos['title'];
+		return $message;
 	}
 
 }
