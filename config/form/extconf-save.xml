@@ -15,7 +15,7 @@
 					<noStorage />
 				</field>
 				<field type="button" name="cancel">
-					<text>LLL:sysmanager.form.field.reset</text>
+					<text>LLL:core.reset</text>
 					<type>reset</type>
 					<noStorage />
 				</field>
