@@ -2,15 +2,15 @@
 <locallang>
 	<labels lang="en">
 		<label index="ext.title">System Manager</label>
-		<label index="ext.key">Extension Key</label>
+		<label index="ext.extensionKey">Extension Key</label>
+		<label index="ext.extKey">Ext-Key</label>
 		<label index="ext.version">Version / State</label>
 		<label index="ext.author">Author</label>
-		<label index="ext.dependencies">Depending on</label>
+		<label index="ext.dependencies">Depends on</label>
 		<label index="ext.conflicts">Conflicts with</label>
+		<label index="recordType">Record type</label>
 		<label index="extension">Extension</label>
-		<label index="recordType">Recordtype</label>
 		<label index="extension.importExtArchive">Import extension archive</label>
-		<label index="extension.key">Ext-Key</label>
 		<label index="extension.version">Version</label>
 		<label index="extension.installExtension">Install extension</label>
 		<label index="extension.uninstallExtension">Uninstall extension</label>
@@ -18,7 +18,6 @@
 		<label index="extension.download">Download extension</label>
 		<label index="extension.rights">Rights</label>
 		<label index="extension.documentation">Documentation</label>
-		<label index="createNew">Create new</label>
 		<label index="backToTypeList">Back to type list</label>
 		<label index="rights.header">Rights Manager</label>
 		<label index="rights.save">Save rights</label>
