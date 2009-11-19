@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <locallang>
 	<labels lang="en">
+		<label index="ext.title">System Manager</label>
 		<label index="ext.key">Extension Key</label>
 		<label index="ext.version">Version / State</label>
 		<label index="ext.author">Author</label>
