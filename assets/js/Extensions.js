@@ -40,7 +40,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 				'action': 'tabview',
 				'tab': tab,
 				'extension': extKey
-			}
+			},
+			'onComplete': this.onTabShowed.bind(this, extKey, tab, params)
 		};
 
 		if( typeof(params) === 'object' ) {
@@ -50,6 +51,10 @@ Todoyu.Ext.sysmanager.Extensions = {
 		Todoyu.Ui.updateContent(url, options);
 	},
 
+	
+	onTabShowed: function(extKey, tab, params) {
+		
+	},
 
 
 	/**

@@ -63,8 +63,7 @@ class TodoyuExtConfManager {
 	public static function getForm($extKey) {
 		$xmlPath	= self::getXmlPath($extKey);
 
-		$form	= new TodoyuForm($xmlPath);
-		$form	= TodoyuFormHook::callBuildForm($xmlPath, $form, 0);
+		$form	= TodoyuFormManager::getForm($xmlPath);
 
 		$data	= self::getExtConf($extKey);
 		$data	= TodoyuFormHook::callLoadData($xmlPath, $data, 0);
@@ -86,7 +85,8 @@ class TodoyuExtConfManager {
 
 
 			// Add save and cancel buttons
-		$saveForm	= new TodoyuForm('ext/sysmanager/config/form/extconf-save.xml');
+		$xmlPathSave= 'ext/sysmanager/config/form/extconf-save.xml';
+		$saveForm	= TodoyuFormManager::getForm($xmlPathSave);
 		$buttons	= $saveForm->getFieldset('save');
 
 		$form->addFieldset('save', $buttons);
