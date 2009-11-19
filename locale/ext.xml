@@ -6,7 +6,6 @@
 		<label index="ext.author">Author</label>
 		<label index="ext.dependencies">Depending on</label>
 		<label index="ext.conflicts">Conflicts with</label>
-		<label index="ext.status">Status</label>
 		<label index="extension">Extension</label>
 		<label index="recordType">Recordtype</label>
 		<label index="extension.importExtArchive">Import extension archive</label>
