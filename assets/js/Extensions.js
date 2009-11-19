@@ -106,11 +106,22 @@ Todoyu.Ext.sysmanager.Extensions = {
 	},
 	
 	onUninstalled: function(extKey, response) {
-		this.showList();
-		Todoyu.notifySuccess('Extension sucessfully uninstalled: ' + response.responseText);
+		if( response.hasTodoyuError() ) {
+			Todoyu.notifyError(response.responseText, 0);
+		} else {
+			Todoyu.notifySuccess(response.responseText);
+			this.showList();
+		}	
 	},
 	
 	showImportForm: function() {
 		Effect.BlindDown('extension-import-form');
+	},
+	
+	download: function(extKey) {
+		Todoyu.goTo('sysmanager', 'extensions', {
+			'action': 'download',
+			'extension': extKey
+		});
 	}
 };
