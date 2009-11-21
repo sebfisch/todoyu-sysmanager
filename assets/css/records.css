@@ -2,11 +2,17 @@
 #record-list li {
 	padding: 5px 10px;
 	position: relative;
+	line-height: 20px;
 }
 
 #record-type-list li.even,
 #record-list li.even {
 		background-color: #f3f3f3;
+}
+
+#record-type-list li.odd,
+#record-list li.odd {
+		background-color: #f9f9f9;
 }
 
 #record-list li span.additionalInformations {
