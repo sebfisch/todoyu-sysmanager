@@ -3,6 +3,7 @@
 	<labels lang="en">
 		<label index="section.general">General settings</label>
 		<label index="right.extensions.use">Extension Manager</label>
+<!--  ......................................... added after 20091122 -->
 	</labels>
 	<labels lang="de"></labels>
 </locallang>
