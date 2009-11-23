@@ -110,6 +110,7 @@ class TodoyuRightsEditorRenderer {
 //		TodoyuDebug::printHtml($rights);
 //		TodoyuDebug::printHtml($activeRights);
 
+		$tmpl	= 'ext/sysmanager/view/rightsmatrix.tmpl';
 		$data	= array(
 			'extension'		=> $ext,
 			'rights'		=> $rights,
@@ -117,7 +118,7 @@ class TodoyuRightsEditorRenderer {
 			'activeRights'	=> $activeRights
 		);
 
-		return render('ext/sysmanager/view/rightsmatrix.tmpl', $data);
+		return render($tmpl, $data);
 	}
 
 
