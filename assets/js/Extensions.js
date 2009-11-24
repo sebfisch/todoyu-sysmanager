@@ -37,9 +37,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 		var options	= {
 			'parameters': {
-				'action': 'tabview',
-				'tab': tab,
-				'extension': extKey
+				'action':		'tabview',
+				'tab':			tab,
+				'extension':	extKey
 			},
 			'onComplete': this.onTabShowed.bind(this, extKey, tab, params)
 		};
@@ -79,8 +79,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				'parameters': {
-					'action': 'install',
-					'extension': extKey
+					'action':		'install',
+					'extension':	extKey
 				},
 				'onComplete': this.onInstalled.bind(this, extKey)				
 			}
@@ -100,8 +100,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				'parameters': {
-					'action': 'uninstall',
-					'extension': extKey
+					'action':		'uninstall',
+					'extension':	extKey
 				},
 				'onComplete': this.onUninstalled.bind(this, extKey)				
 			}
@@ -125,8 +125,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 	
 	download: function(extKey) {
 		Todoyu.goTo('sysmanager', 'extensions', {
-			'action': 'download',
-			'extension': extKey
+			'action':		'download',
+			'extension':	extKey
 		});
 	}
 };

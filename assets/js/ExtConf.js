@@ -29,7 +29,7 @@ Todoyu.Ext.sysmanager.ExtConf = {
 
 		$(form).request({
 			'parameters': {
-				'action': 'save'
+				'action':	'save'
 			},
 			'onComplete': this.onSaved.bind(this)
 		});
