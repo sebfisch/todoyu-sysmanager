@@ -4,6 +4,15 @@
 		<label index="section.general">General settings</label>
 		<label index="right.extensions.use">Extension Manager</label>
 <!--  ......................................... added after 20091122 -->
+		<label index="section.extensions">Extensions</label>
+		<label index="right.extensions.uninstall">Uninstall extensions</label>
+		<label index="right.extensions.install">Install extensions</label>
+		<label index="right.extensions.update">Update extensions</label>
+		<label index="right.extensions.editConfig">Edit configuration</label>
+		<label index="right.extensions.editRights">Edit rights</label>
+		<label index="right.extensions.editRecords">Edit records</label>
+		<label index="right.extensions.download">Download extension archive</label>
+		<label index="right.allrecords.use">Show all records edit view</label>
 	</labels>
 	<labels lang="de"></labels>
 </locallang>

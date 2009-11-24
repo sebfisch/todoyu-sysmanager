@@ -3,6 +3,15 @@
 	
 	<section key="general">
 		<allow right="extensions.use" />
+		<allow right="allrecords.use" />
+	</section>
+	
+	<section key="extensions">
+		<allow right="extensions.uninstall" />
+		<allow right="extensions.editConfig" />
+		<allow right="extensions.editRights" />
+		<allow right="extensions.editRecords" />
+		<allow right="extensions.download" />
 	</section>
 		
 </rights>

@@ -38,7 +38,7 @@
  * @param	String	$extKey
  * @return	Bool
  */
-function Dwoo_Plugin_hasRecordRegistered_compile(Dwoo_Compiler $dwoo, $extKey)	{
+function Dwoo_Plugin_extMgr_hasRecords_compile(Dwoo_Compiler $dwoo, $extKey)	{
 	return 'sizeof(TodoyuExtManager::getRecordTypes(' . $extKey . ')) > 0';
 }
 
@@ -54,7 +54,7 @@ function Dwoo_Plugin_hasRecordRegistered_compile(Dwoo_Compiler $dwoo, $extKey)	{
  * @param	String	$extKey
  * @return	Bool
  */
-function Dwoo_Plugin_hasRightsConfiguration_compile(Dwoo_Compiler $dwoo, $extKey)	{
+function Dwoo_Plugin_extMgr_hasRighsConfig_compile(Dwoo_Compiler $dwoo, $extKey)	{
 	return 'TodoyuRightsEditorManager::hasRightsConfig(' . $extKey . ')';
 }
 
@@ -70,7 +70,7 @@ function Dwoo_Plugin_hasRightsConfiguration_compile(Dwoo_Compiler $dwoo, $extKey
  * @param	String	$extKey
  * @return	Bool
  */
-function Dwoo_Plugin_hasRegisteredConfigurations_compile(Dwoo_Compiler $dwoo, $extKey)	{
+function Dwoo_Plugin_extMgr_hasConfig_compile(Dwoo_Compiler $dwoo, $extKey)	{
 	return 'TodoyuExtManager::extensionHasConfig(' . $extKey . ')';
 }
 
@@ -86,7 +86,7 @@ function Dwoo_Plugin_hasRegisteredConfigurations_compile(Dwoo_Compiler $dwoo, $e
  * @param	String	$extKey
  * @return	Bool
  */
-function Dwoo_Plugin_hasExtensionInfo_compile(Dwoo_Compiler $dwoo, $extKey)	{
+function Dwoo_Plugin_extMgr_hasExtInfo_compile(Dwoo_Compiler $dwoo, $extKey)	{
 	return 'TodoyuExtManager::getExtInfos(' . $extKey . ') !== false';
 }
 
