@@ -147,7 +147,7 @@ class TodoyuExtManager {
 	public static function getRecordTypeConfig($extKey, $recordName)	{
 		$config = $GLOBALS['CONFIG']['EXT']['sysmanager']['records'][$extKey][$recordName];
 
-		if(! is_array($config))	{
+		if( ! is_array($config) )	{
 			$config = array();
 		}
 
