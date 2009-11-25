@@ -7,23 +7,14 @@
 	<fieldsets>
 
 		<fieldset name="save">
-
 			<elements>
-				<field type="button" name="save">
+				<field type="saveButton" name="save">
 					<type>submit</type>
-					<text>LLL:form.field.save</text>
-					<class>buttonSave</class>
-					<hasIcon />
 				</field>
-				<field type="button" name="cancel">
-					<text>LLL:form.field.cancel</text>
-					<type>button</type>
-					<class>buttonCancel</class>
-					<hasIcon />
+				<field type="cancelButton" name="cancel">
 					<onclick>Todoyu.Ext.sysmanager.Extensions.Records.closeForm('#record-extkey#','#record-type#')</onclick>
 				</field>
 			</elements>
-
 		</fieldset>
 
 	</fieldsets>
