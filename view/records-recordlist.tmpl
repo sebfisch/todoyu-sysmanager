@@ -10,7 +10,9 @@
 	{foreach $records key record}
 		<li id="listElement-{$key}" class="{cycle values='odd,even'}">
 			<span class="recordlabel">
-				<a onclick="Todoyu.Ext.sysmanager.Extensions.Records.edit('{$extKey}', '{$type}', {$record.id})">{$record.label}</a>
+				<a onclick="Todoyu.Ext.sysmanager.Extensions.Records.edit('{$extKey}', '{$type}', {$record.id})">
+					{Label $record.label true}&nbsp;
+				</a>
 			</span>
 			<span class="additionalInformations">{$record.additionalInformations}</span>
 			<span class="delete" onclick="Todoyu.Ext.sysmanager.Extensions.Records.remove('{$extKey}', '{$type}', {$record.id})"></span>
