@@ -25,7 +25,6 @@
 		<label index="extconf.noExtConf">There is no configuration available for this extension</label>
 		<label index="notInstalledExtensions">Not installed extensions</label>
 		<label index="installedExtensions">Installed extensions</label>
-<!--  ......................................... added after 20091122 -->
 	</labels>
 	<labels lang="de"></labels>
 </locallang>
