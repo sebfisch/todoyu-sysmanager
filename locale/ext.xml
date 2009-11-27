@@ -27,16 +27,16 @@
 		<label index="installedExtensions">Installed Extensions</label>
 	</labels>
 	<labels lang="de">
-		<label index="ext.title">System Manager</label>
+		<label index="ext.title">System-Verwaltung</label>
 		<label index="ext.extensionKey">Erweiterungsschlüssel</label>
 		<label index="ext.extKey">Ext-Key</label>
 		<label index="ext.version">Version / Status</label>
 		<label index="ext.author">Autor</label>
 		<label index="ext.dependencies">Abhängig von</label>
 		<label index="ext.conflicts">Konflikte mit</label>
-		<label index="recordType">Datensatz Typ</label>
+		<label index="recordType">Datensatz-Typ</label>
 		<label index="extension">Extension</label>
-		<label index="extension.importExtArchive">Importiere Extension Archiv</label>
+		<label index="extension.importExtArchive">Importiere Extension-Archiv</label>
 		<label index="extension.version">Version</label>
 		<label index="extension.installExtension">Installiere Erweiterung</label>
 		<label index="extension.uninstallExtension">Deinstalliere Erweiterung</label>
