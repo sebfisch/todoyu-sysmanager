@@ -21,12 +21,12 @@
 
 	// Add extension manager
 if( allowed('sysmanager', 'extensions.use') ) {
-	TodoyuAdminManager::addModule('extensions', 'Extensions', 'TodoyuExtManagerRenderer::renderModule', 50, array('sysmanager', 'public'));
+	TodoyuAdminManager::addModule('extensions', 'LLL:sysmanager.menu.extensions', 'TodoyuExtManagerRenderer::renderModule', 50, array('sysmanager', 'public'));
 }
 
 if( allowed('sysmanager', 'allrecords.use') ) {
 		// Add records manager
-	TodoyuAdminManager::addModule('records', 'All Records', 'TodoyuRecordsOverviewRenderer::renderModule', 60, array('sysmanager', 'public'));
+	TodoyuAdminManager::addModule('records', 'LLL:sysmanager.menu.allRecords', 'TodoyuRecordsOverviewRenderer::renderModule', 60, array('sysmanager', 'public'));
 }
 
 TodoyuPage::addExtAssets('sysmanager', 'public');
