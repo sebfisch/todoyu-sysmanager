@@ -26,7 +26,7 @@
  * @subpackage	SysManager
  */
 
-if( ! defined('TODOYU') ) die('NO ACCESS');
+
 
 
 
