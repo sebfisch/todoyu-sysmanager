@@ -35,6 +35,13 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	}
 
 
+
+	/**
+	 * Install an extension
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
 	public function installAction(array $params) {
 		$extKey	= $params['extension'];
 
@@ -46,6 +53,13 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	}
 
 
+
+	/**
+	 * Uninstall an extension
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
 	public function uninstallAction(array $params) {
 		$extKey	= $params['extension'];
 		$message= '';
@@ -65,6 +79,13 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		return $message;
 	}
 
+
+
+	/**
+	 * Download an extension packed in an archive (zip)
+	 *
+	 * @param	Array		$params
+	 */
 	public function downloadAction(array $params) {
 		$extKey	= $params['extension'];
 
