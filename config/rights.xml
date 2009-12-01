@@ -7,10 +7,13 @@
 	</section>
 	
 	<section key="extensions">
+		<allow right="extensions.info" />
+		<allow right="extensions.config" />
+		<allow right="extensions.rights" />
+		<allow right="extensions.records" />
+		<allow right="extensions.install" />
 		<allow right="extensions.uninstall" />
-		<allow right="extensions.editConfig" />
-		<allow right="extensions.editRights" />
-		<allow right="extensions.editRecords" />
+		<allow right="extensions.update" />
 		<allow right="extensions.download" />
 	</section>
 		

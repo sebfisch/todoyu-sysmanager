@@ -20,7 +20,7 @@
 		{/restrict}
 
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.showInfo}"
-			{if extMgr_hasExtInfo($extKey)}
+			{if extMgr_hasExtInfo($extKey) && allowed('sysmanager','extensions.info')}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')" class="info">
 			{else}
 				class="info disabled">
@@ -29,7 +29,7 @@
 		</a>
 
 		<a href="javascript:void(0)" title="config"
-			{if extMgr_hasConfig($extKey) && allowed('sysmanager','extensions.editConfig')}
+			{if extMgr_hasConfig($extKey) && allowed('sysmanager','extensions.config')}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'config')" class="config">
 			{else}
 				class="config disabled">
