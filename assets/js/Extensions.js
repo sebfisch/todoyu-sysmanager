@@ -27,11 +27,11 @@ Todoyu.Ext.sysmanager.Extensions = {
 	
 
 	/**
-	 * Enter description here...
+	 * Show given extension tab in sysmanager
 	 *
 	 *	@param	String	extKey
 	 *	@param	String	tab
-	 *	@param unknown_type params
+	 *	@param	Object	params
 	 */
 	showTab: function(extKey, tab, params) {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
@@ -51,7 +51,13 @@ Todoyu.Ext.sysmanager.Extensions = {
 		Todoyu.Ui.updateContent(url, options);
 	},
 
-	
+
+
+	/**
+	 * Evoked upon completion of loading of tab
+	 *
+	 *	@todo	complete or remove
+	 */
 	onTabShowed: function(extKey, tab, params) {
 		
 	},
@@ -61,7 +67,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * On tab click handler
 	 *
-	 *	@param unknown_type event
+	 *	@param	Ojbect	event
 	 *	@param	String	tabKey
 	 */
 	onTabClick: function(event, tabKey) {
