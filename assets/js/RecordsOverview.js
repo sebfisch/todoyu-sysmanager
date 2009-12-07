@@ -20,7 +20,12 @@
 
 Todoyu.Ext.sysmanager.RecordsOverview = {
 
-	ext: Todoyu.Ext.sysmanager,
+	/**
+	 *	Ext shortcut
+	 */
+	ext:	Todoyu.Ext.sysmanager,
+
+
 
 	/**
 	 *	On tab select handler

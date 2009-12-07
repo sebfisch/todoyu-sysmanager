@@ -20,13 +20,17 @@
 
 Todoyu.Ext.sysmanager.Extensions.Records = {
 
-	ext: Todoyu.Ext.sysmanager,
+	/**
+	 *	Ext shortcut
+	 */
+	ext:	Todoyu.Ext.sysmanager,
 
-	url: Todoyu.getUrl('sysmanager', 'records'),
+	url:	Todoyu.getUrl('sysmanager', 'records'),
 
-	extKey: '',
+	extKey:	'',
 	type:	'',
-	
+
+
 
 	/**
 	 *	Show type list
