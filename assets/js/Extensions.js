@@ -29,9 +29,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Enter description here...
 	 *
-	 * @param	String	extKey
-	 * @param	String	tab
-	 * @param unknown_type params
+	 *	@param	String	extKey
+	 *	@param	String	tab
+	 *	@param unknown_type params
 	 */
 	showTab: function(extKey, tab, params) {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
@@ -57,11 +57,12 @@ Todoyu.Ext.sysmanager.Extensions = {
 	},
 
 
+
 	/**
 	 * On tab click handler
 	 *
-	 * @param unknown_type event
-	 * @param	String	tabKey
+	 *	@param unknown_type event
+	 *	@param	String	tabKey
 	 */
 	onTabClick: function(event, tabKey) {
 		var li		= event.findElement('li');
@@ -73,7 +74,12 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 		this.showTab(extKey, tabKey);
 	},
-	
+
+
+
+	/**
+	 * @todo	comment
+	 */
 	install: function(extKey) {
 		if( confirm('[LLL:sysmanager.extensions.install.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
@@ -88,13 +94,23 @@ Todoyu.Ext.sysmanager.Extensions = {
 			Todoyu.send(url, options);		
 		}	
 	},
-	
+
+
+
+	/**
+	 *	@todo	comment
+	 */
 	onInstalled: function(extKey, response) {
 		this.showList();
 		Todoyu.notifySuccess('Extension sucessfully installed: ' + response.responseText);
 		
 	},
-	
+
+
+
+	/**
+	 *	@todo	comment
+	 */
 	uninstall: function(extKey) {
 		if( confirm('[LLL:sysmanager.extensions.uninstall.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
@@ -109,7 +125,12 @@ Todoyu.Ext.sysmanager.Extensions = {
 			Todoyu.send(url, options);		
 		}		
 	},
-	
+
+
+
+	/**
+	 *	@todo	comment
+	 */
 	onUninstalled: function(extKey, response) {
 		if( response.hasTodoyuError() ) {
 			Todoyu.notifyError(response.responseText, 0);
@@ -118,11 +139,21 @@ Todoyu.Ext.sysmanager.Extensions = {
 			this.showList();
 		}	
 	},
-	
+
+
+
+	/**
+	 * @todo	comment
+	 */
 	showImportForm: function() {
 		Effect.BlindDown('extension-import-form');
 	},
-	
+
+
+
+	/**
+	 * 	@todo	comment
+	 */
 	download: function(extKey) {
 		Todoyu.goTo('sysmanager', 'extensions', {
 			'action':		'download',

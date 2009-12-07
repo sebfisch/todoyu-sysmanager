@@ -23,7 +23,7 @@ Todoyu.Ext.sysmanager.ExtConf = {
 	/**
 	 * On save handler
 	 * 
-	 * @param	String	form
+	 *	@param	String	form
 	 */
 	onSave: function(form) {
 

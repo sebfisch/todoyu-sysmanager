@@ -68,7 +68,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	/**
 	 * Toggle right
 	 *
-	 * @param	String	right
+	 *	@param	String	right
 	 */
 	toggleRight: function(right) {
 		var checkboxes = $('right-' + right).select('input');

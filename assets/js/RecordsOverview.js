@@ -31,7 +31,12 @@ Todoyu.Ext.sysmanager.RecordsOverview = {
 	onTabSelect: function(event, tabKey) {
 		// Do nothing
 	},
-	
+
+
+
+	/**
+	 * @todo	comment
+	 */
 	showRecords: function(ext, type) {
 		location.href = '?ext=admin&mod=extensions&extkey=' + ext + '&tab=records&type=' + type;
 	}
