@@ -47,11 +47,11 @@ Todoyu.Ext.sysmanager.ExtConf = {
 	onSaved: function(response) {		
 		if( response.hasTodoyuError() ) {
 			Todoyu.notifyError('Formvalue invalid');
+			
+			$('config-form').replace(response.responseText);
 		} else {
 			Todoyu.notifySuccess('Extension configuration saved', 3);
 		}
-		
-		$('config-form').replace(response.responseText);
 	}
 	
 };

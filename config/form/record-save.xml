@@ -8,12 +8,15 @@
 
 		<fieldset name="save">
 			<elements>
+
 				<field type="saveButton" name="save">
 					<type>submit</type>
 				</field>
+
 				<field type="cancelButton" name="cancel">
 					<onclick>Todoyu.Ext.sysmanager.Extensions.Records.closeForm('#record-extkey#','#record-type#')</onclick>
 				</field>
+
 			</elements>
 		</fieldset>
 

@@ -19,15 +19,26 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
+/**
+ * Sysmanager extconf action controller
+ *
+ * @package		Todoyu
+ * @subpackage	Sysmanager
+ */
 class TodoyuSysmanagerExtconfActionController extends TodoyuActionController {
 
+	/**
+	 * Save extension configuration
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
 	public function saveAction(array $params) {
 		$data	= $params['config'];
 		$extKey	= $data['extension'];
 
 		$xmlPath= TodoyuExtConfManager::getXmlPath($extKey);
 		$form	= TodoyuExtConfManager::getForm($extKey);
-		$form	= TodoyuFormHook::callBuildForm($xmlPath, $form, 0);
 
 		$form->setFormData($data);
 
@@ -37,9 +48,9 @@ class TodoyuSysmanagerExtconfActionController extends TodoyuActionController {
 			TodoyuExtConfManager::updateExtConf($extKey, $config);
 		} else {
 			TodoyuHeader::sendTodoyuErrorHeader();
-		}
 
-		return $form->render();
+			return $form->render();
+		}
 	}
 
 }
