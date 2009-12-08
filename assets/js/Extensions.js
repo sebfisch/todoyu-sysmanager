@@ -84,7 +84,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 
 	/**
-	 * @todo	comment
+	 * Evoke installation of given extension
+	 * 
+	 * 	@param	String	extKey 
 	 */
 	install: function(extKey) {
 		if( confirm('[LLL:sysmanager.extensions.install.confirm]') ) {
