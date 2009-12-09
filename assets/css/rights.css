@@ -82,6 +82,14 @@ div.groupRights .rights {
 	overflow-y:scroll;
 }
 
+div.rights span.require {
+	display:inline-block;
+	width:15px;
+	height:14px;
+	background:url(../img/icons.png) no-repeat 1px -505px;
+	cursor:help;
+}
+
 
 
 /* -------------

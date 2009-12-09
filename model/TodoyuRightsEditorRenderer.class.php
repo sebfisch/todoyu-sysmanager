@@ -95,10 +95,13 @@ class TodoyuRightsEditorRenderer {
 		}
 
 			// Read rights XML file
-		$rights	= TodoyuRightsEditorManager::readExtRights($ext);
+		$rights		= TodoyuRightsEditorManager::readExtRights($ext);
+
+			// Get required chain
+		$required	= TodoyuRightsEditorManager::extractRequiredInfos($rights);
 
 			// Get current group infos
-		$groups	= TodoyuRightsEditorManager::getGroupInfos($groups);
+		$groups		= TodoyuRightsEditorManager::getGroupInfos($groups);
 
 			// Get current checked rights (default or db)
 		if( $useDefaults === true ) {
@@ -106,16 +109,14 @@ class TodoyuRightsEditorRenderer {
 		} else {
 			$activeRights = TodoyuRightsEditorManager::getCurrentActiveRights($rights, $ext);
 		}
-//
-//		TodoyuDebug::printHtml($rights);
-//		TodoyuDebug::printHtml($activeRights);
 
 		$tmpl	= 'ext/sysmanager/view/rightsmatrix.tmpl';
 		$data	= array(
 			'extension'		=> $ext,
 			'rights'		=> $rights,
 			'groups'		=> $groups,
-			'activeRights'	=> $activeRights
+			'activeRights'	=> $activeRights,
+			'required'		=> $required
 		);
 
 		return render($tmpl, $data);

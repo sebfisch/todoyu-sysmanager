@@ -21,6 +21,7 @@
 		<label index="backToTypeList">Back To Type List</label>
 		<label index="rights.header">Rights Manager</label>
 		<label index="rights.save">Save rights</label>
+		<label index="rights.saved">Rights are saved</label>
 		<label index="extconf.header">Extension Configuration</label>
 		<label index="extconf.noExtConf">There is no configuration available for this extension</label>
 		<label index="notInstalledExtensions">Not Installed Extensions</label>
@@ -49,6 +50,7 @@
 		<label index="backToTypeList">Zurück zur Typenliste</label>
 		<label index="rights.header">Rechtemanager</label>
 		<label index="rights.save">Rechte speichern</label>
+		<label index="rights.saved">Rechte wurden gespeichert</label>
 		<label index="extconf.header">Extension Konfiguration</label>
 		<label index="extconf.noExtConf">Für diese Extension gibt es keine Konfiguration</label>
 		<label index="notInstalledExtensions">Nicht installierte Erweiterungen</label>

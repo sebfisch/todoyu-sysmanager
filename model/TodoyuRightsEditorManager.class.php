@@ -50,7 +50,7 @@ class TodoyuRightsEditorManager {
 	public static function readExtRights($extKey) {
 		if( self::hasRightsConfig($extKey) ) {
 			$xmlFile	= TodoyuExtensions::getExtPath($extKey) . '/config/rights.xml';
-			$rights		= self::readXML($xmlFile);
+			$rights		= self::readXML($extKey, $xmlFile);
 		} else {
 			$rights		= array();
 		}
@@ -66,38 +66,52 @@ class TodoyuRightsEditorManager {
 	 * @param	String		$xmlFile		Path to XML file
 	 * @return	Array
 	 */
-	public static function readXML($xmlFile) {
+	public static function readXML($extKey, $xmlFile) {
 		$xmlFile	= TodoyuFileManager::pathAbsolute($xmlFile);
-		$localIdent	= md5($xmlFile);
+		$localeKey	= $extKey . '-rights';
 		$data		= array();
 
 		$xml		= simplexml_load_file($xmlFile);
-		$labelFile	= (string)$xml['labels'];
+		$labelFile	= TodoyuExtensions::getExtPath($extKey) . '/locale/rights.xml';
 
 			// Register locale file for rights
-		TodoyuLocale::register($localIdent, $labelFile);
+		TodoyuLocale::register($localeKey, $labelFile);
 
 			// Load sections
 		foreach($xml->section as $section) {
-			$sectionKey	= (string)$section['key'];
+			$sectionName	= (string)$section['name'];
 
-			$data[$sectionKey] = array();
+//			TodoyuDebug::printHtml($section);
 
-			$data[$sectionKey]['label']	= TodoyuLocale::getLabel($localIdent . '.section.' . $sectionKey);
-			$data[$sectionKey]['rights']= array();
+			$data[$sectionName] = array();
 
-			foreach($section->allow as $allow) {
-				$right			= (string)$allow['right'];
+			$data[$sectionName]['label']	= TodoyuLocale::getLabel($localeKey . '.section.' . $sectionName);
+			$data[$sectionName]['rights']	= array();
 
-				$data[$sectionKey]['rights'][$right] = array(
-					'right'		=> $right,
-					'label'		=> TodoyuLocale::getLabel($localIdent . '.right.' . $right),
-					'default'	=> explode(',', (string)$allow['default']),
-					'depends'	=> explode(',', (string)$allow['depends']),
-					'comment'	=> TodoyuLocale::getLabelIfExists($localIdent . '.right.' . $right . '.comment')
+			if( $section['require'] ) {
+				$sectionRequire	= explode(',', $section['require']);
+			} else {
+				$sectionRequire	= array();
+			}
+
+
+			foreach($section->right as $right) {
+				$rightName = (string)$right['name'];
+
+				$data[$sectionName]['rights'][$rightName] = array(
+					'right'		=> $rightName,
+					'label'		=> TodoyuLocale::getLabel($localeKey . '.right.' . $rightName),
+					'comment'	=> TodoyuLocale::getLabelIfExists($localeKey . '.right.' . $rightName . '.comment'),
+					'require'	=> array()
 				);
+
+				$rightRequire	= $right['require'] ? explode(',', $right['require']) : array() ;
+
+				$data[$sectionName]['rights'][$rightName]['require'] = array_merge($sectionRequire, $rightRequire);
 			}
 		}
+
+//		TodoyuDebug::printHtml($data);
 
 		return $data;
 	}
@@ -123,6 +137,26 @@ class TodoyuRightsEditorManager {
 		}
 
 		return $dependents;
+	}
+
+
+
+	/**
+	 * Extract the required info from rights
+	 *
+	 * @param	Array		$rightsConfig		Rights with sections
+	 * @return	Array
+	 */
+	public static function extractRequiredInfos(array $rightsConfig) {
+		$require = array();
+
+		foreach($rightsConfig as $section) {
+			foreach($section['rights'] as $right) {
+				$require[$right['right']] = $right['require'];
+			}
+		}
+
+		return $require;
 	}
 
 
