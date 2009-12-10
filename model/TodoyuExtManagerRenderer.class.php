@@ -35,6 +35,8 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderModule(array $params) {
+		restrict('sysmanager', 'extensions');
+
 		$extKey	= $params['extkey'];
 		$tab	= $params['tab'];
 

@@ -2,30 +2,32 @@
 <locallang>
 	<labels lang="en">
 		<label index="section.general">General Settings</label>
-		<label index="right.extensions.use">Extension Manager</label>
+		<label index="right.extensions">Extension Manager</label>
+		<label index="right.allrecords">Show all records edit view</label>
 		<label index="section.extensions">Extensions</label>
-		<label index="right.extensions.info">Extension infos</label>
-		<label index="right.extensions.config">Edit Configuration</label>
-		<label index="right.extensions.rights">Edit Rights</label>
-		<label index="right.extensions.records">Edit Records</label>
-		<label index="right.extensions.uninstall">Uninstall Extensions</label>
-		<label index="right.extensions.install">Install Extensions</label>
-		<label index="right.extensions.download">Download Extension Archive</label>
-		<label index="right.extensions.update">Update Extensions</label>
-		<label index="right.allrecords.use">Show all records edit view</label>
+		<label index="right.extensions:info">Extension infos</label>
+		<label index="right.extensions:config">Edit Configuration</label>
+		<label index="right.extensions:rights">Edit Rights</label>
+		<label index="right.extensions:records">Edit Records</label>
+		<label index="right.extensions:uninstall">Uninstall Extensions</label>
+		<label index="right.extensions:install">Install Extensions</label>
+		<label index="right.extensions:download">Download Extension Archive</label>
+		<label index="right.extensions:update">Update Extensions</label>
+		
 	</labels>
 	<labels lang="de">
 		<label index="section.general">Allgemeine Einstellungen</label>
-		<label index="right.extensions.use">Erweiterungsmanager</label>
+		<label index="right.extensions">Erweiterungsmanager</label>
+		<label index="right.allrecords">'Alle Datensätze' Ansicht</label>
 		<label index="section.extensions">Erweiterungen</label>
-		<label index="right.extensions.info">Erweiterungs-Infos</label>
-		<label index="right.extensions.config">Konfiguration bearbeiten</label>
-		<label index="right.extensions.rights">Rechte bearbeiten</label>
-		<label index="right.extensions.records">Datensätze bearbeiten</label>
-		<label index="right.extensions.uninstall">Erweiterungen deinstallieren</label>
-		<label index="right.extensions.install">Erweiterungen installieren</label>
-		<label index="right.extensions.download">Erweiterung als Archiv herunterladen</label>
-		<label index="right.extensions.update">Erweiterungen aktualisieren</label>
-		<label index="right.allrecords.use">'Alle Datensätze' Ansicht</label>
+		<label index="right.extensions:info">Erweiterungs-Infos</label>
+		<label index="right.extensions:config">Konfiguration bearbeiten</label>
+		<label index="right.extensions:rights">Rechte bearbeiten</label>
+		<label index="right.extensions:records">Datensätze bearbeiten</label>
+		<label index="right.extensions:uninstall">Erweiterungen deinstallieren</label>
+		<label index="right.extensions:install">Erweiterungen installieren</label>
+		<label index="right.extensions:download">Erweiterung als Archiv herunterladen</label>
+		<label index="right.extensions:update">Erweiterungen aktualisieren</label>
+		
 	</labels>
 </locallang>

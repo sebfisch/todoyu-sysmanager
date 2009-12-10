@@ -20,7 +20,7 @@
 		{/restrict}
 
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.showInfo}"
-			{if extMgr_hasExtInfo($extKey) && allowed('sysmanager','extensions.info')}
+			{if extMgr_hasExtInfo($extKey) && allowed('sysmanager','extensions:info')}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')" class="info">
 			{else}
 				class="info disabled">
@@ -29,7 +29,7 @@
 		</a>
 
 		<a href="javascript:void(0)" title="config"
-			{if extMgr_hasConfig($extKey) && allowed('sysmanager','extensions.config')}
+			{if extMgr_hasConfig($extKey) && allowed('sysmanager','extensions:config')}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'config')" class="config">
 			{else}
 				class="config disabled">
@@ -38,7 +38,7 @@
 		</a>
 
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.rights}"
-			{if extMgr_hasRighsConfig($extKey) && allowed('sysmanager','extensions.editRights')}
+			{if extMgr_hasRighsConfig($extKey) && allowed('sysmanager','extensions:rights')}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'rights')" class="rights">
 			{else}
 				class="rights disabled">
@@ -47,7 +47,7 @@
 		</a>
 
 		<a href="javascript:void(0)" title="records"
-			{if extMgr_hasRecords($extKey) && allowed('sysmanager','extensions.editRecords')}
+			{if extMgr_hasRecords($extKey) && allowed('sysmanager','extensions:records')}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'records')" class="records">
 			{else}
 				class="records disabled">
@@ -57,7 +57,7 @@
     </td>
     <td class="version">{$extInfo.version}</td>
 	<td class="download">
-		{restrict 'sysmanager' 'extensions.download'}
+		{restrict 'sysmanager' 'extensions:download'}
 		<a title="{Label sysmanager.extension.download}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
 			<span class="hidden">{Label file.download}</span>
 		</a>
@@ -65,7 +65,7 @@
 	</td>
 	<td class="doc">
 		<a title="{Label sysmanager.documentation}" class="icon doc" href="javascript:void(0)">
-			<span class="hidden">{Label sysmanager.documentation}</span>
+			<span class="hidden">{Label sysmanager:documentation}</span>
 		</a>
 	</td>
 	<td class="state">{$extInfo.state}</td>

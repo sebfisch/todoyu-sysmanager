@@ -2,19 +2,19 @@
 <rights>
 	
 	<section name="general">
-		<right name="extensions.use" />
-		<right name="allrecords.use" />
+		<right name="extensions" />
+		<right name="allrecords" />
 	</section>
 	
-	<section key="extensions">
-		<right name="extensions.info" />
-		<right name="extensions.config" />
-		<right name="extensions.rights" />
-		<right name="extensions.records" />
-		<right name="extensions.install" />
-		<right name="extensions.uninstall" />
-		<right name="extensions.update" />
-		<right name="extensions.download" />
+	<section key="extensions" require="extensions">
+		<right name="extensions:info" />
+		<right name="extensions:config" />
+		<right name="extensions:rights" />
+		<right name="extensions:records" />
+		<right name="extensions:install" />
+		<right name="extensions:uninstall" />
+		<right name="extensions:update" />
+		<right name="extensions:download" />
 	</section>
 		
 </rights>
