@@ -35,21 +35,26 @@ class TodoyuRightsEditorRenderer {
 	 * @return	String	HTML
 	 */
 	public static function renderExtRightsEditor($extKey) {
+		if( ! TodoyuRightsEditorManager::hasRightsConfig($extKey) ) {
+			return self::renderNoRightsInfo($extKey);
+		}
+
 			// Usergroups
 		$usergroups	= TodoyuUsergroupManager::getAllUsergroups();
 		$reform		= array(
 			'id'	=> 'value',
 			'title'	=> 'label'
 		);
-		$groupOptions = TodoyuArray::reform($usergroups, $reform);
+//		$groupOptions = TodoyuArray::reform($usergroups, $reform);
 
+		$tmpl	= 'ext/sysmanager/view/rightseditor.tmpl';
 		$data	= array(
 			'usergroups'=> $usergroups,
 			'matrix'	=> self::renderRightsMatrix($extKey),
 			'extKey'	=> $extKey
 		);
 
-		return render('ext/sysmanager/view/rightseditor.tmpl', $data);
+		return render($tmpl, $data);
 	}
 
 
@@ -60,8 +65,6 @@ class TodoyuRightsEditorRenderer {
 	 * @return	String
 	 */
 	private static function renderGroupSelector() {
-
-
 		foreach($options as $key => $option) {
 			$options[$key]['selected'] = true;
 		}
@@ -89,11 +92,6 @@ class TodoyuRightsEditorRenderer {
 	 * @return	String
 	 */
 	public static function renderRightsMatrix($ext, array $groups = array(), $useDefaults = false) {
-
-		if( ! TodoyuRightsEditorManager::hasRightsConfig($ext) ) {
-			return self::renderNoRightsInfo($ext);
-		}
-
 			// Read rights XML file
 		$rights		= TodoyuRightsEditorManager::readExtRights($ext);
 
@@ -130,9 +128,11 @@ class TodoyuRightsEditorRenderer {
 	 * @param	String		$ext
 	 * @return	String
 	 */
-	private static function renderNoRightsInfo($ext) {
+	public static function renderNoRightsInfo($ext) {
+		$tmpl	= 'ext/sysmanager/view/rights-not-available.tmpl';
+		$data	= array();
 
-		return '<p>No rights defined in config/rights.xml</p>';
+		return render($tmpl, $data);
 	}
 
 }

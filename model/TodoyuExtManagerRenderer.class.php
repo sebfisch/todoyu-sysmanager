@@ -146,10 +146,13 @@ class TodoyuExtManagerRenderer {
 	public static function renderInfo($extKey, array $params = array()) {
 		$info	= TodoyuExtManager::getExtInfos($extKey);
 
-		$data			= array('ext' => $info);
-		$data['extKey']	= $extKey;
+		$tmpl	= 'ext/sysmanager/view/extension-info.tmpl';
+		$data	= array(
+			'ext' 	=> $info,
+			'extKey'=> $extKey
+		);
 
-		return render('ext/sysmanager/view/extension-info.tmpl', $data);
+		return render($tmpl, $data);
 	}
 
 
@@ -175,7 +178,6 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderRights($extKey, array $params = array()) {
-
 		return TodoyuRightsEditorRenderer::renderExtRightsEditor($extKey);
 	}
 

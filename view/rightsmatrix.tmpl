@@ -29,7 +29,7 @@
 				<td class="label">
 					<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Rights.toggleRight('{$right.right}')" title="{$right.comment}">{$right.label}</a>
 					{if sizeof($right.require) > 0 }
-						<span class="require" title="{implode(', ', $right.require)}"></span>
+						<span class="require" title="{Label sysmanager.rights.require}: {implode(', ', $right.require)}"></span>
 					{/if}
 				</td>
 				{foreach reverse($groups) key group grouprights}
