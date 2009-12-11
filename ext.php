@@ -28,8 +28,6 @@
 
 
 
-
-
 	// Declare ext ID, path
 define('EXTID_SYSMANAGER', 118);
 define('PATH_EXT_SYSMANAGER', PATH_EXT . '/sysmanager');
