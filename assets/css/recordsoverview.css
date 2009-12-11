@@ -24,6 +24,14 @@ table.recordsoverview {
 		width:50px;
 	}
 	
+	.recordsoverview tr.odd td{
+		background-color: #f9f9f9;
+	}
+	
+	.recordsoverview tr.even td{
+		background-color: #f3f3f3;
+	}
+	
 		/* Column configs */
 	.recordsoverview td.icon {
 		background:url(../img/icons.png) no-repeat 6px -534px;	

@@ -3,7 +3,7 @@
 
 	<ul id="record-type-list">
 	{foreach $types type}
-			<li class="{cycle value="odd,even"}">
+			<li class="{cycle values='odd,even'}">
 				<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Records.showTypeRecords('{$extKey}', '{$type.type}')">
 					{$type.label} ({$type.count})
 				</a>
