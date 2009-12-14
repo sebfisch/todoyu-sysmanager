@@ -11,13 +11,13 @@
   	<td class="extkey">{$extKey}</td>
     <td class="title">{htmlencode Label(cat($extKey '.ext.title'))}</td>
     <td class="edit">
-    	{restrict 'sysmanager' 'extensions.uninstall'}
+    	{if allowed('sysmanager','extensions.uninstall') && !extMgr_isSysExt($extKey)}
     	<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.uninstall('{$extKey}')" title="{Label sysmanager.extension.uninstallExtension}" class="uninstall">
     		<span class="hidden">{Label core.uninstall}<span>
     	</a>
 		{else}
 		<span class="icon">&nbsp;</span>
-		{/restrict}
+		{/if}
 
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.showInfo}"
 			{if extMgr_hasExtInfo($extKey) && allowed('sysmanager','extensions:info')}

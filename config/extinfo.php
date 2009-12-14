@@ -33,19 +33,15 @@ $CONFIG['EXT']['sysmanager']['info'] = array(
 		'email'		=> 'ferni@snowflake.ch',
 		'company'	=> 'Snowflake Productions, Zürich'
 	),
-	'dependencies' 		=> 'sfpjs,sfpcss',
-	'conflicts'			=> '',
-	'state' 			=> 'beta',
+	'state' 			=> 'stable',
 	'version' => '0.1.0',
 	'constraints' => array(
 		'depends' => array(
-			'sfpjs' => '3.8.0',
-			'sfpcss' => '2.7.1',
+
 		),
 		'conflicts' => array(
 		),
-		'suggests' => array(
-		),
+		'system'	=> true
 	),
 );
 

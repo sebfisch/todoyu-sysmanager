@@ -126,6 +126,20 @@ class TodoyuExtManager {
 
 
 	/**
+	 * Check if an extension is a system extension
+	 *
+	 * @param	String		$extKey
+	 * @return	Bool
+	 */
+	public static function isSysExt($extKey) {
+		$extInfos	= self::getExtInfos($extKey);
+
+		return $extInfos['constraints']['system'] === true;
+	}
+
+
+
+	/**
 	 * Add record config for automatic record editing in admin extension manager
 	 *
 	 * @param	String		$extKey
