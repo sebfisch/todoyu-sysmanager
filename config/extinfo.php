@@ -35,8 +35,8 @@ $CONFIG['EXT']['sysmanager']['info'] = array(
 	),
 	'dependencies' 		=> 'sfpjs,sfpcss',
 	'conflicts'			=> '',
-	'state' 			=> 'stable',
-	'version' => '1.36.1',
+	'state' 			=> 'beta',
+	'version' => '0.1.0',
 	'constraints' => array(
 		'depends' => array(
 			'sfpjs' => '3.8.0',
