@@ -13,7 +13,7 @@
 		<label index="right.extensions:install">Install Extensions</label>
 		<label index="right.extensions:download">Download Extension Archive</label>
 		<label index="right.extensions:update">Update Extensions</label>
-		
+
 	</labels>
 	<labels lang="de">
 		<label index="section.general">Allgemeine Einstellungen</label>
@@ -28,6 +28,5 @@
 		<label index="right.extensions:install">Erweiterungen installieren</label>
 		<label index="right.extensions:download">Erweiterung als Archiv herunterladen</label>
 		<label index="right.extensions:update">Erweiterungen aktualisieren</label>
-		
 	</labels>
 </locallang>
