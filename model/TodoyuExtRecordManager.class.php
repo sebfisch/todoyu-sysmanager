@@ -54,7 +54,7 @@ class TodoyuExtRecordManager {
 		$form->addFieldset('save', $saveButtons);
 
 			// Load record data
-		$data	= array();
+		$data	= $form->getFormData();
 
 		if( $idRecord !== 0 ) {
 			if( ! empty($config['object']) )	{
