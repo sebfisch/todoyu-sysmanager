@@ -1,11 +1,11 @@
 /* Extension : Config */
 
 #content .noExtConf {
-	padding: 20px;
-	display: block;
-	clear: both; 
-	font-weight: bold;
-	font-size: 16px;
+	padding:20px;
+	display:block;
+	clear:both; 
+	font-weight:bold;
+	font-size:16px;
 }
 
 table.extInfo {
