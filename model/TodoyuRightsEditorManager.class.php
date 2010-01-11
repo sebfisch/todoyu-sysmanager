@@ -81,11 +81,9 @@ class TodoyuRightsEditorManager {
 		foreach($xml->section as $section) {
 			$sectionName	= (string)$section['name'];
 
-//			TodoyuDebug::printHtml($section);
-
 			$data[$sectionName] = array();
 
-			$data[$sectionName]['label']	= TodoyuLocale::getLabel($localeKey . '.section.' . $sectionName);
+			$data[$sectionName]['label']	= TodoyuLocale::getLabel($localeKey . '.' . $sectionName);
 			$data[$sectionName]['rights']	= array();
 
 			if( $section['require'] ) {
@@ -100,8 +98,9 @@ class TodoyuRightsEditorManager {
 
 				$data[$sectionName]['rights'][$rightName] = array(
 					'right'		=> $rightName,
-					'label'		=> TodoyuLocale::getLabel($localeKey . '.right.' . $rightName),
-					'comment'	=> TodoyuLocale::getLabelIfExists($localeKey . '.right.' . $rightName . '.comment'),
+					'full'		=> $sectionName . ':' . $rightName,
+					'label'		=> TodoyuLocale::getLabel($localeKey . '.' . $sectionName . '.' . $rightName),
+					'comment'	=> TodoyuLocale::getLabelIfExists($localeKey . '.' . $sectionName . '.' . $rightName . '.comment'),
 					'require'	=> array()
 				);
 
@@ -110,8 +109,6 @@ class TodoyuRightsEditorManager {
 				$data[$sectionName]['rights'][$rightName]['require'] = array_merge($sectionRequire, $rightRequire);
 			}
 		}
-
-//		TodoyuDebug::printHtml($data);
 
 		return $data;
 	}
@@ -150,9 +147,9 @@ class TodoyuRightsEditorManager {
 	public static function extractRequiredInfos(array $rightsConfig) {
 		$require = array();
 
-		foreach($rightsConfig as $section) {
+		foreach($rightsConfig as $sectionName => $section) {
 			foreach($section['rights'] as $right) {
-				$require[$right['right']] = $right['require'];
+				$require[$sectionName . ':' . $right['right']] = $right['require'];
 			}
 		}
 
@@ -235,40 +232,6 @@ class TodoyuRightsEditorManager {
 	}
 
 
-
-	/**
-	 * Get default rights defined in the rights.xml for the fixed groups
-	 *
-	 * @param	Array		$rights		XML rights structure
-	 * @return	Array		Active rights. Format: [RIGHT][GROUP] = true
-	 */
-	public static function getDefaultActiveRights(array $rights) {
-		$fixed		= TodoyuUsergroupManager::getFixedUserGroups();
-		$mapping	= array();
-
-			// Map keys to current IDs in the database
-		foreach($fixed as $fix) {
-			$mapping[$fix['key']] = $fix['id'];
-		}
-
-		$activeRights = array();
-
-		foreach($rights as $section) {
-			foreach($section['rights'] as $right) {
-				if( is_array($right['default']) ) {
-					$activeRights[$right['right']] = array();
-					foreach($right['default'] as $defaultFixGroup) {
-						$activeRights[$right['right']][$mapping[$defaultFixGroup]] = true;
-					}
-				}
-			}
-		}
-
-		return $activeRights;
-	}
-
-
-
 	/**
 	 * Get custom set
 	 *
@@ -279,8 +242,6 @@ class TodoyuRightsEditorManager {
 	public static function getCurrentActiveRights(array $rights, $ext) {
 		$groupRights= TodoyuRightsManager::getExtGroupRights($ext);
 
-//		TodoyuDebug::printInFirebug($groupRights);
-
 		$activeRights = array();
 
 		foreach($groupRights as $idGroup => $rightKeys) {
@@ -288,6 +249,8 @@ class TodoyuRightsEditorManager {
 				$activeRights[$rightKey][$idGroup] = true;
 			}
 		}
+
+//		TodoyuDebug::printHtml($activeRights);
 
 		return $activeRights;
 	}

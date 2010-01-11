@@ -20,11 +20,11 @@
 ***************************************************************/
 
 	// Add extension manager
-if( allowed('sysmanager', 'extensions') ) {
+if( allowed('sysmanager', 'general:extensions') ) {
 	TodoyuAdminManager::addModule('extensions', 'LLL:sysmanager.menu.extensions', 'TodoyuExtManagerRenderer::renderModule', 50, array('sysmanager', 'public'));
 }
 
-if( allowed('sysmanager', 'allrecords') ) {
+if( allowed('sysmanager', 'general:allrecords') ) {
 		// Add records manager
 	TodoyuAdminManager::addModule('records', 'LLL:sysmanager.menu.allRecords', 'TodoyuRecordsOverviewRenderer::renderModule', 60, array('sysmanager', 'public'));
 }

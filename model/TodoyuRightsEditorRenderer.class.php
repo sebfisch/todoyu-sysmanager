@@ -88,10 +88,9 @@ class TodoyuRightsEditorRenderer {
 	 *
 	 * @param	String		$ext			Extension key
 	 * @param	Array		$groups			Groups to display
-	 * @param	Bool		$useDefaults	Use the default values defined in the XML (current rights won't override the defaults)
 	 * @return	String
 	 */
-	public static function renderRightsMatrix($ext, array $groups = array(), $useDefaults = false) {
+	public static function renderRightsMatrix($ext, array $groups = array()) {
 			// Read rights XML file
 		$rights		= TodoyuRightsEditorManager::readExtRights($ext);
 
@@ -102,11 +101,8 @@ class TodoyuRightsEditorRenderer {
 		$groups		= TodoyuRightsEditorManager::getGroupInfos($groups);
 
 			// Get current checked rights (default or db)
-		if( $useDefaults === true ) {
-			$activeRights = TodoyuRightsEditorManager::getDefaultActiveRights($rights);
-		} else {
-			$activeRights = TodoyuRightsEditorManager::getCurrentActiveRights($rights, $ext);
-		}
+		$activeRights = TodoyuRightsEditorManager::getCurrentActiveRights($rights, $ext);
+
 
 		$tmpl	= 'ext/sysmanager/view/rightsmatrix.tmpl';
 		$data	= array(

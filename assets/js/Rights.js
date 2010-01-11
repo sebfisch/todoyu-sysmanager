@@ -56,9 +56,13 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * Check dependencies for all rights
 	 */
 	initDependents: function() {
-		this.require.each(function(require){
-			this.checkDependents(require.key);
-		}.bind(this));
+		var groups	= this.getGroups();
+		
+		this.require.each(function(groups, require){
+			groups.each(function(require, idGroup){
+				this.checkDependents(require.key, idGroup);
+			}.bind(this, require));			
+		}.bind(this, groups));
 	},
 	
 	
@@ -100,10 +104,21 @@ Todoyu.Ext.sysmanager.Rights = {
 	 */
 	onRightChange: function(event) {
 		var info	= event.element().id.split('-');
-		var right 	= info.first();
+		var right 	= info.slice(0,-1).join(':'); //first();
 		var idGroup	= info.last();
 		
-		this.checkDependents(right);
+		this.checkDependents(right, idGroup);
+	},
+	
+	
+	/**
+	 * Get checkbox element
+	 * 
+	 * @param	String		right
+	 * @param	Integer		idGroup
+	 */
+	checkbox: function(right, idGroup) {
+		return $(right.replace(/:/, '-') + '-' + idGroup);
 	},
 	
 	
@@ -146,7 +161,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @param	Bool		check
 	 */
 	checkRight: function(right, idGroup, check) {
-		$(right + '-' + idGroup).checked = check;
+		this.checkbox(right, idGroup).checked = check;
 	},
 	
 	
@@ -158,7 +173,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @param	Integer		idGroup
 	 */
 	isRightChecked: function(right, idGroup) {
-		return $(right + '-' + idGroup).checked;
+		return this.checkbox(right, idGroup).checked;
 	},
 	
 	
@@ -171,7 +186,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @param	Bool		enable
 	 */
 	enableRight: function(right, idGroup, enable) {
-		$(right + '-' + idGroup).disabled = enable === false;
+		this.checkbox(right, idGroup).disabled = enable === false;
 	},
 	
 	
@@ -183,7 +198,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @param	Integer		idGroup
 	 */
 	isRightEnabled: function(right, idGroup) {
-		return $(right + '-' + idGroup).disabled !== true;
+		return this.checkbox(right, idGroup).disabled !== true;
 	},
 	
 	
@@ -237,11 +252,11 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * 
 	 * @param	String		right
 	 */
-	checkDependents: function(right) {
-		var groups		= this.getGroups();
+	checkDependents: function(right, idGroup) {
+		//var groups		= this.getGroups();
 		var dependents	= this.getDependents(right);
 		
-		this.getGroups().each(function(right, idGroup){
+		//this.getGroups().each(function(right, idGroup){
 				// Check if right is active
 			var active = this.isRightActive(right, idGroup);
 				// Loop over all rights which depend on this right
@@ -257,7 +272,7 @@ Todoyu.Ext.sysmanager.Rights = {
 					this.enableRight(depRight, idGroup, false);
 				}
 			}.bind(this, active, idGroup));
-		}.bind(this, right));
+		//}.bind(this, right));
 	},
 	
 	
@@ -301,8 +316,8 @@ Todoyu.Ext.sysmanager.Rights = {
 	 *
 	 *	@param	String	right
 	 */
-	toggleRight: function(right) {
-		var checkboxes	= $('right-' + right).select('input').findAll(function(input){
+	toggleRight: function(right) {		
+		var checkboxes	= $('right-' + right.replace(/:/, '-')).select('input').findAll(function(input){
 			return input.disabled === false;
 		});
 				
@@ -320,7 +335,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	 *	@param	String	idGroup
 	 */
 	toggleGroup: function(idGroup) {
-		var checkboxes= $('rightseditor-rightsform').select('input[id$='+idGroup+']');
+		var checkboxes= $('rightseditor-rightsform').select('input[id$=-'+idGroup+']');
 
 			// Toggle the checkboxes
 		this.toggleCheckboxes(checkboxes);
