@@ -22,7 +22,3 @@ table.extInfo {
 	table.extInfo th.value {
 		width:538px;
 	}
-	
-	table.extInfo tr.even {
-		background-color:#f7f7f7;
-	}

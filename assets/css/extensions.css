@@ -6,14 +6,6 @@
 	margin-top:6px;
 }
 
-.extlist tr.odd {}
-.extlist tr.even {
-	background-color:#f3f3f3;
-}
-.extlist tr:hover {
-	background-color:#f2f2d2;
-}
-
 	/* list columns */
 .extlist th.icon {
 	width:20px;
