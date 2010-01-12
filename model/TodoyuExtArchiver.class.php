@@ -21,7 +21,7 @@
 
 /**
  * Extension archiver
- * Pack a whole extension into a txa archive file
+ * Pack a whole extension into a zip archive file
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
@@ -35,7 +35,7 @@ class TodoyuExtArchiver {
 	 * @return	String		Path to archive in cache
 	 */
 	public static function createExtensionArchive($extKey) {
-		$randomFile	= md5(uniqid($extKey, microtime(true))) . '.txa';
+		$randomFile	= md5(uniqid($extKey, microtime(true))) . '.zip';
 		$tempPath	= TodoyuFileManager::pathAbsolute('cache/downloads/' . $randomFile);
 		$extPath	= TodoyuExtensions::getExtPath($extKey);
 		$archive	= new ZipArchive();

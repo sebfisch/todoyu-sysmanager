@@ -158,7 +158,7 @@ class TodoyuExtInstaller {
 		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
 		$version	= TodoyuDiv::getVersionInfo($extInfo['version']);
 
-		$fileName	= 'TXA_' . $extKey . '_' . $version['major'] . '-' . $version['minor'] . '-' . $version['revision'] . '_' . date('YmdHis') . '.txa';
+		$fileName	= 'TXA_' . $extKey . '_' . $version['major'] . '-' . $version['minor'] . '-' . $version['revision'] . '_' . date('YmdHis') . '.zip';
 		$filesize	= filesize($archivePath);
 
 		TodoyuHeader::sendHeader('Content-type', 'application/octet-stream');
