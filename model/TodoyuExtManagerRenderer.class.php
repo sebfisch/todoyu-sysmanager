@@ -25,22 +25,36 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-
 class TodoyuExtManagerRenderer {
 
 	/**
-	 * Render extension management module
+	 * Render extension management module content
 	 *
 	 * @param	Array		$params		All request params
 	 * @return	String
 	 */
-	public static function renderModule(array $params) {
+	public static function renderModuleContent(array $params) {
 		restrict('sysmanager', 'general:extensions');
 
 		$extKey	= $params['extkey'];
 		$tab	= $params['tab'];
 
 		return self::renderTabView($extKey, $tab, $params);
+	}
+
+
+
+	/**
+	 * Render extension manager tabs
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	public static function renderModuleTabs(array $params) {
+		$extKey	= $params['extkey'];
+		$tab	= $params['tab'];
+
+		return self::renderTabs($extKey, $tab);
 	}
 
 
