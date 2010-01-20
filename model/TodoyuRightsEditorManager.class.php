@@ -75,7 +75,7 @@ class TodoyuRightsEditorManager {
 		$labelFile	= TodoyuExtensions::getExtPath($extKey) . '/locale/rights.xml';
 
 			// Register locale file for rights
-		TodoyuLocale::register($localeKey, $labelFile);
+		TodoyuLanguage::register($localeKey, $labelFile);
 
 			// Load sections
 		foreach($xml->section as $section) {
@@ -83,7 +83,7 @@ class TodoyuRightsEditorManager {
 
 			$data[$sectionName] = array();
 
-			$data[$sectionName]['label']	= TodoyuLocale::getLabel($localeKey . '.' . $sectionName);
+			$data[$sectionName]['label']	= TodoyuLanguage::getLabel($localeKey . '.' . $sectionName);
 			$data[$sectionName]['rights']	= array();
 
 			if( $section['require'] ) {
@@ -99,8 +99,8 @@ class TodoyuRightsEditorManager {
 				$data[$sectionName]['rights'][$rightName] = array(
 					'right'		=> $rightName,
 					'full'		=> $sectionName . ':' . $rightName,
-					'label'		=> TodoyuLocale::getLabel($localeKey . '.' . $sectionName . '.' . $rightName),
-					'comment'	=> TodoyuLocale::getLabelIfExists($localeKey . '.' . $sectionName . '.' . $rightName . '.comment'),
+					'label'		=> TodoyuLanguage::getLabel($localeKey . '.' . $sectionName . '.' . $rightName),
+					'comment'	=> TodoyuLanguage::getLabelIfExists($localeKey . '.' . $sectionName . '.' . $rightName . '.comment'),
 					'require'	=> array()
 				);
 
