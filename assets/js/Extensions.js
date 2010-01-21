@@ -48,7 +48,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 			options.parameters = $H(options.parameters).merge(params).toObject();
 		}
 
-		Todoyu.Ui.updateContent(url, options);
+		Todoyu.Ui.updateContentBody(url, options);
 	},
 
 
