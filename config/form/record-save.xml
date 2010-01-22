@@ -6,7 +6,9 @@
 
 	<fieldsets>
 
-		<fieldset name="save">
+		<fieldset name="buttons">
+			<legend>Actions</legend>
+			<class>buttons</class>
 			<elements>
 
 				<field type="saveButton" name="save">

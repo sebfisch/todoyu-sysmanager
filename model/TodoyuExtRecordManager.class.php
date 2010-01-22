@@ -48,10 +48,10 @@ class TodoyuExtRecordManager {
 			// Save buttons form
 		$xmlPath	= 'ext/sysmanager/config/form/record-save.xml';
 		$saveForm	= TodoyuFormManager::getForm($xmlPath);
-		$saveButtons= $saveForm->getFieldset('save');
+		$saveButtons= $saveForm->getFieldset('buttons');
 
 			// Add save buttons
-		$form->addFieldset('save', $saveButtons);
+		$form->addFieldset('buttons', $saveButtons);
 
 			// Load record data
 		$data	= $form->getFormData();
