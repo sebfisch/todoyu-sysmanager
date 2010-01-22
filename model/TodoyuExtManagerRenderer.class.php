@@ -68,36 +68,34 @@ class TodoyuExtManagerRenderer {
 	 * @return	String		HTML content for tabbed view
 	 */
 	public static function renderTabView($extKey = null, $tab = null, array $params = array()) {
-		$content	= self::renderTabs($extKey, $tab);
-
 		switch($tab) {
 
 			case 'info':
-				$content .= self::renderInfo($extKey, $params);
+				$content = self::renderInfo($extKey, $params);
 				break;
 
 			case 'config':
-				$content .= self::renderConfig($extKey, $params);
+				$content = self::renderConfig($extKey, $params);
 				break;
 
 			case 'rights':
-				$content .= self::renderRights($extKey, $params);
+				$content = self::renderRights($extKey, $params);
 				break;
 
 			case 'records':
-				$content .= self::renderRecords($extKey, $params);
+				$content = self::renderRecords($extKey, $params);
 				break;
 
 			case 'install':
-				$content .= self::renderInstall($params);
+				$content = self::renderInstall($params);
 				break;
 
 			case 'update':
-				$content .= self::renderUpdate($params);
+				$content = self::renderUpdate($params);
 				break;
 
 			default:
-				$content .=self::renderList($params);
+				$content =self::renderList($params);
 				break;
 		}
 
