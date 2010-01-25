@@ -31,7 +31,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		$extKey	= $params['extension'];
 		$tab	= $params['tab'];
 
-		return TodoyuExtManagerRenderer::renderTabView($extKey, $tab, $params);
+		return TodoyuExtManagerRenderer::renderContent($params); //($extKey, $tab, $params);
 	}
 
 

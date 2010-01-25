@@ -103,6 +103,17 @@ class TodoyuExtManagerRenderer {
 	}
 
 
+	public static function renderContent(array $params) {
+		$tmpl	= 'core/view/content.tmpl';
+		$data	= array(
+			'tabs'	=> self::renderModuleTabs($params),
+			'body'	=> self::renderModuleContent($params)
+		);
+
+		return render($tmpl, $data);
+	}
+
+
 
 	/**
 	 * Render tabs based on current settings

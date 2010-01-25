@@ -13,11 +13,11 @@
 				<field type="saveButton" name="save">
 					<type>submit</type>
 				</field>
-
+<!--
 				<field type="cancelButton" name="cancel">
 					<onclick>this.form.reset()</onclick>
 				</field>
-
+-->
 			</elements>
 
 		</fieldset>

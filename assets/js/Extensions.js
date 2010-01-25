@@ -37,9 +37,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 		var options	= {
 			'parameters': {
-				'action':		'tabview',
-				'tab':			tab,
-				'extension':	extKey
+				'action':	'tabview',
+				'tab':		tab,
+				'extkey':	extKey
 			},
 			'onComplete': this.onTabShowed.bind(this, extKey, tab, params)
 		};
@@ -48,7 +48,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 			options.parameters = $H(options.parameters).merge(params).toObject();
 		}
 
-		Todoyu.Ui.updateContentBody(url, options);
+		Todoyu.Ui.updateContent(url, options);
 	},
 
 
