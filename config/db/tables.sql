@@ -3,7 +3,7 @@
 --
 
 CREATE TABLE `ext_sysmanager_extension` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `date_create` int(10) unsigned NOT NULL default '0',
   `date_update` int(10) unsigned NOT NULL,
   `ext` smallint(5) unsigned NOT NULL,
