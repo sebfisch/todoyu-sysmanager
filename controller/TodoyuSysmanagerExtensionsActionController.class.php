@@ -92,6 +92,21 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		TodoyuExtInstaller::downloadExtension($extKey);
 	}
 
+
+
+	/**
+	 * (Re)load main navi
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
+	public static function reloadmainnaviAction(array $params) {
+			// Initialize page object
+		TodoyuPage::init('');
+
+		return TodoyuRenderer::renderNavigation();
+	}
+
 }
 
 ?>

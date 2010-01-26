@@ -20,18 +20,22 @@
 
 Todoyu.Ext.sysmanager.Extensions = {
 
-
+	/**
+	 * Show extension list in systmanager
+	 */
 	showList: function() {
 		this.showTab();
+		this.activateTab('list');
 	},
-	
+
+
 
 	/**
 	 * Show given extension tab in sysmanager
 	 *
-	 *	@param	String	extKey
-	 *	@param	String	tab
-	 *	@param	Object	params
+	 * @param	String	extKey
+	 * @param	String	tab
+	 * @param	Object	params
 	 */
 	showTab: function(extKey, tab, params) {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
@@ -54,9 +58,18 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 
 	/**
+	 * Activate given tab in admin area
+	 */
+	activateTab: function(tab) {
+		Todoyu.Tabs.setActive('exttab-none-' + tab);		
+	},
+
+
+
+	/**
 	 * Evoked upon completion of loading of tab
 	 *
-	 *	@todo	complete or remove
+	 * @todo	complete or remove
 	 */
 	onTabShowed: function(extKey, tab, params) {
 		
@@ -67,8 +80,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * On tab click handler
 	 *
-	 *	@param	Ojbect	event
-	 *	@param	String	tabKey
+	 * @param	Ojbect	event
+	 * @param	String	tabKey
 	 */
 	onTabClick: function(event, tabKey) {
 		var li		= event.findElement('li');
@@ -86,7 +99,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Evoke installation of given extension
 	 * 
-	 * 	@param	String	extKey 
+	 * @param	String	extKey 
 	 */
 	install: function(extKey) {
 		if( confirm('[LLL:sysmanager.extensions.install.confirm]') ) {
@@ -96,28 +109,41 @@ Todoyu.Ext.sysmanager.Extensions = {
 					'action':		'install',
 					'extension':	extKey
 				},
-				'onComplete': this.onInstalled.bind(this, extKey)				
+				'onComplete': this.onInstalled.bind(this, extKey)
 			}
-			
-			Todoyu.send(url, options);		
+
+			Todoyu.send(url, options);
 		}	
 	},
 
 
 
 	/**
-	 *	@todo	comment
+	 * Handler to be called after ext. installation.
+	 * Shows list of extensions and installation response notification
+	 * 
+	 * @param	String	extKey
+	 * @param	Object	response
 	 */
 	onInstalled: function(extKey, response) {
-		this.showList();
-		Todoyu.notifySuccess('Extension sucessfully installed: ' + response.responseText);
-		
+			// Reload main navi, init notification to be shown after
+		var url				= Todoyu.getUrl('sysmanager', 'extensions');
+		var notification	= 'Extension sucessfully installed: ' + response.responseText;
+
+		var options	= {
+			'parameters': { 'action': 'reloadmainnavi' },
+			'onComplete': this.onNaviReloadedAfterUnAndInstall.bind(this, notification)
+		};
+		var target	= 'navi-main';
+		Todoyu.Ui.update(target, url, options);
 	},
 
 
 
 	/**
-	 *	@todo	comment
+	 * Evoke deinstallation of given extension
+	 * 
+	 * @param	String	extKey
 	 */
 	uninstall: function(extKey) {
 		if( confirm('[LLL:sysmanager.extensions.uninstall.confirm]') ) {
@@ -127,31 +153,53 @@ Todoyu.Ext.sysmanager.Extensions = {
 					'action':		'uninstall',
 					'extension':	extKey
 				},
-				'onComplete': this.onUninstalled.bind(this, extKey)				
+				'onComplete': this.onUninstalled.bind(this, extKey)
 			}
 			
-			Todoyu.send(url, options);		
+			Todoyu.send(url, options);
 		}		
 	},
 
 
 
 	/**
-	 *	@todo	comment
+	 * Handler to be called after ext. deinstallation.
+	 * Show notification of deinstallation success / failure
+	 *
+	 * @param	String	extKey
+	 * @param	Object	response
 	 */
 	onUninstalled: function(extKey, response) {
 		if( response.hasTodoyuError() ) {
 			Todoyu.notifyError(response.responseText, 0);
 		} else {
-			Todoyu.notifySuccess(response.responseText);
-			this.showList();
-		}	
+				// Reload main navi, init notification to be shown after
+			var url		= Todoyu.getUrl('sysmanager', 'extensions');
+			var options	= {
+				'parameters': { 'action': 'reloadmainnavi' },
+				'onComplete': this.onNaviReloadedAfterUnAndInstall.bind(this, response.responseText)
+			};
+			var target	= 'navi-main';
+			Todoyu.Ui.update(target, url, options);
+		}
+	},
+
+
+	
+	/**
+	 * Handler being called after main navi is reload after successful un- / install, shows given notification and extension list
+	 * 
+	 * @param	String	notification
+	 */
+	onNaviReloadedAfterUnAndInstall: function(notification) {
+		Todoyu.notifySuccess(notification);
+		this.showList();
 	},
 
 
 
 	/**
-	 * @todo	comment
+	 * Display extension import form
 	 */
 	showImportForm: function() {
 		Effect.BlindDown('extension-import-form');
@@ -160,7 +208,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 
 	/**
-	 * 	@todo	comment
+	 * Download given extension
+	 *
+	 * @param	String	extKey
 	 */
 	download: function(extKey) {
 		Todoyu.goTo('sysmanager', 'extensions', {
