@@ -2,6 +2,15 @@
 <locallang>
 	<labels lang="en">
 		<label index="ext.title">System Manager</label>
+		<label index="tabs.extensions">Extensions</label>
+		<label index="tabs.extensions.back">Show Extension List</label>
+		<label index="tabs.info">Info</label>
+		<label index="tabs.config">Config</label>
+		<label index="tabs.rights">Rights</label>
+		<label index="tabs.records">Records</label>
+		<label index="tabs.install">Install</label>
+		<label index="records.title.recordTypes">Recordtypes of extension</label>
+		<label index="records.noTypes">This extension has no records</label>
 		<label index="ext.extensionKey">Extension Key</label>
 		<label index="ext.extKey">Ext-Key</label>
 		<label index="ext.version">Version / State</label>
@@ -33,6 +42,15 @@
 	</labels>
 	<labels lang="de">
 		<label index="ext.title">System-Verwaltung</label>
+		<label index="tabs.extensions">Erweiterungen</label>
+		<label index="tabs.extensions.back">Alle Erweiterungen</label>
+		<label index="tabs.info">Info</label>
+		<label index="tabs.config">Einstellungen</label>
+		<label index="tabs.rights">Rechte</label>
+		<label index="tabs.records">Datensätze</label>
+		<label index="tabs.install">Installieren</label>
+		<label index="records.title.recordTypes">Datensatztypen dieser Erweiterung</label>
+		<label index="records.noTypes">Diese Erweiterung hat keine Datensätze</label>
 		<label index="ext.extensionKey">Erweiterungsschlüssel</label>
 		<label index="ext.extKey">Ext-Key</label>
 		<label index="ext.version">Version / Status</label>

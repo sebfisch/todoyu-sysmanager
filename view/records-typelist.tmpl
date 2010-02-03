@@ -1,6 +1,6 @@
-<div id="list">
-	{Header "Recordtypes of extension"}
+{if $types}
 
+	{Header sysmanager.records.title.recordTypes}
 	<ul id="record-type-list" class="ulList withMouseHover">
 	{foreach $types type}
 			<li class="{cycle values='odd,even'}">
@@ -10,4 +10,11 @@
 			</li>
 	{/foreach}
 	</ul>
-</div>
+
+{else}
+
+	<div class="contentMessage">
+		{Label sysmanager.records.noTypes}
+	</div>
+
+{/if}

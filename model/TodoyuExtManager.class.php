@@ -46,7 +46,7 @@ class TodoyuExtManager {
 				'key'		=> 'list',
 				'classKey'	=> 'list',
 				'class'		=> '',
-				'label'		=> 'Extensions'
+				'label'		=> $extKey === '' ? Label('sysmanager.tabs.extensions') : Label('sysmanager.tabs.extensions.back')
 			)
 		);
 
@@ -58,7 +58,7 @@ class TodoyuExtManager {
 				'key'		=> 'info',
 				'classKey'	=> 'info',
 				'class'		=> '',
-				'label'		=> 'Info: ' . $extKey
+				'label'		=> Label('sysmanager.tabs.info') . ': ' . $extKey
 			);
 
 			if( $installed === true ) {
@@ -68,7 +68,7 @@ class TodoyuExtManager {
 					'key'		=> 'config',
 					'classKey'	=> 'config',
 					'class'		=> '',
-					'label'		=> 'Config'
+					'label'		=> Label('sysmanager.tabs.config')
 				);
 				$tabs[] = array(
 					'id'		=> 'rights',
@@ -76,7 +76,7 @@ class TodoyuExtManager {
 					'key'		=> 'rights',
 					'classKey'	=> 'rights',
 					'class'		=> '',
-					'label'		=> 'Rights'
+					'label'		=> Label('sysmanager.tabs.rights')
 				);
 				$tabs[] = array(
 					'id'		=> 'records',
@@ -84,29 +84,33 @@ class TodoyuExtManager {
 					'key'		=> 'records',
 					'classKey'	=> 'records',
 					'class'		=> '',
-					'label'		=> 'Records'
+					'label'		=> Label('sysmanager.tabs.records')
 				);
 			}
+		} else {
+			/*
+				// Update tab
+			$tabs[] = array(
+				'id'		=> 'update',
+				'htmlId'	=> 'exttab-none-update',
+				'key'		=> 'update',
+				'classKey'	=> 'update',
+				'class'		=> '',
+				'label'		=> 'Update'
+			);
+			*/
+				// Installer tab
+			$tabs[] = array(
+				'id'		=> 'install',
+				'htmlId'	=> 'exttab-none-install',
+				'key'		=> 'install',
+				'classKey'	=> 'install',
+				'class'		=> '',
+				'label'		=> 'Install'
+			);
 		}
 
-			// Update tab
-		$tabs[] = array(
-			'id'		=> 'update',
-			'htmlId'	=> 'exttab-none-update',
-			'key'		=> 'update',
-			'classKey'	=> 'update',
-			'class'		=> '',
-			'label'		=> 'Update'
-		);
-			// Installer tab
-		$tabs[] = array(
-			'id'		=> 'install',
-			'htmlId'	=> 'exttab-none-install',
-			'key'		=> 'install',
-			'classKey'	=> 'install',
-			'class'		=> '',
-			'label'		=> 'Install'
-		);
+
 
 		return $tabs;
 	}
