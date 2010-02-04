@@ -65,7 +65,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 			}
 		};
 		
-		Todoyu.Ui.replace('list', this.url, options);
+		Todoyu.Ui.updateContentBody(this.url, options);
 	},
 
 
@@ -132,7 +132,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 *	@param Integer	idRecord
 	 */
 	remove: function(extKey, type, idRecord)	{
-		if( confirm('Delete record?') ) {
+		if( confirm('[LLL:sysmanager.records.delete]') ) {
 			var options = {
 				'parameters': {
 					'action':	'delete',
@@ -197,10 +197,10 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 */
 	onSaved: function(form, extKey, type, response) {
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('Saving record failed');
+			Todoyu.notifyError('[LLL:sysmanager.records.saved.fail]');
 			$(form.id).update(response.responseText);
 		} else {
-			Todoyu.notifySuccess('Record saved');
+			Todoyu.notifySuccess('[LLL:sysmanager.records.saved]');
 			this.showTypeRecords(extKey, type);
 		}
 	},
