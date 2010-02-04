@@ -29,8 +29,8 @@ $CONFIG['EXT']['sysmanager']['info'] = array(
 	'description' 		=> 'New base class Todoyufor plugins, which brings a lot of new and useful functions.',
 	'category' 			=> 'fe',
 	'author' 			=> array(
-		'name'		=> 'Erni Fabian',
-		'email'		=> 'ferni@snowflake.ch',
+		'name'		=> 'Todoyu Core Team',
+		'email'		=> 'team@todoyu.com',
 		'company'	=> 'Snowflake Productions, Zürich'
 	),
 	'state' 			=> 'stable',
