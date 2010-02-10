@@ -27,7 +27,7 @@
 		{foreach $section.rights right}
 			<tr class="right" id="right-{$sectionName}-{$right.right}">
 				<td class="label">
-					<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Rights.toggleRight('{$sectionName}:{$right.right}')" title="{$right.comment}">{$right.label}</a>
+					<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Rights.toggleRight('{$sectionName}:{$right.right}')" title="{$right.comment} [{$sectionName}:{$right.right}]">{$right.label}</a>
 					{if sizeof($right.require) > 0 }
 						<span class="require" title="{Label sysmanager.rights.require}: {implode(', ', $right.require)}"></span>
 					{/if}
