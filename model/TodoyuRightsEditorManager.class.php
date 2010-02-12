@@ -187,8 +187,6 @@ class TodoyuRightsEditorManager {
 	public static function saveGroupRights($extKey, array $rights) {
 		$extID	= TodoyuExtensions::getExtID($extKey);
 
-//		TodoyuDebug::printInFirebug($rights, $extID);
-
 			// Delete all stored rights for this extension
 		TodoyuRightsManager::deleteExtensionRights($extID);
 
@@ -232,6 +230,7 @@ class TodoyuRightsEditorManager {
 	}
 
 
+
 	/**
 	 * Get custom set
 	 *
@@ -249,8 +248,6 @@ class TodoyuRightsEditorManager {
 				$activeRights[$rightKey][$idGroup] = true;
 			}
 		}
-
-//		TodoyuDebug::printHtml($activeRights);
 
 		return $activeRights;
 	}
@@ -279,6 +276,5 @@ class TodoyuRightsEditorManager {
 	}
 
 }
-
 
 ?>
