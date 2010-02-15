@@ -264,7 +264,7 @@ class TodoyuRightsEditorManager {
 		$groupIDs	= TodoyuArray::intval($groupIDs, true, true);
 
 		$fields	= 'id, title, is_active';
-		$table	= 'ext_user_group';
+		$table	= 'system_role';
 		$where	= 'deleted = 0';
 		$order	= 'is_active DESC, title';
 
