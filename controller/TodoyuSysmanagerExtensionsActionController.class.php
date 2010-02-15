@@ -69,7 +69,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 			TodoyuExtInstaller::uninstall($extKey);
 			$extInfos	= TodoyuExtManager::getExtInfos($extKey);
 
-			$message= 'Extension "' . htmlentities($extInfos['title']) . '" sucessfully uninstalled';
+			$message	= $extInfos['title'];
 		} else {
 			$message	= TodoyuExtInstaller::getUninstallFailReason($extKey);
 
@@ -90,21 +90,6 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		$extKey	= $params['extension'];
 
 		TodoyuExtInstaller::downloadExtension($extKey);
-	}
-
-
-
-	/**
-	 * (Re)load main navi
-	 *
-	 * @param	Array	$params
-	 * @return	String
-	 */
-	public static function reloadmainnaviAction(array $params) {
-			// Initialize page object
-		TodoyuPage::init('');
-
-		return TodoyuRenderer::renderNavigation();
 	}
 
 }

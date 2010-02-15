@@ -103,14 +103,18 @@ class TodoyuExtManagerRenderer {
 	}
 
 
-	public static function renderContent(array $params) {
-		$tmpl	= 'core/view/content.tmpl';
-		$data	= array(
-			'tabs'	=> self::renderModuleTabs($params),
-			'body'	=> self::renderModuleContent($params)
-		);
 
-		return render($tmpl, $data);
+	/**
+	 * Render whole extension view (tabs and content)
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	public static function renderContent(array $params) {
+		$tabs	= self::renderModuleTabs($params);
+		$body	= self::renderModuleContent($params);
+
+		return TodoyuRenderer::renderContent($body, $tabs);
 	}
 
 
