@@ -40,7 +40,7 @@ class TodoyuRightsEditorRenderer {
 		}
 
 			// Usergroups
-		$usergroups	= TodoyuRoleManager::getAllUsergroups();
+		$usergroups	= TodoyuRoleManager::getAllRoles();
 		$reform		= array(
 			'id'	=> 'value',
 			'title'	=> 'label'
