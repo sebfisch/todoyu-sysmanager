@@ -64,14 +64,12 @@ class TodoyuRecordsOverviewRenderer {
 	 * @return unknown
 	 */
 	public static function renderRecordlistTabs() {
-		$listID		= 'record-tabs';
-		$class		= 'tabs';
+		$name		= 'record';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.RecordsOverview.onTabSelect.bind(Todoyu.Ext.sysmanager.Records)';
 		$tabs		= self::getRecordlistTabs();
 		$active		= 'list';
 
-		return TodoyuTabheadRenderer::renderTabs($listID, $class, $jsHandler, $tabs, $active);
-
+		return TodoyuTabheadRenderer::renderTabs($listID, $tabs, $jsHandler, $active);
 	}
 
 
@@ -87,9 +85,6 @@ class TodoyuRecordsOverviewRenderer {
 
 		$tabs[] = array(
 			'id'		=> 'list',
-			'htmlId'	=> 'list',
-			'class'		=> 'recordstab',
-			'classKey'	=> 'list',
 			'label'		=> 'All extension records'
 		);
 

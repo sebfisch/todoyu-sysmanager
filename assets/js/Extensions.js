@@ -61,7 +61,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * Activate given tab in admin area
 	 */
 	activateTab: function(tab) {
-		Todoyu.Tabs.setActive('exttab-none-' + tab);
+		Todoyu.Tabs.setActive('exttab', tab);
 	},
 
 

@@ -127,8 +127,8 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderTabs($extKey = null, $active = null) {
-		$htmlID		= 'extension-tabs';
-		$class		= 'admin tabs';
+		$name		= 'extension';
+		$class		= 'admin';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Extensions.onTabClick.bind(Todoyu.Ext.sysmanager.Extensions)';
 		$tabs		= TodoyuExtManager::getTabConfig($extKey);
 
@@ -136,7 +136,7 @@ class TodoyuExtManagerRenderer {
 			$active = $tabs[0]['id'];
 		}
 
-		return TodoyuTabheadRenderer::renderTabs($htmlID, $class, $jsHandler, $tabs, $active);
+		return TodoyuTabheadRenderer::renderTabs($name, $tabs, $jsHandler, $active, $class);
 	}
 
 

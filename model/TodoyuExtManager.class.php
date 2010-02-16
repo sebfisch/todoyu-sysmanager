@@ -42,10 +42,6 @@ class TodoyuExtManager {
 		$tabs = array(
 			array(
 				'id'		=> 'list',
-				'htmlId'	=> 'exttab-none-list',
-				'key'		=> 'list',
-				'classKey'	=> 'list',
-				'class'		=> '',
 				'label'		=> $extKey === '' ? Label('sysmanager.tabs.extensions') : Label('sysmanager.tabs.extensions.back')
 			)
 		);
@@ -54,37 +50,21 @@ class TodoyuExtManager {
 		if( $extKey !== '' ) {
 			$tabs[] = array(
 				'id'		=> 'info',
-				'htmlId'	=> 'exttab-' . $extKey . '-info',
-				'key'		=> 'info',
-				'classKey'	=> 'info',
-				'class'		=> '',
 				'label'		=> Label('sysmanager.tabs.info') . ': ' . $extKey
 			);
 
 			if( $installed === true ) {
 				$tabs[] = array(
 					'id'		=> 'config',
-					'htmlId'	=> 'exttab-' . $extKey . '-config',
-					'key'		=> 'config',
-					'classKey'	=> 'config',
-					'class'		=> '',
-					'label'		=> Label('sysmanager.tabs.config')
+					'label'		=> 'LLL:sysmanager.tabs.config'
 				);
 				$tabs[] = array(
 					'id'		=> 'rights',
-					'htmlId'	=> 'exttab-' . $extKey . '-rights',
-					'key'		=> 'rights',
-					'classKey'	=> 'rights',
-					'class'		=> '',
-					'label'		=> Label('sysmanager.tabs.rights')
+					'label'		=>'LLL:sysmanager.tabs.rights'
 				);
 				$tabs[] = array(
 					'id'		=> 'records',
-					'htmlId'	=> 'exttab-' . $extKey . '-records',
-					'key'		=> 'records',
-					'classKey'	=> 'records',
-					'class'		=> '',
-					'label'		=> Label('sysmanager.tabs.records')
+					'label'		=> 'LLL:sysmanager.tabs.records'
 				);
 			}
 		} else {
@@ -102,15 +82,9 @@ class TodoyuExtManager {
 				// Installer tab
 			$tabs[] = array(
 				'id'		=> 'install',
-				'htmlId'	=> 'exttab-none-install',
-				'key'		=> 'install',
-				'classKey'	=> 'install',
-				'class'		=> '',
 				'label'		=> 'Install'
 			);
 		}
-
-
 
 		return $tabs;
 	}
