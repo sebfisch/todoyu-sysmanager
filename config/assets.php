@@ -26,9 +26,8 @@
  * @subpackage	SysManager
  */
 
-
 $CONFIG['EXT']['sysmanager']['assets'] = array(
-
+		// Default assets: loaded all over the installation always
 	'default' => array(
 		'js' => array(
 
@@ -38,7 +37,7 @@ $CONFIG['EXT']['sysmanager']['assets'] = array(
 		)
 	),
 
-
+		// Public assets: basic assets for this extension
 	'public' => array(
 		'js' => array(
 			array(
