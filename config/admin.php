@@ -29,6 +29,12 @@ if( allowed('sysmanager', 'general:allrecords') ) {
 	TodoyuAdminManager::addModule('records', 'LLL:sysmanager.menu.allRecords', 'TodoyuRecordsOverviewRenderer::renderModuleContent', 'TodoyuRecordsOverviewRenderer::renderModuleTabs', 60, array('sysmanager', 'public'));
 }
 
+if( allowed('sysmanager', 'general:rights') ) {
+		// Add records manager
+	TodoyuAdminManager::addModule('records', 'LLL:sysmanager.menu.allRecords', 'TodoyuRecordsOverviewRenderer::renderModuleContent', 'TodoyuRecordsOverviewRenderer::renderModuleTabs', 60, array('sysmanager', 'public'));
+}
+
+
 TodoyuPage::addExtAssets('sysmanager', 'public');
 
 //TodoyuAdminManager::addModule('rights', 'Rights Management', 'TodoyuRightsEditorRenderer::renderModule', 60, array('sysmanager', 'public'));

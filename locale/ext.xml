@@ -50,7 +50,7 @@
 	<labels lang="de">
 		<label index="ext.title">System-Verwaltung</label>
 		<label index="tabs.extensions">Erweiterungen</label>
-		<label index="tabs.extensions.back">Alle Erweiterungen</label>
+		<label index="tabs.extensions.back">Erweiterungen</label>
 		<label index="tabs.info">Info</label>
 		<label index="tabs.config">Einstellungen</label>
 		<label index="tabs.rights">Rechte</label>

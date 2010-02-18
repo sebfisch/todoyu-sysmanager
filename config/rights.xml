@@ -4,12 +4,13 @@
 	<section name="general">
 		<right name="extensions" />
 		<right name="allrecords" />
+		<right name="rights" />
 	</section>
 
 	<section name="extensions" require="general:extensions">
 		<right name="info" />
 		<right name="config" />
-		<right name="rights" />
+		<right name="rights" require="general:rights" />
 		<right name="records" />
 		<right name="install" />
 		<right name="uninstall" />
