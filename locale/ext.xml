@@ -46,6 +46,9 @@
 		<label index="installedExtensions">Installed Extensions</label>
 		<label index="menu.extensions">Extensions</label>
 		<label index="menu.allRecords">All Records</label>
+		<label index="menu.rights">Rights &amp; Roles</label>
+		<label index="rights.tab.rights">Rights</label>
+		<label index="rights.tab.roles">Roles</label>
 	</labels>
 	<labels lang="de">
 		<label index="ext.title">System-Verwaltung</label>
@@ -93,5 +96,8 @@
 		<label index="installedExtensions">Installierte Erweiterungen</label>
 		<label index="menu.extensions">Erweiterungen</label>
 		<label index="menu.allRecords">Alle Datensätze</label>
+		<label index="menu.rights">Rechte &amp; Rollen</label>
+		<label index="rights.tab.rights">Rechte</label>
+		<label index="rights.tab.roles">Rollen</label>
 	</labels>
 </locallang>

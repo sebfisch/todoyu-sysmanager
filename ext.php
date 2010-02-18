@@ -36,7 +36,7 @@ define('PATH_EXT_SYSMANAGER', PATH_EXT . '/sysmanager');
 TodoyuLanguage::register('sysmanager', PATH_EXT_SYSMANAGER . '/locale/ext.xml');
 
 	// Request configurations
-require_once( PATH_EXT_SYSMANAGER . '/config/extension.php' );
+require_once( PATH_EXT_SYSMANAGER . '/config/extension.php');
 require_once( PATH_EXT_SYSMANAGER . '/dwoo/plugins.php');
 
 ?>

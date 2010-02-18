@@ -28,6 +28,31 @@
 
 class TodoyuRightsEditorRenderer {
 
+
+	public static function renderModuleContent(array $params = array()) {
+		return 'rights module';
+	}
+
+
+	public static function renderModuleTabs(array $params = array()) {
+		$name		= 'rights';
+		$tabs		= TodoyuArray::assure($GLOBALS['CONFIG']['EXT']['sysmanager']['rightsTabs']);
+		$jsHandler	= 'xxx';
+		$activeTab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
+
+		TodoyuDebug::printInFirebug($tabs);
+
+		return TodoyuTabheadRenderer::renderTabs($name, $tabs, $jsHandler, $activeTab);
+	}
+
+
+
+
+
+
+
+
+
 	/**
 	 * Render extension rights editor
 	 *

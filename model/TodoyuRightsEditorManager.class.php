@@ -231,6 +231,10 @@ class TodoyuRightsEditorManager {
 
 
 
+
+
+
+
 	/**
 	 * Get custom set
 	 *

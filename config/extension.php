@@ -20,4 +20,16 @@
 ***************************************************************/
 
 
+$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
+	array(
+		'id'	=> 'rights',
+		'label'	=> 'LLL:sysmanager.rights.tab.rights'
+	),
+	array(
+		'id'	=> 'roles',
+		'label'	=> 'LLL:sysmanager.rights.tab.roles'
+	)
+);
+
+
 ?>
