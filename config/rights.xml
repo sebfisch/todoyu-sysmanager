@@ -5,6 +5,7 @@
 		<right name="extensions" />
 		<right name="allrecords" />
 		<right name="rights" />
+		<right name="roles" />
 	</section>
 
 	<section name="extensions" require="general:extensions">
@@ -16,6 +17,11 @@
 		<right name="uninstall" />
 		<right name="update" />
 		<right name="download" />
+	</section>
+	
+	<section name="roles" require="general:roles">
+		<right name="edit" />
+		<right name="delete" />
 	</section>
 
 </rights>

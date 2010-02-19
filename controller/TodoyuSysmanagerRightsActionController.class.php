@@ -19,7 +19,25 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
+/**
+ * Rightsmanagement
+ *
+ * @package		Todoyu
+ * @subpackage	Sysmanager
+ */
 class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
+
+	/**
+	 * Render tab in rights admin module
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	public function tabAction(array $params) {
+		return TodoyuRightsEditorRenderer::renderModuleContent($params);
+	}
+
+
 
 	/**
 	 * Save rights
@@ -30,7 +48,7 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 		$extKey	= $params['extension'];
 		$rights	= TodoyuArray::assure($params['rights']);
 
-		TodoyuRightsEditorManager::saveGroupRights($extKey, $rights);
+		TodoyuRightsEditorManager::saveRoleRights($extKey, $rights);
 	}
 
 
@@ -41,14 +59,15 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 	 * @param	Array	$params
 	 * @return	String
 	 */
-	public function updateMatrixAction(array $params) {
-		$groups	= $params['groups'];
-		$groups	= TodoyuArray::intval($groups, true, true);
-		$extKey	= $params['extension'];
+	public function matrixAction(array $params) {
+		$roles	= $params['rightseditor']['roles'];
+		$roles	= TodoyuArray::intval($roles, true, true);
+		$ext	= $params['rightseditor']['extension'];
 
-		TodoyuRightsEditorManager::saveCurrentExtension($extKey);
+		TodoyuSysmanagerPreferences::saveRightsExt($ext);
+		TodoyuSysmanagerPreferences::saveRightsRoles($roles);
 
-		return TodoyuRightsEditorRenderer::renderRightsMatrix($extKey, $groups);
+		return TodoyuRightsEditorRenderer::renderRightsMatrix($roles, $ext);
 	}
 
 }

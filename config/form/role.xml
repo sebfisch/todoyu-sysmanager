@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
 	<attributes>
-		<attribute name="action">?ext=user&amp;controller=usergroupeditor</attribute>
-		<attribute name="name">usergroup</attribute>
+		<attribute name="action">?ext=sysmanager&amp;controller=role</attribute>
+		<attribute name="name">role</attribute>
 	</attributes>
 	<hiddenFields>
 		<field name="id"></field>
@@ -21,20 +21,20 @@
 					<label>core.description</label>
 				</field>
 
-				<field type="checkbox" name="is_active">
-					<label>user.usergroup.attr.is_active</label>
+				<field type="checkbox" name="active">
+					<label>core.role.attr.active</label>
 				</field>
 
-				<field type="databaseRelation" name="users">
-					<label>user.usergroup.attr.users</label>
+				<field type="databaseRelation" name="persons">
+					<label>core.role.attr.persons</label>
 					<record>
-						<form>ext/user/config/form/usergroup-user.xml</form>
+						<form>ext/sysmanager/config/form/role-person.xml</form>
 						<url>
-							<ext>user</ext>
-							<controller>usergroupeditor</controller>
+							<ext>sysmanager</ext>
+							<controller>role</controller>
 						</url>
 						<label type="function">
-							<function>TodoyuUserViewHelper::getUserLabel</function>
+							<function>TodoyuContactViewHelper::getPersonLabel</function>
 							<noLabel>Neuer Benutzer</noLabel>
 						</label>
 					</record>
@@ -48,10 +48,10 @@
 			<class>buttons</class>
 			<elements>
 				<field type="saveButton" name="save">
-					<onclick>Todoyu.Ext.user.UsergroupEditor.save(this.form)</onclick>
+					<onclick>Todoyu.Ext.sysmanager.Role.save(this.form)</onclick>
 				</field>
 				<field type="cancelButton" name="cancel">
-					<onclick>Todoyu.Ext.user.UsergroupEditor.showList()</onclick>
+					<onclick>Todoyu.Ext.sysmanager.Role.showList()</onclick>
 				</field>
 			</elements>
 		</fieldset>

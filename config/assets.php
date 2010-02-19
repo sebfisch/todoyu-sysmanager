@@ -62,7 +62,15 @@ $CONFIG['EXT']['sysmanager']['assets'] = array(
 			),
 			array(
 				'file'		=> 'ext/sysmanager/assets/js/Rights.js',
-				'position'	=> 100
+				'position'	=> 101
+			),
+			array(
+				'file'		=> 'ext/sysmanager/assets/js/RightsEditor.js',
+				'position'	=> 102
+			),
+			array(
+				'file'		=> 'ext/sysmanager/assets/js/Role.js',
+				'position'	=> 102
 			)
 		),
 		'css' => array(
@@ -89,7 +97,12 @@ $CONFIG['EXT']['sysmanager']['assets'] = array(
 			array(
 				'file'		=> 'ext/sysmanager/assets/css/rights.css',
 				'media'		=> 'all',
-				'position'	=> 100
+				'position'	=> 102
+			),
+			array(
+				'file'		=> 'ext/sysmanager/assets/css/roles.css',
+				'media'		=> 'all',
+				'position'	=> 102
 			)
 		)
 	)

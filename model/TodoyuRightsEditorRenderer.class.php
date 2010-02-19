@@ -30,19 +30,84 @@ class TodoyuRightsEditorRenderer {
 
 
 	public static function renderModuleContent(array $params = array()) {
-		return 'rights module';
+			// Tab
+		if( isset($params['tab']) ) {
+			$tab	=  $params['tab'];
+			TodoyuSysmanagerPreferences::saveActiveTab('rights', $tab);
+		} else {
+			$tab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
+		}
+
+		switch($tab) {
+			case 'roles':
+				return self::renderRolesView($params);
+
+			case 'rights':
+			default:
+				return self::renderRightsView($params);
+		}
 	}
 
 
 	public static function renderModuleTabs(array $params = array()) {
 		$name		= 'rights';
 		$tabs		= TodoyuArray::assure($GLOBALS['CONFIG']['EXT']['sysmanager']['rightsTabs']);
-		$jsHandler	= 'xxx';
+		$jsHandler	= 'Todoyu.Ext.sysmanager.Rights.onTabClick.bind(Todoyu.Ext.sysmanager.Rights)';
 		$activeTab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
 
-		TodoyuDebug::printInFirebug($tabs);
-
 		return TodoyuTabheadRenderer::renderTabs($name, $tabs, $jsHandler, $activeTab);
+	}
+
+
+	public static function renderRightsView(array $params) {
+		if( isset($params['extension']) ) {
+			$ext	= $params['extension'];
+			TodoyuSysmanagerPreferences::saveRightsExt($ext);
+		} else {
+			$ext	= TodoyuSysmanagerPreferences::getRightsExt();
+		}
+
+		if( TodoyuRightsEditorManager::hasRightsConfig($ext) ) {
+			$selectedRoles	= TodoyuSysmanagerPreferences::getRightsRoles();
+
+			$tmpl	= 'ext/sysmanager/view/rights.tmpl';
+			$data	= array(
+				'form'			=> self::renderRightsEditorForm($selectedRoles, $ext),
+				'matrix'		=> self::renderRightsMatrix($selectedRoles, $ext),
+				'extKey'		=> $ext
+			);
+
+		return render($tmpl, $data);
+		} else {
+			return self::renderNoRightsInfo($extKey);
+		}
+
+	}
+
+
+	public static function renderRolesView(array $params) {
+		$idRole	= intval($params['role']);
+
+		if( $idRole === 0 ) {
+			return TodoyuListingRenderer::render('sysmanager', 'roles');
+		} else {
+			return TodoyuRoleEditorRenderer::renderEdit($idRole);
+		}
+	}
+
+
+	public static function renderRightsEditorForm(array $roles = array(), $ext = '') {
+		$form	= TodoyuFormManager::getForm('ext/sysmanager/config/form/rightseditor.xml');
+
+		$data	= array(
+			'roles'		=> $roles,
+			'extension'	=> $ext
+		);
+
+		$form->setFormData($data);
+		$form->setUseRecordID(false);
+
+		return $form->render();
 	}
 
 
@@ -115,7 +180,7 @@ class TodoyuRightsEditorRenderer {
 	 * @param	Array		$groups			Groups to display
 	 * @return	String
 	 */
-	public static function renderRightsMatrix($ext, array $groups = array()) {
+	public static function renderRightsMatrix(array $roleIDs, $ext) {
 			// Read rights XML file
 		$rights		= TodoyuRightsEditorManager::readExtRights($ext);
 
@@ -123,7 +188,7 @@ class TodoyuRightsEditorRenderer {
 		$required	= TodoyuRightsEditorManager::extractRequiredInfos($rights);
 
 			// Get current group infos
-		$groups		= TodoyuRightsEditorManager::getGroupInfos($groups);
+		$roles		= TodoyuRightsEditorManager::getRoles($roleIDs);
 
 			// Get current checked rights (default or db)
 		$activeRights = TodoyuRightsEditorManager::getCurrentActiveRights($rights, $ext);
@@ -133,7 +198,7 @@ class TodoyuRightsEditorRenderer {
 		$data	= array(
 			'extension'		=> $ext,
 			'rights'		=> $rights,
-			'groups'		=> $groups,
+			'roles'			=> $roles,
 			'activeRights'	=> $activeRights,
 			'required'		=> $required
 		);

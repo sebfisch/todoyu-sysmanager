@@ -75,6 +75,43 @@ class TodoyuSysmanagerPreferences {
 	}
 
 
+	public static function saveRightsExt($ext) {
+		self::savePref('rights-ext', $ext, 0, true);
+	}
+
+	public static function getRightsExt() {
+		$ext	= self::getPref('rights-ext');
+
+		if( $ext === false ) {
+			$extKeys= TodoyuExtensions::getInstalledExtKeys();
+			$ext 	= $ext[0];
+		}
+
+		return $ext;
+	}
+
+
+	public static function saveRightsRoles(array $roles) {
+		$roles		= TodoyuArray::intval($roles, true, true);
+		$roleList	= implode(',', $roles);
+
+		self::savePref('rights-roles', $roleList, 0, true);
+	}
+
+
+	public static function getRightsRoles() {
+		$roleList	= self::getPref('rights-roles');
+
+		if( $roleList === false ) {
+			$roles	= array();
+		} else {
+			$roles	= explode(',', $roleList);
+		}
+
+		return $roles;
+	}
+
+
 }
 
 ?>

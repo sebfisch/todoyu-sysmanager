@@ -32,4 +32,21 @@ $CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 );
 
 
+/**
+ * Configure listing for companies
+ */
+$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
+	'name'		=> 'role',
+	'update'	=> 'sysmanager/role/listing',
+	'dataFunc'	=> 'TodoyuRoleEditorManager::getRoleListingData',
+	'columns'	=> array(
+		'icon'		=> '',
+		'title'		=> 'LLL:core.title',
+		'description'=>'LLL:core.description',
+		'persons'	=> 'LLL:sysmanager.roles.numPersons',
+		'actions'	=> ''
+	)
+);
+
+
 ?>

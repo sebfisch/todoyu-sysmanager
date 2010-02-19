@@ -179,21 +179,21 @@ class TodoyuRightsEditorManager {
 
 
 	/**
-	 * Save group rights submitted by the editor
+	 * Save role rights
 	 *
 	 * @param	String		$extKey		Extension key
-	 * @param	Array		$rights		Submitted rights form data
+	 * @param	Array		$rights		Submitted rights
 	 */
-	public static function saveGroupRights($extKey, array $rights) {
+	public static function saveRoleRights($extKey, array $rights) {
 		$extID	= TodoyuExtensions::getExtID($extKey);
 
 			// Delete all stored rights for this extension
 		TodoyuRightsManager::deleteExtensionRights($extID);
 
 			// Add new rights
-		foreach($rights as $rightName => $allowedGroups) {
-			foreach($allowedGroups as $idGroup => $dummy) {
-				TodoyuRightsManager::setRight($extID, $idGroup, $rightName);
+		foreach($rights as $rightName => $allowedRoles) {
+			foreach($allowedRoles as $idRole => $dummy) {
+				TodoyuRightsManager::setRight($extID, $idRole, $rightName);
 			}
 		}
 
@@ -243,13 +243,12 @@ class TodoyuRightsEditorManager {
 	 * @return	Array
 	 */
 	public static function getCurrentActiveRights(array $rights, $ext) {
-		$groupRights= TodoyuRightsManager::getExtGroupRights($ext);
+		$roleRights		= TodoyuRightsManager::getExtRoleRights($ext);
+		$activeRights 	= array();
 
-		$activeRights = array();
-
-		foreach($groupRights as $idGroup => $rightKeys) {
+		foreach($roleRights as $idRole => $rightKeys) {
 			foreach($rightKeys as $rightKey) {
-				$activeRights[$rightKey][$idGroup] = true;
+				$activeRights[$rightKey][$idRole] = true;
 			}
 		}
 
@@ -264,16 +263,16 @@ class TodoyuRightsEditorManager {
 	 * @param	Array		$groupIDs		IDs of the groups to the get information from
 	 * @return	Array
 	 */
-	public static function getGroupInfos(array $groupIDs) {
-		$groupIDs	= TodoyuArray::intval($groupIDs, true, true);
+	public static function getRoles(array $selectRoles) {
+		$selectRoles	= TodoyuArray::intval($selectRoles, true, true);
 
-		$fields	= 'id, title, is_active';
+		$fields	= 'id, title, active';
 		$table	= 'system_role';
 		$where	= 'deleted = 0';
-		$order	= 'is_active DESC, title';
+		$order	= 'active DESC, title';
 
-		if( sizeof($groupIDs) > 0 ) {
-			$where .= ' AND id IN(' . implode(',', $groupIDs) . ')';
+		if( sizeof($selectRoles) > 0 ) {
+			$where .= ' AND id IN(' . implode(',', $selectRoles) . ')';
 		}
 
 		return Todoyu::db()->getArray($fields, $table, $where, '', $order);

@@ -5,6 +5,7 @@
 		<label index="general.extensions">Extension Manager</label>
 		<label index="general.allrecords">Show all records edit view</label>
 		<label index="general.rights">Rights Manager</label>
+		<label index="general.roles">Roles Manager</label>
 		<label index="extensions">Extensions</label>
 		<label index="extensions.info">Extension infos</label>
 		<label index="extensions.config">Edit Configuration</label>
@@ -14,7 +15,9 @@
 		<label index="extensions.install">Install Extensions</label>
 		<label index="extensions.download">Download Extension Archive</label>
 		<label index="extensions.update">Update Extensions</label>
-
+		<label index="roles">Roles</label>
+		<label index="roles.edit">Edit Role</label>
+		<label index="roles.delete">Delete Role</label>
 	</labels>
 	<labels lang="de">
 		<label index="general">Allgemeine Einstellungen</label>

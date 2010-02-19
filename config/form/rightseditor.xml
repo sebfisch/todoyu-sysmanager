@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<attributes>
+		<attribute name="action">?ext=sysmanager&amp;controller=rights</attribute>
+		<attribute name="name">rightseditor</attribute>
+	</attributes>
+	<fieldsets>
+		<fieldset name="main">
+			<legend>Main editor data</legend>
+			<elements>
+
+				<field type="select" name="roles">
+					<label>sysmanager.rights.form.roles</label>
+					<source type="function">
+						<function>TodoyuSysmanagerViewHelper::getRoleOptions</function>
+					</source>
+					<multiple />
+					<size>5</size>
+				</field>
+
+				<field type="select" name="extension">
+					<label>sysmanager.rights.form.extension</label>
+					<source type="function">
+						<function>TodoyuSysmanagerViewHelper::getExtensionOptions</function>
+					</source>
+					<noPleaseSelect />
+				</field>
+
+			</elements>
+		</fieldset>
+
+	</fieldsets>
+</form>

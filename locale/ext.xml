@@ -49,6 +49,11 @@
 		<label index="menu.rights">Rights &amp; Roles</label>
 		<label index="rights.tab.rights">Rights</label>
 		<label index="rights.tab.roles">Roles</label>
+		<label index="rights.form.roles">Roles</label>
+		<label index="rights.form.extension">Extension</label>
+		<label index="roles.numPersons">Persons</label>
+		<label index="roles.saved.ok">Role saved</label>
+		<label index="roles.saved.error">Saving role failed</label>
 	</labels>
 	<labels lang="de">
 		<label index="ext.title">System-Verwaltung</label>

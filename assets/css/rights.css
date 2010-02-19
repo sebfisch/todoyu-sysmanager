@@ -7,97 +7,77 @@
 }
 
 
-
-
-
-
-
-
-/* Rightseditor */
-div.groupSelector {
-	margin:10px;
-	margin-right:50px;
-	width:400px;	
-	display:inline-block;
-}
-
-div.groupSelector option {
-	padding:5px;
-	padding-left:40px;
-	background:url(../../../user/assets/img/icons.png) no-repeat 8px -207px;
-}
-
-div.saveButtonBox {
-	width:150px;
-	display:inline-block;
-}
-
-
 /* -------------
 	Matrix 
    -------------*/
-
-	/* Groups */
-.groups {
-	margin:20px 0px 10px 11px;
-	border:none;
+#rightsmatrix {
+	margin:10px 0;
 }
 
-.groups .name {
+#rightsmatrix td {
+	vertical-align:middle;
+}
+
+	/* Roles */
+#rightsmatrix .roles {
+	margin-left:1px;
+}
+
+#rightsmatrix .roles .name {
 	width:200px;
 	font-weight:bold;
 	text-align:left;
 }
 
-.groups td {
+#rightsmatrix .roles td {
 	padding:2px 5px;
 	width:20px;
 	text-align:center;
 }
 
 	/* Rights */
-div.groupRights .rights fieldset {
-	width:600px;
-}
-
-div.groupRights .rights .right .label {
-	width:200px;
-	font-weight:bold;
-	text-align:left;;
-}
-
-div.groupRights .rights .right td {
-	width:20px;
-	text-align:center;
-	padding:6px 5px;
-}
-
-div.groupRights .rights .right input {
-	cursor:pointer;
-}
-
-div.groupRights .rights fieldset {
+#rightsmatix-form {
+	max-height:500px;
+	padding-top:10px;
+	border-top:2px #bbb solid;
+	border-bottom:2px #bbb solid;
+	overflow:scroll;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}	
+	
+#rightsmatix-form fieldset {
+	width:610px;
 	border:1px solid #AAA;
 	padding:10px;
 	padding-top:0px;
 	margin-bottom:10px;
 }
 
-div.groupRights .rights fieldset legend {
+#rightsmatix-form fieldset legend {
 	display:inline;
 	font-weight:bold;
-	font-size:14px;
+	font-size:13px;
 	padding:0px 5px;
 }
 
-div.groupRights .rights {
-	height:400px;
-	overflow:scroll;
-	overflow-x:hidden;
-	overflow-y:scroll;
+#rightsmatix-form td.label {
+	width:200px;
+	font-weight:bold;
+	text-align:left;
 }
 
-div.rights span.require {
+#rightsmatix-form td.roleRight {
+	width:20px;
+	text-align:center;
+	padding:6px 5px;
+}
+
+#rightsmatix-form td.roleRight input {
+	cursor:pointer;
+}
+
+#rightsmatix-form span.require {
 	display:inline-block;
 	width:15px;
 	height:14px;
@@ -111,40 +91,34 @@ div.rights span.require {
 	Rights 
    -------------*/
 
-div.groupRights .g1 {
-	background-color:#00caca;
+#rightsmatrix td.roleColor1 {
+	background-color:#ccddbb;
 }
 
-div.groupRights .g2 {
-	background-color:#36fe9a;
+#rightsmatrix td.roleColor2 {
+	background-color:#ffffbb;
 }
 
-div.groupRights .g3 {
-	background-color:#f9ce4f;
+#rightsmatrix td.roleColor3 {
+	background-color:#aaccbb;
 }
 
-div.groupRights .g4 {
-	background-color:#eca555;
+#rightsmatrix td.roleColor4 {
+	background-color:#ccffdd;
 }
 
-div.groupRights .g5 {
-	background-color:#00ff00;
+#rightsmatrix td.roleColor5 {
+	background-color:#eeeeee;
 }
 
-div.groupRights .g6 {
-	background-color:#ffff80;
+#rightsmatrix td.roleColor6 {
+	background-color:#889988;
 }
 
-div.groupRights .g7 {
-	background-color:#804040;
+#rightsmatrix td.roleColor7 {
+	background-color:#ddeecc;
 }
 
-div.groupRights .g8 {
-	background-color:#3cd5dd;
+#rightsmatrix td.roleColor8 {
+	background-color:#bbbbbb;
 }
-
-/*
-div.groupRights tr.odd {
-	background-color:#F4F4F4;
-}
-*/

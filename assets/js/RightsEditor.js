@@ -21,19 +21,22 @@
 /**
  * Rights mask manager
  */
-Todoyu.Ext.sysmanager.Rights = {
+Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Requireds and dependents
 	 */
 	require: {},
 		
+		
 	/**
 	 * Init
 	 */
 	init: function() {
-		this.observeGroups();
+		this.observeForm();
 	},
-		
+	
+	
+	
 	/**
 	 * Init matrix with dependencies and install observers
 	 * 
@@ -47,67 +50,157 @@ Todoyu.Ext.sysmanager.Rights = {
 		this.initDependents();
 		
 			// Observe rights checkboxes for change
-		this.observeRights();
+		this.observeRightsForm();
 	},
 	
+	
+	/**
+	 * Install observers on each checkbox
+	 */
+	observeForm: function() {
+		$('rightseditor-form').observe('change', this.onFormChange.bindAsEventListener(this));
+		$('rightseditor-field-roles').observe('change', this.onRoleChange.bindAsEventListener(this));
+	},
+	
+	
+	
+	/**
+	 * Handler when form changes
+	 * Called when roles or extension changes
+	 * 
+	 * @param	Event		event
+	 */
+	onFormChange: function(event) {
+		this.updateMatrix();
+	},
+	
+	
+	
+	/**
+	 * Handler when the role selection changes
+	 * Select all roles if none is selected. Prevents empty matrix
+	 * Called before the form change. So we can update the selection just before the form is submitted
+	 * 
+	 * @param	Event		event
+	 */
+	onRoleChange: function(event) {
+		var roles	= this.getRoles();
+		
+		if( roles.size() === 0 ) {
+			$('rightseditor-field-roles').select('option').each(function(option){
+				option.selected = true;
+			})
+		}
+	},
+	
+	
+	/**
+	 * Update matrix
+	 */
+	updateMatrix: function() {
+		$('rightseditor-form').request({
+			'parameters': {
+				'action':	'matrix'
+			},
+			'onComplete': this.onMatrixUpdated.bind(this)
+		});
+	},
+	
+	
+	/**
+	 *	On editor updated handler
+	 *
+	 *	@param	Array	response
+	 */
+	onMatrixUpdated: function(response) {
+		$('rightsmatrix').update(response.responseText);
+	},
+	
+	
+	/**
+	 *	Save rights over ajax, no reload
+	 */
+	saveRights: function() {
+		$('rightsmatix-form').request({
+			'parameters': {
+				'action':	'save',
+				'extension':this.getExtension()
+			},
+			'onComplete':	this.onRightsSaved.bind(this)
+		});
+	},
+
+
+
+	/**
+	 *	On saved handler
+	 * 
+	 *	@param	Array	response
+	 */
+	onRightsSaved: function(response) {
+		Todoyu.notifySuccess('[LLL:sysmanager.rights.saved]');
+	},
+
+	
+	
+	
+
+	/**
+	 * Handler when group selection has changed
+	 * @param	Event		event
+	 */
+	onRolesChange: function(event) {
+		this.updateEditor();
+	},
+	
+	
+		
 	
 	
 	/**
 	 * Check dependencies for all rights
 	 */
 	initDependents: function() {
-		var groups	= this.getGroups();
+		var roles	= this.getRoles();
 		
-		this.require.each(function(groups, require){
-			groups.each(function(require, idGroup){
-				this.checkDependents(require.key, idGroup);
+		this.require.each(function(roles, require){
+			roles.each(function(require, idRole){
+				this.checkDependents(require.key, idRole);
 			}.bind(this, require));			
-		}.bind(this, groups));
+		}.bind(this, roles));
 	},
 	
 	
 
-	/**
-	 * Install observers on each checkbox
-	 */
-	observeGroups: function() {
-		$('rightseditor-groups').observe('change', this.onGroupChange.bindAsEventListener(this));
-	},
+
 	
 	
 	
 	/**
 	 * Observe rights checkboxes
 	 */
-	observeRights: function() {
-		$('rightseditor-rightsform').select('input').each(function(item) {
-			$(item).observe('change', this.onRightChange.bind(this));
-		}.bind(this));
+	observeRightsForm: function() {
+		$('rightsmatix-form').observe('change', this.onRightChange.bindAsEventListener(this));
 	},
 	
 	
 	
-	/**
-	 * Handler when group selection has changed
-	 * @param	Event		event
-	 */
-	onGroupChange: function(event) {
-		this.updateEditor();
-	},
 	
 	
 	
 	/**
-	 * Handler when a right changes
+	 * Handler when a right is changed
 	 * 
 	 * @param	Event		event
 	 */
 	onRightChange: function(event) {
-		var info	= event.element().id.split('-');
-		var right 	= info.slice(0,-1).join(':'); //first();
-		var idGroup	= info.last();
+		var checkbox	= event.findElement('input');
+
+		var idParts	= checkbox.id.split('-');
+		var right 	= idParts.slice(0,-1).join(':'); // Remove role ID and join section and right
+		var idRole	= idParts.last();
 		
-		this.checkDependents(right, idGroup);
+		this.checkDependents(right, idRole);
 	},
 	
 	
@@ -115,10 +208,10 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * Get checkbox element
 	 * 
 	 * @param	String		right
-	 * @param	Integer		idGroup
+	 * @param	Integer		idRole
 	 */
-	checkbox: function(right, idGroup) {
-		return $(right.replace(/:/, '-') + '-' + idGroup);
+	checkbox: function(right, idRole) {
+		return $(right.replace(/:/, '-') + '-' + idRole);
 	},
 	
 	
@@ -160,8 +253,8 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @param	Integer		idGroup
 	 * @param	Bool		check
 	 */
-	checkRight: function(right, idGroup, check) {
-		this.checkbox(right, idGroup).checked = check;
+	checkRight: function(right, idRole, check) {
+		this.checkbox(right, idRole).checked = check;
 	},
 	
 	
@@ -172,8 +265,8 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @param	String		right
 	 * @param	Integer		idGroup
 	 */
-	isRightChecked: function(right, idGroup) {
-		return this.checkbox(right, idGroup).checked;
+	isRightChecked: function(right, idRole) {
+		return this.checkbox(right, idRole).checked;
 	},
 	
 	
@@ -185,8 +278,8 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @param	Integer		idGroup
 	 * @param	Bool		enable
 	 */
-	enableRight: function(right, idGroup, enable) {
-		this.checkbox(right, idGroup).disabled = enable === false;
+	enableRight: function(right, idRole, enable) {
+		this.checkbox(right, idRole).disabled = enable === false;
 	},
 	
 	
@@ -197,8 +290,8 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @param	String		right
 	 * @param	Integer		idGroup
 	 */
-	isRightEnabled: function(right, idGroup) {
-		return this.checkbox(right, idGroup).disabled !== true;
+	isRightEnabled: function(right, idRole) {
+		return this.checkbox(right, idRole).disabled !== true;
 	},
 	
 	
@@ -210,8 +303,8 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @param	String		right
 	 * @param	Integer		idGroup
 	 */
-	isRightActive: function(right, idGroup) {
-		return this.isRightEnabled(right, idGroup) && this.isRightChecked(right, idGroup);
+	isRightActive: function(right, idRole) {
+		return this.isRightEnabled(right, idRole) && this.isRightChecked(right, idRole);
 	},
 	
 	
@@ -252,62 +345,42 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * 
 	 * @param	String		right
 	 */
-	checkDependents: function(right, idGroup) {
-		//var groups		= this.getGroups();
+	checkDependents: function(right, idRole) {
 		var dependents	= this.getDependents(right);
 		
-		//this.getGroups().each(function(right, idGroup){
-				// Check if right is active
-			var active = this.isRightActive(right, idGroup);
-				// Loop over all rights which depend on this right
-			dependents.each(function(active, idGroup, depRight){
-					// If right is active, activate dependent
-				if( active ) {
-						// Only activate right if all other required parents are active too
-					if( this.allRequiredsActive(depRight, idGroup) ) {
-						this.enableRight(depRight, idGroup, true);
-					}
-				} else {
-						// Disable right because required parent is not active
-					this.enableRight(depRight, idGroup, false);
+			// Check if right is active
+		var active = this.isRightActive(right, idRole);
+			// Loop over all rights which depend on this right
+		dependents.each(function(active, idRole, depRight){
+				// If right is active, activate dependent
+			if( active ) {
+					// Only activate right if all other required parents are active too
+				if( this.allRequiredsActive(depRight, idRole) ) {
+					this.enableRight(depRight, idRole, true);
 				}
-			}.bind(this, active, idGroup));
-		//}.bind(this, right));
+			} else {
+					// Disable right because required parent is not active
+				this.enableRight(depRight, idRole, false);
+			}
+		}.bind(this, active, idRole));
 	},
 	
 	
 	
 	/**
-	 * Get selected usergroups
+	 * Get selected roles
 	 */
-	getGroups: function() {
-		return $F('rightseditor-groups');
+	getRoles: function() {
+		return $F('rightseditor-field-roles');
+	},
+	
+	getExtension: function() {
+		return $F('rightseditor-field-extension');
 	},
 
 
 
-	/**
-	 * Update editor
-	 */
-	updateEditor: function() {
-		$('rightseditor-form').request({
-			'parameters': {
-				'action':	'updateMatrix'
-			},
-			'onComplete': this.onEditorUpdated.bind(this)
-		});
-	},
-	
-	
-	
-	/**
-	 *	On editor updated handler
-	 *
-	 *	@param	Array	response
-	 */
-	onEditorUpdated: function(response) {
-		$('grouprights').update(response.responseText);
-	},
+
 
 
 
@@ -332,11 +405,11 @@ Todoyu.Ext.sysmanager.Rights = {
 	/**
 	 *	Toggle group
 	 *
-	 *	@param	String	idGroup
+	 *	@param	Integer		idRole
 	 */
-	toggleGroup: function(idGroup) {
-		var checkboxes= $('rightseditor-rightsform').select('input[id$=-'+idGroup+']');
-
+	toggleRoleRights: function(idRole) {
+			// Get role rights checkboxes
+		var checkboxes= $('rightsmatix-form').select('input[id$=-' + idRole + ']');
 			// Toggle the checkboxes
 		this.toggleCheckboxes(checkboxes);
 			// Recheck all rights
@@ -365,31 +438,8 @@ Todoyu.Ext.sysmanager.Rights = {
 		checkboxes.each(function(checkbox) {
 			checkbox.checked = !this.allOn;
 		}.bind(this));
-	},
-
-
-
-	/**
-	 *	Save rights over ajax, no reload
-	 */
-	save: function() {
-		$('rightseditor-rightsform').request({
-			'parameters': {
-				'action':	'save'
-			},
-			onComplete: this.onSaved.bind(this)
-		});
-	},
-
-
-
-	/**
-	 *	On saved handler
-	 * 
-	 *	@param	Array	response
-	 */
-	onSaved: function(response) {
-		Todoyu.notifySuccess('[LLL:sysmanager.rights.saved]');
 	}
+
+
 	
 };
