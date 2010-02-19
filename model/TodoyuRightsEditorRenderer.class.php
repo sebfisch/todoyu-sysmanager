@@ -25,10 +25,14 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-
 class TodoyuRightsEditorRenderer {
 
-
+	/**
+	 * Render rights module content
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
 	public static function renderModuleContent(array $params = array()) {
 			// Tab
 		if( isset($params['tab']) ) {
@@ -49,6 +53,13 @@ class TodoyuRightsEditorRenderer {
 	}
 
 
+
+	/**
+	 * Render rights module tabs
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
 	public static function renderModuleTabs(array $params = array()) {
 		$name		= 'rights';
 		$tabs		= TodoyuArray::assure($GLOBALS['CONFIG']['EXT']['sysmanager']['rightsTabs']);
@@ -59,6 +70,13 @@ class TodoyuRightsEditorRenderer {
 	}
 
 
+
+	/**
+	 * Render module view for rights editor
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
 	public static function renderRightsView(array $params) {
 		if( isset($params['extension']) ) {
 			$ext	= $params['extension'];
@@ -67,24 +85,25 @@ class TodoyuRightsEditorRenderer {
 			$ext	= TodoyuSysmanagerPreferences::getRightsExt();
 		}
 
-		if( TodoyuRightsEditorManager::hasRightsConfig($ext) ) {
-			$selectedRoles	= TodoyuSysmanagerPreferences::getRightsRoles();
+		$selectedRoles	= TodoyuSysmanagerPreferences::getRightsRoles();
 
-			$tmpl	= 'ext/sysmanager/view/rights.tmpl';
-			$data	= array(
-				'form'			=> self::renderRightsEditorForm($selectedRoles, $ext),
-				'matrix'		=> self::renderRightsMatrix($selectedRoles, $ext),
-				'extKey'		=> $ext
-			);
+		$tmpl	= 'ext/sysmanager/view/rights.tmpl';
+		$data	= array(
+			'form'		=> self::renderRightsEditorForm($selectedRoles, $ext),
+			'matrix'	=> self::renderRightsMatrix($selectedRoles, $ext)
+		);
 
 		return render($tmpl, $data);
-		} else {
-			return self::renderNoRightsInfo($extKey);
-		}
-
 	}
 
 
+
+	/**
+	 * Render module view for role editor
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
 	public static function renderRolesView(array $params) {
 		$idRole	= intval($params['role']);
 
@@ -96,6 +115,15 @@ class TodoyuRightsEditorRenderer {
 	}
 
 
+
+	/**
+	 * Render form for rights editor
+	 * Includes the role and extensio selector
+	 *
+	 * @param	Array		$roles
+	 * @param	String		$ext
+	 * @return	String
+	 */
 	public static function renderRightsEditorForm(array $roles = array(), $ext = '') {
 		$form	= TodoyuFormManager::getForm('ext/sysmanager/config/form/rightseditor.xml');
 
@@ -112,17 +140,11 @@ class TodoyuRightsEditorRenderer {
 
 
 
-
-
-
-
-
-
 	/**
 	 * Render extension rights editor
 	 *
-	 * @param	String	$extKey
-	 * @return	String	HTML
+	 * @param	String		$extKey
+	 * @return	String
 	 */
 	public static function renderExtRightsEditor($extKey) {
 		if( ! TodoyuRightsEditorManager::hasRightsConfig($extKey) ) {
@@ -150,37 +172,18 @@ class TodoyuRightsEditorRenderer {
 
 
 	/**
-	 * Render group selector to define the displayed groups to edit
+	 * Render rights matrix for all all extension rights for the selected roles
 	 *
-	 * @return	String
-	 */
-	private static function renderGroupSelector() {
-		foreach($options as $key => $option) {
-			$options[$key]['selected'] = true;
-		}
-
-		$tmpl	= 'ext/sysmanager/view/groupselector.tmpl';
-		$data	= array(
-			'name'		=> 'groups[]',
-			'id'		=> 'rightseditor-groups',
-			'size'		=> 8,
-			'attributes'=> 'multiple="multiple"',
-			'options'	=> $options
-		);
-
-		return render($tmpl, $data);
-	}
-
-
-
-	/**
-	 * Render rights matrix for all all extension rights for the selected groups
-	 *
+	 * @param	Array		$roleIDs		Roles to display
 	 * @param	String		$ext			Extension key
-	 * @param	Array		$groups			Groups to display
 	 * @return	String
 	 */
 	public static function renderRightsMatrix(array $roleIDs, $ext) {
+		if( ! TodoyuRightsEditorManager::hasRightsConfig($ext) ) {
+			return self::renderNoRightsInfo($extKey);
+		}
+
+
 			// Read rights XML file
 		$rights		= TodoyuRightsEditorManager::readExtRights($ext);
 
