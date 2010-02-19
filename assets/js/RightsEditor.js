@@ -33,7 +33,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	init: function() {
 		this.observeGroups();
 	},
-	
+		
 	/**
 	 * Init matrix with dependencies and install observers
 	 * 

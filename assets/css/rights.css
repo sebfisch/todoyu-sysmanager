@@ -1,3 +1,18 @@
+#rights-tab-rights span.icon {
+	background:url(../img/icons.png) no-repeat 0 -564px;
+}
+
+#rights-tab-roles span.icon {
+	background:url(../img/icons.png) no-repeat 0 -596px;
+}
+
+
+
+
+
+
+
+
 /* Rightseditor */
 div.groupSelector {
 	margin:10px;
