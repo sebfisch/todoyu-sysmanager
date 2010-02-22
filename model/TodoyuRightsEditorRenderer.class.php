@@ -147,10 +147,6 @@ class TodoyuRightsEditorRenderer {
 	 * @return	String
 	 */
 	public static function renderExtRightsEditor($extKey) {
-		if( ! TodoyuRightsEditorManager::hasRightsConfig($extKey) ) {
-			return self::renderNoRightsInfo($extKey);
-		}
-
 			// Usergroups
 		$usergroups	= TodoyuRoleManager::getAllRoles();
 		$reform		= array(
@@ -179,11 +175,6 @@ class TodoyuRightsEditorRenderer {
 	 * @return	String
 	 */
 	public static function renderRightsMatrix(array $roleIDs, $ext) {
-		if( ! TodoyuRightsEditorManager::hasRightsConfig($ext) ) {
-			return self::renderNoRightsInfo($extKey);
-		}
-
-
 			// Read rights XML file
 		$rights		= TodoyuRightsEditorManager::readExtRights($ext);
 
@@ -205,21 +196,6 @@ class TodoyuRightsEditorRenderer {
 			'activeRights'	=> $activeRights,
 			'required'		=> $required
 		);
-
-		return render($tmpl, $data);
-	}
-
-
-
-	/**
-	 * Render information that there is no rights.xml in the config dir
-	 *
-	 * @param	String		$ext
-	 * @return	String
-	 */
-	public static function renderNoRightsInfo($ext) {
-		$tmpl	= 'ext/sysmanager/view/rights-not-available.tmpl';
-		$data	= array();
 
 		return render($tmpl, $data);
 	}

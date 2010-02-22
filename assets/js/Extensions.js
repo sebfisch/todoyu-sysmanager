@@ -84,14 +84,18 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	String	tabKey
 	 */
 	onTabClick: function(event, tabKey) {
-		var li		= event.findElement('li');
-		var extKey	= li.id.split('-')[1];
-
-		if( extKey == 'none' ) {
-			extKey = '';
+		var y = tabKey.indexOf('_');
+		
+		if( tabKey.indexOf('_') !== -1 ) {
+			var parts	= tabKey.split('_');
+			var extKey	= parts[0];
+			var tab		= parts[1];
+		} else {
+			var extKey	= '';
+			var tab		= tabKey;
 		}
-
-		this.showTab(extKey, tabKey);
+		
+		this.showTab(extKey, tab);		
 	},
 
 
@@ -196,5 +200,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 			'action':		'download',
 			'extension':	extKey
 		});
+	},
+	
+	showRights: function(extKey) {
+		location.href = 'index.php?ext=admin&mod=rights&extension=' + extKey;
 	}
 };

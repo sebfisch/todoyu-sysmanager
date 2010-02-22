@@ -42,8 +42,12 @@
 			</fieldset>
 	{/foreach}
 	<input type="hidden" name="extension" value="{$extension}" />
-</form>
 
+	{if empty($rights)}
+		<p class="contentMessage">{Label sysmanager.rights.notAvailable}</p>
+	{/if}
+
+</form>
 
 <script type="text/javascript">
 Todoyu.Ext.sysmanager.RightsEditor.initMatrix({json_encode($required)});

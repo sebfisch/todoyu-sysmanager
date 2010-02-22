@@ -78,9 +78,9 @@ class TodoyuExtManagerRenderer {
 				$content = self::renderConfig($extKey, $params);
 				break;
 
-			case 'rights':
-				$content = self::renderRights($extKey, $params);
-				break;
+//			case 'rights':
+//				$content = self::renderRights($extKey, $params);
+//				break;
 
 			case 'records':
 				$content = self::renderRecords($extKey, $params);
@@ -123,17 +123,19 @@ class TodoyuExtManagerRenderer {
 	 * Render tabs based on current settings
 	 *
 	 * @param	String		$extKey		Extension key
-	 * @param	String		$active		Active tab key
+	 * @param	String		$tab		Active tab key
 	 * @return	String
 	 */
-	public static function renderTabs($extKey = null, $active = null) {
+	public static function renderTabs($extKey = null, $tab = null) {
 		$name		= 'extension';
 		$class		= 'admin';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Extensions.onTabClick.bind(Todoyu.Ext.sysmanager.Extensions)';
 		$tabs		= TodoyuExtManager::getTabConfig($extKey);
 
-		if( is_null($active) )	{
+		if( empty($extKey) || empty($tab) )	{
 			$active = $tabs[0]['id'];
+		} else {
+			$active	= $extKey . '_' . $tab;
 		}
 
 		return TodoyuTabheadRenderer::renderTabs($name, $tabs, $jsHandler, $active, $class);

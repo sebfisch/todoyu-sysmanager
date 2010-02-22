@@ -11,13 +11,15 @@
   	<td class="extkey">{$extKey}</td>
     <td class="title">{htmlencode Label(cat($extKey '.ext.title'))}</td>
     <td class="edit">
-    	{if allowed('sysmanager','extensions:uninstall') && !extMgr_isSysExt($extKey)}
-    	<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.uninstall('{$extKey}')" title="{Label sysmanager.extension.uninstallExtension}" class="uninstall">
-    		<span class="hidden">{Label core.uninstall}<span>
-    	</a>
-		{else}
-		<span class="icon">&nbsp;</span>
-		{/if}
+
+    	<a href="javascript:void(0)" title="{Label sysmanager.extension.uninstallExtension}"
+	    	{if allowed('sysmanager','extensions:uninstall') && !extMgr_isSysExt($extKey)}
+	    		onclick="Todoyu.Ext.sysmanager.Extensions.uninstall('{$extKey}')" class="uninstall">
+			{else}
+				class="uninstall disabled">
+			{/if}
+			<span class="hidden">{Label core.uninstall}<span>
+		</a>
 
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.showInfo}"
 			{if extMgr_hasExtInfo($extKey) && allowed('sysmanager','extensions:info')}
@@ -39,7 +41,7 @@
 
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.rights}"
 			{if extMgr_hasRighsConfig($extKey) && allowed('sysmanager','extensions:rights')}
-				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'rights')" class="rights">
+				onclick="Todoyu.Ext.sysmanager.Extensions.showRights('{$extKey}')" class="rights">
 			{else}
 				class="rights disabled">
 			{/if}

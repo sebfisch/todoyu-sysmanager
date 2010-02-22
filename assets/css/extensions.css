@@ -1,4 +1,44 @@
 /* -------------------
+	Admin modules
+   ------------------- */
+#panelwidget-adminmodules li.extensions a {
+	background:url(../img/icons.png) no-repeat 1px 1px;
+}
+#panelwidget-adminmodules li.records a {
+	background:url(../img/icons.png) no-repeat 1px -360px;
+}
+#panelwidget-adminmodules li.rights a {
+	background:url(../img/icons.png) no-repeat 1px -240px;
+}
+
+
+
+/* -------------------
+	Tabs
+   ------------------- */
+#extension-tabs li span.icon {
+	background-image:url(../img/icons.png);
+	background-repeat:none;
+}
+#extension-tabs li.list span.icon {
+	background-position:0 5px;
+}
+#extension-tabs li.info span.icon {
+	background-position:0 -85px;
+}
+#extension-tabs li.config span.icon {
+	background-position:0 -115px;
+}
+#extension-tabs li.records span.icon {
+	background-position:0 -325px;
+}
+#extension-tabs li.install span.icon {
+	background-position:0 -25px;
+}
+
+
+
+/* -------------------
 	Extension list
    ------------------- */
 
@@ -33,72 +73,50 @@
 }
 
 	/* list icons */
-.extlist td.icon img {
-	border:1px solid #BDD1AF;
-	background-color:#DCECD2;
-}
 .extlist td.edit a {
 	width:18px;
 	height:18px;
 	display:inline-block;
-}
-.extlist td.edit a.disabled	{
-	cursor:default;
-}
-.extlist td.edit a {
 	background-image:url(../img/icons.png);
 	background-repeat:no-repeat;
 }
+.extlist td.edit a.disabled {
+	opacity:0.5;
+	cursor:default !important;
+}
+
 .extlist td.edit a.uninstall {
-	background-position:0 -480px;
+	background-position:0 -60px;
 }
 .extlist td.edit a.install {
-	background-position:0 -450px;
+	background-position:0 -30px;
 }
 
 .extlist td.edit a.info {
+	background-position:0 -90px;
+}
+.extlist td.edit a.config {
 	background-position:0 -120px;
 }
-
-.extlist td.edit a.info.disabled {
-	background-position:0 -360px;
-}
-
-.extlist td.edit a.config {
-	background-position:0 -210px;
-}
-
-.extlist td.edit a.config.disabled {
+.extlist td.edit a.records {
 	background-position:0 -330px;
 }
-
-.extlist td.edit a.records {
-	background-position:0 -180px;
-}
-
-.extlist td.edit a.records.disabled {
-	background-position:0 -270px;
-}
-
 .extlist td.edit a.rights {
 	background-position:0 -150px;
 }
 
-.extlist td.edit a.rights.disabled {
-	background-position:0 -300px;
-}
 
-.extlist td.doc a.doc {
-	background:url(../img/icons.png) no-repeat 0 -90px;
+.extlist td.doc a {
+	background:url(../img/icons.png) no-repeat 0 -510px;
 }
 
 .extlist td.download a.download {
-	background:url(../img/icons.png) no-repeat 0 -60px;
+	background:url(../img/icons.png) no-repeat 0 -480px;
 }
 
 
 /* Update and install tab */
-#extension-tabs li.install,
-#extension-tabs li.update {
+#content-tabs #extension-tab-install,
+#content-tabs #extension-tab-update {
 	float:right;
 }

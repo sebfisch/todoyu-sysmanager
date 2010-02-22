@@ -42,29 +42,32 @@ class TodoyuExtManager {
 		$tabs = array(
 			array(
 				'id'		=> 'list',
-				'label'		=> $extKey === '' ? Label('sysmanager.tabs.extensions') : Label('sysmanager.tabs.extensions.back')
+				'label'		=> Label('sysmanager.tabs.extensions')
 			)
 		);
 
 			// If an extension is selected, add editor tabs
 		if( $extKey !== '' ) {
 			$tabs[] = array(
-				'id'		=> 'info',
-				'label'		=> Label('sysmanager.tabs.info') . ': ' . $extKey
+				'id'		=> $extKey . '_info',
+				'label'		=> $extKey,
+				'class'		=> 'info'
 			);
 
 			if( $installed === true ) {
 				$tabs[] = array(
-					'id'		=> 'config',
-					'label'		=> 'LLL:sysmanager.tabs.config'
+					'id'		=> $extKey . '_config',
+					'label'		=> 'LLL:sysmanager.tabs.config',
+					'class'		=> 'config'
 				);
+//				$tabs[] = array(
+//					'id'		=> 'rights',
+//					'label'		=>'LLL:sysmanager.tabs.rights'
+//				);
 				$tabs[] = array(
-					'id'		=> 'rights',
-					'label'		=>'LLL:sysmanager.tabs.rights'
-				);
-				$tabs[] = array(
-					'id'		=> 'records',
-					'label'		=> 'LLL:sysmanager.tabs.records'
+					'id'		=> $extKey . '_records',
+					'label'		=> 'LLL:sysmanager.tabs.records',
+					'class'		=> 'records'
 				);
 			}
 		} else {
@@ -82,7 +85,8 @@ class TodoyuExtManager {
 				// Installer tab
 			$tabs[] = array(
 				'id'		=> 'install',
-				'label'		=> 'Install'
+				'label'		=> 'Install',
+				'class'		=> 'install'
 			);
 		}
 
