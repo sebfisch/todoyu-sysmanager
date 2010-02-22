@@ -25,16 +25,15 @@
 
 
 $CONFIG['EXT']['sysmanager']['info'] = array(
-	'title'				=> 'System manager',
-	'description' 		=> 'New base class Todoyufor plugins, which brings a lot of new and useful functions.',
-	'category' 			=> 'fe',
-	'author' 			=> array(
+	'title'			=> 'System manager',
+	'description' 	=> 'Manage todoyu system and server settings. Rights and role config, extension management',
+	'author' 		=> array(
 		'name'		=> 'Todoyu Core Team',
 		'email'		=> 'team@todoyu.com',
 		'company'	=> 'Snowflake Productions, Zürich'
 	),
-	'state' 			=> 'stable',
-	'version' => '0.1.0',
+	'state' 		=> 'beta',
+	'version'		=> '0.2.0',
 	'constraints' => array(
 		'depends' => array(
 
