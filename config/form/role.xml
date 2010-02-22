@@ -9,7 +9,7 @@
 	</hiddenFields>
 	<fieldsets>
 		<fieldset name="main">
-			<legend>Main usergroup data</legend>
+			<legend>Main role data</legend>
 			<elements>
 
 				<field type="textinput" name="title">

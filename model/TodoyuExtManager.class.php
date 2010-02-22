@@ -216,11 +216,10 @@ class TodoyuExtManager {
 	 */
 	public static function getRecordListData($extKey, $recordName, array $params = array()) {
 		$funcRef	= $GLOBALS['CONFIG']['EXT']['sysmanager']['records'][$extKey][$recordName]['list'];
-		$listFunc	= explode('::', $funcRef);
 		$data		= array();
 
-		if( method_exists($listFunc[0], $listFunc[1]) ) {
-			$data = call_user_func($listFunc, $params);
+		if( TodoyuDiv::isFunctionReference($funcRef) ) {
+			$data	= TodoyuDiv::callUserFunction($funcRef, $params);
 		}
 
 		return $data;
