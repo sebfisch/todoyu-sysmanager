@@ -9,7 +9,7 @@ class TodoyuSysmanagerPreferences {
 	 * @param	String		$value
 	 * @param	Integer		$idItem
 	 * @param	Boolean		$idPerson
-	 * @param	Integer		$idUser
+	 * @param	Integer		$idPerson
 	 */
 	public static function savePref($preference, $value, $idItem = 0, $unique = false, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::savePreference(EXTID_SYSMANAGER, $preference, $value, $idItem, $unique, $idArea, $idPerson);
