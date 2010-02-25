@@ -12,7 +12,7 @@
 				<field type="select" name="roles">
 					<label>sysmanager.rights.form.roles</label>
 					<source type="function">
-						<function>TodoyuSysmanagerViewHelper::getRoleOptions</function>
+						<function>TodoyuRoleViewHelper::getRoleOptions</function>
 					</source>
 					<multiple />
 					<size>5</size>

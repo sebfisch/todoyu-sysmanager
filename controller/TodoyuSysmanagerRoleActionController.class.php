@@ -38,6 +38,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	}
 
 
+
 	/**
 	 * Edit role
 	 *
@@ -49,6 +50,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 
 		return TodoyuRoleEditorRenderer::renderEdit($idRole);
 	}
+
 
 
 	/**
@@ -66,24 +68,31 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 
 
 	/**
-	 * Save role
+	 * Save role (new or edit)
 	 *
 	 * @param	Array		$params
 	 * @return	String
 	 */
 	public function saveAction(array $params) {
-		$xmlPath= 'core/config/form/role.xml';
 		$data	= $params['role'];
 		$idRole	= intval($data['id']);
 
+			// Construct form object
+		$xmlPath= 'core/config/form/role.xml';
 		$form	= TodoyuFormManager::getForm($xmlPath, $idRole);
 
+			// Set form data
 		$form->setFormData($data);
 
 		if( $form->isValid() ) {
 			$storageData= $form->getStorageData();
-			$idRole		= TodoyuRoleManager::saveRole($storageData);
+
+				// Save role
+			$idRoleNew	= TodoyuRoleManager::saveRole($storageData);
+
+			TodoyuHeader::sendTodoyuHeader('idRole', $idRoleNew);
 		} else {
+			TodoyuHeader::sendTodoyuHeader('idRoleOld', $idRole);
 			TodoyuHeader::sendTodoyuErrorHeader();
 
 			return $form->render();

@@ -28,25 +28,6 @@
 class TodoyuSysmanagerViewHelper {
 
 	/**
-	 * Get options for role selector
-	 *
-	 * @param	TodoyuFormElement		$field
-	 * @return 	Array
-	 */
-	public static function getRoleOptions(TodoyuFormElement $field) {
-		$roles	= TodoyuRoleManager::getAllRoles();
-		$reform		= array(
-			'id'	=> 'value',
-			'title'	=> 'label'
-		);
-		$roleOptions = TodoyuArray::reform($roles, $reform);
-
-		return $roleOptions;
-	}
-
-
-
-	/**
 	 * Get options for extension selector
 	 *
 	 * @param	TodoyuFormElement		$field
