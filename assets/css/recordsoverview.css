@@ -34,7 +34,7 @@ table.recordsoverview {
 	Column configs
    ---------------------------- */
 	.recordsoverview td.icon {
-		background:url(../img/icons.png) no-repeat 6px -534px;	
+		background:url(../img/icons.png) no-repeat 6px 4px;	
 	}
 	
 	.recordsoverview td.actions div.icon {
@@ -43,5 +43,5 @@ table.recordsoverview {
 	}
 	
 	.recordsoverview td.actions div.edit {
-		background:url(../img/icons.png) no-repeat 0 -180px;
+		background:url(../img/icons.png) no-repeat 0 -360px;
 	}
