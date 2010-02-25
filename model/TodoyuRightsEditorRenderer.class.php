@@ -182,7 +182,7 @@ class TodoyuRightsEditorRenderer {
 		$required	= TodoyuRightsEditorManager::extractRequiredInfos($rights);
 
 			// Get current group infos
-		$roles		= TodoyuRightsEditorManager::getRoles($roleIDs);
+		$roles		= TodoyuRoleManager::getRoles($roleIDs);
 
 			// Get current checked rights (default or db)
 		$activeRights = TodoyuRightsEditorManager::getCurrentActiveRights($rights, $ext);

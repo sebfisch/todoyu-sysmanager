@@ -231,10 +231,6 @@ class TodoyuRightsEditorManager {
 
 
 
-
-
-
-
 	/**
 	 * Get custom set
 	 *
@@ -253,29 +249,6 @@ class TodoyuRightsEditorManager {
 		}
 
 		return $activeRights;
-	}
-
-
-
-	/**
-	 * Get group informations about the groups defined in $groupIDs
-	 *
-	 * @param	Array		$groupIDs		IDs of the groups to the get information from
-	 * @return	Array
-	 */
-	public static function getRoles(array $selectRoles) {
-		$selectRoles	= TodoyuArray::intval($selectRoles, true, true);
-
-		$fields	= 'id, title, active';
-		$table	= 'system_role';
-		$where	= 'deleted = 0';
-		$order	= 'active DESC, title';
-
-		if( sizeof($selectRoles) > 0 ) {
-			$where .= ' AND id IN(' . implode(',', $selectRoles) . ')';
-		}
-
-		return Todoyu::db()->getArray($fields, $table, $where, '', $order);
 	}
 
 }

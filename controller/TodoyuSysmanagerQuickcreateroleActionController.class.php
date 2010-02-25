@@ -19,84 +19,52 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-/**
- * Role Action Controller
- *
- * @package		Todoyu
- * @subpackage	Sysmanager
- */
-class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
+class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionController {
 
 	/**
-	 * List roles
+	 * Get quick role creation form rendered
 	 *
-	 * @param	Array		$params
+	 * @param	Array	$params
 	 * @return	String
 	 */
-	public function listingAction(array $params) {
-		return TodoyuListingRenderer::render('sysmanager', 'roles');
-	}
-
-
-	/**
-	 * Edit role
-	 *
-	 * @param	Array		$params
-	 * @return	String
-	 */
-	public function editAction(array $params) {
-		$idRole	= intval($params['role']);
-
-		return TodoyuRoleEditorRenderer::renderEdit($idRole);
+	public function popupAction(array $params) {
+		return TodoyuRoleEditorRenderer::renderRoleQuickCreateForm($params);
 	}
 
 
 
 	/**
-	 * Save role
+	 * Save role record
 	 *
 	 * @param	Array		$params
 	 * @return	String
 	 */
 	public function saveAction(array $params) {
-		$xmlPath= 'core/config/form/role.xml';
+		restrict('sysmanager', 'role:edit');
+
 		$data	= $params['role'];
 		$idRole	= intval($data['id']);
 
-		$form	= TodoyuFormManager::getForm($xmlPath, $idRole);
-
+			// Get form, call save hooks, set data
+		$form	= TodoyuRoleEditorManager::getQuickCreateForm($idRole);
+		$data	= TodoyuFormHook::callSaveData('core/config/form/role.xml', $data, 0);
 		$form->setFormData($data);
 
-		if( $form->isValid() ) {
+			// Validate, render
+		if( $form->isValid() )	{
 			$storageData= $form->getStorageData();
-			$idRole		= TodoyuRoleManager::saveRole($storageData);
+
+			$idRole	= TodoyuRoleManager::saveRole($storageData);
+
+			TodoyuHeader::sendTodoyuHeader('idRole', $idRole);
+			TodoyuHeader::sendTodoyuHeader('recordLabel', $storageData['title']);
+
+			return $idRole;
 		} else {
 			TodoyuHeader::sendTodoyuErrorHeader();
 
 			return $form->render();
 		}
-	}
-
-
-
-	/**
-	 * Add a subform to the person form
-	 *
-	 * @param	Array		$params
-	 * @return	String
-	 */
-	public function addSubformAction(array $params) {
-		restrict('sysmanager', 'role:edit');
-
-		$xmlPath	= 'core/config/form/role.xml';
-
-		$formName	= $params['form'];
-		$fieldName	= $params['field'];
-
-		$index		= intval($params['index']);
-		$idRecord	= intval($params['record']);
-
-		return TodoyuFormManager::renderSubformRecord($xmlPath, $fieldName, $formName, $index, $idRecord);
 	}
 
 }

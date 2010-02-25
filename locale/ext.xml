@@ -54,6 +54,7 @@
 		<label index="roles.numPersons">Persons</label>
 		<label index="roles.saved.ok">Role saved</label>
 		<label index="roles.saved.error">Saving role failed</label>
+		<label index="create.role.label">New Role</label>
 	</labels>
 	<labels lang="de">
 		<label index="ext.title">System-Verwaltung</label>
@@ -104,5 +105,6 @@
 		<label index="menu.rights">Rechte &amp; Rollen</label>
 		<label index="rights.tab.rights">Rechte</label>
 		<label index="rights.tab.roles">Rollen</label>
+		<label index="create.role.label">Neue Rolle</label>
 	</labels>
 </locallang>

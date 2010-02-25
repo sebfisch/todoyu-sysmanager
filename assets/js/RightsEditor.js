@@ -96,6 +96,31 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	},
 
 
+	
+	/**
+	 * Update roles
+	 */
+	updateRoles: function() {
+		$('rightseditor-form').request({
+			'parameters': {
+				'action':	'listing'
+			},
+			'onComplete': this.onMatrixUpdated.bind(this)
+		});
+	},
+
+
+
+	/**
+	 *	On roles updated handler
+	 *
+	 *	@param	Array	response
+	 */
+	onRolesUpdated: function(response) {
+		$('rightseditor-form').update(response.responseText);
+	},
+
+
 
 	/**
 	 * Update matrix

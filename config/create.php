@@ -1,3 +1,4 @@
+<?php
 /***************************************************************
 *  Copyright notice
 *
@@ -18,39 +19,7 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-Todoyu.Ext.sysmanager.Rights = {
+	// Add quick create types
+TodoyuQuickCreateManager::addEngine('sysmanager', 'role', 'sysmanager.create.role.label', 150, EXTID_ADMIN, true);
 
-	ext: Todoyu.Ext.sysmanager,
-
-	/**
-	 * @todo	comment
-	 * 
-	 * @param	unknown		event
-	 * @param	unknown		tab
-	 */
-	onTabClick: function(event, tab) {
-		var url		= Todoyu.getUrl('sysmanager', 'rights');
-		var options	= {
-			'parameters': {
-				'action':	'tab',
-				'tab':		tab				
-			},
-			'onComplete': this.onTabLoaded.bind(this, tab)
-		}
-		
-		Todoyu.Ui.updateContentBody(url, options);		
-	},
-	
-
-
-	/**
-	 * @todo	comment
-	 * 
-	 * @param	unknown		tab
-	 * @param	unknown		response
-	 */
-	onTabLoaded: function(tab, response) {
-
-	}
-
-};
+?>

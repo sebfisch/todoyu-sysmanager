@@ -45,6 +45,26 @@ class TodoyuRoleEditorRenderer {
 
 
 	/**
+	 * Render role quick creation form
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	public static function renderRoleQuickCreateForm(array $params) {
+		$form	= TodoyuRoleEditorManager::getQuickCreateForm();
+
+			// Preset (empty) form data
+		$formData	= $form->getFormData();
+		$formData	= TodoyuFormHook::callLoadData('core/config/form/role.xml', $formData, 0);
+
+		$form->setFormData($formData);
+
+		return $form->render();
+	}
+
+
+
+	/**
 	 * Render edit form for role
 	 *
 	 * @param	Integer		$idRole
@@ -52,7 +72,7 @@ class TodoyuRoleEditorRenderer {
 	 */
 	public static function renderEdit($idRole) {
 		$idRole		= intval($idRole);
-		$xmlPath	= 'ext/sysmanager/config/form/role.xml';
+		$xmlPath	= 'core/config/form/role.xml';
 
 		$form	= TodoyuFormManager::getForm($xmlPath, $idRole);
 
