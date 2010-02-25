@@ -51,6 +51,19 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	}
 
 
+	/**
+	 * Delete role
+	 *
+	 * @param	Array		$params
+	 */
+	public function deleteAction(array $params) {
+		restrict('sysmanager', 'roles:delete');
+
+		$idRole	= intval($params['role']);
+		TodoyuRoleManager::deleteRole($idRole);
+	}
+
+
 
 	/**
 	 * Save role

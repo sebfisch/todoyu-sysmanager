@@ -96,28 +96,12 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	},
 
 
-	
-	/**
-	 * Update roles
-	 */
-	updateRoles: function() {
-		$('rightseditor-form').request({
-			'parameters': {
-				'action':	'listing'
-			},
-			'onComplete': this.onMatrixUpdated.bind(this)
-		});
-	},
-
-
 
 	/**
-	 *	On roles updated handler
-	 *
-	 *	@param	Array	response
+	 * Update the whole rights editor
 	 */
-	onRolesUpdated: function(response) {
-		$('rightseditor-form').update(response.responseText);
+	updateEditor: function() {
+		Todoyu.Ui.updatePage('admin', 'ext');
 	},
 
 
@@ -177,6 +161,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Handler when group selection has changed
+	 * 
 	 * @param	Event		event
 	 */
 	onRolesChange: function(event) {

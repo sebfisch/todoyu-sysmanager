@@ -64,10 +64,9 @@ Todoyu.Headlet.QuickCreate.Role = {
 			var idRole	= response.getTodoyuHeader('idRole');
 			Todoyu.Hook.exec('onRoleSaved', idRole);
 
-			Todoyu.Popup.close('quickcreate');
+			Todoyu.Popup.close('quickcreate');	
+			Todoyu.Ext.sysmanager.RightsEditor.updateEditor();
 			Todoyu.notifySuccess('[LLL:sysmanager.role.saved]');
-			
-//			Todoyu.Ext.sysmanager.RightsEditor.updateEditor();
 		}
 	}
 

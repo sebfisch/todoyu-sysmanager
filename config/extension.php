@@ -19,6 +19,21 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
+$GLOBALS['CONFIG']['EXT']['sysmanager']['listing']['roles']	= array(
+	'name'		=> 'role',
+	'update'	=> 'sysmanager/role/listing',
+//	@todo	implement equivalent to paging in contacts listings
+//	'dataFunc'	=> 'TodoyuRoleManager::getRoleListingData',
+	'size'		=> $GLOBALS['CONFIG']['LIST']['size'],
+	'columns'	=> array(
+		'icon'			=> '',
+		'title'			=> 'LLL:contact.person.attr.lastname',
+		'description'	=> 'LLL:contact.person.attr.firstname',
+		'email'			=> 'LLL:contact.email',
+		'company'		=> 'LLL:contact.company',
+		'actions'		=> ''
+	)
+);
 
 $CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 	array(

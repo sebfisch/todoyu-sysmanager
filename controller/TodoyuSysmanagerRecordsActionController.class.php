@@ -57,13 +57,22 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 
 
 
+	/**
+	 * @todo	comment
+	 *
+	 * @param	Array	$params
+	 */
 	public function listTypeRecordsAction(array $params) {
 		return TodoyuExtRecordRenderer::renderRecordList($this->extKey, $this->type);
 	}
 
 
 
-
+	/**
+	 * @todo	comment
+	 *
+	 * @param	Array	$params
+	 */
 	public function editAction(array $params) {
 		$idRecord	= intval($params['record']);
 
@@ -73,11 +82,18 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	}
 
 
+
+	/**
+	 * @todo	comment
+	 *
+	 * @param	Array	$params
+	 */
 	public function deleteAction(array $params) {
 		$idRecord	= intval($params['record']);
 
 		TodoyuExtRecordManager::deleteRecord($this->extKey, $this->type, $idRecord);
 	}
+
 
 
 	/**
