@@ -19,22 +19,7 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-$GLOBALS['CONFIG']['EXT']['sysmanager']['listing']['roles']	= array(
-	'name'		=> 'role',
-	'update'	=> 'sysmanager/role/listing',
-//	@todo	implement equivalent to paging in contacts listings
-//	'dataFunc'	=> 'TodoyuRoleManager::getRoleListingData',
-	'size'		=> $GLOBALS['CONFIG']['LIST']['size'],
-	'columns'	=> array(
-		'icon'			=> '',
-		'title'			=> 'LLL:contact.person.attr.lastname',
-		'description'	=> 'LLL:contact.person.attr.firstname',
-		'email'			=> 'LLL:contact.email',
-		'company'		=> 'LLL:contact.company',
-		'actions'		=> ''
-	)
-);
-
+	// Configure sub tabs of admin module "rights and roles"
 $CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 	array(
 		'id'	=> 'rights',
@@ -47,11 +32,10 @@ $CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 );
 
 
-/**
- * Configure listing for companies
- */
+
+	// Configure listing for roles
 $CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
-	'name'		=> 'role',
+	'name'		=> 'roles',
 	'update'	=> 'sysmanager/role/listing',
 	'dataFunc'	=> 'TodoyuRoleEditorManager::getRoleListingData',
 	'columns'	=> array(
@@ -62,6 +46,5 @@ $CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 		'actions'	=> ''
 	)
 );
-
 
 ?>

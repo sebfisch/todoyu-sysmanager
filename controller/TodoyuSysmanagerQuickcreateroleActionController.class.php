@@ -40,14 +40,13 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 	 * @return	String
 	 */
 	public function saveAction(array $params) {
-		restrict('sysmanager', 'role:edit');
-
+//		restrict('sysmanager', 'role:edit');
 		$data	= $params['role'];
 		$idRole	= intval($data['id']);
 
 			// Get form, call save hooks, set data
 		$form	= TodoyuRoleEditorManager::getQuickCreateForm($idRole);
-		$data	= TodoyuFormHook::callSaveData('core/config/form/role.xml', $data, 0);
+		$data	= TodoyuFormHook::callSaveData('core/config/form/role.xml', $data, $idRole);
 		$form->setFormData($data);
 
 			// Validate, render

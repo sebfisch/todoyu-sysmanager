@@ -140,12 +140,12 @@ class TodoyuRightsEditorRenderer {
 
 
 
-	/**
-	 * Render extension rights editor
-	 *
-	 * @param	String		$extKey
-	 * @return	String
-	 */
+//	/**
+//	 * Render extension rights editor
+//	 *
+//	 * @param	String		$extKey
+//	 * @return	String
+//	 */
 //	public static function renderExtRightsEditor($extKey) {
 //			// Usergroups
 //		$usergroups	= TodoyuRoleManager::getAllRoles();
