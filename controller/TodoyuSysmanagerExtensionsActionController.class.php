@@ -20,7 +20,31 @@
 ***************************************************************/
 
 class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController {
+	
+	/**
+	 * @var	String		Extension parameter of the request
+	 */
+	protected $extKey;
 
+	/**
+	 * @var	String		Type parameter of the request
+	 */
+	protected $type;
+	
+	
+	
+	/**
+	 * Set extKey and type on request start because its used by all functions
+	 *
+	 * @param	Array		$params
+	 */
+	public function init(array $params) {
+		TodoyuExtensions::loadAllAdmin();
+		
+		$this->extKey	= $params['extKey'];
+		$this->type		= $params['type'];
+	}
+	
 	/**
 	 * Default request to load a tab in the extension manager
 	 *

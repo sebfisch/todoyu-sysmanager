@@ -39,6 +39,8 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	 * @param	Array		$params
 	 */
 	public function init(array $params) {
+		TodoyuExtensions::loadAllAdmin();
+		
 		$this->extKey	= $params['extKey'];
 		$this->type		= $params['type'];
 	}
