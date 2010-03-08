@@ -34,11 +34,11 @@ Todoyu.Ext.sysmanager.ExtConf = {
 			'onComplete': this.onSaved.bind(this)
 		});
 		
-		return false;		
+		return false;
 	},
-	
-	
-	
+
+
+
 	/**
 	 *	On saved handler
 	 *
@@ -47,11 +47,11 @@ Todoyu.Ext.sysmanager.ExtConf = {
 	onSaved: function(response) {		
 		if( response.hasTodoyuError() ) {
 			Todoyu.notifyError('[LLL:sysmanager.extconf.savingFailed]');
-			
+
 			$('config-form').replace(response.responseText);
 		} else {
 			Todoyu.notifySuccess('[LLL:sysmanager.extconf.saved]', 3);
 		}
 	}
-	
+
 };

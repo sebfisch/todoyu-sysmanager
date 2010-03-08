@@ -98,7 +98,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 			},
 			'onComplete': this.onEdit.bind(this, extKey, type, idRecord)
 		};
-		
+
 		if( Todoyu.exists('record-list') ) {
 			var target = 'record-list';
 		} else {
@@ -180,7 +180,6 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 			},
 			'onComplete': this.onSaved.bind(this, form, extKey, type)
 		});
-		
 
 		return false;
 	},

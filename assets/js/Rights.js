@@ -33,14 +33,14 @@ Todoyu.Ext.sysmanager.Rights = {
 		var options	= {
 			'parameters': {
 				'action':	'tab',
-				'tab':		tab				
+				'tab':		tab
 			},
 			'onComplete': this.onTabLoaded.bind(this, tab)
 		}
-		
+
 		Todoyu.Ui.updateContentBody(url, options);		
 	},
-	
+
 
 
 	/**

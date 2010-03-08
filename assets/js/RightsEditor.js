@@ -155,9 +155,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		Todoyu.notifySuccess('[LLL:sysmanager.rights.saved]');
 	},
 
-	
-	
-	
+
 
 	/**
 	 * Handler when group selection has changed
@@ -244,10 +242,10 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	getDependents: function(right) {
 		var dependents = [];
 		
-		this.require.each(function(rightRequire){			
+		this.require.each(function(rightRequire){
 			if( rightRequire.value.include(right) ) {
 				dependents.push(rightRequire.key);
-			}			
+			}
 		});
 		
 		return dependents;

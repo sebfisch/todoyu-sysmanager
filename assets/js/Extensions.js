@@ -94,7 +94,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 			var extKey	= '';
 			var tab		= tabKey;
 		}
-		
+
 		this.showTab(extKey, tab);		
 	},
 
@@ -131,9 +131,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 */
 	onInstalled: function(extKey, response) {
 		var extName	= response.responseText;
-		
+
 		Todoyu.notifySuccess('[LLL:sysmanager.extension.installed]: ' + extName);
-		
+
 		this.showList();
 	},
 
@@ -173,9 +173,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 			Todoyu.notifyError(response.responseText, 0);
 		} else {
 			var extName	= response.responseText;
-			
+
 			Todoyu.notifySuccess('[LLL:sysmanager.extension.uninstalled]: ' + extName);
-			
+
 			this.showList();
 		}
 	},
@@ -201,7 +201,14 @@ Todoyu.Ext.sysmanager.Extensions = {
 			'extension':	extKey
 		});
 	},
-	
+
+
+
+	/**
+	 * Show rights of given extension
+	 * 
+	 * @param	String		extKey
+	 */
 	showRights: function(extKey) {
 		location.href = 'index.php?ext=admin&mod=rights&extension=' + extKey;
 	}

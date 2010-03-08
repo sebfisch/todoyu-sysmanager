@@ -42,7 +42,7 @@ Todoyu.Ext.sysmanager.Role = {
 				'action':	'edit',
 				'role':		idRole		
 			},
-			'onComplete':	this.onEdit.bind(this, idRole)				
+			'onComplete':	this.onEdit.bind(this, idRole)
 		};
 		
 		Todoyu.Ui.updateContentBody(url, options);
@@ -103,8 +103,8 @@ Todoyu.Ext.sysmanager.Role = {
 		var url		= Todoyu.getUrl('sysmanager', 'role');
 		var options	= {
 			'parameters': {
-				'action':	'listing'	
-			}				
+				'action':	'listing'
+			}
 		};
 
 		Todoyu.Ui.updateContentBody(url, options);
@@ -152,16 +152,23 @@ Todoyu.Ext.sysmanager.Role = {
 		var url		= Todoyu.getUrl('sysmanager', 'role');
 		var options	= {
 			'parameters': {
-				'action':	'listing'				
+				'action':	'listing'
 			},
 			'onComplete':	this.onListShowed.bind(this)
 		};
-		
+
 		Todoyu.Ui.updateContentBody(url, options);
 	},
-	
+
+
+
+	/**
+	 * @todo	comment
+	 * 
+	 * @param	Object		response
+	 */
 	onListShowed: function(response) {
-		
+
 	}
 
 };
