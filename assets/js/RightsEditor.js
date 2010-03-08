@@ -246,7 +246,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		
 		this.require.each(function(rightRequire){			
 			if( rightRequire.value.include(right) ) {
-				dependents.push(rightRequire.key)
+				dependents.push(rightRequire.key);
 			}			
 		});
 		
