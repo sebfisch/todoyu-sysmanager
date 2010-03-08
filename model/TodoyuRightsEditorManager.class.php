@@ -92,7 +92,6 @@ class TodoyuRightsEditorManager {
 				$sectionRequire	= array();
 			}
 
-
 			foreach($section->right as $right) {
 				$rightName = (string)$right['name'];
 
