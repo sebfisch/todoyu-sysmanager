@@ -92,7 +92,7 @@
 		<label index="rights.header">Rechtemanager</label>
 		<label index="rights.save">Rechte speichern</label>
 		<label index="rights.saved">Rechte wurden gespeichert</label>
-		<label index="rights.notAvailable">Diese Erweiterung benötigt keine Rechtekonfiguratione</label>
+		<label index="rights.notAvailable">Diese Erweiterung benötigt keine Rechtekonfiguration</label>
 		<label index="rights.require">Benötigt</label>
 		<label index="extconf.header">Extension Konfiguration</label>
 		<label index="extconf.noExtConf">Für diese Extension gibt es keine Konfiguration</label>
