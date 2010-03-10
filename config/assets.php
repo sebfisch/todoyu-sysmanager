@@ -33,7 +33,11 @@ $CONFIG['EXT']['sysmanager']['assets'] = array(
 
 		),
 		'css' => array(
-
+			array(
+				'file'		=> 'ext/sysmanager/assets/css/global.css',
+				'media'		=> 'all',
+				'position'	=> 100
+			),
 		)
 	),
 
