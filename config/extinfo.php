@@ -25,12 +25,12 @@
 
 
 $CONFIG['EXT']['sysmanager']['info'] = array(
-	'title'			=> 'System manager',
-	'description' 	=> 'Manage todoyu system and server settings. Rights and role config, extension management',
+	'title'			=> 'System Manager',
+	'description' 	=> 'Manage todoyu System and Server Settings. Rights and Role Configuration, Extension Management',
 	'author' 		=> array(
-		'name'		=> 'Todoyu Core Team',
+		'name'		=> 'todoyu Core Developer Team',
 		'email'		=> 'team@todoyu.com',
-		'company'	=> 'Snowflake Productions, Zürich'
+		'company'	=> 'snowflake productions GmbH, Zurich'
 	),
 	'state' 		=> 'beta',
 	'version'		=> '0.2.0',
