@@ -18,7 +18,7 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-Todoyu.Headlet.QuickCreate.Role = {
+Todoyu.Ext.sysmanager.QuickCreateRole = {
 
 	/**
 	 * Evoked upon opening of role quick create wizard popup
@@ -53,18 +53,16 @@ Todoyu.Headlet.QuickCreate.Role = {
 	 *	@paran	Object		response
 	 */
 	onSaved: function(response) {
-		var error	= response.hasTodoyuError();
-
-		if( error ) {
+		if( response.hasTodoyuError() ) {
 				// Saving role failed
 			Todoyu.notifyError('[LLL:sysmanager.role.saved.error]');
-			Todoyu.Headlet.QuickCreate.updateFormDiv(response.responseText);
+			Todoyu.Headlet.QuickCreate.updatePopupContent(response.responseText);
 		} else {
 				// Saving succeeded
 			var idRole	= response.getTodoyuHeader('idRole');
 			Todoyu.Hook.exec('onRoleSaved', idRole);
 
-			Todoyu.Popup.close('quickcreate');	
+			Todoyu.Popup.close('quickcreate');
 			Todoyu.Ext.sysmanager.RightsEditor.updateEditor();
 			Todoyu.notifySuccess('[LLL:sysmanager.role.saved]');
 		}

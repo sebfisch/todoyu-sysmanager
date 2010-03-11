@@ -50,7 +50,7 @@ $CONFIG['EXT']['sysmanager']['assets'] = array(
 			),
 				// Add creation engines to quick create headlet
 			array(
-				'file'		=> 'ext/sysmanager/assets/js/HeadletQuickCreateRole.js',
+				'file'		=> 'ext/sysmanager/assets/js/QuickCreateRole.js',
 				'position'	=> 100
 			),
 			array(
