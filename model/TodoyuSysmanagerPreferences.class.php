@@ -59,6 +59,8 @@ class TodoyuSysmanagerPreferences {
 		TodoyuPreferenceManager::deletePreference(EXTID_SYSMANAGER, $preference, $value, $idItem, $idArea, $idPerson);
 	}
 
+
+
 	public static function getActiveTab($type) {
 		$tab	= self::getPref($type . '-tab');
 
@@ -70,25 +72,30 @@ class TodoyuSysmanagerPreferences {
 	}
 
 
+
 	public static function saveActiveTab($type, $tab) {
 		self::savePref($type . '-tab', $tab, 0, true);
 	}
+
 
 
 	public static function saveRightsExt($ext) {
 		self::savePref('rights-ext', $ext, 0, true);
 	}
 
+
+
 	public static function getRightsExt() {
 		$ext	= self::getPref('rights-ext');
 
 		if( $ext === false ) {
-			$extKeys= TodoyuExtensions::getInstalledExtKeys();
+//			$extKeys= TodoyuExtensions::getInstalledExtKeys();
 			$ext 	= $ext[0];
 		}
 
 		return $ext;
 	}
+
 
 
 	public static function saveRightsRoles(array $roles) {
@@ -97,6 +104,7 @@ class TodoyuSysmanagerPreferences {
 
 		self::savePref('rights-roles', $roleList, 0, true);
 	}
+
 
 
 	public static function getRightsRoles() {
