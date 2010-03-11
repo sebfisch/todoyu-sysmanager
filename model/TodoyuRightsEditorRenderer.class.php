@@ -140,33 +140,6 @@ class TodoyuRightsEditorRenderer {
 
 
 
-//	/**
-//	 * Render extension rights editor
-//	 *
-//	 * @param	String		$extKey
-//	 * @return	String
-//	 */
-//	public static function renderExtRightsEditor($extKey) {
-//			// Usergroups
-//		$usergroups	= TodoyuRoleManager::getAllRoles();
-//		$reform		= array(
-//			'id'	=> 'value',
-//			'title'	=> 'label'
-//		);
-////		$groupOptions = TodoyuArray::reform($usergroups, $reform);
-//
-//		$tmpl	= 'ext/sysmanager/view/rightseditor.tmpl';
-//		$data	= array(
-//			'usergroups'=> $usergroups,
-//			'matrix'	=> self::renderRightsMatrix($extKey),
-//			'extKey'	=> $extKey
-//		);
-//
-//		return render($tmpl, $data);
-//	}
-
-
-
 	/**
 	 * Render rights matrix for all all extension rights for the selected roles
 	 *
