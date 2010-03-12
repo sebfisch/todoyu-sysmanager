@@ -228,7 +228,7 @@ class TodoyuExtManager {
 
 
 	/**
-	 * Checks if extension has something to configure
+	 * Check if extension has something to configure
 	 *
 	 * @todo	How are configs registered? Add Check
 	 *
