@@ -18,36 +18,36 @@
    -------------------------*/
 
 	/* Column widths */
-.roleListing th.icon {
+.rolesListing th.icon {
 	width:15px;
 }
-.roleListing th.title {
+.rolesListing th.title {
 	width:150px;
 }
-.roleListing th.description {
+.rolesListing th.description {
 	width:285px;
 }
-.roleListing th.persons {
+.rolesListing th.persons {
 	width:100px;
 }
-.roleListing th.actions {
+.rolesListing th.actions {
 	width:50px;
 }
 
 	/* Column configs */
-.roleListing td.icon {
+.rolesListing td.icon {
 	background:url(../img/icons.png) no-repeat 6px -206px;
 }
-.roleListing td.actions div.icon {
+.rolesListing td.actions div.icon {
 	margin-right:5px;
 }
-.roleListing td.actions div {
+.rolesListing td.actions div {
 	background-image:url(../img/icons.png);
 	background-repeat:no-repeat;
 }
-.roleListing td.actions div.edit {
+.rolesListing td.actions div.edit {
 	background-position:0 -240px;	
 }
-.roleListing td.actions div.delete {
+.rolesListing td.actions div.delete {
 	background-position:0 -270px;	
 }
