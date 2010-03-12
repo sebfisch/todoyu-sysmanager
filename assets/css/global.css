@@ -1,3 +1,7 @@
-#headlet-quickcreate-menu li.itemSysmanagerRole {
-	background: url(../img/icons.png) no-repeat 11px -538px;
+/* -----------------------------------------------
+	Quick create (headlet) mode selector entries
+   ----------------------------------------------- */
+
+#headlet-quickcreate-content a.itemSysmanagerRole {
+	background: url(../img/icons.png) no-repeat 5px -538px;
 }
