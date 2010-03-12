@@ -31,7 +31,7 @@ class TodoyuExtRecordManager {
 	 * Get record form object with injected save buttons
 	 *
 	 * @param	String		$ext
-	 * @param	Stirng		$type
+	 * @param	String		$type
 	 * @param	Integer		$idRecord
 	 * @return	TodoyuForm
 	 */

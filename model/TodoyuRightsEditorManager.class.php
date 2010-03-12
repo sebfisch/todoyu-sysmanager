@@ -196,6 +196,7 @@ class TodoyuRightsEditorManager {
 			}
 		}
 
+		TodoyuRightsManager::saveChangeTime();
 		TodoyuRightsManager::reloadRights();
 	}
 

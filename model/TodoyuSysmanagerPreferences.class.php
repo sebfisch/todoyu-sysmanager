@@ -98,15 +98,26 @@ class TodoyuSysmanagerPreferences {
 
 
 
+	/**
+	 * Save rights and roles to prefs
+	 *
+	 * @param	Array	$roles
+	 */
 	public static function saveRightsRoles(array $roles) {
 		$roles		= TodoyuArray::intval($roles, true, true);
 		$roleList	= implode(',', $roles);
 
+		TodoyuRightsManager::saveChangeTime();
 		self::savePref('rights-roles', $roleList, 0, true);
 	}
 
 
 
+	/**
+	 * Get rights and roles from prefs
+	 *
+	 * @return	Array
+	 */
 	public static function getRightsRoles() {
 		$roleList	= self::getPref('rights-roles');
 
@@ -118,7 +129,6 @@ class TodoyuSysmanagerPreferences {
 
 		return $roles;
 	}
-
 
 }
 
