@@ -40,7 +40,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	 */
 	public function init(array $params) {
 		TodoyuExtensions::loadAllAdmin();
-		
+
 		$this->extKey	= $params['extKey'];
 		$this->type		= $params['type'];
 	}
@@ -111,7 +111,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 
 		$form		= TodoyuExtRecordManager::getRecordForm($this->extKey, $this->type, $idRecord);
 
-		$form->addFormData($data);
+		$form->setFormData($data);
 
 			// Validate, save, render
 		if( $form->isValid() )	{
