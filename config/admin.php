@@ -21,22 +21,17 @@
 
 	// Add extension manager
 if( allowed('sysmanager', 'general:extensions') ) {
-	TodoyuAdminManager::addModule('extensions', 'LLL:sysmanager.menu.extensions', 'TodoyuExtManagerRenderer::renderModuleContent', 'TodoyuExtManagerRenderer::renderModuleTabs', 10, array('sysmanager', 'public'));
+	TodoyuAdminManager::addModule('extensions', 'LLL:sysmanager.menu.extensions', 'TodoyuExtManagerRenderer::renderModuleContent', 'TodoyuExtManagerRenderer::renderModuleTabs', 10, array('sysmanager'));
 }
 
 if( allowed('sysmanager', 'general:allrecords') ) {
 		// Add records manager
-	TodoyuAdminManager::addModule('records', 'LLL:sysmanager.menu.allRecords', 'TodoyuRecordsOverviewRenderer::renderModuleContent', 'TodoyuRecordsOverviewRenderer::renderModuleTabs', 20, array('sysmanager', 'public'));
+	TodoyuAdminManager::addModule('records', 'LLL:sysmanager.menu.allRecords', 'TodoyuRecordsOverviewRenderer::renderModuleContent', 'TodoyuRecordsOverviewRenderer::renderModuleTabs', 20, array('sysmanager'));
 }
 
 if( allowed('sysmanager', 'general:rights') ) {
 		// Add records manager
-	TodoyuAdminManager::addModule('rights', 'LLL:sysmanager.menu.rights', 'TodoyuRightsEditorRenderer::renderModuleContent', 'TodoyuRightsEditorRenderer::renderModuleTabs', 30, array('sysmanager', 'public'));
+	TodoyuAdminManager::addModule('rights', 'LLL:sysmanager.menu.rights', 'TodoyuRightsEditorRenderer::renderModuleContent', 'TodoyuRightsEditorRenderer::renderModuleTabs', 30, array('sysmanager'));
 }
-
-
-//TodoyuPage::addExtAssets('sysmanager', 'public');
-
-//TodoyuAdminManager::addModule('rights', 'Rights Management', 'TodoyuRightsEditorRenderer::renderModule', 60, array('sysmanager', 'public'));
 
 ?>

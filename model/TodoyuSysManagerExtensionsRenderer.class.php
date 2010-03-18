@@ -35,7 +35,6 @@ class TodoyuSysManagerExtensionsRenderer {
 	 * @return	String
 	 */
 	public static function renderModule($params) {
-		TodoyuPage::addExtAssets('sysmanager');
 		$show	= $params['show'];
 
 		switch( $show ) {
