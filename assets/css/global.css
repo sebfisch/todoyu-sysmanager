@@ -2,6 +2,6 @@
 	Quick create (headlet) mode selector entries
    ----------------------------------------------- */
 
-#headlet-quickcreate-content a.itemSysmanagerRole {
+#headlet-quickcreate-content li.itemSysmanagerRole a {
 	background: url(../img/icons.png) no-repeat 5px -538px;
 }
