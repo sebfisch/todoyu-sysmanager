@@ -100,6 +100,12 @@ class TodoyuExtInstaller {
 	}
 
 
+
+	/**
+	 * @todo	check and implement or remove
+	 *
+	 * @param	String	$extKey
+	 */
 	public static function canInstall($extKey) {
 
 	}
@@ -146,10 +152,8 @@ class TodoyuExtInstaller {
 
 
 
-
 	/**
-	 * Download an extension
-	 * Pack all extension files into an archive and send it to the browser
+	 * Download an extension: Pack all extension files into an archive and send it to the browser
 	 *
 	 * @param	String		$extKey
 	 */
@@ -166,13 +170,11 @@ class TodoyuExtInstaller {
 		TodoyuHeader::sendHeader('Content-length', $filesize);
 		TodoyuHeader::sendNoCacheHeaders();
 
-			// Delete temporary zip file after download
-		TodoyuDiv::sendFile($archivePath);
-
+			// Send file for download and delete temporary zip file after download
+		TodoyuFileManager::sendFile($archivePath);
 		unlink($archivePath);
 	}
 
 }
-
 
 ?>

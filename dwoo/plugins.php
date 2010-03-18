@@ -107,13 +107,8 @@ function Dwoo_Plugin_extMgr_isSysExt_compile(Dwoo_Compiler $compiler, $extKey) {
  * @param	Dwoo $dwoo
  * @param	String	$extKey
  * @return	String
- *
  */
 function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $dwoo, $extKey)	{
-//	$iconPath	= TodoyuDiv::pathWeb(PATH_EXT . '/' . strtolower($extKey));
-//	$extInfo	= TodoyuExtManager::getExtInfos($extKey);
-//	$altText	= $extKey. ' Extension' . ($extInfo ? ' version ' . $extInfo['version'] : '');
-
 	return "'<img src=\"ext/' . " . $extKey . " . '/assets/img/exticon.png\" width=\"16\" height=\"16\" />'";
 }
 
