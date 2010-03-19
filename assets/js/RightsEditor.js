@@ -44,6 +44,9 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @param	JSON	require
 	 */
 	initMatrix: function(require) {
+			// If no dependecies given, use empty object. Empty array doen't work with $H()
+		require	= Object.isArray(require) ? {} : require;
+		
 			// Set required mapping
 		this.require = $H(require);
 		
@@ -173,14 +176,12 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	initDependents: function() {
 		var roles	= this.getRoles();
-		
-		if ( Todoyu.Helper.isset(roles) ) {
-			this.require.each(function(roles, require){
-				roles.each(function(require, idRole){
-					this.checkDependents(require.key, idRole);
-				}.bind(this, require));			
-			}.bind(this, roles));
-		}
+
+		this.require.each(function(roles, require){
+			roles.each(function(require, idRole){
+				this.checkDependents(require.key, idRole);
+			}.bind(this, require));			
+		}.bind(this, roles));
 	},
 
 
