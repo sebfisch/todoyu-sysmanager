@@ -68,7 +68,7 @@ Todoyu.Ext.sysmanager.Role = {
 	 * @param	Integer		idRole
 	 */	
 	remove: function(idRole) {
-		if( confirm('[LLL:sysmanager.role.delete.confirm]') ) {
+		if( confirm('[LLL:sysmanager.roles.delete.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'role');
 			var options	= {
 				'parameters': {
