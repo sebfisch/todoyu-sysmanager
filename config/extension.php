@@ -44,7 +44,12 @@ $CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 		'description'=>'LLL:core.description',
 		'persons'	=> 'LLL:sysmanager.roles.numPersons',
 		'actions'	=> ''
+	),
+	'truncate'	=> array(
+		'title'			=> 20,
+		'description'	=> 20
 	)
+
 );
 
 ?>
