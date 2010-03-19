@@ -13,7 +13,9 @@
 		<label index="records.noTypes">This Extension Has No Records To Edit</label>
 		<label index="records.saved">Record Saved</label>
 		<label index="records.saved.fail">Saving Record Failed</label>
-		<label index="records.delete">Delete Record?</label>
+		<label index="records.delete.confirm">Delete Record?</label>
+		<label index="records.delete">Delete Record</label>
+		<label index="records.edit">Edit Record</label>
 		<label index="ext.extensionKey">Extension Key</label>
 		<label index="ext.extKey">Ext-Key</label>
 		<label index="ext.version">Version / State</label>
@@ -73,7 +75,9 @@
 		<label index="records.noTypes">Diese Erweiterung hat keine Datensätze</label>
 		<label index="records.saved">Datensatz gespeichert</label>
 		<label index="records.saved.fail">Speicherung des Datensatzes war nicht erfolgreich</label>
-		<label index="records.delete">Datensatz löschen?</label>
+		<label index="records.delete.confirm">Datensatz löschen?</label>
+		<label index="records.delete">Datensatz löschen</label>
+		<label index="records.edit">Datensatz bearbeiten</label>
 		<label index="ext.extensionKey">Erweiterungsschlüssel</label>
 		<label index="ext.extKey">Ext-Key</label>
 		<label index="ext.version">Version / Status</label>

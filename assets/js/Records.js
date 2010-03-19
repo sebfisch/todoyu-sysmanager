@@ -132,7 +132,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 *	@param Integer	idRecord
 	 */
 	remove: function(extKey, type, idRecord)	{
-		if( confirm('[LLL:sysmanager.records.delete]') ) {
+		if( confirm('[LLL:sysmanager.records.delete.confirm]') ) {
 			var options = {
 				'parameters': {
 					'action':	'delete',

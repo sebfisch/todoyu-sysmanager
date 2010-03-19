@@ -8,14 +8,14 @@
 	<ul id="record-list" class="ulList withMouseHover">
 	{foreach $records key record}
 		<li id="listElement-{$key}" class="{cycle values='odd,even'}">
-			<span class="recordlabel">
+			<span class="recordlabel" title="{$record.label}">
 				<a onclick="Todoyu.Ext.sysmanager.Extensions.Records.edit('{$extKey}', '{$type}', {$record.id})">
 					{truncate Label($record.label true) 20}&nbsp;
 				</a>
 			</span>
 			<span class="additionalInformations">{$record.additionalInformations}</span>
-			<span class="delete" onclick="Todoyu.Ext.sysmanager.Extensions.Records.remove('{$extKey}', '{$type}', {$record.id})"></span>
-			<span class="edit" onclick="Todoyu.Ext.sysmanager.Extensions.Records.edit('{$extKey}', '{$type}', {$record.id})"></span>
+			<span class="delete" onclick="Todoyu.Ext.sysmanager.Extensions.Records.remove('{$extKey}', '{$type}', {$record.id})" title="{Label sysmanager.records.delete}"></span>
+			<span class="edit" onclick="Todoyu.Ext.sysmanager.Extensions.Records.edit('{$extKey}', '{$type}', {$record.id})" title="{Label sysmanager.records.edit}"></span>
 		</li>
 	{/foreach}
 	</ul>
