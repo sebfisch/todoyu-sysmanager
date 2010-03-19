@@ -56,6 +56,8 @@
 		<label index="roles.saved.ok">Role saved</label>
 		<label index="roles.saved.error">Saving Role Failed</label>
 		<label index="roles.delete.confirm">Wollen Sie diese Rolle wirklich löschen?</label>
+		<label index="roles.delete">Delete Role</label>
+		<label index="roles.edit">Edit Role</label>
 		<label index="create.role.label">New Role</label>
 	</labels>
 	<labels lang="de">
@@ -111,6 +113,8 @@
 		<label index="roles.saved.ok">Rolle gespeichert</label>
 		<label index="roles.saved.error">Speichern der Rolle fehlgeschlagen</label>
 		<label index="roles.delete.confirm">Wollen Sie diese Rolle wirklich löschen?</label>
+		<label index="roles.delete">Rolle löschen</label>
+		<label index="roles.edit">Rolle bearbeiten</label>
 		<label index="create.role.label">Neue Rolle</label>
 	</labels>
 </locallang>
