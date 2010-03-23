@@ -188,7 +188,7 @@ class TodoyuRightsEditorManager {
 
 			// Delete the rights of the selected roles
 		foreach($roleIDs as $idRole) {
-			TodoyuRightsManager::deleteRoleRights($idRole);
+			TodoyuRightsManager::deleteExtRoleRights($extID, $idRole);
 		}
 
 			// Add new rights
