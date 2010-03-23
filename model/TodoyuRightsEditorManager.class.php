@@ -183,11 +183,13 @@ class TodoyuRightsEditorManager {
 	 * @param	String		$extKey		Extension key
 	 * @param	Array		$rights		Submitted rights
 	 */
-	public static function saveRoleRights($extKey, array $rights) {
+	public static function saveRoleRights($extKey, array $rights, array $roleIDs) {
 		$extID	= TodoyuExtensions::getExtID($extKey);
 
-			// Delete all stored rights for this extension
-		TodoyuRightsManager::deleteExtensionRights($extID);
+			// Delete the rights of the selected roles
+		foreach($roleIDs as $idRole) {
+			TodoyuRightsManager::deleteRoleRights($idRole);
+		}
 
 			// Add new rights
 		foreach($rights as $rightName => $allowedRoles) {

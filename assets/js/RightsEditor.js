@@ -94,7 +94,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		if( roles.size() === 0 ) {
 			$('rightseditor-field-roles').select('option').each(function(option){
 				option.selected = true;
-			})
+			});
 		}
 	},
 
@@ -141,7 +141,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		$('rightsmatix-form').request({
 			'parameters': {
 				'action':	'save',
-				'extension':this.getExtension()
+				'extension':this.getExtension(),
+				'roles':	this.getRoles().join(',')
 			},
 			'onComplete':	this.onRightsSaved.bind(this)
 		});

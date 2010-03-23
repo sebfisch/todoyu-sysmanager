@@ -59,8 +59,9 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 	public function saveAction(array $params) {
 		$extKey	= $params['extension'];
 		$rights	= TodoyuArray::assure($params['rights']);
+		$roles	= TodoyuArray::intExplode(',', $params['roles']);
 
-		TodoyuRightsEditorManager::saveRoleRights($extKey, $rights);
+		TodoyuRightsEditorManager::saveRoleRights($extKey, $rights, $roles);
 	}
 
 
