@@ -24,7 +24,7 @@
 }
 
 #rightsmatrix .roles .name {
-	width:200px;
+	width:250px;
 	font-weight:bold;
 	text-align:left;
 }
@@ -62,9 +62,15 @@
 }
 
 #rightsmatix-form td.label {
-	width:200px;
-	font-weight:bold;
+	width:250px;
+	/*font-weight:bold;*/
 	text-align:left;
+	border-bottom:1px dashed #DDD;
+}
+
+#rightsmatix-form td.label a {
+	display:inline-block;
+	width:90%;
 }
 
 #rightsmatix-form td.roleRight {
