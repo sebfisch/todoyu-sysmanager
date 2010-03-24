@@ -51,7 +51,7 @@ class TodoyuExtInstaller {
 	 */
 	public static function saveInstalledExtensions(array $extensions) {
 			// Update global config array
-		$GLOBALS['CONFIG']['EXT']['installed'] = $extensions;
+		Todoyu::$CONFIG['EXT']['installed'] = $extensions;
 
 			// Update config file
 		self::writeExtensionsFile($extensions);
@@ -66,7 +66,7 @@ class TodoyuExtInstaller {
 	 */
 	public static function install($extKey) {
 			// Get installed extensions
-		$installed	= $GLOBALS['CONFIG']['EXT']['installed'];
+		$installed	= Todoyu::$CONFIG['EXT']['installed'];
 
 			// Add extension key to list
 		$installed[] = $extKey;
@@ -87,7 +87,7 @@ class TodoyuExtInstaller {
 	 */
 	public static function uninstall($extKey) {
 			// Get installed extensions with extkey as array key
-		$installed	= array_flip($GLOBALS['CONFIG']['EXT']['installed']);
+		$installed	= array_flip(Todoyu::$CONFIG['EXT']['installed']);
 
 			// Remove extension key from list
 		unset($installed[$extKey]);

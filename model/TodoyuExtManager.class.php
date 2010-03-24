@@ -128,7 +128,7 @@ class TodoyuExtManager {
 	 * @param	Array		$config
 	 */
 	public static function addRecordConfig($extKey, $recordName, array $config) {
-		$GLOBALS['CONFIG']['EXT']['sysmanager']['records'][$extKey][$recordName] = $config;
+		Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName] = $config;
 	}
 
 
@@ -141,7 +141,7 @@ class TodoyuExtManager {
 	 * @return	Array
 	 */
 	public static function getRecordTypeConfig($extKey, $recordName)	{
-		$config = $GLOBALS['CONFIG']['EXT']['sysmanager']['records'][$extKey][$recordName];
+		$config = Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName];
 
 		if( ! is_array($config) )	{
 			$config = array();
@@ -159,7 +159,7 @@ class TodoyuExtManager {
 	 * @return	Array
 	 */
 	public static function getRecordConfigs($extKey) {
-		$config	= $GLOBALS['CONFIG']['EXT']['sysmanager']['records'][$extKey];
+		$config	= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey];
 
 		if( ! is_array($config) ) {
 			$config = array();
@@ -215,7 +215,7 @@ class TodoyuExtManager {
 	 * @return	unknown
 	 */
 	public static function getRecordListData($extKey, $recordName, array $params = array()) {
-		$funcRef	= $GLOBALS['CONFIG']['EXT']['sysmanager']['records'][$extKey][$recordName]['list'];
+		$funcRef	= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName]['list'];
 		$data		= array();
 
 		if( TodoyuDiv::isFunctionReference($funcRef) ) {

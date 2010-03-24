@@ -24,7 +24,7 @@
  */
 
 
-$CONFIG['EXT']['sysmanager']['info'] = array(
+Todoyu::$CONFIG['EXT']['sysmanager']['info'] = array(
 	'title'			=> 'System Manager',
 	'description' 	=> 'Manage todoyu System and Server Settings. Rights and Role Configuration, Extension Management',
 	'author' 		=> array(

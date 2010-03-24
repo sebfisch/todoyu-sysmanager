@@ -20,7 +20,7 @@
 ***************************************************************/
 
 	// Configure sub tabs of admin module "rights and roles"
-$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
+Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 	array(
 		'id'	=> 'rights',
 		'label'	=> 'LLL:sysmanager.rights.tab.rights'
@@ -34,7 +34,7 @@ $CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 
 
 	// Configure listing for roles
-$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
+Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 	'name'		=> 'roles',
 	'update'	=> 'sysmanager/role/listing',
 	'dataFunc'	=> 'TodoyuRoleEditorManager::getRoleListingData',

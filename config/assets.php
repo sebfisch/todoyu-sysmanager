@@ -26,7 +26,7 @@
  * @subpackage	SysManager
  */
 
-$CONFIG['EXT']['sysmanager']['assets'] = array(
+Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 	'js' => array(
 		array(
 			'file'		=> 'ext/sysmanager/assets/js/Ext.js',

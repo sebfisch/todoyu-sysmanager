@@ -142,7 +142,7 @@ class TodoyuExtConfManager {
 	 * @param	Array		$data
 	 */
 	public static function setExtConf($extKey, array $data) {
-		$GLOBALS['CONFIG']['EXT'][$extKey]['extConf'] = $data;
+		Todoyu::$CONFIG['EXT'][$extKey]['extConf'] = $data;
 	}
 
 
@@ -154,7 +154,7 @@ class TodoyuExtConfManager {
 	 * @return	Array
 	 */
 	public static function getExtConf($extKey) {
-		return TodoyuArray::assure($GLOBALS['CONFIG']['EXT'][$extKey]['extConf']);
+		return TodoyuArray::assure(Todoyu::$CONFIG['EXT'][$extKey]['extConf']);
 	}
 
 }

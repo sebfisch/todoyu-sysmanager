@@ -62,7 +62,7 @@ class TodoyuRightsEditorRenderer {
 	 */
 	public static function renderModuleTabs(array $params = array()) {
 		$name		= 'rights';
-		$tabs		= TodoyuArray::assure($GLOBALS['CONFIG']['EXT']['sysmanager']['rightsTabs']);
+		$tabs		= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs']);
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Rights.onTabClick.bind(Todoyu.Ext.sysmanager.Rights)';
 		$activeTab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
 
