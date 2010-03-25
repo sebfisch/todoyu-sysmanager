@@ -7,7 +7,7 @@
 		<label index="general.rights">Rights Manager</label>
 		<label index="general.roles">Roles Manager</label>
 		<label index="extensions">Extensions</label>
-		<label index="extensions.info">Extension infos</label>
+		<label index="extensions.info">Extension Infos</label>
 		<label index="extensions.config">Edit Configuration</label>
 		<label index="extensions.rights">Edit Rights</label>
 		<label index="extensions.records">Edit Records</label>
