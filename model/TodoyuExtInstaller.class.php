@@ -160,7 +160,7 @@ class TodoyuExtInstaller {
 	public static function downloadExtension($extKey) {
 		$archivePath= TodoyuExtArchiver::createExtensionArchive($extKey);
 		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
-		$version	= TodoyuDiv::getVersionInfo($extInfo['version']);
+		$version	= TodoyuString::getVersionInfo($extInfo['version']);
 
 		$fileName	= 'TXA_' . $extKey . '_' . $version['major'] . '-' . $version['minor'] . '-' . $version['revision'] . '_' . date('YmdHis') . '.zip';
 		$filesize	= filesize($archivePath);

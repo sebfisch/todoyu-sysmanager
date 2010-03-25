@@ -218,8 +218,8 @@ class TodoyuExtManager {
 		$funcRef	= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName]['list'];
 		$data		= array();
 
-		if( TodoyuDiv::isFunctionReference($funcRef) ) {
-			$data	= TodoyuDiv::callUserFunction($funcRef, $params);
+		if( TodoyuFunction::isFunctionReference($funcRef) ) {
+			$data	= TodoyuFunction::callUserFunction($funcRef, $params);
 		}
 
 		return $data;

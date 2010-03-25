@@ -72,7 +72,7 @@ class TodoyuExtConfManager {
 		$form->setFormData($data);
 
 			// Modify form fields
-		$formAction	= TodoyuDiv::buildUrl(array(
+		$formAction	= TodoyuString::buildUrl(array(
 			'ext'		=> 'sysmanager',
 			'controller'=> 'extconf'
 		));
