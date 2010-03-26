@@ -54,6 +54,13 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		
 			// Observe rights checkboxes for change
 		this.observeRightsForm();
+		
+			// Are there rigths to be edited? hide disable save button otherwise
+		var noRights	= $$('td.roleRight').length == 0;
+		$$('button.save').each(function(element) {
+			$(element).disabled = noRights;
+		});
+
 	},
 
 
