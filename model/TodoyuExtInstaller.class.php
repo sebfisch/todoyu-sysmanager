@@ -101,17 +101,6 @@ class TodoyuExtInstaller {
 
 
 	/**
-	 * @todo	check and implement or remove
-	 *
-	 * @param	String	$extKey
-	 */
-	public static function canInstall($extKey) {
-
-	}
-
-
-
-	/**
 	 * Check if an extension can be uninstalled
 	 * Check for: dependents, system
 	 *
