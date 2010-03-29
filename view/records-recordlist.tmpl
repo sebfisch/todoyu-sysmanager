@@ -14,8 +14,8 @@
 				</a>
 			</span>
 			<span class="additionalInformations" title="{$record.additionalInformations}">{truncate $record.additionalInformations 12}</span>
-			<span class="delete" onclick="Todoyu.Ext.sysmanager.Extensions.Records.remove('{$extKey}', '{$type}', {$record.id})" title="{Label sysmanager.records.delete}"></span>
 			<span class="edit" onclick="Todoyu.Ext.sysmanager.Extensions.Records.edit('{$extKey}', '{$type}', {$record.id})" title="{Label sysmanager.records.edit}"></span>
+			<span class="delete" onclick="Todoyu.Ext.sysmanager.Extensions.Records.remove('{$extKey}', '{$type}', {$record.id})" title="{Label sysmanager.records.delete}"></span>
 		</li>
 	{/foreach}
 	</ul>

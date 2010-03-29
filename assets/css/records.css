@@ -15,7 +15,7 @@
 	cursor:pointer;
 	height:16px;
 	position:absolute;
-	right:30px;
+	right:5px;
 	width:16px;
 	background:transparent url(../img/icons.png) no-repeat 0px -420px;
 }
@@ -24,7 +24,7 @@
 	cursor:pointer;
 	height:16px;
 	position:absolute;
-	right:5px;
+	right:30px;
 	width:16px;
 	background:transparent url(../img/icons.png) no-repeat 0px -360px;
 }
