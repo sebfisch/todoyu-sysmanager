@@ -60,7 +60,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * Activate given tab in admin area
 	 */
 	activateTab: function(tab) {
-		Todoyu.Tabs.setActive('exttab', tab);
+		Todoyu.Tabs.setActive('extension', tab);
 	},
 
 
@@ -83,15 +83,15 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	String	tabKey
 	 */
 	onTabClick: function(event, tabKey) {
-		var y = tabKey.indexOf('_');
+		var extKey, tab;
 		
 		if( tabKey.indexOf('_') !== -1 ) {
 			var parts	= tabKey.split('_');
-			var extKey	= parts[0];
-			var tab		= parts[1];
+			extKey	= parts[0];
+			tab		= parts[1];
 		} else {
-			var extKey	= '';
-			var tab		= tabKey;
+			extKey	= '';
+			tab		= tabKey;
 		}
 
 		this.showTab(extKey, tab);		
@@ -105,7 +105,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	String	extKey
 	 */
 	install: function(extKey) {
-		if( confirm('[LLL:sysmanager.extensions.install.confirm]') ) {
+		if( confirm('[LLL:sysmanager.extension.installExtension.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				'parameters': {
@@ -113,7 +113,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 					'extension':	extKey
 				},
 				'onComplete': this.onInstalled.bind(this, extKey)
-			}
+			};
 
 			Todoyu.send(url, options);
 		}
@@ -131,7 +131,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	onInstalled: function(extKey, response) {
 		var extName	= response.responseText;
 
-		Todoyu.notifySuccess('[LLL:sysmanager.extension.installed]: ' + extName);
+		Todoyu.notifySuccess('[LLL:sysmanager.extension.installExtension.ok]: ' + extName);
 
 		this.showList();
 	},
@@ -144,7 +144,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	String	extKey
 	 */
 	uninstall: function(extKey) {
-		if( confirm('[LLL:sysmanager.extensions.uninstall.confirm]') ) {
+		if( confirm('[LLL:sysmanager.extension.uninstallExtension.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				'parameters': {
@@ -152,7 +152,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 					'extension':	extKey
 				},
 				'onComplete': this.onUninstalled.bind(this, extKey)
-			}
+			};
 
 			Todoyu.send(url, options);
 		}
@@ -169,11 +169,11 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 */
 	onUninstalled: function(extKey, response) {
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError(response.responseText, 0);
+			Todoyu.notifyError('[LLL:sysmanager.extension.uninstallExtension.error]', 0);
 		} else {
 			var extName	= response.responseText;
 
-			Todoyu.notifySuccess('[LLL:sysmanager.extension.uninstalled]: ' + extName);
+			Todoyu.notifySuccess('[LLL:sysmanager.extension.uninstallExtension.ok]: ' + extName);
 
 			this.showList();
 		}
