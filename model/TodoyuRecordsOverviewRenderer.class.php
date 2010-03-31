@@ -68,7 +68,7 @@ class TodoyuRecordsOverviewRenderer {
 		$tabs		= self::getRecordlistTabs();
 		$active		= 'list';
 
-		return TodoyuTabheadRenderer::renderTabs($listID, $tabs, $jsHandler, $active);
+		return TodoyuTabheadRenderer::renderTabs($name, $tabs, $jsHandler, $active);
 	}
 
 
