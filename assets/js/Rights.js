@@ -35,7 +35,7 @@ Todoyu.Ext.sysmanager.Rights = {
 				'tab':		tab
 			},
 			'onComplete': this.onTabLoaded.bind(this, tab)
-		}
+		};
 
 		Todoyu.Ui.updateContentBody(url, options);		
 	},

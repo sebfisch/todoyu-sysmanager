@@ -140,7 +140,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 					'record':	idRecord
 				},
 				'onComplete': this.onRemoved.bind(this, extKey, type, idRecord)
-			}
+			};
 
 			Todoyu.send(this.url, options);
 		}

@@ -18,7 +18,7 @@
    ------------------- */
 #extension-tabs li span.icon {
 	background-image:url(../img/icons.png);
-	background-repeat:none;
+	background-repeat:no-repeat;
 }
 #extension-tabs li.list span.icon {
 	background-position:0 5px;

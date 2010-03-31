@@ -3,7 +3,7 @@
    ------------------- */
 #rights-tabs li span.icon {
 	background-image:url(../img/icons.png);
-	background-repeat:none;
+	background-repeat:no-repeat;
 }
 #rights-tabs li.rights span.icon {
 	background-position:0 -295px;
