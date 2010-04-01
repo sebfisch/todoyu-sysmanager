@@ -266,7 +266,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * 
 	 * @param	String		right
 	 * @param	Integer		idGroup
-	 * @param	Bool		check
+	 * @param	Boolean		check
 	 */
 	checkRight: function(right, idRole, check) {
 		this.checkbox(right, idRole).checked = check;
@@ -287,11 +287,11 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 
 	/**
-	 * Enable/Disable a right checkbox
+	 * Enable/disable a right checkbox
 	 * 
 	 * @param	String		right
 	 * @param	Integer		idGroup
-	 * @param	Bool		enable
+	 * @param	Boolean		enable
 	 */
 	enableRight: function(right, idRole, enable) {
 		this.checkbox(right, idRole).disabled = enable === false;
@@ -329,7 +329,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * 
 	 * @param	String		right
 	 * @param	Integer		idGroup
-	 * @param	Bool		active
+	 * @param	Boolean		active
 	 */
 	activateRight: function(right, idGroup, active) {
 		this.enableRight(right, idGroup);
