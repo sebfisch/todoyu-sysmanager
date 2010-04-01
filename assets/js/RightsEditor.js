@@ -141,7 +141,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 
 	/**
-	 *	Save rights over ajax, no reload
+	 *	Save rights over AJAX, no reload
 	 */
 	saveRights: function() {
 		$('rightsmatix-form').request({
