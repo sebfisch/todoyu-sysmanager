@@ -341,7 +341,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Check if all required rights for a right are currently active
 	 * 
-	 * @param	Stirng		right
+	 * @param	String		right
 	 * @param	Integer		idGroup
 	 */
 	allRequiredsActive: function(right, idGroup) {
