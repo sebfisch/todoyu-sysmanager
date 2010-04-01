@@ -232,7 +232,7 @@ class TodoyuExtManager {
 	 * @todo	How are configs registered? Add Check
 	 *
 	 * @param	string	$extKey
-	 * @return	Bool
+	 * @return	Boolean
 	 */
 	public static function extensionHasConfig($extKey)	{
 		$xmlPath	= TodoyuExtConfManager::getXmlPath($extKey);

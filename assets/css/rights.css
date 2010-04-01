@@ -50,7 +50,7 @@
 	width:610px;
 	border:1px solid #AAA;
 	padding:10px;
-	padding-top:0px;
+	padding-top:0;
 	margin-bottom:10px;
 }
 
@@ -58,7 +58,7 @@
 	display:inline;
 	font-weight:bold;
 	font-size:13px;
-	padding:0px 5px;
+	padding:0 5px;
 }
 
 #rightsmatix-form td.label {

@@ -51,7 +51,7 @@ function Dwoo_Plugin_extMgr_hasRecords_compile(Dwoo_Compiler $compiler, $extKey)
  *
  * @param	Dwoo	$dwoo
  * @param	String	$extKey
- * @return	Bool
+ * @return	Boolean
  */
 function Dwoo_Plugin_extMgr_hasRighsConfig_compile(Dwoo_Compiler $compiler, $extKey)	{
 	return 'TodoyuRightsEditorManager::hasRightsConfig(' . $extKey . ')';
@@ -110,9 +110,5 @@ function Dwoo_Plugin_extMgr_isSysExt_compile(Dwoo_Compiler $compiler, $extKey) {
 function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $dwoo, $extKey)	{
 	return "'<img src=\"ext/' . " . $extKey . " . '/assets/img/exticon.png\" width=\"16\" height=\"16\" />'";
 }
-
-
-
-
 
 ?>
