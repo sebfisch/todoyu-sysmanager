@@ -8,6 +8,11 @@ table.recordsoverview {
 /* --------------------
 	Column widths
    -------------------- */
+
+.recordsoverview th,
+.recordsoverview td {
+	vertical-align: middle;
+}
 	.recordsoverview th.icon {
 		width:15px;
 	}

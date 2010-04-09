@@ -16,6 +16,10 @@
 /* -------------------------
 	Role list
    -------------------------*/
+.rolesListing th,
+.rolesListing td {
+	vertical-align: middle;
+}
 
 	/* Column widths */
 .rolesListing th.icon {
@@ -36,18 +40,18 @@
 
 	/* Column configs */
 .rolesListing td.icon {
-	background:url(../img/icons.png) no-repeat 6px -206px;
+	background:url(../img/icons.png) no-repeat 6px -204px;
 }
-.rolesListing td.actions div.icon {
+.rolesListing td.actions span.icon {
 	margin-right:5px;
 }
-.rolesListing td.actions div {
+.rolesListing td.actions span {
 	background-image:url(../img/icons.png);
 	background-repeat:no-repeat;
 }
-.rolesListing td.actions div.edit {
-	background-position:0 -240px;	
+.rolesListing td.actions span.edit {
+	background-position:0 -239px;	
 }
-.rolesListing td.actions div.delete {
-	background-position:0 -270px;	
+.rolesListing td.actions span.delete {
+	background-position:0 -269px;	
 }

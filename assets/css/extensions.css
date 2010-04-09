@@ -46,6 +46,12 @@
 	margin-top:6px;
 }
 
+.extlist th,
+.extlist td {
+	vertical-align: middle;
+	line-height: 11px;
+}
+
 	/* list columns */
 .extlist th.icon {
 	width:20px;
@@ -86,20 +92,20 @@
 }
 
 .extlist td.edit a.uninstall {
-	background-position:0 -60px;
+	background-position:0 -58px;
 }
 .extlist td.edit a.install {
 	background-position:0 -30px;
 }
 
 .extlist td.edit a.info {
-	background-position:0 -90px;
+	background-position:0 -88px;
 }
 .extlist td.edit a.config {
-	background-position:0 -120px;
+	background-position:0 -119px;
 }
 .extlist td.edit a.records {
-	background-position:0 -330px;
+	background-position:0 -329px;
 }
 .extlist td.edit a.rights {
 	background-position:0 -150px;
