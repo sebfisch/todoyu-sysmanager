@@ -63,8 +63,8 @@ class TodoyuExtArchiver {
 
 			// Add files
 		foreach($files as $file) {
-			$filePath	= $pathToFolder . DIRECTORY_SEPARATOR . $file;
-			$relPath	= str_replace($baseFolder . DIRECTORY_SEPARATOR, '', $filePath);
+			$filePath	= $pathToFolder . DIR_SEP . $file;
+			$relPath	= str_replace($baseFolder . DIR_SEP, '', $filePath);
 
 			$archive->addFile($filePath, $relPath);
 		}
@@ -74,8 +74,8 @@ class TodoyuExtArchiver {
 			$folders	= TodoyuFileManager::getFoldersInFolder($pathToFolder);
 				// Add folders
 			foreach($folders as $folder) {
-				$folderPath	= $pathToFolder . DIRECTORY_SEPARATOR . $folder;
-				$relPath	= str_replace($baseFolder . DIRECTORY_SEPARATOR, '', $folderPath);
+				$folderPath	= $pathToFolder . DIR_SEP . $folder;
+				$relPath	= str_replace($baseFolder . DIR_SEP, '', $folderPath);
 
 				$archive->addEmptyDir($relPath);
 
