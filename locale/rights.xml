@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <locallang>
-	<labels lang="en">
+	<labels lang="en_GB">
 		<label index="general">General Settings</label>
 		<label index="general.extensions">Extension Manager</label>
 		<label index="general.allrecords">Show All Records Edit View</label>
@@ -19,7 +19,7 @@
 		<label index="roles.edit">Edit Role</label>
 		<label index="roles.delete">Delete Role</label>
 	</labels>
-	<labels lang="de">
+	<labels lang="de_DE">
 		<label index="general">Allgemeine Einstellungen</label>
 		<label index="general.extensions">Erweiterungsmanager</label>
 		<label index="general.allrecords">'Alle Datensätze' Ansicht</label>
@@ -37,7 +37,7 @@
 		<label index="roles.edit">Rollen bearbeiten</label>
 		<label index="roles.delete">Rollen löschen</label>
 	</labels>
-	<labels lang="pt">
+	<labels lang="pt_BR">
 		<label index="general">Configurações Gerais</label>
 		<label index="general.extensions">Gerenciador de Extensões</label>
 		<label index="general.allrecords">Exibir Todos os Registros Editar Visão</label>

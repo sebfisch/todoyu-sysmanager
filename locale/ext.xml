@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <locallang>
-	<labels lang="en">
+	<labels lang="en_GB">
 		<label index="ext.title">System Manager</label>
 		<label index="tabs.extensions">Extensions</label>
 		<label index="tabs.extensions.back">Show Extension List</label>
@@ -65,7 +65,7 @@
 		<label index="roles.edit">Edit Role</label>
 		<label index="create.role.label">New Role</label>
 	</labels>
-	<labels lang="de">
+	<labels lang="de_DE">
 		<label index="ext.title">System-Verwaltung</label>
 		<label index="tabs.extensions">Erweiterungen</label>
 		<label index="tabs.extensions.back">Erweiterungen</label>
@@ -128,7 +128,7 @@
 		<label index="roles.edit">Rolle bearbeiten</label>
 		<label index="create.role.label">Neue Rolle</label>
 	</labels>
-	<labels lang="pt">
+	<labels lang="pt_BR">
 		<label index="ext.title">Gerenciamento do Sistema</label>
 		<label index="tabs.extensions">Extensões</label>
 		<label index="tabs.extensions.back">Exibir Listagem de Extensões</label>
