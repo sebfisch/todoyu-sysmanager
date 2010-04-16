@@ -46,6 +46,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		$this->type		= $params['type'];
 	}
 
+
+
 	/**
 	 * Default request to load a tab in the extension manager
 	 *
@@ -53,10 +55,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @return	String
 	 */
 	public function tabviewAction(array $params) {
-		$extKey	= $params['extension'];
-		$tab	= $params['tab'];
-
-		return TodoyuExtManagerRenderer::renderContent($params); //($extKey, $tab, $params);
+		return TodoyuExtManagerRenderer::renderContent($params);
 	}
 
 
@@ -115,6 +114,11 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		$extKey	= $params['extension'];
 
 		TodoyuExtInstaller::downloadExtension($extKey);
+	}
+
+
+	public function showImportAction(array $params) {
+		return 'Import screen';		
 	}
 
 }

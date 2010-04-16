@@ -131,8 +131,10 @@ class TodoyuExtManagerRenderer {
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Extensions.onTabClick.bind(Todoyu.Ext.sysmanager.Extensions)';
 		$tabs		= TodoyuExtManager::getTabConfig($extKey);
 
-		if( empty($extKey) || empty($tab) )	{
-			$active = $tabs[0]['id'];
+		if( empty($tab) ) {
+			$active	= $tabs[0]['id'];
+		} elseif( empty($extKey) ) {
+			$active	= $tab;
 		} else {
 			$active	= $extKey . '_' . $tab;
 		}

@@ -35,9 +35,13 @@ class TodoyuExtArchiver {
 	 */
 	public static function createExtensionArchive($extKey) {
 		$randomFile	= md5(uniqid($extKey, microtime(true))) . '.zip';
-		$tempPath	= TodoyuFileManager::pathAbsolute('cache/downloads/' . $randomFile);
+		$tempDir	= TodoyuFileManager::pathAbsolute('cache/temp');
+		$tempPath	= TodoyuFileManager::pathAbsolute($tempDir . '/' . $randomFile);
 		$extPath	= TodoyuExtensions::getExtPath($extKey);
 		$archive	= new ZipArchive();
+
+			// Create temp dir
+		TodoyuFileManager::makeDirDeep($tempDir);
 
 		$archive->open($tempPath, ZipArchive::CREATE);
 

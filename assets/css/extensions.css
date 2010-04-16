@@ -126,3 +126,9 @@
 #content-tabs #extension-tab-update {
 	float:right;
 }
+
+
+/* Import */
+p.importInfo {
+	margin:10px 10px 10px 0;
+}

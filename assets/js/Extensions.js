@@ -210,5 +210,21 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 */
 	showRights: function(extKey) {
 		location.href = 'index.php?ext=admin&mod=rights&extension=' + extKey;
+	},
+
+	showImport: function() {
+		var url		= Todoyu.getUrl('sysmanager', 'extensions');
+		var options	= {
+			'parameters': {
+				'action': 'showimport'
+			},
+			'onComplete': this.onImportShowed.bind(this)
+		};
+
+		Todoyu.Ui.updateContentBody(url, options);
+	},
+
+	onImportShowed: function(response) {
+		
 	}
 };

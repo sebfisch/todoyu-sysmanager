@@ -150,11 +150,11 @@ class TodoyuExtInstaller {
 		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
 		$version	= TodoyuString::getVersionInfo($extInfo['version']);
 
-		$fileName	= 'TXA_' . $extKey . '_' . $version['major'] . '-' . $version['minor'] . '-' . $version['revision'] . '_' . date('YmdHis') . '.zip';
+		$fileName	= 'TodoyuExt_' . $extKey . '_' . $version['major'] . '-' . $version['minor'] . '-' . $version['revision'] . '_' . date('Y.m.d-H.i') . '.zip';
 		$filesize	= filesize($archivePath);
 
 		TodoyuHeader::sendHeader('Content-type', 'application/octet-stream');
-		TodoyuHeader::sendHeader('Content-disposition', 'attachment; filename=' . $fileName);
+		TodoyuHeader::sendHeader('Content-disposition', 'attachment; filename="' . $fileName . '"');
 		TodoyuHeader::sendHeader('Content-length', $filesize);
 		TodoyuHeader::sendNoCacheHeaders();
 

@@ -48,7 +48,6 @@ Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 		'title'			=> 20,
 		'description'	=> 20
 	)
-
 );
 
 ?>
