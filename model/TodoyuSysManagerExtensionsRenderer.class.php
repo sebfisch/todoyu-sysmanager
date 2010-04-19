@@ -24,7 +24,6 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-
 class TodoyuSysManagerExtensionsRenderer {
 
 	/**
