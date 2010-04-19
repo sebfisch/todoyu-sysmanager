@@ -96,7 +96,6 @@ class TodoyuExtConfManager {
 
 	/**
 	 * Save current configuration (installed extensions and their config)
-	 *
 	 */
 	private static function writeExtconfFile() {
 		$file	= PATH_LOCALCONF . '/extconf.php';
@@ -156,6 +155,5 @@ class TodoyuExtConfManager {
 	}
 
 }
-
 
 ?>

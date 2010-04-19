@@ -20,17 +20,17 @@
 Todoyu.Ext.sysmanager.RecordsOverview = {
 
 	/**
-	 *	Ext shortcut
+	 * Ext shortcut
 	 */
 	ext:	Todoyu.Ext.sysmanager,
 
 
 
 	/**
-	 *	On tab select handler
+	 * On tab select handler
 	 *
-	 *	@param	event
-	 *	@param	String	tabKey
+	 * @param	event
+	 * @param	{String}	tabKey
 	 */
 	onTabSelect: function(event, tabKey) {
 		// Do nothing

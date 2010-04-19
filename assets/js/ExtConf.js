@@ -22,7 +22,7 @@ Todoyu.Ext.sysmanager.ExtConf = {
 	/**
 	 * On save handler
 	 * 
-	 *	@param	String	form
+	 * @param	{String}	form
 	 */
 	onSave: function(form) {
 
@@ -39,9 +39,9 @@ Todoyu.Ext.sysmanager.ExtConf = {
 
 
 	/**
-	 *	On saved handler
+	 * On saved handler
 	 *
-	 *	@param	Array	response
+	 * @param	{Array}	response
 	 */
 	onSaved: function(response) {		
 		if( response.hasTodoyuError() ) {

@@ -32,9 +32,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Show given extension tab in sysmanager
 	 *
-	 * @param	String	extKey
-	 * @param	String	tab
-	 * @param	Object	params
+	 * @param	{String}	extKey
+	 * @param	{String}	tab
+	 * @param	{Object}	params
 	 */
 	showTab: function(extKey, tab, params) {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
@@ -80,7 +80,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * On tab click handler
 	 *
 	 * @param	Ojbect	event
-	 * @param	String	tabKey
+	 * @param	{String}	tabKey
 	 */
 	onTabClick: function(event, tabKey) {
 		var extKey, tab;
@@ -102,7 +102,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Evoke installation of given extension
 	 *
-	 * @param	String	extKey
+	 * @param	{String}	extKey
 	 */
 	install: function(extKey) {
 		if( confirm('[LLL:sysmanager.extension.installExtension.confirm]') ) {
@@ -125,8 +125,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * Handler to be called after ext. installation.
 	 * Shows list of extensions and installation response notification
 	 *
-	 * @param	String	extKey
-	 * @param	Object	response
+	 * @param	{String}	extKey
+	 * @param	{Object}	response
 	 */
 	onInstalled: function(extKey, response) {
 		var extName	= response.responseText;
@@ -141,7 +141,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Evoke deinstallation of given extension
 	 *
-	 * @param	String	extKey
+	 * @param	{String}	extKey
 	 */
 	uninstall: function(extKey) {
 		if( confirm('[LLL:sysmanager.extension.uninstallExtension.confirm]') ) {
@@ -164,8 +164,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * Handler to be called after ext. deinstallation.
 	 * Show notification of deinstallation success / failure
 	 *
-	 * @param	String	extKey
-	 * @param	Object	response
+	 * @param	{String}	extKey
+	 * @param	{Object}	response
 	 */
 	onUninstalled: function(extKey, response) {
 		if( response.hasTodoyuError() ) {
@@ -192,7 +192,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Download given extension
 	 *
-	 * @param	String	extKey
+	 * @param	{String}	extKey
 	 */
 	download: function(extKey) {
 		Todoyu.goTo('sysmanager', 'extensions', {
@@ -206,7 +206,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Show rights of given extension
 	 * 
-	 * @param	String		extKey
+	 * @param	{String}		extKey
 	 */
 	showRights: function(extKey) {
 		location.href = 'index.php?ext=admin&mod=rights&extension=' + extKey;

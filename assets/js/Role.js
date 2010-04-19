@@ -32,7 +32,7 @@ Todoyu.Ext.sysmanager.Role = {
 	/**
 	 * Edit given role
 	 * 
-	 * @param	Integer		idRole
+	 * @param	{Integer}		idRole
 	 */
 	edit: function(idRole) {
 		var url		= Todoyu.getUrl('sysmanager', 'role');
@@ -52,8 +52,8 @@ Todoyu.Ext.sysmanager.Role = {
 	/**
 	 * Handler evoked onEdit
 	 * 
-	 * @param	Integer		idRole
-	 * @param	Object		response
+	 * @param	{Integer}		idRole
+	 * @param	{Object}		response
 	 */
 	onEdit: function(idRole, response) {
 		
@@ -64,7 +64,7 @@ Todoyu.Ext.sysmanager.Role = {
 	/**
 	 * Delete given role from DB
 	 * 
-	 * @param	Integer		idRole
+	 * @param	{Integer}		idRole
 	 */	
 	remove: function(idRole) {
 		if( confirm('[LLL:sysmanager.roles.delete.confirm]') ) {
@@ -86,8 +86,8 @@ Todoyu.Ext.sysmanager.Role = {
 	/**
 	 * Handler to be evoked after removal of role
 	 * 
-	 * @param	Integer		idRole
-	 * @param	Object		response
+	 * @param	{Integer}		idRole
+	 * @param	{Object}		response
 	 */
 	onRemoved: function(idRole, response) {
 		this.updateList();
@@ -114,7 +114,7 @@ Todoyu.Ext.sysmanager.Role = {
 	/**
 	 * Save role from given form
 	 * 
-	 * @param	Array	form
+	 * @param	{Array}	form
 	 */
 	save: function(form) {
 		$(form).request({
@@ -130,7 +130,7 @@ Todoyu.Ext.sysmanager.Role = {
 	/**
 	 * Handler being evoked after saving of role to database
 	 * 
-	 * @param	Object	response
+	 * @param	{Object}	response
 	 */
 	onSaved: function(response) {
 		if( response.hasTodoyuError() ) {
@@ -164,7 +164,7 @@ Todoyu.Ext.sysmanager.Role = {
 	/**
 	 * @todo	comment
 	 * 
-	 * @param	Object		response
+	 * @param	{Object}		response
 	 */
 	onListShowed: function(response) {
 

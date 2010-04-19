@@ -24,8 +24,8 @@ Todoyu.Ext.sysmanager.Rights = {
 	/**
 	 * @todo	comment
 	 * 
-	 * @param	Event		event
-	 * @param	String		tab
+	 * @param	{Event}		event
+	 * @param	{String}		tab
 	 */
 	onTabClick: function(event, tab) {
 		var url		= Todoyu.getUrl('sysmanager', 'rights');
@@ -45,8 +45,8 @@ Todoyu.Ext.sysmanager.Rights = {
 	/**
 	 * @todo	comment
 	 * 
-	 * @param	String		tab
-	 * @param	Object		response
+	 * @param	{String}		tab
+	 * @param	{Object}		response
 	 */
 	onTabLoaded: function(tab, response) {
 

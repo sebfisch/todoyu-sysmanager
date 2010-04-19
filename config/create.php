@@ -23,5 +23,4 @@ if( TodoyuAuth::isAdmin() ) {
 	TodoyuQuickCreateManager::addEngine('sysmanager', 'role', 'sysmanager.create.role.label', 150, array('admin'), true);
 }
 
-
 ?>
