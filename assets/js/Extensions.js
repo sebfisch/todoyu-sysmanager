@@ -226,5 +226,11 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 	onImportShowed: function(response) {
 		
+	},
+
+	onUploadFileChange: function() {
+		Todoyu.Form.addIFrame('extension');
+
+		$('extension-form').submit();	
 	}
 };

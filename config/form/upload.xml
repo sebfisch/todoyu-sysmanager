@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<attributes>
+		<attribute name="action">?ext=sysmanager&amp;controller=extensions</attribute>
+		<attribute name="name">extension</attribute>
+		<attribute name="enctype">multipart/form-data</attribute>
+		<attribute name="target">upload-iframe-extension</attribute>
+	</attributes>
+	<hiddenFields>
+		<field name="MAX_FILE_SIZE" value="5000000" noWrap="true" noStorage="true" />
+		<field name="action" noWrap="true" value="upload" />
+	</hiddenFields>
+	<fieldsets>
+		<fieldset name="main">
+			<legend>Left form column</legend>
+			<class>main</class>
+			<elements>
+
+				<field type="upload" name="file">
+					<label>sysmanager.upload.selectfile</label>
+					<onchange>Todoyu.Ext.sysmanager.Extensions.onUploadFileChange();</onchange>
+				</field>
+
+				<field type="checkbox" name="override">
+					<label>sysmanager.upload.override</label>
+				</field>
+			</elements>
+		</fieldset>
+	</fieldsets>
+</form>

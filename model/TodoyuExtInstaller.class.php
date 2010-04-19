@@ -150,7 +150,7 @@ class TodoyuExtInstaller {
 		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
 		$version	= TodoyuString::getVersionInfo($extInfo['version']);
 
-		$fileName	= 'TodoyuExt_' . $extKey . '_' . $version['major'] . '-' . $version['minor'] . '-' . $version['revision'] . '_' . date('Y.m.d-H.i') . '.zip';
+		$fileName	= self::buildExtensionArchiveName($extKey, $version['major'], $version['minor'], $version['revision']);
 		$filesize	= filesize($archivePath);
 
 		TodoyuHeader::sendHeader('Content-type', 'application/octet-stream');
@@ -161,6 +161,90 @@ class TodoyuExtInstaller {
 			// Send file for download and delete temporary zip file after download
 		TodoyuFileManager::sendFile($archivePath);
 		unlink($archivePath);
+	}
+
+
+	public static function buildExtensionArchiveName($extKey, $versionMajor, $versionMinor, $versionRevision) {
+		return 'TodoyuExt_' . $extKey . '_' . $versionMajor . '.' . $versionMinor . '.' . $versionRevision . '_' . date('Y-m-d_H.i') . '.zip';
+	}
+
+
+	public static function parseExtensionArchiveName($extArchiveName) {
+		$fileInfo	= explode('_', $extArchiveName);
+		$version	= TodoyuString::getVersionInfo($fileInfo[2]);
+		$date		= strtotime($fileInfo[3] . ' ' . $fileInfo[4]);
+
+		$info	= array(
+			'ext'		=> $fileInfo[1],
+			'version'	=> $version,
+			'date'		=> $date
+		);
+
+		return $info;
+	}
+
+
+	public static function canImportUploadedArchive(array $file, $override = false) {
+		try {
+			if( TodoyuExtInstaller::isValidExtArchive($file) !== true ) {
+				throw new Exception('Invalid extension archive');
+			}
+
+			$fileInfo	= explode('_', $file['name']);
+			$extName	= trim(strtolower($fileInfo[1]));
+			$extDir		= TodoyuExtensions::getExtPath($extName);
+
+			if( ! $override && is_dir($extDir) ) {
+				throw new Exception('Extension already exists');
+			}
+		} catch(Exception $e) {
+			return $e->getMessage();
+		}
+
+		return true;
+	}
+
+
+	public static function isValidExtArchive(array $file) {
+		$info	= pathinfo($file['name']);
+
+		try {
+			if( $info['extension'] !== 'zip' ) {
+				throw new Exception('Invalid archive extension');
+			}
+//			if( $file['type'] !== 'application/octet-stream' ) {
+//				throw new Exception('Invalid content type');
+//			}
+			if( $file['size'] < 100 ) {
+				throw new Exception('Invalid size. Too small for a real extension archive');
+			}
+
+			$archive= new ZipArchive();
+			if( $archive->open($file['tmp_name']) !== true ) {
+				throw new Exception('Can\'t open archive file');
+			}
+
+			if( $archive->statName('ext.php') === false ) {
+				throw new Exception('ext.php not found in archive');
+			}
+		} catch(Exception $e) {
+			if( $archive instanceof ZipArchive ) {
+				$archive->close();
+			}
+			Todoyu::log('Invalid extension import: ' . $e->getMessage());
+			return false;
+		}
+
+		return true;
+	}
+
+
+	public static function importExtension($extension, $pathArchive) {
+		$archive	= new ZipArchive();
+		$archive->open($pathArchive);
+		$extDir		= TodoyuExtensions::getExtPath($extension);
+
+		$archive->extractTo($extDir);
 	}
 
 }

@@ -64,6 +64,9 @@
 		<label index="roles.delete">Delete Role</label>
 		<label index="roles.edit">Edit Role</label>
 		<label index="create.role.label">New Role</label>
+		<label index="upload.selectfile">Select extension archiv (zip)</label>
+		<label index="upload.override">Override existing extension (files)</label>
+		<label index="upload.title">Upload new extension</label>
 	</labels>
 	<labels lang="de_DE">
 		<label index="ext.title">System-Verwaltung</label>
@@ -127,6 +130,8 @@
 		<label index="roles.delete">Rolle löschen</label>
 		<label index="roles.edit">Rolle bearbeiten</label>
 		<label index="create.role.label">Neue Rolle</label>
+		<label index="upload.selectfile">Geben Sie das Archiv der Erweiterung an (zip)</label>
+		<label index="upload.title">Neue Erweiterung hochladen</label>
 	</labels>
 	<labels lang="pt_BR">
 		<label index="ext.title">Gerenciamento do Sistema</label>

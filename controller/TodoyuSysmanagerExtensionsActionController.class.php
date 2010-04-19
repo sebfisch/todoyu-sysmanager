@@ -118,7 +118,57 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 
 	public function showImportAction(array $params) {
-		return 'Import screen';		
+		$xmlPath= 'ext/sysmanager/config/form/upload.xml';
+		$form	= TodoyuFormManager::getForm($xmlPath);
+		$form->setUseRecordID(false);
+
+		$tmpl	= 'ext/sysmanager/view/extension-import.tmpl';
+		$data	= array(
+			'form'	=> $form->render()
+		);
+
+		return render($tmpl, $data);
+	}
+
+
+	public function uploadAction(array $params) {
+		$file		= TodoyuRequest::getUploadFile('file', 'extension');
+		$data		= $params['extension'];
+		$override	= intval($data['override']) === 1;
+
+		try {
+				// Is file available in upload array
+			if( $file === false ) {
+				throw new Exception('File not found in upload array');
+			}
+				// Has an error occured
+			if( $file['error'] !== 0 ) {
+				throw new Exception('Upload error');
+			}
+
+				// Check if import is possible with provided file
+			if( ($result = TodoyuExtInstaller::canImportUploadedArchive($file, $override)) !== true ) {
+				throw new Exception('Can\'t import extension archive: ' . $result);
+			}
+
+			$archiveInfo	= TodoyuExtInstaller::parseExtensionArchiveName($file['name']);
+
+			TodoyuExtInstaller::importExtension($archiveInfo['ext'], $file['tmp_name']);
+
+			$info	= array(
+				'success'	=> true,
+				'message'	=> '',
+				'ext'		=> $archiveInfo['ext']
+			);
+		}  catch(Exception $e) {
+			$info	= array(
+				'success'	=> false,
+				'message'	=> $e->getMessage(),
+				'ext'		=> $archiveInfo['ext']
+			);
+		}
+
+		return json_encode($info);
 	}
 
 }
