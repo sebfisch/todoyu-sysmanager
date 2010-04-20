@@ -49,7 +49,7 @@ Todoyu.Ext.sysmanager.QuickCreateRole = {
 	/**
 	 * On saved handle
 	 *
-	 *	@param	{Object}    response
+	 *	@param	{Object}		response
 	 */
 	onSaved: function(response) {
 		if( response.hasTodoyuError() ) {

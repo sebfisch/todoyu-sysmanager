@@ -104,7 +104,6 @@ class TodoyuExtRecordManager {
 
 
 
-
 	/**
 	 * Delete record
 	 *
