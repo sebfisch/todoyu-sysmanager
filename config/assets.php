@@ -19,7 +19,7 @@
 *****************************************************************************/
 
 /**
- * Page configuration for sysmanager extension
+ * Assets configuration for sysmanager extension
  *
  * @package		Todoyu
  * @subpackage	SysManager

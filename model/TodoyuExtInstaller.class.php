@@ -101,11 +101,11 @@ class TodoyuExtInstaller {
 
 
 	/**
-	 * Check if an extension can be uninstalled
+	 * Check whether an extension can be uninstalled
 	 * Check for: dependents, system
 	 *
 	 * @param	String		$extKey
-	 * @return	Bool
+	 * @return	Boolean
 	 */
 	public static function canUninstall($extKey) {
 		$noDependents	= TodoyuExtensions::hasDependents($extKey) === false;

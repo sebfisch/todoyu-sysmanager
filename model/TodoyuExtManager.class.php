@@ -106,10 +106,10 @@ class TodoyuExtManager {
 
 
 	/**
-	 * Check if an extension is a system extension
+	 * Check whether an extension is a system extension
 	 *
 	 * @param	String		$extKey
-	 * @return	Bool
+	 * @return	Boolean
 	 */
 	public static function isSysExt($extKey) {
 		$extInfos	= self::getExtInfos($extKey);
@@ -226,7 +226,7 @@ class TodoyuExtManager {
 
 
 	/**
-	 * Check if extension has something to configure
+	 * Check whether extension has something to configure
 	 *
 	 * @todo	How are configs registered? Add Check
 	 *

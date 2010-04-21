@@ -39,10 +39,10 @@ class TodoyuExtConfManager {
 
 
 	/**
-	 * Check if extension config form exists
+	 * Check whether extension config form exists
 	 *
 	 * @param	String		$extKey
-	 * @return	Bool
+	 * @return	Boolean
 	 */
 	public static function hasExtConf($extKey) {
 		$xmlPath = self::getXmlPath($extKey);

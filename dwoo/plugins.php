@@ -35,7 +35,7 @@
  *
  * @param	Dwoo	$dwoo
  * @param	String	$extKey
- * @return	Bool
+ * @return	Boolean
  */
 function Dwoo_Plugin_extMgr_hasRecords_compile(Dwoo_Compiler $compiler, $extKey)	{
 	return 'sizeof(TodoyuExtManager::getRecordTypes(' . $extKey . ')) > 0';
@@ -67,7 +67,7 @@ function Dwoo_Plugin_extMgr_hasRighsConfig_compile(Dwoo_Compiler $compiler, $ext
  *
  * @param	Dwoo	$dwoo
  * @param	String	$extKey
- * @return	Bool
+ * @return	Boolean
  */
 function Dwoo_Plugin_extMgr_hasConfig_compile(Dwoo_Compiler $compiler, $extKey)	{
 	return 'TodoyuExtManager::extensionHasConfig(' . $extKey . ')';
@@ -83,7 +83,7 @@ function Dwoo_Plugin_extMgr_hasConfig_compile(Dwoo_Compiler $compiler, $extKey)	
  *
  * @param	Dwoo	$dwoo
  * @param	String	$extKey
- * @return	Bool
+ * @return	Boolean
  */
 function Dwoo_Plugin_extMgr_hasExtInfo_compile(Dwoo_Compiler $compiler, $extKey)	{
 	return 'TodoyuExtManager::getExtInfos(' . $extKey . ') !== false';

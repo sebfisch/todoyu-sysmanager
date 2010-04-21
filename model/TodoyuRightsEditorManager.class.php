@@ -27,11 +27,11 @@
 class TodoyuRightsEditorManager {
 
 	/**
-	 * Check if an extension has a rights config XML file
+	 * Check whether an extension has a rights config XML file
 	 * File: ext/EXTKEY/config/rights.xml
 	 *
 	 * @param	String		$extKey		Extension key
-	 * @return	Bool
+	 * @return	Boolean
 	 */
 	public static function hasRightsConfig($extKey) {
 		return is_file( PATH_EXT . '/' . $extKey . '/config/rights.xml');

@@ -22,7 +22,6 @@
  * Various sysmanager extension info data
  */
 
-
 Todoyu::$CONFIG['EXT']['sysmanager']['info'] = array(
 	'title'			=> 'System Manager',
 	'description' 	=> 'Manage todoyu System and Server Settings. Rights and Role Configuration, Extension Management',
@@ -42,6 +41,5 @@ Todoyu::$CONFIG['EXT']['sysmanager']['info'] = array(
 		'system'	=> true
 	),
 );
-
 
 ?>
