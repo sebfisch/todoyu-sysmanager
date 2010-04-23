@@ -21,6 +21,8 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 	/**
 	 * Ext shortcut
+	 *
+	 * @var	{Object}	ext
 	 */
 	ext:	Todoyu.Ext.sysmanager,
 
