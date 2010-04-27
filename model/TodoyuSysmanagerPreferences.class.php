@@ -1,5 +1,29 @@
 <?php
+/****************************************************************************
+* todoyu is published under the BSD License:
+* http://www.opensource.org/licenses/bsd-license.php
+*
+* Copyright (c) 2010, snowflake productions gmbh
+* All rights reserved.
+*
+* This script is part of the todoyu project.
+* The todoyu project is free software; you can redistribute it and/or modify
+* it under the terms of the BSD License.
+*
+* This script is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the BSD License
+* for more details.
+*
+* This copyright notice MUST APPEAR in all copies of the script.
+*****************************************************************************/
 
+/**
+ * Sysmanager preferences
+ *
+ * @package		Todoyu
+ * @subpackage	Sysmanager
+ */
 class TodoyuSysmanagerPreferences {
 
 	/**
@@ -61,6 +85,12 @@ class TodoyuSysmanagerPreferences {
 
 
 
+	/**
+	 * @todo	comment
+	 *
+	 * @param	String		$type
+	 * @return	String
+	 */
 	public static function getActiveTab($type) {
 		$tab	= self::getPref($type . '-tab');
 
@@ -73,18 +103,32 @@ class TodoyuSysmanagerPreferences {
 
 
 
+	/**
+	 * @todo	comment
+	 *
+	 * @param	String		$type
+	 * @param	String		$tab
+	 */
 	public static function saveActiveTab($type, $tab) {
 		self::savePref($type . '-tab', $tab, 0, true);
 	}
 
 
 
+	/**
+	 * @todo	comment
+	 * @param	String	$ext
+	 */
 	public static function saveRightsExt($ext) {
 		self::savePref('rights-ext', $ext, 0, true);
 	}
 
 
 
+	/**
+	 * @todo	comment
+	 * @return	String
+	 */
 	public static function getRightsExt() {
 		$ext	= self::getPref('rights-ext');
 
