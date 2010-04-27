@@ -116,7 +116,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 *	
 	 * @param	{String}	extKey
 	 * @param	{String}	type
-	 * @param	{Integer}	idRecord
+	 * @param	{Number}	idRecord
 	 * @param	{Array}	response
 	 */
 	onEdit: function(extKey, type, idRecord, response) {
@@ -130,7 +130,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 *
 	 * @param {String}	extKey
 	 * @param {String}	type
-	 * @param {Integer}	idRecord
+	 * @param {Number}	idRecord
 	 */
 	remove: function(extKey, type, idRecord)	{
 		if( confirm('[LLL:sysmanager.records.delete.confirm]') ) {
@@ -155,7 +155,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 *
 	 * @param	{String}	extKey
 	 * @param	{String}	type
-	 * @param	{Integer}	idRecord
+	 * @param	{Number}	idRecord
 	 * @param	{Array}	response
 	 */
 	onRemoved: function(extKey, type, idRecord, response) {
