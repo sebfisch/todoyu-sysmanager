@@ -31,7 +31,7 @@ Todoyu.Ext.sysmanager.QuickCreateRole = {
 	/**
 	 * Save role
 	 *
-	 * @param	unknown		form
+	 * @param	{Element}		form
 	 */
 	save: function(form) {
 		$(form).request ({
