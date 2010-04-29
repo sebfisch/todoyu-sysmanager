@@ -18,6 +18,12 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
+/**
+ * [Enter Class Description]
+ *
+ * @package		Todoyu
+ * @subpackage	[Subpackage]
+ */
 class TodoyuRoleEditorManager {
 
 	/**

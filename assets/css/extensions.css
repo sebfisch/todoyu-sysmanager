@@ -4,12 +4,6 @@
 #panelwidget-adminmodules li.extensions a {
 	background:url(../img/icons.png) no-repeat 1px 1px;
 }
-#panelwidget-adminmodules li.records a {
-	background:url(../img/icons.png) no-repeat 1px -360px;
-}
-#panelwidget-adminmodules li.rights a {
-	background:url(../img/icons.png) no-repeat 1px -240px;
-}
 
 
 

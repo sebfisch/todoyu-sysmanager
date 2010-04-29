@@ -53,6 +53,7 @@
 		<label index="menu.extensions">Extensions</label>
 		<label index="menu.allRecords">All Records</label>
 		<label index="menu.rights">Rights &amp; Roles</label>
+		<label index="menu.config">System configuration</label>
 		<label index="rights.tab.rights">Rights</label>
 		<label index="rights.tab.roles">Roles</label>
 		<label index="rights.form.roles">Roles</label>
@@ -63,6 +64,8 @@
 		<label index="roles.delete.confirm">Do you really want to delete this role?</label>
 		<label index="roles.delete">Delete Role</label>
 		<label index="roles.edit">Edit Role</label>
+		<label index="config.tab.logo">Change Logo</label>
+		<label index="config.selectlogo">Choose Logo</label>
 		<label index="create.role.label">New Role</label>
 		<label index="upload.selectfile">Select extension archive (zip)</label>
 		<label index="upload.override">Override existing extension (files)</label>
@@ -121,6 +124,7 @@
 		<label index="menu.extensions">Erweiterungen</label>
 		<label index="menu.allRecords">Alle Datensätze</label>
 		<label index="menu.rights">Rechte &amp; Rollen</label>
+		<label index="menu.config">System Konfiguration</label>
 		<label index="rights.tab.rights">Rechte</label>
 		<label index="rights.tab.roles">Rollen</label>
 		<label index="roles.numPersons">Persons</label>
@@ -130,6 +134,7 @@
 		<label index="roles.delete">Rolle löschen</label>
 		<label index="roles.edit">Rolle bearbeiten</label>
 		<label index="create.role.label">Neue Rolle</label>
+		<label index="config.tab.customize">System anpassen</label>
 		<label index="upload.selectfile">Geben Sie das Archiv der Erweiterung an (zip)</label>
 		<label index="upload.title">Neue Erweiterung hochladen</label>
 	</labels>
@@ -185,6 +190,7 @@
 		<label index="installedExtensions">Extensões Instaladas</label>
 		<label index="menu.extensions">Extensões</label>
 		<label index="menu.allRecords">Todos os Registros</label>
+		<label index="menu.config">Configuração do sistema</label>
 		<label index="menu.rights">Permissões &amp; Grupos</label>
 		<label index="rights.tab.rights">Permissões</label>
 		<label index="rights.tab.roles">Grupos</label>
@@ -196,6 +202,7 @@
 		<label index="roles.delete.confirm">Deseja realmente excluir este grupo?</label>
 		<label index="roles.delete">Excluir Grupo</label>
 		<label index="roles.edit">Editar Grupo</label>
+		<label index="config.tab.customize">Personalize o sistema</label>
 		<label index="create.role.label">Novo Grupo</label>
 	</labels>
 </locallang>

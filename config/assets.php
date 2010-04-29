@@ -31,7 +31,6 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'file'		=> 'ext/sysmanager/assets/js/Ext.js',
 			'position'	=> 100
 		),
-			// Add creation engines to quick create headlet
 		array(
 			'file'		=> 'ext/sysmanager/assets/js/QuickCreateRole.js',
 			'position'	=> 100
@@ -63,14 +62,17 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 		array(
 			'file'		=> 'ext/sysmanager/assets/js/Role.js',
 			'position'	=> 102
+		),
+		array(
+			'file'		=> 'ext/sysmanager/assets/js/Config.js',
+			'position'	=> 102
+		),
+		array(
+			'file'		=> 'ext/sysmanager/assets/js/ConfigLogo.js',
+			'position'	=> 103
 		)
 	),
 	'css' => array(
-		array(
-			'file'		=> 'ext/sysmanager/assets/css/global.css',
-			'media'		=> 'all',
-			'position'	=> 100
-		),
 		array(
 			'file'		=> 'ext/sysmanager/assets/css/ext.css',
 			'media'		=> 'all',
@@ -97,7 +99,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/css/roles.css',
+			'file'		=> 'ext/sysmanager/assets/css/config.css',
 			'media'		=> 'all',
 			'position'	=> 102
 		)
