@@ -11,8 +11,8 @@
 		<label index="tabs.install">Install</label>
 		<label index="records.title.recordTypes">Record types of extension</label>
 		<label index="records.noTypes">This extension has no records To edit</label>
-		<label index="records.saved">Record saved</label>
-		<label index="records.saved.fail">Saving record failed</label>
+		<label index="records.saved">Record Saved</label>
+		<label index="records.saved.fail">Saving Record Failed</label>
 		<label index="records.delete.confirm">Delete Record?</label>
 		<label index="records.delete">Delete Record</label>
 		<label index="records.edit">Edit Record</label>
