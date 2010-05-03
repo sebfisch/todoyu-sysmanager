@@ -91,6 +91,9 @@
 .extlist td.edit a.install {
 	background-position:0 -30px;
 }
+.extlist td.edit a.remove {
+	background-position:0 -60px;
+}
 
 .extlist td.edit a.info {
 	background-position:0 -88px;
@@ -135,3 +138,6 @@ ul.nextInstallSteps li a {
 	font-size:14px;
 }
 
+form.formImportExtension button.uploadExtension span.icon {
+	background:url(../img/icons.png) no-repeat 0 -28px;
+}

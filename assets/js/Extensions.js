@@ -19,6 +19,8 @@
 
 Todoyu.Ext.sysmanager.Extensions = {
 
+	ext: Todoyu.Ext.sysmanager,
+
 	/**
 	 * Show extension list in systmanager
 	 */
@@ -161,8 +163,15 @@ Todoyu.Ext.sysmanager.Extensions = {
 		location.href = 'index.php?ext=admin&mod=rights&extension=' + extKey;
 	},
 
+
+
+	/**
+	 * Remove an extension from the server (delete all files)
+	 *
+	 * @param	{String}		extKey
+	 */
 	remove: function(extKey) {
-		if( confirm('Delete extension files from server?') ) {
+		if( confirm('[LLL:sysmanager.extension.remove.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				'parameters': {
@@ -176,7 +185,22 @@ Todoyu.Ext.sysmanager.Extensions = {
 		}
 	},
 
+
+
+	/**
+	 * Handler when an extension is removed from the server
+	 *
+	 * @param	{String}			extKey
+	 * @param	{Ajax.Response}		response
+	 */
 	onRemoved: function(extKey, response) {
-		
+		if( response.hasTodoyuError() ) {
+			Todoyu.notifyError('Removing extension failed')
+		} else {
+			Todoyu.notifySuccess('Extension was sucessfully removed from server');
+		}
+
+		this.Install.showList();
 	}
+	
 };

@@ -321,6 +321,22 @@ class TodoyuExtInstaller {
 		$archive->extractTo($extDir);
 	}
 
+
+
+	/**
+	 * Remove extension folder from server
+	 *
+	 * @param	String		$ext
+	 * @return	Boolean
+	 */
+	public static function removeExtensionFromServer($ext) {
+		$extPath	= TodoyuExtensions::getExtPath($ext);
+
+		TodoyuFileManager::deleteFolder($extPath);
+
+		return is_dir($extPath) === false;
+	}
+
 }
 
 ?>

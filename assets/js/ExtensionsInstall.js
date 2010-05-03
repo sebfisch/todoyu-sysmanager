@@ -17,10 +17,28 @@
  * This copyright notice MUST APPEAR in all copies of the script.
  *****************************************************************************/
 
+/**
+ * Extension installation
+ */
 Todoyu.Ext.sysmanager.Extensions.Install = {
 
 	ext: Todoyu.Ext.sysmanager,
 
+
+	/**
+	 * Show list of not installed extensions
+	 */
+	showList: function() {
+		this.ext.Extensions.showTab('', 'install');
+	},
+
+	
+
+	/**
+	 * Install an extension
+	 *
+	 * @param	{String}	ext
+	 */
 	install: function(ext) {
 		if( confirm('[LLL:sysmanager.extension.installExtension.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
@@ -32,16 +50,33 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 				'onComplete': this.onInstalled.bind(this, ext)
 			};
 
-			Todoyu.Ui.updateContentBody(url, options);
+			Todoyu.send(url, options);
 		}
 	},
 
+
+
+	/**
+	 * Handler when extension is installed
+	 *
+	 * @param	{String}			ext
+	 * @param	{Ajax.Response}		response
+	 */
 	onInstalled: function(ext, response) {
 		var title	= response.getTodoyuHeader('extTitle');
 
 		Todoyu.notifySuccess('Extension installed: ' + title);
+
+		this.showUpdate(ext);
 	},
 
+
+
+	/**
+	 * Show update dialog for an extension
+	 *
+	 * @param	{String}	ext
+	 */
 	showUpdate: function(ext) {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
@@ -55,10 +90,24 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 			Todoyu.Ui.updateContentBody(url, options);
 	},
 
+
+	/**
+	 * Handler when update dialog for an extension is displayed
+	 *
+	 * @param	{String}			ext
+	 * @param	{Ajax.Response}		respone
+	 */
 	onUpdateShowed: function(ext, respone) {
 
 	},
 
+
+
+	/**
+	 * Uninstall an extension
+	 *
+	 * @param	{String}		ext
+	 */
 	uninstall: function(ext) {
 		if( confirm('[LLL:sysmanager.extension.uninstallExtension.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
@@ -77,11 +126,10 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 
 
 	/**
-	 * Handler to be called after ext. deinstallation.
-	 * Show notification of deinstallation success / failure
+	 * Handler when extension is uninstalled
 	 *
-	 * @param	{String}	extKey
-	 * @param	{Object}	response
+	 * @param	{String}		extKey
+	 * @param	{Ajax.Response}	response
 	 */
 	onUninstalled: function(extKey, response) {
 		if( response.hasTodoyuError() ) {
@@ -95,15 +143,6 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 
 			Todoyu.Ui.setContentBody(response.responseText);
 		}
-	},
-
-
-	deleteExtension: function(ext) {
-
-	},
-
-	onExtensionDeleted: function(ext, response) {
-		
 	}
 	
 };

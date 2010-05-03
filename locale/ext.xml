@@ -36,6 +36,8 @@
 		<label index="extension.uninstallExtension.error">Uninstallation of extension failed</label>
 		<label index="extension.showInfo">Show Extension Information</label>
 		<label index="extension.download">Download Extension</label>
+		<label index="extension.remove">Remove Extension</label>
+		<label index="extension.remove.confirm">Remove extension (all files) from server?</label>
 		<label index="extension.rights">Rights</label>
 		<label index="extension.documentation">Documentation</label>
 		<label index="backToTypeList">Back to record type list/overview</label>
@@ -70,7 +72,10 @@
 		<label index="upload.selectfile">Select extension archive (zip)</label>
 		<label index="upload.override">Override existing extension (files)</label>
 		<label index="upload.title">Upload New Extension</label>
-		<label index="install.title">Install Extension</label>
+		<label index="upload.button">Upload Extension</label>
+		<label index="upload.noArchiveSelected">Please select an extension archive to upload</label>
+		<label index="upload.ok">Extension was sucessfully imported</label>
+		<label index="upload.error">Extension upload failed</label>
 		<label index="config.logo.upload.ok">Logo has been uploaded sucessfully</label>
 		<label index="config.logo.upload.error">Logo upload failed</label>
 	</labels>

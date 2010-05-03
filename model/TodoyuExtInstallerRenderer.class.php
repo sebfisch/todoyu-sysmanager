@@ -33,18 +33,6 @@ class TodoyuExtInstallerRenderer {
 	 * @return	String
 	 */
 	public static function renderUpdateDialog($ext) {
-		return 'update';
-	}
-
-
-
-	/**
-	 * Render dialog after
-	 *
-	 * @param	String		$ext
-	 * @return	String
-	 */
-	public static function renderAfterInstallDialog($ext) {
 		$tmpl	= 'ext/sysmanager/view/extension-installed.tmpl';
 		$data	= array(
 			'ext'	=> $ext
@@ -52,7 +40,7 @@ class TodoyuExtInstallerRenderer {
 
 		return render($tmpl, $data);
 	}
-	
+
 
 
 	/**
@@ -61,7 +49,7 @@ class TodoyuExtInstallerRenderer {
 	 * @param	String	$ext
 	 * @return	String
 	 */
-	public static function renderAfterUninstallDialog($ext) {
+	public static function renderUninstalledDialog($ext) {
 		$tmpl	= 'ext/sysmanager/view/extension-uninstalled.tmpl';
 		$data	= array(
 			'ext'	=> $ext

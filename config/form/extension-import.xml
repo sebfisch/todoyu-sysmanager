@@ -2,7 +2,7 @@
 <form>
 	<attributes>
 		<attribute name="action">?ext=sysmanager&amp;controller=extensions</attribute>
-		<attribute name="name">upload</attribute>
+		<attribute name="name">importExtension</attribute>
 		<attribute name="enctype">multipart/form-data</attribute>
 	</attributes>
 	<hiddenFields>
@@ -34,7 +34,8 @@
 
 				<field type="button" name="upload">
 					<type>submit</type>
-					<text>core.yes</text>
+					<text>sysmanager.upload.button</text>
+					<class>uploadExtension</class>
 					<onclick>Todoyu.Ext.sysmanager.Extensions.Import.startUpload()</onclick>
 				</field>
 

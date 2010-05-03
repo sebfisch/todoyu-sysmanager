@@ -74,8 +74,6 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		$infos	= TodoyuExtManager::getExtInfos($extKey);
 
 		TodoyuHeader::sendTodoyuHeader('extTitle', $infos['title']);
-
-		return TodoyuExtInstallerRenderer::renderAfterInstallDialog($extKey);
 	}
 
 
@@ -96,7 +94,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 			TodoyuHeader::sendTodoyuHeader('extTitle', $extInfos['title']);
 
-			return TodoyuExtInstallerRenderer::renderAfterUninstallDialog($extKey);			
+			return TodoyuExtInstallerRenderer::renderUninstalledDialog($extKey);
 		} else {
 			$info	= TodoyuExtInstaller::getUninstallFailReason($extKey);
 
@@ -119,20 +117,32 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	}
 
 
+
+	/**
+	 * Remove extension from server
+	 *
+	 * @param	Array		$params
+	 */
 	public function removeAction(array $params) {
-		restrictAdmin();
-		
 		$extKey	= $params['extension'];
 
-		$extPath	= TodoyuExtensions::getExtPath($extKey);
+		$status	= TodoyuExtInstaller::removeExtensionFromServer($extKey);
 
-		TodoyuFileManager::deleteFolder($extPath);
+		if( $status === false ) {
+			TodoyuHeader::sendTodoyuErrorHeader();
+		}		
 	}
 
 
 
+	/**
+	 * Show dialog for extension import
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
 	public function showImportAction(array $params) {
-		$xmlPath= 'ext/sysmanager/config/form/upload.xml';
+		$xmlPath= 'ext/sysmanager/config/form/extension-import.xml';
 		$form	= TodoyuFormManager::getForm($xmlPath);
 		$form->setUseRecordID(false);
 
@@ -145,6 +155,11 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	}
 
 
+
+	/**
+	 * @param  $params
+	 * @return String
+	 */
 	public function showUpdateAction(array $params) {
 		$ext	= $params['extension'];
 
@@ -153,8 +168,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 
 	public function uploadAction(array $params) {
-		$uploadFile	= TodoyuRequest::getUploadFile('file', 'upload');
-		$data		= $params['upload'];
+		$uploadFile	= TodoyuRequest::getUploadFile('file', 'importExtension');
+		$data		= $params['importExtension'];
 		$override	= intval($data['override']) === 1;
 
 		$info	= TodoyuExtInstaller::importExtensionArchive($uploadFile, $override);
