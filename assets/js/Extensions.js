@@ -136,58 +136,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 		this.showList();
 	},
 
-
-
-	/**
-	 * Evoke deinstallation of given extension
-	 *
-	 * @param	{String}	extKey
-	 */
-	uninstall: function(extKey) {
-		if( confirm('[LLL:sysmanager.extension.uninstallExtension.confirm]') ) {
-			var url		= Todoyu.getUrl('sysmanager', 'extensions');
-			var options	= {
-				'parameters': {
-					'action':		'uninstall',
-					'extension':	extKey
-				},
-				'onComplete': this.onUninstalled.bind(this, extKey)
-			};
-
-			Todoyu.send(url, options);
-		}
-	},
-
-
-
-	/**
-	 * Handler to be called after ext. deinstallation.
-	 * Show notification of deinstallation success / failure
-	 *
-	 * @param	{String}	extKey
-	 * @param	{Object}	response
-	 */
-	onUninstalled: function(extKey, response) {
-		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('[LLL:sysmanager.extension.uninstallExtension.error]', 0);
-		} else {
-			var extName	= response.responseText;
-
-			Todoyu.notifySuccess('[LLL:sysmanager.extension.uninstallExtension.ok]: ' + extName);
-
-			this.showList();
-		}
-	},
-
-
-	/**
-	 * Display extension import form
-	 */
-	showImportForm: function() {
-		Effect.BlindDown('extension-import-form');
-	},
-
-
+	
 
 	/**
 	 * Download given extension
@@ -212,25 +161,22 @@ Todoyu.Ext.sysmanager.Extensions = {
 		location.href = 'index.php?ext=admin&mod=rights&extension=' + extKey;
 	},
 
-	showImport: function() {
-		var url		= Todoyu.getUrl('sysmanager', 'extensions');
-		var options	= {
-			'parameters': {
-				'action': 'showimport'
-			},
-			'onComplete': this.onImportShowed.bind(this)
-		};
+	remove: function(extKey) {
+		if( confirm('Delete extension files from server?') ) {
+			var url		= Todoyu.getUrl('sysmanager', 'extensions');
+			var options	= {
+				'parameters': {
+					'action':	'remove',
+					'extension':extKey
+				},
+				'onComplete':	this.onRemoved.bind(this, extKey)
+			};
 
-		Todoyu.Ui.updateContentBody(url, options);
+			Todoyu.send(url, options);
+		}
 	},
 
-	onImportShowed: function(response) {
+	onRemoved: function(extKey, response) {
 		
-	},
-
-	onUploadFileChange: function() {
-		Todoyu.Form.addIFrame('extension');
-
-		$('extension-form').submit();	
 	}
 };

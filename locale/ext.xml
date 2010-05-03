@@ -70,6 +70,9 @@
 		<label index="upload.selectfile">Select extension archive (zip)</label>
 		<label index="upload.override">Override existing extension (files)</label>
 		<label index="upload.title">Upload New Extension</label>
+		<label index="install.title">Install Extension</label>
+		<label index="config.logo.upload.ok">Logo has been uploaded sucessfully</label>
+		<label index="config.logo.upload.error">Logo upload failed</label>
 	</labels>
 	<labels lang="de_DE">
 		<label index="ext.title">System-Verwaltung</label>

@@ -63,18 +63,51 @@ class TodoyuExtInstaller {
 	 *
 	 * @param	String		$extKey
 	 */
-	public static function install($extKey) {
-			// Get installed extensions
-		$installed	= Todoyu::$CONFIG['EXT']['installed'];
+	public static function installExtension($extKey) {
+		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
 
 			// Add extension key to list
-		$installed[] = $extKey;
-
+		$extKeys[]	= $extKey;
 			// Remove duplicate entries
-		$installed = array_unique($installed);
+		$extKeys	= array_unique($extKeys);
 
 			// Save installed extensions
-		self::saveInstalledExtensions($installed);
+		self::saveInstalledExtensions($extKeys);
+
+		
+		TodoyuExtensions::addExtAutoloadPaths($extKey);
+
+		self::updateDatabase();
+
+		self::callExtensionInstaller($extKey, 'install');
+	}
+
+
+
+	/**
+	 * Call database update. All necessary database updates are proceeded automatically
+	 *
+	 */	
+	private static function updateDatabase() {
+		TodoyuSQLManager::updateDatabaseFromTableFiles();
+	}
+
+
+	/**
+	 * Call setup function of extension if available
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$action
+	 */
+	private static function callExtensionInstaller($extKey, $action = 'install') {
+		$className	= 'Todoyu' . ucfirst(strtolower(trim($extKey))) . 'Setup';
+		$method		= $action;
+		
+		if( class_exists($className, true) ) {
+			if( method_exists($className, $method) ) {
+				call_user_func(array($className, $method));
+			}
+		}
 	}
 
 
@@ -84,7 +117,7 @@ class TodoyuExtInstaller {
 	 *
 	 * @param  String		$extKey
 	 */
-	public static function uninstall($extKey) {
+	public static function uninstallExtension($extKey) {
 			// Get installed extensions with extkey as array key
 		$installed	= array_flip(Todoyu::$CONFIG['EXT']['installed']);
 
@@ -167,6 +200,44 @@ class TodoyuExtInstaller {
 	public static function buildExtensionArchiveName($extKey, $versionMajor, $versionMinor, $versionRevision) {
 		return 'TodoyuExt_' . $extKey . '_' . $versionMajor . '.' . $versionMinor . '.' . $versionRevision . '_' . date('Y-m-d_H.i') . '.zip';
 	}
+	
+	
+	public static function importExtensionArchive(array $uploadFile, $override = false) {
+		try {
+				// Is file available in upload array
+			if( $uploadFile === false ) {
+				throw new Exception('File not found in upload array');
+			}
+				// Has an error occurred
+			if( $uploadFile['error'] !== 0 ) {
+				throw new Exception('Upload error');
+			}
+
+				// Check if import is possible with provided file
+			$canImport	= TodoyuExtInstaller::canImportUploadedArchive($uploadFile, $override);
+			if( $canImport !== true ) {
+				throw new Exception('Can\'t import extension archive: ' . $canImport);
+			}
+
+			$archiveInfo	= TodoyuExtInstaller::parseExtensionArchiveName($uploadFile['name']);
+
+			self::extractExtensionArchive($archiveInfo['ext'], $uploadFile['tmp_name']);
+
+			$info	= array(
+				'success'	=> true,
+				'message'	=> '',
+				'ext'		=> $archiveInfo['ext']
+			);
+		}  catch(Exception $e) {
+			$info	= array(
+				'success'	=> false,
+				'message'	=> $e->getMessage(),
+				'ext'		=> $archiveInfo['ext']
+			);
+		}
+
+		return $info;
+	}
 
 
 	public static function parseExtensionArchiveName($extArchiveName) {
@@ -182,6 +253,9 @@ class TodoyuExtInstaller {
 
 		return $info;
 	}
+	
+	
+	
 
 
 	public static function canImportUploadedArchive(array $file, $override = false) {
@@ -239,7 +313,7 @@ class TodoyuExtInstaller {
 	}
 
 
-	public static function importExtension($extension, $pathArchive) {
+	public static function extractExtensionArchive($extension, $pathArchive) {
 		$archive	= new ZipArchive();
 		$archive->open($pathArchive);
 		$extDir		= TodoyuExtensions::getExtPath($extension);

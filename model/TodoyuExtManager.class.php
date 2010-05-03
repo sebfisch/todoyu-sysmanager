@@ -99,7 +99,15 @@ class TodoyuExtManager {
 	 * @param	String		$extKey
 	 * @return	Array
 	 */
-	public static function getExtInfos($extKey) {
+	public static function getExtInfos($extKey, $load = false) {
+		if( $load ) {
+			$path	= TodoyuExtensions::getExtPath($extKey, 'config/extinfo.php');
+
+			if( is_file($path) ) {
+				include_once($path);
+			}
+		}
+
 		return TodoyuExtensions::getExtInfo($extKey);
 	}
 

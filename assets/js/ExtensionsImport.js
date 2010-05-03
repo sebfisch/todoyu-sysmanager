@@ -17,37 +17,41 @@
  * This copyright notice MUST APPEAR in all copies of the script.
  *****************************************************************************/
 
-/**
- * System logo upload
- */
-Todoyu.Ext.sysmanager.Config.Logo = {
+Todoyu.Ext.sysmanager.Extensions.Import = {
 
-	/**
-	 * Save logo form. Start upload over an iframe
-	 *
-	 * @param	{Element}	form
-	 */
-	save: function(form) {
-		Todoyu.Form.addIFrame('logo');
+	ext: Todoyu.Ext.sysmanager,
 
-		$('logo-form').writeAttribute('target', 'upload-iframe-logo');
-		
-		$('logo-form').submit();
+	showUploadForm: function() {
+		var url		= Todoyu.getUrl('sysmanager', 'extensions');
+		var options	= {
+			'parameters': {
+				'action': 'showimport'
+			},
+			'onComplete': this.onImportShowed.bind(this)
+		};
+
+		Todoyu.Ui.updateContentBody(url, options);
 	},
 
+	onImportShowed: function(response) {
 
+	},
 
-	/**
-	 * Handler when upload is finished
-	 *
-	 * @param	{Boolean}	success
-	 */
-	onUploadFinished: function(success) {
-		if( success ) {
-			Todoyu.notifySuccess('[LLL:sysmanager.config.logo.upload.ok]');
-			setTimeout("document.location.reload()", 2000);
+	startUpload: function() {
+		Todoyu.Form.addIFrame('upload');
+
+		$('upload-form').writeAttribute('target', 'upload-iframe-upload')
+
+		$('upload-form').submit();
+	},
+
+	uploadFinished: function(ext, success, message) {
+		if( success === true ) {
+			Todoyu.notifySuccess('Extension "' + ext + '" successfully imported');
+
+			this.ext.Extensions.Install.showUpdate(ext);
 		} else {
-			Todoyu.notifyError('[LLL:sysmanager.config.logo.upload.error]');
+			Todoyu.notifyError('Import of extension "' + ext + '" failed: ' + message);
 		}
 	}
 	

@@ -14,7 +14,7 @@
 
     	<a href="javascript:void(0)" title="{Label sysmanager.extension.uninstallExtension}"
 	    	{if allowed('sysmanager','extensions:uninstall') && !extMgr_isSysExt($extKey)}
-	    		onclick="Todoyu.Ext.sysmanager.Extensions.uninstall('{$extKey}')" class="uninstall">
+	    		onclick="Todoyu.Ext.sysmanager.Extensions.Install.uninstall('{$extKey}')" class="uninstall">
 			{else}
 				class="uninstall disabled">
 			{/if}

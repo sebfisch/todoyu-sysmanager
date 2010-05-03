@@ -3,7 +3,7 @@
 {Title "LLL:sysmanager.notInstalledExtensions"}
 
 <p class="contentMessage importInfo">
-	<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showImport()">
+	<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Import.showUploadForm()">
 		Import an extension from archive
 	</a>
 </p>
@@ -17,7 +17,7 @@
 	<td class="extkey">{$extKey}</td>
 	<td class="title">{htmlencode $extInfo.title}</td>
 	<td class="edit">
-		<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.install('{$extKey}')" title="{Label sysmanager.extension.installExtension}" class="install">
+		<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Install.install('{$extKey}')" title="{Label sysmanager.extension.installExtension}" class="install">
 			<span class="hidden">install<span>
 		</a>
 

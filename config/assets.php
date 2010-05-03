@@ -40,6 +40,14 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 102
 		),
 		array(
+			'file'		=> 'ext/sysmanager/assets/js/ExtensionsImport.js',
+			'position'	=> 103
+		),
+		array(
+			'file'		=> 'ext/sysmanager/assets/js/ExtensionsInstall.js',
+			'position'	=> 103
+		),
+		array(
 			'file'		=> 'ext/sysmanager/assets/js/Records.js',
 			'position'	=> 103
 		),

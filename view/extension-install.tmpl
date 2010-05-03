@@ -1,0 +1,6 @@
+{$title = Label("LLL:sysmanager.install.title")}
+{$title = cat($title ": " $extension.title " (" $key ")")}
+
+{Title $title}
+
+<p class="contentMessage installExtension"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Install.install('{$key}')">Install extension</a></p>

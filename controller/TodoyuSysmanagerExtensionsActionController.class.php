@@ -69,11 +69,13 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function installAction(array $params) {
 		$extKey	= $params['extension'];
 
-		TodoyuExtInstaller::install($extKey);
+		TodoyuExtInstaller::installExtension($extKey);
 
 		$infos	= TodoyuExtManager::getExtInfos($extKey);
 
-		return $infos['title'];
+		TodoyuHeader::sendTodoyuHeader('extTitle', $infos['title']);
+
+		return TodoyuExtInstallerRenderer::renderAfterInstallDialog($extKey);
 	}
 
 
@@ -86,21 +88,21 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 */
 	public function uninstallAction(array $params) {
 		$extKey	= $params['extension'];
-		$message= '';
-
 
 		if( TodoyuExtInstaller::canUninstall($extKey) ) {
-			TodoyuExtInstaller::uninstall($extKey);
 			$extInfos	= TodoyuExtManager::getExtInfos($extKey);
+			
+			TodoyuExtInstaller::uninstallExtension($extKey);
 
-			$message	= $extInfos['title'];
+			TodoyuHeader::sendTodoyuHeader('extTitle', $extInfos['title']);
+
+			return TodoyuExtInstallerRenderer::renderAfterUninstallDialog($extKey);			
 		} else {
-			$message	= TodoyuExtInstaller::getUninstallFailReason($extKey);
+			$info	= TodoyuExtInstaller::getUninstallFailReason($extKey);
 
 			TodoyuHeader::sendTodoyuErrorHeader();
+			TodoyuHeader::sendTodoyuHeader('info', $info);			
 		}
-
-		return $message;
 	}
 
 
@@ -117,6 +119,18 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	}
 
 
+	public function removeAction(array $params) {
+		restrictAdmin();
+		
+		$extKey	= $params['extension'];
+
+		$extPath	= TodoyuExtensions::getExtPath($extKey);
+
+		TodoyuFileManager::deleteFolder($extPath);
+	}
+
+
+
 	public function showImportAction(array $params) {
 		$xmlPath= 'ext/sysmanager/config/form/upload.xml';
 		$form	= TodoyuFormManager::getForm($xmlPath);
@@ -131,44 +145,23 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	}
 
 
+	public function showUpdateAction(array $params) {
+		$ext	= $params['extension'];
+
+		return TodoyuExtInstallerRenderer::renderUpdateDialog($ext);
+	}
+
+
 	public function uploadAction(array $params) {
-		$file		= TodoyuRequest::getUploadFile('file', 'extension');
-		$data		= $params['extension'];
+		$uploadFile	= TodoyuRequest::getUploadFile('file', 'upload');
+		$data		= $params['upload'];
 		$override	= intval($data['override']) === 1;
 
-		try {
-				// Is file available in upload array
-			if( $file === false ) {
-				throw new Exception('File not found in upload array');
-			}
-				// Has an error occured
-			if( $file['error'] !== 0 ) {
-				throw new Exception('Upload error');
-			}
+		$info	= TodoyuExtInstaller::importExtensionArchive($uploadFile, $override);
+			
+		$command	= 'window.parent.Todoyu.Ext.sysmanager.Extensions.Import.uploadFinished("' . $info['ext'] . '", ' . ($info['success']?'true':'false') . ', "' . $info['message'] . '");';
 
-				// Check if import is possible with provided file
-			if( ($result = TodoyuExtInstaller::canImportUploadedArchive($file, $override)) !== true ) {
-				throw new Exception('Can\'t import extension archive: ' . $result);
-			}
-
-			$archiveInfo	= TodoyuExtInstaller::parseExtensionArchiveName($file['name']);
-
-			TodoyuExtInstaller::importExtension($archiveInfo['ext'], $file['tmp_name']);
-
-			$info	= array(
-				'success'	=> true,
-				'message'	=> '',
-				'ext'		=> $archiveInfo['ext']
-			);
-		}  catch(Exception $e) {
-			$info	= array(
-				'success'	=> false,
-				'message'	=> $e->getMessage(),
-				'ext'		=> $archiveInfo['ext']
-			);
-		}
-
-		return json_encode($info);
+		return TodoyuRenderer::renderUploadIFrameJsContent($command);
 	}
 
 }

@@ -122,7 +122,16 @@
 }
 
 
-/* Import */
+/* Import & Install */
 p.importInfo {
 	margin:10px 10px 10px 0;
 }
+
+ul.nextInstallSteps li {
+	list-style:inside square;
+	padding:2px;
+}
+ul.nextInstallSteps li a {
+	font-size:14px;
+}
+
