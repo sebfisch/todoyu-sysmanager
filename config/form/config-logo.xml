@@ -17,12 +17,19 @@
 			<class>main</class>
 			<elements>
 
+				<field type="comment" name="info">
+					<comment>sysmanager.config.selectlogo.info</comment>
+				</field>
+
 				<field type="upload" name="image">
 					<label>sysmanager.config.selectlogo</label>
+					<onchange>Todoyu.Ext.sysmanager.Config.Logo.onFileSelectionChange(this.form)</onchange>
 				</field>
 
 			</elements>
 		</fieldset>
+
+		<!--
 
 		<fieldset name="buttons">
 			<legend>Actions</legend>
@@ -35,6 +42,8 @@
 
 			</elements>
 		</fieldset>
+
+		-->
 
 	</fieldsets>
 </form>

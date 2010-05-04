@@ -27,12 +27,12 @@ Todoyu.Ext.sysmanager.Config.Logo = {
 	 *
 	 * @param	{Element}	form
 	 */
-	save: function(form) {
+	onFileSelectionChange: function(form) {
 		Todoyu.Form.addIFrame('logo');
 
-		$('logo-form').writeAttribute('target', 'upload-iframe-logo');
-		
-		$('logo-form').submit();
+		$(form).writeAttribute('target', 'upload-iframe-logo');
+
+		$(form).submit();
 	},
 
 

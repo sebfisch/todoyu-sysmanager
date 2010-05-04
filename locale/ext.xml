@@ -68,6 +68,7 @@
 		<label index="roles.edit">Edit Role</label>
 		<label index="config.tab.logo">Change Logo</label>
 		<label index="config.selectlogo">Choose Logo</label>
+		<label index="config.selectlogo.info">Select a file which will be used as new logo. The image will automatically get resized. Allowed are jpg, png and gif</label>
 		<label index="create.role.label">New Role</label>
 		<label index="upload.selectfile">Select extension archive (zip)</label>
 		<label index="upload.override">Override existing extension (files)</label>
