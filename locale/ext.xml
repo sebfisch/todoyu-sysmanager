@@ -96,7 +96,7 @@
 		<label index="records.delete.confirm">Datensatz löschen?</label>
 		<label index="records.delete">Datensatz löschen</label>
 		<label index="records.edit">Datensatz bearbeiten</label>
-		<label index="ext.extensionKey">Erweiterungsschlüssel</label>
+		<label index="ext.extensionKey">Erweiterungskennung</label>
 		<label index="ext.extKey">Ext-Key</label>
 		<label index="ext.version">Version / Status</label>
 		<label index="ext.author">Autor</label>
