@@ -55,7 +55,7 @@
 		<label index="menu.extensions">Extensions</label>
 		<label index="menu.allRecords">All Records</label>
 		<label index="menu.rights">Rights &amp; Roles</label>
-		<label index="menu.config">System configuration</label>
+		<label index="menu.config">System Configuration</label>
 		<label index="rights.tab.rights">Rights</label>
 		<label index="rights.tab.roles">Roles</label>
 		<label index="rights.form.roles">Roles</label>
@@ -75,9 +75,9 @@
 		<label index="upload.title">Upload New Extension</label>
 		<label index="upload.button">Upload Extension</label>
 		<label index="upload.noArchiveSelected">Please select an extension archive to upload</label>
-		<label index="upload.ok">Extension was sucessfully imported</label>
+		<label index="upload.ok">Extension was successfully imported</label>
 		<label index="upload.error">Extension upload failed</label>
-		<label index="config.logo.upload.ok">Logo has been uploaded sucessfully</label>
+		<label index="config.logo.upload.ok">Logo has been uploaded successfully</label>
 		<label index="config.logo.upload.error">Logo upload failed</label>
 	</labels>
 	<labels lang="de_DE">
