@@ -107,11 +107,14 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	 */
 	public function saveAction(array $params) {
 		$data		= $params['record'];
+			// Declare fieldmarker-values for parsing of inline JS
+		$data['record-extkey']	= $params['extKey'];
+		$data['record-type']	= $params['type'];
+		
 		$idRecord	= intval($data['id']);
 		$config		= TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
 
 		$form		= TodoyuExtRecordManager::getRecordForm($this->extKey, $this->type, $idRecord);
-
 		$form->setFormData($data);
 
 			// Validate, save, render
