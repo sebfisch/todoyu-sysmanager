@@ -79,7 +79,6 @@
 		<label index="config.tab.logo">Change Logo</label>
 		<label index="config.selectlogo">Choose Logo</label>
 		<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
-
 	</labels>
 	<labels lang="de_DE">
 		<label index="ext.title">System-Verwaltung</label>
@@ -144,9 +143,15 @@
 		<label index="roles.delete">Rolle löschen</label>
 		<label index="roles.edit">Rolle bearbeiten</label>
 		<label index="create.role.label">Neue Rolle</label>
-		<label index="config.tab.customize">System anpassen</label>
 		<label index="upload.selectfile">Geben Sie das Archiv der Erweiterung an (zip)</label>
+		<label index="upload.override">Vorhandene Erweiterung (Dateien) überschreiben</label>
 		<label index="upload.title">Neue Erweiterung hochladen</label>
+		<label index="upload.button">Erweiterung hochladen</label>
+		<label index="upload.noArchiveSelected">Bitte wählen Sie ein Erweiterungs-Archiv zum hochladen aus</label>
+		<label index="upload.ok">Erweiterung wurde erfolgreich importiert</label>
+		<label index="upload.error">Hochladen der Erweiterung ist fehlgeschlagen</label>
+		<label index="config.logo.upload.ok">Das neue Logo wurde erfolgreich hochgeladen</label>
+		<label index="config.logo.upload.error">Hochladen des Logos ist fehlgeschlagen</label>
 		<label index="config.tab.logo">Logo auswechseln</label>
 		<label index="config.selectlogo">Logo auswählen</label>
 		<label index="config.selectlogo.info">Wählen Sie ein Bild, welches Sie als Logo verwenden möchten. Das Bild wird automatisch auf maximal 190x60 Pixel skaliert. Mögliche Bildformate: jpg, png und gif</label>
@@ -217,5 +222,17 @@
 		<label index="roles.edit">Editar Grupo</label>
 		<label index="config.tab.customize">Personalize o sistema</label>
 		<label index="create.role.label">Novo Grupo</label>
+		<label index="upload.selectfile">Select extension archive (zip)</label>
+		<label index="upload.override">Substituir extensão existentes (arquivos)</label>
+		<label index="upload.title">Carregar uma nova extensão</label>
+		<label index="upload.button">Carregar extensão</label>
+		<label index="upload.noArchiveSelected">Por favor, selecione um arquivo de extensão para upload</label>
+		<label index="upload.ok">Extensão foi importado com sucesso</label>
+		<label index="upload.error">Upload a extensão não</label>
+		<label index="config.logo.upload.ok">Logo foi enviado com sucesso</label>
+		<label index="config.logo.upload.error">Logo foi enviado não</label>
+		<label index="config.tab.logo">Alterar Logo</label>
+		<label index="config.selectlogo">Escolha Logo</label>
+		<label index="config.selectlogo.info">Selecione uma imagem que você gostaria de usar como o seu logotipo. A imagem será automaticamente redimensionada para um máximo de 190x60 pixels. São permitidos jpg, png e gif</label>		
 	</labels>
 </locallang>
