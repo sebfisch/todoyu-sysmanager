@@ -40,7 +40,7 @@
 		<label index="extension.remove.confirm">Remove extension (all files) from server?</label>
 		<label index="extension.rights">Rights</label>
 		<label index="extension.documentation">Documentation</label>
-		<label index="backToTypeList">Back to record type list/overview</label>
+		<label index="backToTypeList">Show all records</label>
 		<label index="rights.header">Rights Manager</label>
 		<label index="rights.save">Save Rights</label>
 		<label index="rights.saved">Rights Are Saved</label>
@@ -119,7 +119,7 @@
 		<label index="extension.download">Extension herunterladen</label>
 		<label index="extension.rights">Rechte</label>
 		<label index="extension.documentation">Dokumentation</label>
-		<label index="backToTypeList">Zurück zur Typenliste</label>
+		<label index="backToTypeList">Alle Datensätze anzeigen</label>
 		<label index="rights.header">Rechtemanager</label>
 		<label index="rights.save">Rechte speichern</label>
 		<label index="rights.saved">Rechte wurden gespeichert</label>
@@ -189,7 +189,7 @@
 		<label index="extension.download">Download de Extensão</label>
 		<label index="extension.rights">Permissões</label>
 		<label index="extension.documentation">Documentação</label>
-		<label index="backToTypeList">Voltar Para Listagem de Tipos</label>
+		<label index="backToTypeList">Mostrar todos os registos</label>
 		<label index="rights.header">Gestão de Permissões</label>
 		<label index="rights.save">Salvar Permissões</label>
 		<label index="rights.saved">Permissões Foram Salvas</label>
