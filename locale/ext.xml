@@ -66,9 +66,6 @@
 		<label index="roles.delete.confirm">Do you really want to delete this role?</label>
 		<label index="roles.delete">Delete Role</label>
 		<label index="roles.edit">Edit Role</label>
-		<label index="config.tab.logo">Change Logo</label>
-		<label index="config.selectlogo">Choose Logo</label>
-		<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
 		<label index="create.role.label">New Role</label>
 		<label index="upload.selectfile">Select extension archive (zip)</label>
 		<label index="upload.override">Override existing extension (files)</label>
@@ -79,6 +76,10 @@
 		<label index="upload.error">Extension Upload Failed</label>
 		<label index="config.logo.upload.ok">Logo has been uploaded successfully</label>
 		<label index="config.logo.upload.error">Logo Upload Failed</label>
+		<label index="config.tab.logo">Change Logo</label>
+		<label index="config.selectlogo">Choose Logo</label>
+		<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
+
 	</labels>
 	<labels lang="de_DE">
 		<label index="ext.title">System-Verwaltung</label>
@@ -146,6 +147,9 @@
 		<label index="config.tab.customize">System anpassen</label>
 		<label index="upload.selectfile">Geben Sie das Archiv der Erweiterung an (zip)</label>
 		<label index="upload.title">Neue Erweiterung hochladen</label>
+		<label index="config.tab.logo">Logo auswechseln</label>
+		<label index="config.selectlogo">Logo auswählen</label>
+		<label index="config.selectlogo.info">Wählen Sie ein Bild, welches Sie als Logo verwenden möchten. Das Bild wird automatisch auf maximal 190x60 Pixel skaliert. Mögliche Bildformate: jpg, png und gif</label>
 	</labels>
 	<labels lang="pt_BR">
 		<label index="ext.title">Gerenciamento do Sistema</label>
