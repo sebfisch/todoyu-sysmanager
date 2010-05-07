@@ -39,7 +39,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 
 
 Todoyu::$CONFIG['EXT']['sysmanager']['logoUpload'] = array(
-	'width'	=> 200,
+	'width'	=> 190,
 	'height'=> 60,
 	'path'	=> 'config/img/logo.png'
 );
