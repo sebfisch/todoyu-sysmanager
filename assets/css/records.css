@@ -5,6 +5,11 @@
 	border-bottom:1px dotted #aaa;
 }
 
+#record-type-list li {
+	padding-left:30px;
+	background:url(../img/icons.png) no-repeat 5px -627px;
+}
+
 #record-list li span.additionalInformations {
 	position:absolute;
 	right:400px;
