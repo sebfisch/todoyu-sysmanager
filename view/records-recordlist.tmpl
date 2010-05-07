@@ -10,7 +10,7 @@
 		<li id="listElement-{$key}" class="{cycle values='odd,even'}">
 			<span class="recordlabel" title="{$record.label}">
 				<a onclick="Todoyu.Ext.sysmanager.Extensions.Records.edit('{$extKey}', '{$type}', {$record.id})">
-					{truncate Label($record.label true) 20}&nbsp;
+					{truncate Label($record.label true) 35}&nbsp;
 				</a>
 			</span>
 			<span class="additionalInformations" title="{$record.additionalInformations}">{truncate $record.additionalInformations 12}</span>
