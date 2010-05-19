@@ -154,6 +154,20 @@ class TodoyuExtConfManager {
 		return TodoyuArray::assure(Todoyu::$CONFIG['EXT'][$extKey]['extConf']);
 	}
 
+
+
+	/**
+	 * Get parameter value from extension configuration
+	 *
+	 * @param	String		$valKey
+	 * @return	String
+	 */
+	public static function getExtConfValue($extKey, $parameter) {
+		$extConf	= self::getExtConf($extKey);
+
+		return $extConf[$parameter];
+	}
+
 }
 
 ?>
