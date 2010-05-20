@@ -55,19 +55,24 @@ class TodoyuExtConfManager {
 	/**
 	 * Get extConf form
 	 *
-	 * @param	String		$extKey
+	 * @param	String			$extKey
+	 * @param	Boolean			$loadData
 	 * @return	TodoyuForm
 	 */
-	public static function getForm($extKey) {
+	public static function getForm($extKey, $loadData = true) {
 		$xmlPath	= self::getXmlPath($extKey);
 
 		$form	= TodoyuFormManager::getForm($xmlPath);
 
-		$data	= self::getExtConf($extKey);
-		$data	= TodoyuFormHook::callLoadData($xmlPath, $data, 0);
+		if( $loadData ) {
+			$data	= self::getExtConf($extKey);
+			$data	= TodoyuFormHook::callLoadData($xmlPath, $data, 0);
+			$form->setFormData($data);
+		}
+
 
 		$form->setUseRecordID(false);
-		$form->setFormData($data);
+
 
 			// Modify form fields
 		$formAction	= TodoyuString::buildUrl(array(
