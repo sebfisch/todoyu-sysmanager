@@ -40,7 +40,7 @@ class TodoyuSysmanagerExtconfActionController extends TodoyuActionController {
 		$form->setFormData($data);
 
 		if( $form->isValid() ) {
-			$config	= $form->getStorageData();			
+			$config	= $form->getStorageData();
 
 			TodoyuExtConfManager::updateExtConf($extKey, $config);
 		} else {
