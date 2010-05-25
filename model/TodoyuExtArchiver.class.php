@@ -62,7 +62,7 @@ class TodoyuExtArchiver {
 	 * @param	String			$baseFolder			Base folder defined to root for the archive. Base path will be removed from internal archive path
 	 * @param	Boolean			$recursive			Add also all sub folders and files
 	 */
-	private static function addFolderToArchive(ZipArchive &$archive, $pathToFolder, $baseFolder, $recursive = true) {
+	public static function addFolderToArchive(ZipArchive &$archive, $pathToFolder, $baseFolder, $recursive = true) {
 		$files		= TodoyuFileManager::getFilesInFolder($pathToFolder);
 
 			// Add files
