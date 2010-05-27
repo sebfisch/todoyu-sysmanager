@@ -184,15 +184,10 @@ class TodoyuExtInstaller {
 		$version	= TodoyuString::getVersionInfo($extInfo['version']);
 
 		$fileName	= self::buildExtensionArchiveName($extKey, $version['major'], $version['minor'], $version['revision']);
-		$filesize	= filesize($archivePath);
-
-		TodoyuHeader::sendHeader('Content-type', 'application/octet-stream');
-		TodoyuHeader::sendHeader('Content-disposition', 'attachment; filename="' . $fileName . '"');
-		TodoyuHeader::sendHeader('Content-length', $filesize);
-		TodoyuHeader::sendNoCacheHeaders();
+		$mimeType	= 'application/octet-stream';
 
 			// Send file for download and delete temporary zip file after download
-		TodoyuFileManager::sendFile($archivePath);
+		TodoyuFileManager::sendFile($archivePath, $mimeType, $fileName);
 		unlink($archivePath);
 	}
 
