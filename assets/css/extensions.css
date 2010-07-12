@@ -82,6 +82,7 @@
 }
 .extlist td.edit a.disabled {
 	opacity:0.5;
+	filter: alpha(opacity = 50);
 	cursor:default !important;
 }
 
