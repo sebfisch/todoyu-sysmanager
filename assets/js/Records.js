@@ -84,12 +84,13 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 
 	/**
-	 * Enter description here...
+	 * Open given record's editing
 	 *
-	 * @param unknown_type recordID
+	 * @param	{String}	extKey
+	 * @param	{String}	type
+	 * @param	{Number}	recordID
 	 */
 	edit: function(extKey, type, idRecord)	{
-
 		var options = {
 			'parameters': {
 				'action':	'edit',
@@ -113,14 +114,14 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 	/**
 	 * On edit handler
-	 *	
+	 *
 	 * @param	{String}	extKey
 	 * @param	{String}	type
 	 * @param	{Number}	idRecord
-	 * @param	{Array}	response
+	 * @param	{Array}		response
 	 */
 	onEdit: function(extKey, type, idRecord, response) {
-		
+
 	},
 
 

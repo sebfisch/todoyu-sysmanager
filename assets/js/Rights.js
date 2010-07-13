@@ -46,7 +46,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	 * @todo	comment
 	 * 
 	 * @param	{String}		tab
-	 * @param	{Object}		response
+	 * @param	{Ajax.Response}		response
 	 */
 	onTabLoaded: function(tab, response) {
 

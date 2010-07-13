@@ -53,7 +53,7 @@ Todoyu.Ext.sysmanager.Role = {
 	 * Handler evoked onEdit
 	 * 
 	 * @param	{Number}		idRole
-	 * @param	{Object}		response
+	 * @param	{Ajax.Response}		response
 	 */
 	onEdit: function(idRole, response) {
 		
@@ -87,7 +87,7 @@ Todoyu.Ext.sysmanager.Role = {
 	 * Handler to be evoked after removal of role
 	 * 
 	 * @param	{Number}		idRole
-	 * @param	{Object}		response
+	 * @param	{Ajax.Response}		response
 	 */
 	onRemoved: function(idRole, response) {
 		this.updateList();
@@ -164,7 +164,7 @@ Todoyu.Ext.sysmanager.Role = {
 	/**
 	 * @todo	comment
 	 * 
-	 * @param	{Object}		response
+	 * @param	{Ajax.Response}		response
 	 */
 	onListShowed: function(response) {
 
