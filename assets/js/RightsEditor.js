@@ -265,7 +265,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * Check/uncheck right checkbox
 	 * 
 	 * @param	{String}		right
-	 * @param	{Number}		idGroup
+	 * @param	{Number}		idRole
 	 * @param	{Boolean}		check
 	 */
 	checkRight: function(right, idRole, check) {
@@ -278,7 +278,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * Check if a right checkbox is checked
 	 * 
 	 * @param	{String}		right
-	 * @param	{Number}		idGroup
+	 * @param	{Number}		idRole
 	 */
 	isRightChecked: function(right, idRole) {
 		return this.checkbox(right, idRole).checked;
@@ -290,7 +290,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * Enable/disable a right checkbox
 	 * 
 	 * @param	{String}		right
-	 * @param	{Number}		idGroup
+	 * @param	{Number}		idRole
 	 * @param	{Boolean}		enable
 	 */
 	enableRight: function(right, idRole, enable) {
@@ -300,10 +300,10 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 
 	/**
-	 * Check if a right checkbox is enabled
+	 * Check whether a rights checkbox is enabled
 	 * 
 	 * @param	{String}		right
-	 * @param	{Number}		idGroup
+	 * @param	{Number}		idRole
 	 */
 	isRightEnabled: function(right, idRole) {
 		return this.checkbox(right, idRole).disabled !== true;
@@ -312,11 +312,10 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 
 	/**
-	 * Check if a right is active
-	 * Active = enabled and checked
-	 * 
+	 * Check if a right is active (active = enabled and checked)
+	 *
 	 * @param	{String}		right
-	 * @param	{Number}		idGroup
+	 * @param	{Number}		idRole
 	 */
 	isRightActive: function(right, idRole) {
 		return this.isRightEnabled(right, idRole) && this.isRightChecked(right, idRole);

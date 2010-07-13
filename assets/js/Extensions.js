@@ -81,7 +81,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * On tab click handler
 	 *
-	 * @param	Ojbect	event
+	 * @param	{Object}	event
 	 * @param	{String}	tabKey
 	 */
 	onTabClick: function(event, tabKey) {

@@ -88,7 +88,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 *
 	 * @param	{String}	extKey
 	 * @param	{String}	type
-	 * @param	{Number}	recordID
+	 * @param	{Number}	idRecord
 	 */
 	edit: function(extKey, type, idRecord)	{
 		var options = {
@@ -191,10 +191,10 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	/**
 	 * On saved handler
 	 *
-	 * @param	{String}	form
-	 * @param	{String}	extKey
-	 * @param	{String}	type
-	 * @param	{Array}	Response
+	 * @param	{String}			form
+	 * @param	{String}			extKey
+	 * @param	{String}			type
+	 * @param	{Ajax.Response}		response
 	 */
 	onSaved: function(form, extKey, type, response) {
 		if( response.hasTodoyuError() ) {
