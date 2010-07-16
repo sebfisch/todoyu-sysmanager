@@ -29,6 +29,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	url:	Todoyu.getUrl('sysmanager', 'records'),
 
 	extKey:	'',
+
 	type:	'',
 
 

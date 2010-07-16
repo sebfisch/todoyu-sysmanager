@@ -19,10 +19,17 @@
 
 Todoyu.Ext.sysmanager.Extensions = {
 
+	/**
+	 * Ext namespace shortcut
+	 *
+	 * @var	{Object}	ext
+	 */
 	ext: Todoyu.Ext.sysmanager,
 
+
+
 	/**
-	 * Show extension list in systmanager
+	 * Show extension list in sysmanager
 	 */
 	showList: function() {
 		this.showTab();
@@ -202,5 +209,5 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 		this.Install.showList();
 	}
-	
+
 };
