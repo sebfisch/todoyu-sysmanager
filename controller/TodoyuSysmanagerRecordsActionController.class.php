@@ -110,7 +110,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 			// Declare fieldmarker-values for parsing of inline JS
 		$data['record-extkey']	= $params['extKey'];
 		$data['record-type']	= $params['type'];
-		
+
 		$idRecord	= intval($data['id']);
 		$config		= TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
 

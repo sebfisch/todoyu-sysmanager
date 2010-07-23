@@ -32,7 +32,7 @@ Todoyu.Ext.sysmanager.ExtConf = {
 			},
 			'onComplete': this.onSaved.bind(this)
 		});
-		
+
 		return false;
 	},
 
@@ -43,7 +43,7 @@ Todoyu.Ext.sysmanager.ExtConf = {
 	 *
 	 * @param	{Array}	response
 	 */
-	onSaved: function(response) {		
+	onSaved: function(response) {
 		if( response.hasTodoyuError() ) {
 			Todoyu.notifyError('[LLL:sysmanager.extconf.savingFailed]');
 

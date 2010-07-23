@@ -233,7 +233,7 @@
 		<label index="config.logo.upload.error">Logo foi enviado não</label>
 		<label index="config.tab.logo">Alterar Logo</label>
 		<label index="config.selectlogo">Escolha Logo</label>
-		<label index="config.selectlogo.info">Selecione uma imagem que você gostaria de usar como o seu logotipo. A imagem será automaticamente redimensionada para um máximo de 190x60 pixels. São permitidos jpg, png e gif</label>		
+		<label index="config.selectlogo.info">Selecione uma imagem que você gostaria de usar como o seu logotipo. A imagem será automaticamente redimensionada para um máximo de 190x60 pixels. São permitidos jpg, png e gif</label>
 	</labels>
 	<labels lang="ru_RU">
 		<label index="ext.title">Менеджер системы</label>

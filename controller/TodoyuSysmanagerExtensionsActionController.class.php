@@ -89,7 +89,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 		if( TodoyuExtInstaller::canUninstall($extKey) ) {
 			$extInfos	= TodoyuExtManager::getExtInfos($extKey);
-			
+
 			TodoyuExtInstaller::uninstallExtension($extKey);
 
 			TodoyuHeader::sendTodoyuHeader('extTitle', $extInfos['title']);
@@ -99,7 +99,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 			$info	= TodoyuExtInstaller::getUninstallFailReason($extKey);
 
 			TodoyuHeader::sendTodoyuErrorHeader();
-			TodoyuHeader::sendTodoyuHeader('info', $info);			
+			TodoyuHeader::sendTodoyuHeader('info', $info);
 		}
 	}
 
@@ -130,7 +130,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 		if( $status === false ) {
 			TodoyuHeader::sendTodoyuErrorHeader();
-		}		
+		}
 	}
 
 
@@ -173,7 +173,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		$override	= intval($data['override']) === 1;
 
 		$info	= TodoyuExtInstaller::importExtensionArchive($uploadFile, $override);
-			
+
 		$command	= 'window.parent.Todoyu.Ext.sysmanager.Extensions.Import.uploadFinished("' . $info['ext'] . '", ' . ($info['success']?'true':'false') . ', "' . $info['message'] . '");';
 
 		return TodoyuRenderer::renderUploadIFrameJsContent($command);

@@ -36,7 +36,7 @@ class TodoyuSysmanagerExtconfActionController extends TodoyuActionController {
 		$data	= $params['config'];
 		$extKey	= $data['extension'];
 		$form	= TodoyuExtConfManager::getForm($extKey, false);
-		
+
 		$form->setFormData($data);
 
 		if( $form->isValid() ) {

@@ -93,7 +93,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 */
 	onTabClick: function(event, tabKey) {
 		var extKey, tab;
-		
+
 		if( tabKey.indexOf('_') !== -1 ) {
 			var parts	= tabKey.split('_');
 			extKey	= parts[0];
@@ -103,7 +103,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 			tab		= tabKey;
 		}
 
-		this.showTab(extKey, tab);		
+		this.showTab(extKey, tab);
 	},
 
 
@@ -145,7 +145,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 		this.showList();
 	},
 
-	
+
 
 	/**
 	 * Download given extension

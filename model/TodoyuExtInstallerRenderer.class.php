@@ -56,7 +56,7 @@ class TodoyuExtInstallerRenderer {
 		);
 
 		return render($tmpl, $data);
-	}	
+	}
 
 }
 

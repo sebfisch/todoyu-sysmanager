@@ -32,7 +32,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 		this.ext.Extensions.showTab('', 'install');
 	},
 
-	
+
 
 	/**
 	 * Install an extension
@@ -144,5 +144,5 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 			Todoyu.Ui.setContentBody(response.responseText);
 		}
 	}
-	
+
 };

@@ -36,7 +36,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 
 	/**
 	 * Show type list
-	 *	
+	 *
 	 * @param	{String}	extKey
 	 */
 	showTypeList: function(extKey) {
@@ -66,7 +66,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 				'type':		type
 			}
 		};
-		
+
 		Todoyu.Ui.updateContentBody(this.url, options);
 	},
 
@@ -174,7 +174,7 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	 * @param	{String}	type
 	 */
 	save: function(form, extKey, type)	{
-		
+
 		$(form).request ({
 			'parameters': {
 				'action':	'save',

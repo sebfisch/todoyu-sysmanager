@@ -4,14 +4,14 @@
 		<attribute name="action">?ext=sysmanager&amp;controller=config</attribute>
 		<attribute name="name">logo</attribute>
 		<attribute name="enctype">multipart/form-data</attribute>
-		
+
 	</attributes>
 	<hiddenFields>
 		<field name="MAX_FILE_SIZE" value="5000000" noWrap="true" noStorage="true" />
 		<field name="action" noWrap="true" value="logo" />
 	</hiddenFields>
 	<fieldsets>
-		
+
 		<fieldset name="main">
 			<legend>Left form column</legend>
 			<class>main</class>

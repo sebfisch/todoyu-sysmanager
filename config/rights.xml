@@ -18,7 +18,7 @@
 		<right name="update" />
 		<right name="download" />
 	</section>
-	
+
 	<section name="roles" require="general:roles">
 		<right name="edit" />
 		<right name="delete" />

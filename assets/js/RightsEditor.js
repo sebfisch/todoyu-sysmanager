@@ -45,16 +45,16 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	initMatrix: function(require) {
 			// If no dependecies given, use empty object. Empty array doen't work with $H()
 		require	= Object.isArray(require) ? {} : require;
-		
+
 			// Set required mapping
 		this.require = $H(require);
-		
+
 			// Disable all dependents whichs required right is not set
 		this.initDependents();
-		
+
 			// Observe rights checkboxes for change
 		this.observeRightsForm();
-		
+
 			// Are there rigths to be edited? hide disable save button otherwise
 		var noRights	= $$('td.roleRight').length == 0;
 		$$('button.save').each(function(element) {
@@ -96,7 +96,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	onRoleChange: function(event) {
 		var roles	= this.getRoles();
-		
+
 		if( roles.size() === 0 ) {
 			$('rightseditor-field-roles').select('option').each(function(option){
 				option.selected = true;
@@ -187,7 +187,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		this.require.each(function(roles, require){
 			roles.each(function(require, idRole){
 				this.checkDependents(require.key, idRole);
-			}.bind(this, require));			
+			}.bind(this, require));
 		}.bind(this, roles));
 	},
 
@@ -213,7 +213,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		var idParts	= checkbox.id.split('-');
 		var right 	= idParts.slice(0,-1).join(':'); // Remove role ID and join section and right
 		var idRole	= idParts.last();
-		
+
 		this.checkDependents(right, idRole);
 	},
 
@@ -249,13 +249,13 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	getDependents: function(right) {
 		var dependents = [];
-		
+
 		this.require.each(function(rightRequire){
 			if( rightRequire.value.include(right) ) {
 				dependents.push(rightRequire.key);
 			}
 		});
-		
+
 		return dependents;
 	},
 
@@ -361,7 +361,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	checkDependents: function(right, idRole) {
 		var dependents	= this.getDependents(right);
-		
+
 			// Check if right is active
 		var active = this.isRightActive(right, idRole);
 			// Loop over all rights which depend on this right
@@ -404,11 +404,11 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 *
 	 * @param	{String}	right
 	 */
-	toggleRight: function(right) {		
+	toggleRight: function(right) {
 		var checkboxes	= $('right-' + right.replace(/:/, '-')).select('input').findAll(function(input){
 			return input.disabled === false;
 		});
-				
+
 			// Toggle the checkboxes
 		this.toggleCheckboxes(checkboxes);
 			// Recheck all rights

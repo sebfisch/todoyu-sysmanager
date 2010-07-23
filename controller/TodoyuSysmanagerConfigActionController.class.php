@@ -30,7 +30,7 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	}
 
 
-	
+
 	/**
 	 * Save uploaded logo if valid
 	 * 
@@ -39,11 +39,11 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	 */
 	public function logoAction(array $params) {
 		$logoData	= TodoyuRequest::getUploadFile('image', 'logo');
-		
+
 		$success	= TodoyuSystemConfigManager::saveLogo($logoData);
-		
+
 		$commands	= 'window.parent.Todoyu.Ext.sysmanager.Config.Logo.onUploadFinished(' . ($success?'true':'false') . ');';
-		
+
 		return TodoyuRenderer::renderUploadIFrameJsContent($commands);
 	}
 }

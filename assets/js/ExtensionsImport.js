@@ -88,5 +88,5 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 			Todoyu.notifyError('[LLL:sysmanager.upload.error]: ' + ext + ' (' + message + ')');
 		}
 	}
-	
+
 };

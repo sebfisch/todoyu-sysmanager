@@ -34,7 +34,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 	array(
 		'id'	=> 'logo',
 		'label'	=> 'LLL:sysmanager.config.tab.logo'
-	)	
+	)
 );
 
 

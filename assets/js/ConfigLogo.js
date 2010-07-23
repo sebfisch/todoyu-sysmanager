@@ -50,5 +50,5 @@ Todoyu.Ext.sysmanager.Config.Logo = {
 			Todoyu.notifyError('[LLL:sysmanager.config.logo.upload.error]');
 		}
 	}
-	
+
 };

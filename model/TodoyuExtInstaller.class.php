@@ -74,7 +74,7 @@ class TodoyuExtInstaller {
 			// Save installed extensions
 		self::saveInstalledExtensions($extKeys);
 
-		
+
 		TodoyuExtensions::addExtAutoloadPaths($extKey);
 
 		self::updateDatabase();
@@ -87,7 +87,7 @@ class TodoyuExtInstaller {
 	/**
 	 * Call database update. All necessary database updates are proceeded automatically
 	 *
-	 */	
+	 */
 	private static function updateDatabase() {
 		TodoyuSQLManager::updateDatabaseFromTableFiles();
 	}
@@ -102,7 +102,7 @@ class TodoyuExtInstaller {
 	private static function callExtensionInstaller($extKey, $action = 'install') {
 		$className	= 'Todoyu' . ucfirst(strtolower(trim($extKey))) . 'Setup';
 		$method		= $action;
-		
+
 		if( class_exists($className, true) ) {
 			if( method_exists($className, $method) ) {
 				call_user_func(array($className, $method));
@@ -192,11 +192,27 @@ class TodoyuExtInstaller {
 	}
 
 
+
+	/**
+	 * @todo	comment
+	 * @param  $extKey
+	 * @param  $versionMajor
+	 * @param  $versionMinor
+	 * @param  $versionRevision
+	 * @return string
+	 */
 	public static function buildExtensionArchiveName($extKey, $versionMajor, $versionMinor, $versionRevision) {
 		return 'TodoyuExt_' . $extKey . '_' . $versionMajor . '.' . $versionMinor . '.' . $versionRevision . '_' . date('Y-m-d_H.i') . '.zip';
 	}
-	
-	
+
+
+	/**
+	 * @todo	comment
+	 * @throws	Exception
+	 * @param	Array		$uploadFile
+	 * @param	Boolean		$override
+	 * @return
+	 */
 	public static function importExtensionArchive(array $uploadFile, $override = false) {
 		try {
 				// Is file available in upload array
@@ -235,6 +251,12 @@ class TodoyuExtInstaller {
 	}
 
 
+
+	/**
+	 * @todo	comment
+	 * @param	String		$extArchiveName
+	 * @return	Array
+	 */
 	public static function parseExtensionArchiveName($extArchiveName) {
 		$fileInfo	= explode('_', $extArchiveName);
 		$version	= TodoyuString::getVersionInfo($fileInfo[2]);
@@ -248,11 +270,16 @@ class TodoyuExtInstaller {
 
 		return $info;
 	}
-	
-	
-	
 
 
+
+	/**
+	 * @todo	comment
+	 * @throws	Exception
+	 * @param	Array		$file
+	 * @param	Boolean		$override
+	 * @return	Boolean
+	 */
 	public static function canImportUploadedArchive(array $file, $override = false) {
 		try {
 			if( TodoyuExtInstaller::isValidExtArchive($file) !== true ) {
@@ -274,6 +301,13 @@ class TodoyuExtInstaller {
 	}
 
 
+
+	/**
+	 * @todo	comment
+	 * @throws	Exception
+	 * @param	Array		$file
+	 * @return	Boolean
+	 */
 	public static function isValidExtArchive(array $file) {
 		$info	= pathinfo($file['name']);
 
@@ -308,10 +342,16 @@ class TodoyuExtInstaller {
 	}
 
 
-	public static function extractExtensionArchive($extension, $pathArchive) {
+
+	/**
+	 * @todo	comment
+	 * @param	String		$extKey
+	 * @param  String		$pathArchive
+	 */
+	public static function extractExtensionArchive($extKey, $pathArchive) {
 		$archive	= new ZipArchive();
 		$archive->open($pathArchive);
-		$extDir		= TodoyuExtensions::getExtPath($extension);
+		$extDir		= TodoyuExtensions::getExtPath($extKey);
 
 		$archive->extractTo($extDir);
 	}

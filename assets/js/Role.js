@@ -39,11 +39,11 @@ Todoyu.Ext.sysmanager.Role = {
 		var options	= {
 			'parameters': {
 				'action':	'edit',
-				'role':		idRole		
+				'role':		idRole
 			},
 			'onComplete':	this.onEdit.bind(this, idRole)
 		};
-		
+
 		Todoyu.Ui.updateContentBody(url, options);
 	},
 
@@ -56,7 +56,7 @@ Todoyu.Ext.sysmanager.Role = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onEdit: function(idRole, response) {
-		
+
 	},
 
 
@@ -65,7 +65,7 @@ Todoyu.Ext.sysmanager.Role = {
 	 * Delete given role from DB
 	 * 
 	 * @param	{Number}		idRole
-	 */	
+	 */
 	remove: function(idRole) {
 		if( confirm('[LLL:sysmanager.roles.delete.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'role');
@@ -76,7 +76,7 @@ Todoyu.Ext.sysmanager.Role = {
 				},
 				'onComplete': this.onRemoved.bind(this, idRole)
 			};
-			
+
 			Todoyu.send(url, options);
 		}
 	},

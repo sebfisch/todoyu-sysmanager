@@ -68,10 +68,10 @@ class TodoyuSystemConfigManager {
 		if( intval($imageUploadData['size']) === 0 ) {
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 }
 
 ?>
