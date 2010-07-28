@@ -218,4 +218,5 @@ Todoyu.Ext.sysmanager.Extensions.Records = {
 	closeForm: function(extKey, type)	{
 		this.showTypeRecords(extKey, type);
 	}
+
 };
