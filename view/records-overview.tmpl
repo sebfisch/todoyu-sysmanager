@@ -14,11 +14,11 @@
 		<td class="recordtype">{$record.title}</td>
 		<td class="extension">
 			<span class="exticon extIcon{ucwords($extKey)}"></span>
-			<span>{$extension.title}</span>
+			<span><a href="#" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'records')">{$extension.title}</a></span>
 		</td>
 		<td class="records">{$record.count} {Label core.records}</td>
 		<td class="actions">
-    		<div class="icon edit" onclick="Todoyu.Ext.sysmanager.RecordsOverview.showRecords('{$extKey}', '{$type}')"></div>
+			<div class="icon edit" onclick="Todoyu.Ext.sysmanager.RecordsOverview.showRecords('{$extKey}', '{$type}')"></div>
 		</td>
 	</tr>
 	{/foreach}
