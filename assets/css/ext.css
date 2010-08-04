@@ -1,9 +1,19 @@
+/* ----------------------------------------------
+	Extension icon: stand-alone and in heading
+   ---------------------------------------------- */
+span.Sysmanager {
+	background:url('../img/exticon.png') no-repeat 0 0px;
+}
+
 h1.extIconSysmanager .title {
 	background:url('../img/exticon.png') no-repeat 0 5px;
 }
 
-/* Extension: Config */
 
+
+/* ------------------------------
+	Extension: Config
+   ------------------------------ */
 #panelwidget-adminmodules li.rights a {
 	background:url(../img/icons.png) no-repeat 0 -569px;
 }
@@ -40,7 +50,6 @@ table.extInfo {
 /* -----------------------------------
 	Create mode options in headlet
    ----------------------------------- */
-
 .createmode-role {
 	background:url(../img/icons.png) no-repeat 11px -208px;
 }
@@ -48,9 +57,8 @@ table.extInfo {
 
 
 /* ------------------------------------
-	Quick create wizard popup styling
+	Quick create wizard popUp styling
    ------------------------------------ */
-
 #quickcreate.dialog.role div#quickcreate_top.dialog_title {
 	padding:0 0 0 22px;
 	background:url(../img/icons.png) no-repeat 0 -209px;
@@ -60,7 +68,6 @@ table.extInfo {
 /* -----------------------------------------------
 	Quick create (headlet) mode selector entries
    ----------------------------------------------- */
-
 #headlet-quickcreate-content li.itemSysmanagerRole a {
 	background:url(../img/icons.png) no-repeat 5px -538px;
 }
