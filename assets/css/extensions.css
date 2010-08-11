@@ -26,8 +26,21 @@
 #extension-tabs li.records span.icon {
 	background-position:0 -325px;
 }
-#extension-tabs li.install span.icon {
-	background-position:0 -25px;
+#extension-tabs li.import span.icon {
+	background-position:0 -716px;
+}
+#extension-tabs li.update span.icon {
+	background-position:0 -746px;
+}
+#extension-tabs li.browse span.icon {
+	background-position:0 -686px;
+}
+
+/* Special tabs right */
+#extension-tabs li.import,
+#extension-tabs li.update,
+#extension-tabs li.browse {
+	float:right;
 }
 
 
@@ -116,14 +129,6 @@
 .extlist td.download a.download {
 	background:url(../img/icons.png) no-repeat 0 -480px;
 }
-
-
-/* Update and install tab */
-#content-tabs #extension-tab-install,
-#content-tabs #extension-tab-update {
-	float:right;
-}
-
 
 /* Import & Install */
 p.importInfo {

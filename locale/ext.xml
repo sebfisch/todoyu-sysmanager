@@ -8,7 +8,9 @@
 		<label index="tabs.config">Config</label>
 		<label index="tabs.rights">Rights</label>
 		<label index="tabs.records">Records</label>
-		<label index="tabs.install">Install</label>
+		<label index="tabs.import">Import</label>
+		<label index="tabs.update">Update</label>
+		<label index="tabs.browse">Browse Market</label>
 		<label index="records.title.recordTypes">Record types of extension</label>
 		<label index="records.noTypes">This extension has no records to edit</label>
 		<label index="records.saved">Record Saved</label>
@@ -40,6 +42,7 @@
 		<label index="extension.remove.confirm">Remove extension (all files) from server?</label>
 		<label index="extension.rights">Rights</label>
 		<label index="extension.documentation">Documentation</label>
+		<label index="browse.title">Browse extensions</label>
 		<label index="backToTypeList">Show all records</label>
 		<label index="rights.header">Rights Manager</label>
 		<label index="rights.save">Save Rights</label>
@@ -88,7 +91,7 @@
 		<label index="tabs.config">Einstellungen</label>
 		<label index="tabs.rights">Rechte</label>
 		<label index="tabs.records">Datensätze</label>
-		<label index="tabs.install">Installieren</label>
+		<label index="tabs.import">Importieren</label>
 		<label index="records.title.recordTypes">Datensatztypen dieser Erweiterung</label>
 		<label index="records.noTypes">Diese Erweiterung hat keine Datensätze</label>
 		<label index="records.saved">Datensatz gespeichert</label>

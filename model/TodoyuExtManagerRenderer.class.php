@@ -77,20 +77,21 @@ class TodoyuExtManagerRenderer {
 				$content = self::renderConfig($extKey, $params);
 				break;
 
-//			case 'rights':
-//				$content = self::renderRights($extKey, $params);
-//				break;
-
 			case 'records':
 				$content = self::renderRecords($extKey, $params);
 				break;
 
-			case 'install':
-				$content = self::renderInstall($params);
+
+			case 'import':
+				$content = self::renderImport($params);
 				break;
 
 			case 'update':
 				$content = self::renderUpdate($params);
+				break;
+
+			case 'browse':
+				$content = self::renderBrowse($params);
 				break;
 
 			default:
@@ -235,7 +236,7 @@ class TodoyuExtManagerRenderer {
 	 * @param	Array $params
 	 * @return	String
 	 */
-	public static function renderInstall(array $params = array()) {
+	public static function renderImport(array $params = array()) {
 		$notInstalled	= TodoyuExtensions::getNotInstalledExtKeys();
 		$tmpl			= 'ext/sysmanager/view/extension-list-notinstalled.tmpl';
 		$data			= array(
@@ -254,6 +255,11 @@ class TodoyuExtManagerRenderer {
 
 	public static function renderUpdate(array $params = array()) {
 		return 'update';
+	}
+
+
+	public static function renderBrowse(array $params = array()) {
+		return TodoyuUpdaterRenderer::renderBrowse($params);
 	}
 
 }

@@ -69,22 +69,26 @@ class TodoyuExtManager {
 				);
 			}
 		} else {
-			/*
+
+				// Update tab
+			$tabs[] = array(
+				'id'		=> 'browse',
+				'label'		=> 'LLL:sysmanager.tabs.browse',
+				'class'		=> 'browse'
+			);
+
 				// Update tab
 			$tabs[] = array(
 				'id'		=> 'update',
-				'htmlId'	=> 'exttab-none-update',
-				'key'		=> 'update',
-				'classKey'	=> 'update',
-				'class'		=> '',
-				'label'		=> 'Update'
+				'label'		=> 'LLL:sysmanager.tabs.update',
+				'class'		=> 'update'
 			);
-			*/
+			
 				// Installer tab
 			$tabs[] = array(
-				'id'		=> 'install',
-				'label'		=> 'Install',
-				'class'		=> 'install'
+				'id'		=> 'import',
+				'label'		=> 'LLL:sysmanager.tabs.import',
+				'class'		=> 'import'
 			);
 		}
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<attributes>
+		<attribute name="action">?ext=sysmanager&amp;controller=browse</attribute>
+		<attribute name="name">browse</attribute>
+	</attributes>
+	<fieldsets>
+
+		<fieldset name="fulltext">
+			<legend>Fulltext field</legend>
+			<class>fulltext</class>
+			<elements>
+
+				<field type="text" name="fulltext">
+					<label>sysmanager.config.selectlogo</label>
+				</field>
+
+			</elements>
+		</fieldset>
+
+		<fieldset name="category">
+			<legend>Category Select</legend>
+			<class>category</class>
+			<elements>
+
+				<field type="select" name="category">
+					<label>sysmanager.config.selectlogo</label>
+				</field>
+
+			</elements>
+		</fieldset>
+
+	</fieldsets>
+</form>
