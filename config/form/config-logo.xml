@@ -29,8 +29,7 @@
 			</elements>
 		</fieldset>
 
-		<!--
-
+<!--
 		<fieldset name="buttons">
 			<legend>Actions</legend>
 			<class>buttons</class>
@@ -42,8 +41,7 @@
 
 			</elements>
 		</fieldset>
-
-		-->
+-->
 
 	</fieldsets>
 </form>
