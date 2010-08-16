@@ -60,9 +60,14 @@ Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 		'actions'	=> ''
 	),
 	'truncate'	=> array(
-		'title'			=> 20,
+		'title'			=> 30,
 		'description'	=> 20
 	)
 );
+
+Todoyu::$CONFIG['EXT']['sysmanager']['update'] = array(
+//	'connectionCheckUrl'	=> 'http://www.todoyu.com/robots.txt'
+	'connectionCheckUrl'	=> 'http://ferni42.srv05/robots.txt'
+)
 
 ?>

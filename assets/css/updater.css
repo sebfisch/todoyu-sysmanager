@@ -1,0 +1,49 @@
+/** ----------------------
+	Browse results
+	----------------------*/
+
+#updater-search-results {
+	padding:10px;
+	border:1px solid #CCC;
+	background-color:#EFC;
+}
+
+#updater-search-results .extension {
+	padding:5px;
+	border:1px solid #CCC;
+	margin-bottom:10px;
+}
+
+#updater-search-results .extension .column {
+	float:left;
+	clear:none;
+}
+
+#updater-search-results .extension .image {
+	width:120px;
+	margin-right:10px;
+	background-color:#FF0;
+}
+
+#updater-search-results .extension .middle {
+	width:325px;
+	margin-right:20px;
+}
+
+#updater-search-results .extension .right {
+	width:150px;
+}
+
+#updater-search-results .extension .title {
+	font-weight:bold;
+	font-size:14px;
+}
+
+#updater-search-results .extension .right div {
+	float:left;
+	clear:both;
+	width:90%;
+	margin-bottom:5px;
+	padding:3px;
+	border-bottom:1px solid #CCC;
+}

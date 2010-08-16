@@ -20,22 +20,63 @@
 
 /**
  * [Enter Class Description]
- * 
+ *
  * @package		Todoyu
  * @subpackage	[Subpackage]
  */
 class TodoyuUpdaterSoapClient {
 
+	/**
+	 * Path to WSDL file
+	 */
 	const WSDL = 'http://ferni42.srv05/typo3conf/ext/todoyuupdate/soap/update.wsdl';
 
+	/**
+	 * SOAP client
+	 *
+	 * @var	SoapClient
+	 */
 	protected $client;
 
+	/**
+	 * Singleton instance
+	 *
+	 * @var	TodoyuUpdaterSoapClient
+	 */
+	private static $instance;
+
+	/**
+	 * SOAP options
+	 *
+	 * @var	Array
+	 */
 	protected $options	= array(
 		'trace'		=> true,
-		'cache_wsdl'=> WSDL_CACHE_NONE
+		'cache_wsdl'=> WSDL_CACHE_NONE,
+		'features'	=> SOAP_SINGLE_ELEMENT_ARRAYS
 	);
 
-	public function __construct() {
+
+
+	/**
+	 * Get instance of the updater
+	 *
+	 * @return	TodoyuUpdaterSoapClient
+	 */
+	public static function getInstance() {
+		if( is_null(self::$instance) ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
+
+
+
+	/**
+	 * Private constructor for the singleton
+	 */
+	private function __construct() {
 
 	}
 
@@ -44,9 +85,17 @@ class TodoyuUpdaterSoapClient {
 		return $this->options;
 	}
 
+
+
+	/**
+	 * Set SOAP client options
+	 *
+	 * @param	Array		$options
+	 */
 	public function setOptions(array $options) {
-		$this->options = array_merge($this->options, $options);		
+		$this->options = array_merge($this->options, $options);
 	}
+
 
 
 	/**
@@ -62,14 +111,32 @@ class TodoyuUpdaterSoapClient {
 		return $this->client;
 	}
 
+
+
+	/**
+	 * Search extensions on the server
+	 *
+	 * @param	String		$search
+	 * @param	String		$order
+	 * @param	Integer		$offset
+	 * @param	Integer		$limit
+	 * @return	Array
+	 */
 	public function searchExtensions($search = '', $order = '', $offset = 0, $limit = 30) {
 		$result	= $this->getClient()->browseExtensions($search, $order, $offset, $limit);
 
 		return TodoyuArray::toArray($result);
 	}
 
+
+
+	/**
+	 * Search for extension updates
+	 *
+	 * @return	Array
+	 */
 	public function searchUpdates() {
-		$todoyuID		= 'skdjflkjöslkdföalskjdf234213';
+		$todoyuID		= 'skdjflkdfasdfasdfasdfdf234213';
 		$serverInfo		= array(
 			'OS'			=> PHP_OS,
 			'phpVersion'	=> PHP_VERSION,

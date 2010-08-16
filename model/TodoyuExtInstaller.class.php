@@ -79,7 +79,7 @@ class TodoyuExtInstaller {
 
 		self::updateDatabase();
 
-		self::callExtensionInstaller($extKey, 'install');
+		self::callExtensionSetup($extKey, 'install');
 	}
 
 
@@ -99,9 +99,11 @@ class TodoyuExtInstaller {
 	 * @param	String		$extKey
 	 * @param	String		$action
 	 */
-	private static function callExtensionInstaller($extKey, $action = 'install') {
+	private static function callExtensionSetup($extKey, $action = 'install') {
 		$className	= 'Todoyu' . ucfirst(strtolower(trim($extKey))) . 'Setup';
 		$method		= $action;
+
+		TodoyuDebug::printInFireBug($className, 'callExtensionInstaller');
 
 		if( class_exists($className, true) ) {
 			if( method_exists($className, $method) ) {
@@ -118,6 +120,8 @@ class TodoyuExtInstaller {
 	 * @param  String		$extKey
 	 */
 	public static function uninstallExtension($extKey) {
+		self::callExtensionSetup($extKey, 'uninstall');
+
 			// Get installed extensions with extkey as array key
 		$installed	= array_flip(Todoyu::$CONFIG['EXT']['installed']);
 

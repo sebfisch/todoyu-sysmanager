@@ -24,26 +24,12 @@
  * @package		Todoyu
  * @subpackage	[Subpackage]
  */
-class TodoyuUpdater {
+class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 
-	private static $client;
+	public function browseAction(array $params) {
+		$query	= trim($params['query']);
 
-	public static function isUpdateServerReachable() {
-		$url	= Todoyu::$CONFIG['EXT']['sysmanager']['update']['connectionCheckUrl'];
-		$options= array(
-			'onlyHeaders'	=> true
-		);
-
-		$headers	= TodoyuFileManager::downloadFile($url, $options);
-
-		return $headers !== false && stristr($headers['status'], '200 OK') !== false;
-	}
-
-
-	public static function searchExtensions($query) {
-		$client	= TodoyuUpdaterSoapClient::getInstance();
-
-		return $client->searchExtensions($query);
+		return TodoyuUpdaterRenderer::renderBrowseResultList($query);
 	}
 
 }

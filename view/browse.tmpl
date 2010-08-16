@@ -1,9 +1,17 @@
 {Title title="LLL:sysmanager.browse.title"}
 
-<div id="browse-search">
-
+<div id="updater-search-control">
+	<form method="post">
+		<input type="text" name="extQuery" id="extQuery" value="{$extQuery}" />
+		</br>
+		Category Select
+	</form>
 </div>
-Searchbox
-Category Select
 
-Results
+<div id="updater-search-results">
+	{$results}
+</div>
+
+<script>
+	Todoyu.Ext.sysmanager.Updater.init();
+</script>
