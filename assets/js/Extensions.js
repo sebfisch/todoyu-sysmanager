@@ -57,7 +57,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 		};
 
 		if( typeof(params) === 'object' ) {
-			options.parameters = $H(options.parameters).merge(params).toObject();
+			$H(options.parameters).update(params).toObject();
 		}
 
 		Todoyu.Ui.updateContent(url, options);
@@ -163,11 +163,19 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 	/**
 	 * Show rights of given extension
-	 * 
+	 *
 	 * @param	{String}		extKey
 	 */
 	showRights: function(extKey) {
-		location.href = 'index.php?ext=admin&mod=rights&extension=' + extKey;
+		Todoyu.Ext.admin.loadModule('rights', {
+			'extkey': extKey
+		});
+	},
+
+	showRecords: function(extKey) {
+		Todoyu.Ext.admin.loadModule('records', {
+			'extkey': extKey
+		});
 	},
 
 

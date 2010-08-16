@@ -27,37 +27,111 @@
 class TodoyuExtRecordRenderer {
 
 	/**
-	 * Render extension records
-	 * If parameter type is set, render type records, else render a list of record types
+	 * Render extension record module
 	 *
-	 * @param	String		$extKey
 	 * @param	Array		$params
 	 * @return	String
 	 */
-	public static function renderRecords($extKey, array $params = array()) {
-		if( isset($params['type']) ) {
-			return self::renderRecordList($extKey, $params['type']);
+	public static function renderModule(array $params) {
+		$ext		= trim($params['extkey']);
+		$type		= trim($params['type']);
+		$idRecord	= intval($params['record']);
+
+		$tabs	= self::renderTabs($ext, $type, $idRecord);
+		$body	= self::renderBody($ext, $type, $idRecord);
+
+		return TodoyuRenderer::renderContent($body, $tabs);
+	}
+
+
+
+	/**
+	 * Render extension records tabs
+	 * They are composed dynamically, depending on current listing
+	 *
+	 * @param	String		$ext
+	 * @param	String		$type
+	 * @param	Integer		$idRecord
+	 * @return	String
+	 */
+	private static function renderTabs($ext, $type, $idRecord) {
+		$name		= 'records';
+		$jsHandler	= 'Todoyu.Ext.sysmanager.Records.onTabClick.bind(Todoyu.Ext.sysmanager.Records)';
+		$tabs		= TodoyuExtRecordManager::getTabsConfig($ext, $type, $idRecord);
+		$active		= 'all';
+
+		if( $idRecord !== 0 ) {
+			$active = implode('-', array($ext,$type,'record'));
+		} elseif( $type !== '' ) {
+			$active = implode('-', array($ext,$type));
+		} elseif( $ext !== '' ) {
+			$active = $ext;
+		}
+
+		return TodoyuTabheadRenderer::renderTabs($name, $tabs, $jsHandler, $active);
+	}
+
+
+
+	/**
+	 * Render extension records body (listing and editing)
+	 * There are 4 views:
+	 * - List all record types of all extensions
+	 * - List record types of one extension
+	 * - List records of a type
+	 * - Edit a record
+	 *
+	 * @param	String		$ext
+	 * @param	String		$type
+	 * @param	Integer		$idRecord
+	 * @return	String
+	 */
+	private static function renderBody($ext, $type, $idRecord) {
+		if( $idRecord !== 0 ) {
+			return self::renderBodyRecord($ext, $type, $idRecord);
+		} elseif( $type !== '' ) {
+			return self::renderBodyType($ext, $type);
+		} elseif( $ext !== '' ) {
+			return self::renderBodyExtension($ext);
 		} else {
-			return self::renderTypeList($extKey);
+			return self::renderBodyAll();
 		}
 	}
 
 
 
 	/**
-	 * Render type list
+	 * Render listing of all record types
 	 *
-	 * @param	String	$extKey
-	 * @return	String	HTML
+	 * @return	String
 	 */
-	public static function renderTypeList($extKey) {
-		$tmpl	= 'ext/sysmanager/view/records-typelist.tmpl';
+	private static function renderBodyAll() {
+		$recordsList	= TodoyuExtRecordManager::getAllRecordsList();
+
+		$tmpl	= 'ext/sysmanager/view/records-all.tmpl';
 		$data	= array(
-			'extKey'	=> $extKey,
+			'list'	=> $recordsList
+		);
+
+		return render($tmpl, $data);
+	}
+
+
+
+	/**
+	 * Render listing of extension record types
+	 *
+	 * @param	String		$ext
+	 * @return	String
+	 */
+	private static function renderBodyExtension($ext) {
+		$tmpl	= 'ext/sysmanager/view/records-extension.tmpl';
+		$data	= array(
+			'extKey'	=> $ext,
 			'types'		=> array()
 		);
 
-		$typeConfigs	= TodoyuExtManager::getRecordConfigs($extKey);
+		$typeConfigs	= TodoyuExtManager::getRecordConfigs($ext);
 
 		foreach($typeConfigs as $type => $config) {
 			$data['types'][$type] = array(
@@ -73,22 +147,22 @@ class TodoyuExtRecordRenderer {
 
 
 	/**
-	 * Render record list
+	 * Render record listing of a type
 	 *
-	 * @param	String	$extKey
-	 * @param	String	$type
+	 * @param	String		$ext
+	 * @param	String		$type
 	 * @return	String
 	 */
-	public static function renderRecordList($extKey, $type)	{
-		$typeConfigs = TodoyuExtManager::getRecordTypeConfig($extKey, $type);
+	private static function renderBodyType($ext, $type) {
+		$typeConfigs = TodoyuExtManager::getRecordConfig($ext, $type);
 
 		if( TodoyuFunction::isFunctionReference($typeConfigs['list']) )	{
 			$records = TodoyuFunction::callUserFunction($typeConfigs['list']);
 
-			$tmpl = 'ext/sysmanager/view/records-recordlist.tmpl';
+			$tmpl = 'ext/sysmanager/view/records-records.tmpl';
 			$data = array(
 				'records'	=> $records,
-				'extKey'	=> $extKey,
+				'extKey'	=> $ext,
 				'type'		=> $type,
 				'labels'	=> array(
 					'typeLabel' => $typeConfigs['label']
@@ -97,9 +171,26 @@ class TodoyuExtRecordRenderer {
 
 			return render($tmpl, $data);
 		} else {
-			return 'NO VALID LIST FUNCTION FOR RECORD TYPE: ' . $type . ' IN MODULE ' . $extKey . '(ERROR occurs in <strong>' . __METHOD__ . '</strong> on line: ' . __LINE__ . ')';
+			return 'NO VALID LIST FUNCTION FOR RECORD TYPE: ' . $type . ' IN MODULE ' . $ext . '(ERROR occurs in <strong>' . __METHOD__ . '</strong> on line: ' . __LINE__ . ')';
 		}
 	}
+
+
+
+	/**
+	 * Render edit form for a record
+	 *
+	 * @param	String		$ext
+	 * @param	String		$type
+	 * @param	Integer		$idRecord
+	 * @return	String
+	 */
+	private static function renderBodyRecord($ext, $type, $idRecord) {
+		$form	= TodoyuExtRecordManager::getRecordForm($ext, $type, $idRecord);
+
+		return $form->render();
+	}
+
 }
 
 ?>

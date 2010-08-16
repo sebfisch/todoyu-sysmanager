@@ -26,46 +26,43 @@
  */
 class TodoyuRightsEditorRenderer {
 
-	/**
-	 * Render rights module content
-	 *
-	 * @param	Array		$params
-	 * @return	String
-	 */
-	public static function renderModuleContent(array $params = array()) {
-			// Tab
-		if( isset($params['tab']) ) {
-			$tab	=  $params['tab'];
-			TodoyuSysmanagerPreferences::saveActiveTab('rights', $tab);
+	public static function renderModule(array $params) {
+		$tab	= trim($params['tab']);
+
+		if( $tab === '' ) {
+			$tab = TodoyuRightsEditorManager::getActiveTab();
 		} else {
-			$tab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
+			TodoyuRightsEditorManager::saveActiveTab($tab);
 		}
 
-		switch($tab) {
-			case 'roles':
-				return self::renderRolesView($params);
+		$tabs	= self::renderTabs($tab);
+		$body	= self::renderBody($tab, $params);
 
-			case 'rights':
-			default:
-				return self::renderRightsView($params);
-		}
+		return TodoyuRenderer::renderContent($body, $tabs);
 	}
-
 
 
 	/**
 	 * Render rights module tabs
 	 *
-	 * @param	Array		$params
 	 * @return	String
 	 */
-	public static function renderModuleTabs(array $params = array()) {
+	private static function renderTabs($tab) {
 		$name		= 'rights';
 		$tabs		= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs']);
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Rights.onTabClick.bind(Todoyu.Ext.sysmanager.Rights)';
-		$activeTab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
+		$activeTab	= $tab;
 
 		return TodoyuTabheadRenderer::renderTabs($name, $tabs, $jsHandler, $activeTab);
+	}
+
+
+	private static function renderBody($tab, array $params) {
+		if( $tab === 'roles' ) {
+			return self::renderBodyRoles($params);
+		} else {
+			return self::renderBodyRights($params);
+		}
 	}
 
 
@@ -76,12 +73,13 @@ class TodoyuRightsEditorRenderer {
 	 * @param	Array		$params
 	 * @return	String
 	 */
-	public static function renderRightsView(array $params) {
-		if( isset($params['extension']) ) {
-			$ext	= $params['extension'];
-			TodoyuSysmanagerPreferences::saveRightsExt($ext);
-		} else {
+	public static function renderBodyRights(array $params) {
+		$ext	= trim($params['extkey']);
+
+		if( $ext === '' ) {
 			$ext	= TodoyuSysmanagerPreferences::getRightsExt();
+		} else {
+			TodoyuSysmanagerPreferences::saveRightsExt($ext);
 		}
 
 		$selectedRoles	= TodoyuSysmanagerPreferences::getRightsRoles();
@@ -103,7 +101,7 @@ class TodoyuRightsEditorRenderer {
 	 * @param	Array		$params
 	 * @return	String
 	 */
-	public static function renderRolesView(array $params) {
+	public static function renderBodyRoles(array $params) {
 		$idRole	= intval($params['role']);
 
 		if( $idRole === 0 ) {

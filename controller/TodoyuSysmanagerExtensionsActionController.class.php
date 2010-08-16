@@ -55,7 +55,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @return	String
 	 */
 	public function tabviewAction(array $params) {
-		return TodoyuExtManagerRenderer::renderContent($params);
+		return TodoyuExtManagerRenderer::renderModule($params);
 	}
 
 

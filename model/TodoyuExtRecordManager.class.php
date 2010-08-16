@@ -27,6 +27,98 @@
 class TodoyuExtRecordManager {
 
 	/**
+	 * Get configuration for the tabs
+	 *
+	 * @param	String		$ext
+	 * @param	String		$type
+	 * @param	Integer		$idRecord
+	 * @return	Array
+	 */
+	public static function getTabsConfig($ext = '', $type = '', $idRecord = 0) {
+		$ext		= trim($ext);
+		$type		= trim($type);
+		$idRecord	= intval($idRecord);
+		$tabs		= array();
+
+			// List
+		$tabs[] = array(
+			'id'		=> 'all',
+			'label'		=> 'LLL:sysmanager.records.tab.all'
+		);
+
+			// Extension
+		if( $ext !== '' ) {
+			$extLabel	= Label($ext . '.ext.title');
+
+			$tabs[] = array(
+				'id'	=> $ext,
+				'label'	=> TodoyuString::crop($extLabel, 18, '..', false),
+				'class'	=> 'extTypes'
+			);
+		}
+
+			// Type
+		if( $type !== '' ) {
+			$typeConfig	= TodoyuExtManager::getRecordConfig($ext, $type);
+			$tabs[] = array(
+				'id'	=> $ext . '-' . $type,
+				'label'	=> TodoyuString::crop(TodoyuString::getLabel($typeConfig['label']), 18, '..', false),
+				'class'	=> 'typeRecords'
+			);
+		}
+
+			// Record
+		if( $idRecord !== 0 ) {
+			if( $idRecord === -1 ) {
+				$recordLabel	= Label('core.createNew');
+			} else {
+				$recordLabel	= TodoyuExtManager::getRecordObjectLabel($ext, $type, $idRecord);
+			}
+
+			$tabs[] = array(
+				'id'	=> $ext . '-' . $type . '-record',
+				'label'	=> TodoyuString::crop($recordLabel, 18, '..', false),
+				'class'	=> 'openRecord'
+			);
+		}
+
+		return $tabs;
+	}
+
+
+
+
+	/**
+	 * Get infos about all record types
+	 *
+	 * @return	Integer
+	 */
+	public static function getAllRecordsList() {
+		$info		= array();
+		$extRecords	= TodoyuExtManager::getAllRecordsConfig();
+
+		foreach($extRecords as $extKey => $records) {
+			$info[$extKey]['title']		= Label($extKey . '.ext.title');
+			$info[$extKey]['records'] 	= array();
+
+			foreach($records as $type => $config) {
+				$info[$extKey]['records'][$type]['type']	= $type;
+				$info[$extKey]['records'][$type]['title']	= Label($config['label']);
+
+				if( isset($config['table']) ) {
+					$info[$extKey]['records'][$type]['count']	= TodoyuExtRecordManager::getRecordCount($config['table']);
+				} else {
+					$info[$extKey]['records'][$type]['count']	= '???';
+				}
+			}
+		}
+
+		return $info;
+	}
+
+
+
+	/**
 	 * Get record form object with injected save buttons
 	 *
 	 * @param	String		$ext
@@ -36,11 +128,11 @@ class TodoyuExtRecordManager {
 	 */
 	public static function getRecordForm($ext, $type, $idRecord) {
 		$idRecord	= intval($idRecord);
-		$config		= TodoyuExtManager::getRecordTypeConfig($ext, $type);
+		$config		= TodoyuExtManager::getRecordConfig($ext, $type);
 
 			// Record form
 		$form 		= TodoyuFormManager::getForm($config['form'], $idRecord);
-		$form->setAttribute('onsubmit', "return Todoyu.Ext.sysmanager.Extensions.Records.save(this, '" . $ext . "', '" . $type . "')");
+//		$form->setAttribute('onsubmit', "return Todoyu.Ext.sysmanager.Extensions.Records.save(this, '" . $ext . "', '" . $type . "')");
 		$form->setAction('?ext=sysmanager&amp;controller=records');
 		$form->setName('record');
 
@@ -90,7 +182,7 @@ class TodoyuExtRecordManager {
 	 * @return	Integer
 	 */
 	public static function saveRecord($ext, $type, array $data) {
-		$config		= TodoyuExtManager::getRecordTypeConfig($ext, $type);
+		$config		= TodoyuExtManager::getRecordConfig($ext, $type);
 		$idRecord	= intval($data['id']);
 
 		if( TodoyuFunction::isFunctionReference($config['save']) ) {
@@ -112,7 +204,7 @@ class TodoyuExtRecordManager {
 	 * @param	Integer		$idRecord
 	 */
 	public static function deleteRecord($ext, $type, $idRecord) {
-		$config		= TodoyuExtManager::getRecordTypeConfig($ext, $type);
+		$config		= TodoyuExtManager::getRecordConfig($ext, $type);
 		$idRecord	= intval($idRecord);
 
 		if( TodoyuFunction::isFunctionReference($config['delete']) ) {
@@ -123,14 +215,20 @@ class TodoyuExtRecordManager {
 	}
 
 
+
+	/**
+	 * Get row count of a table
+	 *
+	 * @param	String		$table
+	 * @return	Integer
+	 */
 	public static function getRecordCount($table) {
-		$fields	= 'COUNT(*) as total';
+		$fields	= 'id';
 		$where	= 'deleted = 0';
-		$group	= 'id';
 
-		$res	= Todoyu::db()->doSelect($fields, $table, $where, $group);
+		$result	= Todoyu::db()->doSelect($fields, $table, $where);
 
-		return Todoyu::db()->getNumRows($res);
+		return Todoyu::db()->getNumRows($result);
 	}
 
 }

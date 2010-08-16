@@ -18,70 +18,22 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
+/**
+ * Records controller
+ *
+ * @package		Todoyu
+ * @subpackage	Sysmanager
+ */
 class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 
 	/**
-	 * @var	String		Extension parameter of the request
-	 */
-	protected $extKey;
-
-	/**
-	 * @var	String		Type parameter of the request
-	 */
-	protected $type;
-
-
-
-	/**
-	 * Set extKey and type on request start because its used by all functions
-	 *
-	 * @param	Array		$params
-	 */
-	public function init(array $params) {
-		TodoyuExtensions::loadAllAdmin();
-
-		$this->extKey	= $params['extKey'];
-		$this->type		= $params['type'];
-	}
-
-
-
-	/**
-	 * Get list of record types for an extension
+	 * Update record module content
 	 *
 	 * @param	Array		$params
 	 * @return	String
 	 */
-	public function listRecordTypesAction(array $params) {
-		return TodoyuExtRecordRenderer::renderTypeList($this->extKey);
-	}
-
-
-
-	/**
-	 * Get list of records of given type
-	 *
-	 * @param	Array	$params
-	 * @return	String
-	 */
-	public function listTypeRecordsAction(array $params) {
-		return TodoyuExtRecordRenderer::renderRecordList($this->extKey, $this->type);
-	}
-
-
-
-	/**
-	 * Get record editing form
-	 *
-	 * @param	Array	$params
-	 * @return	String
-	 */
-	public function editAction(array $params) {
-		$idRecord	= intval($params['record']);
-
-		$form		= TodoyuExtRecordManager::getRecordForm($this->extKey, $this->type, $idRecord);
-
-		return $form->render();
+	public function updateAction(array $params) {
+		return TodoyuExtRecordRenderer::renderModule($params);
 	}
 
 
@@ -92,38 +44,43 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	 * @param	Array	$params
 	 */
 	public function deleteAction(array $params) {
+		$ext		= trim($params['ext']);
+		$type		= trim($params['type']);
 		$idRecord	= intval($params['record']);
 
-		TodoyuExtRecordManager::deleteRecord($this->extKey, $this->type, $idRecord);
+		TodoyuExtRecordManager::deleteRecord($ext, $type, $idRecord);
 	}
 
 
 
 	/**
-	 * Save extension record
+	 * Save record
 	 *
 	 * @param	Array		$params
 	 * @return	String
 	 */
 	public function saveAction(array $params) {
-		$data		= $params['record'];
-			// Declare fieldmarker-values for parsing of inline JS
-		$data['record-extkey']	= $params['extKey'];
-		$data['record-type']	= $params['type'];
+		$data	= $params['record'];
+		$ext	= trim($params['extkey']);
+		$type	= trim($params['type']);
 
 		$idRecord	= intval($data['id']);
-		$config		= TodoyuExtManager::getRecordTypeConfig($this->extKey, $this->type);
+		$form		= TodoyuExtRecordManager::getRecordForm($ext, $type, $idRecord);
 
-		$form		= TodoyuExtRecordManager::getRecordForm($this->extKey, $this->type, $idRecord);
 		$form->setFormData($data);
 
 			// Validate, save, render
 		if( $form->isValid() )	{
-			$recordData	= $form->getStorageData();
+			$storageData	= $form->getStorageData();
 
-			$idRecord	= TodoyuExtRecordManager::saveRecord($this->extKey, $this->type, $recordData);
+			$idRecord	= TodoyuExtRecordManager::saveRecord($ext, $type, $storageData);
 		} else {
 			TodoyuHeader::sendTodoyuErrorHeader();
+
+			$form->addFormData(array(
+				'record-extkey'	=> $ext,
+				'record-type'	=> $type
+			));
 
 			return $form->render();
 		}

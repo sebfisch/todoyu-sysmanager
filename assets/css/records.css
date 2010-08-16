@@ -1,3 +1,123 @@
+#panelwidget-adminmodules li.records a {
+	background:url(../img/icons.png) no-repeat 1px -360px;
+}
+
+/* ----------------------------
+	Tables
+   ---------------------------- */
+table.recordsList {
+	width:650px;
+	border:0;
+}
+table.recordsList td.actions div.icon {
+	cursor:pointer;
+	margin-right:5px;
+}
+
+/* ----------------------------
+	Tabs
+   ---------------------------- */
+#records-tabs .all .icon {
+	background:url(../img/icons.png) no-repeat 0 -625px;
+}
+#records-tabs .extTypes .icon {
+	background:url(../img/icons.png) no-repeat 0 5px;
+}
+#records-tabs .typeRecords .icon {
+	background:url(../img/icons.png) no-repeat 0 -775px;
+}
+#records-tabs .openRecord .icon {
+	background:url(../img/icons.png) no-repeat 0 -325px;
+}
+
+
+
+/* ----------------------------
+	Types of all extensions
+   ---------------------------- */
+
+.typesAll td.icon {
+	width:15px;
+}
+.typesAll td.recordtype {
+	width:200px;
+}
+.typesAll td.extension {
+	width:250px;
+}
+.typesAll td.records {
+	width:100px;
+}
+.typesAll td.actions {
+	width:50px;
+}
+
+.typesAll td.icon {
+	background:url(../img/icons.png) no-repeat 6px -775px;
+}
+.typesAll .actions .edit {
+	background:url(../img/icons.png) no-repeat 0 -629px;
+}
+
+
+/* ----------------------------
+	Types of one extension
+   ---------------------------- */
+.typesExtension td.icon {
+	width:15px;
+}
+.typesExtension td.recordtype {
+	width:170px;
+}
+.typesExtension td.description {
+	width:250px;
+}
+.typesExtension td.records {
+	width:80px;
+}
+.typesExtension td.actions {
+	width:50px;
+}
+
+.typesExtension td.icon {
+	background:url(../img/icons.png) no-repeat 6px -775px;
+}
+
+.typesExtension .actions .list {
+	background:url(../img/icons.png) no-repeat 0 -628px;
+}
+
+
+/* ----------------------------
+	Records listing
+   ---------------------------- */
+.recordsListing td.icon {
+	width:15px;
+}
+.recordsListing td.label {
+	width:505px;
+}
+.recordsListing td.actions {
+	width:50px;
+}
+
+.recordsListing td.icon {
+	background:url(../img/icons.png) no-repeat 6px -325px;
+}
+.recordsListing .actions .edit {
+	background:url(../img/icons.png) no-repeat 0 -358px;
+}
+.recordsListing .actions .delete {
+	background:url(../img/icons.png) no-repeat 0 -418px;
+}
+
+
+
+
+
+
+
+
 #record-type-list li,
 #record-list li {
 	padding:5px 10px;

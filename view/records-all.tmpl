@@ -1,5 +1,4 @@
-{$tabs}
-<table cellspacing="0" cellpadding="0" class="list recordsoverview">
+<table cellspacing="0" cellpadding="0" class="list typesAll recordsList">
 	<tr class="header">
 		<th scope="col" class="icon">&nbsp;</th>
 		<th scope="col" class="recordtype">{Label sysmanager.recordType}</th>
@@ -7,18 +6,20 @@
 		<th scope="col" class="records">{Label core.records}</th>
 		<th scope="col" class="last actions">&nbsp;</th>
 	</tr>
-{foreach $extensions extKey extension}
+{foreach $list extKey extension}
 	{foreach $extension.records type record}
 	<tr class="{cycle values="odd,even"}">
 		<td class="icon"></td>
-		<td class="recordtype">{$record.title}</td>
+		<td class="recordtype">
+			<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Records.showTypeRecords('{$extKey}', '{$type}')">{$record.title}</a>
+		</td>
 		<td class="extension">
 			<span class="exticon extIcon{ucwords($extKey)}"></span>
-			<span><a href="#" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'records')">{$extension.title}</a></span>
+			<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Records.showExtensionTypes('{$extKey}')">{$extension.title}</a>
 		</td>
 		<td class="records">{$record.count} {Label core.records}</td>
 		<td class="actions">
-			<div class="icon edit" onclick="Todoyu.Ext.sysmanager.RecordsOverview.showRecords('{$extKey}', '{$type}')"></div>
+			<div class="icon list" onclick="Todoyu.Ext.sysmanager.Records.showTypeRecords('{$extKey}', '{$type}')"></div>
 		</td>
 	</tr>
 	{/foreach}

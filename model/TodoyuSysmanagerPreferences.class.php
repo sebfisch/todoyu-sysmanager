@@ -92,13 +92,7 @@ class TodoyuSysmanagerPreferences {
 	 * @return	String
 	 */
 	public static function getActiveTab($type) {
-		$tab	= self::getPref($type . '-tab');
-
-		if( $tab === false ) {
-			$tab = 'rights';
-		}
-
-		return $tab;
+		return self::getPref($type . '-tab');
 	}
 
 

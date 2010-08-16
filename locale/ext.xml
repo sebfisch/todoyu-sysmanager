@@ -11,6 +11,7 @@
 		<label index="tabs.import">Import</label>
 		<label index="tabs.update">Update</label>
 		<label index="tabs.browse">Browse Market</label>
+		<label index="records.tab.all">All Records</label>
 		<label index="records.title.recordTypes">Record types of extension</label>
 		<label index="records.noTypes">This extension has no records to edit</label>
 		<label index="records.saved">Record Saved</label>
@@ -56,7 +57,7 @@
 		<label index="notInstalledExtensions">Not Installed Extensions</label>
 		<label index="installedExtensions">Installed Extensions</label>
 		<label index="menu.extensions">Extensions</label>
-		<label index="menu.allRecords">All Records</label>
+		<label index="menu.records">All Records</label>
 		<label index="menu.rights">Rights &amp; Roles</label>
 		<label index="menu.config">System Configuration</label>
 		<label index="rights.tab.rights">Rights</label>
@@ -134,7 +135,7 @@
 		<label index="notInstalledExtensions">Nicht installierte Erweiterungen</label>
 		<label index="installedExtensions">Installierte Erweiterungen</label>
 		<label index="menu.extensions">Erweiterungen</label>
-		<label index="menu.allRecords">Alle Datensätze</label>
+		<label index="menu.records">Alle Datensätze</label>
 		<label index="menu.rights">Rechte &amp; Rollen</label>
 		<label index="menu.config">System Konfiguration</label>
 		<label index="rights.tab.rights">Rechte</label>
@@ -210,7 +211,7 @@
 		<label index="notInstalledExtensions">Extensões Não Instaladas</label>
 		<label index="installedExtensions">Extensões Instaladas</label>
 		<label index="menu.extensions">Extensões</label>
-		<label index="menu.allRecords">Todos os Registros</label>
+		<label index="menu.records">Todos os Registros</label>
 		<label index="menu.config">Configuração do sistema</label>
 		<label index="menu.rights">Permissões &amp; Grupos</label>
 		<label index="rights.tab.rights">Permissões</label>
@@ -291,7 +292,7 @@
 		<label index="notInstalledExtensions">Неустановленые расширения</label>
 		<label index="installedExtensions">Установленые расширения</label>
 		<label index="menu.extensions">Расширения</label>
-		<label index="menu.allRecords">Все записи</label>
+		<label index="menu.records">Все записи</label>
 		<label index="menu.rights">Права и роли</label>
 		<label index="menu.config">Конфигурация системы</label>
 		<label index="rights.tab.rights">Права</label>
@@ -371,7 +372,7 @@
 		<label index="notInstalledExtensions">Aucune extension installée</label>
 		<label index="installedExtensions">Extensions installées</label>
 		<label index="menu.extensions">Extensions</label>
-		<label index="menu.allRecords">Tous les enregistrements</label>
+		<label index="menu.records">Tous les enregistrements</label>
 		<label index="menu.rights">Permissions &amp; rôles</label>
 		<label index="menu.config">Configuration du système</label>
 		<label index="rights.tab.rights">Permissions</label>
@@ -451,7 +452,7 @@
 		<label index="notInstalledExtensions">Not Installed Extensions</label>
 		<label index="installedExtensions">Geïnstalleerde extensies</label>
 		<label index="menu.extensions">Extensies</label>
-		<label index="menu.allRecords">Alle records</label>
+		<label index="menu.records">Alle records</label>
 		<label index="menu.rights">Rechten &amp; Rollen</label>
 		<label index="menu.config">Systeemconfiguratie</label>
 		<label index="rights.tab.rights">Rechten</label>
@@ -531,7 +532,7 @@
 		<label index="notInstalledExtensions">Nenainstalovana rozsireni</label>
 		<label index="installedExtensions">Nainstalovana rozsireni</label>
 		<label index="menu.extensions">Rozšíření</label>
-		<label index="menu.allRecords">Všechny záznamy</label>
+		<label index="menu.records">Všechny záznamy</label>
 		<label index="menu.rights">Práva a role</label>
 		<label index="menu.config">Nastavení systému</label>
 		<label index="rights.tab.rights">Práva</label>
@@ -611,7 +612,7 @@
 		<label index="notInstalledExtensions">インストールされていない拡張機能</label>
 		<label index="installedExtensions">インストールされている拡張機能</label>
 		<label index="menu.extensions">拡張機能</label>
-		<label index="menu.allRecords">全レコード</label>
+		<label index="menu.records">全レコード</label>
 		<label index="menu.rights">権利とロール</label>
 		<label index="menu.config">システム設定</label>
 		<label index="rights.tab.rights">権利</label>

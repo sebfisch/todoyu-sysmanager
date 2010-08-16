@@ -52,10 +52,6 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 103
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/RecordsOverview.js',
-			'position'	=> 103
-		),
-		array(
 			'file'		=> 'ext/sysmanager/assets/js/ExtConf.js',
 			'position'	=> 103
 		),
@@ -68,7 +64,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/Role.js',
+			'file'		=> 'ext/sysmanager/assets/js/Roles.js',
 			'position'	=> 102
 		),
 		array(

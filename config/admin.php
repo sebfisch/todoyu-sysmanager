@@ -20,21 +20,21 @@
 
 	// Extension manager
 if( allowed('sysmanager', 'general:extensions') ) {
-	TodoyuAdminManager::addModule('extensions', 'LLL:sysmanager.menu.extensions', 'TodoyuExtManagerRenderer::renderModuleContent', 'TodoyuExtManagerRenderer::renderModuleTabs', 10);
+	TodoyuAdminManager::addModule('extensions', 'LLL:sysmanager.menu.extensions', 'TodoyuExtManagerRenderer::renderModule', 10);
 }
 	// Records manager
-if( allowed('sysmanager', 'general:allrecords') ) {
-	TodoyuAdminManager::addModule('records', 'LLL:sysmanager.menu.allRecords', 'TodoyuRecordsOverviewRenderer::renderModuleContent', 'TodoyuRecordsOverviewRenderer::renderModuleTabs', 20);
+if( allowed('sysmanager', 'general:records') ) {
+	TodoyuAdminManager::addModule('records', 'LLL:sysmanager.menu.records', 'TodoyuExtRecordRenderer::renderModule', 20);
 }
 
 	// Rights manager
 if( allowed('sysmanager', 'general:rights') ) {
-	TodoyuAdminManager::addModule('rights', 'LLL:sysmanager.menu.rights', 'TodoyuRightsEditorRenderer::renderModuleContent', 'TodoyuRightsEditorRenderer::renderModuleTabs', 30);
+	TodoyuAdminManager::addModule('rights', 'LLL:sysmanager.menu.rights', 'TodoyuRightsEditorRenderer::renderModule', 30);
 }
 
 	// Config manager
 if( allowed('sysmanager', 'general:config') ) {
-	TodoyuAdminManager::addModule('config', 'LLL:sysmanager.menu.config', 'TodoyuSystemConfigRenderer::renderModuleContent', 'TodoyuSystemConfigRenderer::renderModuleTabs', 40);
+	TodoyuAdminManager::addModule('config', 'LLL:sysmanager.menu.config', 'TodoyuSystemConfigRenderer::renderModule', 40);
 }
 
 ?>

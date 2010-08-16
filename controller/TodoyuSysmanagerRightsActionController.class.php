@@ -19,7 +19,7 @@
 *****************************************************************************/
 
 /**
- * Rightsmanagement
+ * Rights management
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
@@ -27,25 +27,13 @@
 class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 
 	/**
-	 * Update roles list (formfield) options
-	 *
-	 * @param	Array		$params
-	 * @return	String
-	 */
-	public function listingAction(array $params) {
-		return TodoyuListingRenderer::render('sysmanager', 'roles');
-	}
-
-
-
-	/**
 	 * Render tab in rights admin module
 	 *
 	 * @param	Array		$params
 	 * @return	String
 	 */
-	public function tabAction(array $params) {
-		return TodoyuRightsEditorRenderer::renderModuleContent($params);
+	public function updateAction(array $params) {
+		return TodoyuRightsEditorRenderer::renderModule($params);
 	}
 
 

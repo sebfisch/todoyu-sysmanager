@@ -32,58 +32,44 @@ class TodoyuExtManager {
 	 * @param	String		$extKey
 	 * @return	String
 	 */
-	public static function getTabConfig($extKey = '') {
-		$extKey		= trim($extKey);
-		$installed	= TodoyuExtensions::isInstalled($extKey);
+	public static function getTabConfig($extKey = '', $tab = '') {
+		$extKey	= trim($extKey);
+		$tabs	= array();
 
 			// Listing tab
-		$tabs = array(
-			array(
-				'id'		=> 'list',
-				'label'		=> Label('sysmanager.tabs.extensions')
-			)
+		$tabs[] = array(
+			'id'		=> 'list',
+			'label'		=> Label('sysmanager.tabs.extensions')
 		);
+
 
 			// If an extension is selected, add editor tabs
 		if( $extKey !== '' ) {
+				// Config
+			$tabs[] = array(
+				'id'		=> $extKey . '_config',
+				'label'		=> 'LLL:sysmanager.tabs.config',
+				'class'		=> 'config'
+			);
+				// Info
 			$tabs[] = array(
 				'id'		=> $extKey . '_info',
 				'label'		=> $extKey,
 				'class'		=> 'info'
 			);
-
-			if( $installed === true ) {
-				$tabs[] = array(
-					'id'		=> $extKey . '_config',
-					'label'		=> 'LLL:sysmanager.tabs.config',
-					'class'		=> 'config'
-				);
-//				$tabs[] = array(
-//					'id'		=> 'rights',
-//					'label'		=>'LLL:sysmanager.tabs.rights'
-//				);
-				$tabs[] = array(
-					'id'		=> $extKey . '_records',
-					'label'		=> 'LLL:sysmanager.tabs.records',
-					'class'		=> 'records'
-				);
-			}
 		} else {
-
 				// Update tab
 			$tabs[] = array(
 				'id'		=> 'browse',
 				'label'		=> 'LLL:sysmanager.tabs.browse',
 				'class'		=> 'browse'
 			);
-
 				// Update tab
 			$tabs[] = array(
 				'id'		=> 'update',
 				'label'		=> 'LLL:sysmanager.tabs.update',
 				'class'		=> 'update'
 			);
-			
 				// Installer tab
 			$tabs[] = array(
 				'id'		=> 'import',
@@ -146,11 +132,13 @@ class TodoyuExtManager {
 	/**
 	 * Get record type config
 	 *
-	 * @param	String	$extKey
-	 * @param	String	$recordName
+	 * @param	String		$extKey
+	 * @param	String		$recordName
 	 * @return	Array
 	 */
-	public static function getRecordTypeConfig($extKey, $recordName)	{
+	public static function getRecordConfig($extKey, $recordName) {
+		TodoyuExtensions::loadAllAdmin();
+		
 		$config = Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName];
 
 		if( ! is_array($config) )	{
@@ -163,12 +151,39 @@ class TodoyuExtManager {
 
 
 	/**
+	 * Get label for a record element
+	 *
+	 * @param	String		$ext
+	 * @param	String		$recordName
+	 * @param	Integer		$idRecord
+	 * @return	String
+	 */
+	public static function getRecordObjectLabel($ext, $recordName, $idRecord) {
+		$config	= self::getRecordConfig($ext, $recordName);
+		$class	= $config['object'];
+
+		if( class_exists($class, true) ) {
+			$object	= new $class($idRecord);
+
+			if( method_exists($object, 'getLabel') ) {
+				return $object->getLabel();
+			}
+		}
+
+		return 'ID: ' . $idRecord;
+	}
+
+
+
+	/**
 	 * Get all record configs
 	 *
 	 * @param	String		$extKey
 	 * @return	Array
 	 */
 	public static function getRecordConfigs($extKey) {
+		TodoyuExtensions::loadAllAdmin();
+
 		$config	= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey];
 
 		if( ! is_array($config) ) {

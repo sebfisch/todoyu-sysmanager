@@ -23,7 +23,7 @@ Todoyu.Ext.sysmanager.Rights = {
 
 	/**
 	 * @todo	comment
-	 * 
+	 *
 	 * @param	{Event}		event
 	 * @param	{String}		tab
 	 */
@@ -31,20 +31,20 @@ Todoyu.Ext.sysmanager.Rights = {
 		var url		= Todoyu.getUrl('sysmanager', 'rights');
 		var options	= {
 			'parameters': {
-				'action':	'tab',
+				'action':	'update',
 				'tab':		tab
 			},
 			'onComplete': this.onTabLoaded.bind(this, tab)
 		};
 
-		Todoyu.Ui.updateContentBody(url, options);
+		Todoyu.Ui.updateContent(url, options);
 	},
 
 
 
 	/**
 	 * @todo	comment
-	 * 
+	 *
 	 * @param	{String}		tab
 	 * @param	{Ajax.Response}		response
 	 */

@@ -230,6 +230,21 @@ class TodoyuRightsEditorManager {
 	}
 
 
+	public static function getActiveTab() {
+		$tab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
+
+		if( $tab === false ) {
+			$tab = 'rights';
+		}
+
+		return $tab;
+	}
+
+	public static function saveActiveTab($tab) {
+		TodoyuSysmanagerPreferences::saveActiveTab('rights', $tab);		
+	}
+
+
 
 	/**
 	 * Get custom set

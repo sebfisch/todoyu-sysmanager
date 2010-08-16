@@ -36,6 +36,12 @@
 	background-position:0 -686px;
 }
 
+/* Extension tabs right */
+#extension-tabs li.info,
+#extension-tabs li.config {
+	float:right;
+}
+
 /* Special tabs right */
 #extension-tabs li.import,
 #extension-tabs li.update,

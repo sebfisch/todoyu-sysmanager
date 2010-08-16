@@ -20,7 +20,7 @@
 /**
  * Role manager
  */
-Todoyu.Ext.sysmanager.Role = {
+Todoyu.Ext.sysmanager.Roles = {
 
 	/**
 	 * Extension
@@ -28,10 +28,9 @@ Todoyu.Ext.sysmanager.Role = {
 	ext: Todoyu.Ext.sysmanager,
 
 
-
 	/**
 	 * Edit given role
-	 * 
+	 *
 	 * @param	{Number}		idRole
 	 */
 	edit: function(idRole) {
@@ -51,7 +50,7 @@ Todoyu.Ext.sysmanager.Role = {
 
 	/**
 	 * Handler evoked onEdit
-	 * 
+	 *
 	 * @param	{Number}		idRole
 	 * @param	{Ajax.Response}		response
 	 */
@@ -63,7 +62,7 @@ Todoyu.Ext.sysmanager.Role = {
 
 	/**
 	 * Delete given role from DB
-	 * 
+	 *
 	 * @param	{Number}		idRole
 	 */
 	remove: function(idRole) {
@@ -85,7 +84,7 @@ Todoyu.Ext.sysmanager.Role = {
 
 	/**
 	 * Handler to be evoked after removal of role
-	 * 
+	 *
 	 * @param	{Number}		idRole
 	 * @param	{Ajax.Response}		response
 	 */
@@ -113,7 +112,7 @@ Todoyu.Ext.sysmanager.Role = {
 
 	/**
 	 * Save role from given form
-	 * 
+	 *
 	 * @param	{Array}	form
 	 */
 	save: function(form) {
@@ -129,7 +128,7 @@ Todoyu.Ext.sysmanager.Role = {
 
 	/**
 	 * Handler being evoked after saving of role to database
-	 * 
+	 *
 	 * @param	{Object}	response
 	 */
 	onSaved: function(response) {
@@ -163,7 +162,7 @@ Todoyu.Ext.sysmanager.Role = {
 
 	/**
 	 * @todo	comment
-	 * 
+	 *
 	 * @param	{Ajax.Response}		response
 	 */
 	onListShowed: function(response) {

@@ -50,7 +50,7 @@
 
 		<a href="javascript:void(0)" title="records"
 			{if extMgr_hasRecords($extKey) && allowed('sysmanager','extensions:records')}
-				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'records')" class="records">
+				onclick="Todoyu.Ext.sysmanager.Extensions.showRecords('{$extKey}')" class="records">
 			{else}
 				class="records disabled">
 			{/if}

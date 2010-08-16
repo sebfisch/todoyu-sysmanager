@@ -20,21 +20,62 @@
 
 /**
  * System Config Renderer
- * 
+ *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
 class TodoyuSystemConfigRenderer {
 
-	public static function renderModuleContent(array $params) {
-		$form	= TodoyuFormManager::getForm('ext/sysmanager/config/form/config-logo.xml');
+	/**
+	 * Render module content
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
+	public static function renderModule(array $params) {
+		$tabs	= self::renderTabs($params);
+		$body	= self::renderBody($params);
+
+		return TodoyuRenderer::renderContent($body, $tabs);
+	}
+
+
+	/**
+	 * Render module body content
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
+	private static function renderBody(array $params) {
+		return self::renderBodyLogo($params);
+	}
+
+
+
+	/**
+	 * Render body content for logo upload
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
+	private static function renderBodyLogo(array $params) {
+		$xmlPath= 'ext/sysmanager/config/form/config-logo.xml';
+		$form	= TodoyuFormManager::getForm($xmlPath);
 
 		$form->setUseRecordID(false);
 
 		return $form->render();
 	}
 
-	public static function renderModuleTabs(array $params) {
+
+
+	/**
+	 * Render tabs
+	 * 
+	 * @param	Array	$params
+	 * @return	String
+	 */
+	private static function renderTabs(array $params) {
 		$name		= 'config';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Config.onTabClick.bind(Todoyu.Ext.sysmanager.Config)';
 		$tabs		= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['sysmanager']['configTabs']);
