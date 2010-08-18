@@ -83,6 +83,9 @@
 		<label index="config.tab.logo">Change Logo</label>
 		<label index="config.selectlogo">Choose Logo</label>
 		<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
+		<label index="updater.extension.moreDetails">More Details</label>
+		<label index="updater.extension.installUpdate">Install Update</label>
+		<label index="updater.core.installUpdate">Install Core Update</label>
 	</labels>
 	<labels lang="de_DE">
 		<label index="ext.title">System-Verwaltung</label>

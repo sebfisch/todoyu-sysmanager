@@ -22,10 +22,16 @@
  * [Enter Class Description]
  *
  * @package		Todoyu
- * @subpackage	[Subpackage]
+ * @subpackage	Sysmanager
  */
 class TodoyuUpdateManager {
 
+	/**
+	 * Check whether the update server is reachable
+	 * Tries to download a reference file to verify the connection
+	 *
+	 * @return	Boolean
+	 */
 	public static function isUpdateServerReachable() {
 		$url	= Todoyu::$CONFIG['EXT']['sysmanager']['update']['connectionCheckUrl'];
 		$options= array(
@@ -38,25 +44,60 @@ class TodoyuUpdateManager {
 	}
 
 
-	public static function installUpdate($pathUpdate) {
-		$tempFolder	= self::downloadAndExtractUpdate($pathUpdate);
 
+	/**
+	 * Install extension update
+	 *
+	 * @param	String		$urlUpdate
+	 * @param	String		$extkey
+	 * @return	Boolean
+	 */
+	public static function installExtensionUpdate($urlUpdate, $extkey) {
+//		$pathExtract	= PATH . '/ext/' . $extkey;
+		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu/ext/' . $extkey;
 
+		return self::downloadAndExtractUpdate($urlUpdate, $pathExtract);
 	}
 
 
-	public static function downloadAndExtractUpdate($pathArchive) {
-		$tempFile	= PATH_CACHE . '/temp/update/' . md5(uniqid().$pathArchive) . '.zip';
-		$pathinfo	= pathinfo($tempFile);
-		$tempDir	= $pathinfo['dirname'] . '/' . $pathinfo['filename'];
 
-		TodoyuFileManager::saveLocalCopy($pathArchive, $tempFile);
+	/**
+	 * Install core update. Extract update files over local files
+	 *
+	 * @param	String		$urlUpdate			URL to update archive
+	 * @return	Boolean
+	 */
+	public static function installCoreUpdate($urlUpdate) {
+//		$pathExtract	= PATH;
+		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu';
 
-		TodoyuArchiveManager::extract($tempFile, $tempDir);
+
+		return self::downloadAndExtractUpdate($urlUpdate, $pathExtract);
 	}
 
 
+	/**
+	 * Download external archive file and extract it into the cache folder
+	 *
+	 * @param	String		$urlArchive
+	 * @return	Boolean		Success
+	 */
+	public static function downloadAndExtractUpdate($urlArchive, $extractTo) {
+		$tempID		= md5(uniqid().$urlArchive);
+		$tempFile	= PATH_CACHE . '/temp/update/' . $tempID . '.zip';
 
+		$download	= TodoyuFileManager::saveLocalCopy($urlArchive, $tempFile);
+
+		if( $download === false ) {
+			Todoyu::log('Download of update failed: ' . $urlArchive, TodoyuLogger::LEVEL_ERROR);
+
+			return false;
+		} else {
+			TodoyuArchiveManager::extract($tempFile, $extractTo);
+
+			return true;
+		}
+	}
 }
 
 ?>

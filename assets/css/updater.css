@@ -1,5 +1,5 @@
 /** ----------------------
-	Browse results
+	Search extensions
 	----------------------*/
 
 #updater-search-results {
@@ -59,4 +59,76 @@
 
 #updater-search-results .extension div.clear {
 	clear:both;
+}
+
+
+/** ----------------------
+	Search updates
+	----------------------*/
+
+/* Core update */
+.updaterUpdates .coreUpdate {
+	padding:10px;
+	margin-bottom:20px;
+	background-color:#FBC;
+	border: 1px solid #CCC;
+}
+
+.updaterUpdates .coreUpdate .coreUpdateInfos {
+	float:left;
+}
+
+.updaterUpdates .coreUpdate .coreUpdateInfos td,
+.updaterUpdates .coreUpdate .coreUpdateInfos th {
+	padding:3px;
+}
+.updaterUpdates .coreUpdate .coreUpdateInfos th {
+	width:100px;
+}
+
+.updaterUpdates .coreUpdate .installButton {
+	float:right;
+}
+
+.updaterUpdates .coreUpdate .installButton input {
+	font-size:16px;
+	font-weight:bold;
+	padding:10px;
+	margin-right:50px;
+	margin-top:10px;
+}
+
+/* Extension updates */
+.updaterUpdates .extensionUpdates .extension {
+	float:left;
+	clear:both;
+	width:640px;
+	padding:10px;
+	border:1px solid #CCC;
+	margin-bottom:10px;
+}
+
+.updaterUpdates .extensionUpdates .extension div {
+	float:left;
+	clear:none;
+}
+
+.updaterUpdates .extensionUpdates .extension .image {
+	width:120px;
+	margin-right:20px;
+	background-color:#AAA;
+}
+
+.updaterUpdates .extensionUpdates .extension .info {
+	width:300px;
+}
+
+.updaterUpdates .extensionUpdates .extension .dependencies {
+	width:180px;
+	margin-left:20px;
+}
+
+.updaterUpdates .extensionUpdates .extension .actions {
+	clear:both;
+	float:right;
 }

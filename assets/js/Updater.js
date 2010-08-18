@@ -63,12 +63,35 @@ Todoyu.Ext.sysmanager.Updater = {
 		window.open(terLink, '_blank');
 	},
 
-	installCoreUpdate: function(pathArchive) {
+
+	showExtensionUpdateDetails: function(terLink) {
+		window.open(terLink, '_blank');
+	},
+
+	installExtensionUpdate: function(extkey, urlArchive) {
+		var url		= this.getUrl();
+		var options	= {
+			'parameters': {
+				'action': 'installExtensionUpdate',
+				'extkey': extkey,
+				'url':	urlArchive
+			},
+			'onComplete': this.onExtensionUpdateInstalled.bind(this, extkey)
+		};
+
+		Todoyu.Ui.updateContentBody(url, options);
+	},
+
+	onExtensionUpdateInstalled: function(extkey) {
+		alert("Extension was installed: " + extkey);
+	},
+
+	installCoreUpdate: function(urlArchive) {
 		var url		= this.getUrl();
 		var options	= {
 			'parameters': {
 				'action': 'installCoreUpdate',
-				'file':	pathArchive
+				'url':	urlArchive
 			},
 			'onComplete': this.onCoreUpdateInstalled.bind(this)
 		};

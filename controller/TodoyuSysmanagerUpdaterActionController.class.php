@@ -34,11 +34,21 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 
 
 	public function installCoreUpdateAction(array $params) {
-		$file	= trim($params['file']);
+		$url	= trim($params['url']);
 
-		TodoyuUpdateManager::installUpdate($file);
+		TodoyuUpdateManager::installCoreUpdate($url);
 
-		return 'hallo';
+		return 'Core update installed';
+	}
+
+
+	public function installExtensionUpdateAction(array $params) {
+		$url	= trim($params['url']);
+		$ext	= trim($params['extkey']);
+
+		TodoyuUpdateManager::installExtensionUpdate($url, $ext);
+
+		return 'Extension update installed';
 	}
 
 }
