@@ -162,11 +162,6 @@ class TodoyuUpdaterSoapClient {
 			);
 		}
 
-		$extVersions[] = array(
-			'extkey'	=> 'sahe_test',
-			'version'	=> '0.0.1'
-		);
-
 		$updateInput = array(
 			'todoyuid'				=> $todoyuID,
 			'ServerInfo'			=> $serverInfo,

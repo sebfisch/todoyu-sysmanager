@@ -50,8 +50,15 @@
 						</dl>
 					</div>
 					<div class="dependencies">
-						sdfasdfasdf<br>sdfasdfasdfasdfasdfasdf</br>
-
+						{if $extUpdate.dependencies.extDependency}
+							<ul>
+							{foreach $extUpdate.dependencies.extDependency dependency}
+								<li>{$dependency.extkey}: {$dependency.version}</li>
+							{/foreach}
+							</ul>
+						{else}
+							<p>No dependencies</p>
+						{/if}
 					</div>
 					<div class="actions">
 						{Button label="sysmanager.updater.extension.moreDetails" class="moreDetails" onclick="Todoyu.Ext.sysmanager.Updater.showExtensionUpdateDetails('$extUpdate.link_details')"}
