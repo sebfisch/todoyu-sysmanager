@@ -27,14 +27,14 @@
 class TodoyuUpdaterRenderer {
 
 	public static function renderBrowse(array $params = array()) {
-		if( ! TodoyuUpdater::isUpdateServerReachable() ) {
-			$tmpl	= 'ext/sysmanager/view/update-noconnection.tmpl';
+		if( ! TodoyuUpdateManager::isUpdateServerReachable() ) {
+			$tmpl	= 'ext/sysmanager/view/updater-noconnection.tmpl';
 			return render($tmpl);
 		}
 
 		$extQuery	= trim($params['extQuery']);
 
-		$tmpl	= 'ext/sysmanager/view/browse.tmpl';
+		$tmpl	= 'ext/sysmanager/view/updater-search.tmpl';
 		$data	= array(
 			'extQuery'	=> 'test 123',
 			'results'	=> self::renderBrowseResultList($extQuery)
@@ -44,22 +44,32 @@ class TodoyuUpdaterRenderer {
 	}
 
 	public static function renderBrowseResultList($query) {
-		$results = TodoyuUpdater::searchExtensions($query);
+		$client	= TodoyuUpdaterSoapClient::getInstance();
+
+		$results= $client->searchExtensions($query);
 
 		TodoyuDebug::printInFireBug($results, 'res');
-//
-//		foreach($results->Extensions->Extension->children() as $ext) {
-//			TodoyuDebug::printInFireBug($ext->title, 'title');
-//		}
+		TodoyuDebug::printInFireBug(unserialize($results['debug']));
 
-		$tmpl	= 'ext/sysmanager/view/browse-results.tmpl';
+		$tmpl	= 'ext/sysmanager/view/updater-search-list.tmpl';
 		$data	= TodoyuArray::toArray($results, true);
 
 		return render($tmpl, $data);
 	}
 
-	public static function renderUpdate() {
-		return 'updater list';
+	public static function renderUpdate(array $params = array()) {
+		$client	= TodoyuUpdaterSoapClient::getInstance();
+
+		$updates= $client->searchUpdates();
+
+		TodoyuDebug::printInFireBug($updates, 'updates');
+
+		$tmpl	= 'ext/sysmanager/view/updater-update-list.tmpl';
+		$data	= array(
+			'updates'	=> $updates
+		);
+
+		return render($tmpl, $data);
 	}
 
 }

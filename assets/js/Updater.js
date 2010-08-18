@@ -23,6 +23,10 @@ Todoyu.Ext.sysmanager.Updater = {
 		this.observeSearchForm();
 	},
 
+	getUrl: function() {
+		return Todoyu.getUrl('sysmanager', 'updater');
+	},
+
 	observeSearchForm: function() {
 		Todoyu.DelayedTextObserver.observe('extQuery', this.onQueryChanged.bind(this));
 	},
@@ -32,10 +36,10 @@ Todoyu.Ext.sysmanager.Updater = {
 	},
 
 	updateResults: function(query, order, offset) {
-		var url		= Todoyu.getUrl('sysmanager', 'updater');
+		var url		= this.getUrl();
 		var options	= {
 			'parameters': {
-				'action': 'browse',
+				'action': 'search',
 				'query': query,
 				'order': order,
 				'offset': offset || 0
@@ -48,6 +52,31 @@ Todoyu.Ext.sysmanager.Updater = {
 	},
 
 	onResultsUpdated: function(query, order, offset) {
+
+	},
+
+	installExtension: function(extkey, zipFile) {
+		alert("Needs to be implemented");
+	},
+
+	moreExtensionInfo: function(terLink) {
+		window.open(terLink, '_blank');
+	},
+
+	installCoreUpdate: function(pathArchive) {
+		var url		= this.getUrl();
+		var options	= {
+			'parameters': {
+				'action': 'installCoreUpdate',
+				'file':	pathArchive
+			},
+			'onComplete': this.onCoreUpdateInstalled.bind(this)
+		};
+
+		Todoyu.Ui.updateContentBody(url, options);
+	},
+
+	onCoreUpdateInstalled: function(response) {
 
 	}
 

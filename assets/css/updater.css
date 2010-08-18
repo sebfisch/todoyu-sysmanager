@@ -47,3 +47,16 @@
 	padding:3px;
 	border-bottom:1px solid #CCC;
 }
+
+#updater-search-results .extension .bottom {
+	clear:both;
+}
+
+#updater-search-results .extension .bottom div {
+	float:right;
+	width:100px;
+}
+
+#updater-search-results .extension div.clear {
+	clear:both;
+}

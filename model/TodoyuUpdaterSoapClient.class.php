@@ -19,17 +19,17 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * Client for soap requests
  *
  * @package		Todoyu
- * @subpackage	[Subpackage]
+ * @subpackage	Sysmanager
  */
 class TodoyuUpdaterSoapClient {
 
 	/**
 	 * Path to WSDL file
 	 */
-	const WSDL = 'http://ferni42.srv05/typo3conf/ext/todoyuupdate/soap/update.wsdl';
+	const WSDL = 'http://todoyucom.srv05/typo3conf/ext/todoyuupdate/soap/update.wsdl';
 
 	/**
 	 * SOAP client
@@ -77,7 +77,6 @@ class TodoyuUpdaterSoapClient {
 	 * Private constructor for the singleton
 	 */
 	private function __construct() {
-
 	}
 
 
@@ -123,7 +122,12 @@ class TodoyuUpdaterSoapClient {
 	 * @return	Array
 	 */
 	public function searchExtensions($search = '', $order = '', $offset = 0, $limit = 30) {
-		$result	= $this->getClient()->browseExtensions($search, $order, $offset, $limit);
+		try {
+			$result	= $this->getClient()->searchExtensions($search, $order, $offset, $limit);
+		} catch(SoapFault $e) {
+			Todoyu::log('TodoyuUpdater: searchExtensions failed: ' . $e->getMessage());
+			TodoyuDebug::printHtml($this->getClient()->__getLastResponse(), 'Last response');
+		}
 
 		return TodoyuArray::toArray($result);
 	}
@@ -136,14 +140,15 @@ class TodoyuUpdaterSoapClient {
 	 * @return	Array
 	 */
 	public function searchUpdates() {
-		$todoyuID		= 'skdjflkdfasdfasdfasdfdf234213';
+		$todoyuID		= '2196d233029d48ecc95ff16f010e06a5';
 		$serverInfo		= array(
-			'OS'			=> PHP_OS,
-			'phpVersion'	=> PHP_VERSION,
-			'mysqlVersion'	=> Todoyu::db()->getVersion(),
-			'ip_address'	=> TodoyuServer::getIP(),
-			'domain'		=> TodoyuServer::getDomain()
+			'OS'			=> (string)PHP_OS,
+			'phpVersion'	=> (string)PHP_VERSION,
+			'mysqlVersion'	=> (string)Todoyu::db()->getVersion(),
+			'ip'			=> (string)TodoyuServer::getIP(),
+			'domain'		=> (string)TodoyuServer::getDomain()
 		);
+
 		$coreVersion	= TODOYU_VERSION;
 		$extVersions	= array();
 
@@ -157,9 +162,47 @@ class TodoyuUpdaterSoapClient {
 			);
 		}
 
-		$result	= $this->getClient()->searchUpdates($todoyuID, $serverInfo, $extVersions, $coreVersion);
+		$extVersions[] = array(
+			'extkey'	=> 'sahe_test',
+			'version'	=> '0.0.1'
+		);
+
+		$updateInput = array(
+			'todoyuid'				=> $todoyuID,
+			'ServerInfo'			=> $serverInfo,
+			'ExtensionVersionList'	=> $extVersions,
+			'coreVersion'			=> $coreVersion
+		);
+
+		try {
+			$result	= $this->getClient()->searchUpdates($updateInput);
+		} catch(SoapFault $e) {
+			TodoyuDebug::printInFireBug($e->getMessage(), 'Error');
+			TodoyuDebug::printInFireBug($e->getTrace(), 'Trace');
+			TodoyuDebug::printInFireBug($this->getClient()->__getLastResponse(), 'response');
+
+			if( $this->hasSoapDebug() ) {
+				die($this->getClient()->__getLastResponse());
+			}
+		}
+
+//		TodoyuDebug::printInFireBug($this->getClient()->__getLastResponseHeaders(), 'headers');
+
+//		$headerString	= $this->getClient()->__getLastResponseHeaders();
+//		$headers	= TodoyuString::extractHeadersFromString($headerString);
+//		TodoyuDebug::printHtml(unserialize($headers['args']), 'arguments');
+//		TodoyuDebug::printInFireBug(unserialize($headers['args']), 'arguments');
+//		TodoyuDebug::printInFirebug($this->getClient()->__getLastRequest(), 'request');
 
 		return TodoyuArray::toArray($result);
+	}
+
+
+	private function hasSoapDebug() {
+		$headerString	= $this->getClient()->__getLastResponseHeaders();
+		$headers		= TodoyuString::extractHeadersFromString($headerString);
+
+		return array_key_exists('x-todoyuupdate-soapdebug', $headers);
 	}
 
 }

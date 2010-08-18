@@ -24,9 +24,7 @@
  * @package		Todoyu
  * @subpackage	[Subpackage]
  */
-class TodoyuUpdater {
-
-	private static $client;
+class TodoyuUpdateManager {
 
 	public static function isUpdateServerReachable() {
 		$url	= Todoyu::$CONFIG['EXT']['sysmanager']['update']['connectionCheckUrl'];
@@ -40,11 +38,24 @@ class TodoyuUpdater {
 	}
 
 
-	public static function searchExtensions($query) {
-		$client	= TodoyuUpdaterSoapClient::getInstance();
+	public static function installUpdate($pathUpdate) {
+		$tempFolder	= self::downloadAndExtractUpdate($pathUpdate);
 
-		return $client->searchExtensions($query);
+
 	}
+
+
+	public static function downloadAndExtractUpdate($pathArchive) {
+		$tempFile	= PATH_CACHE . '/temp/update/' . md5(uniqid().$pathArchive) . '.zip';
+		$pathinfo	= pathinfo($tempFile);
+		$tempDir	= $pathinfo['dirname'] . '/' . $pathinfo['filename'];
+
+		TodoyuFileManager::saveLocalCopy($pathArchive, $tempFile);
+
+		TodoyuArchiveManager::extract($tempFile, $tempDir);
+	}
+
+
 
 }
 

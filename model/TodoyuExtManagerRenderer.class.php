@@ -200,7 +200,7 @@ class TodoyuExtManagerRenderer {
 		return TodoyuExtConfRenderer::renderConfig($extKey);
 	}
 
-	
+
 
 	/**
 	 * Render install
@@ -227,7 +227,7 @@ class TodoyuExtManagerRenderer {
 
 
 	public static function renderUpdate(array $params = array()) {
-		return 'update';
+		return TodoyuUpdaterRenderer::renderUpdate($params);
 	}
 
 

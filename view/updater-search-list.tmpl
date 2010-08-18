@@ -1,0 +1,32 @@
+Num Results: {$numResults}
+<br />
+
+{foreach $Extensions.searchResultExtension extension}
+	<div class="extension">
+		<div class="column image">
+			<img src="{$extension.image}" width="120" height="90" border="0" />
+		</div>
+		<div class="column middle">
+			<div class="title">{$extension.title}</div>
+			<div class="description">{$extension.description}</div>
+		</div>
+		<div class="column right">
+			<div class="rating">{for i 1 $extension.rating}* {/for}</div>
+			<div class="state">STATE: {$extension.state}</div>
+			<div class="costs">{if $extension.costs == 2}FREE{else}COMMERCIAL{/if}</div>
+			<div class="downloads">{$extension.downloads} Downloads</div>
+			<div class="creator">{$extension.creator}</div>
+		</div>
+		<div class="bottom">
+			<div class="add">
+				<input type="button" value="Add Extension" onclick="Todoyu.Ext.sysmanager.Updater.addExtension('{$extension.extkey}', '{$extension.zipfile}')" />
+			</div>
+			<div class="details">
+				<input type="button" value="More infos" onclick="Todoyu.Ext.sysmanager.Updater.moreInfo('{$extension.ter_link}')" />
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+{/foreach}
+
+<br clear="all" />

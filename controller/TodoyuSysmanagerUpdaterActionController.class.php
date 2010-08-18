@@ -26,10 +26,19 @@
  */
 class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 
-	public function browseAction(array $params) {
+	public function searchAction(array $params) {
 		$query	= trim($params['query']);
 
 		return TodoyuUpdaterRenderer::renderBrowseResultList($query);
+	}
+
+
+	public function installCoreUpdateAction(array $params) {
+		$file	= trim($params['file']);
+
+		TodoyuUpdateManager::installUpdate($file);
+
+		return 'hallo';
 	}
 
 }

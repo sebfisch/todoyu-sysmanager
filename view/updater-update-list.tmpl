@@ -1,0 +1,31 @@
+{Title "Available Updates"}
+
+{if $updates.coreUpdate}
+	{$coreUpdate = $updates.coreUpdate.updateInfo}
+	<div class="coreUpdate">
+		<h2>New core update available</h2>
+		<p>New version: {$coreUpdate.new_version}</p>
+		<p>Your version: {$coreUpdate.installed_version}</p>
+		<p>Release date: {dateFormat $coreUpdate.date_update date}</p>
+		<p><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Updater.installCoreUpdate('{$coreUpdate.archive}')">Install new version</a></p>
+
+	</div>
+{/if}
+
+
+<div class="extensionUpdates">
+	<h2>Extension updates</h2>
+
+	{if $updates.extUpdates}
+		{$extUpdates = $updates.extUpdates.updateInfo}
+
+		<ul>
+			{foreach $extUpdates extUpdate}
+				<li>{$extUpdate.name}: {$extUpdate.new_version}</li>
+			{/foreach}
+		</ul>
+	{else}
+		<p>No extension updates available</p>
+	{/if}
+
+</div>
