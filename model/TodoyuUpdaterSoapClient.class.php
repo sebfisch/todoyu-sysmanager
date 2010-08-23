@@ -80,6 +80,11 @@ class TodoyuUpdaterSoapClient {
 	}
 
 
+
+	/**
+	 * @todo	comment
+	 * @return	Array
+	 */
 	public function getOptions() {
 		return $this->options;
 	}

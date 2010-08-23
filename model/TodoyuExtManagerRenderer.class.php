@@ -226,11 +226,23 @@ class TodoyuExtManagerRenderer {
 	}
 
 
+
+	/**
+	 * @todo	comment
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public static function renderUpdate(array $params = array()) {
 		return TodoyuUpdaterRenderer::renderUpdate($params);
 	}
 
 
+
+	/**
+	 * @todo	comment
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public static function renderBrowse(array $params = array()) {
 		return TodoyuUpdaterRenderer::renderBrowse($params);
 	}

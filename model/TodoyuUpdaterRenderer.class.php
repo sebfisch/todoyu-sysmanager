@@ -26,6 +26,11 @@
  */
 class TodoyuUpdaterRenderer {
 
+	/**
+	 * @todo	comment
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public static function renderBrowse(array $params = array()) {
 		if( ! TodoyuUpdateManager::isUpdateServerReachable() ) {
 			$tmpl	= 'ext/sysmanager/view/updater-noconnection.tmpl';
@@ -43,6 +48,13 @@ class TodoyuUpdaterRenderer {
 		return render($tmpl, $data);
 	}
 
+
+
+	/**
+	 * @todo	comment
+	 * @param	String	$query
+	 * @return	String
+	 */
 	public static function renderBrowseResultList($query) {
 		$client	= TodoyuUpdaterSoapClient::getInstance();
 
@@ -57,6 +69,13 @@ class TodoyuUpdaterRenderer {
 		return render($tmpl, $data);
 	}
 
+
+
+	/**
+	 * @todo	comment
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public static function renderUpdate(array $params = array()) {
 		$client	= TodoyuUpdaterSoapClient::getInstance();
 
