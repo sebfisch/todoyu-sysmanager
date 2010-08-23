@@ -19,7 +19,7 @@
 *****************************************************************************/
 
 /**
- * Extension main file for system manager
+ * Extension main file for sysmanager extension
  *
  * @package		Todoyu
  * @subpackage	SysManager
