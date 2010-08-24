@@ -69,11 +69,16 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function installAction(array $params) {
 		$extKey	= $params['extension'];
 
-		TodoyuExtInstaller::installExtension($extKey);
+		$result	= TodoyuExtInstaller::installExtension($extKey);
 
-		$infos	= TodoyuExtManager::getExtInfos($extKey);
+		if( $result === true ) {
+			$info	= TodoyuExtManager::getExtInfos($extKey);
 
-		TodoyuHeader::sendTodoyuHeader('extTitle', $infos['title']);
+			TodoyuHeader::sendTodoyuHeader('title', $info['title']);
+		} else {
+			TodoyuHeader::sendTodoyuErrorHeader();
+			TodoyuHeader::sendTodoyuHeader('message', $result);
+		}
 	}
 
 

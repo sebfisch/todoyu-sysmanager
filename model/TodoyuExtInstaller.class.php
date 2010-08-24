@@ -59,27 +59,66 @@ class TodoyuExtInstaller {
 
 
 	/**
+	 * Load constraints config from new installed extension (not loaded)
+	 *
+	 * @param	String		$extKey
+	 * @return§Array
+	 */
+	public static function getConstraintsOfNewExtension($extKey) {
+		$pathInfo	= TodoyuExtensions::getExtPath($extKey, 'config/extinfo.php');
+		$constraints= array();
+
+		if( is_file($pathInfo) ) {
+			include($pathInfo);
+
+			$constraints	= TodoyuArray::assure(Todoyu::$CONFIG['EXT'][$extKey]['info']['constraints']);
+		}
+
+		return $constraints;
+	}
+
+
+
+	/**
 	 * Install an extension (update extension config file)
 	 *
 	 * @param	String		$extKey
 	 */
 	public static function installExtension($extKey) {
-		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
+		$newExtConstraints	= self::getConstraintsOfNewExtension($extKey);
 
-			// Add extension key to list
-		$extKeys[]	= $extKey;
-			// Remove duplicate entries
-		$extKeys	= array_unique($extKeys);
+		try {
+			self::checkConstraints($extKey, $newExtConstraints);
 
-			// Save installed extensions
-		self::saveInstalledExtensions($extKeys);
+			$extKeys	= TodoyuExtensions::getInstalledExtKeys();
 
+				// Add extension key to list
+			$extKeys[]	= $extKey;
+				// Remove duplicate entries
+			$extKeys	= array_unique($extKeys);
 
-		TodoyuExtensions::addExtAutoloadPaths($extKey);
+				// Save installed extensions
+			self::saveInstalledExtensions($extKeys);
 
-		self::updateDatabase();
+				// Add extension class paths to current auto load paths
+			TodoyuExtensions::addExtAutoloadPaths($extKey);
 
-		self::callExtensionSetup($extKey, 'install');
+				// Run database update script
+			self::updateDatabase();
+
+				// Include extension config into current script to make it fully available during this request
+			$extFile	= TodoyuExtensions::getExtPath($extKey, 'ext.php');
+			if( is_file($extFile) ) {
+				include($extFile);
+			}
+
+				// Call the extension setup class of the new extension
+			self::callExtensionSetup($extKey, 'install');
+		} catch(TodoyuInstallerException $e) {
+			return $e->getMessage();
+		}
+
+		return true;
 	}
 
 
@@ -149,6 +188,81 @@ class TodoyuExtInstaller {
 		$notSystem		= TodoyuExtensions::isSystemExtension($extKey) === false;
 
 		return $noDependents && $notSystem;
+	}
+
+
+	public static function canInstall($extKey) {
+		$constraints	= self::getConstraintsOfNewExtension($extKey);
+
+		try {
+			self::checkConstraints($extKey, $constraints);
+		} catch(TodoyuInstallerException $e) {
+			TodoyuDebug::printInFireBug($e->getMessage());
+
+			throw new Exception($e->getMessage(), $e->getCode(), $e);
+		}
+
+		return true;
+	}
+
+
+	/**
+	 * Check constraints of the extension
+	 * Core version, dependent extensions, conflicts
+	 *
+	 * @throws	TodoyuInstallerException
+	 * @param	String		$ext
+	 * @param	Array		$constraints
+	 * @return	Boolean
+	 */
+	public static function checkConstraints($ext, array $constraints = null) {
+		$depends	= TodoyuArray::assure($constraints['depends']);
+
+			// Load constraints if not given
+		if( is_null($constraints) ) {
+			$constraints	= TodoyuExtensions::getExtInfo($ext);
+		}
+
+
+			// Check core version
+		if( isset($constraints['core']) ) {
+			if( version_compare($constraints['core'], TODOYU_VERSION) === 1 ) {
+				throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.core') . ': ' . TODOYU_VERSION . ' < ' . $constraints['core']);
+			}
+		}
+
+
+			// Check if all dependencies are ok
+		foreach($depends as $extKey => $requiredVersion) {
+			if( ! TodoyuExtensions::isInstalled($extKey) ) {
+				throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.missing') . ': ' . $extKey);
+			}
+			$installedVersion	= TodoyuExtensions::getVersion($extKey);
+
+			if( version_compare($requiredVersion, $installedVersion) === 1 ) {
+				throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.lowVersion') . ': ' . $extKey . ' - ' . $installedVersion . ' < ' . $requiredVersion);
+			}
+		}
+
+
+			// Check if the extension conflicts with an installed one
+		$installedConflicts	= TodoyuExtensions::getConflicts($ext);
+
+		if( sizeof($installedConflicts) > 0 ) {
+			throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $installedConflicts));
+		}
+
+
+			// Check if the extension has conflicts with an installed extension
+		$extConflicts	= TodoyuArray::assure($constraints['conflicts']);
+		$installedExts	= TodoyuExtensions::getInstalledExtKeys();
+		$foundConflicts	= array_intersect($extConflicts, $installedExts);
+
+		if( sizeof($foundConflicts) > 0 ) {
+			throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $foundConflicts));
+		}
+
+		return true;
 	}
 
 

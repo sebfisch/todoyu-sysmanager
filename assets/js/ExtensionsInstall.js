@@ -63,11 +63,16 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onInstalled: function(ext, response) {
-		var title	= response.getTodoyuHeader('extTitle');
+		if( response.hasTodoyuError() ) {
+			var error	= response.getTodoyuHeader('message');
 
-		Todoyu.notifySuccess('Extension installed: ' + title);
+			Todoyu.notifyError(error);
+		} else {
+			var title	= response.getTodoyuHeader('title');
 
-		this.showUpdate(ext);
+			Todoyu.notifySuccess('[LLL:sysmanager.extension.installExtension.ok]: ' + title);
+			this.showUpdate(ext);
+		}
 	},
 
 

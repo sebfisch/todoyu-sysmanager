@@ -33,6 +33,10 @@
 		<label index="extension.installExtension.confirm">Install Extension?</label>
 		<label index="extension.installExtension.ok">Extension was installed successfully</label>
 		<label index="extension.installExtension.error">Installation of extension failed</label>
+		<label index="extension.installExtension.error.missing">Required extension is not installed</label>
+		<label index="extension.installExtension.error.lowVersion">Required extension is installed, but has a too low version</label>
+		<label index="extension.installExtension.error.conflicts">Extension conflicts with installed extensions</label>
+		<label index="extension.installExtension.error.core">Core version is too low</label>
 		<label index="extension.uninstallExtension">Uninstall Extension</label>
 		<label index="extension.uninstallExtension.confirm">Uninstall Extension?</label>
 		<label index="extension.uninstallExtension.ok">Extension was uninstalled successfully</label>
