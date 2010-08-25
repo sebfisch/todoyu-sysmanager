@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuUpdateManager {
+class TodoyuUpdaterManager {
 
 	/**
 	 * Check whether the update server is reachable
@@ -52,9 +52,10 @@ class TodoyuUpdateManager {
 	 * @param	String		$extkey
 	 * @return	Boolean
 	 */
-	public static function installExtensionUpdate($urlUpdate, $extkey) {
+	public static function installExtensionUpdate($ext, $urlHash) {
 //		$pathExtract	= PATH . '/ext/' . $extkey;
-		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu/ext/' . $extkey;
+		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu/ext/' . $ext;
+		$urlUpdate		= TodoyuUpdaterManager::hash2path($urlHash);
 
 		return self::downloadAndExtractUpdate($urlUpdate, $pathExtract);
 	}
@@ -67,10 +68,10 @@ class TodoyuUpdateManager {
 	 * @param	String		$urlUpdate			URL to update archive
 	 * @return	Boolean
 	 */
-	public static function installCoreUpdate($urlUpdate) {
+	public static function installCoreUpdate($urlHash) {
 //		$pathExtract	= PATH;
 		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu';
-
+		$urlUpdate		= TodoyuUpdaterManager::hash2path($urlHash);
 
 		return self::downloadAndExtractUpdate($urlUpdate, $pathExtract);
 	}
@@ -97,6 +98,32 @@ class TodoyuUpdateManager {
 
 			return true;
 		}
+	}
+
+
+	public static function replaceFilepathsWithHashes(array $updates) {
+		if( $updates['coreUpdate']['coreUpdate'] ) {
+			$updates['coreUpdate']['coreUpdate']['archive'] = self::path2hash($updates['coreUpdate']['coreUpdate']['archive']);
+		}
+
+		foreach($updates['extUpdates']['extensionUpdate'] as $index => $extension) {
+			$updates['extUpdates']['extensionUpdate'][$index]['archive'] = self::path2hash($extension['archive']);
+		}
+
+		return $updates;
+	}
+
+
+	private static function path2hash($path) {
+		$hash	= md5($path);
+
+		TodoyuSession::set('updater/path/' . $hash, $path);
+
+		return $hash;
+	}
+
+	public static function hash2path($hash) {
+		return TodoyuSession::get('updater/path/' . $hash);
 	}
 }
 

@@ -68,13 +68,13 @@ Todoyu.Ext.sysmanager.Updater = {
 		window.open(terLink, '_blank');
 	},
 
-	installExtensionUpdate: function(extkey, urlArchive) {
+	installExtensionUpdate: function(extkey, urlHash) {
 		var url		= this.getUrl();
 		var options	= {
 			'parameters': {
 				'action': 'installExtensionUpdate',
 				'extkey': extkey,
-				'url':	urlArchive
+				'hash':	urlHash
 			},
 			'onComplete': this.onExtensionUpdateInstalled.bind(this, extkey)
 		};
@@ -86,12 +86,12 @@ Todoyu.Ext.sysmanager.Updater = {
 		alert("Extension was installed: " + extkey);
 	},
 
-	installCoreUpdate: function(urlArchive) {
+	installCoreUpdate: function(urlHash) {
 		var url		= this.getUrl();
 		var options	= {
 			'parameters': {
 				'action': 'installCoreUpdate',
-				'url':	urlArchive
+				'hash':	urlHash
 			},
 			'onComplete': this.onCoreUpdateInstalled.bind(this)
 		};

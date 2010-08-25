@@ -32,7 +32,7 @@ class TodoyuUpdaterRenderer {
 	 * @return	String
 	 */
 	public static function renderBrowse(array $params = array()) {
-		if( ! TodoyuUpdateManager::isUpdateServerReachable() ) {
+		if( ! TodoyuUpdaterManager::isUpdateServerReachable() ) {
 			$tmpl	= 'ext/sysmanager/view/updater-noconnection.tmpl';
 			return render($tmpl);
 		}
@@ -79,7 +79,9 @@ class TodoyuUpdaterRenderer {
 	public static function renderUpdate(array $params = array()) {
 		$client	= TodoyuUpdaterSoapClient::getInstance();
 
-		$updates= $client->searchUpdates();
+		$updates	= $client->searchUpdates();
+		$updates	= TodoyuUpdaterManager::replaceFilepathsWithHashes($updates);
+
 
 		TodoyuDebug::printInFireBug($updates, 'updates');
 
