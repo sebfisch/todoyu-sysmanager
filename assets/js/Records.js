@@ -192,10 +192,12 @@ Todoyu.Ext.sysmanager.Records = {
 	 * Save record
 	 *
 	 * @param	{String}	form
-	 * @param	{String}	extKey
+	 * @param	{String}	ext
 	 * @param	{String}	type
 	 */
 	save: function(form, ext, type)	{
+		Todoyu.Form.disableSaveButtons(form);
+
 		$(form).request ({
 			'parameters': {
 				'action':	'save',
