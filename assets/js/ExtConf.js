@@ -25,7 +25,8 @@ Todoyu.Ext.sysmanager.ExtConf = {
 	 * @param	{String}	form
 	 */
 	onSave: function(form) {
-
+		Todoyu.Ui.saveRTE(form);
+		
 		$(form).request({
 			'parameters': {
 				'action':	'save'
