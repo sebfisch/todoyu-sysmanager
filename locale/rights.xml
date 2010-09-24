@@ -132,6 +132,24 @@
 		<label index="roles.edit">Upravovat role</label>
 		<label index="roles.delete">Odstraňovat role</label>
 	</labels>
+		<labels lang="sr_RS">
+		<label index="general">Општа подешавања</label>
+		<label index="general.extensions">Управа додатка</label>
+		<label index="general.allrecords">Поглед 'сви снимци'</label>
+		<label index="general.rights">Администрација права</label>
+		<label index="extensions">Додаци</label>
+		<label index="extensions.info">Информације додатка</label>
+		<label index="extensions.config">Уреди конфигурацију</label>
+		<label index="extensions.rights">Уреди права</label>
+		<label index="extensions.records">Уреди снимке</label>
+		<label index="extensions.uninstall">Деинсталирај додатке</label>
+		<label index="extensions.install">Инсталирај додатке</label>
+		<label index="extensions.download">Скидај додатак као архиву</label>
+		<label index="extensions.update">Ажурирај додатке</label>
+		<label index="roles">Улоге</label>
+		<label index="roles.edit">Уреди улоге</label>
+		<label index="roles.delete">Избриши улоге</label>
+	</labels>
 	<labels lang="ja_JP">
 		<label index="general">一般設定</label>
 		<label index="general.extensions">拡張機能の管理者</label>
