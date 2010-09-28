@@ -41,7 +41,7 @@ class TodoyuSysmanagerViewHelper {
 		foreach($extKeys as $extKey) {
 			$options[] = array(
 				'value'	=> $extKey,
-				'label'	=>  $extKey . ': ' . TodoyuLanguage::getLabel($extKey . '.ext.title')
+				'label'	=>  $extKey . ': ' . TodoyuLabelManager::getLabel($extKey . '.ext.title')
 			);
 		}
 

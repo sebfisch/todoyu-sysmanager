@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="general">Obecné nastavení</label>
+	<label index="general.extensions">Správce rozšíření</label>
+	<label index="general.allrecords">Zobrazit všechny záznamy</label>
+	<label index="general.rights">Správce práv</label>
+	<label index="general.roles">Správce rolí</label>
+	<label index="extensions">Rozšíření</label>
+	<label index="extensions.info">Informace o rozšíření</label>
+	<label index="extensions.config">Upravovat nasavení</label>
+	<label index="extensions.rights">Upravovat práva</label>
+	<label index="extensions.records">Upravovat záznamy</label>
+	<label index="extensions.uninstall">Odinstalovat rozšíření</label>
+	<label index="extensions.install">Nainstalovat rozšíření</label>
+	<label index="extensions.download">Stáhnout archiv s rozšířením</label>
+	<label index="extensions.update">Aktualizovat rozšíření</label>
+	<label index="roles">Role</label>
+	<label index="roles.edit">Upravovat role</label>
+	<label index="roles.delete">Odstraňovat role</label>
+</labels>

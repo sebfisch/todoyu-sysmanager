@@ -30,7 +30,7 @@ define('EXTID_SYSMANAGER', 118);
 define('PATH_EXT_SYSMANAGER', PATH_EXT . '/sysmanager');
 
 	// Register module locales
-TodoyuLanguage::register('sysmanager', PATH_EXT_SYSMANAGER . '/locale/ext.xml');
+TodoyuLabelManager::register('sysmanager', 'sysmanager', 'ext.xml');
 
 	// Request configurations
 	// @notice	Auto-loaded configs if available: admin, assets, create, contextmenu, extinfo, filters, form, page, panelwidgets, rights, search
