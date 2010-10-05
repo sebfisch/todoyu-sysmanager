@@ -115,6 +115,7 @@ class TodoyuExtInstaller {
 				// Call the extension setup class of the new extension
 			self::callExtensionSetup($extKey, 'install');
 		} catch(TodoyuInstallerException $e) {
+			Todoyu::log($e->getMessage(), TodoyuLogger::LEVEL_FATAL);
 			return $e->getMessage();
 		}
 
