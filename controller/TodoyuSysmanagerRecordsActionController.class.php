@@ -44,7 +44,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	 * @param	Array	$params
 	 */
 	public function deleteAction(array $params) {
-		$ext		= trim($params['ext']);
+		$ext		= trim($params['extkey']);
 		$type		= trim($params['type']);
 		$idRecord	= intval($params['record']);
 
