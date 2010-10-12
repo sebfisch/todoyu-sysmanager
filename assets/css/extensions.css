@@ -100,7 +100,7 @@
 }
 .extlist td.edit a.disabled {
 	opacity:0.5;
-	filter: alpha(opacity = 50);
+	filter:alpha(opacity = 50);
 	cursor:default !important;
 }
 
@@ -126,6 +126,7 @@
 .extlist td.edit a.rights {
 	background-position:0 -150px;
 }
+
 
 
 .extlist td.doc a {
