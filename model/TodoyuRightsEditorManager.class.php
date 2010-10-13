@@ -121,7 +121,7 @@ class TodoyuRightsEditorManager {
 	public static function getDependents(array $rightsConfig, $rightToCheck) {
 		$dependents	= array();
 
-		foreach($rightsConfig as $section => $rights) {
+		foreach($rightsConfig as $rights) {
 			foreach($rights as $right => $rightConfig) {
 				if( in_array($rightToCheck, $rightConfig['depends']) ) {
 					$dependents[] = $right;
@@ -163,7 +163,7 @@ class TodoyuRightsEditorManager {
 	public static function getAllDependencies(array $rightsConfig) {
 		$dependencies	= array();
 
-		foreach($rightsConfig as $section => $rights) {
+		foreach($rightsConfig as $rights) {
 			foreach($rights as $right => $rightConfig) {
 				$dependencies[$right] = self::getDependents($rightsConfig, $right);
 			}

@@ -72,7 +72,6 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 			// Validate, save, render
 		if( $form->isValid() )	{
 			$storageData	= $form->getStorageData();
-
 			$idRecord	= TodoyuExtRecordManager::saveRecord($ext, $type, $storageData);
 		} else {
 			TodoyuHeader::sendTodoyuErrorHeader();
