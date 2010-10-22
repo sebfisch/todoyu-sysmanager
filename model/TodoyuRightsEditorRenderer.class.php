@@ -26,6 +26,12 @@
  */
 class TodoyuRightsEditorRenderer {
 
+	/**
+	 * Render rights editor
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public static function renderModule(array $params) {
 		$tab	= trim($params['tab']);
 
@@ -40,6 +46,7 @@ class TodoyuRightsEditorRenderer {
 
 		return TodoyuRenderer::renderContent($body, $tabs);
 	}
+
 
 
 	/**
@@ -57,6 +64,14 @@ class TodoyuRightsEditorRenderer {
 	}
 
 
+
+	/**
+	 * Render rights editor body
+	 *
+	 * @param	String	$tab
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	private static function renderBody($tab, array $params) {
 		if( $tab === 'roles' ) {
 			return self::renderBodyRoles($params);
@@ -114,8 +129,7 @@ class TodoyuRightsEditorRenderer {
 
 
 	/**
-	 * Render form for rights editor
-	 * Includes the role and extensio selector
+	 * Render form for rights editor. Includes the role and extension selector
 	 *
 	 * @param	Array		$roles
 	 * @param	String		$ext

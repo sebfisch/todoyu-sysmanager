@@ -27,7 +27,7 @@
 class TodoyuExtConfRenderer {
 
 	/**
-	 * @todo	comment
+	 * Render extension config form
 	 * 
 	 * @param	String		$extKey
 	 * @return	String
@@ -37,7 +37,6 @@ class TodoyuExtConfRenderer {
 		$data	= array(
 			'hasConf'	=> false
 		);
-
 
 		if( TodoyuExtConfManager::hasExtConf($extKey) ) {
 			$form	= TodoyuExtConfManager::getForm($extKey);
