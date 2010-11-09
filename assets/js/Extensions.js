@@ -168,13 +168,14 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 */
 	showRights: function(extKey) {
 		Todoyu.Ext.admin.loadModule('rights', {
-			'extkey': extKey
+			extkey: extKey,
+			tab:	'rights'
 		});
 	},
 
 	showRecords: function(extKey) {
 		Todoyu.Ext.admin.loadModule('records', {
-			'extkey': extKey
+			extkey: extKey
 		});
 	},
 
