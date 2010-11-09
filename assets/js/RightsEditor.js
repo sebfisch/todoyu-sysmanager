@@ -79,11 +79,11 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 
 	/**
-	 * Install observers on each checkbox
+	 * Observe roles and extension selectors
 	 */
 	observeForm: function() {
-		$('rightseditor-form').observe('change', this.onFormChange.bindAsEventListener(this));
 		$('rightseditor-field-roles').observe('change', this.onRoleChange.bindAsEventListener(this));
+		$('rightseditor-field-extension').observe('change', this.onExtensionChange.bindAsEventListener(this));
 	},
 
 
@@ -94,7 +94,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 *
 	 * @param	{Event}		event
 	 */
-	onFormChange: function(event) {
+	onFormChange: function() {
 		if( this.dirty ) {
 			if( confirm('[LLL:sysmanager.rights.dirtyChanges]') ) {
 				var roles	= this.getRoles();
@@ -179,6 +179,19 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 				option.selected = true;
 			});
 		}
+
+		this.onFormChange();
+	},
+
+	
+
+	/**
+	 * Handler when extension is changed
+	 *
+	 * @param	{Event}		event
+	 */
+	onExtensionChange: function(event) {
+		this.onFormChange();
 	},
 
 
