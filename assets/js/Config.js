@@ -17,6 +17,16 @@
  * This copyright notice MUST APPEAR in all copies of the script.
  *****************************************************************************/
 
+/**
+ * @module	Sysmanager
+ */
+
+/**
+ * Sysmanager config area
+ *
+ * @class		Config
+ * @namespace	Todoyu.Ext.sysmanager
+ */
 Todoyu.Ext.sysmanager.Config = {
 
 	/**
