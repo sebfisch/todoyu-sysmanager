@@ -31,7 +31,9 @@
 	<label index="extension.installExtension">Install Extension</label>
 	<label index="extension.installExtension.confirm">Install Extension?</label>
 	<label index="extension.installExtension.ok">Extension was installed successfully</label>
+	<label index="extension.installed.notify">Extension was installed successfully:</label>
 	<label index="extension.installExtension.error">Installation of extension failed</label>
+	<label index="extension.installExtension.error.notfiy.dependencies">Extension installation failed, the following extensions must be installed before:</label>
 	<label index="extension.installExtension.error.missing">Required extension is not installed</label>
 	<label index="extension.installExtension.error.lowVersion">Required extension is installed, but has a too low version</label>
 	<label index="extension.installExtension.error.conflicts">Extension conflicts with installed extensions</label>

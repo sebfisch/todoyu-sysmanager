@@ -85,52 +85,33 @@ class TodoyuExtInstaller {
 	 * @param	String		$extKey
 	 */
 	public static function installExtension($extKey) {
-		$newExtConstraints	= self::getConstraintsOfNewExtension($extKey);
+			// Add given ext key to  list of installed extensions
+		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
+		$extKeys[]	= $extKey;
 
-		try {
-			self::checkConstraints($extKey, $newExtConstraints);
+			// Remove duplicate entries
+		$extKeys	= array_unique($extKeys);
 
-			$extKeys	= TodoyuExtensions::getInstalledExtKeys();
+			// Save installed extensions config file (config/extensions.php)
+		self::saveInstalledExtensions($extKeys);
 
-				// Add extension key to list
-			$extKeys[]	= $extKey;
-				// Remove duplicate entries
-			$extKeys	= array_unique($extKeys);
 
-				// Save installed extensions
-			self::saveInstalledExtensions($extKeys);
+		TodoyuExtensions::addExtAutoloadPaths($extKey);
 
-				// Add extension class paths to current auto load paths
-			TodoyuExtensions::addExtAutoloadPaths($extKey);
+		self::updateDatabase();
 
-				// Run database update script
-			self::updateDatabase();
-
-				// Include extension config into current script to make it fully available during this request
-			$extFile	= TodoyuExtensions::getExtPath($extKey, 'ext.php');
-			if( is_file($extFile) ) {
-				include($extFile);
-			}
-
-				// Call the extension setup class of the new extension
-			self::callExtensionSetup($extKey, 'install');
-		} catch(TodoyuInstallerException $e) {
-			Todoyu::log($e->getMessage(), TodoyuLogger::LEVEL_FATAL);
-			return $e->getMessage();
-		}
-
-		return true;
+		self::callExtensionInstaller($extKey, 'install');
 	}
 
 
 
 	/**
 	 * Call database update. All necessary database updates are proceeded automatically
-	 *
 	 */
 	private static function updateDatabase() {
 		TodoyuSQLManager::updateDatabaseFromTableFiles();
 	}
+
 
 
 	/**
@@ -162,17 +143,122 @@ class TodoyuExtInstaller {
 	public static function uninstallExtension($extKey) {
 		self::callExtensionSetup($extKey, 'uninstall');
 
-			// Get installed extensions with extkey as array key
+			// Get installed extensions with ext key as array key
 		$installed	= array_flip(Todoyu::$CONFIG['EXT']['installed']);
 
 			// Remove extension key from list
 		unset($installed[$extKey]);
 
-			// Get the list of extensionkeys
+			// Get the list of extension keys
 		$installed	= array_keys($installed);
 
 			// Save installed extensions
 		self::saveInstalledExtensions($installed);
+	}
+
+
+
+	/**
+	 * Check whether an extension can be installed
+	 *
+	 * @param	String		$extKey
+	 * @return	Boolean
+	 */
+	public static function canInstall($extKey) {
+			// Check whether dependencies are met
+		$canInstall = ! self::hasFailedDependencies($extKey);
+
+			// Check whether any conflicting extensions are already installed
+		if ( $canInstall ) {
+			$canInstall	= self::wouldConflict($extKey);
+		}
+
+		return $canInstall;
+	}
+
+
+
+	/**
+	 * Check whether given extension would conflict with any other already installed extension
+	 *
+	 * @todo	not needed yet, implement
+	 * @param	String	$extKey
+	 * @return	Boolean
+	 */
+	public static function wouldConflict($extKey) {
+//		$conflicting	= self::getConflicts($extKey);
+
+		return false;
+	}
+
+
+
+	/**
+	 * Check whether all extensions which the extension of the given key depends on are installed
+	 *
+	 * @param	String		$extKey
+	 * @return	Boolean
+	 */
+	public static function hasFailedDependencies($extKey) {
+		$missingDependencies	= self::getFailedDependencies($extKey);
+
+		return count($missingDependencies) > 0;
+	}
+
+
+
+	/**
+	 * Get all status array (required vs. installed version) of all missing extensions which are dependencies of given extension
+	 *
+	 * @param	String	$extKey
+	 * @return	Array
+	 */
+	public static function getFailedDependencies($extKey) {
+		$missingDependencies	= array();
+
+			// Are there any dependencies?
+		if( TodoyuExtensions::hasDependencies($extKey) ) {
+			$dependencies	= TodoyuExtensions::getDependencies($extKey);
+
+			foreach($dependencies as $neededExtKey => $neededExtVersion) {
+					// Required dependency installed?
+				$dependencyMet		= TodoyuExtensions::isInstalled($neededExtKey);
+				$installedExtVersion= $dependencyMet ? TodoyuExtensions::getVersion($neededExtKey) : '';
+
+					// Installed ext version up-to-date of required version?
+				if( $dependencyMet && ! TodoyuNumeric::isVersionAtLeast($installedExtVersion, $neededExtVersion) ) {
+					$dependencyMet  = false;
+				}
+
+				if( ! $dependencyMet ){
+					$missingDependencies[$neededExtKey]	= array(
+						'versionRequired'	=> $neededExtVersion,
+						'versionInstalled'	=> $installedExtVersion,
+					);
+				}
+			}
+		}
+
+		return $missingDependencies;
+	}
+
+
+
+	/**
+	 * Get textual list of failed dependencies of given extension
+	 *
+	 * @param	String	$extKey
+	 * @return	String
+	 */
+	public static function getFailedDependenciesList($extKey) {
+		$list				= array();
+		$failedDependencies	= self::getFailedDependencies($extKey);
+
+		foreach($failedDependencies as $extKey => $conformance) {
+			$list[]= $extKey . ' version ' . $conformance['versionRequired'];
+		}
+
+		return implode(', ', $list);
 	}
 
 
@@ -191,20 +277,6 @@ class TodoyuExtInstaller {
 		return $noDependents && $notSystem;
 	}
 
-
-	public static function canInstall($extKey) {
-		$constraints	= self::getConstraintsOfNewExtension($extKey);
-
-		try {
-			self::checkConstraints($extKey, $constraints);
-		} catch(TodoyuInstallerException $e) {
-			TodoyuDebug::printInFireBug($e->getMessage());
-
-			throw new Exception($e->getMessage(), $e->getCode(), $e);
-		}
-
-		return true;
-	}
 
 
 	/**
@@ -313,25 +385,28 @@ class TodoyuExtInstaller {
 
 
 	/**
-	 * @todo	comment
-	 * @param  $extKey
-	 * @param  $versionMajor
-	 * @param  $versionMinor
-	 * @param  $versionRevision
-	 * @return string
-	 */
+	 * Assemble filename for an archive file of an extension with the given credentials
+	 *
+	 * @param	String	$extKey
+	 * @param	String	$versionMajor
+	 * @param	String	$versionMinor
+	 * @param	String	$versionRevision
+	 * @return	String
+	 */ 
 	public static function buildExtensionArchiveName($extKey, $versionMajor, $versionMinor, $versionRevision) {
 		return 'TodoyuExt_' . $extKey . '_' . $versionMajor . '.' . $versionMinor . '.' . $versionRevision . '_' . date('Y-m-d_H.i') . '.zip';
 	}
 
 
+
 	/**
-	 * @todo	comment
-	 * @throws	Exception
-	 * @param	Array		$uploadFile
-	 * @param	Boolean		$override
-	 * @return
-	 */
+	 * Verify as extension archive and import uploaded file into ext system  
+	 *
+ 	 * @throws	Exception
+ 	 * @param	Array		$uploadFile
+ 	 * @param	Boolean		$override
+	 * @return	Array
+	 */ 
 	public static function importExtensionArchive(array $uploadFile, $override = false) {
 		try {
 				// Is file available in upload array
@@ -372,7 +447,8 @@ class TodoyuExtInstaller {
 
 
 	/**
-	 * @todo	comment
+	 * Parse given (archive's) filename: extract attributes: ext, version, data
+	 *
 	 * @param	String		$extArchiveName
 	 * @return	Array
 	 */
@@ -393,7 +469,8 @@ class TodoyuExtInstaller {
 
 
 	/**
-	 * @todo	comment
+	 * Check whether uploaded archive file can be imported into system as extension
+	 *
 	 * @throws	Exception
 	 * @param	Array		$file
 	 * @param	Boolean		$override
@@ -422,7 +499,8 @@ class TodoyuExtInstaller {
 
 
 	/**
-	 * @todo	comment
+	 * Check whether given archive file contains a valid todoyu extension
+	 *
 	 * @throws	Exception
 	 * @param	Array		$file
 	 * @return	Boolean
@@ -463,7 +541,8 @@ class TodoyuExtInstaller {
 
 
 	/**
-	 * @todo	comment
+	 * Extract archive file at given path into extension folder named after given extension key
+	 *
 	 * @param	String		$extKey
 	 * @param  String		$pathArchive
 	 */

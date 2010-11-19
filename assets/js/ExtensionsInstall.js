@@ -57,22 +57,24 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 
 
 	/**
-	 * Handler when extension is installed
+	 * Handler when extension installation has finished (successfully or not)
 	 *
-	 * @param	{String}			ext
-	 * @param	{Ajax.Response}		response
+	 * @param		{String}			ext
+	 * @param		{Ajax.Response}		response
 	 */
 	onInstalled: function(ext, response) {
-		if( response.hasTodoyuError() ) {
-			var error	= response.getTodoyuHeader('message');
+			if( response.hasTodoyuError() ) {
+						// Installation failed: update screen with error description
+					var message	= '[LLL:sysmanager.extension.installExtension.error.notify.dependencies]';
+					message += response.getTodoyuHeader('failedDependencies');
+					Todoyu.notifyError(message);
+			} else {
+						// Installation succeeded, notify and update screen
+					var title	= response.getTodoyuHeader('extTitle');
 
-			Todoyu.notifyError(error);
-		} else {
-			var title	= response.getTodoyuHeader('title');
-
-			Todoyu.notifySuccess('[LLL:sysmanager.extension.installExtension.ok]: ' + title);
-			this.showUpdate(ext);
-		}
+					Todoyu.notifySuccess('[LLL:sysmanager.extension.installed.notify] ' + title);
+					this.showUpdate(ext);
+			}
 	},
 
 
@@ -96,13 +98,26 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	},
 
 
+
+	/**
+	 * Handler after extension installation failure screen has been shown
+	 *
+	 * @param	{String}			ext
+	 * @param	{Ajax.Response}		response
+	 */
+	onInstallationFailedShowed: function(ext, response) {
+
+	},
+
+
+
 	/**
 	 * Handler when update dialog for an extension is displayed
 	 *
 	 * @param	{String}			ext
-	 * @param	{Ajax.Response}		respone
+	 * @param	{Ajax.Response}		response
 	 */
-	onUpdateShowed: function(ext, respone) {
+	onUpdateShowed: function(ext, response) {
 
 	},
 

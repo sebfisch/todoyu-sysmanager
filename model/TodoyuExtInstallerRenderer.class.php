@@ -58,6 +58,24 @@ class TodoyuExtInstallerRenderer {
 		return render($tmpl, $data);
 	}
 
+
+
+	/**
+	 * Render installation error notification message
+	 *
+	 * @param	String	$extKey
+	 * @return	String
+	 */
+	public static function renderInstallationErrorMessage($extKey) {
+		$tmpl	= 'ext/sysmanager/view/extension-install-error.tmpl';
+		$data	= array(
+			'extInfo'				=> TodoyuExtensions::getExtInfo($extKey),
+			'missingDependencies'	=> TodoyuExtInstaller::getFailedDependencies($extKey)
+		);
+
+		return render($tmpl, $data);
+	}
+
 }
 
 ?>

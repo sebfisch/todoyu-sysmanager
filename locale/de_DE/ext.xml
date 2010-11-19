@@ -31,7 +31,9 @@
 	<label index="extension.installExtension">Installiere Erweiterung</label>
 	<label index="extension.installExtension.confirm">Erweiterung installieren?</label>
 	<label index="extension.installExtension.ok">Erweiterung wurde erfolgreich installiert</label>
+	<label index="extension.installed.notify">Erweiterung wurde erfolgreich installiert:</label>
 	<label index="extension.installExtension.error">Installation der Erweiterung fehlgeschlagen</label>
+	<label index="extension.installExtension.error.nofify.dependencies">Extension Installation fehlgeschlagen, diese anderen Extensions werden vorausgesetzt: </label>
 	<label index="extension.installExtension.error.missing">Benötigte Erweiterung ist nicht installiert</label>
 	<label index="extension.installExtension.error.lowVersion">Die benötigte Erweiterung ist installiert, hat aber eine zu niedrige Version</label>
 	<label index="extension.installExtension.error.conflicts">Die Erweiterung verursacht einen Konflikt mit bereits installierten Erweiterungen</label>
