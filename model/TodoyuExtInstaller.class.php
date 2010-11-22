@@ -170,7 +170,7 @@ class TodoyuExtInstaller {
 
 			// Check whether any conflicting extensions are already installed
 		if ( $canInstall ) {
-			$canInstall	= self::wouldConflict($extKey);
+			$canInstall	= ! self::wouldConflict($extKey);
 		}
 
 		return $canInstall;
