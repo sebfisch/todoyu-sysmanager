@@ -392,7 +392,7 @@ class TodoyuExtInstaller {
 	 * @param	String	$versionMinor
 	 * @param	String	$versionRevision
 	 * @return	String
-	 */ 
+	 */
 	public static function buildExtensionArchiveName($extKey, $versionMajor, $versionMinor, $versionRevision) {
 		return 'TodoyuExt_' . $extKey . '_' . $versionMajor . '.' . $versionMinor . '.' . $versionRevision . '_' . date('Y-m-d_H.i') . '.zip';
 	}
@@ -400,13 +400,13 @@ class TodoyuExtInstaller {
 
 
 	/**
-	 * Verify as extension archive and import uploaded file into ext system  
+	 * Verify as extension archive and import uploaded file into ext system
 	 *
  	 * @throws	Exception
  	 * @param	Array		$uploadFile
  	 * @param	Boolean		$override
 	 * @return	Array
-	 */ 
+	 */
 	public static function importExtensionArchive(array $uploadFile, $override = false) {
 		try {
 				// Is file available in upload array
@@ -524,8 +524,8 @@ class TodoyuExtInstaller {
 				throw new Exception('Can\'t open archive file');
 			}
 
-			if( $archive->statName('ext.php') === false ) {
-				throw new Exception('ext.php not found in archive');
+			if( $archive->statName('config/boot.php') === false ) {
+				throw new Exception('config/boot.php not found in archive');
 			}
 		} catch(Exception $e) {
 			if( $archive instanceof ZipArchive ) {

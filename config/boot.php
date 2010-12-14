@@ -18,23 +18,13 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
-/**
- * Extension main file for sysmanager extension
- *
- * @package		Todoyu
- * @subpackage	SysManager
- */
-
 	// Declare ext ID, path
 define('EXTID_SYSMANAGER', 118);
 define('PATH_EXT_SYSMANAGER', PATH_EXT . '/sysmanager');
 
+require_once( PATH_EXT_SYSMANAGER . '/dwoo/plugins.php');
+
 	// Register module locales
 TodoyuLabelManager::register('sysmanager', 'sysmanager', 'ext.xml');
-
-	// Request configurations
-	// @notice	Auto-loaded configs if available: admin, assets, create, contextmenu, extinfo, filters, form, page, panelwidgets, rights, search
-require_once( PATH_EXT_SYSMANAGER . '/config/extension.php');
-require_once( PATH_EXT_SYSMANAGER . '/dwoo/plugins.php');
 
 ?>
