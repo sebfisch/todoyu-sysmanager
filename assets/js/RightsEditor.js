@@ -56,19 +56,19 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @param	{JSON}	require
 	 */
 	initMatrix: function(require) {
-			// If no dependecies given, use empty object. Empty array doen't work with $H()
+			// If no dependecies given, use empty object. Empty array doesn't work with $H()
 		require	= Object.isArray(require) ? {} : require;
 
 			// Set required mapping
 		this.require = $H(require);
 
-			// Disable all dependents whichs required right is not set
+			// Disable all dependents whose required right is not set
 		this.initDependents();
 
 			// Observe rights checkboxes for change
 		this.observeRightsForm();
 
-			// Are there rigths to be edited? hide disable save button otherwise
+			// Are there rights to be edited? hide disable save button otherwise
 		var noRights	= $$('td.roleRight').length == 0;
 		$$('button.save').each(function(element) {
 			$(element).disabled = noRights;
@@ -91,8 +91,6 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Handler when form changes
 	 * Called when roles or extension changes
-	 *
-	 * @param	{Event}		event
 	 */
 	onFormChange: function() {
 		if( this.dirty ) {

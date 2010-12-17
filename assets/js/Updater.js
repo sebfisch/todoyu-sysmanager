@@ -19,22 +19,52 @@
 
 Todoyu.Ext.sysmanager.Updater = {
 
+	/**
+	 * Initialize updater
+	 */
 	init: function() {
 		this.observeSearchForm();
 	},
 
+
+
+	/**
+	 * Get updater URL
+	 *
+	 * @return	{String}
+	 */
 	getUrl: function() {
 		return Todoyu.getUrl('sysmanager', 'updater');
 	},
 
+
+
+	/**
+	 * Install observer on search form 
+	 */
 	observeSearchForm: function() {
 		Todoyu.DelayedTextObserver.observe('extQuery', this.onQueryChanged.bind(this));
 	},
 
+
+
+	/**
+	 *
+	 * @param	{String}	value
+	 * @param	{String}	field
+	 */
 	onQueryChanged: function(value, field) {
 		this.updateResults(value);
 	},
 
+
+
+	/**
+	 * @todo	comment
+	 * @param	{String}	query
+	 * @param	{String}	order
+	 * @param	{Number}	offset
+	 */
 	updateResults: function(query, order, offset) {
 		var url		= this.getUrl();
 		var options	= {
@@ -51,23 +81,60 @@ Todoyu.Ext.sysmanager.Updater = {
 		Todoyu.Ui.update(target, url, options);
 	},
 
+
+
+	/**
+	 * @todo	implement,comment
+	 *
+	 * @param	{String}	query
+	 * @param	{String}	order
+	 * @param	{Number}	offset
+	 */
 	onResultsUpdated: function(query, order, offset) {
 
 	},
 
+
+
+	/**
+	 * @todo	comment
+	 *
+	 * @param	{String}	extkey
+	 * @param	{String}	zipFile
+	 */
 	installExtension: function(extkey, zipFile) {
 		alert("Needs to be implemented");
 	},
 
+
+
+	/**
+	 * @todo	comment
+	 *
+	 * @param	{String}	terLink
+	 */
 	moreExtensionInfo: function(terLink) {
 		window.open(terLink, '_blank');
 	},
 
 
+
+	/**
+	 * @todo	comment
+	 *
+	 * @param terLink
+	 */
 	showExtensionUpdateDetails: function(terLink) {
 		window.open(terLink, '_blank');
 	},
 
+
+
+	/**
+	 * @todo	comment
+	 * @param	{String}	extkey
+	 * @param	{String}	urlHash
+	 */
 	installExtensionUpdate: function(extkey, urlHash) {
 		var url		= this.getUrl();
 		var options	= {
@@ -82,10 +149,24 @@ Todoyu.Ext.sysmanager.Updater = {
 		Todoyu.Ui.updateContentBody(url, options);
 	},
 
+
+
+	/**
+	 * @todo	Comment
+	 *
+	 * @param	{String}	extkey
+	 */
 	onExtensionUpdateInstalled: function(extkey) {
 		alert("Extension was installed: " + extkey);
 	},
 
+
+
+	/**
+	 * @todo	comment
+	 *
+	 * @param	{String}	urlHash
+	 */
 	installCoreUpdate: function(urlHash) {
 		var url		= this.getUrl();
 		var options	= {
@@ -99,6 +180,13 @@ Todoyu.Ext.sysmanager.Updater = {
 		Todoyu.Ui.updateContentBody(url, options);
 	},
 
+
+
+	/**
+	 * @todo	implement, comment
+	 *
+	 * @param	{Object}	response
+	 */
 	onCoreUpdateInstalled: function(response) {
 
 	}
