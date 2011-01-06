@@ -129,7 +129,7 @@ Todoyu.Ext.sysmanager.Records = {
 	 * @param	{String}	type
 	 * @param	{Number}	idRecord
 	 */
-	edit: function(ext, type, idRecord)	{
+	edit: function(ext, type, idRecord) {
 		this.update(ext, type, idRecord, this.onEdit.bind(this));
 	},
 
@@ -156,7 +156,7 @@ Todoyu.Ext.sysmanager.Records = {
 	 * @param {String}	type
 	 * @param {Number}	idRecord
 	 */
-	remove: function(ext, type, idRecord)	{
+	remove: function(ext, type, idRecord) {
 		if( confirm('[LLL:sysmanager.records.delete.confirm]') ) {
 			var options = {
 				'parameters': {
@@ -195,7 +195,7 @@ Todoyu.Ext.sysmanager.Records = {
 	 * @param	{String}	ext
 	 * @param	{String}	type
 	 */
-	save: function(form, ext, type)	{
+	save: function(form, ext, type) {
 		Todoyu.Form.disableSaveButtons(form);
 
 		$(form).request ({
@@ -238,7 +238,7 @@ Todoyu.Ext.sysmanager.Records = {
 	 * @param	{String}	extKey
 	 * @param	{String}	type
 	 */
-	closeForm: function(extKey, type)	{
+	closeForm: function(extKey, type) {
 		this.showTypeRecords(extKey, type);
 	}
 
