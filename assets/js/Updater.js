@@ -60,7 +60,8 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	comment
+	 * Update search results from given query
+	 *
 	 * @param	{String}	query
 	 * @param	{String}	order
 	 * @param	{Number}	offset
@@ -84,7 +85,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	implement,comment
+	 * Callback after search results have been updated 
 	 *
 	 * @param	{String}	query
 	 * @param	{String}	order
@@ -97,7 +98,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	comment
+	 * @todo	implement!
 	 *
 	 * @param	{String}	extkey
 	 * @param	{String}	zipFile
@@ -109,7 +110,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	comment
+	 * Open TER in new browser window
 	 *
 	 * @param	{String}	terLink
 	 */
@@ -120,9 +121,9 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	comment
+	 * Show TER extension update details in new window
 	 *
-	 * @param terLink
+	 * @param	{String}	terLink
 	 */
 	showExtensionUpdateDetails: function(terLink) {
 		window.open(terLink, '_blank');
@@ -131,7 +132,8 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	comment
+	 * Install extension update
+	 *
 	 * @param	{String}	extkey
 	 * @param	{String}	urlHash
 	 */
@@ -139,9 +141,9 @@ Todoyu.Ext.sysmanager.Updater = {
 		var url		= this.getUrl();
 		var options	= {
 			'parameters': {
-				'action': 'installExtensionUpdate',
-				'extkey': extkey,
-				'hash':	urlHash
+				'action':	'installExtensionUpdate',
+				'extkey':	extkey,
+				'hash':		urlHash
 			},
 			'onComplete': this.onExtensionUpdateInstalled.bind(this, extkey)
 		};
@@ -152,7 +154,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	Comment
+	 * Callback after extension update has been installed  
 	 *
 	 * @param	{String}	extkey
 	 */
@@ -163,7 +165,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	comment
+	 * Install update of todoyu core from given URL
 	 *
 	 * @param	{String}	urlHash
 	 */
@@ -171,8 +173,8 @@ Todoyu.Ext.sysmanager.Updater = {
 		var url		= this.getUrl();
 		var options	= {
 			'parameters': {
-				'action': 'installCoreUpdate',
-				'hash':	urlHash
+				'action':	'installCoreUpdate',
+				'hash':		urlHash
 			},
 			'onComplete': this.onCoreUpdateInstalled.bind(this)
 		};
@@ -183,7 +185,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	implement, comment
+	 * Callback after todoyu core update has been installed
 	 *
 	 * @param	{Object}	response
 	 */

@@ -161,7 +161,7 @@ Todoyu.Ext.sysmanager.Roles = {
 
 
 	/**
-	 * @todo	comment
+	 * Callback after roles listing is shown
 	 *
 	 * @param	{Ajax.Response}		response
 	 */

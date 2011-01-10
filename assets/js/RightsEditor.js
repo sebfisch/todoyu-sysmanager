@@ -486,7 +486,9 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 
 	/**
-	 * @todo	comment
+	 * Get currently selected extension's key
+	 *
+	 * @return	{String}
 	 */
 	getExtension: function() {
 		return $F('rightseditor-field-extension');

@@ -228,7 +228,8 @@ class TodoyuExtManagerRenderer {
 
 
 	/**
-	 * @todo	comment
+	 * Render updates listing
+	 *
 	 * @param	Array	$params
 	 * @return	String
 	 */
@@ -239,7 +240,8 @@ class TodoyuExtManagerRenderer {
 
 
 	/**
-	 * @todo	comment
+	 *
+	 *
 	 * @param	Array	$params
 	 * @return	String
 	 */

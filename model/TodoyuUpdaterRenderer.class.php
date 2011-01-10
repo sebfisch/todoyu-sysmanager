@@ -27,7 +27,8 @@
 class TodoyuUpdaterRenderer {
 
 	/**
-	 * @todo	comment
+	 * Fetch available updates from TER server and render listing  
+	 *
 	 * @param	Array	$params
 	 * @return	String
 	 */
@@ -51,7 +52,8 @@ class TodoyuUpdaterRenderer {
 
 
 	/**
-	 * @todo	comment
+	 * Search available extensions updates 
+	 *
 	 * @param	String	$query
 	 * @return	String
 	 */
@@ -72,7 +74,8 @@ class TodoyuUpdaterRenderer {
 
 
 	/**
-	 * @todo	comment
+	 * Find available updates for current client and render updates list
+	 *
 	 * @param	Array	$params
 	 * @return	String
 	 */
