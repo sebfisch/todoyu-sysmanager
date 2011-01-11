@@ -1,15 +1,9 @@
 {Header title="LLL:sysmanager.extconf.header"}
 
 {if $hasConf}
-
-<div class="extconfForm">
-	{$form}
-</div>
-
+	<div class="extconfForm">
+		{$form}
+	</div>
 {else}
-
-<div class="contentMessage">
-	{Label sysmanager.extconf.noExtConf}
-</div>
-
+	{contentMessage 'sysmanager.extconf.noExtConf'}
 {/if}

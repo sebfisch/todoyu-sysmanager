@@ -44,7 +44,7 @@
 	<input type="hidden" name="extension" value="{$extension}" />
 
 	{if empty($rights)}
-		<p class="contentMessage">{Label sysmanager.rights.notAvailable}</p>
+		{contentMessage 'sysmanager.rights.notAvailable'}
 	{/if}
 
 </form>
