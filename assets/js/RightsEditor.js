@@ -141,8 +141,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @param	{String}	ext
 	 */
 	applyFormValues: function(roles, ext) {
-		Todoyu.Ui.selectOptions('rightseditor-field-roles', roles);
-		Todoyu.Ui.selectOptions('rightseditor-field-extension', ext);
+		Todoyu.Form.selectOptions('rightseditor-field-roles', roles);
+		Todoyu.Form.selectOptions('rightseditor-field-extension', ext);
 	},
 
 
@@ -181,7 +181,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		this.onFormChange();
 	},
 
-	
+
 
 	/**
 	 * Handler when extension is changed
