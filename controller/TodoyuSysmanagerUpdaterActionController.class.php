@@ -26,6 +26,12 @@
  */
 class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 
+	/**
+	 * Get rendered list of available extensions updates
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public function searchAction(array $params) {
 		$query	= trim($params['query']);
 
@@ -33,6 +39,13 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	}
 
 
+
+	/**
+	 * Install update of todoyu core
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public function installCoreUpdateAction(array $params) {
 		$hash	= trim($params['hash']);
 
@@ -42,6 +55,13 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	}
 
 
+
+	/**
+	 * Install extension update
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public function installExtensionUpdateAction(array $params) {
 		$hash	= trim($params['hash']);
 		$ext	= trim($params['extkey']);

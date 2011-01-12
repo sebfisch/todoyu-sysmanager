@@ -166,8 +166,10 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 
 	/**
-	 * @param  $params
-	 * @return String
+	 * Get rendered extension update dialog
+	 *
+	 * @param	Array	$params
+	 * @return	String
 	 */
 	public function showUpdateAction(array $params) {
 		$ext	= $params['extension'];
@@ -176,6 +178,13 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	}
 
 
+
+	/**
+	 * Upload extension file to server
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public function uploadAction(array $params) {
 		$uploadFile	= TodoyuRequest::getUploadFile('file', 'importExtension');
 		$data		= $params['importExtension'];

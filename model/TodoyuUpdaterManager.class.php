@@ -101,6 +101,13 @@ class TodoyuUpdaterManager {
 	}
 
 
+
+	/**
+	 * Replace given (core- / extension- update) file paths with their hashes (MD5)
+	 *
+	 * @param	Array	$updates
+	 * @return	Array
+	 */
 	public static function replaceFilepathsWithHashes(array $updates) {
 		if( $updates['coreUpdate']['coreUpdate'] ) {
 			$updates['coreUpdate']['coreUpdate']['archive'] = self::path2hash($updates['coreUpdate']['coreUpdate']['archive']);
@@ -114,6 +121,13 @@ class TodoyuUpdaterManager {
 	}
 
 
+
+	/**
+	 * Generate MD5 hash to given path and store in session data
+	 *
+	 * @param	String	$path
+	 * @return	String
+	 */
 	private static function path2hash($path) {
 		$hash	= md5($path);
 
@@ -122,6 +136,14 @@ class TodoyuUpdaterManager {
 		return $hash;
 	}
 
+
+
+	/**
+	 * Get path of given hash from session data
+	 *
+	 * @param	String	$hash
+	 * @return	Mixed
+	 */
 	public static function hash2path($hash) {
 		return TodoyuSession::get('updater/path/' . $hash);
 	}

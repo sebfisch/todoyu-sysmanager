@@ -229,6 +229,12 @@ class TodoyuRightsEditorManager {
 	}
 
 
+
+	/**
+	 * Get preference: active tab of rights editor
+	 *
+	 * @return	String
+	 */
 	public static function getActiveTab() {
 		$tab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
 
@@ -239,6 +245,13 @@ class TodoyuRightsEditorManager {
 		return $tab;
 	}
 
+
+
+	/**
+	 * Save preference: active tab of rights editor
+	 *
+	 * @param	String	$tab
+	 */
 	public static function saveActiveTab($tab) {
 		TodoyuSysmanagerPreferences::saveActiveTab('rights', $tab);
 	}
