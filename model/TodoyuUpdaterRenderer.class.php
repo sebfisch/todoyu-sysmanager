@@ -27,7 +27,7 @@
 class TodoyuUpdaterRenderer {
 
 	/**
-	 * Fetch available updates from TER server and render listing  
+	 * Fetch available updates from TER server and render listing
 	 *
 	 * @param	Array	$params
 	 * @return	String
@@ -52,7 +52,7 @@ class TodoyuUpdaterRenderer {
 
 
 	/**
-	 * Search available extensions updates 
+	 * Search available extensions updates
 	 *
 	 * @param	String	$query
 	 * @return	String
@@ -62,8 +62,8 @@ class TodoyuUpdaterRenderer {
 
 		$results= $client->searchExtensions($query);
 
-		TodoyuDebug::printInFireBug($results, 'res');
-		TodoyuDebug::printInFireBug(unserialize($results['debug']));
+//		TodoyuDebug::printInFireBug($results, 'res');
+//		TodoyuDebug::printInFireBug(unserialize($results['debug']));
 
 		$tmpl	= 'ext/sysmanager/view/updater-search-list.tmpl';
 		$data	= TodoyuArray::toArray($results, true);
@@ -86,7 +86,7 @@ class TodoyuUpdaterRenderer {
 		$updates	= TodoyuUpdaterManager::replaceFilepathsWithHashes($updates);
 
 
-		TodoyuDebug::printInFireBug($updates, 'updates');
+//		TodoyuDebug::printInFireBug($updates, 'updates');
 
 		$tmpl	= 'ext/sysmanager/view/updater-update-list.tmpl';
 		$data	= array(
