@@ -134,8 +134,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * Handler to be called after ext. installation.
 	 * Shows list of extensions and installation response notification
 	 *
-	 * @param	{String}	extKey
-	 * @param	{Object}	response
+	 * @param	{String}			extKey
+	 * @param	{Ajax.Response}		response
 	 */
 	onInstalled: function(extKey, response) {
 		var extName	= response.responseText;

@@ -187,7 +187,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Callback after todoyu core update has been installed
 	 *
-	 * @param	{Object}	response
+	 * @param	{Ajax.Response}		response
 	 */
 	onCoreUpdateInstalled: function(response) {
 

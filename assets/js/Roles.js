@@ -129,7 +129,7 @@ Todoyu.Ext.sysmanager.Roles = {
 	/**
 	 * Handler being evoked after saving of role to database
 	 *
-	 * @param	{Object}	response
+	 * @param	{Ajax.Response}		response
 	 */
 	onSaved: function(response) {
 		if( response.hasTodoyuError() ) {
