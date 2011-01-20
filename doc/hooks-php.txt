@@ -5,7 +5,10 @@ Sysmanager Extension - PHP Hooks
 
 1.	Event Hooks		Evoked via TodoyuHookManager::callHook($ext, $name, Array $params)
 ---------------
-	none yet.
+	renderRecordsBody-"recordtype"	("recordtype" being the dynamic type name, e.g. "taskpreset")
+	@param Integer	$idRecord
+	@param String	$body
+	Evoked when rendering records listing and record edit form body
 
 
 

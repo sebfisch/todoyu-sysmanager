@@ -88,14 +88,22 @@ class TodoyuExtRecordRenderer {
 	 */
 	private static function renderBody($ext, $type, $idRecord) {
 		if( $idRecord !== 0 ) {
-			return self::renderBodyRecord($ext, $type, $idRecord);
+			$body	= self::renderBodyRecord($ext, $type, $idRecord);
 		} elseif( $type !== '' ) {
-			return self::renderBodyType($ext, $type);
+			$body	= self::renderBodyType($ext, $type);
 		} elseif( $ext !== '' ) {
-			return self::renderBodyExtension($ext);
+			$body	= self::renderBodyExtension($ext);
 		} else {
-			return self::renderBodyAll();
+			$body	= self::renderBodyAll();
 		}
+
+			// Call hook for possible body modifications
+		$bodyModified	= TodoyuHookManager::callHook('sysmanager', 'renderRecordsBody-' . $type, array($idRecord, $body));
+		if( is_array($bodyModified) && ! empty($bodyModified[0]) ) {
+			$body	= $bodyModified[0];
+		}
+
+		return $body;
 	}
 
 
