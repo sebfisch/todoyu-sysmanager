@@ -63,18 +63,18 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @param		{Ajax.Response}		response
 	 */
 	onInstalled: function(ext, response) {
-			if( response.hasTodoyuError() ) {
-						// Installation failed: update screen with error description
-					var message	= '[LLL:sysmanager.extension.installExtension.error.notify.dependencies]';
-					message += response.getTodoyuHeader('failedDependencies');
-					Todoyu.notifyError(message);
-			} else {
-						// Installation succeeded, notify and update screen
-					var title	= response.getTodoyuHeader('extTitle');
+		if( response.hasTodoyuError() ) {
+				// Installation failed: update screen with error description
+			var message	= '[LLL:sysmanager.extension.installExtension.error.notify.dependencies]';
+			message += response.getTodoyuHeader('failedDependencies');
+			Todoyu.notifyError(message);
+		} else {
+				// Installation succeeded, notify and update screen
+			var title	= response.getTodoyuHeader('extTitle');
 
-					Todoyu.notifySuccess('[LLL:sysmanager.extension.installed.notify] ' + title);
-					this.showUpdate(ext);
-			}
+			Todoyu.notifySuccess('[LLL:sysmanager.extension.installed.notify] ' + title);
+			this.showUpdate(ext);
+		}
 	},
 
 
