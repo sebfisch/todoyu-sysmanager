@@ -31,7 +31,8 @@ Todoyu.Ext.sysmanager.Config = {
 
 	/**
 	 * @todo	check: needed? remove? implement?
-	 * @param	Object	event
+	 * @param	{String}	key
+	 * @param	{Object}	event
 	 */
 	onTabClick: function(key, event) {
 
