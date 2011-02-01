@@ -18,7 +18,10 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
-	// Configure sub tabs of admin module "rights and roles"
+/* --------------------------------
+	Tabs Configurations
+   -------------------------------- */
+	// Admin module: "rights and roles"
 Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 	array(
 		'id'	=> 'rights',
@@ -29,15 +32,14 @@ Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 		'label'	=> 'LLL:sysmanager.rights.tab.roles'
 	)
 );
-
+	// "System configuration" module tabs
 Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 	array(
 		'id'	=> 'logo',
 		'label'	=> 'LLL:sysmanager.config.tab.logo'
 	)
 );
-
-
+	// Settings for uploadable company logo
 Todoyu::$CONFIG['EXT']['sysmanager']['logoUpload'] = array(
 	'width'	=> 190,
 	'height'=> 60,
@@ -47,7 +49,9 @@ Todoyu::$CONFIG['EXT']['sysmanager']['logoUpload'] = array(
 
 
 
-	// Configure listing for roles
+/* ------------------------------------
+	Configure listing for roles
+   ------------------------------------ */
 Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 	'name'		=> 'roles',
 	'update'	=> 'sysmanager/role/listing',
@@ -64,6 +68,8 @@ Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 		'description'	=> 20
 	)
 );
+
+
 
 Todoyu::$CONFIG['EXT']['sysmanager']['update'] = array(
 //	'connectionCheckUrl'	=> 'http://www.todoyu.com/robots.txt'
