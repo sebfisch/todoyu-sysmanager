@@ -70,9 +70,7 @@ class TodoyuExtConfManager {
 			$form->setFormData($data);
 		}
 
-
 		$form->setUseRecordID(false);
-
 
 			// Modify form fields
 		$formAction	= TodoyuString::buildUrl(array(

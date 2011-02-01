@@ -136,7 +136,8 @@ class TodoyuRightsEditorRenderer {
 	 * @return	String
 	 */
 	public static function renderRightsEditorForm(array $roles = array(), $ext = '') {
-		$form	= TodoyuFormManager::getForm('ext/sysmanager/config/form/rightseditor.xml');
+		$xmlPath= 'ext/sysmanager/config/form/rightseditor.xml';
+		$form	= TodoyuFormManager::getForm($xmlPath);
 
 		$data	= array(
 			'roles'		=> $roles,
