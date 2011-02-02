@@ -86,7 +86,6 @@ class TodoyuExtManagerRenderer {
 	 */
 	public static function renderBody($extKey = '', $tab = '', array $params = array()) {
 		switch($tab) {
-
 			case 'info':
 				$content = self::renderInfo($extKey, $params);
 				break;
@@ -94,7 +93,6 @@ class TodoyuExtManagerRenderer {
 			case 'config':
 				$content = self::renderConfig($extKey, $params);
 				break;
-
 
 			case 'import':
 				$content = self::renderImport($params);
@@ -111,6 +109,12 @@ class TodoyuExtManagerRenderer {
 			default:
 				$content =self::renderList($params);
 				break;
+		}
+
+			// Call hook for possible content modifications
+		$hookResults   = TodoyuHookManager::callHook('sysmanager', 'renderExtContent-' . $extKey, array($tab, $params, $content));
+		if( is_array($hookResults) && ! empty($hookResults[0]) ) {
+			$content	= $hookResults[0];
 		}
 
 		return $content;
