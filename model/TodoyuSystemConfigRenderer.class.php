@@ -40,6 +40,7 @@ class TodoyuSystemConfigRenderer {
 	}
 
 
+
 	/**
 	 * Render module body content
 	 *

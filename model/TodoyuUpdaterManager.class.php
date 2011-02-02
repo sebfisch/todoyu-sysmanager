@@ -77,6 +77,7 @@ class TodoyuUpdaterManager {
 	}
 
 
+
 	/**
 	 * Download external archive file and extract it into the cache folder
 	 *
