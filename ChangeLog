@@ -1,4 +1,4 @@
-todoyu admin extension changelog
+todoyu sysmanager extension changelog
 
 sysmanager 1.1.0 (requires core >= 2.1) - not released yet
 	* Changed: Sysmanager now looks for extension extconf.xml files in config\form\admin\
