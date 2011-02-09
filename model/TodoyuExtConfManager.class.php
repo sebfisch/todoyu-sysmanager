@@ -33,7 +33,7 @@ class TodoyuExtConfManager {
 	 * @return	String
 	 */
 	public static function getXmlPath($extKey) {
-		return 'ext/' . strtolower($extKey) . '/config/form/extconf.xml';
+		return 'ext/' . strtolower($extKey) . '/config/form/admin/extconf.xml';
 	}
 
 

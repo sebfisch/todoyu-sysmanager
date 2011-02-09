@@ -1,0 +1,18 @@
+todoyu admin extension changelog
+
+sysmanager 1.1.0 (requires core >= 2.1) - not released yet
+	* Changed: Sysmanager now looks for extension extconf.xml files in config\form\admin\
+	* Feature: Cleanup (topical order and readability) of extension config (init.php) file
+	* Feature: Forms restyled
+ 	* Changed: Updated loading structure: (core: boot.php, init: request,) extensions: init.php
+ 	* Feature: Changed locale format
+
+
+sysmanager 1.0.8 - not released yet
+	* Added changelog
+
+
+sysmanager 1.0.0 to 1.0.7 - 1.0.7 released 2011-01-17
+
+
+sysmanager 0.0.0 to 1.0.0
