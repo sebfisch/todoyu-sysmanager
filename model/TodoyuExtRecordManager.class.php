@@ -148,10 +148,10 @@ class TodoyuExtRecordManager {
 		$data	= $form->getFormData();
 
 		if( $idRecord !== 0 ) {
-			if( ! empty($config['object']) )	{
+			if( ! empty($config['object']) ) {
 				$className	= $config['object'];
 				$record		= new $className($idRecord);
-			} elseif( ! empty($config['table']) )	{
+			} elseif( ! empty($config['table']) ) {
 				$record = new TodoyuBaseObject($idRecord, $config['table']);
 			}
 

@@ -164,7 +164,7 @@ class TodoyuExtRecordRenderer {
 	private static function renderBodyType($ext, $type) {
 		$typeConfigs = TodoyuExtManager::getRecordConfig($ext, $type);
 
-		if( TodoyuFunction::isFunctionReference($typeConfigs['list']) )	{
+		if( TodoyuFunction::isFunctionReference($typeConfigs['list']) ) {
 			$records = TodoyuFunction::callUserFunction($typeConfigs['list']);
 
 			$tmpl = 'ext/sysmanager/view/records-records.tmpl';

@@ -49,7 +49,7 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 		$form->setFormData($data);
 
 			// Validate, render
-		if( $form->isValid() )	{
+		if( $form->isValid() ) {
 			$storageData= $form->getStorageData();
 
 			$idRole	= TodoyuRoleManager::saveRole($storageData);

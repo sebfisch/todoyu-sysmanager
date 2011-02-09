@@ -70,7 +70,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 		$form->setFormData($data);
 
 			// Validate, save, render
-		if( $form->isValid() )	{
+		if( $form->isValid() ) {
 			$storageData	= $form->getStorageData();
 			$idRecord	= TodoyuExtRecordManager::saveRecord($ext, $type, $storageData);
 		} else {

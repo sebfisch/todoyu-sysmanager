@@ -141,7 +141,7 @@ class TodoyuExtManager {
 		
 		$config = Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName];
 
-		if( ! is_array($config) )	{
+		if( ! is_array($config) ) {
 			$config = array();
 		}
 
@@ -260,7 +260,7 @@ class TodoyuExtManager {
 	 * @param	string	$extKey
 	 * @return	Boolean
 	 */
-	public static function extensionHasConfig($extKey)	{
+	public static function extensionHasConfig($extKey) {
 		$xmlPath	= TodoyuExtConfManager::getXmlPath($extKey);
 
 		return TodoyuFileManager::isFile($xmlPath);
