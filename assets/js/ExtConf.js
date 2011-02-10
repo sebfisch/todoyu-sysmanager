@@ -21,7 +21,8 @@ Todoyu.Ext.sysmanager.ExtConf = {
 
 	/**
 	 * On save handler
-	 * 
+	 *
+	 * @method	onSave
 	 * @param	{String}	form
 	 */
 	onSave: function(form) {
@@ -42,6 +43,7 @@ Todoyu.Ext.sysmanager.ExtConf = {
 	/**
 	 * On saved handler
 	 *
+	 * @method	onSaved
 	 * @param	{Array}	response
 	 */
 	onSaved: function(response) {

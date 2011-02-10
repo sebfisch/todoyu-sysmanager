@@ -26,6 +26,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	/**
 	 * Callback for rights tab click: evoke resp. content update
 	 *
+	 * @method	onTabClick
 	 * @param	{Event}		event
 	 * @param	{String}		tab
 	 */
@@ -47,6 +48,7 @@ Todoyu.Ext.sysmanager.Rights = {
 	/**
 	 * Callback when rights tab loaded
 	 *
+	 * @method	onTabLoaded
 	 * @param	{String}		tab
 	 * @param	{Ajax.Response}		response
 	 */

@@ -33,6 +33,14 @@ Todoyu.Ext.sysmanager.Records = {
 	type:	'',
 
 
+
+	/**
+	 * Handler when tab clicked
+	 *
+	 * @method	onTabClick
+	 * @param	{Event}		event
+	 * @param	{String}	tab
+	 */
 	onTabClick: function(event, tab) {
 		if( tab === 'all' ) {
 			this.update();
@@ -44,6 +52,16 @@ Todoyu.Ext.sysmanager.Records = {
 	},
 
 
+
+	/**
+	 * Update given record and call given callback afterwards
+	 *
+	 * @method	update
+	 * @param	{String}	extKey
+	 * @param	{String}	type
+	 * @param	{Number}	idRecord
+	 * @param	{Function}	callback
+	 */
 	update: function(extKey, type, idRecord, callback) {
 		var url		= Todoyu.getUrl('sysmanager', 'records');
 		var options	= {
@@ -59,6 +77,18 @@ Todoyu.Ext.sysmanager.Records = {
 		Todoyu.Ui.updateContent(url, options);
 	},
 
+
+
+	/**
+	 * Handler after record update has been saved
+	 *
+	 * @method	onUpdated
+	 * @param	{String}		extKey
+	 * @param	{String}		type
+	 * @param	{Number}		idRecord
+	 * @param	{Function}		callback
+	 * @param	{Ajax.Response}	response
+	 */
 	onUpdated: function(extKey, type, idRecord, callback, response) {
 		if( typeof callback === 'function' ) {
 			callback(extKey, type, idRecord, response);
@@ -66,9 +96,11 @@ Todoyu.Ext.sysmanager.Records = {
 	},
 
 
+
 	/**
 	 * Show types of extension
 	 *
+	 * @method	showExtensionTypes
 	 * @param	{String}	extKey
 	 */
 	showExtensionTypes: function(extKey) {
@@ -80,6 +112,7 @@ Todoyu.Ext.sysmanager.Records = {
 	/**
 	 * Show all records of a type
 	 *
+	 * @method	showTypeRecords
 	 * @param	{String}	extKey
 	 * @param	{String}	type
 	 */
@@ -89,10 +122,10 @@ Todoyu.Ext.sysmanager.Records = {
 
 
 
-
 	/**
 	 * Show type list
 	 *
+	 * @method	showTypeList
 	 * @param	{String}	ext
 	 */
 	showTypeList: function(ext) {
@@ -108,11 +141,10 @@ Todoyu.Ext.sysmanager.Records = {
 
 
 
-
-
 	/**
 	 * Add record (create and edit)
 	 *
+	 * @method	add
 	 * @param	{String}	ext
 	 * @param	{String}	type
 	 */
@@ -125,6 +157,7 @@ Todoyu.Ext.sysmanager.Records = {
 	/**
 	 * Open given record's editing
 	 *
+	 * @method	edit
 	 * @param	{String}	ext
 	 * @param	{String}	type
 	 * @param	{Number}	idRecord
@@ -138,6 +171,7 @@ Todoyu.Ext.sysmanager.Records = {
 	/**
 	 * On edit handler
 	 *
+	 * @method	onEdit
 	 * @param	{String}	extKey
 	 * @param	{String}	type
 	 * @param	{Number}	idRecord
@@ -152,9 +186,10 @@ Todoyu.Ext.sysmanager.Records = {
 	/**
 	 * Remove record
 	 *
-	 * @param {String}	ext
-	 * @param {String}	type
-	 * @param {Number}	idRecord
+	 * @method	remove
+	 * @param	{String}	ext
+	 * @param	{String}	type
+	 * @param	{Number}	idRecord
 	 */
 	remove: function(ext, type, idRecord) {
 		if( confirm('[LLL:sysmanager.records.delete.confirm]') ) {
@@ -177,6 +212,7 @@ Todoyu.Ext.sysmanager.Records = {
 	/**
 	 * On removed (record) handler
 	 *
+	 * @method	onRemoved
 	 * @param	{String}		extKey
 	 * @param	{String}		type
 	 * @param	{Number}		idRecord
@@ -191,6 +227,7 @@ Todoyu.Ext.sysmanager.Records = {
 	/**
 	 * Save record
 	 *
+	 * @method	save
 	 * @param	{String}	form
 	 * @param	{String}	ext
 	 * @param	{String}	type
@@ -215,6 +252,7 @@ Todoyu.Ext.sysmanager.Records = {
 	/**
 	 * On saved handler
 	 *
+	 * @method	onSaved
 	 * @param	{String}			form
 	 * @param	{String}			ext
 	 * @param	{String}			type
@@ -235,6 +273,7 @@ Todoyu.Ext.sysmanager.Records = {
 	/**
 	 * Close form
 	 *
+	 * @method	closeForm
 	 * @param	{String}	extKey
 	 * @param	{String}	type
 	 */

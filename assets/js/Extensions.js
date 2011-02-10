@@ -30,6 +30,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 	/**
 	 * Show extension list in sysmanager
+	 *
+	 * @method	showList
 	 */
 	showList: function() {
 		this.showTab();
@@ -41,6 +43,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Show given extension tab in sysmanager
 	 *
+	 * @method	showTab
 	 * @param	{String}	extKey
 	 * @param	{String}	tab
 	 * @param	{Object}	params
@@ -67,6 +70,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 	/**
 	 * Activate given tab in admin area
+	 *
+	 * @method	activateTab
+	 * @param	{String}	tab
 	 */
 	activateTab: function(tab) {
 		Todoyu.Tabs.setActive('extension', tab);
@@ -77,7 +83,10 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Evoked upon completion of loading of tab
 	 *
-	 * @todo	complete or remove
+	 * @method	onTabShowed
+	 * @param	{String}	extKey
+	 * @param	{String}	tab
+	 * @param	{Array}		params
 	 */
 	onTabShowed: function(extKey, tab, params) {
 
@@ -88,6 +97,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * On tab click handler
 	 *
+	 * @method	onTabClick
 	 * @param	{Event}		event
 	 * @param	{String}	tabKey
 	 */
@@ -111,6 +121,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Evoke installation of given extension
 	 *
+	 * @method	install
 	 * @param	{String}	extKey
 	 */
 	install: function(extKey) {
@@ -134,6 +145,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * Handler to be called after ext. installation.
 	 * Shows list of extensions and installation response notification
 	 *
+	 * @method	onInstalled
 	 * @param	{String}			extKey
 	 * @param	{Ajax.Response}		response
 	 */
@@ -150,6 +162,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Download given extension
 	 *
+	 * @method	download
 	 * @param	{String}	extKey
 	 */
 	download: function(extKey) {
@@ -164,6 +177,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Show rights of given extension
 	 *
+	 * @method	showRights
 	 * @param	{String}		extKey
 	 */
 	showRights: function(extKey) {
@@ -173,6 +187,14 @@ Todoyu.Ext.sysmanager.Extensions = {
 		});
 	},
 
+
+
+	/**
+	 * Load records administration module of sysmanager
+	 *
+	 * @method	showRecords
+	 * @param	{String}	extKey
+	 */
 	showRecords: function(extKey) {
 		Todoyu.Ext.admin.loadModule('records', {
 			extkey: extKey
@@ -184,6 +206,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Remove an extension from the server (delete all files)
 	 *
+	 * @method	remove
 	 * @param	{String}		extKey
 	 */
 	remove: function(extKey) {
@@ -206,6 +229,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	/**
 	 * Handler when an extension is removed from the server
 	 *
+	 * @method	onRemoved
 	 * @param	{String}			extKey
 	 * @param	{Ajax.Response}		response
 	 */

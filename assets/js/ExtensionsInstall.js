@@ -27,6 +27,8 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 
 	/**
 	 * Show list of not installed extensions
+	 *
+	 * @method	showList
 	 */
 	showList: function() {
 		this.ext.Extensions.showTab('', 'install');
@@ -37,6 +39,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	/**
 	 * Install an extension
 	 *
+	 * @method	install
 	 * @param	{String}	ext
 	 */
 	install: function(ext) {
@@ -59,8 +62,9 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	/**
 	 * Handler when extension installation has finished (successfully or not)
 	 *
-	 * @param		{String}			ext
-	 * @param		{Ajax.Response}		response
+	 * @method	onInstalled
+	 * @param	{String}			ext
+	 * @param	{Ajax.Response}		response
 	 */
 	onInstalled: function(ext, response) {
 		if( response.hasTodoyuError() ) {
@@ -82,6 +86,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	/**
 	 * Show update dialog for an extension
 	 *
+	 * @method	showUpdate
 	 * @param	{String}	ext
 	 */
 	showUpdate: function(ext) {
@@ -102,6 +107,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	/**
 	 * Handler after extension installation failure screen has been shown
 	 *
+	 * @method	onInstallationFailedShowed
 	 * @param	{String}			ext
 	 * @param	{Ajax.Response}		response
 	 */
@@ -114,6 +120,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	/**
 	 * Handler when update dialog for an extension is displayed
 	 *
+	 * @method	onUpdateShowed
 	 * @param	{String}			ext
 	 * @param	{Ajax.Response}		response
 	 */
@@ -126,6 +133,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	/**
 	 * Uninstall an extension
 	 *
+	 * @method	uninstall
 	 * @param	{String}		ext
 	 */
 	uninstall: function(ext) {
@@ -148,6 +156,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	/**
 	 * Handler when extension is uninstalled
 	 *
+	 * @method	onUninstalled
 	 * @param	{String}		extKey
 	 * @param	{Ajax.Response}	response
 	 */

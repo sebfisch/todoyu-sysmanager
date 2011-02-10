@@ -27,6 +27,8 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 
 	/**
 	 * Show for for extension upload
+	 *
+	 * @method	showUploadForm
 	 */
 	showUploadForm: function() {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
@@ -45,6 +47,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	/**
 	 * Handler when extension upload form is showed
 	 *
+	 * @method	onImportShowed
 	 * @param	{Ajax.Response}		response
 	 */
 	onImportShowed: function(response) {
@@ -56,6 +59,8 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	/**
 	 * Start extension upload
 	 * Use an iframe to submit the file upload
+	 *
+	 * @method	startUpload
 	 */
 	startUpload: function() {
 		if( $F('importExtension-field-file') !== '' ) {
@@ -75,6 +80,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	 * Handler when upload is finished
 	 * Function is called from the iFrame which submitted the file
 	 *
+	 * @method	uploadFinished
 	 * @param	{String}	ext
 	 * @param	{Boolean}	success
 	 * @param	{String}	message

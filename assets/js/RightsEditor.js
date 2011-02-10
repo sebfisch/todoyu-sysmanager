@@ -40,6 +40,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Init
+	 *
+	 * @method	init
 	 */
 	init: function() {
 		this.observeForm();
@@ -53,6 +55,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Init matrix with dependencies and install observers
 	 *
+	 * @method	initMatrix
 	 * @param	{JSON}	require
 	 */
 	initMatrix: function(require) {
@@ -80,6 +83,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Observe roles and extension selectors
+	 *
+	 * @method	observeForm
 	 */
 	observeForm: function() {
 		$('rightseditor-field-roles').observe('change', this.onRoleChange.bindAsEventListener(this));
@@ -91,6 +96,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Handler when form changes
 	 * Called when roles or extension changes
+	 *
+	 * @method	onFormChange
 	 */
 	onFormChange: function() {
 		if( this.dirty ) {
@@ -113,6 +120,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Store the parameters or the current values of the elements as last values
 	 *
+	 * @method	storeLastFormValues
 	 * @param	{Array}		roles
 	 * @param	{String}	ext
 	 */
@@ -127,6 +135,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Apply the last form values
+	 *
+	 * @method	applyLastFormValues
 	 */
 	applyLastFormValues: function() {
 		this.applyFormValues(this.lastFormValues.roles, this.lastFormValues.ext);
@@ -137,6 +147,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Apply for values
 	 *
+	 * @method	applyFormValues
 	 * @param	{Array}		roles
 	 * @param	{String}	ext
 	 */
@@ -149,6 +160,11 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * After dirty changes have been saved, update matrix as requests before
+	 *
+	 * @method	onDirtyChangesSaved
+	 * @param	{Array}			roles
+	 * @param	{String}		ext
+	 * @param	{Ajax.Response}	response
 	 */
 	onDirtyChangesSaved: function(roles, ext, response) {
 			// Apply the form values (before the dirty save)
@@ -167,6 +183,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * Select all roles if none is selected. Prevents empty matrix
 	 * Called before the form change. So we can update the selection just before the form is submitted
 	 *
+	 * @method	onRoleChange
 	 * @param	{Event}		event
 	 */
 	onRoleChange: function(event) {
@@ -186,6 +203,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Handler when extension is changed
 	 *
+	 * @method	onExtensionChange
 	 * @param	{Event}		event
 	 */
 	onExtensionChange: function(event) {
@@ -196,6 +214,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Update the whole rights editor
+	 *
+	 * @method	updateEditor
 	 */
 	updateEditor: function() {
 		Todoyu.Ui.updatePage('admin', 'ext');
@@ -205,6 +225,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Update matrix
+	 *
+	 * @method	updateMatrix
 	 */
 	updateMatrix: function() {
 		$('rightseditor-form').request({
@@ -220,6 +242,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * On editor updated handler
 	 *
+	 * @method	onMatrixUpdated
 	 * @param	{Array}	response
 	 */
 	onMatrixUpdated: function(response) {
@@ -231,6 +254,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Save rights over AJAX, no reload
 	 *
+	 * @method	saveRights
 	 * @param	{Function}		callback
 	 */
 	saveRights: function(callback) {
@@ -249,6 +273,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * On saved handler
 	 *
+	 * @method	onRightsSaved
 	 * @param	{Array}	response
 	 */
 	onRightsSaved: function(callback, response) {
@@ -262,6 +287,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Handler when group selection has changed
 	 *
+	 * @method	onRolesChange
 	 * @param	{Event}		event
 	 */
 	onRolesChange: function(event) {
@@ -272,6 +298,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Check dependencies for all rights
+	 *
+	 * @method	initDependents
 	 */
 	initDependents: function() {
 		var roles	= this.getRoles();
@@ -287,6 +315,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Observe rights checkboxes
+	 *
+	 * @method	observeRightsForm
 	 */
 	observeRightsForm: function() {
 		$('rightsmatix-form').observe('change', this.onRightChange.bindAsEventListener(this));
@@ -297,6 +327,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Handler when a right is changed
 	 *
+	 * @method	onRightChange
 	 * @param	{Event}		event
 	 */
 	onRightChange: function(event) {
@@ -317,6 +348,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Get checkbox element
 	 *
+	 * @method	checkbox
 	 * @param	{String}		right
 	 * @param	{Number}		idRole
 	 */
@@ -329,6 +361,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Get all rights which are required for the right
 	 *
+	 * @method	getRequireds
 	 * @param	{String}		right
 	 */
 	getRequireds: function(right) {
@@ -340,6 +373,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Get all dependent rights of a right
 	 *
+	 * @method	getDependents
 	 * @param	{String}		right
 	 */
 	getDependents: function(right) {
@@ -359,6 +393,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Check/uncheck right checkbox
 	 *
+	 * @method	checkRight
 	 * @param	{String}		right
 	 * @param	{Number}		idRole
 	 * @param	{Boolean}		check
@@ -372,6 +407,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Check if a right checkbox is checked
 	 *
+	 * @method	isRightChecked
 	 * @param	{String}		right
 	 * @param	{Number}		idRole
 	 */
@@ -384,6 +420,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Enable/disable a right checkbox
 	 *
+	 * @method	enableRight
 	 * @param	{String}		right
 	 * @param	{Number}		idRole
 	 * @param	{Boolean}		enable
@@ -397,6 +434,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Check whether a rights checkbox is enabled
 	 *
+	 * @method	isRightEnabled
 	 * @param	{String}		right
 	 * @param	{Number}		idRole
 	 */
@@ -409,6 +447,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Check if a right is active (active = enabled and checked)
 	 *
+	 * @method	isRightActive
 	 * @param	{String}		right
 	 * @param	{Number}		idRole
 	 */
@@ -421,6 +460,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Activate a right. Enabled and checked
 	 *
+	 * @method	activateRight
 	 * @param	{String}		right
 	 * @param	{Number}		idGroup
 	 * @param	{Boolean}		active
@@ -435,6 +475,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Check if all required rights for a right are currently active
 	 *
+	 * @method	allRequiredsActive
 	 * @param	{String}		right
 	 * @param	{Number}		idGroup
 	 */
@@ -452,6 +493,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * Check dependent rights of a right
 	 * Enable or disable them by dependencies
 	 *
+	 * @method	checkDependents
 	 * @param	{String}		right
 	 */
 	checkDependents: function(right, idRole) {
@@ -478,6 +520,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Get selected roles
+	 *
+	 * @method	getRoles
 	 */
 	getRoles: function() {
 		return $F('rightseditor-field-roles');
@@ -488,6 +532,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Get currently selected extension's key
 	 *
+	 * @method	getExtension
 	 * @return	{String}
 	 */
 	getExtension: function() {
@@ -499,6 +544,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Toggle right
 	 *
+	 * @method	toggleRight
 	 * @param	{String}	right
 	 */
 	toggleRight: function(right) {
@@ -517,6 +563,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Toggle group
 	 *
+	 * @method	toggleRoleRights
 	 * @param	{Number}		idRole
 	 */
 	toggleRoleRights: function(idRole) {
@@ -533,6 +580,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Toggle checkboxes
 	 *
+	 * @method	toggleCheckboxes
 	 * @param	{Array}	checkboxes
 	 */
 	toggleCheckboxes: function(checkboxes) {

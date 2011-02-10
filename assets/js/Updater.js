@@ -21,6 +21,8 @@ Todoyu.Ext.sysmanager.Updater = {
 
 	/**
 	 * Initialize updater
+	 *
+	 * @method	init
 	 */
 	init: function() {
 		this.observeSearchForm();
@@ -31,6 +33,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Get updater URL
 	 *
+	 * @method	getUrl
 	 * @return	{String}
 	 */
 	getUrl: function() {
@@ -40,7 +43,9 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * Install observer on search form 
+	 * Install observer on search form
+	 *
+	 * @method	observeSearchForm
 	 */
 	observeSearchForm: function() {
 		Todoyu.DelayedTextObserver.observe('extQuery', this.onQueryChanged.bind(this));
@@ -49,7 +54,9 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
+	 * Handler when updater query has changed- evoke update of results list
 	 *
+	 * @method	onQueryChanged
 	 * @param	{String}	value
 	 * @param	{String}	field
 	 */
@@ -62,6 +69,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Update search results from given query
 	 *
+	 * @method	updateResults
 	 * @param	{String}	query
 	 * @param	{String}	order
 	 * @param	{Number}	offset
@@ -87,6 +95,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Callback after search results have been updated 
 	 *
+	 * @method	onResultsUpdated
 	 * @param	{String}	query
 	 * @param	{String}	order
 	 * @param	{Number}	offset
@@ -100,6 +109,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * @todo	implement!
 	 *
+	 * @method	installExtension
 	 * @param	{String}	extkey
 	 * @param	{String}	zipFile
 	 */
@@ -112,6 +122,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Open TER in new browser window
 	 *
+	 * @method	moreExtensionInfo
 	 * @param	{String}	terLink
 	 */
 	moreExtensionInfo: function(terLink) {
@@ -123,6 +134,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Show TER extension update details in new window
 	 *
+	 * @method	showExtensionUpdateDetails
 	 * @param	{String}	terLink
 	 */
 	showExtensionUpdateDetails: function(terLink) {
@@ -134,6 +146,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Install extension update
 	 *
+	 * @method	installExtensionUpdate
 	 * @param	{String}	extkey
 	 * @param	{String}	urlHash
 	 */
@@ -156,6 +169,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Callback after extension update has been installed  
 	 *
+	 * @method	onExtensionUpdateInstalled
 	 * @param	{String}	extkey
 	 */
 	onExtensionUpdateInstalled: function(extkey) {
@@ -167,6 +181,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Install update of todoyu core from given URL
 	 *
+	 * @method	installCoreUpdate
 	 * @param	{String}	urlHash
 	 */
 	installCoreUpdate: function(urlHash) {
@@ -187,6 +202,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	/**
 	 * Callback after todoyu core update has been installed
 	 *
+	 * @method	onCoreUpdateInstalled
 	 * @param	{Ajax.Response}		response
 	 */
 	onCoreUpdateInstalled: function(response) {

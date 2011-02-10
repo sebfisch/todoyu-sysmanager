@@ -21,6 +21,8 @@ Todoyu.Ext.sysmanager.QuickCreateRole = {
 
 	/**
 	 * Evoked upon opening of role quick create wizard popup
+	 *
+	 * @method	onPopupOpened
 	 */
 	onPopupOpened: function() {
 
@@ -31,6 +33,7 @@ Todoyu.Ext.sysmanager.QuickCreateRole = {
 	/**
 	 * Save role
 	 *
+	 * @method	save
 	 * @param	{Element}		form
 	 */
 	save: function(form) {
@@ -49,7 +52,8 @@ Todoyu.Ext.sysmanager.QuickCreateRole = {
 	/**
 	 * On saved handle
 	 *
-	 *	@param	{Ajax.Response}		response
+	 * @method	onSaved
+	 * @param	{Ajax.Response}		response
 	 */
 	onSaved: function(response) {
 		if( response.hasTodoyuError() ) {

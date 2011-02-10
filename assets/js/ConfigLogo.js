@@ -25,6 +25,7 @@ Todoyu.Ext.sysmanager.Config.Logo = {
 	/**
 	 * Save logo form. Start upload over an iframe
 	 *
+	 * @method	onFileSelectionChange
 	 * @param	{Element}	form
 	 */
 	onFileSelectionChange: function(form) {
@@ -40,6 +41,7 @@ Todoyu.Ext.sysmanager.Config.Logo = {
 	/**
 	 * Handler when upload is finished
 	 *
+	 * @method	onUploadFinished
 	 * @param	{Boolean}	success
 	 */
 	onUploadFinished: function(success) {

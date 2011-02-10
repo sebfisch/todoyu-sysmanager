@@ -30,9 +30,11 @@
 Todoyu.Ext.sysmanager.Config = {
 
 	/**
-	 * @todo	check: needed? remove? implement?
+	 * Click handler for sysmanager tabs
+	 *
+	 * @method	onTabClick
 	 * @param	{String}	key
-	 * @param	{Object}	event
+	 * @param	{Event}		event
 	 */
 	onTabClick: function(key, event) {
 
