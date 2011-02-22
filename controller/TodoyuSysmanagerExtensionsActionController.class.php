@@ -21,19 +21,7 @@
 class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController {
 
 	/**
-	 * @var	String		Extension parameter of the request
-	 */
-	protected $extKey;
-
-	/**
-	 * @var	String		Type parameter of the request
-	 */
-	protected $type;
-
-
-
-	/**
-	 * Set extKey and type on request start because its used by all functions
+	 * Restrict access
 	 *
 	 * @param	Array		$params
 	 */
@@ -41,9 +29,6 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		restrictAdmin();
 
 		TodoyuExtensions::loadAllAdmin();
-
-		$this->extKey	= $params['extKey'];
-		$this->type		= $params['type'];
 	}
 
 

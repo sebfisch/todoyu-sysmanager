@@ -27,6 +27,17 @@
 class TodoyuSysmanagerExtconfActionController extends TodoyuActionController {
 
 	/**
+	 * Restrict access
+	 *
+	 * @param	Array		$params
+	 */
+	public function init(array $params) {
+		restrictAdmin();
+	}
+
+
+
+	/**
 	 * Save extension configuration
 	 *
 	 * @param	Array		$params

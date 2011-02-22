@@ -19,12 +19,23 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * System and extension updater controller
  *
  * @package		Todoyu
- * @subpackage	[Subpackage]
+ * @subpackage	Sysmanager
  */
 class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
+
+	/**
+	 * Restrict access
+	 *
+	 * @param	Array	$params
+	 */
+	public function init(array $params) {
+		restrictAdmin();
+	}
+
+
 
 	/**
 	 * Get rendered list of available extensions updates

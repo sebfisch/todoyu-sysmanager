@@ -21,6 +21,17 @@
 class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionController {
 
 	/**
+	 * Restrict access
+	 *
+	 * @param	Array	$params
+	 */
+	public function init(array $params) {
+		restrictAdmin();
+	}
+
+
+
+	/**
 	 * Get quick role creation form rendered
 	 *
 	 * @param	Array	$params
@@ -39,7 +50,6 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 	 * @return	String
 	 */
 	public function saveAction(array $params) {
-//		restrict('sysmanager', 'role:edit');
 		$data	= $params['role'];
 		$idRole	= intval($data['id']);
 

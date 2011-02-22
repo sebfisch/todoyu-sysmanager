@@ -27,6 +27,17 @@
 class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 
 	/**
+	 * Restrict access
+	 *
+	 * @param	Array	$params
+	 */
+	public function init(array $params) {
+		restrictAdmin();
+	}
+
+
+
+	/**
 	 * Update record module content
 	 *
 	 * @param	Array		$params

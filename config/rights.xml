@@ -3,7 +3,7 @@
 
 	<section name="general">
 		<right name="extensions" />
-		<right name="records" />
+		<right name="allrecords" />
 		<right name="rights" />
 		<right name="roles" />
 	</section>

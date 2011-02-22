@@ -21,7 +21,7 @@
 class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 
 	/**
-	 * Set extKey and type on request start because its used by all functions
+	 * Restrict access
 	 *
 	 * @param	Array		$params
 	 */
@@ -33,7 +33,7 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 
 	/**
 	 * Save uploaded logo if valid
-	 * 
+	 *
 	 * @param	Array		$params
 	 * @return	String
 	 */

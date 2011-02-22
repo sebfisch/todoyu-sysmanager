@@ -27,6 +27,17 @@
 class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 
 	/**
+	 * Restrict access
+	 *
+	 * @param	Array	$params
+	 */
+	public function init(array $params) {
+		restrictAdmin();
+	}
+
+
+
+	/**
 	 * Render tab in rights admin module
 	 *
 	 * @param	Array		$params
