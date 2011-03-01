@@ -25,7 +25,7 @@ h1.extIconSysmanager .title {
 #content .noExtConf {
 	padding:20px;
 	display:block;
-	clear:both; 
+	clear:both;
 	font-weight:bold;
 	font-size:16px;
 }
@@ -38,7 +38,7 @@ table.extInfo {
 }
 
 	table.extInfo th.label {
-		width:150px; 
+		width:150px;
 	}
 
 	table.extInfo th.value {
@@ -68,6 +68,6 @@ table.extInfo {
 /* -----------------------------------------------
 	Quick create (headlet) mode selector entries
    ----------------------------------------------- */
-#headlet-quickcreate-content li.itemSysmanagerRole a {
+#todoyuheadletquickcreate li.itemSysmanagerRole a {
 	background:url(../img/icons.png) no-repeat 5px -538px;
 }

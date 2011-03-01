@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuExtManagerRenderer {
+class TodoyuSysmanagerExtManagerRenderer {
 
 	/**
 	 * Render extension module
@@ -133,7 +133,7 @@ class TodoyuExtManagerRenderer {
 		$name		= 'extension';
 		$class		= 'admin';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Extensions.onTabClick.bind(Todoyu.Ext.sysmanager.Extensions)';
-		$tabs		= TodoyuExtManager::getTabConfig($extKey, $tab);
+		$tabs		= TodoyuSysmanagerExtManager::getTabConfig($extKey, $tab);
 
 		if( empty($tab) ) {
 			$active	= $tabs[0]['id'];
@@ -180,7 +180,7 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderInfo($extKey, array $params = array()) {
-		$info	= TodoyuExtManager::getExtInfos($extKey);
+		$info	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 
 		$tmpl	= 'ext/sysmanager/view/extension-info.tmpl';
 		$data	= array(
@@ -201,7 +201,7 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderConfig($extKey, array $params = array()) {
-		return TodoyuExtConfRenderer::renderConfig($extKey);
+		return TodoyuSysmanagerExtConfRenderer::renderConfig($extKey);
 	}
 
 
@@ -238,7 +238,7 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderUpdate(array $params = array()) {
-		return TodoyuUpdaterRenderer::renderUpdate($params);
+		return TodoyuSysmanagerUpdaterRenderer::renderUpdate($params);
 	}
 
 
@@ -250,7 +250,7 @@ class TodoyuExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderBrowse(array $params = array()) {
-		return TodoyuUpdaterRenderer::renderBrowse($params);
+		return TodoyuSysmanagerUpdaterRenderer::renderBrowse($params);
 	}
 
 }

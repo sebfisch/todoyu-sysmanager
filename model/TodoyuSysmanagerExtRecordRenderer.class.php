@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuExtRecordRenderer {
+class TodoyuSysmanagerExtRecordRenderer {
 
 	/**
 	 * Render extension record module
@@ -57,7 +57,7 @@ class TodoyuExtRecordRenderer {
 	private static function renderTabs($ext, $type, $idRecord) {
 		$name		= 'records';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Records.onTabClick.bind(Todoyu.Ext.sysmanager.Records)';
-		$tabs		= TodoyuExtRecordManager::getTabsConfig($ext, $type, $idRecord);
+		$tabs		= TodoyuSysmanagerExtRecordManager::getTabsConfig($ext, $type, $idRecord);
 		$active		= 'all';
 
 		if( $idRecord !== 0 ) {
@@ -114,7 +114,7 @@ class TodoyuExtRecordRenderer {
 	 * @return	String
 	 */
 	private static function renderBodyAll() {
-		$recordsList	= TodoyuExtRecordManager::getAllRecordsList();
+		$recordsList	= TodoyuSysmanagerExtRecordManager::getAllRecordsList();
 
 		$tmpl	= 'ext/sysmanager/view/records-all.tmpl';
 		$data	= array(
@@ -139,13 +139,13 @@ class TodoyuExtRecordRenderer {
 			'types'		=> array()
 		);
 
-		$typeConfigs	= TodoyuExtManager::getRecordConfigs($ext);
+		$typeConfigs	= TodoyuSysmanagerExtManager::getRecordConfigs($ext);
 
 		foreach($typeConfigs as $type => $config) {
 			$data['types'][$type] = array(
 				'type'	=> $type,
 				'label'	=> Label($config['label']),
-				'count'	=> TodoyuExtRecordManager::getRecordCount($config['table'])
+				'count'	=> TodoyuSysmanagerExtRecordManager::getRecordCount($config['table'])
 			);
 		}
 
@@ -162,7 +162,7 @@ class TodoyuExtRecordRenderer {
 	 * @return	String
 	 */
 	private static function renderBodyType($ext, $type) {
-		$typeConfigs = TodoyuExtManager::getRecordConfig($ext, $type);
+		$typeConfigs = TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
 
 		if( TodoyuFunction::isFunctionReference($typeConfigs['list']) ) {
 			$records = TodoyuFunction::callUserFunction($typeConfigs['list']);
@@ -194,7 +194,7 @@ class TodoyuExtRecordRenderer {
 	 * @return	String
 	 */
 	private static function renderBodyRecord($ext, $type, $idRecord) {
-		$form	= TodoyuExtRecordManager::getRecordForm($ext, $type, $idRecord);
+		$form	= TodoyuSysmanagerExtRecordManager::getRecordForm($ext, $type, $idRecord);
 
 		return $form->render();
 	}

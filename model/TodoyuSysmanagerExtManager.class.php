@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuExtManager {
+class TodoyuSysmanagerExtManager {
 
 	/**
 	 * Get extension module tab configuration
@@ -138,7 +138,7 @@ class TodoyuExtManager {
 	 */
 	public static function getRecordConfig($extKey, $recordName) {
 		TodoyuExtensions::loadAllAdmin();
-		
+
 		$config = Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName];
 
 		if( ! is_array($config) ) {
@@ -261,7 +261,7 @@ class TodoyuExtManager {
 	 * @return	Boolean
 	 */
 	public static function extensionHasConfig($extKey) {
-		$xmlPath	= TodoyuExtConfManager::getXmlPath($extKey);
+		$xmlPath	= TodoyuSysmanagerExtConfManager::getXmlPath($extKey);
 
 		return TodoyuFileManager::isFile($xmlPath);
 	}

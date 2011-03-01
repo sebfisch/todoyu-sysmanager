@@ -24,11 +24,11 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuExtConfRenderer {
+class TodoyuSysmanagerExtConfRenderer {
 
 	/**
 	 * Render extension config form
-	 * 
+	 *
 	 * @param	String		$extKey
 	 * @return	String
 	 */
@@ -38,8 +38,8 @@ class TodoyuExtConfRenderer {
 			'hasConf'	=> false
 		);
 
-		if( TodoyuExtConfManager::hasExtConf($extKey) ) {
-			$form	= TodoyuExtConfManager::getForm($extKey);
+		if( TodoyuSysmanagerExtConfManager::hasExtConf($extKey) ) {
+			$form	= TodoyuSysmanagerExtConfManager::getForm($extKey);
 			$data['hasConf']	= true;
 			$data['form']		=  $form->render();
 		} else {

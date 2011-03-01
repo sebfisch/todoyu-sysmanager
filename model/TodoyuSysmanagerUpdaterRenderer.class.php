@@ -19,12 +19,12 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * Render updates screens
  *
  * @package		Todoyu
- * @subpackage	[Subpackage]
+ * @subpackage	Sysmanager
  */
-class TodoyuUpdaterRenderer {
+class TodoyuSysmanagerUpdaterRenderer {
 
 	/**
 	 * Fetch available updates from TER server and render listing
@@ -33,7 +33,7 @@ class TodoyuUpdaterRenderer {
 	 * @return	String
 	 */
 	public static function renderBrowse(array $params = array()) {
-		if( ! TodoyuUpdaterManager::isUpdateServerReachable() ) {
+		if( ! TodoyuSysmanagerUpdaterManager::isUpdateServerReachable() ) {
 			$tmpl	= 'ext/sysmanager/view/updater-noconnection.tmpl';
 			return render($tmpl);
 		}
@@ -58,7 +58,7 @@ class TodoyuUpdaterRenderer {
 	 * @return	String
 	 */
 	public static function renderBrowseResultList($query) {
-		$client	= TodoyuUpdaterSoapClient::getInstance();
+		$client	= TodoyuSysmanagerUpdaterSoapClient::getInstance();
 
 		$results= $client->searchExtensions($query);
 
@@ -80,10 +80,10 @@ class TodoyuUpdaterRenderer {
 	 * @return	String
 	 */
 	public static function renderUpdate(array $params = array()) {
-		$client	= TodoyuUpdaterSoapClient::getInstance();
+		$client	= TodoyuSysmanagerUpdaterSoapClient::getInstance();
 
 		$updates	= $client->searchUpdates();
-		$updates	= TodoyuUpdaterManager::replaceFilepathsWithHashes($updates);
+		$updates	= TodoyuSysmanagerUpdaterManager::replaceFilepathsWithHashes($updates);
 
 
 //		TodoyuDebug::printInFireBug($updates, 'updates');

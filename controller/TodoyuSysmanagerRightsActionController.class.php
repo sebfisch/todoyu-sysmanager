@@ -44,7 +44,7 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 	 * @return	String
 	 */
 	public function updateAction(array $params) {
-		return TodoyuRightsEditorRenderer::renderModule($params);
+		return TodoyuSysmanagerRightsEditorRenderer::renderModule($params);
 	}
 
 
@@ -59,7 +59,7 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 		$rights	= TodoyuArray::assure($params['rights']);
 		$roles	= TodoyuArray::intExplode(',', $params['roles']);
 
-		TodoyuRightsEditorManager::saveRoleRights($extKey, $rights, $roles);
+		TodoyuSysmanagerRightsEditorManager::saveRoleRights($extKey, $rights, $roles);
 	}
 
 
@@ -78,7 +78,7 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 		TodoyuSysmanagerPreferences::saveRightsExt($ext);
 		TodoyuSysmanagerPreferences::saveRightsRoles($roles);
 
-		return TodoyuRightsEditorRenderer::renderRightsMatrix($roles, $ext);
+		return TodoyuSysmanagerRightsEditorRenderer::renderRightsMatrix($roles, $ext);
 	}
 
 }

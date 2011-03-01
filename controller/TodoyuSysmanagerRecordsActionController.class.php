@@ -44,7 +44,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	 * @return	String
 	 */
 	public function updateAction(array $params) {
-		return TodoyuExtRecordRenderer::renderModule($params);
+		return TodoyuSysmanagerExtRecordRenderer::renderModule($params);
 	}
 
 
@@ -59,7 +59,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 		$type		= trim($params['type']);
 		$idRecord	= intval($params['record']);
 
-		TodoyuExtRecordManager::deleteRecord($ext, $type, $idRecord);
+		TodoyuSysmanagerExtRecordManager::deleteRecord($ext, $type, $idRecord);
 	}
 
 
@@ -76,14 +76,14 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 		$type	= trim($params['type']);
 
 		$idRecord	= intval($data['id']);
-		$form		= TodoyuExtRecordManager::getRecordForm($ext, $type, $idRecord);
+		$form		= TodoyuSysmanagerExtRecordManager::getRecordForm($ext, $type, $idRecord);
 
 		$form->setFormData($data);
 
 			// Validate, save, render
 		if( $form->isValid() ) {
 			$storageData	= $form->getStorageData();
-			$idRecord	= TodoyuExtRecordManager::saveRecord($ext, $type, $storageData);
+			$idRecord	= TodoyuSysmanagerExtRecordManager::saveRecord($ext, $type, $storageData);
 		} else {
 			TodoyuHeader::sendTodoyuErrorHeader();
 

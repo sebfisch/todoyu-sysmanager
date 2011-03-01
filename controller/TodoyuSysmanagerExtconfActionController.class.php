@@ -46,14 +46,14 @@ class TodoyuSysmanagerExtconfActionController extends TodoyuActionController {
 	public function saveAction(array $params) {
 		$data	= $params['config'];
 		$extKey	= $data['extension'];
-		$form	= TodoyuExtConfManager::getForm($extKey, false);
+		$form	= TodoyuSysmanagerExtConfManager::getForm($extKey, false);
 
 		$form->setFormData($data);
 
 		if( $form->isValid() ) {
 			$config	= $form->getStorageData();
 
-			TodoyuExtConfManager::updateExtConf($extKey, $config);
+			TodoyuSysmanagerExtConfManager::updateExtConf($extKey, $config);
 		} else {
 			TodoyuHeader::sendTodoyuErrorHeader();
 

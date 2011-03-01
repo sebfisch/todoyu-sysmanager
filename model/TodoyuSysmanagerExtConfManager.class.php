@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Core
  */
-class TodoyuExtConfManager {
+class TodoyuSysmanagerExtConfManager {
 
 	/**
 	 * Get path to extension config form

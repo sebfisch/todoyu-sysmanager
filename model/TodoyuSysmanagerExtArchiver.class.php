@@ -25,7 +25,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuExtArchiver {
+class TodoyuSysmanagerExtArchiver {
 
 	/**
 	 * Create a extension archive (zip file) in cache and return the path to it

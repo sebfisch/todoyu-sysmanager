@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuExtInstaller {
+class TodoyuSysmanagerExtInstaller {
 
 	/**
 	 * Write extensions.php config file
@@ -300,7 +300,7 @@ class TodoyuExtInstaller {
 			// Check core version
 		if( isset($constraints['core']) ) {
 			if( version_compare($constraints['core'], TODOYU_VERSION) === 1 ) {
-				throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.core') . ': ' . TODOYU_VERSION . ' < ' . $constraints['core']);
+				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.core') . ': ' . TODOYU_VERSION . ' < ' . $constraints['core']);
 			}
 		}
 
@@ -308,12 +308,12 @@ class TodoyuExtInstaller {
 			// Check if all dependencies are ok
 		foreach($depends as $extKey => $requiredVersion) {
 			if( ! TodoyuExtensions::isInstalled($extKey) ) {
-				throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.missing') . ': ' . $extKey);
+				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.missing') . ': ' . $extKey);
 			}
 			$installedVersion	= TodoyuExtensions::getVersion($extKey);
 
 			if( version_compare($requiredVersion, $installedVersion) === 1 ) {
-				throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.lowVersion') . ': ' . $extKey . ' - ' . $installedVersion . ' < ' . $requiredVersion);
+				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.lowVersion') . ': ' . $extKey . ' - ' . $installedVersion . ' < ' . $requiredVersion);
 			}
 		}
 
@@ -322,7 +322,7 @@ class TodoyuExtInstaller {
 		$installedConflicts	= TodoyuExtensions::getConflicts($ext);
 
 		if( sizeof($installedConflicts) > 0 ) {
-			throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $installedConflicts));
+			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $installedConflicts));
 		}
 
 
@@ -332,7 +332,7 @@ class TodoyuExtInstaller {
 		$foundConflicts	= array_intersect($extConflicts, $installedExts);
 
 		if( sizeof($foundConflicts) > 0 ) {
-			throw new TodoyuInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $foundConflicts));
+			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $foundConflicts));
 		}
 
 		return true;
@@ -351,11 +351,11 @@ class TodoyuExtInstaller {
 
 		if( TodoyuExtensions::hasDependents($extKey) ) {
 			$dependents	= TodoyuExtensions::getDependents($extKey);
-			$extInfos	= TodoyuExtManager::getExtInfos($extKey);
+			$extInfos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 
 			$message	= 'Cannot uninstall extension "' . htmlentities($extInfos['title'], ENT_QUOTES, 'UTF-8') . '" (' . $extKey . ').<br>The following extensions depend on it: ' . implode(', ', $dependents);
 		} elseif( TodoyuExtensions::isSystemExtension($extKey) ) {
-			$extInfos	= TodoyuExtManager::getExtInfos($extKey);
+			$extInfos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 			$message	= '"' . htmlentities($extInfos['title'], ENT_QUOTES, 'UTF-8') . '" is a system extension and cannot be uninstalled';
 		}
 
@@ -370,7 +370,7 @@ class TodoyuExtInstaller {
 	 * @param	String		$extKey
 	 */
 	public static function downloadExtension($extKey) {
-		$archivePath= TodoyuExtArchiver::createExtensionArchive($extKey);
+		$archivePath= TodoyuSysmanagerExtArchiver::createExtensionArchive($extKey);
 		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
 		$version	= TodoyuString::getVersionInfo($extInfo['version']);
 
@@ -419,12 +419,12 @@ class TodoyuExtInstaller {
 			}
 
 				// Check if import is possible with provided file
-			$canImport	= TodoyuExtInstaller::canImportUploadedArchive($uploadFile, $override);
+			$canImport	= TodoyuSysmanagerExtInstaller::canImportUploadedArchive($uploadFile, $override);
 			if( $canImport !== true ) {
 				throw new Exception('Can\'t import extension archive: ' . $canImport);
 			}
 
-			$archiveInfo	= TodoyuExtInstaller::parseExtensionArchiveName($uploadFile['name']);
+			$archiveInfo	= TodoyuSysmanagerExtInstaller::parseExtensionArchiveName($uploadFile['name']);
 
 			self::extractExtensionArchive($archiveInfo['ext'], $uploadFile['tmp_name']);
 
@@ -478,7 +478,7 @@ class TodoyuExtInstaller {
 	 */
 	public static function canImportUploadedArchive(array $file, $override = false) {
 		try {
-			if( TodoyuExtInstaller::isValidExtArchive($file) !== true ) {
+			if( TodoyuSysmanagerExtInstaller::isValidExtArchive($file) !== true ) {
 				throw new Exception('Invalid extension archive');
 			}
 

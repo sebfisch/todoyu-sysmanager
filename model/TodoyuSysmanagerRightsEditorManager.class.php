@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuRightsEditorManager {
+class TodoyuSysmanagerRightsEditorManager {
 
 	/**
 	 * Check whether an extension has a rights config XML file

@@ -46,7 +46,7 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	public function searchAction(array $params) {
 		$query	= trim($params['query']);
 
-		return TodoyuUpdaterRenderer::renderBrowseResultList($query);
+		return TodoyuSysmanagerUpdaterRenderer::renderBrowseResultList($query);
 	}
 
 
@@ -60,7 +60,7 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	public function installCoreUpdateAction(array $params) {
 		$hash	= trim($params['hash']);
 
-		TodoyuUpdaterManager::installCoreUpdate($hash);
+		TodoyuSysmanagerUpdaterManager::installCoreUpdate($hash);
 
 		return 'Core update installed';
 	}
@@ -77,7 +77,7 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 		$hash	= trim($params['hash']);
 		$ext	= trim($params['extkey']);
 
-		TodoyuUpdaterManager::installExtensionUpdate($ext, $hash);
+		TodoyuSysmanagerUpdaterManager::installExtensionUpdate($ext, $hash);
 
 		return 'Extension update installed';
 	}

@@ -40,7 +40,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @return	String
 	 */
 	public function tabviewAction(array $params) {
-		return TodoyuExtManagerRenderer::renderModule($params);
+		return TodoyuSysmanagerExtManagerRenderer::renderModule($params);
 	}
 
 
@@ -54,19 +54,19 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function installAction(array $params) {
 		$extKey = $params['extension'];
 
-		if( TodoyuExtInstaller::canInstall($extKey) ) {
+		if( TodoyuSysmanagerExtInstaller::canInstall($extKey) ) {
 				// Can be installed, do it!
-			TodoyuExtInstaller::installExtension($extKey);
+			TodoyuSysmanagerExtInstaller::installExtension($extKey);
 		} else {
 				// Send error header
 			TodoyuHeader::sendTodoyuErrorHeader();
 			TodoyuHeader::sendTodoyuHeader('extKey', $extKey);
 
-			$failedDependencies	= TodoyuExtInstaller::getFailedDependenciesList($extKey);
+			$failedDependencies	= TodoyuSysmanagerExtInstaller::getFailedDependenciesList($extKey);
 			TodoyuHeader::sendTodoyuHeader('failedDependencies', $failedDependencies);
 		}
 
-		$infos	= TodoyuExtManager::getExtInfos($extKey);
+		$infos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 		TodoyuHeader::sendTodoyuHeader('extTitle', $infos['title']);
 	}
 
@@ -81,16 +81,16 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function uninstallAction(array $params) {
 		$extKey	= $params['extension'];
 
-		if( TodoyuExtInstaller::canUninstall($extKey) ) {
-			$extInfos	= TodoyuExtManager::getExtInfos($extKey);
+		if( TodoyuSysmanagerExtInstaller::canUninstall($extKey) ) {
+			$extInfos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 
-			TodoyuExtInstaller::uninstallExtension($extKey);
+			TodoyuSysmanagerExtInstaller::uninstallExtension($extKey);
 
 			TodoyuHeader::sendTodoyuHeader('extTitle', $extInfos['title']);
 
-			return TodoyuExtInstallerRenderer::renderUninstalledDialog($extKey);
+			return TodoyuSysmanagerExtInstallerRenderer::renderUninstalledDialog($extKey);
 		} else {
-			$info	= TodoyuExtInstaller::getUninstallFailReason($extKey);
+			$info	= TodoyuSysmanagerExtInstaller::getUninstallFailReason($extKey);
 
 			TodoyuHeader::sendTodoyuErrorHeader();
 			TodoyuHeader::sendTodoyuHeader('info', $info);
@@ -107,7 +107,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function downloadAction(array $params) {
 		$extKey	= $params['extension'];
 
-		TodoyuExtInstaller::downloadExtension($extKey);
+		TodoyuSysmanagerExtInstaller::downloadExtension($extKey);
 	}
 
 
@@ -120,7 +120,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function removeAction(array $params) {
 		$extKey	= $params['extension'];
 
-		$status	= TodoyuExtInstaller::removeExtensionFromServer($extKey);
+		$status	= TodoyuSysmanagerExtInstaller::removeExtensionFromServer($extKey);
 
 		if( $status === false ) {
 			TodoyuHeader::sendTodoyuErrorHeader();
@@ -159,7 +159,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function showUpdateAction(array $params) {
 		$ext	= $params['extension'];
 
-		return TodoyuExtInstallerRenderer::renderUpdateDialog($ext);
+		return TodoyuSysmanagerExtInstallerRenderer::renderUpdateDialog($ext);
 	}
 
 
@@ -175,7 +175,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		$data		= $params['importExtension'];
 		$override	= intval($data['override']) === 1;
 
-		$info	= TodoyuExtInstaller::importExtensionArchive($uploadFile, $override);
+		$info	= TodoyuSysmanagerExtInstaller::importExtensionArchive($uploadFile, $override);
 
 		$command	= 'window.parent.Todoyu.Ext.sysmanager.Extensions.Import.uploadFinished("' . $info['ext'] . '", ' . ($info['success']?'true':'false') . ', "' . $info['message'] . '");';
 

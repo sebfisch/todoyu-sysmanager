@@ -19,12 +19,12 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * Manager role editing
  *
  * @package		Todoyu
- * @subpackage	[Subpackage]
+ * @subpackage	Sysmanager
  */
-class TodoyuRoleEditorManager {
+class TodoyuSysmanagerRoleEditorManager {
 
 	/**
 	 * Get quick create role form object
@@ -72,7 +72,7 @@ class TodoyuRoleEditorManager {
 				'title'			=> $role['title'],
 				'description'	=> $role['description'],
 				'persons'		=> TodoyuRoleManager::getNumPersons($role['id']) . ' ' . Label('contact.persons'),
-				'actions'		=> TodoyuRoleEditorRenderer::renderRoleActions($role['id'])
+				'actions'		=> TodoyuSysmanagerRoleEditorRenderer::renderRoleActions($role['id'])
 			);
 		}
 

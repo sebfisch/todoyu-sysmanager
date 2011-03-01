@@ -20,11 +20,11 @@
 
 /**
  * Render for extension installation
- * 
+ *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuExtInstallerRenderer {
+class TodoyuSysmanagerExtInstallerRenderer {
 
 	/**
 	 * Render dialog for extension update
@@ -70,7 +70,7 @@ class TodoyuExtInstallerRenderer {
 		$tmpl	= 'ext/sysmanager/view/extension-install-error.tmpl';
 		$data	= array(
 			'extInfo'				=> TodoyuExtensions::getExtInfo($extKey),
-			'missingDependencies'	=> TodoyuExtInstaller::getFailedDependencies($extKey)
+			'missingDependencies'	=> TodoyuSysmanagerExtInstaller::getFailedDependencies($extKey)
 		);
 
 		return render($tmpl, $data);

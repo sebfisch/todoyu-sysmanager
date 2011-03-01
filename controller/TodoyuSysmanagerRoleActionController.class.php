@@ -58,7 +58,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	public function editAction(array $params) {
 		$idRole	= intval($params['role']);
 
-		return TodoyuRoleEditorRenderer::renderEdit($idRole);
+		return TodoyuSysmanagerRoleEditorRenderer::renderEdit($idRole);
 	}
 
 

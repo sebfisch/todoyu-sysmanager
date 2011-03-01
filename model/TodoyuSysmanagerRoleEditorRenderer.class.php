@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuRoleEditorRenderer {
+class TodoyuSysmanagerRoleEditorRenderer {
 
 	/**
 	 * Render action buttons for role listing
@@ -50,7 +50,7 @@ class TodoyuRoleEditorRenderer {
 	 * @return	String
 	 */
 	public static function renderRoleQuickCreateForm(array $params) {
-		$form	= TodoyuRoleEditorManager::getQuickCreateForm();
+		$form	= TodoyuSysmanagerRoleEditorManager::getQuickCreateForm();
 
 			// Preset (empty) form data
 		$formData	= $form->getFormData();

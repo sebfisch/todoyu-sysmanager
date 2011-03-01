@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuRightsEditorRenderer {
+class TodoyuSysmanagerRightsEditorRenderer {
 
 	/**
 	 * Render rights editor
@@ -36,9 +36,9 @@ class TodoyuRightsEditorRenderer {
 		$tab	= trim($params['tab']);
 
 		if( $tab === '' ) {
-			$tab = TodoyuRightsEditorManager::getActiveTab();
+			$tab = TodoyuSysmanagerRightsEditorManager::getActiveTab();
 		} else {
-			TodoyuRightsEditorManager::saveActiveTab($tab);
+			TodoyuSysmanagerRightsEditorManager::saveActiveTab($tab);
 		}
 
 		$tabs	= self::renderTabs($tab);
@@ -122,7 +122,7 @@ class TodoyuRightsEditorRenderer {
 		if( $idRole === 0 ) {
 			return TodoyuListingRenderer::render('sysmanager', 'roles');
 		} else {
-			return TodoyuRoleEditorRenderer::renderEdit($idRole);
+			return TodoyuSysmanagerRoleEditorRenderer::renderEdit($idRole);
 		}
 	}
 
@@ -161,16 +161,16 @@ class TodoyuRightsEditorRenderer {
 	 */
 	public static function renderRightsMatrix(array $roleIDs, $ext) {
 			// Read rights XML file
-		$rights		= TodoyuRightsEditorManager::readExtRights($ext);
+		$rights		= TodoyuSysmanagerRightsEditorManager::readExtRights($ext);
 
 			// Get required chain
-		$required	= TodoyuRightsEditorManager::extractRequiredInfos($rights);
+		$required	= TodoyuSysmanagerRightsEditorManager::extractRequiredInfos($rights);
 
 			// Get current group infos
 		$roles		= TodoyuRoleManager::getRoles($roleIDs);
 
 			// Get current checked rights (default or db)
-		$activeRights = TodoyuRightsEditorManager::getCurrentActiveRights($rights, $ext);
+		$activeRights = TodoyuSysmanagerRightsEditorManager::getCurrentActiveRights($rights, $ext);
 
 
 		$tmpl	= 'ext/sysmanager/view/rightsmatrix.tmpl';

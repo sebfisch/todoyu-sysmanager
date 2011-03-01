@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	[Subpackage]
  */
-class TodoyuInstallerException extends Exception {
+class TodoyuSysmanagerInstallerException extends Exception {
 
 }
 

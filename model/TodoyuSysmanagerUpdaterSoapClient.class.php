@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuUpdaterSoapClient {
+class TodoyuSysmanagerUpdaterSoapClient {
 
 	/**
 	 * Path to WSDL file
@@ -41,7 +41,7 @@ class TodoyuUpdaterSoapClient {
 	/**
 	 * Singleton instance
 	 *
-	 * @var	TodoyuUpdaterSoapClient
+	 * @var	TodoyuSysmanagerUpdaterSoapClient
 	 */
 	private static $instance;
 
@@ -61,7 +61,7 @@ class TodoyuUpdaterSoapClient {
 	/**
 	 * Get instance of the updater
 	 *
-	 * @return	TodoyuUpdaterSoapClient
+	 * @return	TodoyuSysmanagerUpdaterSoapClient
 	 */
 	public static function getInstance() {
 		if( is_null(self::$instance) ) {

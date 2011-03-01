@@ -38,7 +38,7 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 	 * @return	String
 	 */
 	public function popupAction(array $params) {
-		return TodoyuRoleEditorRenderer::renderRoleQuickCreateForm($params);
+		return TodoyuSysmanagerRoleEditorRenderer::renderRoleQuickCreateForm($params);
 	}
 
 
@@ -54,7 +54,7 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 		$idRole	= intval($data['id']);
 
 			// Get form, call save hooks, set data
-		$form	= TodoyuRoleEditorManager::getQuickCreateForm($idRole);
+		$form	= TodoyuSysmanagerRoleEditorManager::getQuickCreateForm($idRole);
 		$data	= TodoyuFormHook::callSaveData('core/config/form/role.xml', $data, $idRole);
 		$form->setFormData($data);
 

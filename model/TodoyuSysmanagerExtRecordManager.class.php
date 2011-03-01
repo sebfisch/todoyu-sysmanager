@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuExtRecordManager {
+class TodoyuSysmanagerExtRecordManager {
 
 	/**
 	 * Get configuration for the tabs
@@ -59,7 +59,7 @@ class TodoyuExtRecordManager {
 
 			// Type
 		if( $type !== '' ) {
-			$typeConfig	= TodoyuExtManager::getRecordConfig($ext, $type);
+			$typeConfig	= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
 			$tabs[] = array(
 				'id'	=> $ext . '-' . $type,
 				'label'	=> TodoyuString::crop(TodoyuString::getLabel($typeConfig['label']), 18, '..', false),
@@ -72,7 +72,7 @@ class TodoyuExtRecordManager {
 			if( $idRecord === -1 ) {
 				$recordLabel	= Label('core.createNew');
 			} else {
-				$recordLabel	= TodoyuExtManager::getRecordObjectLabel($ext, $type, $idRecord);
+				$recordLabel	= TodoyuSysmanagerExtManager::getRecordObjectLabel($ext, $type, $idRecord);
 			}
 
 			$tabs[] = array(
@@ -95,7 +95,7 @@ class TodoyuExtRecordManager {
 	 */
 	public static function getAllRecordsList() {
 		$info		= array();
-		$extRecords	= TodoyuExtManager::getAllRecordsConfig();
+		$extRecords	= TodoyuSysmanagerExtManager::getAllRecordsConfig();
 
 		foreach($extRecords as $extKey => $records) {
 			$info[$extKey]['title']		= Label($extKey . '.ext.title');
@@ -106,7 +106,7 @@ class TodoyuExtRecordManager {
 				$info[$extKey]['records'][$type]['title']	= Label($config['label']);
 
 				if( isset($config['table']) ) {
-					$info[$extKey]['records'][$type]['count']	= TodoyuExtRecordManager::getRecordCount($config['table']);
+					$info[$extKey]['records'][$type]['count']	= TodoyuSysmanagerExtRecordManager::getRecordCount($config['table']);
 				} else {
 					$info[$extKey]['records'][$type]['count']	= '???';
 				}
@@ -128,7 +128,7 @@ class TodoyuExtRecordManager {
 	 */
 	public static function getRecordForm($ext, $type, $idRecord) {
 		$idRecord	= intval($idRecord);
-		$config		= TodoyuExtManager::getRecordConfig($ext, $type);
+		$config		= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
 
 			// Record form
 		$form 		= TodoyuFormManager::getForm($config['form'], $idRecord);
@@ -182,7 +182,7 @@ class TodoyuExtRecordManager {
 	 * @return	Integer
 	 */
 	public static function saveRecord($ext, $type, array $data) {
-		$config		= TodoyuExtManager::getRecordConfig($ext, $type);
+		$config		= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
 		$idRecord	= intval($data['id']);
 
 		if( TodoyuFunction::isFunctionReference($config['save']) ) {
@@ -204,7 +204,7 @@ class TodoyuExtRecordManager {
 	 * @param	Integer		$idRecord
 	 */
 	public static function deleteRecord($ext, $type, $idRecord) {
-		$config		= TodoyuExtManager::getRecordConfig($ext, $type);
+		$config		= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
 		$idRecord	= intval($idRecord);
 
 		if( TodoyuFunction::isFunctionReference($config['delete']) ) {

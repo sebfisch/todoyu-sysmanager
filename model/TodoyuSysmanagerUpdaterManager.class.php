@@ -19,12 +19,12 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * Manage updates
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuUpdaterManager {
+class TodoyuSysmanagerUpdaterManager {
 
 	/**
 	 * Check whether the update server is reachable
@@ -55,7 +55,7 @@ class TodoyuUpdaterManager {
 	public static function installExtensionUpdate($ext, $urlHash) {
 //		$pathExtract	= PATH . '/ext/' . $extkey;
 		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu/ext/' . $ext;
-		$urlUpdate		= TodoyuUpdaterManager::hash2path($urlHash);
+		$urlUpdate		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
 
 		return self::downloadAndExtractUpdate($urlUpdate, $pathExtract);
 	}
@@ -71,7 +71,7 @@ class TodoyuUpdaterManager {
 	public static function installCoreUpdate($urlHash) {
 //		$pathExtract	= PATH;
 		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu';
-		$urlUpdate		= TodoyuUpdaterManager::hash2path($urlHash);
+		$urlUpdate		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
 
 		return self::downloadAndExtractUpdate($urlUpdate, $pathExtract);
 	}

@@ -59,7 +59,7 @@ Todoyu.Ext.sysmanager.QuickCreateRole = {
 		if( response.hasTodoyuError() ) {
 				// Saving role failed
 			Todoyu.notifyError('[LLL:sysmanager.role.saved.error]');
-			Todoyu.Headlet.QuickCreate.updatePopupContent(response.responseText);
+			Todoyu.Headlets.QuickCreate.updatePopupContent(response.responseText);
 		} else {
 				// Saving succeeded
 			var idRole	= response.getTodoyuHeader('idRole');
