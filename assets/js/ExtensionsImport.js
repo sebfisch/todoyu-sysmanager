@@ -70,7 +70,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 
 			$('importExtension-form').submit();
 		} else {
-			alert('[LLL:sysmanager.upload.noArchiveSelected]');
+			alert('[LLL:sysmanager.ext.upload.noArchiveSelected]');
 		}
 	},
 
@@ -87,11 +87,11 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	 */
 	uploadFinished: function(ext, success, message) {
 		if( success === true ) {
-			Todoyu.notifySuccess('[LLL:sysmanager.upload.ok]: ' + ext);
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.upload.ok]: ' + ext);
 
 			this.ext.Extensions.Install.showList();
 		} else {
-			Todoyu.notifyError('[LLL:sysmanager.upload.error]: ' + ext + ' (' + message + ')');
+			Todoyu.notifyError('[LLL:sysmanager.ext.upload.error]: ' + ext + ' (' + message + ')');
 		}
 	}
 

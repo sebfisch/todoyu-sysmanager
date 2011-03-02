@@ -43,12 +43,12 @@ class TodoyuSysmanagerExtRecordManager {
 			// List
 		$tabs[] = array(
 			'id'		=> 'all',
-			'label'		=> 'LLL:sysmanager.records.tab.all'
+			'label'		=> 'LLL:sysmanager.ext.records.tab.all'
 		);
 
 			// Extension
 		if( $ext !== '' ) {
-			$extLabel	= Label($ext . '.ext.title');
+			$extLabel	= Label($ext . '.ext.ext.title');
 
 			$tabs[] = array(
 				'id'	=> $ext,
@@ -70,7 +70,7 @@ class TodoyuSysmanagerExtRecordManager {
 			// Record
 		if( $idRecord !== 0 ) {
 			if( $idRecord === -1 ) {
-				$recordLabel	= Label('core.createNew');
+				$recordLabel	= Label('core.global.createNew');
 			} else {
 				$recordLabel	= TodoyuSysmanagerExtManager::getRecordObjectLabel($ext, $type, $idRecord);
 			}
@@ -98,7 +98,7 @@ class TodoyuSysmanagerExtRecordManager {
 		$extRecords	= TodoyuSysmanagerExtManager::getAllRecordsConfig();
 
 		foreach($extRecords as $extKey => $records) {
-			$info[$extKey]['title']		= Label($extKey . '.ext.title');
+			$info[$extKey]['title']		= Label($extKey . '.ext.ext.title');
 			$info[$extKey]['records'] 	= array();
 
 			foreach($records as $type => $config) {

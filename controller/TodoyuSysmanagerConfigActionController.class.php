@@ -40,7 +40,7 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	public function logoAction(array $params) {
 		$logoData	= TodoyuRequest::getUploadFile('image', 'logo');
 
-		$success	= TodoyuSystemConfigManager::saveLogo($logoData);
+		$success	= TodoyuSysmanagerSystemConfigManager::saveLogo($logoData);
 
 		$commands	= 'window.parent.Todoyu.Ext.sysmanager.Config.Logo.onUploadFinished(' . ($success?'true':'false') . ');';
 

@@ -66,13 +66,13 @@ class TodoyuSysmanagerRightsEditorManager {
 	 */
 	public static function readXML($extKey, $xmlFile) {
 		$xmlFile	= TodoyuFileManager::pathAbsolute($xmlFile);
-		$localeKey	= $extKey . '-rights';
+		$localeKey	= $extKey . '.rights';
 		$data		= array();
 
 		$xml		= simplexml_load_file($xmlFile);
 
 			// Register locale file for rights
-		TodoyuLabelManager::register($localeKey, $extKey, 'rights.xml');
+//		TodoyuLabelManager::register($localeKey, $extKey, 'rights.xml');
 
 			// Load sections
 		foreach($xml->section as $section) {

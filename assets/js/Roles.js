@@ -69,7 +69,7 @@ Todoyu.Ext.sysmanager.Roles = {
 	 * @param	{Number}		idRole
 	 */
 	remove: function(idRole) {
-		if( confirm('[LLL:sysmanager.roles.delete.confirm]') ) {
+		if( confirm('[LLL:sysmanager.ext.roles.delete.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'role');
 			var options	= {
 				'parameters': {
@@ -141,10 +141,10 @@ Todoyu.Ext.sysmanager.Roles = {
 	 */
 	onSaved: function(response) {
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('[LLL:sysmanager.roles.saved.error]');
+			Todoyu.notifyError('[LLL:sysmanager.ext.roles.saved.error]');
 			Todoyu.Ui.setContentBody(response.responseText);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.roles.saved.ok]');
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.roles.saved.ok]');
 			this.showList();
 		}
 	},

@@ -1,9 +1,9 @@
 <table cellspacing="0" cellpadding="0" class="list typesAll recordsList">
 	<tr class="header">
 		<th scope="col" class="icon">&nbsp;</th>
-		<th scope="col" class="recordtype">{Label sysmanager.recordType}</th>
-		<th scope="col" class="extension">{Label sysmanager.extension}</th>
-		<th scope="col" class="records">{Label core.records}</th>
+		<th scope="col" class="recordtype">{Label sysmanager.ext.recordType}</th>
+		<th scope="col" class="extension">{Label sysmanager.ext.extension}</th>
+		<th scope="col" class="records">{Label core.global.records}</th>
 		<th scope="col" class="last actions">&nbsp;</th>
 	</tr>
 {foreach $list extKey extension}
@@ -17,7 +17,7 @@
 			<span class="exticon extIcon{ucwords($extKey)}"></span>
 			<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Records.showExtensionTypes('{$extKey}')">{$extension.title}</a>
 		</td>
-		<td class="records">{$record.count} {Label core.records}</td>
+		<td class="records">{$record.count} {Label core.global.records}</td>
 		<td class="actions">
 			<div class="icon list" onclick="Todoyu.Ext.sysmanager.Records.showTypeRecords('{$extKey}', '{$type}')"></div>
 		</td>

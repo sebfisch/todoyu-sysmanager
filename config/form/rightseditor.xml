@@ -10,7 +10,7 @@
 			<elements>
 
 				<field type="select" name="roles">
-					<label>sysmanager.rights.form.roles</label>
+					<label>sysmanager.ext.rights.form.roles</label>
 					<source type="function">
 						<function>TodoyuRoleViewHelper::getRoleOptions</function>
 					</source>
@@ -19,7 +19,7 @@
 				</field>
 
 				<field type="select" name="extension">
-					<label>sysmanager.rights.form.extension</label>
+					<label>sysmanager.ext.rights.form.extension</label>
 					<source type="function">
 						<function>TodoyuSysmanagerViewHelper::getExtensionOptions</function>
 					</source>

@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuSystemConfigRenderer {
+class TodoyuSysmanagerSystemConfigRenderer {
 
 	/**
 	 * Render module content
@@ -72,7 +72,7 @@ class TodoyuSystemConfigRenderer {
 
 	/**
 	 * Render tabs
-	 * 
+	 *
 	 * @param	Array	$params
 	 * @return	String
 	 */

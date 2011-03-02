@@ -101,7 +101,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	onFormChange: function() {
 		if( this.dirty ) {
-			if( confirm('[LLL:sysmanager.rights.dirtyChanges]') ) {
+			if( confirm('[LLL:sysmanager.ext.rights.dirtyChanges]') ) {
 				var roles	= this.getRoles();
 				var ext		= this.getExtension();
 				this.applyLastFormValues();
@@ -278,7 +278,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	onRightsSaved: function(callback, response) {
 		this.dirty = false;
-		Todoyu.notifySuccess('[LLL:sysmanager.rights.saved]');
+		Todoyu.notifySuccess('[LLL:sysmanager.ext.rights.saved]');
 		Todoyu.callIfExists(callback, this, response);
 	},
 

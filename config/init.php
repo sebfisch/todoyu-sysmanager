@@ -25,18 +25,18 @@
 Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 	array(
 		'id'	=> 'rights',
-		'label'	=> 'LLL:sysmanager.rights.tab.rights'
+		'label'	=> 'LLL:sysmanager.ext.rights.tab.rights'
 	),
 	array(
 		'id'	=> 'roles',
-		'label'	=> 'LLL:sysmanager.rights.tab.roles'
+		'label'	=> 'LLL:sysmanager.ext.rights.tab.roles'
 	)
 );
 	// "System configuration" module tabs
 Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 	array(
 		'id'	=> 'logo',
-		'label'	=> 'LLL:sysmanager.config.tab.logo'
+		'label'	=> 'LLL:sysmanager.ext.config.tab.logo'
 	)
 );
 	// Settings for uploadable company logo
@@ -58,9 +58,9 @@ Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 	'dataFunc'	=> 'TodoyuSysmanagerRoleEditorManager::getRoleListingData',
 	'columns'	=> array(
 		'icon'		=> '',
-		'title'		=> 'LLL:core.title',
-		'description'=>'LLL:core.description',
-		'persons'	=> 'LLL:sysmanager.roles.numPersons',
+		'title'		=> 'LLL:core.global.title',
+		'description'=>'LLL:core.global.description',
+		'persons'	=> 'LLL:sysmanager.ext.roles.numPersons',
 		'actions'	=> ''
 	),
 	'truncate'	=> array(

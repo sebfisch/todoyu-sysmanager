@@ -46,10 +46,10 @@ Todoyu.Ext.sysmanager.Config.Logo = {
 	 */
 	onUploadFinished: function(success) {
 		if( success ) {
-			Todoyu.notifySuccess('[LLL:sysmanager.config.logo.upload.ok]');
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.config.logo.upload.ok]');
 			setTimeout("document.location.reload()", 2000);
 		} else {
-			Todoyu.notifyError('[LLL:sysmanager.config.logo.upload.error]');
+			Todoyu.notifyError('[LLL:sysmanager.ext.config.logo.upload.error]');
 		}
 	}
 

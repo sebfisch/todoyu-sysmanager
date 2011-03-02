@@ -192,7 +192,7 @@ Todoyu.Ext.sysmanager.Records = {
 	 * @param	{Number}	idRecord
 	 */
 	remove: function(ext, type, idRecord) {
-		if( confirm('[LLL:sysmanager.records.delete.confirm]') ) {
+		if( confirm('[LLL:sysmanager.ext.records.delete.confirm]') ) {
 			var options = {
 				'parameters': {
 					'action':	'delete',
@@ -260,10 +260,10 @@ Todoyu.Ext.sysmanager.Records = {
 	 */
 	onSaved: function(form, ext, type, response) {
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('[LLL:sysmanager.records.saved.fail]');
+			Todoyu.notifyError('[LLL:sysmanager.ext.records.saved.fail]');
 			$(form.id).update(response.responseText);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.records.saved]');
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.records.saved]');
 			this.showTypeRecords(ext, type);
 		}
 	},

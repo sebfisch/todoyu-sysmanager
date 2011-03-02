@@ -16,11 +16,11 @@
 			<elements>
 
 				<field type="upload" name="file">
-					<label>sysmanager.upload.selectfile</label>
+					<label>sysmanager.ext.upload.selectfile</label>
 				</field>
 
 				<field type="checkbox" name="override">
-					<label>sysmanager.upload.override</label>
+					<label>sysmanager.ext.upload.override</label>
 				</field>
 
 
@@ -34,7 +34,7 @@
 
 				<field type="button" name="upload">
 					<type>submit</type>
-					<text>sysmanager.upload.button</text>
+					<text>sysmanager.ext.upload.button</text>
 					<class>uploadExtension</class>
 					<onclick>Todoyu.Ext.sysmanager.Extensions.Import.startUpload()</onclick>
 				</field>

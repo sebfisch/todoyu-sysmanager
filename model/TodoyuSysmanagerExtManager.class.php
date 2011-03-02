@@ -39,7 +39,7 @@ class TodoyuSysmanagerExtManager {
 			// Listing tab
 		$tabs[] = array(
 			'id'		=> 'list',
-			'label'		=> Label('sysmanager.tabs.extensions')
+			'label'		=> Label('sysmanager.ext.tabs.extensions')
 		);
 
 
@@ -48,7 +48,7 @@ class TodoyuSysmanagerExtManager {
 				// Config
 			$tabs[] = array(
 				'id'		=> $extKey . '_config',
-				'label'		=> 'LLL:sysmanager.tabs.config',
+				'label'		=> 'LLL:sysmanager.ext.tabs.config',
 				'class'		=> 'config'
 			);
 				// Info
@@ -61,19 +61,19 @@ class TodoyuSysmanagerExtManager {
 				// Update tab
 			$tabs[] = array(
 				'id'		=> 'browse',
-				'label'		=> 'LLL:sysmanager.tabs.browse',
+				'label'		=> 'LLL:sysmanager.ext.tabs.browse',
 				'class'		=> 'browse'
 			);
 				// Update tab
 			$tabs[] = array(
 				'id'		=> 'update',
-				'label'		=> 'LLL:sysmanager.tabs.update',
+				'label'		=> 'LLL:sysmanager.ext.tabs.update',
 				'class'		=> 'update'
 			);
 				// Installer tab
 			$tabs[] = array(
 				'id'		=> 'import',
-				'label'		=> 'LLL:sysmanager.tabs.import',
+				'label'		=> 'LLL:sysmanager.ext.tabs.import',
 				'class'		=> 'import'
 			);
 		}

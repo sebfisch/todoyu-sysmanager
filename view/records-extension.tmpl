@@ -1,9 +1,9 @@
 <table cellspacing="0" cellpadding="0" class="list typesExtension recordsList">
 	<tr class="header">
 		<th scope="col" class="icon">&nbsp;</th>
-		<th scope="col" class="recordtype">{Label sysmanager.recordType}</th>
-		<th scope="col" class="description">{Label core.description}</th>
-		<th scope="col" class="records">{Label core.records}</th>
+		<th scope="col" class="recordtype">{Label sysmanager.ext.recordType}</th>
+		<th scope="col" class="description">{Label core.global.description}</th>
+		<th scope="col" class="records">{Label core.global.records}</th>
 		<th scope="col" class="actions last">&nbsp;</th>
 	</tr>
 
@@ -17,7 +17,7 @@
 		<td class="description">
 			description
 		</td>
-		<td class="records">{$type.count} {Label core.records}</td>
+		<td class="records">{$type.count} {Label core.global.records}</td>
 		<td class="actions">
 			<div class="icon list" onclick="Todoyu.Ext.sysmanager.Records.showTypeRecords('{$extKey}', '{$type.type}')"></div>
 		</td>

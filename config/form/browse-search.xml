@@ -12,7 +12,7 @@
 			<elements>
 
 				<field type="text" name="fulltext">
-					<label>sysmanager.config.selectlogo</label>
+					<label>sysmanager.ext.config.selectlogo</label>
 				</field>
 
 			</elements>
@@ -24,7 +24,7 @@
 			<elements>
 
 				<field type="select" name="category">
-					<label>sysmanager.config.selectlogo</label>
+					<label>sysmanager.ext.config.selectlogo</label>
 				</field>
 
 			</elements>

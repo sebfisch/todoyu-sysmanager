@@ -300,7 +300,7 @@ class TodoyuSysmanagerExtInstaller {
 			// Check core version
 		if( isset($constraints['core']) ) {
 			if( version_compare($constraints['core'], TODOYU_VERSION) === 1 ) {
-				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.core') . ': ' . TODOYU_VERSION . ' < ' . $constraints['core']);
+				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.ext.extension.installExtension.error.core') . ': ' . TODOYU_VERSION . ' < ' . $constraints['core']);
 			}
 		}
 
@@ -308,12 +308,12 @@ class TodoyuSysmanagerExtInstaller {
 			// Check if all dependencies are ok
 		foreach($depends as $extKey => $requiredVersion) {
 			if( ! TodoyuExtensions::isInstalled($extKey) ) {
-				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.missing') . ': ' . $extKey);
+				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.ext.extension.installExtension.error.missing') . ': ' . $extKey);
 			}
 			$installedVersion	= TodoyuExtensions::getVersion($extKey);
 
 			if( version_compare($requiredVersion, $installedVersion) === 1 ) {
-				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.lowVersion') . ': ' . $extKey . ' - ' . $installedVersion . ' < ' . $requiredVersion);
+				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.ext.extension.installExtension.error.lowVersion') . ': ' . $extKey . ' - ' . $installedVersion . ' < ' . $requiredVersion);
 			}
 		}
 
@@ -322,7 +322,7 @@ class TodoyuSysmanagerExtInstaller {
 		$installedConflicts	= TodoyuExtensions::getConflicts($ext);
 
 		if( sizeof($installedConflicts) > 0 ) {
-			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $installedConflicts));
+			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.ext.extension.installExtension.error.conflicts') . ': ' . implode(', ', $installedConflicts));
 		}
 
 
@@ -332,7 +332,7 @@ class TodoyuSysmanagerExtInstaller {
 		$foundConflicts	= array_intersect($extConflicts, $installedExts);
 
 		if( sizeof($foundConflicts) > 0 ) {
-			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $foundConflicts));
+			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.ext.extension.installExtension.error.conflicts') . ': ' . implode(', ', $foundConflicts));
 		}
 
 		return true;

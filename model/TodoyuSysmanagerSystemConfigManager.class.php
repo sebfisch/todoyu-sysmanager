@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuSystemConfigManager {
+class TodoyuSysmanagerSystemConfigManager {
 
 	/**
 	 * Save uploaded image as logo

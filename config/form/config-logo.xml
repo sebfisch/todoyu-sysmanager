@@ -18,11 +18,11 @@
 			<elements>
 
 				<field type="comment" name="info">
-					<comment>sysmanager.config.selectlogo.info</comment>
+					<comment>sysmanager.ext.config.selectlogo.info</comment>
 				</field>
 
 				<field type="upload" name="image">
-					<label>sysmanager.config.selectlogo</label>
+					<label>sysmanager.ext.config.selectlogo</label>
 					<onchange>Todoyu.Ext.sysmanager.Config.Logo.onFileSelectionChange(this.form)</onchange>
 				</field>
 

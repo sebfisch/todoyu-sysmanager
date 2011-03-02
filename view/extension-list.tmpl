@@ -1,6 +1,6 @@
 {$tabs}
 
-{Title "LLL:sysmanager.installedExtensions"}
+{Title "LLL:sysmanager.ext.installedExtensions"}
 
 <table class="list extlist">
 	{include file="extension-list-header.tmpl"}
@@ -9,19 +9,19 @@
   <tr class="{cycle values="odd,even"}">
 	<td class="icon"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{extIcon $extKey}</a></td>
 	<td class="extkey">{$extKey}</td>
-	<td class="title">{htmlencode Label(cat($extKey '.ext.title'))}</td>
+	<td class="title">{htmlencode Label(cat($extKey '.ext.ext.title'))}</td>
 	<td class="edit">
 
-		<a href="javascript:void(0)" title="{Label sysmanager.extension.uninstallExtension}"
+		<a href="javascript:void(0)" title="{Label sysmanager.ext.extension.uninstallExtension}"
 			{if allowed('sysmanager','extensions:uninstall') && !extMgr_isSysExt($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.Install.uninstall('{$extKey}')" class="uninstall">
 			{else}
 				class="uninstall disabled">
 			{/if}
-			<span class="hidden">{Label core.uninstall}</span>
+			<span class="hidden">{Label core.global.uninstall}</span>
 		</a>
 
-		<a href="javascript:void(0)" title="{Label sysmanager.extension.showInfo}"
+		<a href="javascript:void(0)" title="{Label sysmanager.ext.extension.showInfo}"
 			{if extMgr_hasExtInfo($extKey) && allowed('sysmanager','extensions:info')}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')" class="info">
 			{else}
@@ -39,7 +39,7 @@
 			<span class="hidden">config</span>
 		</a>
 
-		<a href="javascript:void(0)" title="{Label sysmanager.extension.rights}"
+		<a href="javascript:void(0)" title="{Label sysmanager.ext.extension.rights}"
 			{if extMgr_hasRighsConfig($extKey) && allowed('sysmanager','extensions:rights')}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showRights('{$extKey}')" class="rights">
 			{else}
@@ -60,14 +60,14 @@
 	<td class="version">{$extInfo.version}</td>
 	<td class="download">
 		{restrict 'sysmanager' 'extensions:download'}
-		<a title="{Label sysmanager.extension.download}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
-			<span class="hidden">{Label file.download}</span>
+		<a title="{Label sysmanager.ext.extension.download}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
+			<span class="hidden">{Label core.global.file.download}</span>
 		</a>
 		{/restrict}
 	</td>
 	<td class="doc">
-		<a title="{Label sysmanager.documentation}" class="icon doc" href="javascript:void(0)">
-			<span class="hidden">{Label sysmanager:documentation}</span>
+		<a title="{Label sysmanager.ext.documentation}" class="icon doc" href="javascript:void(0)">
+			<span class="hidden">{Label sysmanager.ext.documentation}</span>
 		</a>
 	</td>
 	<td class="state">{$extInfo.state}</td>

@@ -48,11 +48,11 @@ Todoyu.Ext.sysmanager.ExtConf = {
 	 */
 	onSaved: function(response) {
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('[LLL:sysmanager.extconf.savingFailed]');
+			Todoyu.notifyError('[LLL:sysmanager.ext.extconf.savingFailed]');
 
 			$('config-form').replace(response.responseText);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.extconf.saved]', 3);
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.extconf.saved]', 3);
 		}
 	}
 
