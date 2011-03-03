@@ -24,7 +24,4 @@ define('PATH_EXT_SYSMANAGER', PATH_EXT . '/sysmanager');
 
 require_once( PATH_EXT_SYSMANAGER . '/dwoo/plugins.php');
 
-	// Register module locales
-//TodoyuLabelManager::register('sysmanager', 'sysmanager', 'ext.xml');
-
 ?>

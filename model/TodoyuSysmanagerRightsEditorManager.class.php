@@ -71,9 +71,6 @@ class TodoyuSysmanagerRightsEditorManager {
 
 		$xml		= simplexml_load_file($xmlFile);
 
-			// Register locale file for rights
-//		TodoyuLabelManager::register($localeKey, $extKey, 'rights.xml');
-
 			// Load sections
 		foreach($xml->section as $section) {
 			$sectionName	= (string)$section['name'];
@@ -95,8 +92,8 @@ class TodoyuSysmanagerRightsEditorManager {
 				$data[$sectionName]['rights'][$rightName] = array(
 					'right'		=> $rightName,
 					'full'		=> $sectionName . ':' . $rightName,
-					'label'		=> TodoyuLabelManager::getLabel($localeKey . '.' . $sectionName . '.' . $rightName),
-					'comment'	=> TodoyuLabelManager::getLabelIfExists($localeKey . '.' . $sectionName . '.' . $rightName . '.comment'),
+					'label'		=> Label($localeKey . '.' . $sectionName . '.' . $rightName),
+					'comment'	=> Label($localeKey . '.' . $sectionName . '.' . $rightName . '.comment'),
 					'require'	=> array()
 				);
 
