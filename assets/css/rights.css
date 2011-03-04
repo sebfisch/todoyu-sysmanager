@@ -7,8 +7,7 @@
 	Tabs
    ------------------- */
 #rights-tabs li span.icon {
-	background-image:url(../img/icons.png);
-	background-repeat:no-repeat;
+	background:url(../img/icons.png) no-repeat;
 }
 #rights-tabs li.rights span.icon {
 	background-position:0 -295px;
@@ -59,9 +58,8 @@
 
 #rightsmatix-form fieldset {
 	width:610px;
-	border:1px solid #AAA;
-	padding:10px;
-	padding-top:0;
+	border:1px solid #aaa;
+	padding:0 10px 10px;
 	margin-bottom:10px;
 }
 
@@ -76,7 +74,7 @@
 	width:250px;
 	/*font-weight:bold;*/
 	text-align:left;
-	border-bottom:1px dashed #DDD;
+	border-bottom:1px dashed #ddd;
 }
 
 #rightsmatix-form td.label a {
@@ -177,8 +175,7 @@
 	margin-right:5px;
 }
 .rolesListing td.actions span {
-	background-image:url(../img/icons.png);
-	background-repeat:no-repeat;
+	background:url(../img/icons.png) no-repeat;
 }
 .rolesListing td.actions span.edit {
 	background-position:0 -239px;
