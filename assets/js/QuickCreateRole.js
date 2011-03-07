@@ -65,7 +65,7 @@ Todoyu.Ext.sysmanager.QuickCreateRole = {
 			var idRole	= response.getTodoyuHeader('idRole');
 			Todoyu.Hook.exec('sysmanager.role.saved', idRole);
 
-			Todoyu.Popup.close('quickcreate');
+			Todoyu.Popups.close('quickcreate');
 			Todoyu.Ext.sysmanager.RightsEditor.updateEditor();
 			Todoyu.notifySuccess('[LLL:sysmanager.ext.role.saved]');
 		}

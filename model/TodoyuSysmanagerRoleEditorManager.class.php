@@ -42,7 +42,7 @@ class TodoyuSysmanagerRoleEditorManager {
 		$form->setAttribute('action', '?ext=sysmanager&amp;controller=quickcreaterole');
 		$form->setAttribute('onsubmit', 'return false');
 		$form->getFieldset('buttons')->getField('save')->setAttribute('onclick', 'Todoyu.Ext.sysmanager.QuickCreateRole.save(this.form)');
-		$form->getFieldset('buttons')->getField('cancel')->setAttribute('onclick', 'Todoyu.Popup.close(\'quickcreate\')');
+		$form->getFieldset('buttons')->getField('cancel')->setAttribute('onclick', 'Todoyu.Popups.close(\'quickcreate\')');
 
 		return $form;
 	}
