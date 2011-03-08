@@ -198,6 +198,12 @@ class TodoyuSysmanagerUpdaterSoapClient {
 	}
 
 
+
+	/**
+	 * Check whether client has SOAP debug available
+	 *
+	 * @return	Boolean
+	 */
 	private function hasSoapDebug() {
 		$headerString	= $this->getClient()->__getLastResponseHeaders();
 		$headers		= TodoyuString::extractHeadersFromString($headerString);

@@ -296,14 +296,12 @@ class TodoyuSysmanagerExtInstaller {
 			$constraints	= TodoyuExtensions::getExtInfo($ext);
 		}
 
-
 			// Check core version
 		if( isset($constraints['core']) ) {
 			if( version_compare($constraints['core'], TODOYU_VERSION) === 1 ) {
 				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.ext.extension.installExtension.error.core') . ': ' . TODOYU_VERSION . ' < ' . $constraints['core']);
 			}
 		}
-
 
 			// Check if all dependencies are ok
 		foreach($depends as $extKey => $requiredVersion) {
@@ -317,14 +315,12 @@ class TodoyuSysmanagerExtInstaller {
 			}
 		}
 
-
 			// Check if the extension conflicts with an installed one
 		$installedConflicts	= TodoyuExtensions::getConflicts($ext);
 
 		if( sizeof($installedConflicts) > 0 ) {
 			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.ext.extension.installExtension.error.conflicts') . ': ' . implode(', ', $installedConflicts));
 		}
-
 
 			// Check if the extension has conflicts with an installed extension
 		$extConflicts	= TodoyuArray::assure($constraints['conflicts']);
