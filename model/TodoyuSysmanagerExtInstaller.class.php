@@ -377,7 +377,7 @@ class TodoyuSysmanagerExtInstaller {
 		$fileName	= self::buildExtensionArchiveName($extKey, $version['major'], $version['minor'], $version['revision']);
 		$mimeType	= 'application/octet-stream';
 
-			// Send file for download and delete temporary zip file after download
+			// Send file for download and delete temporary ZIP file after download
 		TodoyuFileManager::sendFile($archivePath, $mimeType, $fileName);
 		unlink($archivePath);
 	}

@@ -20,7 +20,7 @@
 
 /**
  * Extension archiver
- * Pack a whole extension into a zip archive file
+ * Pack a whole extension into a ZIP archive file
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
@@ -28,7 +28,7 @@
 class TodoyuSysmanagerExtArchiver {
 
 	/**
-	 * Create a extension archive (zip file) in cache and return the path to it
+	 * Create a extension archive (ZIP file) in cache and return the path to it
 	 *
 	 * @param	String		$extKey
 	 * @return	String		Path to archive in cache

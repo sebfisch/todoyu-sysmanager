@@ -100,7 +100,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 
 	/**
-	 * Download an extension packed in an archive (zip)
+	 * Download an extension packed in an archive (ZIP)
 	 *
 	 * @param	Array		$params
 	 */
