@@ -138,7 +138,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Uninstall an extension (update extension config file)
 	 *
-	 * @param  String		$extKey
+	 * @param	String		$extKey
 	 */
 	public static function uninstallExtension($extKey) {
 		self::callExtensionSetup($extKey, 'uninstall');
@@ -540,7 +540,7 @@ class TodoyuSysmanagerExtInstaller {
 	 * Extract archive file at given path into extension folder named after given extension key
 	 *
 	 * @param	String		$extKey
-	 * @param  String		$pathArchive
+	 * @param	String		$pathArchive
 	 */
 	public static function extractExtensionArchive($extKey, $pathArchive) {
 		$archive	= new ZipArchive();
