@@ -22,7 +22,14 @@
  */
 Todoyu.Ext.sysmanager.Extensions.Install = {
 
+	/**
+	 * Reference to extension
+	 *
+	 * @property	ext
+	 * @type		Object
+	 */
 	ext: Todoyu.Ext.sysmanager,
+
 
 
 	/**

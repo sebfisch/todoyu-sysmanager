@@ -21,18 +21,28 @@
  * Rights mask manager
  */
 Todoyu.Ext.sysmanager.RightsEditor = {
+
 	/**
 	 * Requireds and dependents
+	 *
+	 * @property	require
+	 * @type		Object
 	 */
 	require: {},
 
 	/**
 	 * True if unsaved changes are in the form
+	 *
+	 * @property	dirty
+	 * @type		Boolean
 	 */
 	dirty: false,
 
 	/**
 	 * Last form values (for dirty check)
+	 *
+	 * @property	lastFormValues
+	 * @type		Object
 	 */
 	lastFormValues:{},
 
@@ -126,8 +136,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	storeLastFormValues: function(roles, ext) {
 		this.lastFormValues = {
-			roles: roles || this.getRoles(),
-			ext: ext || this.getExtension()
+			roles:	roles || this.getRoles(),
+			ext:	ext || this.getExtension()
 		};
 	},
 

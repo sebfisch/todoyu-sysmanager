@@ -22,7 +22,14 @@
  */
 Todoyu.Ext.sysmanager.Extensions.Import = {
 
+	/**
+	 * Reference to extension
+	 *
+	 * @property	ext
+	 * @type		Object
+	 */
 	ext: Todoyu.Ext.sysmanager,
+
 
 
 	/**

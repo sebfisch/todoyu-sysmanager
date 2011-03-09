@@ -23,9 +23,13 @@
 Todoyu.Ext.sysmanager.Roles = {
 
 	/**
-	 * Extension
+	 * Reference to extension
+	 *
+	 * @property	ext
+	 * @type		Object
 	 */
 	ext: Todoyu.Ext.sysmanager,
+
 
 
 	/**

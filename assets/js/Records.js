@@ -20,16 +20,29 @@
 Todoyu.Ext.sysmanager.Records = {
 
 	/**
-	 * Ext shortcut
+	 * Reference to extension
 	 *
-	 * @var	{Object}	ext
+	 * @property	ext
+	 * @type		Object
 	 */
 	ext:	Todoyu.Ext.sysmanager,
 
+	/**
+	 * @property	url
+	 * @type		String
+	 */
 	url:	Todoyu.getUrl('sysmanager', 'records'),
 
+	/**
+	 * @property	extKey
+	 * @type		String
+	 */
 	extKey:	'',
 
+	/**
+	 * @property	type
+	 * @type		String
+	 */
 	type:	'',
 
 

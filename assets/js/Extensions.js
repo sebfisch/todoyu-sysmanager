@@ -20,9 +20,10 @@
 Todoyu.Ext.sysmanager.Extensions = {
 
 	/**
-	 * Ext namespace shortcut
+	 * Reference to extension
 	 *
-	 * @var	{Object}	ext
+	 * @property	ext
+	 * @type		Object
 	 */
 	ext: Todoyu.Ext.sysmanager,
 

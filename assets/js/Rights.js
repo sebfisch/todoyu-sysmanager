@@ -19,6 +19,12 @@
 
 Todoyu.Ext.sysmanager.Rights = {
 
+	/**
+	 * Reference to extension
+	 *
+	 * @property	ext
+	 * @type		Object
+	 */
 	ext: Todoyu.Ext.sysmanager,
 
 

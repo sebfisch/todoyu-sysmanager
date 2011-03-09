@@ -23,6 +23,10 @@
 
 Todoyu.Ext.sysmanager = {
 
+	/**
+	 * @property	PanelWidget
+	 * @type		Object
+	 */
 	PanelWidget: {}
 
 };
