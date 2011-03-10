@@ -19,6 +19,8 @@
 
 /**
  * Extension installation
+ *
+ * @module	Sysmanager
  */
 Todoyu.Ext.sysmanager.Extensions.Install = {
 

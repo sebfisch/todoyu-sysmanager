@@ -18,6 +18,10 @@
  *****************************************************************************/
 
 /**
+ * @module	Sysmanager
+ */
+
+/**
  * System logo upload
  */
 Todoyu.Ext.sysmanager.Config.Logo = {

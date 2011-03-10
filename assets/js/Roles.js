@@ -18,6 +18,10 @@
 *****************************************************************************/
 
 /**
+ * @module	Sysmanager
+ */
+
+/**
  * Role manager
  */
 Todoyu.Ext.sysmanager.Roles = {

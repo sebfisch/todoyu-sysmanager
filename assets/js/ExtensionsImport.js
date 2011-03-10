@@ -19,6 +19,8 @@
 
 /**
  * Extension import/upload
+ *
+ * @module	Sysmanager
  */
 Todoyu.Ext.sysmanager.Extensions.Import = {
 

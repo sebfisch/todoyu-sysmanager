@@ -18,6 +18,10 @@
 *****************************************************************************/
 
 /**
+ * @module	Sysmanager
+ */
+
+/**
  * Rights mask manager
  */
 Todoyu.Ext.sysmanager.RightsEditor = {

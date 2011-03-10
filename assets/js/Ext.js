@@ -18,9 +18,15 @@
 *****************************************************************************/
 
 /**
- *	Ext: sysmanager
+ * @module	Sysmanager
  */
 
+/**
+ * Sysmanager main object
+ *
+ * @class		sysmanager
+ * @namespace	Todoyu.Ext
+ */
 Todoyu.Ext.sysmanager = {
 
 	/**

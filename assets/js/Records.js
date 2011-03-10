@@ -17,6 +17,10 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
+/**
+ * @module	Sysmanager
+ */
+
 Todoyu.Ext.sysmanager.Records = {
 
 	/**
