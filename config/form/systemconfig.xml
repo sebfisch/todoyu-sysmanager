@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<attributes>
+		<attribute name="action">?ext=sysmanager&amp;controller=config</attribute>
+		<attribute name="name">systemconfig</attribute>
+	</attributes>
+	<fieldsets>
+		<fieldset name="main">
+			<legend>Main editor data</legend>
+			<elements>
+
+				<field type="text" name="name">
+					<label>sysmanager.ext.config.tab.systemconfig.name</label>
+					<required />
+				</field>
+
+				<field type="text" name="email">
+					<label>sysmanager.ext.config.tab.systemconfig.email</label>
+					<required />
+				</field>
+
+				<field type="select" name="locale">
+					<label>sysmanager.ext.config.tab.systemconfig.locale</label>
+					<source type="function">
+						<function>TodoyuSysmanagerSystemConfigViewHelper::getLocaleOptions</function>
+					</source>
+				</field>
+
+				<field type="selectgrouped" name="timezone">
+					<label>sysmanager.ext.config.tab.systemconfig.timezone</label>
+					<source type="function">
+						<function>TodoyuSysmanagerSystemConfigViewHelper::getTimezoneOptionsGrouped</function>
+					</source>
+				</field>
+
+			</elements>
+		</fieldset>
+
+		<fieldset name="buttons">
+			<legend>Actions</legend>
+			<class>buttons</class>
+			<elements>
+
+				<field type="saveButton" name="save">
+					<onclick>Todoyu.Ext.sysmanager.Config.saveSystemConfig(this.form)</onclick>
+				</field>
+
+			</elements>
+		</fieldset>
+
+	</fieldsets>
+</form>

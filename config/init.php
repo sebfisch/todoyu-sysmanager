@@ -35,6 +35,10 @@ Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 	// "System configuration" module tabs
 Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 	array(
+		'id'	=> 'systemconfig',
+		'label'	=> 'LLL:sysmanager.ext.config.tab.systemconfig'
+	),
+	array(
 		'id'	=> 'logo',
 		'label'	=> 'LLL:sysmanager.ext.config.tab.logo'
 	)

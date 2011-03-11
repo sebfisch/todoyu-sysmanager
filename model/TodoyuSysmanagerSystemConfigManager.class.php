@@ -51,6 +51,25 @@ class TodoyuSysmanagerSystemConfigManager {
 
 
 	/**
+	 * Save data in system configuration file
+	 *
+	 * @param	Array		$formdata
+	 */
+	public static function saveSystemConfig(array $formdata) {
+		$data	= array(
+			'name'			=> $formdata['name'],
+			'email'			=> $formdata['email'],
+			'locale'		=> $formdata['locale'],
+			'timezone'		=> $formdata['timezone'],
+			'encryptionKey'	=> Todoyu::$CONFIG['SYSTEM']['encryptionKey']
+		);
+
+		TodoyuInstallerManager::saveSystemConfig($data, false);
+	}
+
+
+
+	/**
 	 * Check whether uploaded image data is valid
 	 *
 	 * @param	Array		$imageUploadData
@@ -70,6 +89,29 @@ class TodoyuSysmanagerSystemConfigManager {
 		}
 
 		return true;
+	}
+
+
+
+	/**
+	 * Get config array of locale options
+	 *
+	 * @param	TodoyuFormElement	$field
+	 * @return	Array
+	 */
+	public static function getLocaleOptions() {
+		$locales	= TodoyuLocaleManager::getLocaleKeys();
+		$options	= array();
+		$default	= TodoyuLocaleManager::getDefaultLocale();
+
+		foreach($locales as $locale) {
+			$options[] = array(
+				'value'	=> $locale,
+				'label'	=> Label('core.locale.' . $locale, $locale) . ' <=> ' . Label('core.locale.' . $locale, $default)
+			);
+		}
+
+		return $options;
 	}
 
 }

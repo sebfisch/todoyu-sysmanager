@@ -12,3 +12,7 @@
 #config-tabs li.logo span.icon {
 	background-position:0 -595px;
 }
+
+#config-tabs li.systemconfig span.icon {
+	background-position:0 -565px;
+}

@@ -32,6 +32,42 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 
 
 	/**
+	 * Update system config content body
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	public function updateAction(array $params) {
+		return TodoyuSysmanagerSystemConfigRenderer::renderBody($params);
+	}
+
+
+
+	/**
+	 * Save system configuration form
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
+	public function saveSystemConfigAction(array $params) {
+		$data	= TodoyuArray::assure($params['systemconfig']);
+		$xml	= 'ext/sysmanager/config/form/systemconfig.xml';
+		$form	= TodoyuFormManager::getForm($xml);
+		$form->setFormData($data);
+
+		if( $form->isValid() ) {
+			$storageData	= $form->getStorageData();
+			TodoyuSysmanagerSystemConfigManager::saveSystemConfig($storageData);
+		} else {
+			TodoyuHeader::sendTodoyuErrorHeader();
+		}
+
+		return $form->render();
+	}
+
+
+
+	/**
 	 * Save uploaded logo if valid
 	 *
 	 * @param	Array		$params

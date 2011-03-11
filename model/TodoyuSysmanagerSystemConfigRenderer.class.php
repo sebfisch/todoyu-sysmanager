@@ -47,8 +47,14 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	 * @param	Array	$params
 	 * @return	String
 	 */
-	private static function renderBody(array $params) {
-		return self::renderBodyLogo($params);
+	public static function renderBody(array $params) {
+		switch($params['tab']) {
+			case 'logo':
+				return self::renderBodyLogo($params);
+
+			default:
+				return self::renderBodySystemConfig($params);
+		}
 	}
 
 
@@ -70,6 +76,25 @@ class TodoyuSysmanagerSystemConfigRenderer {
 
 
 
+
+	/**
+	 * Render content body for system config
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	private static function renderBodySystemConfig(array $params) {
+		$data	= TodoyuArray::assure(Todoyu::$CONFIG['SYSTEM']);
+		$xml	= 'ext/sysmanager/config/form/systemconfig.xml';
+		$form	= TodoyuFormManager::getForm($xml);
+
+		$form->setFormData($data);
+		
+		return $form->render();
+	}
+
+
+
 	/**
 	 * Render tabs
 	 *
@@ -80,6 +105,7 @@ class TodoyuSysmanagerSystemConfigRenderer {
 		$name		= 'config';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Config.onTabClick.bind(Todoyu.Ext.sysmanager.Config)';
 		$tabs		= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['sysmanager']['configTabs']);
+		$active		= $tabs[0]['id'];
 
 		foreach($tabs as $tab) {
 			$active	= $tab['id'];

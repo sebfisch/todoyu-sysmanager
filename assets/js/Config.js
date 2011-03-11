@@ -33,11 +33,67 @@ Todoyu.Ext.sysmanager.Config = {
 	 * Click handler for sysmanager tabs
 	 *
 	 * @method	onTabClick
-	 * @param	{String}	key
 	 * @param	{Event}		event
+	 * @param	{String}	tab
 	 */
-	onTabClick: function(key, event) {
+	onTabClick: function(event, tab) {
+		var url		= Todoyu.getUrl('sysmanager', 'config');
+		var options	= {
+			'parameters': {
+				'action':	'update',
+				'tab':		tab
+			},
+			'onComplete': this.onTabLoaded.bind(this, tab)
+		};
 
+		Todoyu.Ui.updateContentBody(url, options);
+	},
+
+
+
+	/**
+	 * Handler when tab was loaded
+	 *
+	 * @method	onTabLoaded
+	 * @param	{String}		tab
+	 * @param	{Ajax.Response}	response
+	 */
+	onTabLoaded: function(tab, response) {
+
+	},
+
+
+
+	/**
+	 * Save system configuration form
+	 *
+	 * @method	saveSystemConfig
+	 * @param	{Form}	form
+	 */
+	saveSystemConfig: function(form) {
+		$(form).request({
+			parameters: {
+				action: 'saveSystemConfig'
+			},
+			onComplete: this.onSystemConfigSaved.bind(this)
+		});
+	},
+
+
+
+	/**
+	 * Handler when system config was saved
+	 *
+	 * @param	{Ajax.Response}	response
+	 */
+	onSystemConfigSaved: function(response) {
+		if( response.hasTodoyuError() ) {
+			Todoyu.notifyError('[LLL:sysmanager.ext.config.tab.systemconfig.failed]');
+		} else {
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.config.tab.systemconfig.saved]');
+		}
+
+		Todoyu.Ui.setContentBody(response.responseText);
 	}
 
 };

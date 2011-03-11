@@ -86,6 +86,13 @@
 	<label index="upload.error">Extension Upload Failed</label>
 	<label index="config.logo.upload.ok">Logo has been uploaded successfully</label>
 	<label index="config.logo.upload.error">Logo Upload Failed</label>
+	<label index="config.tab.systemconfig">System Settings</label>
+	<label index="config.tab.systemconfig.name">System Name</label>
+	<label index="config.tab.systemconfig.email">System Email</label>
+	<label index="config.tab.systemconfig.locale">System Locale</label>
+	<label index="config.tab.systemconfig.timezone">System Timezone</label>
+	<label index="config.tab.systemconfig.saved">System configuration was updated</label>
+	<label index="config.tab.systemconfig.failed">Updating system configuration failed</label>
 	<label index="config.tab.logo">Change Logo</label>
 	<label index="config.selectlogo">Choose Logo</label>
 	<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
