@@ -27,7 +27,7 @@
 class TodoyuSysmanagerRightsEditorRenderer {
 
 	/**
-	 * Render rights editor
+	 * Render rights editor module of active tab
 	 *
 	 * @param	Array	$params
 	 * @return	String

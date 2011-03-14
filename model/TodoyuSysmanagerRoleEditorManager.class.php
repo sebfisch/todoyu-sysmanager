@@ -66,7 +66,7 @@ class TodoyuSysmanagerRoleEditorManager {
 		);
 
 			// Add all roles to list
-		foreach($roles as $index => $role) {
+		foreach($roles as $role) {
 			$data['rows'][] = array(
 				'icon'			=> '',
 				'title'			=> $role['title'],
