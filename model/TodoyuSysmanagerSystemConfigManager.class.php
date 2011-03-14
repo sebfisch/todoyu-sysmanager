@@ -57,14 +57,24 @@ class TodoyuSysmanagerSystemConfigManager {
 	 */
 	public static function saveSystemConfig(array $formdata) {
 		$data	= array(
-			'name'			=> $formdata['name'],
-			'email'			=> $formdata['email'],
-			'locale'		=> $formdata['locale'],
-			'timezone'		=> $formdata['timezone'],
-			'encryptionKey'	=> Todoyu::$CONFIG['SYSTEM']['encryptionKey']
+			'name'		=> trim($formdata['name']),
+			'email'		=> trim($formdata['email']),
+			'locale'	=> trim($formdata['locale']),
+			'timezone'	=> trim($formdata['timezone'])
 		);
 
-		TodoyuInstallerManager::saveSystemConfig($data, false);
+		TodoyuConfigManager::saveSystemConfigConfig($data, false);
+	}
+
+
+
+	/**
+	 * Save password strength file
+	 * @param array $formdata
+	 * @return void
+	 */
+	public static function savePasswordStrength(array $formdata) {
+		TodoyuConfigManager::savePasswordStrengthConfig($formdata);
 	}
 
 

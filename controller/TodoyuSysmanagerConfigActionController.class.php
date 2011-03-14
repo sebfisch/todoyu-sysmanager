@@ -82,6 +82,19 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 
 		return TodoyuRenderer::renderUploadIFrameJsContent($commands);
 	}
+
+
+
+	/**
+	 * Save password strength config
+	 *
+	 * @param	Array	$params
+	 */
+	public function savePasswordStrengthAction(array $params) {
+		$data	= TodoyuArray::assure($params['passwordstrength']);
+
+		TodoyuSysmanagerSystemConfigManager::savePasswordStrength($data);
+	}
 }
 
 ?>

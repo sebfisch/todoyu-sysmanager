@@ -94,6 +94,20 @@ Todoyu.Ext.sysmanager.Config = {
 		}
 
 		Todoyu.Ui.setContentBody(response.responseText);
+	},
+
+
+	savePasswordStrength: function(form) {
+		$(form).request({
+			parameters: {
+				action: 'savePasswordStrength'
+			},
+			onComplete: this.onPasswordStrengthSaved.bind(this)
+		});
+	},
+
+	onPasswordStrengthSaved: function(response) {
+		Todoyu.notifySuccess('[LLL:sysmanager.ext.config.tab.passwordstrength.saved]');
 	}
 
 };

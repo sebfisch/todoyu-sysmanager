@@ -93,6 +93,14 @@
 	<label index="config.tab.systemconfig.timezone">System Timezone</label>
 	<label index="config.tab.systemconfig.saved">System configuration was updated</label>
 	<label index="config.tab.systemconfig.failed">Updating system configuration failed</label>
+	<label index="config.tab.passwordstrength">Password</label>
+	<label index="config.tab.passwordstrength.minLenth">Minimal Length</label>
+	<label index="config.tab.passwordstrength.minLenth.characters">Characters</label>
+	<label index="config.tab.passwordstrength.hasNumbers">Numbers (0-9)</label>
+	<label index="config.tab.passwordstrength.hasLowerCase">Lower Case (a-z)</label>
+	<label index="config.tab.passwordstrength.hasUpperCase">Upper Case (A-Z)</label>
+	<label index="config.tab.passwordstrength.hasSpecialChars">Special Chars (_-#!?...)</label>
+	<label index="config.tab.passwordstrength.saved">Special Chars (_-#!?...)</label>
 	<label index="config.tab.logo">Change Logo</label>
 	<label index="config.selectlogo">Choose Logo</label>
 	<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>

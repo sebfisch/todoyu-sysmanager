@@ -16,3 +16,7 @@
 #config-tabs li.systemconfig span.icon {
 	background-position:0 -565px;
 }
+
+#config-tabs li.passwordstrength span.icon {
+	background-position:0 -805px;
+}

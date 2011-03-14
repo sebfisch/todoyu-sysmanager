@@ -39,6 +39,10 @@ Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 		'label'	=> 'LLL:sysmanager.ext.config.tab.systemconfig'
 	),
 	array(
+		'id'	=> 'passwordstrength',
+		'label'	=> 'LLL:sysmanager.ext.config.tab.passwordstrength'
+	),
+	array(
 		'id'	=> 'logo',
 		'label'	=> 'LLL:sysmanager.ext.config.tab.logo'
 	)

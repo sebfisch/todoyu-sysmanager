@@ -42,7 +42,7 @@
 			<elements>
 
 				<field type="saveButton" name="save">
-					<onclick>Todoyu.Ext.sysmanager.Config.saveSystemConfig(this.form)</onclick>
+					<onclick>Todoyu.Ext.sysmanager.Config.saveSystemConfigConfig(this.form)</onclick>
 				</field>
 
 			</elements>

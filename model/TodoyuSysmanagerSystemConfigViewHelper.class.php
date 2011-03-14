@@ -26,12 +26,24 @@
  */
 class TodoyuSysmanagerSystemConfigViewHelper {
 
-
+	/**
+	 * Get options for locale selector
+	 *
+	 * @param	TodoyuFormElement	$field
+	 * @return	Array
+	 */
 	public static function getLocaleOptions(TodoyuFormElement $field) {
 		return TodoyuSysmanagerSystemConfigManager::getLocaleOptions();
 	}
 
 
+
+	/**
+	 * Get grouped options for timezone selector
+	 *
+	 * @param	TodoyuFormElement	$field
+	 * @return	Array
+	 */
 	public static function getTimezoneOptionsGrouped(TodoyuFormElement $field) {
 		$timezones	= TodoyuContactViewHelper::getTimezoneOptionsGrouped($field);
 
@@ -42,6 +54,27 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 		}
 
 		return $timezones;
+	}
+
+
+
+	/**
+	 * Get options for password minLength selector
+	 *
+	 * @param	TodoyuFormElement	$field
+	 * @return	Array
+	 */
+	public static function getPasswordMinLengthOptions(TodoyuFormElement $field) {
+		$options	= array();
+
+		for($i=0; $i<=12; $i++) {
+			$options[] = array(
+				'value'	=> $i,
+				'label'	=> $i . ' ' . Label('sysmanager.ext.config.tab.passwordstrength.minLenth.characters')
+			);
+		}
+
+		return $options;
 	}
 
 }
