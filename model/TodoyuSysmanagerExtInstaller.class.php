@@ -100,7 +100,7 @@ class TodoyuSysmanagerExtInstaller {
 
 		self::updateDatabase();
 
-		self::callExtensionInstaller($extKey, 'install');
+		self::callExtensionSetup($extKey, 'install');
 	}
 
 
