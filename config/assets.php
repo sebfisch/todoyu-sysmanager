@@ -28,91 +28,91 @@
 Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 	'js' => array(
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/Ext.js',
+			'file'		=> 'ext/sysmanager/asset/js/Ext.js',
 			'position'	=> 100
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/QuickCreateRole.js',
+			'file'		=> 'ext/sysmanager/asset/js/QuickCreateRole.js',
 			'position'	=> 100
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/Extensions.js',
+			'file'		=> 'ext/sysmanager/asset/js/Extensions.js',
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/ExtensionsImport.js',
+			'file'		=> 'ext/sysmanager/asset/js/ExtensionsImport.js',
 			'position'	=> 103
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/ExtensionsInstall.js',
+			'file'		=> 'ext/sysmanager/asset/js/ExtensionsInstall.js',
 			'position'	=> 103
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/Records.js',
+			'file'		=> 'ext/sysmanager/asset/js/Records.js',
 			'position'	=> 103
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/ExtConf.js',
+			'file'		=> 'ext/sysmanager/asset/js/ExtConf.js',
 			'position'	=> 103
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/Rights.js',
+			'file'		=> 'ext/sysmanager/asset/js/Rights.js',
 			'position'	=> 101
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/RightsEditor.js',
+			'file'		=> 'ext/sysmanager/asset/js/RightsEditor.js',
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/Roles.js',
+			'file'		=> 'ext/sysmanager/asset/js/Roles.js',
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/Config.js',
+			'file'		=> 'ext/sysmanager/asset/js/Config.js',
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/ConfigLogo.js',
+			'file'		=> 'ext/sysmanager/asset/js/ConfigLogo.js',
 			'position'	=> 103
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/js/Updater.js',
+			'file'		=> 'ext/sysmanager/asset/js/Updater.js',
 			'position'	=> 104
 		)
 	),
 	'css' => array(
 		array(
-			'file'		=> 'ext/sysmanager/assets/css/ext.css',
+			'file'		=> 'ext/sysmanager/asset/css/ext.css',
 			'media'		=> 'all',
 			'position'	=> 100
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/css/extensions.css',
+			'file'		=> 'ext/sysmanager/asset/css/extensions.css',
 			'media'		=> 'all',
 			'position'	=> 101
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/css/records.css',
+			'file'		=> 'ext/sysmanager/asset/css/records.css',
 			'media'		=> 'all',
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/css/recordsoverview.css',
+			'file'		=> 'ext/sysmanager/asset/css/recordsoverview.css',
 			'media'		=> 'all',
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/css/rights.css',
+			'file'		=> 'ext/sysmanager/asset/css/rights.css',
 			'media'		=> 'all',
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/css/config.css',
+			'file'		=> 'ext/sysmanager/asset/css/config.css',
 			'media'		=> 'all',
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/assets/css/updater.css',
+			'file'		=> 'ext/sysmanager/asset/css/updater.css',
 			'media'		=> 'all',
 			'position'	=> 102
 		)
