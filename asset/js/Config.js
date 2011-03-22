@@ -84,6 +84,7 @@ Todoyu.Ext.sysmanager.Config = {
 	/**
 	 * Handler when system config was saved
 	 *
+	 * @method	onSystemConfigSaved
 	 * @param	{Ajax.Response}	response
 	 */
 	onSystemConfigSaved: function(response) {
@@ -97,6 +98,13 @@ Todoyu.Ext.sysmanager.Config = {
 	},
 
 
+
+	/**
+	 * Save password strength settings
+	 *
+	 * @method	savePasswordStrength
+	 * @param	{Element}	form
+	 */
 	savePasswordStrength: function(form) {
 		$(form).request({
 			parameters: {
@@ -106,6 +114,14 @@ Todoyu.Ext.sysmanager.Config = {
 		});
 	},
 
+
+
+	/**
+	 * Handler when system password strength settings have been saved - notify success
+	 *
+	 * @method	onPasswordStrengthSaved
+	 * @param	{Ajax.Response}	response
+	 */
 	onPasswordStrengthSaved: function(response) {
 		Todoyu.notifySuccess('[LLL:sysmanager.ext.config.tab.passwordstrength.saved]');
 	}
