@@ -45,11 +45,11 @@ Todoyu.Ext.sysmanager.Roles = {
 	edit: function(idRole) {
 		var url		= Todoyu.getUrl('sysmanager', 'role');
 		var options	= {
-			'parameters': {
-				'action':	'edit',
+			parameters: {
+				action:	'edit',
 				'role':		idRole
 			},
-			'onComplete':	this.onEdit.bind(this, idRole)
+			onComplete:	this.onEdit.bind(this, idRole)
 		};
 
 		Todoyu.Ui.updateContentBody(url, options);
@@ -80,11 +80,11 @@ Todoyu.Ext.sysmanager.Roles = {
 		if( confirm('[LLL:sysmanager.ext.roles.delete.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'role');
 			var options	= {
-				'parameters': {
-					'action':	'delete',
+				parameters: {
+					action:	'delete',
 					'role':		idRole
 				},
-				'onComplete': this.onRemoved.bind(this, idRole)
+				onComplete: this.onRemoved.bind(this, idRole)
 			};
 
 			Todoyu.send(url, options);
@@ -114,8 +114,8 @@ Todoyu.Ext.sysmanager.Roles = {
 	updateList: function() {
 		var url		= Todoyu.getUrl('sysmanager', 'role');
 		var options	= {
-			'parameters': {
-				'action':	'listing'
+			parameters: {
+				action:	'listing'
 			}
 		};
 
@@ -132,10 +132,10 @@ Todoyu.Ext.sysmanager.Roles = {
 	 */
 	save: function(form) {
 		$(form).request({
-			'parameters': {
-				'action':	'save'
+			parameters: {
+				action:	'save'
 			},
-			'onComplete': this.onSaved.bind(this)
+			onComplete: this.onSaved.bind(this)
 		});
 	},
 
@@ -167,10 +167,10 @@ Todoyu.Ext.sysmanager.Roles = {
 	showList: function() {
 		var url		= Todoyu.getUrl('sysmanager', 'role');
 		var options	= {
-			'parameters': {
-				'action':	'listing'
+			parameters: {
+				action:	'listing'
 			},
-			'onComplete':	this.onListShowed.bind(this)
+			onComplete:	this.onListShowed.bind(this)
 		};
 
 		Todoyu.Ui.updateContentBody(url, options);

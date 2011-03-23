@@ -43,11 +43,11 @@ Todoyu.Ext.sysmanager.Rights = {
 	onTabClick: function(event, tab) {
 		var url		= Todoyu.getUrl('sysmanager', 'rights');
 		var options	= {
-			'parameters': {
-				'action':	'update',
+			parameters: {
+				action:	'update',
 				'tab':		tab
 			},
-			'onComplete': this.onTabLoaded.bind(this, tab)
+			onComplete: this.onTabLoaded.bind(this, tab)
 		};
 
 		Todoyu.Ui.updateContent(url, options);

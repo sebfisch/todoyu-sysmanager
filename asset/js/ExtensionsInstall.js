@@ -55,11 +55,11 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 		if( confirm('[LLL:sysmanager.ext.extension.installExtension.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
-				'parameters': {
-					'action': 'install',
+				parameters: {
+					action: 'install',
 					'extension': ext
 				},
-				'onComplete': this.onInstalled.bind(this, ext)
+				onComplete: this.onInstalled.bind(this, ext)
 			};
 
 			Todoyu.send(url, options);
@@ -101,11 +101,11 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	showUpdate: function(ext) {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
-				'parameters': {
-					'action': 'showUpdate',
+				parameters: {
+					action: 'showUpdate',
 					'extension': ext
 				},
-				'onComplete': this.onUpdateShowed.bind(this, ext)
+				onComplete: this.onUpdateShowed.bind(this, ext)
 			};
 
 			Todoyu.Ui.updateContentBody(url, options);
@@ -149,11 +149,11 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 		if( confirm('[LLL:sysmanager.ext.extension.uninstallExtension.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
-				'parameters': {
-					'action':		'uninstall',
+				parameters: {
+					action:		'uninstall',
 					'extension':	ext
 				},
-				'onComplete': this.onUninstalled.bind(this, ext)
+				onComplete: this.onUninstalled.bind(this, ext)
 			};
 
 			Todoyu.send(url, options);

@@ -56,12 +56,12 @@ Todoyu.Ext.sysmanager.Extensions = {
 	showTab: function(extKey, tab, params) {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 		var options	= {
-			'parameters': {
-				'action':	'tabview',
+			parameters: {
+				action:	'tabview',
 				'tab':		tab,
 				'extkey':	extKey
 			},
-			'onComplete': this.onTabShowed.bind(this, extKey, tab, params)
+			onComplete: this.onTabShowed.bind(this, extKey, tab, params)
 		};
 
 		if( typeof(params) === 'object' ) {
@@ -133,11 +133,11 @@ Todoyu.Ext.sysmanager.Extensions = {
 		if( confirm('[LLL:sysmanager.ext.extension.installExtension.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
-				'parameters': {
-					'action':		'install',
+				parameters: {
+					action:		'install',
 					'extension':	extKey
 				},
-				'onComplete': this.onInstalled.bind(this, extKey)
+				onComplete: this.onInstalled.bind(this, extKey)
 			};
 
 			Todoyu.send(url, options);
@@ -172,7 +172,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 */
 	download: function(extKey) {
 		Todoyu.goTo('sysmanager', 'extensions', {
-			'action':		'download',
+			action:		'download',
 			'extension':	extKey
 		});
 	},
@@ -218,11 +218,11 @@ Todoyu.Ext.sysmanager.Extensions = {
 		if( confirm('[LLL:sysmanager.ext.extension.remove.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
-				'parameters': {
-					'action':	'remove',
+				parameters: {
+					action:	'remove',
 					'extension':extKey
 				},
-				'onComplete':	this.onRemoved.bind(this, extKey)
+				onComplete:	this.onRemoved.bind(this, extKey)
 			};
 
 			Todoyu.send(url, options);

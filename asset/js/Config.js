@@ -39,11 +39,11 @@ Todoyu.Ext.sysmanager.Config = {
 	onTabClick: function(event, tab) {
 		var url		= Todoyu.getUrl('sysmanager', 'config');
 		var options	= {
-			'parameters': {
-				'action':	'update',
+			parameters: {
+				action:	'update',
 				'tab':		tab
 			},
-			'onComplete': this.onTabLoaded.bind(this, tab)
+			onComplete: this.onTabLoaded.bind(this, tab)
 		};
 
 		Todoyu.Ui.updateContentBody(url, options);

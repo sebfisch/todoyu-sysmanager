@@ -82,13 +82,13 @@ Todoyu.Ext.sysmanager.Records = {
 	update: function(extKey, type, idRecord, callback) {
 		var url		= Todoyu.getUrl('sysmanager', 'records');
 		var options	= {
-			'parameters': {
-				'action': 	'update',
+			parameters: {
+				action: 	'update',
 				'extkey':	extKey,
 				'type':		type,
 				'record':	idRecord
 			},
-			'onComplete': this.onUpdated.bind(this, extKey, type, idRecord, callback)
+			onComplete: this.onUpdated.bind(this, extKey, type, idRecord, callback)
 		};
 
 		Todoyu.Ui.updateContent(url, options);
@@ -147,8 +147,8 @@ Todoyu.Ext.sysmanager.Records = {
 	 */
 	showTypeList: function(ext) {
 		var options = {
-			'parameters': {
-				'action':	'listRecordTypes',
+			parameters: {
+				action:	'listRecordTypes',
 				'extkey':	ext
 			}
 		};
@@ -211,13 +211,13 @@ Todoyu.Ext.sysmanager.Records = {
 	remove: function(ext, type, idRecord) {
 		if( confirm('[LLL:sysmanager.ext.records.delete.confirm]') ) {
 			var options = {
-				'parameters': {
-					'action':	'delete',
+				parameters: {
+					action:	'delete',
 					'extkey':	ext,
 					'type':		type,
 					'record':	idRecord
 				},
-				'onComplete': this.onRemoved.bind(this, ext, type, idRecord)
+				onComplete: this.onRemoved.bind(this, ext, type, idRecord)
 			};
 
 			Todoyu.send(this.url, options);
@@ -253,12 +253,12 @@ Todoyu.Ext.sysmanager.Records = {
 		Todoyu.Form.disableSaveButtons(form);
 
 		$(form).request ({
-			'parameters': {
-				'action':	'save',
+			parameters: {
+				action:	'save',
 				'extkey':	ext,
 				'type':		type
 			},
-			'onComplete': this.onSaved.bind(this, form, ext, type)
+			onComplete: this.onSaved.bind(this, form, ext, type)
 		});
 
 		return false;

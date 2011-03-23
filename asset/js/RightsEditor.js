@@ -244,10 +244,10 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	updateMatrix: function() {
 		$('rightseditor-form').request({
-			'parameters': {
-				'action':	'matrix'
+			parameters: {
+				action:	'matrix'
 			},
-			'onComplete': this.onMatrixUpdated.bind(this)
+			onComplete: this.onMatrixUpdated.bind(this)
 		});
 	},
 
@@ -273,12 +273,12 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	saveRights: function(callback) {
 		$('rightsmatix-form').request({
-			'parameters': {
-				'action':	'save',
+			parameters: {
+				action:	'save',
 				'extension':this.getExtension(),
 				'roles':	this.getRoles().join(',')
 			},
-			'onComplete':	this.onRightsSaved.bind(this, callback)
+			onComplete:	this.onRightsSaved.bind(this, callback)
 		});
 	},
 

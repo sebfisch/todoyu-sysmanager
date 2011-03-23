@@ -81,13 +81,13 @@ Todoyu.Ext.sysmanager.Updater = {
 	updateResults: function(query, order, offset) {
 		var url		= this.getUrl();
 		var options	= {
-			'parameters': {
-				'action': 'search',
+			parameters: {
+				action: 'search',
 				'query': query,
 				'order': order,
 				'offset': offset || 0
 			},
-			'onComplete': this.onResultsUpdated.bind(this, query, order, offset)
+			onComplete: this.onResultsUpdated.bind(this, query, order, offset)
 		};
 		var target	= 'updater-search-results';
 
@@ -97,7 +97,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * Callback after search results have been updated 
+	 * Callback after search results have been updated
 	 *
 	 * @method	onResultsUpdated
 	 * @param	{String}	query
@@ -157,12 +157,12 @@ Todoyu.Ext.sysmanager.Updater = {
 	installExtensionUpdate: function(extkey, urlHash) {
 		var url		= this.getUrl();
 		var options	= {
-			'parameters': {
-				'action':	'installExtensionUpdate',
+			parameters: {
+				action:	'installExtensionUpdate',
 				'extkey':	extkey,
 				'hash':		urlHash
 			},
-			'onComplete': this.onExtensionUpdateInstalled.bind(this, extkey)
+			onComplete: this.onExtensionUpdateInstalled.bind(this, extkey)
 		};
 
 		Todoyu.Ui.updateContentBody(url, options);
@@ -171,7 +171,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * Callback after extension update has been installed  
+	 * Callback after extension update has been installed
 	 *
 	 * @method	onExtensionUpdateInstalled
 	 * @param	{String}	extkey
@@ -191,11 +191,11 @@ Todoyu.Ext.sysmanager.Updater = {
 	installCoreUpdate: function(urlHash) {
 		var url		= this.getUrl();
 		var options	= {
-			'parameters': {
-				'action':	'installCoreUpdate',
+			parameters: {
+				action:	'installCoreUpdate',
 				'hash':		urlHash
 			},
-			'onComplete': this.onCoreUpdateInstalled.bind(this)
+			onComplete: this.onCoreUpdateInstalled.bind(this)
 		};
 
 		Todoyu.Ui.updateContentBody(url, options);
