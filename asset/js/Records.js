@@ -59,10 +59,12 @@ Todoyu.Ext.sysmanager.Records = {
 	 * @param	{String}	tab
 	 */
 	onTabClick: function(event, tab) {
-		if( tab === 'all' ) {
+		if( tab === 'record' ) {
+			return false;
+		} else if( tab === 'all' ) {
 			this.update();
 		} else {
-			var parts	= tab.split('-');
+			var parts	= event.findElement('li').id.split('-').slice(2);
 
 			this.update.apply(this, parts);
 		}

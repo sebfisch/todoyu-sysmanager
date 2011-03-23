@@ -18,7 +18,7 @@
 
 
 /* -------------
-	Rights Matrix 
+	Rights Matrix
    -------------*/
 #rightsmatrix {
 	margin:10px 0;
@@ -103,7 +103,7 @@
 
 
 /* -------------
-	Rights 
+	Rights
    -------------*/
 
 #rightsmatrix td.roleColor1 {
@@ -136,50 +136,4 @@
 
 #rightsmatrix td.roleColor8 {
 	background-color:#bbbbbb;
-}
-
-
-
-
-
-/* -------------------------
-	Role list
-   -------------------------*/
-.rolesListing th,
-.rolesListing td {
-	vertical-align:middle;
-}
-
-	/* Column widths */
-.rolesListing th.icon {
-	width:15px;
-}
-.rolesListing th.title {
-	width:150px;
-}
-.rolesListing th.description {
-	width:285px;
-}
-.rolesListing th.persons {
-	width:100px;
-}
-.rolesListing th.actions {
-	width:50px;
-}
-
-	/* Column configs */
-.rolesListing td.icon {
-	background:url(../img/icons.png) no-repeat 6px -204px;
-}
-.rolesListing td.actions span.icon {
-	margin-right:5px;
-}
-.rolesListing td.actions span {
-	background:url(../img/icons.png) no-repeat;
-}
-.rolesListing td.actions span.edit {
-	background-position:0 -239px;
-}
-.rolesListing td.actions span.delete {
-	background-position:0 -269px;
 }
