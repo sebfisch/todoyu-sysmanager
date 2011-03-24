@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="extension">Rozšíření</label>
+	<label index="key">ID rozšíření</label>
+	<label index="keyAbbr">ID</label>
+	<label index="version">Verze/Stav</label>
+	<label index="author">Autor</label>
+	<label index="dependencies">Závislý na</label>
+	<label index="conflicts">Konfliktní s</label>
+	<label index="importExtArchive">Importovat archív rozšíření</label>
+	<label index="version">Verze</label>
+	<label index="showInfo">Zobrazit informace o rozšíření</label>
+	<label index="download">Stáhnout rozšíření</label>
+	<label index="remove">Odstranit rozšíření</label>
+	<label index="remove.confirm">Opravdu chcete odstranit rozšíření (všechny soubory) ze servru?</label>
+	<label index="rights">Práva</label>
+	<label index="documentation">Dokumentace</label>
+	<label index="installExtension">Instalovat rozšíření</label>
+	<label index="installExtension.confirm">Chcete nainstalovat toto rozšíření?</label>
+	<label index="installExtension.ok">Rozšíření bylo úspěšně nainstalováno</label>
+	<label index="installExtension.error">Instalace rozšíření selhala</label>
+	<label index="uninstallExtension">Odinstalovat rozšíření</label>
+	<label index="uninstallExtension.confirm">Chcete odinstalovat toto rozšíření?</label>
+	<label index="uninstallExtension.ok">Rozšíření bylo úspšně odinstalováno</label>
+	<label index="uninstallExtension.error">Odistalace rozšíření selhalo</label>
+</labels>

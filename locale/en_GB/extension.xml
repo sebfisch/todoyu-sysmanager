@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="extension">Extension</label>
+	<label index="key">Extension Key</label>
+	<label index="keyAbbr">Ext-Key</label>
+	<label index="version">Version/State</label>
+	<label index="author">Author</label>
+	<label index="dependencies">Depends On</label>
+	<label index="conflicts">Conflicts With</label>
+	<label index="importExtArchive">Import Extension Archive</label>
+	<label index="version">Version</label>
+	<label index="showInfo">Show Extension Information</label>
+	<label index="configure">Configure Extension</label>
+	<label index="download">Download Extension</label>
+	<label index="remove">Remove Extension</label>
+	<label index="remove.confirm">Remove extension (all files) from server?</label>
+	<label index="rights">Rights</label>
+	<label index="documentation">Documentation</label>
+	<label index="showInstalledList">Show list of installed extensions</label>
+	<label index="installExtension">Install Extension</label>
+	<label index="installExtension.confirm">Install Extension?</label>
+	<label index="installExtension.ok">Extension was installed successfully</label>
+	<label index="installed.notify">Extension was installed successfully:</label>
+	<label index="installExtension.error">Installation of extension failed</label>
+	<label index="installExtension.error.notfiy.dependencies">Extension installation failed, the following extensions must be installed before:</label>
+	<label index="installExtension.error.missing">Required extension is not installed</label>
+	<label index="installExtension.error.lowVersion">Required extension is installed, but has a too low version</label>
+	<label index="installExtension.error.conflicts">Extension conflicts with installed extensions</label>
+	<label index="installExtension.error.core">Core version is too low</label>
+	<label index="uninstallExtension">Uninstall Extension</label>
+	<label index="uninstallExtension.confirm">Uninstall Extension?</label>
+	<label index="uninstallExtension.ok">Extension was uninstalled successfully</label>
+	<label index="uninstallExtension.error">Uninstallation of extension failed</label>
+</labels>

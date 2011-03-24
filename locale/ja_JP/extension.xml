@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="extension">拡張機能</label>
+	<label index="key">拡張機能キー</label>
+	<label index="keyAbbr">拡張機能キー</label>
+	<label index="version">バージョン/状態</label>
+	<label index="author">著作者</label>
+	<label index="dependencies">要因は</label>
+	<label index="conflicts">衝突対象</label>
+	<label index="importExtArchive">拡張機能のアーカイブをインポート</label>
+	<label index="version">バージョン</label>
+	<label index="showInfo">拡張機能の情報を表示</label>
+	<label index="download">拡張機能のダウンロード</label>
+	<label index="remove">拡張機能の削除</label>
+	<label index="remove.confirm">サーバから拡張機能 (全ファイル) を削除しますか？</label>
+	<label index="rights">権利</label>
+	<label index="documentation">ドキュメント</label>
+	<label index="installExtension">拡張機能のインストール</label>
+	<label index="installExtension.confirm">拡張機能をインストールしますか？</label>
+	<label index="installExtension.ok">拡張機能のインストールは成功しました</label>
+	<label index="installExtension.error">拡張機能のインストールは失敗しました</label>
+	<label index="uninstallExtension">拡張機能のアンインストール</label>
+	<label index="uninstallExtension.confirm">拡張機能をアンインストールしますか？</label>
+	<label index="uninstallExtension.ok">拡張機能のアンインストールは成功しました</label>
+	<label index="uninstallExtension.error">拡張機能のアンインストールは失敗しました</label>
+</labels>

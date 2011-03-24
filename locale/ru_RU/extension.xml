@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="extension">Расширение</label>
+	<label index="key">Ключ расширения</label>
+	<label index="keyAbbr">Ключ</label>
+	<label index="version">Версия/статус</label>
+	<label index="author">Автор</label>
+	<label index="dependencies">Зависит от</label>
+	<label index="conflicts">Конликтует с</label>
+	<label index="importExtArchive">Импортировать архив расширения</label>
+	<label index="version">Версия</label>
+	<label index="showInfo">Показать информацию о расширении</label>
+	<label index="download">Скачать расширение</label>
+	<label index="remove">Удалить расширение</label>
+	<label index="remove.confirm">Удалить все файлы расширения с сервера?</label>
+	<label index="rights">Поава</label>
+	<label index="documentation">Документация</label>
+	<label index="installExtension">Установить расширение</label>
+	<label index="installExtension.confirm">Установить расширение?</label>
+	<label index="installExtension.ok">Расширение было установлено успешно</label>
+	<label index="installExtension.error">Установка расширения не удалась</label>
+	<label index="uninstallExtension">Удалить расширение</label>
+	<label index="uninstallExtension.confirm">Удалить расширение?</label>
+	<label index="uninstallExtension.ok">Расширение было успешно удалено</label>
+	<label index="uninstallExtension.error">Не удалось удалить расширение</label>
+</labels>

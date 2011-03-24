@@ -50,7 +50,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 *
 	 * @method	showTab
 	 * @param	{String}	extKey
-	 * @param	{String}	tab
+	 * @param	{String}	tab			'info' / 'config' (/'extensions')
 	 * @param	{Object}	params
 	 */
 	showTab: function(extKey, tab, params) {
@@ -130,7 +130,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	{String}	extKey
 	 */
 	install: function(extKey) {
-		if( confirm('[LLL:sysmanager.ext.extension.installExtension.confirm]') ) {
+		if( confirm('[LLL:sysmanager.extension.installExtension.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				parameters: {
@@ -157,7 +157,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	onInstalled: function(extKey, response) {
 		var extName	= response.responseText;
 
-		Todoyu.notifySuccess('[LLL:sysmanager.ext.extension.installExtension.ok]: ' + extName);
+		Todoyu.notifySuccess('[LLL:sysmanager.extension.installExtension.ok]: ' + extName);
 
 		this.showList();
 	},
@@ -215,7 +215,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	{String}		extKey
 	 */
 	remove: function(extKey) {
-		if( confirm('[LLL:sysmanager.ext.extension.remove.confirm]') ) {
+		if( confirm('[LLL:sysmanager.extension.remove.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				parameters: {

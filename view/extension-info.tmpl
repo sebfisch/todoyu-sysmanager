@@ -7,11 +7,11 @@
 			<td class="value">{$ext.title}</td>
 		</tr>
 		<tr>
-			<th scope="row">{Label sysmanager.ext.extension.key}</th>
+			<th scope="row">{Label sysmanager.extension.key}</th>
 			<td>{$extKey}</td>
 		</tr>
 		<tr>
-			<th scope="row">{Label sysmanager.ext.extension.version}</th>
+			<th scope="row">{Label sysmanager.extension.version}</th>
 			<td>{$ext.version} / {$ext.state}</td>
 		</tr>
 		<tr>
@@ -19,11 +19,11 @@
 			<td>{$ext.description}</td>
 		</tr>
 		<tr>
-			<th scope="row">{Label sysmanager.ext.extension.author}</th>
+			<th scope="row">{Label sysmanager.extension.author}</th>
 			<td>{if $ext.author.name}{$ext.author.name}, {/if} {$ext.author.company} ({$ext.author.email})</td>
 		</tr>
 		<tr>
-			<th scope="row">{Label sysmanager.ext.extension.dependencies}</th>
+			<th scope="row">{Label sysmanager.extension.dependencies}</th>
 			<td>
 				{if $ext.constraints.depends}
 					<ul>
@@ -31,11 +31,13 @@
 							<li>{$extkey} ({$version})</li>
 						{/foreach}
 					</ul>
+				{else}
+					-
 				{/if}
 			</td>
 		</tr>
 		<tr>
-			<th scope="row">{Label sysmanager.ext.extension.conflicts}</th>
+			<th scope="row">{Label sysmanager.extension.conflicts}</th>
 			<td>
 				{if $ext.constraints.conflicts}
 					<ul>
@@ -43,6 +45,8 @@
 							<li>{$extkey} ({$version})</li>
 						{/foreach}
 					</ul>
+				{else}
+					-
 				{/if}
 			</td>
 		</tr>
