@@ -46,6 +46,7 @@
 	<label index="roles.saved.error">Speichern der Rolle fehlgeschlagen</label>
 	<label index="roles.delete.confirm">Wollen Sie diese Rolle wirklich löschen?</label>
 	<label index="roles.delete">Rolle löschen</label>
+	<label index="roles.delete.notify.success">Rolle wurde gelöscht.</label>
 	<label index="roles.edit">Rolle bearbeiten</label>
 	<label index="create.role.label">Neue Rolle</label>
 	<label index="upload.selectfile">Geben Sie das Archiv der Erweiterung an (zip)</label>

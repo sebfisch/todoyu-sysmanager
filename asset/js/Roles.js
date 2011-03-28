@@ -101,6 +101,7 @@ Todoyu.Ext.sysmanager.Roles = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onRemoved: function(idRole, response) {
+		Todoyu.Notification.notifySuccess('[LLL:sysmanager.ext.roles.delete.notify.success]');
 		this.updateList();
 	},
 
