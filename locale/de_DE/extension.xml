@@ -10,11 +10,13 @@
 	<label index="importExtArchive">Importiere Extension-Archiv</label>
 	<label index="version">Version</label>
 	<label index="showInfo">Zeige Infos zur Erweiterung</label>
+	<label index="configure">Erweiterung konfigurieren</label>
 	<label index="download">Erweiterung herunterladen</label>
 	<label index="remove">Erweiterung entfernen</label>
 	<label index="remove.confirm">Erweiterung (Alle Dateien) vom Server entfernen?</label>
 	<label index="rights">Rechte</label>
 	<label index="documentation">Dokumentation</label>
+	<label index="showInstalledList">Liste installierter Erweierungen anzeigen</label>
 	<label index="installExtension">Installiere Erweiterung</label>
 	<label index="installExtension.confirm">Erweiterung installieren?</label>
 	<label index="installExtension.ok">Erweiterung wurde erfolgreich installiert</label>
