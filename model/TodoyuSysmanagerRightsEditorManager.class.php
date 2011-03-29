@@ -77,7 +77,7 @@ class TodoyuSysmanagerRightsEditorManager {
 
 			$data[$sectionName] = array();
 
-			$data[$sectionName]['label']	= TodoyuLabelManager::getLabel($localeKey . '.' . $sectionName);
+			$data[$sectionName]['label']	= Label($localeKey . '.' . $sectionName);
 			$data[$sectionName]['rights']	= array();
 
 			if( $section['require'] ) {
