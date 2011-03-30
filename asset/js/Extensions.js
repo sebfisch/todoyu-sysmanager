@@ -240,9 +240,9 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 */
 	onRemoved: function(extKey, response) {
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('Removing extension failed')
+			Todoyu.notifyError('[LLL:sysmanager.extension.notify.remove.error]')
 		} else {
-			Todoyu.notifySuccess('Extension was sucessfully removed from server');
+			Todoyu.notifySuccess('[LLL:sysmanager.extension.notify.remove.success]');
 		}
 
 		this.Install.showList();

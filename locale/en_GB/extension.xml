@@ -31,4 +31,6 @@
 	<label index="uninstallExtension.confirm">Uninstall Extension?</label>
 	<label index="uninstallExtension.ok">Extension was uninstalled successfully</label>
 	<label index="uninstallExtension.error">Uninstallation of extension failed</label>
+	<label index="notify.remove.error">Removing extension failed</label>
+	<label index="notify.remove.success">Extension was sucessfully removed from server</label>
 </labels>
