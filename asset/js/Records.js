@@ -281,7 +281,9 @@ Todoyu.Ext.sysmanager.Records = {
 		if( response.hasTodoyuError() ) {
 			Todoyu.notifyError('[LLL:sysmanager.ext.records.saved.fail]');
 			$(form.id).update(response.responseText);
+			Todoyu.Form.enableSaveButtons(form);
 		} else {
+			Todoyu.Form.enableSaveButtons(form);
 			Todoyu.notifySuccess('[LLL:sysmanager.ext.records.saved]');
 			this.showTypeRecords(ext, type);
 		}
