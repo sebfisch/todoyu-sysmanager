@@ -93,7 +93,7 @@ class TodoyuSysmanagerRightsEditorManager {
 					'right'		=> $rightName,
 					'full'		=> $sectionName . ':' . $rightName,
 					'label'		=> Label($localeKey . '.' . $sectionName . '.' . $rightName),
-					'comment'	=> Label($localeKey . '.' . $sectionName . '.' . $rightName . '.comment'),
+					'comment'	=> TodoyuLabelManager::getLabelOrEmpty($localeKey . '.' . $sectionName . '.' . $rightName . '.comment'),
 					'require'	=> array()
 				);
 
