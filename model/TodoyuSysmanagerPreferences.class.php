@@ -27,7 +27,7 @@
 class TodoyuSysmanagerPreferences {
 
 	/**
-	 * Save a preference for contact
+	 * Save a preference for sysmanager
 	 *
 	 * @param	String		$preference
 	 * @param	String		$value
@@ -42,7 +42,7 @@ class TodoyuSysmanagerPreferences {
 
 
 	/**
-	 * Get a contact preference
+	 * Get a sysmanager preference
 	 *
 	 * @param	String		$preference
 	 * @param	Integer		$idItem
@@ -56,7 +56,7 @@ class TodoyuSysmanagerPreferences {
 
 
 	/**
-	 * Get contact preferences
+	 * Get sysmanager preferences
 	 *
 	 * @param	String		$preference
 	 * @param	Integer		$idItem
@@ -71,7 +71,7 @@ class TodoyuSysmanagerPreferences {
 
 
 	/**
-	 * Delete contact preference
+	 * Delete sysmanager preference
 	 *
 	 * @param	String		$preference
 	 * @param	String		$value
@@ -86,7 +86,7 @@ class TodoyuSysmanagerPreferences {
 
 
 	/**
-	 * @todo	comment
+	 * Get currently active sysmanager tab
 	 *
 	 * @param	String		$type
 	 * @return	String
@@ -98,7 +98,7 @@ class TodoyuSysmanagerPreferences {
 
 
 	/**
-	 * @todo	comment
+	 * Save active tab preference
 	 *
 	 * @param	String		$type
 	 * @param	String		$tab
@@ -110,7 +110,8 @@ class TodoyuSysmanagerPreferences {
 
 
 	/**
-	 * @todo	comment
+	 * Save given extension's rights
+	 *
 	 * @param	String	$ext
 	 */
 	public static function saveRightsExt($ext) {
@@ -120,7 +121,8 @@ class TodoyuSysmanagerPreferences {
 
 
 	/**
-	 * @todo	comment
+	 * Get sysmanager rights settings
+	 *
 	 * @return	String
 	 */
 	public static function getRightsExt() {
