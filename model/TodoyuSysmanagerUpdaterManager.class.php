@@ -28,19 +28,47 @@ class TodoyuSysmanagerUpdaterManager {
 
 	/**
 	 * Check whether the update server is reachable
-	 * Tries to download a reference file to verify the connection
 	 *
 	 * @return	Boolean
 	 */
 	public static function isUpdateServerReachable() {
-		$url	= Todoyu::$CONFIG['EXT']['sysmanager']['update']['connectionCheckUrl'];
-		$options= array(
-			'onlyHeaders'	=> true
-		);
+		$updater	= new TodoyuSysmanagerUpdaterRequest();
 
-		$headers	= TodoyuFileManager::downloadFile($url, $options);
+		return $updater->isServerReachable();
+	}
 
-		return $headers !== false && stristr($headers['status'], '200 OK') !== false;
+
+
+	/**
+	 * Get unique todoyu ID
+	 *
+	 * @return	String
+	 */
+	public static function getTodoyuID() {
+		return trim(Todoyu::$CONFIG['SETTINGS']['updater']['todoyuid']);
+	}
+
+
+	/**
+	 * Get last used search query
+	 *
+	 * @return	String
+	 */
+	public static function getLastQuery() {
+		TodoyuDebug::printInFireBug('get');
+		return TodoyuSysmanagerPreferences::getPref('updaterQuery');
+	}
+
+
+
+	/**
+	 * Save last used search query
+	 *
+	 * @param  $query
+	 * @return void
+	 */
+	public static function saveLastQuery($query) {
+		TodoyuSysmanagerPreferences::savePref('updaterQuery', trim($query), 0, true);
 	}
 
 
@@ -110,12 +138,12 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @return	Array
 	 */
 	public static function replaceFilepathsWithHashes(array $updates) {
-		if( $updates['coreUpdate']['coreUpdate'] ) {
-			$updates['coreUpdate']['coreUpdate']['archive'] = self::path2hash($updates['coreUpdate']['coreUpdate']['archive']);
+		if( $updates['core'] ) {
+			$updates['core']['archive'] = self::path2hash($updates['core']['archive']);
 		}
 
-		foreach($updates['extUpdates']['extensionUpdate'] as $index => $extension) {
-			$updates['extUpdates']['extensionUpdate'][$index]['archive'] = self::path2hash($extension['archive']);
+		foreach($updates['extensions'] as $index => $extension) {
+			$updates['extensions'][$index]['archive'] = self::path2hash($extension['archive']);
 		}
 
 		return $updates;
@@ -148,6 +176,7 @@ class TodoyuSysmanagerUpdaterManager {
 	public static function hash2path($hash) {
 		return TodoyuSession::get('updater/path/' . $hash);
 	}
+
 }
 
 ?>

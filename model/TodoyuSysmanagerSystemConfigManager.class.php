@@ -70,11 +70,28 @@ class TodoyuSysmanagerSystemConfigManager {
 
 	/**
 	 * Save password strength file
-	 * @param array $formdata
+	 * @param array $data
 	 * @return void
 	 */
-	public static function savePasswordStrength(array $formdata) {
-		TodoyuConfigManager::savePasswordStrengthConfig($formdata);
+	public static function savePasswordStrength(array $data) {
+		Todoyu::$CONFIG['SETTINGS']['passwordStrength'] = array(
+			'minLength'			=> intval($data['minLength']),
+			'hasNumbers'		=> intval($data['hasNumbers']) === 1,
+			'hasLowerCase'		=> intval($data['hasLowerCase']) === 1,
+			'hasUpperCase'		=> intval($data['hasUpperCase']) === 1,
+			'hasSpecialChars'	=> intval($data['hasSpecialChars']) === 1
+		);
+
+		TodoyuConfigManager::saveSettingsConfig();
+	}
+
+
+	public static function saveUpdaterConfig(array $data) {
+		Todoyu::$CONFIG['SETTINGS']['updater'] = array(
+			'todoyuid'			=> trim($data['todoyuid'])
+		);
+
+		TodoyuConfigManager::saveSettingsConfig();
 	}
 
 

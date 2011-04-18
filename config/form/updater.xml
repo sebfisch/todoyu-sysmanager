@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<attributes>
+		<attribute name="action">?ext=sysmanager&amp;controller=config</attribute>
+		<attribute name="name">updater</attribute>
+	</attributes>
+	<fieldsets>
+		<fieldset name="main">
+			<legend>Main editor data</legend>
+			<elements>
+
+				<field type="text" name="todoyuid">
+					<label>sysmanager.ext.config.tab.passwordstrength.minLenth</label>
+				</field>
+
+			</elements>
+		</fieldset>
+
+		<fieldset name="buttons">
+			<legend>Actions</legend>
+			<class>buttons</class>
+			<elements>
+
+				<field type="saveButton" name="save">
+					<onclick>Todoyu.Ext.sysmanager.Config.saveUpdaterConfigh(this.form)</onclick>
+				</field>
+
+			</elements>
+		</fieldset>
+
+	</fieldsets>
+</form>

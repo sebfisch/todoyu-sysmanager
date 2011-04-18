@@ -95,6 +95,13 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 
 		TodoyuSysmanagerSystemConfigManager::savePasswordStrength($data);
 	}
+
+
+	public function saveUpdaterConfigAction(array $params) {
+		$data	= TodoyuArray::assure($params['updater']);
+
+		TodoyuSysmanagerSystemConfigManager::saveUpdaterConfig($data);
+	}
 }
 
 ?>

@@ -46,7 +46,9 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	public function searchAction(array $params) {
 		$query	= trim($params['query']);
 
-		return TodoyuSysmanagerUpdaterRenderer::renderBrowseResultList($query);
+		TodoyuSysmanagerUpdaterManager::saveLastQuery($query);
+
+		return TodoyuSysmanagerUpdaterRenderer::renderSearchResults($query);
 	}
 
 

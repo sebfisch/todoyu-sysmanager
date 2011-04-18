@@ -1,8 +1,8 @@
 <div class="updaterUpdates">
 
 
-	{if $updates.coreUpdate}
-		{$coreUpdate = $updates.coreUpdate.coreUpdate}
+	{if $updates.core}
+		{$coreUpdate = $updates.core}
 		<div class="coreUpdate">
 			{Title "New core update available"}
 			<table class="coreUpdateInfos">
@@ -31,47 +31,42 @@
 	<div class="extensionUpdates">
 		{Title "Extension updates"}
 
-		{if $updates.extUpdates}
-			{$extUpdates = $updates.extUpdates.extensionUpdate}
-
-			{foreach $extUpdates extUpdate}
-				<div class="extension">
-					<div class="image">
-						IMAGE
-					</div>
-					<div class="info">
-						<span class="title">{$extUpdate.name}</span>
-						<dl>
-							<dt>Your version</dt>
-							<dd>{$extUpdate.installed_version}</dd>
-							<dt>New version</dt>
-							<dd>{$extUpdate.new_version}</dd>
-							<dt>Release date</dt>
-							<dd>{dateFormat $extUpdate.date_update date}</dd>
-						</dl>
-					</div>
-					<div class="dependencies">
-						{if $extUpdate.dependencies.extDependency}
-							<ul>
-							{foreach $extUpdate.dependencies.extDependency dependency}
-								<li>{$dependency.extkey}: {$dependency.version}</li>
-							{/foreach}
-							</ul>
-						{else}
-							<p>No dependencies</p>
-						{/if}
-					</div>
-					<div class="actions">
-						{Button label="sysmanager.ext.updater.extension.moreDetails" class="moreDetails" onclick="Todoyu.Ext.sysmanager.Updater.showExtensionUpdateDetails('$extUpdate.link_details')"}
-						{Button label="sysmanager.ext.updater.extension.installUpdate" class="installExtensionUpdate" onclick="Todoyu.Ext.sysmanager.Updater.installExtensionUpdate('$extUpdate.extkey', '$extUpdate.archive')"}
-					</div>
+		{foreach $updates.extensions extUpdate}
+			<div class="extension">
+				<div class="image">
+					IMAGE
 				</div>
-
-			{/foreach}
+				<div class="info">
+					<span class="title">{$extUpdate.name}</span>
+					<dl>
+						<dt>Your version</dt>
+						<dd>{$extUpdate.installed_version}</dd>
+						<dt>New version</dt>
+						<dd>{$extUpdate.new_version}</dd>
+						<dt>Release date</dt>
+						<dd>{dateFormat $extUpdate.date_update date}</dd>
+					</dl>
+				</div>
+				<div class="dependencies">
+					{if $extUpdate.dependencies.extDependency}
+						<ul>
+						{foreach $extUpdate.dependencies.extDependency dependency}
+							<li>{$dependency.extkey}: {$dependency.version}</li>
+						{/foreach}
+						</ul>
+					{else}
+						<p>No dependencies</p>
+					{/if}
+				</div>
+				<div class="actions">
+					{Button label="sysmanager.ext.updater.extension.moreDetails" class="moreDetails" onclick="Todoyu.Ext.sysmanager.Updater.showExtensionUpdateDetails('$extUpdate.link_details')"}
+					{Button label="sysmanager.ext.updater.extension.installUpdate" class="installExtensionUpdate" onclick="Todoyu.Ext.sysmanager.Updater.installExtensionUpdate('$extUpdate.extkey', '$extUpdate.archive')"}
+				</div>
+			</div>
 
 		{else}
 			<p>No extension updates available</p>
-		{/if}
+		{/foreach}
 
 	</div>
 

@@ -42,8 +42,8 @@ class TodoyuSysmanagerUpdaterRenderer {
 
 		$tmpl	= 'ext/sysmanager/view/updater-search.tmpl';
 		$data	= array(
-			'extQuery'	=> 'test 123',
-			'results'	=> self::renderBrowseResultList($extQuery)
+			'query'		=> TodoyuSysmanagerUpdaterManager::getLastQuery(),
+			'results'	=> self::renderSearchResults($extQuery)
 		);
 
 		return render($tmpl, $data);
@@ -57,16 +57,11 @@ class TodoyuSysmanagerUpdaterRenderer {
 	 * @param	String	$query
 	 * @return	String
 	 */
-	public static function renderBrowseResultList($query) {
-		$client	= TodoyuSysmanagerUpdaterSoapClient::getInstance();
-
-		$results= $client->searchExtensions($query);
-
-//		TodoyuDebug::printInFireBug($results, 'res');
-//		TodoyuDebug::printInFireBug(unserialize($results['debug']));
+	public static function renderSearchResults($query) {
+		$updater	= new TodoyuSysmanagerUpdaterRequest();
 
 		$tmpl	= 'ext/sysmanager/view/updater-search-list.tmpl';
-		$data	= TodoyuArray::toArray($results, true);
+		$data	= $updater->searchExtensions($query);
 
 		return render($tmpl, $data);
 	}
@@ -80,13 +75,10 @@ class TodoyuSysmanagerUpdaterRenderer {
 	 * @return	String
 	 */
 	public static function renderUpdate(array $params = array()) {
-		$client	= TodoyuSysmanagerUpdaterSoapClient::getInstance();
+		$updater	= new TodoyuSysmanagerUpdaterRequest();
 
-		$updates	= $client->searchUpdates();
-		$updates	= TodoyuSysmanagerUpdaterManager::replaceFilepathsWithHashes($updates);
-
-
-//		TodoyuDebug::printInFireBug($updates, 'updates');
+		$response	= $updater->searchUpdates();
+		$updates	= TodoyuSysmanagerUpdaterManager::replaceFilepathsWithHashes($response);
 
 		$tmpl	= 'ext/sysmanager/view/updater-update-list.tmpl';
 		$data	= array(

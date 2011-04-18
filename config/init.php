@@ -45,6 +45,10 @@ Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 	array(
 		'id'	=> 'logo',
 		'label'	=> 'LLL:sysmanager.ext.config.tab.logo'
+	),
+	array(
+		'id'	=> 'updater',
+		'label'	=> 'LLL:sysmanager.ext.config.tab.updater'
 	)
 );
 	// Settings for uploadable company logo
@@ -80,8 +84,8 @@ Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 
 
 Todoyu::$CONFIG['EXT']['sysmanager']['update'] = array(
-//	'connectionCheckUrl'	=> 'http://www.todoyu.com/robots.txt'
-	'connectionCheckUrl'	=> 'http://ferni42.srv05/robots.txt'
+	'host'		=> 'todoyuneu.srv05',
+	'get'		=> '?eID=todoyuupdate'
 )
 
 ?>

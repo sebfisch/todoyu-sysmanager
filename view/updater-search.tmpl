@@ -2,9 +2,7 @@
 
 <div id="updater-search-control">
 	<form method="post">
-		<input type="text" name="extQuery" id="extQuery" value="{$extQuery}" />
-		</br>
-		Category Select
+		<input type="text" name="extQuery" id="extQuery" value="{$query}" />
 	</form>
 </div>
 
@@ -12,6 +10,6 @@
 	{$results}
 </div>
 
-<script>
+<script type="text/javascript">
 	Todoyu.Ext.sysmanager.Updater.init();
 </script>

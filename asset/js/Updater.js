@@ -129,7 +129,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	 * @method	moreExtensionInfo
 	 * @param	{String}	terLink
 	 */
-	moreExtensionInfo: function(terLink) {
+	showExtensionInTER: function(terLink) {
 		window.open(terLink, '_blank');
 	},
 
