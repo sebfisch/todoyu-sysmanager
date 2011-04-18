@@ -1,30 +1,33 @@
-Num Results: {$numResults}
-<br />
+<div class="resultinfo">Num Results: {$numResults}</div>
 
 {foreach $extensions extension}
 	<div class="extension">
-		<div class="column image">
-			<img src="{$extension.image}" width="120" height="90" border="0" />
-		</div>
-		<div class="column middle">
-			<div class="title">{$extension.title}</div>
+		<div class="main">
+			<h5>
+				<img src="{$extension.icon}" width="32" height="32" border="0" />
+				<div class="title">{$extension.title}</div>
+				<div class="author">From {$extension.author.name}</div>
+
+			</h5>
 			<div class="description">{$extension.description}</div>
 		</div>
-		<div class="column right">
+		<div class="right">
 			<div class="rating">{for i 1 $extension.rating}* {/for}</div>
 			<div class="state">STATE: {$extension.state}</div>
 			<div class="costs">{if $extension.costs == 2}FREE{else}COMMERCIAL{/if}</div>
 			<div class="downloads">{$extension.downloads} Downloads</div>
-			<div class="creator">{$extension.creator}</div>
 		</div>
+
+
 		<div class="bottom">
 			<div class="add">
-				{Button label="Install Extension" onclick="Todoyu.Ext.sysmanager.Updater.installExtension('$extension.extkey', '$extension.zipfile')"}
+				{Button label="Install Extension" onclick="Todoyu.Ext.sysmanager.Updater.installExtension('$extension.extkey', '$extension.archive_hash')"}
 			</div>
 			<div class="details">
 				{Button label="More infos" onclick="Todoyu.Ext.sysmanager.Updater.showExtensionInTER('$extension.ter_link}')"}
 			</div>
 		</div>
+
 		<div class="clear"></div>
 	</div>
 {/foreach}

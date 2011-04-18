@@ -94,10 +94,17 @@ class TodoyuSysmanagerUpdaterRequest {
 	 */
 	public function searchExtensions($query) {
 		$data	= array(
-			'query'	=> $query
+			'query'	=> $query,
+			'ignore'=> TodoyuExtensions::getInstalledExtKeys()
 		);
 
-		return $this->sendRequest('searchExtensions', $data);
+		$results	= $this->sendRequest('searchExtensions', $data);
+
+		foreach($results['extensions'] as $index => $extension) {
+			$results['extensions'][$index]['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($extension['archive']);
+		}
+
+		return $results;
 	}
 
 
@@ -110,8 +117,17 @@ class TodoyuSysmanagerUpdaterRequest {
 	 */
 	public function searchUpdates() {
 		$data	= array();
+		$updates= $this->sendRequest('searchUpdates', $data);
 
-		return $this->sendRequest('searchUpdates', $data);
+		if( $updates['core'] ) {
+			$updates['core']['archive'] = TodoyuSysmanagerUpdaterManager::path2hash($updates['core']['archive']);
+		}
+
+		foreach($updates['extensions'] as $index => $extension) {
+			$updates['extensions'][$index]['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($extension['archive']);
+		}
+
+		return $updates;
 	}
 
 
@@ -137,7 +153,7 @@ class TodoyuSysmanagerUpdaterRequest {
 		$this->response['content_raw']	= $this->response['content'];
 		$this->response['content']		= json_decode($this->response['content'], true);
 
-//		TodoyuDebug::printInFireBug($this->response['content'], 'response');
+		TodoyuDebug::printInFireBug($this->response['content'], 'response');
 
 		return $this->getResponseContent();
 	}

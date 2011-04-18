@@ -120,7 +120,7 @@ class TodoyuSysmanagerSystemConfigRenderer {
 
 
 	private static function renderBodyUpdater(array $params) {
-		$xml	= 'ext/sysmanager/config/form/updater.xml';
+		$xml	= 'ext/sysmanager/config/form/updater-config.xml';
 		$form	= TodoyuFormManager::getForm($xml);
 
 		$data	= array(

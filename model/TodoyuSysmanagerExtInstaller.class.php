@@ -407,17 +407,17 @@ class TodoyuSysmanagerExtInstaller {
 		try {
 				// Is file available in upload array
 			if( $uploadFile === false ) {
-				throw new Exception('File not found in upload array');
+				throw new TodoyuException('File not found in upload array');
 			}
 				// Has an error occurred
 			if( $uploadFile['error'] !== 0 ) {
-				throw new Exception('Upload error');
+				throw new TodoyuException('Upload error');
 			}
 
 				// Check if import is possible with provided file
 			$canImport	= TodoyuSysmanagerExtInstaller::canImportUploadedArchive($uploadFile, $override);
 			if( $canImport !== true ) {
-				throw new Exception('Can\'t import extension archive: ' . $canImport);
+				throw new TodoyuException('Can\'t import extension archive: ' . $canImport);
 			}
 
 			$archiveInfo	= TodoyuSysmanagerExtInstaller::parseExtensionArchiveName($uploadFile['name']);
@@ -429,7 +429,7 @@ class TodoyuSysmanagerExtInstaller {
 				'message'	=> '',
 				'ext'		=> $archiveInfo['ext']
 			);
-		}  catch(Exception $e) {
+		}  catch(TodoyuException $e) {
 			$info	= array(
 				'success'	=> false,
 				'message'	=> $e->getMessage(),

@@ -55,7 +55,6 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @return	String
 	 */
 	public static function getLastQuery() {
-		TodoyuDebug::printInFireBug('get');
 		return TodoyuSysmanagerPreferences::getPref('updaterQuery');
 	}
 
@@ -102,6 +101,19 @@ class TodoyuSysmanagerUpdaterManager {
 		$urlUpdate		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
 
 		return self::downloadAndExtractUpdate($urlUpdate, $pathExtract);
+	}
+
+
+	public static function installExtension($extKey, $archiveHash) {
+		$archivePath= self::hash2path($archiveHash);
+		$localPath	= TodoyuFileManager::saveLocalCopy($archivePath);
+
+		$importInfo	= TodoyuSysmanagerExtInstaller::importExtensionArchive($localPath, true);
+
+		TodoyuDebug::printInFireBug($archivePath, '$archivePath');
+		TodoyuDebug::printInFireBug($localPath, '$localPath');
+		TodoyuDebug::printInFireBug($importInfo, '$importInfo');
+
 	}
 
 
@@ -157,7 +169,7 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @param	String	$path
 	 * @return	String
 	 */
-	private static function path2hash($path) {
+	public static function path2hash($path) {
 		$hash	= md5($path);
 
 		TodoyuSession::set('updater/path/' . $hash, $path);

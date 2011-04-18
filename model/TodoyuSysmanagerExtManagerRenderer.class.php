@@ -103,7 +103,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 				break;
 
 			case 'browse':
-				$content = self::renderBrowse($params);
+				$content = self::renderSearch($params);
 				break;
 
 			default:
@@ -249,8 +249,8 @@ class TodoyuSysmanagerExtManagerRenderer {
 	 * @param	Array	$params
 	 * @return	String
 	 */
-	public static function renderBrowse(array $params = array()) {
-		return TodoyuSysmanagerUpdaterRenderer::renderBrowse($params);
+	public static function renderSearch(array $params = array()) {
+		return TodoyuSysmanagerUpdaterRenderer::renderSearch($params);
 	}
 
 }

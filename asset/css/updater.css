@@ -1,65 +1,87 @@
 /** ----------------------
 	Search extensions
 	----------------------*/
-
-#updater-search-results {
-	padding:10px;
-	border:1px solid #CCC;
-	background-color:#EFC;
-}
-
-#updater-search-results .extension {
-	padding:5px;
-	border:1px solid #CCC;
+.extensionSearch .control {
 	margin-bottom:10px;
 }
 
-#updater-search-results .extension .column {
+.extensionSearch .results {
+
+}
+
+.extensionSearch .resultinfo {
+	padding:10px;
+	background-color:#EFEFEF;
+	margin-bottom:10px;
+}
+
+
+.extensionSearch .extension {
+	border-bottom:1px solid #CCC;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	position:relative;
+	display:inline-block;
+}
+
+.extensionSearch .extension > div {
 	float:left;
 	clear:none;
 }
 
-#updater-search-results .extension .image {
-	width:120px;
+.extensionSearch .extension .main {
+	margin-left:50px;
 	margin-right:10px;
-	background-color:#FF0;
+	width:400px;
 }
 
-#updater-search-results .extension .middle {
-	width:325px;
-	margin-right:20px;
+.extensionSearch .extension .right {
+	width:180px;
+	padding-left:10px;
+	border-left:1px dashed #CCC;
 }
 
-#updater-search-results .extension .right {
-	width:150px;
+
+.extensionSearch .extension h5 {
+	border-bottom:none;
+	margin-bottom:10px;
+	padding-left:0;
 }
 
-#updater-search-results .extension .title {
-	font-weight:bold;
-	font-size:14px;
+.extensionSearch .extension h5 div {
+	width:100%;
 }
 
-#updater-search-results .extension .right div {
-	float:left;
+.extensionSearch .extension h5 .author {
+	margin-left:10px;
+}
+
+.extensionSearch .extension h5 .title {
+	font-size:20px;
+}
+
+.extensionSearch .extension h5 img {
+	position:absolute;
+	left:0;
+	top:5px;
+}
+
+.extensionSearch .extension .right div {
+	padding:5px;
+	border-bottom:1px dashed #CCC;
+}
+
+.extensionSearch .extension .bottom {
+	width:100%;
 	clear:both;
-	width:90%;
-	margin-bottom:5px;
-	padding:3px;
-	border-bottom:1px solid #CCC;
+	margin-top:5px;
 }
 
-#updater-search-results .extension .bottom {
-	clear:both;
-}
-
-#updater-search-results .extension .bottom div {
+.extensionSearch .extension .bottom div {
 	float:right;
-	width:100px;
+	width:120px;
 }
 
-#updater-search-results .extension div.clear {
-	clear:both;
-}
 
 
 /** ----------------------

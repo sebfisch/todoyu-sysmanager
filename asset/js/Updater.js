@@ -52,7 +52,12 @@ Todoyu.Ext.sysmanager.Updater = {
 	 * @method	observeSearchForm
 	 */
 	observeSearchForm: function() {
-		Todoyu.DelayedTextObserver.observe('extQuery', this.onQueryChanged.bind(this));
+		new Todoyu.DelayedTextObserver('search-field-query', this.onQueryChanged.bind(this));
+	},
+
+
+	getQuery: function() {
+		return $F('search-field-query').trim();
 	},
 
 
@@ -64,8 +69,8 @@ Todoyu.Ext.sysmanager.Updater = {
 	 * @param	{String}	value
 	 * @param	{String}	field
 	 */
-	onQueryChanged: function(value, field) {
-		this.updateResults(value);
+	onQueryChanged: function(field,value) {
+		this.updateResults();
 	},
 
 
@@ -74,20 +79,22 @@ Todoyu.Ext.sysmanager.Updater = {
 	 * Update search results from given query
 	 *
 	 * @method	updateResults
-	 * @param	{String}	query
 	 * @param	{String}	order
 	 * @param	{Number}	offset
 	 */
-	updateResults: function(query, order, offset) {
+	updateResults: function(order, offset) {
+		order	= order || '';
+		offset	= offset || 0;
+
 		var url		= this.getUrl();
 		var options	= {
 			parameters: {
 				action: 'search',
-				'query': query,
-				'order': order,
-				'offset': offset || 0
+				query:	this.getQuery(),
+				order:	order,
+				offset: offset
 			},
-			onComplete: this.onResultsUpdated.bind(this, query, order, offset)
+			onComplete: this.onResultsUpdated.bind(this, this.getQuery(), order, offset)
 		};
 		var target	= 'updater-search-results';
 
@@ -117,8 +124,25 @@ Todoyu.Ext.sysmanager.Updater = {
 	 * @param	{String}	extkey
 	 * @param	{String}	zipFile
 	 */
-	installExtension: function(extkey, zipFile) {
-		alert("Needs to be implemented");
+	installExtension: function(extkey, archiveHash) {
+		if( confirm('Install this extension?') ) {
+			var url		= Todoyu.getUrl('sysmanager', 'updater');
+			var options = {
+				parameters: {
+					action: 'installExtension',
+					extkey:	extkey,
+					archive:archiveHash
+				},
+				onComplete: this.onExtensionInstalled.bind(this, extkey)
+			};
+
+			Todoyu.send(url, options);
+		}
+	},
+
+
+	onExtensionInstalled: function(extKey, response) {
+
 	},
 
 

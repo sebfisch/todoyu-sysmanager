@@ -84,6 +84,14 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 		return 'Extension update installed';
 	}
 
+
+	public function installExtensionAction(array $params) {
+		$ext	= trim($params['extkey']);
+		$archive= trim($params['archive']);
+
+		TodoyuSysmanagerUpdaterManager::installExtension($ext, $archive);
+	}
+
 }
 
 ?>

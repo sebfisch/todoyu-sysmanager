@@ -1,13 +1,13 @@
 {Title title="LLL:sysmanager.ext.browse.title"}
 
-<div id="updater-search-control">
-	<form method="post">
-		<input type="text" name="extQuery" id="extQuery" value="{$query}" />
-	</form>
-</div>
+<div class="extensionSearch">
+	<div class="control">
+		{$form}
+	</div>
 
-<div id="updater-search-results">
-	{$results}
+	<div class="results" id="updater-search-results">
+		{$results}
+	</div>
 </div>
 
 <script type="text/javascript">

@@ -32,18 +32,29 @@ class TodoyuSysmanagerUpdaterRenderer {
 	 * @param	Array	$params
 	 * @return	String
 	 */
-	public static function renderBrowse(array $params = array()) {
+	public static function renderSearch(array $params = array()) {
 		if( ! TodoyuSysmanagerUpdaterManager::isUpdateServerReachable() ) {
 			$tmpl	= 'ext/sysmanager/view/updater-noconnection.tmpl';
 			return render($tmpl);
 		}
 
-		$extQuery	= trim($params['extQuery']);
+		if( array_key_exists('query', $params) ) {
+			$query	= trim($params['query']);
+		} else {
+			$query	= TodoyuSysmanagerUpdaterManager::getLastQuery();
+			$params['query'] = $query;
+		}
+
+		$xmlPath	= 'ext/sysmanager/config/form/updater-search.xml';
+		$form		= TodoyuFormManager::getForm($xmlPath);
+		$form->setFormData($params);
+		$form->setUseRecordID(false);
 
 		$tmpl	= 'ext/sysmanager/view/updater-search.tmpl';
 		$data	= array(
-			'query'		=> TodoyuSysmanagerUpdaterManager::getLastQuery(),
-			'results'	=> self::renderSearchResults($extQuery)
+			'query'		=> $query,
+			'form'		=> $form->render(),
+			'results'	=> self::renderSearchResults($query)
 		);
 
 		return render($tmpl, $data);
@@ -76,9 +87,7 @@ class TodoyuSysmanagerUpdaterRenderer {
 	 */
 	public static function renderUpdate(array $params = array()) {
 		$updater	= new TodoyuSysmanagerUpdaterRequest();
-
-		$response	= $updater->searchUpdates();
-		$updates	= TodoyuSysmanagerUpdaterManager::replaceFilepathsWithHashes($response);
+		$updates	= $updater->searchUpdates();
 
 		$tmpl	= 'ext/sysmanager/view/updater-update-list.tmpl';
 		$data	= array(
