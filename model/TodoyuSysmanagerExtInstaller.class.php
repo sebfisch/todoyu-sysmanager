@@ -62,7 +62,7 @@ class TodoyuSysmanagerExtInstaller {
 	 * Load constraints config from new installed extension (not loaded)
 	 *
 	 * @param	String		$extKey
-	 * @return§Array
+	 * @return	Array
 	 */
 	public static function getConstraintsOfNewExtension($extKey) {
 		$pathInfo	= TodoyuExtensions::getExtPath($extKey, 'config/extinfo.php');
