@@ -175,9 +175,27 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		$data		= $params['importExtension'];
 		$override	= intval($data['override']) === 1;
 
-		$info	= TodoyuSysmanagerExtInstaller::importExtensionArchive($uploadFile, $override);
+		$success	= false;
+		$archiveInfo= TodoyuSysmanagerExtInstaller::parseExtensionArchiveName($uploadFile['name']);
 
-		$command	= 'window.parent.Todoyu.Ext.sysmanager.Extensions.Import.uploadFinished("' . $info['ext'] . '", ' . ($info['success']?'true':'false') . ', "' . $info['message'] . '");';
+		if( $archiveInfo !== false ) {
+			$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($archiveInfo['ext'], $uploadFile['tmp_name'], $override);
+
+			if( $canImport === true ) {
+				$success 	= true;
+			} else {
+				$errorMsg	= $canImport;
+			}
+
+			if( $success ) {
+				TodoyuSysmanagerExtImporter::importExtensionArchive($archiveInfo['ext'], $uploadFile['tmp_name'], $override);
+			}
+
+			$command	= 'window.parent.Todoyu.Ext.sysmanager.Extensions.Import.importFinished("' . $archiveInfo['ext'] . '", ' . ($success?'true':'false') . ', "' . $errorMsg . '");';
+		} else {
+			$errorMsg	= 'Name format of extension archive is invalid';
+			$command	= 'window.parent.Todoyu.Ext.sysmanager.Extensions.Import.importFailed("' . $errorMsg . '");';
+		}
 
 		return TodoyuRenderer::renderUploadIFrameJsContent($command);
 	}

@@ -27,23 +27,6 @@
 class TodoyuSysmanagerExtInstaller {
 
 	/**
-	 * Write extensions.php config file
-	 *
-	 * @param	Array		$extensions
-	 */
-	private static function writeExtensionsFile(array $extensions) {
-		$file	= PATH_LOCALCONF . '/extensions.php';
-		$tmpl	= 'ext/sysmanager/view/extensions.php.tmpl';
-		$data	= array(
-			'extensions'	=> $extensions
-		);
-
-		TodoyuFileManager::saveTemplatedFile($file, $tmpl, $data);
-	}
-
-
-
-	/**
 	 * Save extensions as installed in extensions.php config file
 	 *
 	 * @param	Array		$extensions
@@ -52,29 +35,13 @@ class TodoyuSysmanagerExtInstaller {
 			// Update global config array
 		Todoyu::$CONFIG['EXT']['installed'] = $extensions;
 
-			// Update config file
-		self::writeExtensionsFile($extensions);
-	}
+		$file	= TodoyuFileManager::pathAbsolute('config/extensions.php');
+		$tmpl	= TodoyuFileManager::pathAbsolute('ext/sysmanager/view/extensions.php.tmpl');
+		$data	= array(
+			'extensions'	=> $extensions
+		);
 
-
-
-	/**
-	 * Load constraints config from new installed extension (not loaded)
-	 *
-	 * @param	String		$extKey
-	 * @return	Array
-	 */
-	public static function getConstraintsOfNewExtension($extKey) {
-		$pathInfo	= TodoyuExtensions::getExtPath($extKey, 'config/extinfo.php');
-		$constraints= array();
-
-		if( is_file($pathInfo) ) {
-			include($pathInfo);
-
-			$constraints	= TodoyuArray::assure(Todoyu::$CONFIG['EXT'][$extKey]['info']['constraints']);
-		}
-
-		return $constraints;
+		TodoyuFileManager::saveTemplatedFile($file, $tmpl, $data);
 	}
 
 
@@ -98,18 +65,9 @@ class TodoyuSysmanagerExtInstaller {
 
 		TodoyuExtensions::addExtAutoloadPaths($extKey);
 
-		self::updateDatabase();
+		TodoyuSQLManager::updateDatabaseFromTableFiles();
 
 		self::callExtensionSetup($extKey, 'install');
-	}
-
-
-
-	/**
-	 * Call database update. All necessary database updates are proceeded automatically
-	 */
-	private static function updateDatabase() {
-		TodoyuSQLManager::updateDatabaseFromTableFiles();
 	}
 
 
@@ -390,20 +348,40 @@ class TodoyuSysmanagerExtInstaller {
 	 * @return	String
 	 */
 	public static function buildExtensionArchiveName($extKey, $versionMajor, $versionMinor, $versionRevision) {
-		return 'TodoyuExt_' . $extKey . '_' . $versionMajor . '.' . $versionMinor . '.' . $versionRevision . '_' . date('Y-m-d_H.i') . '.zip';
+		return 'TodoyuExt_' . $extKey . '_' . $versionMajor . '.' . $versionMinor . '.' . $versionRevision . '.zip';
 	}
 
 
 
 	/**
-	 * Verify as extension archive and import uploaded file into ext system
+	 * Parse given (archive's) filename: extract attributes: ext, version, data
 	 *
- 	 * @throws	Exception
- 	 * @param	Array		$uploadFile
- 	 * @param	Boolean		$override
-	 * @return	Array
+	 * @param	String		$archiveName
+	 * @return	Array|Boolean
 	 */
-	public static function importExtensionArchive(array $uploadFile, $override = false) {
+	public static function parseExtensionArchiveName($archiveName) {
+		if( strncasecmp($archiveName, 'TodoyuExt_', 10) !== 0 ) {
+			return false;
+		}
+
+		$fileInfo	= explode('_', $archiveName);
+
+		if( sizeof($fileInfo) !== 3 ) {
+			return false;
+		}
+
+		$version	= TodoyuString::getVersionInfo($fileInfo[2]);
+
+		$info	= array(
+			'ext'		=> trim(strtolower($fileInfo[1])),
+			'version'	=> $version
+		);
+
+		return $info;
+	}
+
+
+	public static function importUploadedExtensionArchive(array $uploadFile, $override = false) {
 		try {
 				// Is file available in upload array
 			if( $uploadFile === false ) {
@@ -415,14 +393,17 @@ class TodoyuSysmanagerExtInstaller {
 			}
 
 				// Check if import is possible with provided file
-			$canImport	= TodoyuSysmanagerExtInstaller::canImportUploadedArchive($uploadFile, $override);
+			$fileInfo	= explode('_', $uploadFile['name']);
+			$extKey		= trim(strtolower($fileInfo[1]));
+
+			$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($extKey, $uploadFile['tmp_name'], $override);
 			if( $canImport !== true ) {
 				throw new TodoyuException('Can\'t import extension archive: ' . $canImport);
 			}
 
 			$archiveInfo	= TodoyuSysmanagerExtInstaller::parseExtensionArchiveName($uploadFile['name']);
 
-			self::extractExtensionArchive($archiveInfo['ext'], $uploadFile['tmp_name']);
+			TodoyuSysmanagerExtImporter::importExtensionArchive($archiveInfo['ext'], $uploadFile['tmp_name']);
 
 			$info	= array(
 				'success'	=> true,
@@ -438,117 +419,23 @@ class TodoyuSysmanagerExtInstaller {
 		}
 
 		return $info;
+
+
 	}
 
 
 
-	/**
-	 * Parse given (archive's) filename: extract attributes: ext, version, data
-	 *
-	 * @param	String		$extArchiveName
-	 * @return	Array
-	 */
-	public static function parseExtensionArchiveName($extArchiveName) {
-		$fileInfo	= explode('_', $extArchiveName);
-		$version	= TodoyuString::getVersionInfo($fileInfo[2]);
-		$date		= strtotime($fileInfo[3] . ' ' . $fileInfo[4]);
-
-		$info	= array(
-			'ext'		=> $fileInfo[1],
-			'version'	=> $version,
-			'date'		=> $date
-		);
-
-		return $info;
-	}
 
 
 
-	/**
-	 * Check whether uploaded archive file can be imported into system as extension
-	 *
-	 * @throws	Exception
-	 * @param	Array		$file
-	 * @param	Boolean		$override
-	 * @return	Boolean
-	 */
-	public static function canImportUploadedArchive(array $file, $override = false) {
-		try {
-			if( TodoyuSysmanagerExtInstaller::isValidExtArchive($file) !== true ) {
-				throw new Exception('Invalid extension archive');
-			}
-
-			$fileInfo	= explode('_', $file['name']);
-			$extName	= trim(strtolower($fileInfo[1]));
-			$extDir		= TodoyuExtensions::getExtPath($extName);
-
-			if( ! $override && is_dir($extDir) ) {
-				throw new Exception('Extension already exists');
-			}
-		} catch(Exception $e) {
-			return $e->getMessage();
-		}
-
-		return true;
-	}
 
 
 
-	/**
-	 * Check whether given archive file contains a valid todoyu extension
-	 *
-	 * @throws	Exception
-	 * @param	Array		$file
-	 * @return	Boolean
-	 */
-	public static function isValidExtArchive(array $file) {
-		$info	= pathinfo($file['name']);
-
-		try {
-			if( $info['extension'] !== 'zip' ) {
-				throw new Exception('Invalid archive extension');
-			}
-//			if( $file['type'] !== 'application/octet-stream' ) {
-//				throw new Exception('Invalid content type');
-//			}
-			if( $file['size'] < 100 ) {
-				throw new Exception('Invalid size. Too small for a real extension archive');
-			}
-
-			$archive= new ZipArchive();
-			if( $archive->open($file['tmp_name']) !== true ) {
-				throw new Exception('Can\'t open archive file');
-			}
-
-			if( $archive->statName('config/boot.php') === false ) {
-				throw new Exception('config/boot.php not found in archive');
-			}
-		} catch(Exception $e) {
-			if( $archive instanceof ZipArchive ) {
-				$archive->close();
-			}
-			Todoyu::log('Invalid extension import: ' . $e->getMessage());
-			return false;
-		}
-
-		return true;
-	}
 
 
 
-	/**
-	 * Extract archive file at given path into extension folder named after given extension key
-	 *
-	 * @param	String		$extKey
-	 * @param	String		$pathArchive
-	 */
-	public static function extractExtensionArchive($extKey, $pathArchive) {
-		$archive	= new ZipArchive();
-		$archive->open($pathArchive);
-		$extDir		= TodoyuExtensions::getExtPath($extKey);
 
-		$archive->extractTo($extDir);
-	}
+
 
 
 

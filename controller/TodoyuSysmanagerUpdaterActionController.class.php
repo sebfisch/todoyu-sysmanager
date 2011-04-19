@@ -79,9 +79,12 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 		$hash	= trim($params['hash']);
 		$ext	= trim($params['extkey']);
 
-		TodoyuSysmanagerUpdaterManager::installExtensionUpdate($ext, $hash);
+		$result	= TodoyuSysmanagerUpdaterManager::installExtensionUpdate($ext, $hash);
 
-		return 'Extension update installed';
+		if( $result !== true ) {
+			TodoyuHeader::sendTodoyuErrorHeader();
+			TodoyuHeader::sendTodoyuHeader('error', $result);
+		}
 	}
 
 
@@ -89,7 +92,7 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 		$ext	= trim($params['extkey']);
 		$archive= trim($params['archive']);
 
-		TodoyuSysmanagerUpdaterManager::installExtension($ext, $archive);
+		TodoyuSysmanagerUpdaterManager::importExtensionUpdate($ext, $archive);
 	}
 
 }

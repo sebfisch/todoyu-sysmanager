@@ -79,12 +79,16 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @param	String		$extkey
 	 * @return	Boolean
 	 */
-	public static function installExtensionUpdate($ext, $urlHash) {
-//		$pathExtract	= PATH . '/ext/' . $extkey;
-		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu/ext/' . $ext;
-		$urlUpdate		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
+	public static function installExtensionUpdate($extKey, $archiveHash) {
+		$urlArchive	= self::hash2path($archiveHash);
 
-		return self::downloadAndExtractUpdate($urlUpdate, $pathExtract);
+		try {
+			self::downloadAndImportExtensionUpdate($extKey, $urlArchive);
+		} catch(TodoyuException $e) {
+			return $e->getMessage();
+		}
+
+		return true;
 	}
 
 
@@ -100,19 +104,28 @@ class TodoyuSysmanagerUpdaterManager {
 		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu';
 		$urlUpdate		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
 
-		return self::downloadAndExtractUpdate($urlUpdate, $pathExtract);
+		return self::downloadAndImportExtensionUpdate($urlUpdate, $pathExtract);
 	}
 
 
-	public static function installExtension($extKey, $archiveHash) {
-		$archivePath= self::hash2path($archiveHash);
-		$localPath	= TodoyuFileManager::saveLocalCopy($archivePath);
+	public static function importExtensionUpdate($extKey, $archiveHash) {
+		$urlArchive	= self::hash2path($archiveHash);
+		$pathArchive= TodoyuFileManager::saveLocalCopy($urlArchive);
 
-		$importInfo	= TodoyuSysmanagerExtInstaller::importExtensionArchive($localPath, true);
+		TodoyuDebug::printInFireBug($urlArchive, '$urlArchive');
+		TodoyuDebug::printInFireBug($pathArchive, '$pathArchive');
 
-		TodoyuDebug::printInFireBug($archivePath, '$archivePath');
-		TodoyuDebug::printInFireBug($localPath, '$localPath');
-		TodoyuDebug::printInFireBug($importInfo, '$importInfo');
+		if( TodoyuSysmanagerExtImporter::canImportExtension($extKey, $pathArchive, true) ) {
+			$importInfo	= TodoyuSysmanagerExtImporter::importExtensionArchive($extKey, $pathArchive);
+
+
+			TodoyuDebug::printInFireBug($importInfo, '$importInfo');
+
+		}
+
+
+
+
 
 	}
 
@@ -124,21 +137,28 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @param	String		$urlArchive
 	 * @return	Boolean		Success
 	 */
-	public static function downloadAndExtractUpdate($urlArchive, $extractTo) {
-		$tempID		= md5(uniqid().$urlArchive);
-		$tempFile	= PATH_CACHE . '/temp/update/' . $tempID . '.zip';
+	public static function downloadAndImportExtensionUpdate($ext, $urlArchive) {
+		$pathArchive= self::downloadArchive($urlArchive);
+		$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($ext, $pathArchive, true);
 
-		$download	= TodoyuFileManager::saveLocalCopy($urlArchive, $tempFile);
-
-		if( $download === false ) {
-			Todoyu::log('Download of update failed: ' . $urlArchive, TodoyuLogger::LEVEL_ERROR);
-
-			return false;
-		} else {
-			TodoyuArchiveManager::extract($tempFile, $extractTo);
-
-			return true;
+		if( $canImport !== true ) {
+			throw new TodoyuException($canImport);
 		}
+
+		TodoyuSysmanagerExtImporter::importExtensionArchive($ext, $pathArchive);
+
+		return true;
+	}
+
+
+	public static function downloadArchive($urlArchive) {
+		$localPath	= TodoyuFileManager::saveLocalCopy($urlArchive);
+
+		if( $localPath === false ) {
+			throw new TodoyuException('Download of update archive failed: ' . $urlArchive);
+		}
+
+		return $localPath;
 	}
 
 

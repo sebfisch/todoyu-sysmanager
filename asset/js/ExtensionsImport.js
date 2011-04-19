@@ -73,11 +73,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	 */
 	startUpload: function() {
 		if( $F('importExtension-field-file') !== '' ) {
-			Todoyu.Form.addIFrame('import');
-
-			$('importExtension-form').writeAttribute('target', 'upload-iframe-import');
-
-			$('importExtension-form').submit();
+			Todoyu.Form.submitToIFrame('importExtension-form', 'import');
 		} else {
 			alert('[LLL:sysmanager.ext.upload.noArchiveSelected]');
 		}
@@ -94,7 +90,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	 * @param	{Boolean}	success
 	 * @param	{String}	message
 	 */
-	uploadFinished: function(ext, success, message) {
+	importFinished: function(ext, success, message) {
 		if( success === true ) {
 			Todoyu.notifySuccess('[LLL:sysmanager.ext.upload.ok]: ' + ext);
 
@@ -102,6 +98,11 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 		} else {
 			Todoyu.notifyError('[LLL:sysmanager.ext.upload.error]: ' + ext + ' (' + message + ')');
 		}
+	},
+
+
+	importFailed: function(message) {
+		Todoyu.notifyError('[LLL:sysmanager.ext.upload.error]: ' + message);
 	}
 
 };

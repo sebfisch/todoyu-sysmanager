@@ -176,15 +176,15 @@ Todoyu.Ext.sysmanager.Updater = {
 	 *
 	 * @method	installExtensionUpdate
 	 * @param	{String}	extkey
-	 * @param	{String}	urlHash
+	 * @param	{String}	archiveHash
 	 */
-	installExtensionUpdate: function(extkey, urlHash) {
+	installExtensionUpdate: function(extkey, archiveHash) {
 		var url		= this.getUrl();
 		var options	= {
 			parameters: {
-				action:	'installExtensionUpdate',
-				'extkey':	extkey,
-				'hash':		urlHash
+				action:		'installExtensionUpdate',
+				extkey:		extkey,
+				hash:		archiveHash
 			},
 			onComplete: this.onExtensionUpdateInstalled.bind(this, extkey)
 		};
@@ -200,8 +200,14 @@ Todoyu.Ext.sysmanager.Updater = {
 	 * @method	onExtensionUpdateInstalled
 	 * @param	{String}	extkey
 	 */
-	onExtensionUpdateInstalled: function(extkey) {
-		alert("Extension was installed: " + extkey);
+	onExtensionUpdateInstalled: function(extkey, response) {
+		if( response.hasTodoyuError() ) {
+			var error	= response.getTodoyuHeader('error');
+
+			Todoyu.notifyError(error);
+		} else {
+			Todoyu.notifySuccess('Extension update was installed');
+		}
 	},
 
 
