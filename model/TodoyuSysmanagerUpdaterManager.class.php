@@ -163,9 +163,13 @@ class TodoyuSysmanagerUpdaterManager {
 			throw new TodoyuException('Extraction of core update archive failed');
 		}
 
-		self::removeLocalElementsFromCoreUpdate($tempPath);
+		$pathUpdate	= TodoyuFileManager::pathAbsolute($tempPath . '/todoyu');
 
-//		TodoyuFileManager::copyRecursive($tempPath, PATH . '/cache/xxx');
+		TodoyuDebug::printInFireBug($pathUpdate, '$pathUpdate');
+
+		self::removeLocalElementsFromCoreUpdate($pathUpdate);
+
+		TodoyuFileManager::copyRecursive($pathUpdate, PATH . '/cache/xxx', true);
 	}
 
 
@@ -174,7 +178,7 @@ class TodoyuSysmanagerUpdaterManager {
 		$ignore	= array('cache', 'config', 'files', 'ext', 'install/config/LAST_VERSION');
 
 		foreach($ignore as $element) {
-			$pathElement	= TodoyuFileManager::pathAbsolute($element);
+			$pathElement	= TodoyuFileManager::pathAbsolute($pathCoreUpdate . '/' . $element);
 
 			if( is_dir($pathElement) ) {
 				TodoyuFileManager::deleteFolder($pathElement);
