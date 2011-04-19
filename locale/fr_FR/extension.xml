@@ -15,12 +15,12 @@
 	<label index="remove.confirm">Supprimer l'extension (et tous ses fichiers) du serveur?</label>
 	<label index="rights">Permissions</label>
 	<label index="documentation">Documentation</label>
-	<label index="installExtension">Installer une extension</label>
-	<label index="installExtension.confirm">Installer l'extension?</label>
-	<label index="installExtension.ok">L'extension a été installée avec succès</label>
-	<label index="installExtension.error">L'installation de l'extension a échoué</label>
-	<label index="uninstallExtension">Désinstaller une extension</label>
-	<label index="uninstallExtension.confirm">Désinstaller l'extension?</label>
-	<label index="uninstallExtension.ok">L'extension a bien été désinstallée</label>
-	<label index="uninstallExtension.error">La désinstallation de l'extension a échoué</label>
+	<label index="install">Installer une extension</label>
+	<label index="install.confirm">Installer l'extension?</label>
+	<label index="install.ok">L'extension a été installée avec succès</label>
+	<label index="install.error">L'installation de l'extension a échoué</label>
+	<label index="uninstall">Désinstaller une extension</label>
+	<label index="uninstall.confirm">Désinstaller l'extension?</label>
+	<label index="uninstall.ok">L'extension a bien été désinstallée</label>
+	<label index="uninstall.error">La désinstallation de l'extension a échoué</label>
 </labels>

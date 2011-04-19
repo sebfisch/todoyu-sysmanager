@@ -36,7 +36,7 @@ class TodoyuSysmanagerExtInstaller {
 		Todoyu::$CONFIG['EXT']['installed'] = $extensions;
 
 		$file	= TodoyuFileManager::pathAbsolute('config/extensions.php');
-		$tmpl	= TodoyuFileManager::pathAbsolute('ext/sysmanager/view/extensions.php.tmpl');
+		$tmpl	= TodoyuFileManager::pathAbsolute('ext/sysmanager/asset/template/extensions.php.tmpl');
 		$data	= array(
 			'extensions'	=> $extensions
 		);
@@ -71,6 +71,11 @@ class TodoyuSysmanagerExtInstaller {
 	}
 
 
+	public static function updateExtension($extKey, $previousVersion) {
+		self::callExtensionSetup($extKey, 'update', array($previousVersion));
+	}
+
+
 
 	/**
 	 * Call setup function of extension if available
@@ -78,7 +83,7 @@ class TodoyuSysmanagerExtInstaller {
 	 * @param	String		$extKey
 	 * @param	String		$action
 	 */
-	private static function callExtensionSetup($extKey, $action = 'install') {
+	private static function callExtensionSetup($extKey, $action = 'install', array $params = array()) {
 		$className	= 'Todoyu' . ucfirst(strtolower(trim($extKey))) . 'Setup';
 		$method		= $action;
 
@@ -86,7 +91,7 @@ class TodoyuSysmanagerExtInstaller {
 
 		if( class_exists($className, true) ) {
 			if( method_exists($className, $method) ) {
-				call_user_func(array($className, $method));
+				call_user_func_array(array($className, $method), $params);
 			}
 		}
 	}
@@ -257,19 +262,19 @@ class TodoyuSysmanagerExtInstaller {
 			// Check core version
 		if( isset($constraints['core']) ) {
 			if( version_compare($constraints['core'], TODOYU_VERSION) === 1 ) {
-				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.core') . ': ' . TODOYU_VERSION . ' < ' . $constraints['core']);
+				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.install.error.core') . ': ' . TODOYU_VERSION . ' < ' . $constraints['core']);
 			}
 		}
 
 			// Check if all dependencies are ok
 		foreach($depends as $extKey => $requiredVersion) {
 			if( ! TodoyuExtensions::isInstalled($extKey) ) {
-				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.missing') . ': ' . $extKey);
+				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.install.error.missing') . ': ' . $extKey);
 			}
 			$installedVersion	= TodoyuExtensions::getVersion($extKey);
 
 			if( version_compare($requiredVersion, $installedVersion) === 1 ) {
-				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.lowVersion') . ': ' . $extKey . ' - ' . $installedVersion . ' < ' . $requiredVersion);
+				throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.install.error.lowVersion') . ': ' . $extKey . ' - ' . $installedVersion . ' < ' . $requiredVersion);
 			}
 		}
 
@@ -277,7 +282,7 @@ class TodoyuSysmanagerExtInstaller {
 		$installedConflicts	= TodoyuExtensions::getConflicts($ext);
 
 		if( sizeof($installedConflicts) > 0 ) {
-			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $installedConflicts));
+			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.install.error.conflicts') . ': ' . implode(', ', $installedConflicts));
 		}
 
 			// Check if the extension has conflicts with an installed extension
@@ -286,7 +291,7 @@ class TodoyuSysmanagerExtInstaller {
 		$foundConflicts	= array_intersect($extConflicts, $installedExts);
 
 		if( sizeof($foundConflicts) > 0 ) {
-			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.installExtension.error.conflicts') . ': ' . implode(', ', $foundConflicts));
+			throw new TodoyuSysmanagerInstallerException(Label('sysmanager.extension.install.error.conflicts') . ': ' . implode(', ', $foundConflicts));
 		}
 
 		return true;

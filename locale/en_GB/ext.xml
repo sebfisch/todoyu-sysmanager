@@ -7,9 +7,9 @@
 	<label index="tabs.config">Config</label>
 	<label index="tabs.rights">Rights</label>
 	<label index="tabs.records">Records</label>
-	<label index="tabs.import">Import</label>
+	<label index="tabs.imported">Install</label>
 	<label index="tabs.update">Update</label>
-	<label index="tabs.browse">Browse Market</label>
+	<label index="tabs.search">Browse Market</label>
 	<label index="records.tab.all">All Records</label>
 	<label index="records.title.recordTypes">Record types of extension</label>
 	<label index="records.noTypes">This extension has no records to edit</label>
@@ -49,13 +49,6 @@
 	<label index="roles.delete.notify.success">Role has been deleted.</label>
 	<label index="roles.edit">Edit Role</label>
 	<label index="create.role.label">New Role</label>
-	<label index="upload.selectfile">Select extension archive (zip)</label>
-	<label index="upload.override">Override existing extension (files)</label>
-	<label index="upload.title">Upload New Extension</label>
-	<label index="upload.button">Upload Extension</label>
-	<label index="upload.noArchiveSelected">Please select an extension archive to upload</label>
-	<label index="upload.ok">Extension was successfully imported</label>
-	<label index="upload.error">Extension Upload Failed</label>
 	<label index="config.logo.upload.ok">Logo has been uploaded successfully</label>
 	<label index="config.logo.upload.error">Logo Upload Failed</label>
 	<label index="config.tab.systemconfig">System Settings</label>
@@ -78,8 +71,4 @@
 	<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
 	<label index="config.tab.updater">Updater</label>
 	<label index="config.tab.updater.save">Updater configuration saved</label>
-	<label index="updater.query">Search in TER</label>
-	<label index="updater.extension.moreDetails">More Details</label>
-	<label index="updater.extension.installUpdate">Install Update</label>
-	<label index="updater.core.installUpdate">Install Core Update</label>
 </labels>

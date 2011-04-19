@@ -15,12 +15,12 @@
 	<label index="remove.confirm">Alle extensies (alle bestanden) van server verwijderen?</label>
 	<label index="rights">Rechten</label>
 	<label index="documentation">Documentatie</label>
-	<label index="installExtension">Extensie installeren</label>
-	<label index="installExtension.confirm">Extensie installeren?</label>
-	<label index="installExtension.ok">Extensie installeren is gelukt</label>
-	<label index="installExtension.error">Extensie installeren is niet gelukt</label>
-	<label index="uninstallExtension">Extensie deïnstalleren</label>
-	<label index="uninstallExtension.confirm">Extensie deïnstalleren?</label>
-	<label index="uninstallExtension.ok">Extensie deïnstalleren is gelukt</label>
-	<label index="uninstallExtension.error">Extensie deïnstalleren is niet gelukt</label>
+	<label index="install">Extensie installeren</label>
+	<label index="install.confirm">Extensie installeren?</label>
+	<label index="install.ok">Extensie installeren is gelukt</label>
+	<label index="install.error">Extensie installeren is niet gelukt</label>
+	<label index="uninstall">Extensie deïnstalleren</label>
+	<label index="uninstall.confirm">Extensie deïnstalleren?</label>
+	<label index="uninstall.ok">Extensie deïnstalleren is gelukt</label>
+	<label index="uninstall.error">Extensie deïnstalleren is niet gelukt</label>
 </labels>

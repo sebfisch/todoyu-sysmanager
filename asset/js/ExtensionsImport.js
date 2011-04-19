@@ -51,6 +51,10 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 		Todoyu.Ui.updateContentBody(url, options);
 	},
 
+	showList: function() {
+		this.ext.Extensions.showTab('', 'imported');
+	},
+
 
 
 	/**

@@ -83,16 +83,21 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 
 		if( $result !== true ) {
 			TodoyuHeader::sendTodoyuErrorHeader();
-			TodoyuHeader::sendTodoyuHeader('error', $result);
+			TodoyuHeader::sendTodoyuHeader('message', $result);
 		}
 	}
 
 
 	public function installExtensionAction(array $params) {
-		$ext	= trim($params['extkey']);
-		$archive= trim($params['archive']);
+		$extKey		= trim($params['extkey']);
+		$archiveHash= trim($params['archive']);
 
-		TodoyuSysmanagerUpdaterManager::importExtensionUpdate($ext, $archive);
+		$result		= TodoyuSysmanagerUpdaterManager::installExtension($extKey, $archiveHash);
+
+		if( $result !== true ) {
+			TodoyuHeader::sendTodoyuErrorHeader();
+			TodoyuHeader::sendTodoyuHeader('message', $result);
+		}
 	}
 
 }

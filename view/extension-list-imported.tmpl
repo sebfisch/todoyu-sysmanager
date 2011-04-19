@@ -1,0 +1,65 @@
+{$tabs}
+
+{Title "LLL:sysmanager.ext.notInstalledExtensions"}
+
+<div class="contentMessage importInfo">
+	<div class="icon"></div>
+	This extensions are located on the server, but not installed yet
+</div>
+
+{if sizeof($extensions)>0}
+	<table class="list extlist">
+	{include file="extension-list-header.tmpl"}
+
+	{foreach $extensions extKey extInfo}
+	  <tr class="{cycle values="odd,even"}">
+		<td class="icon"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{extIcon $extKey}</a></td>
+		<td class="extkey">{$extKey}</td>
+		<td class="title">{htmlencode $extInfo.title}</td>
+		<td class="edit">
+
+			<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Install.install('{$extKey}')" title="{Label sysmanager.extension.install}" class="install">
+				<span class="hidden">install</span>
+			</a>
+
+			<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.remove('{$extKey}')" title="{Label sysmanager.extension.remove}" class="remove">
+				<span class="hidden">remove</span>
+			</a>
+
+			<a href="javascript:void(0)" title="{Label sysmanager.extension.showInfo}"
+				{if extMgr_hasExtInfo($extKey)}
+					onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')" class="info">
+				{else}
+					class="info disabled">
+				{/if}
+				<span class="hidden">info</span>
+			</a>
+
+		</td>
+		<td class="version">{$extInfo.version}</td>
+		<td class="download">
+			<a title="{Label sysmanager.extension.download}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
+				<span class="hidden">{Label core.global.file.download}</span>
+			</a>
+		</td>
+		<td class="doc">
+			<a title="{Label sysmanager.extension.documentation}" class="icon doc" href="javascript:void(0)">
+				<span class="hidden">{Label sysmanager.extension.documentation}</span>
+			</a>
+		</td>
+		<td class="state">{$extInfo.state}</td>
+	  </tr>
+	{/foreach}
+	</table>
+
+{else}
+	<div class="contentMessage importInfo">
+		<div class="icon"></div>
+		All extensions on the server are already installed. You can import new extensions from the todoyu TER or upload an extension archive.
+	</div>
+{/if}
+
+<div class="installAlternatives">
+	{Button class="ter" label="Load extension from TER" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('', 'search')"}
+	{Button class="upload" label="Import an extension from archive" onclick="Todoyu.Ext.sysmanager.Extensions.Import.showUploadForm()"}
+</div>

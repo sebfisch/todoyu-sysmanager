@@ -15,12 +15,12 @@
 	<label index="remove.confirm">Opravdu chcete odstranit rozšíření (všechny soubory) ze servru?</label>
 	<label index="rights">Práva</label>
 	<label index="documentation">Dokumentace</label>
-	<label index="installExtension">Instalovat rozšíření</label>
-	<label index="installExtension.confirm">Chcete nainstalovat toto rozšíření?</label>
-	<label index="installExtension.ok">Rozšíření bylo úspěšně nainstalováno</label>
-	<label index="installExtension.error">Instalace rozšíření selhala</label>
-	<label index="uninstallExtension">Odinstalovat rozšíření</label>
-	<label index="uninstallExtension.confirm">Chcete odinstalovat toto rozšíření?</label>
-	<label index="uninstallExtension.ok">Rozšíření bylo úspšně odinstalováno</label>
-	<label index="uninstallExtension.error">Odistalace rozšíření selhalo</label>
+	<label index="install">Instalovat rozšíření</label>
+	<label index="install.confirm">Chcete nainstalovat toto rozšíření?</label>
+	<label index="install.ok">Rozšíření bylo úspěšně nainstalováno</label>
+	<label index="install.error">Instalace rozšíření selhala</label>
+	<label index="uninstall">Odinstalovat rozšíření</label>
+	<label index="uninstall.confirm">Chcete odinstalovat toto rozšíření?</label>
+	<label index="uninstall.ok">Rozšíření bylo úspšně odinstalováno</label>
+	<label index="uninstall.error">Odistalace rozšíření selhalo</label>
 </labels>

@@ -102,7 +102,7 @@ class TodoyuSysmanagerExtConfManager {
 	 */
 	private static function writeExtconfFile() {
 		$file	= PATH_LOCALCONF . '/extconf.php';
-		$tmpl	= 'ext/sysmanager/view/extconf.php.tmpl';
+		$tmpl	= 'ext/sysmanager/asset/template/extconf.php.tmpl';
 		$data	= array(
 			'extConf'	=> array()
 		);

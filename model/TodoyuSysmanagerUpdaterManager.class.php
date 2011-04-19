@@ -80,15 +80,41 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @return	Boolean
 	 */
 	public static function installExtensionUpdate($extKey, $archiveHash) {
-		$urlArchive	= self::hash2path($archiveHash);
-
 		try {
-			self::downloadAndImportExtensionUpdate($extKey, $urlArchive);
+			$urlArchive	= self::hash2path($archiveHash);
+
+			if( is_null($urlArchive) ) {
+				throw new TodoyuException('Archive hash not found');
+			}
+
+			$extInfo		= TodoyuExtensions::getExtInfo($extKey);
+
+			self::downloadAndImportExtension($extKey, $urlArchive, true);
+			TodoyuSysmanagerExtInstaller::updateExtension($extKey, $extInfo['version']);
 		} catch(TodoyuException $e) {
 			return $e->getMessage();
 		}
 
 		return true;
+	}
+
+
+	public static function installExtension($extKey, $archiveHash) {
+		try {
+			$urlArchive	= self::hash2path($archiveHash);
+
+			if( is_null($urlArchive) ) {
+				throw new TodoyuException('Archive hash not found');
+			}
+
+			self::downloadAndImportExtension($extKey, $urlArchive);
+			TodoyuSysmanagerExtInstaller::installExtension($extKey);
+		} catch(TodoyuException $e) {
+			return $e->getMessage();
+		}
+
+		return true;
+
 	}
 
 
@@ -104,7 +130,7 @@ class TodoyuSysmanagerUpdaterManager {
 		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu';
 		$urlUpdate		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
 
-		return self::downloadAndImportExtensionUpdate($urlUpdate, $pathExtract);
+		return self::downloadAndImportExtension($urlUpdate, $pathExtract);
 	}
 
 
@@ -137,9 +163,10 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @param	String		$urlArchive
 	 * @return	Boolean		Success
 	 */
-	public static function downloadAndImportExtensionUpdate($ext, $urlArchive) {
+	public static function downloadAndImportExtension($ext, $urlArchive, $isUpdate = false) {
+		$override	= $isUpdate;
 		$pathArchive= self::downloadArchive($urlArchive);
-		$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($ext, $pathArchive, true);
+		$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($ext, $pathArchive, $override);
 
 		if( $canImport !== true ) {
 			throw new TodoyuException($canImport);

@@ -122,7 +122,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	 *
 	 * @method	installExtension
 	 * @param	{String}	extkey
-	 * @param	{String}	zipFile
+	 * @param	{String}	archiveHash
 	 */
 	installExtension: function(extkey, archiveHash) {
 		if( confirm('Install this extension?') ) {
@@ -142,7 +142,14 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	onExtensionInstalled: function(extKey, response) {
+		if( response.hasTodoyuError() ) {
+			var error	= response.getTodoyuHeader('message');
+			Todoyu.notifyError(error);
+		} else {
+			Todoyu.notifySuccess('Extension was successfully installed');
 
+			Effect.SlideUp('updater-search-ext-' + extKey);
+		}
 	},
 
 
@@ -189,7 +196,7 @@ Todoyu.Ext.sysmanager.Updater = {
 			onComplete: this.onExtensionUpdateInstalled.bind(this, extkey)
 		};
 
-		Todoyu.Ui.updateContentBody(url, options);
+		Todoyu.send(url, options);
 	},
 
 
@@ -202,7 +209,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	 */
 	onExtensionUpdateInstalled: function(extkey, response) {
 		if( response.hasTodoyuError() ) {
-			var error	= response.getTodoyuHeader('error');
+			var error	= response.getTodoyuHeader('message');
 
 			Todoyu.notifyError(error);
 		} else {
@@ -216,19 +223,19 @@ Todoyu.Ext.sysmanager.Updater = {
 	 * Install update of todoyu core from given URL
 	 *
 	 * @method	installCoreUpdate
-	 * @param	{String}	urlHash
+	 * @param	{String}	archiveHash
 	 */
-	installCoreUpdate: function(urlHash) {
+	installCoreUpdate: function(archiveHash) {
 		var url		= this.getUrl();
 		var options	= {
 			parameters: {
 				action:	'installCoreUpdate',
-				'hash':		urlHash
+				hash:	archiveHash
 			},
 			onComplete: this.onCoreUpdateInstalled.bind(this)
 		};
 
-		Todoyu.Ui.updateContentBody(url, options);
+		Todoyu.send(url, options);
 	},
 
 

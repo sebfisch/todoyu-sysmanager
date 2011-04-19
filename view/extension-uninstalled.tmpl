@@ -1,8 +1,12 @@
-{Header title="sysmanager.extension.uninstallExtension.ok"}
+{Header title="sysmanager.extension.uninstall.ok"}
 
-<ul class="nextInstallSteps">
-	<li><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$ext}')">Download extension</a></li>
-	<li><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.remove('{$ext}')">Delete extension from server</a></li>
-	<li><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Install.install('{$ext}')">Install extension again</a></li>
-	<li><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showList()">Show list of installed extensions</a></li>
-</ul>
+<div class="contentMessage importInfo">
+	<div class="icon"></div>
+	Extension was uninstalled successfully. The extension is still available on the server, but not loaded anymore.
+</div>
+
+<div class="uninstalled">
+	{Button class="download" label="Download extension" onclick="Todoyu.Ext.sysmanager.Extensions.download('$ext')"}
+	{Button class="delete" label="Delete extension from server" onclick="Todoyu.Ext.sysmanager.Extensions.remove('$ext')"}
+	{Button class="install" label="Install extension" onclick="Todoyu.Ext.sysmanager.Extensions.Install.install('$ext')"}
+</div>

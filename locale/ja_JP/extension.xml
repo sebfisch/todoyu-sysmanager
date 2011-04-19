@@ -15,12 +15,12 @@
 	<label index="remove.confirm">サーバから拡張機能 (全ファイル) を削除しますか？</label>
 	<label index="rights">権利</label>
 	<label index="documentation">ドキュメント</label>
-	<label index="installExtension">拡張機能のインストール</label>
-	<label index="installExtension.confirm">拡張機能をインストールしますか？</label>
-	<label index="installExtension.ok">拡張機能のインストールは成功しました</label>
-	<label index="installExtension.error">拡張機能のインストールは失敗しました</label>
-	<label index="uninstallExtension">拡張機能のアンインストール</label>
-	<label index="uninstallExtension.confirm">拡張機能をアンインストールしますか？</label>
-	<label index="uninstallExtension.ok">拡張機能のアンインストールは成功しました</label>
-	<label index="uninstallExtension.error">拡張機能のアンインストールは失敗しました</label>
+	<label index="install">拡張機能のインストール</label>
+	<label index="install.confirm">拡張機能をインストールしますか？</label>
+	<label index="install.ok">拡張機能のインストールは成功しました</label>
+	<label index="install.error">拡張機能のインストールは失敗しました</label>
+	<label index="uninstall">拡張機能のアンインストール</label>
+	<label index="uninstall.confirm">拡張機能をアンインストールしますか？</label>
+	<label index="uninstall.ok">拡張機能のアンインストールは成功しました</label>
+	<label index="uninstall.error">拡張機能のアンインストールは失敗しました</label>
 </labels>

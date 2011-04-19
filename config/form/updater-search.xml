@@ -6,11 +6,11 @@
 	</attributes>
 	<fieldsets>
 		<fieldset name="main">
-			<legend>Main editor data</legend>
+			<legend>sysmanager.extension.updater.form</legend>
 			<elements>
 
 				<field type="text" name="query">
-					<label>sysmanager.ext.updater.query</label>
+					<label>sysmanager.extension.updater.query</label>
 				</field>
 
 			</elements>

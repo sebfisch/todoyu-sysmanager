@@ -13,12 +13,12 @@
 	<label index="download">Download de Extensão</label>
 	<label index="rights">Permissões</label>
 	<label index="documentation">Documentação</label>
-	<label index="installExtension">Instalar Extensão</label>
-	<label index="installExtension.confirm">Instalar Extensão?</label>
-	<label index="installExtension.ok">A Extensão Foi Instalada Com Sucesso</label>
-	<label index="installExtension.error">A Instalação da Extensão Falhou</label>
-	<label index="uninstallExtension">Desinstalar Extensão</label>
-	<label index="uninstallExtension.confirm">Desinstalar Extensão?</label>
-	<label index="uninstallExtension.ok">A Extensão Foi Desinstalada Com Sucesso</label>
-	<label index="uninstallExtension.error">A Extensão Não Foi Desinstalada</label>
+	<label index="install">Instalar Extensão</label>
+	<label index="install.confirm">Instalar Extensão?</label>
+	<label index="install.ok">A Extensão Foi Instalada Com Sucesso</label>
+	<label index="install.error">A Instalação da Extensão Falhou</label>
+	<label index="uninstall">Desinstalar Extensão</label>
+	<label index="uninstall.confirm">Desinstalar Extensão?</label>
+	<label index="uninstall.ok">A Extensão Foi Desinstalada Com Sucesso</label>
+	<label index="uninstall.error">A Extensão Não Foi Desinstalada</label>
 </labels>

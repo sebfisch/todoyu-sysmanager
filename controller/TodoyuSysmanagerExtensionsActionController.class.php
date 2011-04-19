@@ -79,9 +79,10 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @return	String
 	 */
 	public function uninstallAction(array $params) {
-		$extKey	= $params['extension'];
+		$extKey			= $params['extension'];
+		$canUninstall	= TodoyuSysmanagerExtInstaller::canUninstall($extKey);
 
-		if( TodoyuSysmanagerExtInstaller::canUninstall($extKey) ) {
+		if( $canUninstall ) {
 			$extInfos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 
 			TodoyuSysmanagerExtInstaller::uninstallExtension($extKey);

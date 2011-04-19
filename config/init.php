@@ -18,10 +18,9 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
-/* --------------------------------
-	Tabs Configurations
-   -------------------------------- */
-	// Admin module: "rights and roles"
+/* ------------------------------------
+	Tabs for rights & roles
+   ------------------------------------ */
 Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 	array(
 		'id'	=> 'rights',
@@ -32,7 +31,12 @@ Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 		'label'	=> 'LLL:sysmanager.ext.rights.tab.roles'
 	)
 );
-	// "System configuration" module tabs
+
+
+
+/* ------------------------------------
+	Tabs for system configuration
+   ------------------------------------ */
 Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 	array(
 		'id'	=> 'systemconfig',
@@ -51,13 +55,59 @@ Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 		'label'	=> 'LLL:sysmanager.ext.config.tab.updater'
 	)
 );
-	// Settings for uploadable company logo
+
+
+
+/* ------------------------------------
+	Tabs for extension manager
+   ------------------------------------ */
+Todoyu::$CONFIG['EXT']['sysmanager']['extensionTabs'] = array(
+	'installed'	=> array(
+		'id'		=> 'installed',
+		'label'		=> 'sysmanager.ext.tabs.extensions'
+	),
+	'config'	=> array(
+		'id'		=> '_config',
+		'label'		=> 'LLL:sysmanager.ext.tabs.config',
+		'class'		=> 'config'
+	),
+	'info'		=> array(
+		'id'		=> '_info',
+		'label'		=> '',
+		'class'		=> 'info'
+	),
+	'search'	=> array(
+		'id'		=> 'search',
+		'label'		=> 'sysmanager.ext.tabs.search',
+	),
+	'update'	=> array(
+		'id'		=> 'update',
+		'label'		=> 'sysmanager.ext.tabs.update'
+	),
+	'imported'	=> array(
+		'id'		=> 'imported',
+		'label'		=> 'sysmanager.ext.tabs.imported'
+	)
+);
+
+
+
+/* -----------------------------------------
+	Settings for uploadable company logo
+   ----------------------------------------- */
 Todoyu::$CONFIG['EXT']['sysmanager']['logoUpload'] = array(
 	'width'	=> 190,
 	'height'=> 60,
 	'path'	=> 'config/img/logo.png'
 );
 
+/* ------------------------------------
+	Settings for extension update
+   ------------------------------------ */
+Todoyu::$CONFIG['EXT']['sysmanager']['update'] = array(
+	'host'		=> 'todoyuneu.srv05',
+	'get'		=> '?eID=todoyuupdate'
+);
 
 
 
@@ -80,12 +130,5 @@ Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 		'description'	=> 20
 	)
 );
-
-
-
-Todoyu::$CONFIG['EXT']['sysmanager']['update'] = array(
-	'host'		=> 'todoyuneu.srv05',
-	'get'		=> '?eID=todoyuupdate'
-)
 
 ?>

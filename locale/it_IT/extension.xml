@@ -15,12 +15,12 @@
 	<label index="remove.confirm">Rimuovere l'estensione (tutti i file) dal server?</label>
 	<label index="rights">Permessi</label>
 	<label index="documentation">Documentazione</label>
-	<label index="installExtension">Installa estensione</label>
-	<label index="installExtension.confirm">Installare l'estensione?</label>
-	<label index="installExtension.ok">L'estensione è stata installata</label>
-	<label index="installExtension.error">L'installazione dell'estensione è fallita</label>
-	<label index="uninstallExtension">Rimuovi l'estensione</label>
-	<label index="uninstallExtension.confirm">Rimuovere l'estensione?</label>
-	<label index="uninstallExtension.ok">L'estensione è stata rimossa</label>
-	<label index="uninstallExtension.error">La rimozione dell'estensione è fallita</label>
+	<label index="install">Installa estensione</label>
+	<label index="install.confirm">Installare l'estensione?</label>
+	<label index="install.ok">L'estensione è stata installata</label>
+	<label index="install.error">L'installazione dell'estensione è fallita</label>
+	<label index="uninstall">Rimuovi l'estensione</label>
+	<label index="uninstall.confirm">Rimuovere l'estensione?</label>
+	<label index="uninstall.ok">L'estensione è stata rimossa</label>
+	<label index="uninstall.error">La rimozione dell'estensione è fallita</label>
 </labels>

@@ -40,7 +40,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @method	showList
 	 */
 	showList: function() {
-		this.ext.Extensions.showTab('', 'install');
+		this.ext.Extensions.showTab('', 'installed');
 	},
 
 
@@ -52,12 +52,12 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @param	{String}	ext
 	 */
 	install: function(ext) {
-		if( confirm('[LLL:sysmanager.extension.installExtension.confirm]') ) {
+		if( confirm('[LLL:sysmanager.extension.install.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				parameters: {
-					action: 'install',
-					'extension': ext
+					action: 	'install',
+					extension:	ext
 				},
 				onComplete: this.onInstalled.bind(this, ext)
 			};
@@ -78,7 +78,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	onInstalled: function(ext, response) {
 		if( response.hasTodoyuError() ) {
 				// Installation failed: update screen with error description
-			var message	= '[LLL:sysmanager.extension.installExtension.error.notify.dependencies]';
+			var message	= '[LLL:sysmanager.extension.install.error.notify.dependencies]';
 			message += response.getTodoyuHeader('failedDependencies');
 			Todoyu.notifyError(message);
 		} else {
@@ -146,7 +146,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @param	{String}		ext
 	 */
 	uninstall: function(ext) {
-		if( confirm('[LLL:sysmanager.extension.uninstallExtension.confirm]') ) {
+		if( confirm('[LLL:sysmanager.extension.uninstall.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				parameters: {
@@ -173,11 +173,11 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 		if( response.hasTodoyuError() ) {
 			var info	= response.getTodoyuHeader('info');
 
-			Todoyu.notifyError('[LLL:sysmanager.extension.uninstallExtension.error]: ' + info, 0);
+			Todoyu.notifyError('[LLL:sysmanager.extension.uninstall.error]: ' + info, 0);
 		} else {
 			var extName	= response.getTodoyuHeader('extTitle');// response.responseText;
 
-			Todoyu.notifySuccess('[LLL:sysmanager.extension.uninstallExtension.ok]: ' + extName);
+			Todoyu.notifySuccess('[LLL:sysmanager.extension.uninstall.ok]: ' + extName);
 
 			Todoyu.Ui.setContentBody(response.responseText);
 		}

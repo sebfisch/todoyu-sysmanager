@@ -35,47 +35,30 @@ class TodoyuSysmanagerExtManager {
 	public static function getTabConfig($extKey = '', $tab = '') {
 		$extKey	= trim($extKey);
 		$tabs	= array();
+		$config	= Todoyu::$CONFIG['EXT']['sysmanager']['extensionTabs'];
 
 			// Listing tab
-		$tabs[] = array(
-			'id'		=> 'list',
-			'label'		=> Label('sysmanager.ext.tabs.extensions')
-		);
+		$tabs[] = $config['installed'];
 
 
 			// If an extension is selected, add editor tabs
 		if( $extKey !== '' ) {
 				// Config
-			$tabs[] = array(
-				'id'		=> $extKey . '_config',
-				'label'		=> 'LLL:sysmanager.ext.tabs.config',
-				'class'		=> 'config'
-			);
+			$tab		= $config['config'];
+			$tab['id']	= $extKey . '_config';
+			$tabs[] 	= $tab;
+
 				// Info
-			$tabs[] = array(
-				'id'		=> $extKey . '_info',
-				'label'		=> $extKey,
-				'class'		=> 'info'
-			);
+			$tab		= $config['info'];
+			$tab['id']	= $extKey . '_info';
+			$tabs[]		= $tab;
 		} else {
 				// Update tab
-			$tabs[] = array(
-				'id'		=> 'browse',
-				'label'		=> 'LLL:sysmanager.ext.tabs.browse',
-				'class'		=> 'browse'
-			);
+			$tabs[] = $config['search'];
 				// Update tab
-			$tabs[] = array(
-				'id'		=> 'update',
-				'label'		=> 'LLL:sysmanager.ext.tabs.update',
-				'class'		=> 'update'
-			);
+			$tabs[] = $config['update'];
 				// Installer tab
-			$tabs[] = array(
-				'id'		=> 'import',
-				'label'		=> 'LLL:sysmanager.ext.tabs.import',
-				'class'		=> 'import'
-			);
+			$tabs[] = $config['imported'];
 		}
 
 		return $tabs;
