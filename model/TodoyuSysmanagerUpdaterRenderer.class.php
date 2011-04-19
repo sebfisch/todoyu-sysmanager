@@ -41,7 +41,7 @@ class TodoyuSysmanagerUpdaterRenderer {
 		if( array_key_exists('query', $params) ) {
 			$query	= trim($params['query']);
 		} else {
-			$query	= TodoyuSysmanagerUpdaterManager::getLastQuery();
+			$query	= TodoyuSysmanagerUpdaterManager::getLastSearchKeyword();
 			$params['query'] = $query;
 		}
 

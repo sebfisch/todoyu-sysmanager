@@ -49,12 +49,13 @@ class TodoyuSysmanagerUpdaterManager {
 	}
 
 
+
 	/**
 	 * Get last used search query
 	 *
 	 * @return	String
 	 */
-	public static function getLastQuery() {
+	public static function getLastSearchKeyword() {
 		return TodoyuSysmanagerPreferences::getPref('updaterQuery');
 	}
 
@@ -66,7 +67,7 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @param  $query
 	 * @return void
 	 */
-	public static function saveLastQuery($query) {
+	public static function saveLastSearchKeyword($query) {
 		TodoyuSysmanagerPreferences::savePref('updaterQuery', trim($query), 0, true);
 	}
 
@@ -99,14 +100,24 @@ class TodoyuSysmanagerUpdaterManager {
 	}
 
 
-	public static function installExtension($extKey, $archiveHash) {
+
+	/**
+	 * Install a new extension from TER
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$archiveHash
+	 * @return	Boolean|String
+	 */
+	public static function installExtensionFromTER($extKey, $archiveHash) {
 		try {
+				// Get url from hash map
 			$urlArchive	= self::hash2path($archiveHash);
 
 			if( is_null($urlArchive) ) {
 				throw new TodoyuException('Archive hash not found');
 			}
 
+				// Download and install extension
 			self::downloadAndImportExtension($extKey, $urlArchive);
 			TodoyuSysmanagerExtInstaller::installExtension($extKey);
 		} catch(TodoyuException $e) {
@@ -114,7 +125,6 @@ class TodoyuSysmanagerUpdaterManager {
 		}
 
 		return true;
-
 	}
 
 
@@ -127,6 +137,8 @@ class TodoyuSysmanagerUpdaterManager {
 	 */
 	public static function installCoreUpdate($urlHash) {
 		$urlArchive		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
+
+		set_time_limit(100);
 
 		try {
 			if( is_null($urlArchive) ) {
@@ -142,6 +154,14 @@ class TodoyuSysmanagerUpdaterManager {
 	}
 
 
+
+	/**
+	 * Download and import (install) a core update
+	 *
+	 * @throws	TodoyuException
+	 * @param	String	$urlArchive
+	 * @return	Boolean
+	 */
 	private static function downloadAndImportCoreUpdate($urlArchive) {
 		$pathArchive= self::downloadArchive($urlArchive);
 
@@ -151,28 +171,46 @@ class TodoyuSysmanagerUpdaterManager {
 	}
 
 
-	private static function importCoreUpdate($pathArchive) {
-		$tempPath	= TodoyuFileManager::pathAbsolute('cache/update/' . md5(time()));
 
+
+	/**
+	 * Import the core update from an archive
+	 *
+	 * @throws	TodoyuException
+	 * @param 	String				$pathArchive
+	 */
+	private static function importCoreUpdate($pathArchive) {
+		$pathTemp	= TodoyuFileManager::pathAbsolute('cache/update/' . md5(time()));
+
+			// Extract archive
 		$archive	= new ZipArchive();
 		$archive->open($pathArchive);
 
-		$success	= $archive->extractTo($tempPath);
+		$success	= $archive->extractTo($pathTemp);
 
 		if( $success === false ) {
 			throw new TodoyuException('Extraction of core update archive failed');
 		}
 
-		$pathUpdate	= TodoyuFileManager::pathAbsolute($tempPath . '/todoyu');
-
-		TodoyuDebug::printInFireBug($pathUpdate, '$pathUpdate');
+			// Prepare and import update
+		$pathUpdate	= TodoyuFileManager::pathAbsolute($pathTemp . '/todoyu');
 
 		self::removeLocalElementsFromCoreUpdate($pathUpdate);
 
-		TodoyuFileManager::copyRecursive($pathUpdate, PATH . '/cache/xxx', true);
+		TodoyuDebug::printInFireBug('Updated into cache instead real core!');
+
+		TodoyuFileManager::copyRecursive($pathUpdate, PATH . '/cache/xxx', true, true);
+		TodoyuFileManager::deleteFolder($pathTemp);
 	}
 
 
+
+
+	/**
+	 * Remove folders and files from core update which should not be updated
+	 *
+	 * @param	String		$pathCoreUpdate			Path to temporary core update folder
+	 */
 	private static function removeLocalElementsFromCoreUpdate($pathCoreUpdate) {
 			// Remove folders which should not be overwritten
 		$ignore	= array('cache', 'config', 'files', 'ext', 'install/config/LAST_VERSION');
@@ -190,15 +228,13 @@ class TodoyuSysmanagerUpdaterManager {
 
 
 
-
-
 	/**
 	 * Download external archive file and extract it into the cache folder
 	 *
 	 * @param	String		$urlArchive
 	 * @return	Boolean		Success
 	 */
-	public static function downloadAndImportExtension($ext, $urlArchive, $isUpdate = false) {
+	private static function downloadAndImportExtension($ext, $urlArchive, $isUpdate = false) {
 		$override	= $isUpdate;
 		$pathArchive= self::downloadArchive($urlArchive);
 		$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($ext, $pathArchive, $override);
@@ -213,7 +249,15 @@ class TodoyuSysmanagerUpdaterManager {
 	}
 
 
-	public static function downloadArchive($urlArchive) {
+
+	/**
+	 * Download an archive from an URL to local hard drive
+	 *
+	 * @throws	TodoyuException
+	 * @param	String		$urlArchive
+	 * @return	String		Path to local archive
+	 */
+	private static function downloadArchive($urlArchive) {
 		$localPath	= TodoyuFileManager::saveLocalCopy($urlArchive);
 
 		if( $localPath === false ) {
@@ -221,26 +265,6 @@ class TodoyuSysmanagerUpdaterManager {
 		}
 
 		return $localPath;
-	}
-
-
-
-	/**
-	 * Replace given (core- / extension- update) file paths with their hashes (MD5)
-	 *
-	 * @param	Array	$updates
-	 * @return	Array
-	 */
-	public static function replaceFilepathsWithHashes(array $updates) {
-		if( $updates['core'] ) {
-			$updates['core']['archive'] = self::path2hash($updates['core']['archive']);
-		}
-
-		foreach($updates['extensions'] as $index => $extension) {
-			$updates['extensions'][$index]['archive'] = self::path2hash($extension['archive']);
-		}
-
-		return $updates;
 	}
 
 

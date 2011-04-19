@@ -46,7 +46,7 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	public function searchAction(array $params) {
 		$query	= trim($params['query']);
 
-		TodoyuSysmanagerUpdaterManager::saveLastQuery($query);
+		TodoyuSysmanagerUpdaterManager::saveLastSearchKeyword($query);
 
 		return TodoyuSysmanagerUpdaterRenderer::renderSearchResults($query);
 	}
@@ -99,7 +99,7 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 		$extKey		= trim($params['extkey']);
 		$archiveHash= trim($params['archive']);
 
-		$result		= TodoyuSysmanagerUpdaterManager::installExtension($extKey, $archiveHash);
+		$result		= TodoyuSysmanagerUpdaterManager::installExtensionFromTER($extKey, $archiveHash);
 
 		if( $result !== true ) {
 			TodoyuHeader::sendTodoyuErrorHeader();
