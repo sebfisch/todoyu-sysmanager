@@ -23,6 +23,8 @@
 
 Todoyu.Ext.sysmanager.Updater = {
 
+	ext: Todoyu.Ext.sysmanager,
+
 	/**
 	 * Initialize updater
 	 *
@@ -56,6 +58,12 @@ Todoyu.Ext.sysmanager.Updater = {
 	},
 
 
+
+	/**
+	 * Get query string from search form
+	 *
+	 * @return	{String}
+	 */
 	getQuery: function() {
 		return $F('search-field-query').trim();
 	},
@@ -118,7 +126,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * @todo	implement!
+	 * Install extension from TER
 	 *
 	 * @method	installExtension
 	 * @param	{String}	extkey
@@ -129,7 +137,7 @@ Todoyu.Ext.sysmanager.Updater = {
 			var url		= Todoyu.getUrl('sysmanager', 'updater');
 			var options = {
 				parameters: {
-					action: 'installExtension',
+					action: 'installTerExtension',
 					extkey:	extkey,
 					archive:archiveHash
 				},
@@ -141,6 +149,13 @@ Todoyu.Ext.sysmanager.Updater = {
 	},
 
 
+
+	/**
+	 * Handler when extension was installed
+	 *
+	 * @param	{String}		extKey
+	 * @param	{Ajax.Response}	response
+	 */
 	onExtensionInstalled: function(extKey, response) {
 		if( response.hasTodoyuError() ) {
 			var error	= response.getTodoyuHeader('message');
@@ -179,7 +194,7 @@ Todoyu.Ext.sysmanager.Updater = {
 
 
 	/**
-	 * Install extension update
+	 * Install extension update from TER
 	 *
 	 * @method	installExtensionUpdate
 	 * @param	{String}	extkey
@@ -229,8 +244,8 @@ Todoyu.Ext.sysmanager.Updater = {
 		var url		= this.getUrl();
 		var options	= {
 			parameters: {
-				action:	'installCoreUpdate',
-				hash:	archiveHash
+				action:		'installCoreUpdate',
+				archive:	archiveHash
 			},
 			onComplete: this.onCoreUpdateInstalled.bind(this)
 		};

@@ -60,20 +60,21 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	 * @return	String
 	 */
 	public function installCoreUpdateAction(array $params) {
-		$hash	= trim($params['hash']);
+		$archiveHash= trim($params['archive']);
+		$result		= TodoyuSysmanagerUpdaterManager::installCoreUpdate($archiveHash);
 
-		TodoyuSysmanagerUpdaterManager::installCoreUpdate($hash);
-
-		return 'Core update installed';
+		if( $result !== true ) {
+			TodoyuHeader::sendTodoyuErrorHeader();
+			TodoyuHeader::sendTodoyuHeader('message', $result);
+		}
 	}
 
 
 
 	/**
-	 * Install extension update
+	 * Install extension update from TER
 	 *
 	 * @param	Array	$params
-	 * @return	String
 	 */
 	public function installExtensionUpdateAction(array $params) {
 		$hash	= trim($params['hash']);
@@ -88,7 +89,13 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	}
 
 
-	public function installExtensionAction(array $params) {
+
+	/**
+	 * Install an extension from TER
+	 *
+	 * @param	Array	$params
+	 */
+	public function installTerExtensionAction(array $params) {
 		$extKey		= trim($params['extkey']);
 		$archiveHash= trim($params['archive']);
 

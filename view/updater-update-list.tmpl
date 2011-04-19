@@ -1,6 +1,5 @@
 <div class="updaterUpdates">
 
-
 	{if $updates.core}
 		{$coreUpdate = $updates.core}
 		<div class="coreUpdate">
@@ -8,11 +7,11 @@
 			<table class="coreUpdateInfos">
 				<tr>
 					<th>New version</th>
-					<td>{$coreUpdate.new_version}</td>
+					<td>{$coreUpdate.version}</td>
 				</tr>
 				<tr>
 					<th>Your version</th>
-					<td>{$coreUpdate.installed_version}</td>
+					<td>{constant(TODOYU_VERSION)}</td>
 				</tr>
 				<tr>
 					<th>Release date</th>
@@ -20,7 +19,8 @@
 				</tr>
 			</table>
 			<div class="installButton">
-				{Button label="sysmanager.ext.updater.core.installUpdate" class="installCoreUpdate" onclick="Todoyu.Ext.sysmanager.Updater.installCoreUpdate('$coreUpdate.archive')"}
+				{Button label="sysmanager.extension.updater.extension.moreDetails" class="installCoreUpdate"}
+				{Button label="sysmanager.extension.updater.core.installUpdate" class="installCoreUpdate" onclick="Todoyu.Ext.sysmanager.Updater.installCoreUpdate('$coreUpdate.archive_hash')"}
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -59,14 +59,16 @@
 					{/if}
 				</div>
 				<div class="actions">
-					{Button label="sysmanager.ext.updater.extension.moreDetails" class="moreDetails" onclick="Todoyu.Ext.sysmanager.Updater.showExtensionUpdateDetails('$extUpdate.link_details')"}
-					{Button label="sysmanager.ext.updater.extension.installUpdate" class="installExtensionUpdate" onclick="Todoyu.Ext.sysmanager.Updater.installExtensionUpdate('$extUpdate.extkey', '$extUpdate.archive_hash')"}
+					{Button label="sysmanager.extension.updater.extension.moreDetails" class="moreDetails" onclick="Todoyu.Ext.sysmanager.Updater.showExtensionUpdateDetails('$extUpdate.link_details')"}
+					{Button label="sysmanager.extension.updater.extension.installUpdate" class="installExtensionUpdate" onclick="Todoyu.Ext.sysmanager.Updater.installExtensionUpdate('$extUpdate.extkey', '$extUpdate.archive_hash')"}
 				</div>
 			</div>
 
 		{else}
 			<p>No extension updates available</p>
 		{/foreach}
+
+		<div class="clear"></div>
 
 	</div>
 

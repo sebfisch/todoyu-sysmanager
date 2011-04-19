@@ -75,6 +75,12 @@ class TodoyuSysmanagerUpdaterRequest {
 	}
 
 
+
+	/**
+	 * Check whether TER server is reachable
+	 *
+	 * @return	Boolean
+	 */
 	public function isServerReachable() {
 		try {
 			$this->sendRequest('checkConnection');
@@ -84,6 +90,7 @@ class TodoyuSysmanagerUpdaterRequest {
 
 		return true;
 	}
+
 
 
 	/**
@@ -120,7 +127,7 @@ class TodoyuSysmanagerUpdaterRequest {
 		$updates= $this->sendRequest('searchUpdates', $data);
 
 		if( $updates['core'] ) {
-			$updates['core']['archive'] = TodoyuSysmanagerUpdaterManager::path2hash($updates['core']['archive']);
+			$updates['core']['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($updates['core']['archive']);
 		}
 
 		foreach($updates['extensions'] as $index => $extension) {

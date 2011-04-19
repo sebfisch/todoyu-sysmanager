@@ -126,34 +126,65 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @return	Boolean
 	 */
 	public static function installCoreUpdate($urlHash) {
-//		$pathExtract	= PATH;
-		$pathExtract	= PATH_CACHE . '/temp/dummytodoyu';
-		$urlUpdate		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
+		$urlArchive		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
 
-		return self::downloadAndImportExtension($urlUpdate, $pathExtract);
-	}
+		try {
+			if( is_null($urlArchive) ) {
+				throw new TodoyuException('Archive hash not found');
+			}
 
-
-	public static function importExtensionUpdate($extKey, $archiveHash) {
-		$urlArchive	= self::hash2path($archiveHash);
-		$pathArchive= TodoyuFileManager::saveLocalCopy($urlArchive);
-
-		TodoyuDebug::printInFireBug($urlArchive, '$urlArchive');
-		TodoyuDebug::printInFireBug($pathArchive, '$pathArchive');
-
-		if( TodoyuSysmanagerExtImporter::canImportExtension($extKey, $pathArchive, true) ) {
-			$importInfo	= TodoyuSysmanagerExtImporter::importExtensionArchive($extKey, $pathArchive);
-
-
-			TodoyuDebug::printInFireBug($importInfo, '$importInfo');
-
+			self::downloadAndImportCoreUpdate($urlArchive);
+		} catch(TodoyuException $e) {
+			return $e->getMessage();
 		}
 
-
-
-
-
+		return true;
 	}
+
+
+	private static function downloadAndImportCoreUpdate($urlArchive) {
+		$pathArchive= self::downloadArchive($urlArchive);
+
+		self::importCoreUpdate($pathArchive);
+
+		return true;
+	}
+
+
+	private static function importCoreUpdate($pathArchive) {
+		$tempPath	= TodoyuFileManager::pathAbsolute('cache/update/' . md5(time()));
+
+		$archive	= new ZipArchive();
+		$archive->open($pathArchive);
+
+		$success	= $archive->extractTo($tempPath);
+
+		if( $success === false ) {
+			throw new TodoyuException('Extraction of core update archive failed');
+		}
+
+		self::removeLocalElementsFromCoreUpdate($tempPath);
+
+//		TodoyuFileManager::copyRecursive($tempPath, PATH . '/cache/xxx');
+	}
+
+
+	private static function removeLocalElementsFromCoreUpdate($pathCoreUpdate) {
+			// Remove folders which should not be overwritten
+		$ignore	= array('cache', 'config', 'files', 'ext', 'install/config/LAST_VERSION');
+
+		foreach($ignore as $element) {
+			$pathElement	= TodoyuFileManager::pathAbsolute($element);
+
+			if( is_dir($pathElement) ) {
+				TodoyuFileManager::deleteFolder($pathElement);
+			} elseif( is_file($pathElement) ) {
+				TodoyuFileManager::deleteFile($pathElement);
+			}
+		}
+	}
+
+
 
 
 
