@@ -65,7 +65,7 @@ Todoyu.Ext.sysmanager.Updater = {
 	 * @return	{String}
 	 */
 	getQuery: function() {
-		return $F('search-field-query').trim();
+		return $F('search-field-query').strip();
 	},
 
 
