@@ -160,8 +160,6 @@ class TodoyuSysmanagerUpdaterRequest {
 		$this->response['content_raw']	= $this->response['content'];
 		$this->response['content']		= json_decode($this->response['content'], true);
 
-//		TodoyuDebug::printInFireBug(strlen($this->response['content_raw']));
-
 		TodoyuDebug::printInFireBug($this->response['content'], 'response');
 
 		return $this->getResponseContent();

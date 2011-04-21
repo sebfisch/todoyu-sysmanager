@@ -16,7 +16,7 @@
 }
 
 
-.extensionSearch .extension {
+.extListing .extension {
 	border-bottom:1px solid #CCC;
 	margin-bottom:10px;
 	padding-bottom:10px;
@@ -24,60 +24,60 @@
 	display:inline-block;
 }
 
-.extensionSearch .extension > div {
+.extListing .extension > div {
 	float:left;
 	clear:none;
 }
 
-.extensionSearch .extension .main {
+.extListing .extension .main {
 	margin-left:50px;
 	margin-right:10px;
 	width:400px;
 }
 
-.extensionSearch .extension .right {
+.extListing .extension .right {
 	width:180px;
 	padding-left:10px;
 	border-left:1px dashed #CCC;
 }
 
 
-.extensionSearch .extension h5 {
+.extListing .extension h5 {
 	border-bottom:none;
 	margin-bottom:10px;
 	padding-left:0;
 }
 
-.extensionSearch .extension h5 div {
+.extListing .extension h5 div {
 	width:100%;
 }
 
-.extensionSearch .extension h5 .author {
+.extListing .extension h5 .author {
 	margin-left:10px;
 }
 
-.extensionSearch .extension h5 .title {
+.extListing .extension h5 .title {
 	font-size:20px;
 }
 
-.extensionSearch .extension h5 img {
+.extListing .extension h5 img {
 	position:absolute;
 	left:0;
 	top:5px;
 }
 
-.extensionSearch .extension .right div {
+.extListing .extension .right div {
 	padding:5px;
 	border-bottom:1px dashed #CCC;
 }
 
-.extensionSearch .extension .bottom {
+.extListing .extension .bottom {
 	width:100%;
 	clear:both;
 	margin-top:5px;
 }
 
-.extensionSearch .extension .bottom div {
+.extListing .extension .bottom div {
 	float:right;
 	width:120px;
 }
@@ -121,6 +121,7 @@
 }
 
 /* Extension updates */
+/*
 .updaterUpdates .extensionUpdates .extension {
 	float:left;
 	clear:both;
@@ -153,4 +154,4 @@
 .updaterUpdates .extensionUpdates .extension .actions {
 	clear:both;
 	float:right;
-}
+}*/
