@@ -16,13 +16,13 @@
 			<div class="state">STATE: {$extension.state}</div>
 			<div class="costs">{if $extension.costs == 2}FREE{else}COMMERCIAL{/if}</div>
 			<div class="downloads">{$extension.downloads} Downloads</div>
-			<div class="version">{$extension.version}</div>
+			<div class="version">{$extension.version.version}</div>
 		</div>
 
 
 		<div class="bottom">
 			<div class="add">
-				{Button label="Install Extension" onclick="Todoyu.Ext.sysmanager.Updater.installExtension('$extension.extkey', '$extension.archive_hash')"}
+				{Button label="Install Extension" onclick="Todoyu.Ext.sysmanager.Updater.installExtension('$extension.extkey', '$extension.version.archive_hash')"}
 			</div>
 			<div class="details">
 				{Button label="More infos" onclick="Todoyu.Ext.sysmanager.Updater.showExtensionInTER('$extension.ter_link}')"}

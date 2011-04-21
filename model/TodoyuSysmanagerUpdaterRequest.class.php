@@ -108,7 +108,7 @@ class TodoyuSysmanagerUpdaterRequest {
 		$results	= $this->sendRequest('searchExtensions', $data);
 
 		foreach($results['extensions'] as $index => $extension) {
-			$results['extensions'][$index]['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($extension['archive']);
+			$results['extensions'][$index]['version']['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($extension['version']['archive']);
 		}
 
 		return $results;
@@ -159,6 +159,8 @@ class TodoyuSysmanagerUpdaterRequest {
 
 		$this->response['content_raw']	= $this->response['content'];
 		$this->response['content']		= json_decode($this->response['content'], true);
+
+//		TodoyuDebug::printInFireBug(strlen($this->response['content_raw']));
 
 		TodoyuDebug::printInFireBug($this->response['content'], 'response');
 
