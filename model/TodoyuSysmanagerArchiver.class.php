@@ -19,36 +19,37 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * Extension archiver
+ * Pack a whole extension into a ZIP archive file
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuSysmanagerExtBackupManager {
+class TodoyuSysmanagerArchiver {
 
-	public static function createExtensionBackup($extKey) {
-		$archivePath	= TodoyuSysmanagerExtArchiver::createExtensionArchive($extKey);
-		$extInfo		= TodoyuExtensions::getExtInfo($extKey);
-		$version		= TodoyuString::getVersionInfo($extInfo['version']);
-		$fileName		= TodoyuSysmanagerExtInstaller::buildExtensionArchiveName($extKey, $version['major'], $version['minor'], $version['revision']);
+	/**
+	 * Create a extension archive (ZIP file) in cache and return the path to it
+	 *
+	 * @param	String		$extKey
+	 * @return	String		Path to archive in cache
+	 */
+	public static function createExtensionArchive($extKey) {
+		$extPath	= TodoyuExtensions::getExtPath($extKey);
 
-		return self::addFileToBackupArchive($archivePath, $fileName);
+		return TodoyuArchiveManager::createArchiveFromFolder($extPath, $extPath, true);
 	}
 
 
-	public static function createCoreBackup() {
+	public static function createCoreArchive() {
+		$exclude	= array(
+			'backup',
+			'cache',
+			'ext',
+			'files'
+		);
 
-	}
+		return TodoyuArchiveManager::createArchiveFromFolder(PATH, PATH, true, $exclude);
 
-
-
-	private static function addFileToBackupArchive($tempFile, $fileName) {
-		TodoyuFileManager::makeDirDeep('backup');
-		$pathBackup	= TodoyuFileManager::pathAbsolute('backup/' . $fileName);
-
-		rename($tempFile, $pathBackup);
-
-		return $pathBackup;
 	}
 
 

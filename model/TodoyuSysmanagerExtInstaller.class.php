@@ -329,7 +329,7 @@ class TodoyuSysmanagerExtInstaller {
 	 * @param	String		$extKey
 	 */
 	public static function downloadExtension($extKey) {
-		$archivePath= TodoyuSysmanagerExtArchiver::createExtensionArchive($extKey);
+		$archivePath= TodoyuSysmanagerArchiver::createExtensionArchive($extKey);
 		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
 		$version	= TodoyuString::getVersionInfo($extInfo['version']);
 

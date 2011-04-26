@@ -21,7 +21,7 @@
  * @module	Sysmanager
  */
 
-Todoyu.Ext.sysmanager.Updater = {
+Todoyu.Ext.sysmanager.Repository = {
 
 	ext: Todoyu.Ext.sysmanager,
 
