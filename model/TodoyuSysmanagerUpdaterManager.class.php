@@ -88,9 +88,18 @@ class TodoyuSysmanagerUpdaterManager {
 				throw new TodoyuException('Archive hash not found');
 			}
 
+
+
+				// Create a backup from the extension
+			TodoyuSysmanagerExtBackupManager::createExtensionBackup($extKey);
+
+				// Get extension information before update
 			$extInfo		= TodoyuExtensions::getExtInfo($extKey);
 
+				// Download and import extension
 			self::downloadAndImportExtension($extKey, $urlArchive, true);
+
+				// Execute the update callback
 			TodoyuSysmanagerExtInstaller::updateExtension($extKey, $extInfo['version']);
 		} catch(TodoyuException $e) {
 			return $e->getMessage();

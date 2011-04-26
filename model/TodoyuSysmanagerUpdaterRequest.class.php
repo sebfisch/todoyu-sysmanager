@@ -131,7 +131,7 @@ class TodoyuSysmanagerUpdaterRequest {
 		}
 
 		foreach($updates['extensions'] as $index => $extension) {
-			$updates['extensions'][$index]['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($extension['archive']);
+			$updates['extensions'][$index]['version']['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($extension['version']['archive']);
 		}
 
 		return $updates;
