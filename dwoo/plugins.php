@@ -142,4 +142,5 @@ function Dwoo_Plugin_ExtensionStatus(Dwoo $dwoo, $state) {
 	return '<img src="' . $baseUrl . 'state_' . $stateKey . '.jpg" />';
 }
 
+
 ?>

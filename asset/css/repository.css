@@ -1,21 +1,6 @@
 /** ----------------------
-	Search
+	Extension Listing
 	----------------------*/
-.extensionSearch .control {
-	margin-bottom:10px;
-}
-
-.extensionSearch .results {
-
-}
-
-.extensionSearch .resultinfo {
-	padding:10px;
-	background-color:#EFEFEF;
-	margin-bottom:10px;
-}
-
-
 .extListing .extension {
 	border-bottom:1px solid #CCC;
 	margin-bottom:10px;
@@ -81,6 +66,53 @@
 	float:right;
 	width:120px;
 }
+
+
+
+
+/** ----------------------
+	Warnings
+	----------------------*/
+
+.extListing .extension .warning {
+	margin-top:10px;
+	padding:5px;
+	border:2px dashed #F00;
+	background-color:#F0F0F0;
+}
+
+.extListing .extension .warning ul {
+	list-style-type:square;
+	list-style-position:inside;
+}
+
+.extListing .extension .warning ul li {
+	color:#F00;
+	cursor:pointer;
+}
+
+
+
+
+
+
+/** ----------------------
+	Search
+	----------------------*/
+.extensionSearch .control {
+	margin-bottom:10px;
+}
+
+.extensionSearch .results {
+
+}
+
+.extensionSearch .resultinfo {
+	padding:10px;
+	background-color:#EFEFEF;
+	margin-bottom:10px;
+}
+
 
 
 

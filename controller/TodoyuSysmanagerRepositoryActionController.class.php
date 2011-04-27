@@ -117,6 +117,13 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 		return TodoyuSysmanagerRepositoryRenderer::renderExtensionUpdateDialog($ext);
 	}
 
+
+	public function installDialogAction(array $params) {
+		$ext	= trim($params['extension']);
+
+		return TodoyuSysmanagerRepositoryRenderer::renderExtensionInstallDialog($ext);
+	}
+
 }
 
 ?>

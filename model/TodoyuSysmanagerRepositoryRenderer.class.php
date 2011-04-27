@@ -74,6 +74,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$tmpl	= 'ext/sysmanager/view/repository-search-list.tmpl';
 		$data	= $repository->searchExtensions($query);
 
+		TodoyuDebug::printInFireBug($data['extensions'], 'extensions');
+
 		return render($tmpl, $data);
 	}
 
@@ -88,7 +90,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$repository	= new TodoyuSysmanagerRepository();
 		$updates	= $repository->searchUpdates();
 
-		$tmpl	= 'ext/sysmanager/view/repository-update-list.tmpl';
+		$tmpl	= 'ext/sysmanager/view/repository-update.tmpl';
 		$data	= array(
 			'updates'	=> $updates
 		);
@@ -98,12 +100,31 @@ class TodoyuSysmanagerRepositoryRenderer {
 
 
 	public static function renderExtensionUpdateDialog($ext) {
-		$updateInfo	= TodoyuSysmanagerRepositoryManager::getRepoInfo($ext);
-
-		$tmpl	= 'ext/sysmanager/view/repository-dialog-ext-update.tmpl';
 		$data	= array(
-			'update'	=> $updateInfo
+			'info'		=> TodoyuSysmanagerRepositoryManager::getRepoInfo($ext),
+			'title'		=> 'Install Extension Update',
+			'okAction'	=> 'Todoyu.Ext.sysmanager.Repository.Update.installExtensionUpdate(\'' . $ext . '\')'
 		);
+
+		return self::renderExtensionDialog($data);
+	}
+
+	public static function renderExtensionInstallDialog($ext) {
+		$data	= array(
+			'info'		=> TodoyuSysmanagerRepositoryManager::getRepoInfo($ext),
+			'title'		=> 'Install New Extension',
+			'okAction'	=> 'Todoyu.Ext.sysmanager.Repository.Search.installExtension(\'' . $ext . '\')'
+		);
+
+		return self::renderExtensionDialog($data);
+
+	}
+
+
+	private static function renderExtensionDialog($data) {
+		$tmpl	= 'ext/sysmanager/view/repository-dialog-ext.tmpl';
+
+		TodoyuDebug::printInFireBug($data, 'data');
 
 		return render($tmpl, $data);
 	}

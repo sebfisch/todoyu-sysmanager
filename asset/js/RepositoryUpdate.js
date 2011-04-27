@@ -23,16 +23,10 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 
 	repo: Todoyu.Ext.sysmanager.Repository,
 
-	popup: null,
+
 
 	init: function() {
-
-	},
-
-	closePopup: function() {
-		if( this.popup ) {
-			this.popup.close();
-		}
+		this.repo.installWarningsObservers();
 	},
 
 
@@ -54,15 +48,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	},
 
 	showExtensionUpdateDialog: function(extkey) {
-		var url		= this.repo.getUrl();
-		var options	= {
-			parameters: {
-				action:		'updateDialog',
-				extension:	extkey
-			}
-		};
-
-		this.popup = Todoyu.Popups.open('update', 'Install Extension Update', 500, url, options);
+		this.repo.showExtensionDialog(extkey, 'updateDialog', 'Install Extension Update');
 	},
 
 

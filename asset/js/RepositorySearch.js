@@ -25,6 +25,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 
 	init: function() {
 		this.observeForm();
+		this.repo.installWarningsObservers();
 	},
 
 
@@ -60,6 +61,17 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 */
 	getQuery: function() {
 		return $F('search-field-query').strip();
+	},
+
+
+
+	/**
+	 * Set query value
+	 *
+	 * @param	{String}	query
+	 */
+	setQuery: function(query) {
+		$('search-field-query').value = query.strip();
 	},
 
 
@@ -101,8 +113,32 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 * @param	{Number}	offset
 	 */
 	onResultsUpdated: function(query, order, offset) {
-
+		this.repo.installWarningsObservers();
 	},
+
+
+
+	/**
+	 * Search for a query
+	 *
+	 * @param	{String}	query
+	 */
+	searchFor: function(query) {
+		this.setQuery(query);
+		this.updateResults();
+	},
+
+
+
+	/**
+	 * Show dialog to install extension
+	 *
+	 * @param	{String}	extkey
+	 */
+	showExtensionInstallDialog: function(extkey) {
+		this.repo.showExtensionDialog(extkey, 'installDialog', 'Install New Extension');
+	},
+
 
 
 	/**

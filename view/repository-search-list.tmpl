@@ -1,7 +1,8 @@
 <div class="resultinfo">Num Results: {$numResults}</div>
 
 {foreach $extensions extension}
-	<div class="extension" id="repository-search-ext-{$extension.extkey}">
+	<div class="extension" id="repository-search-ext-{$extension.ext_key}">
+
 		<div class="main">
 			<h5>
 				<img src="{$extension.icon}" width="32" height="32" border="0" />
@@ -10,7 +11,28 @@
 
 			</h5>
 			<div class="description">{$extension.description}</div>
+			{if $extension.version.dependencies}
+				<div class="warning dependency">
+					<p>There are unresolved dependencies</p>
+					<ul>
+						{foreach $extension.version.dependencies dependency}
+							<li id="{$extension.ext_key}-dependency-{$dependency.ext_key}">{$dependency.title_short} {$dependency.version} ({$dependency.ext_key})</li>
+						{/foreach}
+					</ul>
+				</div>
+			{/if}
+			{if $extension.version.conflicts}
+				<div class="warning conflicts">
+					<p>There are unresolved conflicts</p>
+					<ul>
+						{foreach $extension.version.conflicts conflict}
+							<li id="{$extension.ext_key}-conflict-{$conflict.ext_key}">{$conflict.title_short} ({$conflict.ext_key})</li>
+						{/foreach}
+					</ul>
+				</div>
+			{/if}
 		</div>
+
 		<div class="right">
 			<div class="rating">{for i 1 $extension.rating}* {/for}</div>
 			<div class="state">STATE: {ExtensionStatus $extension.state}</div>
@@ -19,10 +41,12 @@
 			<div class="version">{$extension.version.version}</div>
 		</div>
 
-
 		<div class="bottom">
 			<div class="add">
-				{Button label="Install Extension" onclick="Todoyu.Ext.sysmanager.Repository.installExtension('$extension.extkey', '$extension.version.archive_hash')"}
+				{$hasDependencies = sizeof($extension.version.dependencies)}
+				{$hasConflicts = sizeof($extension.version.conflicts)}
+				{$preventInstall = $hasDependencies+$hasConflicts}
+				{Button disabled=$preventInstall label="Install Extension" onclick="Todoyu.Ext.sysmanager.Repository.Search.showExtensionInstallDialog('$extension.extkey')"}
 			</div>
 			<div class="details">
 				{Button label="More infos" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extension.ter_link}')"}
@@ -32,5 +56,3 @@
 		<div class="clear"></div>
 	</div>
 {/foreach}
-
-<br clear="all" />

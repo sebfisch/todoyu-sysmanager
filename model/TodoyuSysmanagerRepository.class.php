@@ -83,7 +83,7 @@ class TodoyuSysmanagerRepository {
 	 */
 	public function isServerReachable() {
 		try {
-			$this->sendRequest('checkConnection');
+			$this->sendRequest('checkConnection', array(), true);
 		} catch(TodoyuException $e) {
 			return false;
 		}
@@ -101,14 +101,13 @@ class TodoyuSysmanagerRepository {
 	 */
 	public function searchExtensions($query) {
 		$data	= array(
-			'query'	=> $query,
-			'ignore'=> TodoyuExtensions::getInstalledExtKeys()
+			'query'	=> $query
 		);
 
 		$results	= $this->sendRequest('searchExtensions', $data);
 
 		foreach($results['extensions'] as $extension) {
-			TodoyuSysmanagerRepositoryManager::saveRepoInfo($extension['extkey'], $extension);
+			TodoyuSysmanagerRepositoryManager::saveRepoInfo($extension['ext_key'], $extension);
 		}
 
 		return $results;
@@ -133,7 +132,7 @@ class TodoyuSysmanagerRepository {
 		}
 
 		foreach($updates['extensions'] as $extension) {
-			TodoyuSysmanagerRepositoryManager::saveRepoInfo($extension['extkey'], $extension);
+			TodoyuSysmanagerRepositoryManager::saveRepoInfo($extension['ext_key'], $extension);
 		}
 
 		return $updates;
@@ -148,14 +147,19 @@ class TodoyuSysmanagerRepository {
 	 * @param	Array		$data
 	 * @return	Array
 	 */
-	private function sendRequest($action, array $data = array()) {
+	private function sendRequest($action, array $data = array(), $noInfo = false) {
 		$config	= Todoyu::$CONFIG['EXT']['sysmanager']['update'];
 
 		$postData	= array(
 			'action'	=> $action,
-			'info'		=> $this->getInfo(),
 			'data'		=> $data
 		);
+
+		if( $noInfo !== true ) {
+			$postData['info'] = $this->getInfo();
+		}
+
+		TodoyuDebug::printInFireBug($postData, 'postData');
 
 		$this->response = TodoyuRequest::sendPostRequest($config['host'], $config['get'], $postData, 'data');
 
@@ -192,10 +196,7 @@ class TodoyuSysmanagerRepository {
 		TodoyuExtensions::loadAllExtinfo();
 
 		foreach($extKeys as $extKey) {
-			$info['extensions'][] = array(
-				'extkey'	=> $extKey,
-				'version'	=> Todoyu::$CONFIG['EXT'][$extKey]['info']['version']
-			);
+			$info['extensions'][$extKey] = Todoyu::$CONFIG['EXT'][$extKey]['info']['version'];
 		}
 
 		return $info;

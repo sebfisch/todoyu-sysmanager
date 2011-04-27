@@ -53,7 +53,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	{String}	tab			'info' / 'config' (/'extensions')
 	 * @param	{Object}	params
 	 */
-	showTab: function(extKey, tab, params) {
+	showTab: function(extKey, tab, params, onComplete) {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 		var options	= {
 			parameters: {
@@ -61,7 +61,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 				tab:	tab,
 				extkey:	extKey
 			},
-			onComplete: this.onTabShowed.bind(this, extKey, tab, params)
+			onComplete: this.onTabShowed.bind(this, extKey, tab, params, onComplete)
 		};
 
 		if( typeof(params) === 'object' ) {
@@ -93,8 +93,10 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	{String}	tab
 	 * @param	{Array}		params
 	 */
-	onTabShowed: function(extKey, tab, params) {
-
+	onTabShowed: function(extKey, tab, params, onComplete) {
+		if( Object.isFunction(onComplete) ) {
+			onComplete(extKey, tab, params);
+		}
 	},
 
 
