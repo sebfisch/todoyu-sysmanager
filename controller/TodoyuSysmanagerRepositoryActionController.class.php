@@ -19,12 +19,12 @@
 *****************************************************************************/
 
 /**
- * System and extension updater controller
+ * System and extension repository controller
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
+class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController {
 
 	/**
 	 * Restrict access
@@ -46,9 +46,9 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	public function searchAction(array $params) {
 		$query	= trim($params['query']);
 
-		TodoyuSysmanagerUpdaterManager::saveLastSearchKeyword($query);
+		TodoyuSysmanagerRepositoryManager::saveLastSearchKeyword($query);
 
-		return TodoyuSysmanagerUpdaterRenderer::renderSearchResults($query);
+		return TodoyuSysmanagerRepositoryRenderer::renderSearchResults($query);
 	}
 
 
@@ -61,7 +61,7 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	 */
 	public function installCoreUpdateAction(array $params) {
 		$archiveHash= trim($params['archive']);
-		$result		= TodoyuSysmanagerUpdaterManager::installCoreUpdate($archiveHash);
+		$result		= TodoyuSysmanagerRepositoryManager::installCoreUpdate($archiveHash);
 
 		if( $result !== true ) {
 			TodoyuHeader::sendTodoyuErrorHeader();
@@ -77,15 +77,18 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 	 * @param	Array	$params
 	 */
 	public function installExtensionUpdateAction(array $params) {
-		$hash	= trim($params['hash']);
 		$ext	= trim($params['extkey']);
 
-		$result	= TodoyuSysmanagerUpdaterManager::installExtensionUpdate($ext, $hash);
+		$result	= TodoyuSysmanagerRepositoryManager::installExtensionUpdate($ext);
 
 		if( $result !== true ) {
-			TodoyuHeader::sendTodoyuErrorHeader();
-			TodoyuHeader::sendTodoyuHeader('message', $result);
+			TodoyuHeader::sendTodoyuError($result);
 		}
+	}
+
+
+	public function refreshUpdateListAction(array $params) {
+		return TodoyuSysmanagerRepositoryRenderer::renderUpdate();
 	}
 
 
@@ -99,12 +102,19 @@ class TodoyuSysmanagerUpdaterActionController extends TodoyuActionController {
 		$extKey		= trim($params['extkey']);
 		$archiveHash= trim($params['archive']);
 
-		$result		= TodoyuSysmanagerUpdaterManager::installExtensionFromTER($extKey, $archiveHash);
+		$result		= TodoyuSysmanagerRepositoryManager::installExtensionFromTER($extKey, $archiveHash);
 
 		if( $result !== true ) {
 			TodoyuHeader::sendTodoyuErrorHeader();
 			TodoyuHeader::sendTodoyuHeader('message', $result);
 		}
+	}
+
+
+	public function updateDialogAction(array $params) {
+		$ext	= trim($params['extension']);
+
+		return TodoyuSysmanagerRepositoryRenderer::renderExtensionUpdateDialog($ext);
 	}
 
 }

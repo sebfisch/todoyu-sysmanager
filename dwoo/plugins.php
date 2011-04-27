@@ -111,4 +111,35 @@ function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $dwoo, $extKey) {
 	return "'<img src=\"ext/' . " . $extKey . " . '/asset/img/exticon.png\" width=\"16\" height=\"16\" />'";
 }
 
+
+
+/**
+ * Convert the state key into an state image
+ *
+ * @param	Dwoo		$dwoo
+ * @param	Integer		$state
+ * @return	String
+ */
+function Dwoo_Plugin_ExtensionStatus(Dwoo $dwoo, $state) {
+	$host	= Todoyu::$CONFIG['EXT']['sysmanager']['update']['host'];
+	$baseUrl= 'http://' . $host . '/fileadmin/preset/icons/';
+
+	switch($state) {
+		case 1:
+			$stateKey = 'stable';
+			break;
+
+		case 2:
+			$stateKey = 'beta';
+			break;
+
+		case 3:
+		default:
+			$stateKey = 'alpha';
+			break;
+	}
+
+	return '<img src="' . $baseUrl . 'state_' . $stateKey . '.jpg" />';
+}
+
 ?>

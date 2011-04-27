@@ -55,8 +55,8 @@ class TodoyuSysmanagerSystemConfigRenderer {
 			case 'passwordstrength':
 				return self::renderBodyPasswordStrength($params);
 
-			case 'updater':
-				return self::renderBodyUpdater($params);
+			case 'repository':
+				return self::renderBodyRepository($params);
 
 			case 'systemconfig':
 			default:
@@ -119,12 +119,12 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	}
 
 
-	private static function renderBodyUpdater(array $params) {
-		$xml	= 'ext/sysmanager/config/form/updater-config.xml';
+	private static function renderBodyRepository(array $params) {
+		$xml	= 'ext/sysmanager/config/form/repository-config.xml';
 		$form	= TodoyuFormManager::getForm($xml);
 
 		$data	= array(
-			'todoyuid'	=> trim(Todoyu::$CONFIG['SETTINGS']['updater']['todoyuid'])
+			'todoyuid'	=> trim(Todoyu::$CONFIG['SETTINGS']['repository']['todoyuid'])
 		);
 
 		$form->setFormData($data);

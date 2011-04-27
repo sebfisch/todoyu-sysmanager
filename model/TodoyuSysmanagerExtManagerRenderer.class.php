@@ -239,7 +239,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderUpdate(array $params = array()) {
-		return TodoyuSysmanagerUpdaterRenderer::renderUpdate($params);
+		return TodoyuSysmanagerRepositoryRenderer::renderUpdate($params);
 	}
 
 
@@ -251,7 +251,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderSearch(array $params = array()) {
-		return TodoyuSysmanagerUpdaterRenderer::renderSearch($params);
+		return TodoyuSysmanagerRepositoryRenderer::renderSearch($params);
 	}
 
 }

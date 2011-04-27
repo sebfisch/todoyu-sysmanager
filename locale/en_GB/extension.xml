@@ -41,9 +41,9 @@
 	<label index="upload.ok">Extension was successfully imported</label>
 	<label index="upload.error">Extension Upload Failed</label>
 	<label index="upload.archivehint">A todoyu extension archive has to be named correctly: TodoyuExt_EXTNAME_VERSION.zip. Ex: TodoyuExt_project_1.1.0.zip</label>
-	<label index="updater.form">Search in todoyu extension repository</label>
-	<label index="updater.query">Search by keyword</label>
-	<label index="updater.extension.moreDetails">More Details</label>
-	<label index="updater.extension.installUpdate">Install Update</label>
-	<label index="updater.core.installUpdate">Install Core Update</label>
+	<label index="repository.form">Search in todoyu extension repository</label>
+	<label index="repository.query">Search by keyword</label>
+	<label index="repository.extension.moreDetails">More Details</label>
+	<label index="repository.extension.installUpdate">Install Update</label>
+	<label index="repository.core.installUpdate">Install Core Update</label>
 </labels>

@@ -35,9 +35,7 @@ class TodoyuSysmanagerBackupManager {
 	 */
 	public static function createExtensionBackup($extKey) {
 		$archivePath	= TodoyuSysmanagerArchiver::createExtensionArchive($extKey);
-		$extInfo		= TodoyuExtensions::getExtInfo($extKey);
-		$version		= TodoyuString::getVersionInfo($extInfo['version']);
-		$fileName		= TodoyuSysmanagerExtInstaller::buildExtensionArchiveName($extKey, $version['major'], $version['minor'], $version['revision']);
+		$fileName		= TodoyuSysmanagerExtInstaller::getExtensionArchiveName($extKey);
 
 		return self::addFileToBackupArchive($archivePath, $fileName);
 	}

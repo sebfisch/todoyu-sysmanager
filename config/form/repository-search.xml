@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
 	<attributes>
-		<attribute name="action">?ext=sysmanager&amp;controller=updater</attribute>
+		<attribute name="action">?ext=sysmanager&amp;controller=repository</attribute>
 		<attribute name="name">search</attribute>
 	</attributes>
 	<fieldsets>
 		<fieldset name="main">
-			<legend>sysmanager.extension.updater.form</legend>
+			<legend>sysmanager.extension.repository.form</legend>
 			<elements>
 
 				<field type="text" name="query">
-					<label>sysmanager.extension.updater.query</label>
+					<label>sysmanager.extension.repository.query</label>
 				</field>
 
 			</elements>

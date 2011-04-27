@@ -19,12 +19,12 @@
 *****************************************************************************/
 
 /**
- * Request to update server
+ * Client for repository access
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuSysmanagerUpdaterRequest {
+class TodoyuSysmanagerRepository {
 
 	/**
 	 * Response data
@@ -107,8 +107,8 @@ class TodoyuSysmanagerUpdaterRequest {
 
 		$results	= $this->sendRequest('searchExtensions', $data);
 
-		foreach($results['extensions'] as $index => $extension) {
-			$results['extensions'][$index]['version']['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($extension['version']['archive']);
+		foreach($results['extensions'] as $extension) {
+			TodoyuSysmanagerRepositoryManager::saveRepoInfo($extension['extkey'], $extension);
 		}
 
 		return $results;
@@ -126,12 +126,14 @@ class TodoyuSysmanagerUpdaterRequest {
 		$data	= array();
 		$updates= $this->sendRequest('searchUpdates', $data);
 
+		TodoyuSysmanagerRepositoryManager::clearRepoInfo();
+
 		if( $updates['core'] ) {
-			$updates['core']['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($updates['core']['archive']);
+			TodoyuSysmanagerRepositoryManager::saveRepoInfo('core', $updates['core']);
 		}
 
-		foreach($updates['extensions'] as $index => $extension) {
-			$updates['extensions'][$index]['version']['archive_hash'] = TodoyuSysmanagerUpdaterManager::path2hash($extension['version']['archive']);
+		foreach($updates['extensions'] as $extension) {
+			TodoyuSysmanagerRepositoryManager::saveRepoInfo($extension['extkey'], $extension);
 		}
 
 		return $updates;
@@ -174,7 +176,7 @@ class TodoyuSysmanagerUpdaterRequest {
 	 */
 	private function getInfo() {
 		$info		= array(
-			'todoyuid'		=> TodoyuSysmanagerUpdaterManager::getTodoyuID(),
+			'todoyuid'		=> TodoyuSysmanagerRepositoryManager::getTodoyuID(),
 			'os'			=> PHP_OS,
 			'ip'			=> TodoyuServer::getIP(),
 			'domain'		=> TodoyuServer::getDomain(),

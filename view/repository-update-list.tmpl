@@ -1,0 +1,69 @@
+<div class="repositoryUpdates">
+
+	{if $updates.core}
+		{$coreUpdate = $updates.core}
+		<div class="coreUpdate">
+			{Title "New core update available"}
+			<table class="coreUpdateInfos">
+				<tr>
+					<th>New version</th>
+					<td>{$coreUpdate.version}</td>
+				</tr>
+				<tr>
+					<th>Your version</th>
+					<td>{constant(TODOYU_VERSION)}</td>
+				</tr>
+				<tr>
+					<th>Release date</th>
+					<td>{dateFormat $coreUpdate.date_update date}</td>
+				</tr>
+			</table>
+			<div class="installButton">
+				{Button label="sysmanager.extension.repository.extension.moreDetails" class="installCoreUpdate"}
+				{Button label="sysmanager.extension.repository.core.installUpdate" class="installCoreUpdate" onclick="Todoyu.Ext.sysmanager.Repository.showCoreUpdateDialog()"}
+			</div>
+			<div class="clear"></div>
+		</div>
+	{/if}
+
+
+	<div class="extensionUpdates extListing">
+		{Title "Extension updates"}
+
+		{foreach $updates.extensions extUpdate}
+			<div class="extension" id="repository-update-ext-{$extUpdate.extkey}">
+				<div class="main">
+					<h5>
+						<img src="{$extUpdate.icon}" width="32" height="32" border="0" />
+						<div class="title">{$extUpdate.title} {$extUpdate.version.version}</div>
+						<div class="author">From {$extUpdate.author.name}</div>
+					</h5>
+					<div class="description">{$extUpdate.version.version_information}</div>
+				</div>
+				<div class="right">
+					<div class="installed">Installed: {$extUpdate.installed}</div>
+					<div class="version">New Version {$extUpdate.version.version}</div>
+					<div class="state">STATE: {ExtensionStatus $extUpdate.version.state}</div>
+					<div class="date">Date: {dateFormat $extUpdate.version.date_update date}</div>
+				</div>
+
+				<div class="bottom">
+					<div class="add">
+						{Button label="Update Extension" onclick="Todoyu.Ext.sysmanager.Repository.Update.showExtensionUpdateDialog('$extUpdate.extkey')"}
+					</div>
+					<div class="details">
+						{Button label="More infos" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extUpdate.ter_link}')"}
+					</div>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+		{else}
+			<p>No extension updates available</p>
+		{/foreach}
+
+		<div class="clear"></div>
+
+	</div>
+
+</div>

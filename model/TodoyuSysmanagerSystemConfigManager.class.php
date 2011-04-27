@@ -86,8 +86,8 @@ class TodoyuSysmanagerSystemConfigManager {
 	}
 
 
-	public static function saveUpdaterConfig(array $data) {
-		Todoyu::$CONFIG['SETTINGS']['updater'] = array(
+	public static function saveRepositoryConfig(array $data) {
+		Todoyu::$CONFIG['SETTINGS']['repository'] = array(
 			'todoyuid'			=> trim($data['todoyuid'])
 		);
 

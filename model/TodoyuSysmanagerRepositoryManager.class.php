@@ -24,17 +24,17 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuSysmanagerUpdaterManager {
+class TodoyuSysmanagerRepositoryManager {
 
 	/**
 	 * Check whether the update server is reachable
 	 *
 	 * @return	Boolean
 	 */
-	public static function isUpdateServerReachable() {
-		$updater	= new TodoyuSysmanagerUpdaterRequest();
+	public static function isRepositoryReachable() {
+		$repository	= new TodoyuSysmanagerRepository();
 
-		return $updater->isServerReachable();
+		return $repository->isServerReachable();
 	}
 
 
@@ -45,7 +45,7 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @return	String
 	 */
 	public static function getTodoyuID() {
-		return trim(Todoyu::$CONFIG['SETTINGS']['updater']['todoyuid']);
+		return trim(Todoyu::$CONFIG['SETTINGS']['repository']['todoyuid']);
 	}
 
 
@@ -56,7 +56,7 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @return	String
 	 */
 	public static function getLastSearchKeyword() {
-		return TodoyuSysmanagerPreferences::getPref('updaterQuery');
+		return TodoyuSysmanagerPreferences::getPref('repositoryQuery');
 	}
 
 
@@ -68,7 +68,7 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @return void
 	 */
 	public static function saveLastSearchKeyword($query) {
-		TodoyuSysmanagerPreferences::savePref('updaterQuery', trim($query), 0, true);
+		TodoyuSysmanagerPreferences::savePref('repositoryQuery', trim($query), 0, true);
 	}
 
 
@@ -80,15 +80,15 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @param	String		$extkey
 	 * @return	Boolean
 	 */
-	public static function installExtensionUpdate($extKey, $archiveHash) {
+	public static function installExtensionUpdate($extKey) {
 		try {
-			$urlArchive	= self::hash2path($archiveHash);
+			$update		= self::getRepoInfo($extKey);
+			TodoyuDebug::printInFireBug($update, 'update');
+			$urlArchive	= $update['version']['archive'];
 
 			if( is_null($urlArchive) ) {
-				throw new TodoyuException('Archive hash not found');
+				throw new TodoyuException('Archive download URL not found');
 			}
-
-
 
 				// Create a backup from the extension
 			TodoyuSysmanagerBackupManager::createExtensionBackup($extKey);
@@ -117,10 +117,11 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @param	String		$archiveHash
 	 * @return	Boolean|String
 	 */
-	public static function installExtensionFromTER($extKey, $archiveHash) {
+	public static function installExtensionFromTER($extKey) {
 		try {
 				// Get url from hash map
-			$urlArchive	= self::hash2path($archiveHash);
+			$update		= self::getRepoInfo($extKey);
+			$urlArchive	= $update['version']['archive'];
 
 			if( is_null($urlArchive) ) {
 				throw new TodoyuException('Archive hash not found');
@@ -144,8 +145,9 @@ class TodoyuSysmanagerUpdaterManager {
 	 * @param	String		$urlUpdate			URL to update archive
 	 * @return	Boolean
 	 */
-	public static function installCoreUpdate($urlHash) {
-		$urlArchive		= TodoyuSysmanagerUpdaterManager::hash2path($urlHash);
+	public static function installCoreUpdate() {
+		$update		= self::getRepoInfo('core');
+		$urlArchive	= $update['archive'];
 
 		set_time_limit(100);
 
@@ -282,29 +284,34 @@ class TodoyuSysmanagerUpdaterManager {
 
 
 	/**
-	 * Generate MD5 hash to given path and store in session data
+	 * Save path to archive of extension or core
 	 *
-	 * @param	String	$path
-	 * @return	String
+	 * @param	String		$key
 	 */
-	public static function path2hash($path) {
-		$hash	= md5($path);
-
-		TodoyuSession::set('updater/path/' . $hash, $path);
-
-		return $hash;
+	public static function saveRepoInfo($key, array $data) {
+		TodoyuSession::set('repository/info/' . $key, $data);
 	}
 
 
 
 	/**
-	 * Get path of given hash from session data
+	 * Get path to archive of extension or core
 	 *
-	 * @param	String	$hash
-	 * @return	Mixed
+	 * @param	String		$key
+	 * @return	Array
 	 */
-	public static function hash2path($hash) {
-		return TodoyuSession::get('updater/path/' . $hash);
+	public static function getRepoInfo($key) {
+		return TodoyuArray::assure(TodoyuSession::get('repository/info/' . $key));
+	}
+
+
+
+	/**
+	 * Clear all data from repository info session
+	 *
+	 */
+	public static function clearRepoInfo() {
+		TodoyuSession::remove('repository/info');
 	}
 
 }

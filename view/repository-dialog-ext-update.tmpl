@@ -1,0 +1,29 @@
+<div class="repositoryDialog extensionUpdate">
+	<h1>Install Extension Update</h1>
+	<p class="subtitle">Be careful</p>
+
+
+	<table class="extUpdateInfos">
+		<tr>
+			<th>Extension</th>
+			<td>{$update.version.version}</td>
+		</tr>
+		<tr>
+			<th>Status</th>
+			<td>{ExtensionStatus $update.version.state}</td>
+		</tr>
+		<tr>
+			<th>Date Update</th>
+			<td>{dateFormat $update.version.date_update date}</td>
+		</tr>
+	</table>
+
+	{if $update.version.version_information}
+		{$update.version.version_information}
+	{/if}
+
+	<div class="buttons">
+		{Button label="Install Extension Update" onclick="Todoyu.Ext.sysmanager.Repository.Update.installExtensionUpdate('$update.extkey')"}
+		{Button label="Cancel Installation" onclick="Todoyu.Ext.sysmanager.Repository.Update.closePopup()"}
+	</div>
+</div>

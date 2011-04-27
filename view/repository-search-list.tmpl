@@ -1,7 +1,7 @@
 <div class="resultinfo">Num Results: {$numResults}</div>
 
 {foreach $extensions extension}
-	<div class="extension" id="updater-search-ext-{$extension.extkey}">
+	<div class="extension" id="repository-search-ext-{$extension.extkey}">
 		<div class="main">
 			<h5>
 				<img src="{$extension.icon}" width="32" height="32" border="0" />
@@ -13,7 +13,7 @@
 		</div>
 		<div class="right">
 			<div class="rating">{for i 1 $extension.rating}* {/for}</div>
-			<div class="state">STATE: {$extension.state}</div>
+			<div class="state">STATE: {ExtensionStatus $extension.state}</div>
 			<div class="costs">{if $extension.costs == 2}FREE{else}COMMERCIAL{/if}</div>
 			<div class="downloads">{$extension.downloads} Downloads</div>
 			<div class="version">{$extension.version.version}</div>

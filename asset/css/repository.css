@@ -1,5 +1,5 @@
 /** ----------------------
-	Search extensions
+	Search
 	----------------------*/
 .extensionSearch .control {
 	margin-bottom:10px;
@@ -85,34 +85,34 @@
 
 
 /** ----------------------
-	Search updates
+	Updates
 	----------------------*/
 
 /* Core update */
-.updaterUpdates .coreUpdate {
+.repositoryUpdates .coreUpdate {
 	padding:10px;
 	margin-bottom:20px;
 	background-color: #ffcc00;
 	border:1px solid #CCC;
 }
 
-.updaterUpdates .coreUpdate .coreUpdateInfos {
+.repositoryUpdates .coreUpdate .coreUpdateInfos {
 	float:left;
 }
 
-.updaterUpdates .coreUpdate .coreUpdateInfos td,
-.updaterUpdates .coreUpdate .coreUpdateInfos th {
+.repositoryUpdates .coreUpdate .coreUpdateInfos td,
+.repositoryUpdates .coreUpdate .coreUpdateInfos th {
 	padding:3px;
 }
-.updaterUpdates .coreUpdate .coreUpdateInfos th {
+.repositoryUpdates .coreUpdate .coreUpdateInfos th {
 	width:100px;
 }
 
-.updaterUpdates .coreUpdate .installButton {
+.repositoryUpdates .coreUpdate .installButton {
 	float:right;
 }
 
-.updaterUpdates .coreUpdate .installButton input {
+.repositoryUpdates .coreUpdate .installButton input {
 	font-size:16px;
 	font-weight:bold;
 	padding:10px;
@@ -120,9 +120,55 @@
 	margin-top:10px;
 }
 
+
+
+/** ----------------------
+	Info Dialog
+	----------------------*/
+.repositoryDialog {
+	padding:10px;
+}
+
+.repositoryDialog h1 {
+	font-size:18px;
+	font-weight:bold;
+}
+
+.repositoryDialog .buttons {
+	margin-top:20px;
+	padding-top:10px;
+	border-top:1px dashed #000;
+}
+
+
+/** --------------------------------
+	Info Dialog Extension Update
+	--------------------------------*/
+.repositoryDialog.extensionUpdate .extUpdateInfos td,
+.repositoryDialog.extensionUpdate .extUpdateInfos th {
+	padding:3px;
+	border-bottom:1px dashed #CCC;
+}
+
+.repositoryDialog.extensionUpdate .extUpdateInfos th {
+	width:100px;
+}
+
+.repositoryDialog.extensionUpdate .extUpdateInfos td {
+	text-align:left;
+}
+
+
+
+
+
+
+
+
+
 /* Extension updates */
 /*
-.updaterUpdates .extensionUpdates .extension {
+.repositoryUpdates .extensionUpdates .extension {
 	float:left;
 	clear:both;
 	width:640px;
@@ -131,27 +177,27 @@
 	margin-bottom:10px;
 }
 
-.updaterUpdates .extensionUpdates .extension div {
+.repositoryUpdates .extensionUpdates .extension div {
 	float:left;
 	clear:none;
 }
 
-.updaterUpdates .extensionUpdates .extension .image {
+.repositoryUpdates .extensionUpdates .extension .image {
 	width:120px;
 	margin-right:20px;
 	background-color:#AAA;
 }
 
-.updaterUpdates .extensionUpdates .extension .info {
+.repositoryUpdates .extensionUpdates .extension .info {
 	width:300px;
 }
 
-.updaterUpdates .extensionUpdates .extension .dependencies {
+.repositoryUpdates .extensionUpdates .extension .dependencies {
 	width:180px;
 	margin-left:20px;
 }
 
-.updaterUpdates .extensionUpdates .extension .actions {
+.repositoryUpdates .extensionUpdates .extension .actions {
 	clear:both;
 	float:right;
 }*/

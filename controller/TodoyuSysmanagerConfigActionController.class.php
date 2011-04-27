@@ -97,10 +97,10 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	}
 
 
-	public function saveUpdaterConfigAction(array $params) {
-		$data	= TodoyuArray::assure($params['updater']);
+	public function saveRepositoryConfigAction(array $params) {
+		$data	= TodoyuArray::assure($params['repository']);
 
-		TodoyuSysmanagerSystemConfigManager::saveUpdaterConfig($data);
+		TodoyuSysmanagerSystemConfigManager::saveRepositoryConfig($data);
 	}
 }
 

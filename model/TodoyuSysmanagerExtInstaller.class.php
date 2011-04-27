@@ -330,15 +330,20 @@ class TodoyuSysmanagerExtInstaller {
 	 */
 	public static function downloadExtension($extKey) {
 		$archivePath= TodoyuSysmanagerArchiver::createExtensionArchive($extKey);
-		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
-		$version	= TodoyuString::getVersionInfo($extInfo['version']);
-
-		$fileName	= self::buildExtensionArchiveName($extKey, $version['major'], $version['minor'], $version['revision']);
+		$fileName	= self::getExtensionArchiveName($extKey);
 		$mimeType	= 'application/octet-stream';
 
 			// Send file for download and delete temporary ZIP file after download
 		TodoyuFileManager::sendFile($archivePath, $mimeType, $fileName);
 		unlink($archivePath);
+	}
+
+
+	public static function getExtensionArchiveName($extKey) {
+		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
+		$version	= TodoyuString::getVersionInfo($extInfo['version']);
+
+		return 'TodoyuExt_' . $extKey . '_' . $version['major'] . '.' . $version['minor'] . '.' . $version['revision'] . '.zip';
 	}
 
 

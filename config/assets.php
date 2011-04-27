@@ -78,6 +78,14 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 		array(
 			'file'		=> 'ext/sysmanager/asset/js/Repository.js',
 			'position'	=> 104
+		),
+		array(
+			'file'		=> 'ext/sysmanager/asset/js/RepositorySearch.js',
+			'position'	=> 105
+		),
+		array(
+			'file'		=> 'ext/sysmanager/asset/js/RepositoryUpdate.js',
+			'position'	=> 105
 		)
 	),
 	'css' => array(
@@ -112,7 +120,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/asset/css/updater.css',
+			'file'		=> 'ext/sysmanager/asset/css/repository.css',
 			'media'		=> 'all',
 			'position'	=> 102
 		)

@@ -61,7 +61,7 @@
 	<label index="config.tab.logo">Logo auswechseln</label>
 	<label index="config.selectlogo">Logo auswählen</label>
 	<label index="config.selectlogo.info">Wählen Sie ein Bild, welches Sie als Logo verwenden möchten. Das Bild wird automatisch auf maximal 190x60 Pixel skaliert. Mögliche Bildformate: jpg, png und gif</label>
-	<label index="updater.extension.moreDetails">Mehr Details</label>
-	<label index="updater.extension.installUpdate">Update installieren</label>
-	<label index="updater.core.installUpdate">Kern Update installieren</label>
+	<label index="repository.extension.moreDetails">Mehr Details</label>
+	<label index="repository.extension.installUpdate">Update installieren</label>
+	<label index="repository.core.installUpdate">Kern Update installieren</label>
 </labels>

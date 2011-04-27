@@ -69,6 +69,6 @@
 	<label index="config.tab.logo">Change Logo</label>
 	<label index="config.selectlogo">Choose Logo</label>
 	<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
-	<label index="config.tab.updater">Updater</label>
-	<label index="config.tab.updater.save">Updater configuration saved</label>
+	<label index="config.tab.repository">Repository</label>
+	<label index="config.tab.repository.saved">Repository configuration saved</label>
 </labels>

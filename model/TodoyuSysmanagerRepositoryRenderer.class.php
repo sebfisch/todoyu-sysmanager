@@ -24,7 +24,7 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuSysmanagerUpdaterRenderer {
+class TodoyuSysmanagerRepositoryRenderer {
 
 	/**
 	 * Fetch available updates from TER server and render listing
@@ -33,24 +33,24 @@ class TodoyuSysmanagerUpdaterRenderer {
 	 * @return	String
 	 */
 	public static function renderSearch(array $params = array()) {
-		if( ! TodoyuSysmanagerUpdaterManager::isUpdateServerReachable() ) {
-			$tmpl	= 'ext/sysmanager/view/updater-noconnection.tmpl';
+		if( ! TodoyuSysmanagerRepositoryManager::isRepositoryReachable() ) {
+			$tmpl	= 'ext/sysmanager/view/repository-noconnection.tmpl';
 			return render($tmpl);
 		}
 
 		if( array_key_exists('query', $params) ) {
 			$query	= trim($params['query']);
 		} else {
-			$query	= TodoyuSysmanagerUpdaterManager::getLastSearchKeyword();
+			$query	= TodoyuSysmanagerRepositoryManager::getLastSearchKeyword();
 			$params['query'] = $query;
 		}
 
-		$xmlPath	= 'ext/sysmanager/config/form/updater-search.xml';
+		$xmlPath	= 'ext/sysmanager/config/form/repository-search.xml';
 		$form		= TodoyuFormManager::getForm($xmlPath);
 		$form->setFormData($params);
 		$form->setUseRecordID(false);
 
-		$tmpl	= 'ext/sysmanager/view/updater-search.tmpl';
+		$tmpl	= 'ext/sysmanager/view/repository-search.tmpl';
 		$data	= array(
 			'query'		=> $query,
 			'form'		=> $form->render(),
@@ -69,10 +69,10 @@ class TodoyuSysmanagerUpdaterRenderer {
 	 * @return	String
 	 */
 	public static function renderSearchResults($query) {
-		$updater	= new TodoyuSysmanagerUpdaterRequest();
+		$repository	= new TodoyuSysmanagerRepository();
 
-		$tmpl	= 'ext/sysmanager/view/updater-search-list.tmpl';
-		$data	= $updater->searchExtensions($query);
+		$tmpl	= 'ext/sysmanager/view/repository-search-list.tmpl';
+		$data	= $repository->searchExtensions($query);
 
 		return render($tmpl, $data);
 	}
@@ -82,16 +82,27 @@ class TodoyuSysmanagerUpdaterRenderer {
 	/**
 	 * Find available updates for current client and render updates list
 	 *
-	 * @param	Array	$params
 	 * @return	String
 	 */
-	public static function renderUpdate(array $params = array()) {
-		$updater	= new TodoyuSysmanagerUpdaterRequest();
-		$updates	= $updater->searchUpdates();
+	public static function renderUpdate() {
+		$repository	= new TodoyuSysmanagerRepository();
+		$updates	= $repository->searchUpdates();
 
-		$tmpl	= 'ext/sysmanager/view/updater-update-list.tmpl';
+		$tmpl	= 'ext/sysmanager/view/repository-update-list.tmpl';
 		$data	= array(
 			'updates'	=> $updates
+		);
+
+		return render($tmpl, $data);
+	}
+
+
+	public static function renderExtensionUpdateDialog($ext) {
+		$updateInfo	= TodoyuSysmanagerRepositoryManager::getRepoInfo($ext);
+
+		$tmpl	= 'ext/sysmanager/view/repository-dialog-ext-update.tmpl';
+		$data	= array(
+			'update'	=> $updateInfo
 		);
 
 		return render($tmpl, $data);

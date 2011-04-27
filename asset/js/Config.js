@@ -127,17 +127,17 @@ Todoyu.Ext.sysmanager.Config = {
 	},
 
 
-	saveUpdaterConfigh: function(form) {
+	saveRepositoryConfig: function(form) {
 		$(form).request({
 			parameters: {
-				action: 'saveUpdaterConfig'
+				action: 'saveRepositoryConfig'
 			},
-			onComplete: this.onUpdateConfigSaved.bind(this)
+			onComplete: this.onRepositoryConfigSaved.bind(this)
 		});
 	},
 
-	onUpdateConfigSaved: function(response) {
-		Todoyu.notifySuccess('[LLL:sysmanager.ext.config.tab.updater.saved]');
+	onRepositoryConfigSaved: function(response) {
+		Todoyu.notifySuccess('[LLL:sysmanager.ext.config.tab.repository.saved]');
 	}
 
 };

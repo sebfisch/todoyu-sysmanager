@@ -2,7 +2,7 @@
 <form>
 	<attributes>
 		<attribute name="action">?ext=sysmanager&amp;controller=config</attribute>
-		<attribute name="name">updater</attribute>
+		<attribute name="name">repository</attribute>
 	</attributes>
 	<fieldsets>
 		<fieldset name="main">
@@ -22,7 +22,7 @@
 			<elements>
 
 				<field type="saveButton" name="save">
-					<onclick>Todoyu.Ext.sysmanager.Config.saveUpdaterConfigh(this.form)</onclick>
+					<onclick>Todoyu.Ext.sysmanager.Config.saveRepositoryConfig(this.form)</onclick>
 				</field>
 
 			</elements>
