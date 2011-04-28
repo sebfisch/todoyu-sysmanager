@@ -60,7 +60,8 @@ class TodoyuSysmanagerSystemConfigManager {
 			'name'		=> trim($formdata['name']),
 			'email'		=> trim($formdata['email']),
 			'locale'	=> trim($formdata['locale']),
-			'timezone'	=> trim($formdata['timezone'])
+			'timezone'	=> trim($formdata['timezone']),
+			'todoyuURL'	=> trim($formdata['todoyuURL'])
 		);
 
 		TodoyuConfigManager::saveSystemConfigConfig($data, false);

@@ -33,6 +33,11 @@
 					</source>
 				</field>
 
+				<field type="text" name="todoyuURL">
+					<label>sysmanager.ext.config.tab.systemconfig.todoyuURL</label>
+					<required />
+				</field>
+
 			</elements>
 		</fieldset>
 
