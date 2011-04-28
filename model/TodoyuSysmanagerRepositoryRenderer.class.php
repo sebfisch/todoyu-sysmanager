@@ -124,7 +124,20 @@ class TodoyuSysmanagerRepositoryRenderer {
 	private static function renderExtensionDialog($data) {
 		$tmpl	= 'ext/sysmanager/view/repository-dialog-ext.tmpl';
 
-		TodoyuDebug::printInFireBug($data, 'data');
+		return render($tmpl, $data);
+	}
+
+
+	public static function renderCoreUpdateDialog() {
+		$tmpl	= 'ext/sysmanager/view/repository-dialog-core.tmpl';
+
+		$coreUpdate	= TodoyuSysmanagerRepositoryManager::getRepoInfo('core');
+
+		TodoyuDebug::printInFireBug($coreUpdate, '$coreUpdate');
+
+		$data	= array(
+			'update'	=> $coreUpdate
+		);
 
 		return render($tmpl, $data);
 	}

@@ -60,12 +60,10 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	 * @return	String
 	 */
 	public function installCoreUpdateAction(array $params) {
-		$archiveHash= trim($params['archive']);
-		$result		= TodoyuSysmanagerRepositoryManager::installCoreUpdate($archiveHash);
+		$result		= TodoyuSysmanagerRepositoryManager::installCoreUpdate();
 
 		if( $result !== true ) {
-			TodoyuHeader::sendTodoyuErrorHeader();
-			TodoyuHeader::sendTodoyuHeader('message', $result);
+			TodoyuHeader::sendTodoyuError($result);
 		}
 	}
 
@@ -87,6 +85,13 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	}
 
 
+
+	/**
+	 * Get list with available updates
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public function refreshUpdateListAction(array $params) {
 		return TodoyuSysmanagerRepositoryRenderer::renderUpdate();
 	}
@@ -111,6 +116,13 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	}
 
 
+
+	/**
+	 * Get dialog for extension update
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public function updateDialogAction(array $params) {
 		$ext	= trim($params['extension']);
 
@@ -118,10 +130,29 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	}
 
 
+
+	/**
+	 * Get dialog for extension installation
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	public function installDialogAction(array $params) {
 		$ext	= trim($params['extension']);
 
 		return TodoyuSysmanagerRepositoryRenderer::renderExtensionInstallDialog($ext);
+	}
+
+
+
+	/**
+	 * Get dialog for core update
+	 * 
+	 * @param	Array	$params
+	 * @return	String
+	 */
+	public function coreUpdateDialogAction(array $params) {
+		return TodoyuSysmanagerRepositoryRenderer::renderCoreUpdateDialog();
 	}
 
 }

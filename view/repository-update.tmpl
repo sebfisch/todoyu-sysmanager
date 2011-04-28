@@ -1,5 +1,7 @@
 <div class="repositoryUpdates">
 
+	{***************** Core Update *********************}
+
 	{if $updates.core}
 		{$coreUpdate = $updates.core}
 		<div class="coreUpdate">
@@ -15,17 +17,19 @@
 				</tr>
 				<tr>
 					<th>Release date</th>
-					<td>{dateFormat $coreUpdate.date_update date}</td>
+					<td>{dateFormat $coreUpdate.starttime date}</td>
 				</tr>
 			</table>
 			<div class="installButton">
 				{Button label="sysmanager.extension.repository.extension.moreDetails" class="installCoreUpdate"}
-				{Button label="sysmanager.extension.repository.core.installUpdate" class="installCoreUpdate" onclick="Todoyu.Ext.sysmanager.Repository.showCoreUpdateDialog()"}
+				{Button label="sysmanager.extension.repository.core.installUpdate" class="installCoreUpdate" onclick="Todoyu.Ext.sysmanager.Repository.Update.showCoreUpdateDialog()"}
 			</div>
 			<div class="clear"></div>
 		</div>
 	{/if}
 
+
+	{***************** Extension Updates *********************}
 
 	<div class="extensionUpdates extListing">
 		{Title "Extension updates"}

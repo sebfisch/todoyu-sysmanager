@@ -1,0 +1,29 @@
+<div class="repositoryDialog coreDialog">
+	<h1>Core Update: {$update.title}</h1>
+	<p class="subtitle">Version: {$update.version}</p>
+
+
+	<table class="extUpdateInfos">
+		<tr>
+			<th>Version</th>
+			<td>{$update.version}</td>
+		</tr>
+		<tr>
+			<th>Status</th>
+			<td>{ExtensionStatus $update.state}</td>
+		</tr>
+		<tr>
+			<th>Release Date</th>
+			<td>{dateFormat $update.starttime date}</td>
+		</tr>
+	</table>
+
+	{if $info.version.version_information}
+		{$info.version.version_information}
+	{/if}
+
+	<div class="buttons">
+		{Button label="Install Core Update" onclick="Todoyu.Ext.sysmanager.Repository.Update.installCoreUpdate()"}
+		{Button label="Cancel Installation" onclick="Todoyu.Ext.sysmanager.Repository.closeDialog()"}
+	</div>
+</div>

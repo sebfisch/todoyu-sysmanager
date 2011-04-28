@@ -44,7 +44,14 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 
 
 	showCoreUpdateDialog: function() {
+		var url		= this.repo.getUrl();
+		var options	= {
+			parameters: {
+				action:		'coreUpdateDialog'
+			}
+		};
 
+		this.repo.dialog = Todoyu.Popups.open('update', 'Core Update', 500, url, options);
 	},
 
 	showExtensionUpdateDialog: function(extkey) {
@@ -87,7 +94,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 			Todoyu.notifyError(error);
 		} else {
 			Todoyu.notifySuccess('Extension update was installed');
-			this.popup.close();
+			this.repo.dialog.close();
 			this.refreshUpdateList();
 		}
 	},
@@ -98,14 +105,12 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * Install update of todoyu core from given URL
 	 *
 	 * @method	installCoreUpdate
-	 * @param	{String}	archiveHash
 	 */
-	installCoreUpdate: function(archiveHash) {
-		var url		= this.getUrl();
+	installCoreUpdate: function() {
+		var url		= this.repo.getUrl();
 		var options	= {
 			parameters: {
-				action:		'installCoreUpdate',
-				archive:	archiveHash
+				action:		'installCoreUpdate'
 			},
 			onComplete: this.onCoreUpdateInstalled.bind(this)
 		};
@@ -122,7 +127,22 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onCoreUpdateInstalled: function(response) {
+		if( response.hasTodoyuError() ) {
+			var error	= response.getTodoyuErrorMessage();
 
+			Todoyu.notifyError(error);
+		} else {
+			Todoyu.notifySuccess('Core update was installed');
+			this.repo.dialog.close();
+
+			new Todoyu.LoaderBox('update', {
+				block: 	true,
+				text: 	'Core was updated. Reload todoyu and rebuild cached. Please be patient',
+				show:	true
+			});
+
+			setTimeout('location.reload()', 1000);
+		}
 	},
 
 

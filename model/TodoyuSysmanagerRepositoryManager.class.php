@@ -202,19 +202,24 @@ class TodoyuSysmanagerRepositoryManager {
 
 		$success	= $archive->extractTo($pathTemp);
 
+		$archive->close();
+
 		if( $success === false ) {
 			throw new TodoyuException('Extraction of core update archive failed');
 		}
 
 			// Prepare and import update
 		$pathUpdate	= TodoyuFileManager::pathAbsolute($pathTemp . '/todoyu');
+		$pathExtract= PATH . '/cache/xxx';
 
 		self::removeLocalElementsFromCoreUpdate($pathUpdate);
 
 		TodoyuDebug::printInFireBug('Updated into cache instead real core!');
 
-		TodoyuFileManager::copyRecursive($pathUpdate, PATH . '/cache/xxx', true, true);
+		TodoyuFileManager::copyRecursive($pathUpdate, $pathExtract, true, true);
 		TodoyuFileManager::deleteFolder($pathTemp);
+
+		TodoyuCacheManager::clearAllCache();
 	}
 
 
