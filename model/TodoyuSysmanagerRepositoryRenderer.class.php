@@ -33,11 +33,6 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * @return	String
 	 */
 	public static function renderSearch(array $params = array()) {
-		if( ! TodoyuSysmanagerRepositoryManager::isRepositoryReachable() ) {
-			$tmpl	= 'ext/sysmanager/view/repository-noconnection.tmpl';
-			return render($tmpl);
-		}
-
 		if( array_key_exists('query', $params) ) {
 			$query	= trim($params['query']);
 		} else {
@@ -72,9 +67,21 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$repository	= new TodoyuSysmanagerRepository();
 
 		$tmpl	= 'ext/sysmanager/view/repository-search-list.tmpl';
-		$data	= $repository->searchExtensions($query);
 
-		TodoyuDebug::printInFireBug($data['extensions'], 'extensions');
+		try {
+			$data	= $repository->searchExtensions($query);
+		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
+			TodoyuDebug::printInFireBug('dddddddddddddddddddd');
+			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
+
+			TodoyuDebug::printInFireBug('xxx');
+			return self::renderConnectionError($e->getMessage());
+		}
+
+
+		TodoyuDebug::printInFireBug('asdfasdf');
+
+//		TodoyuDebug::printInFireBug($data['extensions'], 'extensions');
 
 		return render($tmpl, $data);
 	}
@@ -88,11 +95,35 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 */
 	public static function renderUpdate() {
 		$repository	= new TodoyuSysmanagerRepository();
-		$updates	= $repository->searchUpdates();
+
+		try {
+			$updates	= $repository->searchUpdates();
+		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
+			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
+
+			return self::renderConnectionError($e->getMessage());
+		}
 
 		$tmpl	= 'ext/sysmanager/view/repository-update.tmpl';
 		$data	= array(
 			'updates'	=> $updates
+		);
+
+		return render($tmpl, $data);
+	}
+
+
+
+	/**
+	 * Render repository connection problem
+	 *
+	 * @param	String		$message
+	 * @return	String
+	 */
+	public static function renderConnectionError($message) {
+		$tmpl	= 'ext/sysmanager/view/repository-connection-error.tmpl';
+		$data	= array(
+			'message'	=> $message
 		);
 
 		return render($tmpl, $data);

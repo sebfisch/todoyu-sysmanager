@@ -147,7 +147,7 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 
 	/**
 	 * Get dialog for core update
-	 * 
+	 *
 	 * @param	Array	$params
 	 * @return	String
 	 */

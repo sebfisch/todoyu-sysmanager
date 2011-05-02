@@ -84,7 +84,7 @@ class TodoyuSysmanagerRepository {
 	public function isServerReachable() {
 		try {
 			$this->sendRequest('checkConnection', array(), true);
-		} catch(TodoyuException $e) {
+		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
 			return false;
 		}
 
@@ -96,6 +96,7 @@ class TodoyuSysmanagerRepository {
 	/**
 	 * Search for extensions on the update server
 	 *
+	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 * @param	String		$query
 	 * @return	Array		Search results
 	 */
@@ -119,13 +120,14 @@ class TodoyuSysmanagerRepository {
 	/**
 	 * Search for extension updates
 	 *
+	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 * @return	Array
 	 */
 	public function searchUpdates() {
+		TodoyuSysmanagerRepositoryManager::clearRepoInfo();
+
 		$data	= array();
 		$updates= $this->sendRequest('searchUpdates', $data);
-
-		TodoyuSysmanagerRepositoryManager::clearRepoInfo();
 
 		if( $updates['core'] ) {
 			TodoyuSysmanagerRepositoryManager::saveRepoInfo('core', $updates['core']);
@@ -143,6 +145,7 @@ class TodoyuSysmanagerRepository {
 	/**
 	 * Send request to update server
 	 *
+	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 * @param	String		$action
 	 * @param	Array		$data
 	 * @return	Array
@@ -161,14 +164,20 @@ class TodoyuSysmanagerRepository {
 
 		TodoyuDebug::printInFireBug($postData, 'postData');
 
-		$this->response = TodoyuRequest::sendPostRequest($config['host'], $config['get'], $postData, 'data');
+		try {
+			$this->response = TodoyuRequest::sendPostRequest($config['host'], $config['get'], $postData, 'data');
+		} catch(TodoyuException $e) {
+			TodoyuLogger::logError('Cannot reach the repository. Server not available. (' . $e->getMessage() . ')');
+			throw new TodoyuSysmanagerRepositoryConnectionException($e->getMessage(), $e->getCode(), $e);
+		}
 
 		$this->response['content_raw']	= $this->response['content'];
 		$this->response['content']		= json_decode($this->response['content'], true);
 
 		TodoyuDebug::printInFireBug($this->response['content'], 'response');
 
-		return $this->getResponseContent();
+		return $this->response['content'];
+
 	}
 
 

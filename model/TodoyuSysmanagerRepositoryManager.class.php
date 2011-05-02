@@ -27,14 +27,11 @@
 class TodoyuSysmanagerRepositoryManager {
 
 	/**
-	 * Check whether the update server is reachable
+	 * Show notification about a connection error
 	 *
-	 * @return	Boolean
 	 */
-	public static function isRepositoryReachable() {
-		$repository	= new TodoyuSysmanagerRepository();
-
-		return $repository->isServerReachable();
+	public static function notifyConnectionError() {
+		TodoyuNotification::notifyError('Cannot connect the extension repository. Are connections to other servers blocked?');
 	}
 
 
