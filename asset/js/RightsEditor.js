@@ -58,7 +58,14 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @method	init
 	 */
 	init: function() {
+			// Observe form changes
 		this.observeForm();
+
+		if( this.getRoles().size() === 0 ) {
+				// Check role selector
+			this.selectAllRoles();
+			this.onFormChange();
+		}
 
 			// Store the current values as last values
 		this.storeLastFormValues();
@@ -86,11 +93,10 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		this.observeRightsForm();
 
 			// Are there rights to be edited? hide disable save button otherwise
-		var noRights	= $$('td.roleRight').length == 0;
+		var noRights	= $$('td.roleRight').size() === 0;
 		$$('button.save').each(function(element) {
 			$(element).disabled = noRights;
 		});
-
 	},
 
 
@@ -101,8 +107,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @method	observeForm
 	 */
 	observeForm: function() {
-		$('rightseditor-field-roles').observe('change', this.onRoleChange.bindAsEventListener(this));
-		$('rightseditor-field-extension').observe('change', this.onExtensionChange.bindAsEventListener(this));
+		$('rightseditor-field-roles').on('change', this.onRoleChange.bind(this));
+		$('rightseditor-field-extension').on('change', this.onExtensionChange.bind(this));
 	},
 
 
@@ -201,15 +207,31 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @param	{Event}		event
 	 */
 	onRoleChange: function(event) {
-		var roles	= this.getRoles();
-
-		if( roles.size() === 0 ) {
-			$('rightseditor-field-roles').select('option').each(function(option){
-				option.selected = true;
-			});
-		}
-
+		this.preventEmptyRoleSelection();
 		this.onFormChange();
+	},
+
+
+
+	/**
+	 * Prevent that no roles are selected
+	 * If no role is selected, select all
+	 */
+	preventEmptyRoleSelection: function() {
+		if( this.getRoles().size() === 0 ) {
+			this.selectAllRoles();
+		}
+	},
+
+
+
+	/**
+	 * Select all role options in role selector
+	 */
+	selectAllRoles: function() {
+		$('rightseditor-field-roles').select('option').each(function(option){
+			option.selected = true;
+		});
 	},
 
 
@@ -351,7 +373,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 		var checkbox	= event.findElement('input');
 
 		var idParts	= checkbox.id.split('-');
-		var right 	= idParts.slice(0,-1).join(':'); // Remove role ID and join section and right
+		var right	= idParts.slice(0,-1).join(':'); // Remove role ID and join section and right
 		var idRole	= idParts.last();
 
 		this.checkDependents(right, idRole);
@@ -536,9 +558,10 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * Get selected roles
 	 *
 	 * @method	getRoles
+	 * @return	{Array}
 	 */
 	getRoles: function() {
-		return $F('rightseditor-field-roles');
+		return $F('rightseditor-field-roles') || [];
 	},
 
 
@@ -602,7 +625,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 			// Check if all checkboxes are currently checked
 		checkboxes.each(function(checkbox) {
-			if( checkbox.checked != true ) {
+			if( checkbox.checked !== true ) {
 				this.allOn = false;
 				return;
 			}
