@@ -20,9 +20,9 @@
 					<td>{dateFormat $coreUpdate.starttime date}</td>
 				</tr>
 			</table>
-			<div class="installButton">
-				{Button label="sysmanager.extension.repository.extension.moreDetails" class="installCoreUpdate"}
-				{Button label="sysmanager.extension.repository.core.installUpdate" class="installCoreUpdate" onclick="Todoyu.Ext.sysmanager.Repository.Update.showCoreUpdateDialog()"}
+			<div class="installButtons">
+				{Button class="info" label="sysmanager.extension.repository.extension.moreDetails"}
+				{Button class="update" label="sysmanager.extension.repository.core.installUpdate" onclick="Todoyu.Ext.sysmanager.Repository.Update.showCoreUpdateDialog()"}
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -76,15 +76,11 @@
 				</div>
 
 				<div class="bottom">
-					<div class="add">
 						{$hasDependencies = sizeof($extUpdate.version.dependencies)}
 						{$hasConflicts = sizeof($extUpdate.version.conflicts)}
 						{$preventInstall = $hasDependencies+$hasConflicts}
-						{Button disabled=$preventInstall label="Update Extension" onclick="Todoyu.Ext.sysmanager.Repository.Update.showExtensionUpdateDialog('$extUpdate.ext_key')"}
-					</div>
-					<div class="details">
-						{Button label="More infos" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extUpdate.ter_link}')"}
-					</div>
+						{Button disabled=$preventInstall class="update" label="Update Extension" onclick="Todoyu.Ext.sysmanager.Repository.Update.showExtensionUpdateDialog('$extUpdate.ext_key')"}
+						{Button label="More infos" class="info" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extUpdate.ter_link}')"}
 				</div>
 
 				<div class="clear"></div>

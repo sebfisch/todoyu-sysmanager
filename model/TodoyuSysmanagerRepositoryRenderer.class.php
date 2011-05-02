@@ -130,6 +130,12 @@ class TodoyuSysmanagerRepositoryRenderer {
 	}
 
 
+
+	/**
+	 * Render dialog for extension update
+	 * @param  $ext
+	 * @return String
+	 */
 	public static function renderExtensionUpdateDialog($ext) {
 		$data	= array(
 			'info'		=> TodoyuSysmanagerRepositoryManager::getRepoInfo($ext),
@@ -137,7 +143,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 			'okAction'	=> 'Todoyu.Ext.sysmanager.Repository.Update.installExtensionUpdate(\'' . $ext . '\')'
 		);
 
-		return self::renderExtensionDialog($data);
+		return self::renderExtensionDialog($data, true);
 	}
 
 	public static function renderExtensionInstallDialog($ext) {
@@ -152,8 +158,18 @@ class TodoyuSysmanagerRepositoryRenderer {
 	}
 
 
-	private static function renderExtensionDialog($data) {
+	/**
+	 * Render dialog window for extensio installation/update
+	 *
+	 * @param	Array		$data
+	 * @param	Boolean		$isUpdate
+	 * @return	String
+	 */
+	private static function renderExtensionDialog(array $data, $isUpdate = false) {
 		$tmpl	= 'ext/sysmanager/view/repository-dialog-ext.tmpl';
+
+		$data['update']		= $isUpdate;
+		$data['dialogClass']= $isUpdate ? 'extUpdate' : 'extInstall';
 
 		return render($tmpl, $data);
 	}

@@ -1,29 +1,39 @@
-<div class="repositoryDialog extensionDialog">
+<div class="repositoryDialog extensionDialog {$dialogClass}">
 	<h1>{$title}</h1>
-	<p class="subtitle">Be careful</p>
 
+	<div class="col versionInformation">
+		<span class="subtitle">Version Information</span>
+		{if $info.version.version_information}
+			{$info.version.version_information}
+		{else}
+			No Version Information
+		{/if}
+	</div>
 
-	<table class="extUpdateInfos">
-		<tr>
-			<th>Extension</th>
-			<td>{$info.version.version}</td>
-		</tr>
-		<tr>
-			<th>Status</th>
-			<td>{ExtensionStatus $info.version.state}</td>
-		</tr>
-		<tr>
-			<th>Date Update</th>
-			<td>{dateFormat $info.version.date_update date}</td>
-		</tr>
-	</table>
+	<div class="col versionDetails">
 
-	{if $info.version.version_information}
-		{$info.version.version_information}
-	{/if}
+		<table>
+			<tr>
+				<th>Extension</th>
+				<td>{$info.version.version}</td>
+			</tr>
+			<tr>
+				<th>Status</th>
+				<td>{ExtensionStatus $info.version.state}</td>
+			</tr>
+			<tr>
+				<th>Date Update</th>
+				<td>{dateFormat $info.version.date_update date}</td>
+			</tr>
+		</table>
+
+	</div>
+
+	<div class="clear"></div>
+
 
 	<div class="buttons">
-		{Button label="Install Extension Update" onclick="$okAction"}
-		{Button label="Cancel Installation" onclick="Todoyu.Ext.sysmanager.Repository.closeDialog()"}
+		{Button class="install" label="Install Extension Update" onclick="$okAction"}
+		{Button class="cancel" label="Cancel Installation of Update" onclick="Todoyu.Ext.sysmanager.Repository.closeDialog()"}
 	</div>
 </div>

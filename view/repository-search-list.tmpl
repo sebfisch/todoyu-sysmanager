@@ -42,15 +42,11 @@
 		</div>
 
 		<div class="bottom">
-			<div class="add">
 				{$hasDependencies = sizeof($extension.version.dependencies)}
 				{$hasConflicts = sizeof($extension.version.conflicts)}
 				{$preventInstall = $hasDependencies+$hasConflicts}
-				{Button disabled=$preventInstall label="Install Extension" onclick="Todoyu.Ext.sysmanager.Repository.Search.showExtensionInstallDialog('$extension.extkey')"}
-			</div>
-			<div class="details">
-				{Button label="More infos" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extension.ter_link}')"}
-			</div>
+				{Button disabled=$preventInstall class="install" label="Install Extension" onclick="Todoyu.Ext.sysmanager.Repository.Search.showExtensionInstallDialog('$extension.extkey')"}
+				{Button class="info" label="More infos" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extension.ter_link')"}
 		</div>
 
 		<div class="clear"></div>

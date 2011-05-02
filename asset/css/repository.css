@@ -62,10 +62,30 @@
 	margin-top:5px;
 }
 
-.extListing .extension .bottom div {
+.extListing .extension .bottom button {
 	float:right;
-	width:120px;
+	margin:0 10px;
 }
+
+.coreUpdate .installButtons button .icon,
+.extListing .extension .bottom button .icon {
+	background-image:url(../img/icons.png);
+}
+
+.coreUpdate .installButtons button.info .icon,
+.extListing .extension .bottom button.info .icon {
+	background-position:0 -748px;
+}
+
+.coreUpdate .installButtons button.update .icon,
+.extListing .extension .bottom button.update .icon {
+	background-position:0 -28px;
+}
+
+.extListing .extension .bottom button.install .icon {
+	background-position:0 -28px;
+}
+
 
 
 
@@ -140,22 +160,14 @@
 	width:100px;
 }
 
-.repositoryUpdates .coreUpdate .installButton {
+.repositoryUpdates .coreUpdate .installButtons {
 	float:right;
-}
-
-.repositoryUpdates .coreUpdate .installButton input {
-	font-size:16px;
-	font-weight:bold;
-	padding:10px;
-	margin-right:50px;
-	margin-top:10px;
 }
 
 
 
 /** ----------------------
-	Info Dialog
+	Dialog
 	----------------------*/
 .repositoryDialog {
 	padding:10px;
@@ -164,72 +176,76 @@
 .repositoryDialog h1 {
 	font-size:18px;
 	font-weight:bold;
+	margin-bottom:20px;
 }
 
 .repositoryDialog .buttons {
 	margin-top:20px;
 	padding-top:10px;
 	border-top:1px dashed #000;
+	clear:both;
 }
 
 
 /** --------------------------------
-	Info Dialog Extension Update
+	Extension Dialog
 	--------------------------------*/
-.repositoryDialog.extensionUpdate .extUpdateInfos td,
-.repositoryDialog.extensionUpdate .extUpdateInfos th {
-	padding:3px;
-	border-bottom:1px dashed #CCC;
-}
-
-.repositoryDialog.extensionUpdate .extUpdateInfos th {
-	width:100px;
-}
-
-.repositoryDialog.extensionUpdate .extUpdateInfos td {
-	text-align:left;
-}
-
-
-
-
-
-
-
-
-
-/* Extension updates */
-/*
-.repositoryUpdates .extensionUpdates .extension {
-	float:left;
-	clear:both;
-	width:640px;
-	padding:10px;
-	border:1px solid #CCC;
-	margin-bottom:10px;
-}
-
-.repositoryUpdates .extensionUpdates .extension div {
+.repositoryDialog.extensionDialog .col {
 	float:left;
 	clear:none;
 }
 
-.repositoryUpdates .extensionUpdates .extension .image {
-	width:120px;
-	margin-right:20px;
-	background-color:#AAA;
+.repositoryDialog.extensionDialog .versionInformation {
+	background-color:#FFF;
+	padding:10px;
+	text-align:left;
+	width:240px;
 }
 
-.repositoryUpdates .extensionUpdates .extension .info {
-	width:300px;
+.repositoryDialog.extensionDialog .versionInformation .subtitle {
+	display:block;
+	font-weight:bold;
+	margin-bottom:5px;
 }
 
-.repositoryUpdates .extensionUpdates .extension .dependencies {
-	width:180px;
+.repositoryDialog.extensionDialog .versionDetails {
+	width:200px;
 	margin-left:20px;
 }
 
-.repositoryUpdates .extensionUpdates .extension .actions {
-	clear:both;
-	float:right;
-}*/
+
+.repositoryDialog.extensionDialog .versionDetails td,
+.repositoryDialog.extensionDialog .versionDetails th {
+	padding:3px;
+	border-bottom:1px dashed #CCC;
+	text-align: left;
+}
+
+.repositoryDialog.extensionDialog .versionDetails th,
+.repositoryDialog.extensionDialog .versionDetails td {
+	text-align:left;
+}
+
+.repositoryDialog.extensionDialog .versionDetails th {
+	width:100px;
+}
+
+.repositoryDialog.extensionDialog .versionDetails td {
+	width:70px;
+}
+
+
+
+
+/** --------------------------------
+	Extension Update Dialog
+	--------------------------------*/
+.repositoryDialog.extensionDialog.extUpdate button.install .icon {
+	background:url(../img/icons.png) no-repeat 0 -28px;
+}
+
+
+
+/** --------------------------------
+	Extension Installation Dialog
+	--------------------------------*/

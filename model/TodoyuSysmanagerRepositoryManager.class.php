@@ -80,7 +80,7 @@ class TodoyuSysmanagerRepositoryManager {
 	public static function installExtensionUpdate($extKey) {
 		try {
 			$update		= self::getRepoInfo($extKey);
-			TodoyuDebug::printInFireBug($update, 'update');
+//			TodoyuDebug::printInFireBug($update, 'update');
 			$urlArchive	= $update['version']['archive'];
 
 			if( is_null($urlArchive) ) {
