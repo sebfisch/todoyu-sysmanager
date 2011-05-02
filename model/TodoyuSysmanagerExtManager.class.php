@@ -49,9 +49,10 @@ class TodoyuSysmanagerExtManager {
 			$tabs[] 	= $tab;
 
 				// Info
-			$tab		= $config['info'];
-			$tab['id']	= $extKey . '_info';
-			$tabs[]		= $tab;
+			$tab			= $config['info'];
+			$tab['id']		= $extKey . '_info';
+			$tab['label']	= $extKey . '.ext.ext.title';
+			$tabs[]			= $tab;
 		} else {
 				// Update tab
 			$tabs[] = $config['search'];

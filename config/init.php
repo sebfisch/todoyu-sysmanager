@@ -68,7 +68,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['extensionTabs'] = array(
 	),
 	'config'	=> array(
 		'id'		=> '_config',
-		'label'		=> 'LLL:sysmanager.ext.tabs.config',
+		'label'		=> 'sysmanager.ext.tabs.config',
 		'class'		=> 'config'
 	),
 	'info'		=> array(
