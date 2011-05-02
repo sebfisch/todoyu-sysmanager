@@ -160,27 +160,31 @@ class TodoyuSysmanagerRightsEditorRenderer {
 	 * @return	String
 	 */
 	public static function renderRightsMatrix(array $roleIDs, $ext) {
-			// Read rights XML file
-		$rights		= TodoyuSysmanagerRightsEditorManager::readExtRights($ext);
+		if( sizeof($roleIDs) === 0 ) {
+			$tmpl	= 'ext/sysmanager/view/rights-noroles.tmpl';
+			$data	= array();
+		} else {
+				// Read rights XML file
+			$rights		= TodoyuSysmanagerRightsEditorManager::readExtRights($ext);
 
-			// Get required chain
-		$required	= TodoyuSysmanagerRightsEditorManager::extractRequiredInfos($rights);
+				// Get required chain
+			$required	= TodoyuSysmanagerRightsEditorManager::extractRequiredInfos($rights);
 
-			// Get current group infos
-		$roles		= TodoyuRoleManager::getRoles($roleIDs);
+				// Get current group infos
+			$roles		= TodoyuRoleManager::getRoles($roleIDs);
 
-			// Get current checked rights (default or db)
-		$activeRights = TodoyuSysmanagerRightsEditorManager::getCurrentActiveRights($rights, $ext);
+				// Get current checked rights (default or db)
+			$activeRights = TodoyuSysmanagerRightsEditorManager::getCurrentActiveRights($rights, $ext);
 
-
-		$tmpl	= 'ext/sysmanager/view/rightsmatrix.tmpl';
-		$data	= array(
-			'extension'		=> $ext,
-			'rights'		=> $rights,
-			'roles'			=> $roles,
-			'activeRights'	=> $activeRights,
-			'required'		=> $required
-		);
+			$tmpl	= 'ext/sysmanager/view/rightsmatrix.tmpl';
+			$data	= array(
+				'extension'		=> $ext,
+				'rights'		=> $rights,
+				'roles'			=> $roles,
+				'activeRights'	=> $activeRights,
+				'required'		=> $required
+			);
+		}
 
 		return render($tmpl, $data);
 	}

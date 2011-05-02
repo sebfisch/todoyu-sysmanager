@@ -27,6 +27,7 @@
 	<label index="rights.notAvailable">This extension has no rights to configure</label>
 	<label index="rights.require">Requires</label>
 	<label index="rights.dirtyChanges">You have made unsaved changes. Do you want to save them?</label>
+	<label index="rights.noRolesSelected">No Roles available. Please add roles first. Use the roles tab to do this.</label>
 	<label index="extconf.header">Extension Configuration</label>
 	<label index="extconf.noExtConf">There is no configuration available for this extension</label>
 	<label index="extconf.saved">Extension Configuration Saved</label>
