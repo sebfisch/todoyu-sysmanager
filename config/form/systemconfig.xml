@@ -5,8 +5,8 @@
 		<attribute name="name">systemconfig</attribute>
 	</attributes>
 	<fieldsets>
-		<fieldset name="main">
-			<legend>Main editor data</legend>
+		<fieldset name="system">
+			<legend>System</legend>
 			<elements>
 
 				<field type="text" name="name">
@@ -33,6 +33,13 @@
 					</source>
 				</field>
 
+			</elements>
+		</fieldset>
+
+		<fieldset name="cli">
+			<legend>Command line interface</legend>
+			<elements>
+
 				<field type="text" name="todoyuURL">
 					<label>sysmanager.ext.config.tab.systemconfig.todoyuURL</label>
 					<required />
@@ -40,6 +47,22 @@
 
 			</elements>
 		</fieldset>
+
+		<fieldset name="debug">
+			<legend>Debugging</legend>
+			<elements>
+
+				<field type="select" name="loglevel">
+					<label>sysmanager.ext.config.tab.systemconfig.loglevel</label>
+					<source type="function">
+						<function>TodoyuSysmanagerSystemConfigViewHelper::getLogLevelOptions</function>
+					</source>
+					<noPleaseSelect />
+				</field>
+
+			</elements>
+		</fieldset>
+
 
 		<fieldset name="buttons">
 			<legend>Actions</legend>

@@ -113,7 +113,7 @@ class TodoyuSysmanagerExtImporter {
 			if( isset($archive) && $archive instanceof ZipArchive ) {
 				$archive->close();
 			}
-			Todoyu::log('Invalid extension import: ' . $e->getMessage());
+			TodoyuLogger::logError('Invalid extension import: ' . $e->getMessage());
 			return $e->getMessage();
 		}
 

@@ -77,6 +77,33 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 		return $options;
 	}
 
+
+
+	public static function getLogLevelOptions(TodoyuFormElement $field) {
+		return array(
+			array(
+				'value'	=> TodoyuLogger::LEVEL_DEBUG,
+				'label'	=> TodoyuLogger::LEVEL_DEBUG . ': ' . Label('core.global.log.debug')
+			),
+			array(
+				'value'	=> TodoyuLogger::LEVEL_NOTICE,
+				'label'	=> TodoyuLogger::LEVEL_NOTICE . ': ' . Label('core.global.log.notice')
+			),
+			array(
+				'value'	=> TodoyuLogger::LEVEL_ERROR,
+				'label'	=> TodoyuLogger::LEVEL_ERROR . ': ' . Label('core.global.log.error')
+			),
+			array(
+				'value'	=> TodoyuLogger::LEVEL_SECURITY,
+				'label'	=> TodoyuLogger::LEVEL_SECURITY . ': ' . Label('core.global.log.security')
+			),
+			array(
+				'value'	=> TodoyuLogger::LEVEL_FATAL,
+				'label'	=> TodoyuLogger::LEVEL_FATAL . ': ' . Label('core.global.log.fatal')
+			)
+		);
+	}
+
 }
 
 ?>

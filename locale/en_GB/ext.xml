@@ -58,6 +58,7 @@
 	<label index="config.tab.systemconfig.locale">System Locale</label>
 	<label index="config.tab.systemconfig.timezone">System Timezone</label>
 	<label index="config.tab.systemconfig.todoyuURL">Todoyu URL</label>
+	<label index="config.tab.systemconfig.loglevel">Log Level</label>
 	<label index="config.tab.systemconfig.saved">System configuration was updated</label>
 	<label index="config.tab.systemconfig.failed">Updating system configuration failed</label>
 	<label index="config.tab.passwordstrength">Password</label>
