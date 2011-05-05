@@ -20,3 +20,7 @@
 #config-tabs li.passwordstrength span.icon {
 	background-position:0 -805px;
 }
+
+#config-tabs li.repository span.icon {
+	background-position:0 5px;
+}

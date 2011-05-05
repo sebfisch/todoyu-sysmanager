@@ -6,11 +6,11 @@
 	</attributes>
 	<fieldsets>
 		<fieldset name="main">
-			<legend>Main editor data</legend>
+			<legend>Extension Repository</legend>
 			<elements>
 
 				<field type="text" name="todoyuid">
-					<label>sysmanager.ext.config.tab.passwordstrength.minLenth</label>
+					<label>sysmanager.ext.config.tab.repository.todoyuid</label>
 				</field>
 
 			</elements>
