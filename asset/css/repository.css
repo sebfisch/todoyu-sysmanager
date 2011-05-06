@@ -144,8 +144,8 @@
 .repositoryUpdates .coreUpdate {
 	padding:10px;
 	margin-bottom:20px;
-	background-color: #ffcc00;
-	border:1px solid #CCC;
+	background-color:#ffcc00;
+	border:1px solid #ccc;
 }
 
 .repositoryUpdates .coreUpdate .coreUpdateInfos {
@@ -217,8 +217,8 @@
 .repositoryDialog.extensionDialog .versionDetails td,
 .repositoryDialog.extensionDialog .versionDetails th {
 	padding:3px;
-	border-bottom:1px dashed #CCC;
-	text-align: left;
+	border-bottom:1px dashed #ccc;
+	text-align:left;
 }
 
 .repositoryDialog.extensionDialog .versionDetails th,
