@@ -48,7 +48,7 @@ class TodoyuSysmanagerExtRecordManager {
 
 			// Extension
 		if( $ext !== '' ) {
-			$extLabel	= Label($ext . '.ext.ext.title');
+			$extLabel	= Todoyu::Label($ext . '.ext.ext.title');
 
 			$tabs[] = array(
 				'id'	=> $ext,
@@ -62,7 +62,7 @@ class TodoyuSysmanagerExtRecordManager {
 			$typeConfig	= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
 			$tabs[] = array(
 				'id'	=> $ext . '-' . $type,
-				'label'	=> TodoyuString::crop(Label($typeConfig['label']), 18, '..', false),
+				'label'	=> TodoyuString::crop(Todoyu::Label($typeConfig['label']), 18, '..', false),
 				'class'	=> 'typeRecords'
 			);
 		}
@@ -70,7 +70,7 @@ class TodoyuSysmanagerExtRecordManager {
 			// Record
 		if( $idRecord !== 0 ) {
 			if( $idRecord === -1 ) {
-				$recordLabel	= Label('core.global.createNew');
+				$recordLabel	= Todoyu::Label('core.global.createNew');
 			} else {
 				$recordLabel	= TodoyuSysmanagerExtManager::getRecordObjectLabel($ext, $type, $idRecord);
 			}
@@ -98,12 +98,12 @@ class TodoyuSysmanagerExtRecordManager {
 		$extRecords	= TodoyuSysmanagerExtManager::getAllRecordsConfig();
 
 		foreach($extRecords as $extKey => $records) {
-			$info[$extKey]['title']		= Label($extKey . '.ext.ext.title');
+			$info[$extKey]['title']		= Todoyu::Label($extKey . '.ext.ext.title');
 			$info[$extKey]['records'] 	= array();
 
 			foreach($records as $type => $config) {
 				$info[$extKey]['records'][$type]['type']	= $type;
-				$info[$extKey]['records'][$type]['title']	= Label($config['label']);
+				$info[$extKey]['records'][$type]['title']	= Todoyu::Label($config['label']);
 
 				if( isset($config['table']) ) {
 					$info[$extKey]['records'][$type]['count']	= TodoyuSysmanagerExtRecordManager::getRecordCount($config['table']);

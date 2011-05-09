@@ -32,7 +32,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	 * @param	Array	$params
 	 */
 	public function init(array $params) {
-		restrictAdmin();
+		Todoyu::restrictAdmin();
 	}
 
 
@@ -69,7 +69,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	 * @param	Array		$params
 	 */
 	public function deleteAction(array $params) {
-//		restrict('sysmanager', 'roles:delete');
+//		Todoyu::restrict('sysmanager', 'roles:delete');
 
 		$idRole	= intval($params['role']);
 		TodoyuRoleManager::deleteRole($idRole);
@@ -118,7 +118,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	 * @return	String
 	 */
 	public function addSubformAction(array $params) {
-//		restrict('sysmanager', 'role:edit');
+//		Todoyu::restrict('sysmanager', 'role:edit');
 
 		$xmlPath	= 'core/config/form/role.xml';
 

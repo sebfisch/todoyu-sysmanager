@@ -26,7 +26,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @param	Array		$params
 	 */
 	public function init(array $params) {
-		restrictAdmin();
+		Todoyu::restrictAdmin();
 
 		TodoyuExtensions::loadAllAdmin();
 	}
@@ -146,7 +146,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 			'form'	=> $form->render()
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 

@@ -51,7 +51,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 	 * @return	String
 	 */
 	public static function renderModuleContent(array $params) {
-		restrict('sysmanager', 'general:extensions');
+		Todoyu::restrict('sysmanager', 'general:extensions');
 
 		$extKey	= $params['extkey'];
 		$tab	= $params['tab'];
@@ -168,7 +168,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 			$data['extensions'][$extension] = TodoyuExtensions::getExtInfo($extension);
 		}
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -189,7 +189,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 			'extKey'=> $extKey
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -227,7 +227,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 			$data['extensions'][$extension] = TodoyuExtensions::getExtInfo($extension);
 		}
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 

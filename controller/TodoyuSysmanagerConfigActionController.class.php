@@ -26,7 +26,7 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	 * @param	Array		$params
 	 */
 	public function init(array $params) {
-		restrictAdmin();
+		Todoyu::restrictAdmin();
 	}
 
 

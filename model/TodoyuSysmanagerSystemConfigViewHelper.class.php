@@ -70,7 +70,7 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 		for($i=1; $i<=12; $i++) {
 			$options[] = array(
 				'value'	=> $i,
-				'label'	=> $i . ' ' . Label('sysmanager.ext.config.tab.passwordstrength.minLenth.characters')
+				'label'	=> $i . ' ' . Todoyu::Label('sysmanager.ext.config.tab.passwordstrength.minLenth.characters')
 			);
 		}
 
@@ -83,23 +83,23 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 		return array(
 			array(
 				'value'	=> TodoyuLogger::LEVEL_DEBUG,
-				'label'	=> TodoyuLogger::LEVEL_DEBUG . ': ' . Label('core.global.log.debug')
+				'label'	=> TodoyuLogger::LEVEL_DEBUG . ': ' . Todoyu::Label('core.global.log.debug')
 			),
 			array(
 				'value'	=> TodoyuLogger::LEVEL_NOTICE,
-				'label'	=> TodoyuLogger::LEVEL_NOTICE . ': ' . Label('core.global.log.notice')
+				'label'	=> TodoyuLogger::LEVEL_NOTICE . ': ' . Todoyu::Label('core.global.log.notice')
 			),
 			array(
 				'value'	=> TodoyuLogger::LEVEL_ERROR,
-				'label'	=> TodoyuLogger::LEVEL_ERROR . ': ' . Label('core.global.log.error')
+				'label'	=> TodoyuLogger::LEVEL_ERROR . ': ' . Todoyu::Label('core.global.log.error')
 			),
 			array(
 				'value'	=> TodoyuLogger::LEVEL_SECURITY,
-				'label'	=> TodoyuLogger::LEVEL_SECURITY . ': ' . Label('core.global.log.security')
+				'label'	=> TodoyuLogger::LEVEL_SECURITY . ': ' . Todoyu::Label('core.global.log.security')
 			),
 			array(
 				'value'	=> TodoyuLogger::LEVEL_FATAL,
-				'label'	=> TodoyuLogger::LEVEL_FATAL . ': ' . Label('core.global.log.fatal')
+				'label'	=> TodoyuLogger::LEVEL_FATAL . ': ' . Todoyu::Label('core.global.log.fatal')
 			)
 		);
 	}

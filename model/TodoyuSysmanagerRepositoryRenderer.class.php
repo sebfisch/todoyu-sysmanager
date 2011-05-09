@@ -52,7 +52,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 			'results'	=> self::renderSearchResults($query)
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -83,7 +83,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 
 //		TodoyuDebug::printInFireBug($data['extensions'], 'extensions');
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -109,7 +109,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 			'updates'	=> $updates
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -126,7 +126,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 			'message'	=> $message
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -171,7 +171,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$data['update']		= $isUpdate;
 		$data['dialogClass']= $isUpdate ? 'extUpdate' : 'extInstall';
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -186,7 +186,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 			'update'	=> $coreUpdate
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 }

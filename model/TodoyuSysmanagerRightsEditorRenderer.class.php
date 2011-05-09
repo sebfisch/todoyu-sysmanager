@@ -105,7 +105,7 @@ class TodoyuSysmanagerRightsEditorRenderer {
 			'matrix'	=> self::renderRightsMatrix($selectedRoles, $ext)
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -186,7 +186,7 @@ class TodoyuSysmanagerRightsEditorRenderer {
 			);
 		}
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 }

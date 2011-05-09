@@ -136,7 +136,7 @@ class TodoyuSysmanagerSystemConfigManager {
 		foreach($locales as $locale) {
 			$options[] = array(
 				'value'	=> $locale,
-				'label'	=> Label('core.locale.' . $locale, $locale) . ' <=> ' . Label('core.locale.' . $locale, $default)
+				'label'	=> Todoyu::Label('core.locale.' . $locale, $locale) . ' <=> ' . Todoyu::Label('core.locale.' . $locale, $default)
 			);
 		}
 

@@ -38,7 +38,7 @@ class TodoyuSysmanagerExtInstallerRenderer {
 			'ext'	=> $ext
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -55,7 +55,7 @@ class TodoyuSysmanagerExtInstallerRenderer {
 			'ext'	=> $ext
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -73,7 +73,7 @@ class TodoyuSysmanagerExtInstallerRenderer {
 			'missingDependencies'	=> TodoyuSysmanagerExtInstaller::getFailedDependencies($extKey)
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 }

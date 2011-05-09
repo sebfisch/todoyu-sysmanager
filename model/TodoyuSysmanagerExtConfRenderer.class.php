@@ -46,7 +46,7 @@ class TodoyuSysmanagerExtConfRenderer {
 
 		}
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 }

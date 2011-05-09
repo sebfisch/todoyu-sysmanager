@@ -77,7 +77,7 @@ class TodoyuSysmanagerRightsEditorManager {
 
 			$data[$sectionName] = array();
 
-			$data[$sectionName]['label']	= Label($localeKey . '.' . $sectionName);
+			$data[$sectionName]['label']	= Todoyu::Label($localeKey . '.' . $sectionName);
 			$data[$sectionName]['rights']	= array();
 
 			if( $section['require'] ) {
@@ -92,7 +92,7 @@ class TodoyuSysmanagerRightsEditorManager {
 				$data[$sectionName]['rights'][$rightName] = array(
 					'right'		=> $rightName,
 					'full'		=> $sectionName . ':' . $rightName,
-					'label'		=> Label($localeKey . '.' . $sectionName . '.' . $rightName),
+					'label'		=> Todoyu::Label($localeKey . '.' . $sectionName . '.' . $rightName),
 					'comment'	=> TodoyuLabelManager::getLabelOrEmpty($localeKey . '.' . $sectionName . '.' . $rightName . '.comment'),
 					'require'	=> array()
 				);

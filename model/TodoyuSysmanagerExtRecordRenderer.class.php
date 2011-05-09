@@ -121,7 +121,7 @@ class TodoyuSysmanagerExtRecordRenderer {
 			'list'	=> $recordsList
 		);
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -144,12 +144,12 @@ class TodoyuSysmanagerExtRecordRenderer {
 		foreach($typeConfigs as $type => $config) {
 			$data['types'][$type] = array(
 				'type'	=> $type,
-				'label'	=> Label($config['label']),
+				'label'	=> Todoyu::Label($config['label']),
 				'count'	=> TodoyuSysmanagerExtRecordManager::getRecordCount($config['table'])
 			);
 		}
 
-		return render($tmpl, $data);
+		return Todoyu::render($tmpl, $data);
 	}
 
 
@@ -177,7 +177,7 @@ class TodoyuSysmanagerExtRecordRenderer {
 				)
 			);
 
-			return render($tmpl, $data);
+			return Todoyu::render($tmpl, $data);
 		} else {
 			return 'NO VALID LIST FUNCTION FOR RECORD TYPE: ' . $type . ' IN MODULE ' . $ext . '(ERROR occurs in <strong>' . __METHOD__ . '</strong> on line: ' . __LINE__ . ')';
 		}
