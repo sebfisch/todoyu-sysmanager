@@ -83,7 +83,6 @@ class TodoyuSysmanagerSystemConfigRenderer {
 
 
 
-
 	/**
 	 * Render content body for system config
 	 *
@@ -119,6 +118,13 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	}
 
 
+
+	/**
+	 * Render repository configuration body
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
 	private static function renderBodyRepository(array $params) {
 		$xml	= 'ext/sysmanager/config/form/repository-config.xml';
 		$form	= TodoyuFormManager::getForm($xml);

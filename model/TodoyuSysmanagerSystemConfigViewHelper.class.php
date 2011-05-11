@@ -67,7 +67,7 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 	public static function getPasswordMinLengthOptions(TodoyuFormElement $field) {
 		$options	= array();
 
-		for($i=1; $i<=12; $i++) {
+		for($i = 1; $i <= 12; $i++) {
 			$options[] = array(
 				'value'	=> $i,
 				'label'	=> $i . ' ' . Todoyu::Label('sysmanager.ext.config.tab.passwordstrength.minLenth.characters')
