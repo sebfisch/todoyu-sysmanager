@@ -53,16 +53,16 @@ class TodoyuSysmanagerSystemConfigManager {
 	/**
 	 * Save data in system configuration file
 	 *
-	 * @param	Array		$formdata
+	 * @param	Array		$formData
 	 */
-	public static function saveSystemConfig(array $formdata) {
+	public static function saveSystemConfig(array $formData) {
 		$data	= array(
-			'name'		=> trim($formdata['name']),
-			'email'		=> trim($formdata['email']),
-			'locale'	=> trim($formdata['locale']),
-			'timezone'	=> trim($formdata['timezone']),
-			'todoyuURL'	=> trim($formdata['todoyuURL']),
-			'logLevel'	=> intval($formdata['logLevel'])
+			'name'		=> trim($formData['name']),
+			'email'		=> trim($formData['email']),
+			'locale'	=> trim($formData['locale']),
+			'timezone'	=> trim($formData['timezone']),
+			'todoyuURL'	=> trim($formData['todoyuURL']),
+			'logLevel'	=> intval($formData['logLevel'])
 		);
 
 		TodoyuConfigManager::saveSystemConfigConfig($data, false);
@@ -72,8 +72,8 @@ class TodoyuSysmanagerSystemConfigManager {
 
 	/**
 	 * Save password strength file
-	 * @param array $data
-	 * @return void
+	 *
+	 * @param	Array	$data
 	 */
 	public static function savePasswordStrength(array $data) {
 		Todoyu::$CONFIG['SETTINGS']['passwordStrength'] = array(
@@ -88,6 +88,12 @@ class TodoyuSysmanagerSystemConfigManager {
 	}
 
 
+
+	/**
+	 * Save repository config
+	 *
+	 * @param	Array	$data
+	 */
 	public static function saveRepositoryConfig(array $data) {
 		Todoyu::$CONFIG['SETTINGS']['repository'] = array(
 			'todoyuid'			=> trim($data['todoyuid'])

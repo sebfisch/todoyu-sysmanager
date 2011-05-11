@@ -97,6 +97,12 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	}
 
 
+
+	/**
+	 * Save repository config
+	 *
+	 * @param	Array	$params
+	 */
 	public function saveRepositoryConfigAction(array $params) {
 		$data	= TodoyuArray::assure($params['repository']);
 
