@@ -62,7 +62,7 @@ class TodoyuSysmanagerSystemConfigManager {
 			'locale'	=> trim($formdata['locale']),
 			'timezone'	=> trim($formdata['timezone']),
 			'todoyuURL'	=> trim($formdata['todoyuURL']),
-			'logLevel'	=> intval($formdata['loglevel'])
+			'logLevel'	=> intval($formdata['logLevel'])
 		);
 
 		TodoyuConfigManager::saveSystemConfigConfig($data, false);
