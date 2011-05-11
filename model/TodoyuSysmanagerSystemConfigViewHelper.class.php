@@ -79,6 +79,13 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 
 
 
+	/**
+	 * Get options for log level
+	 *
+	 * @see		TodoyuLogger
+	 * @param	TodoyuFormElement	$field
+	 * @return	Array
+	 */
 	public static function getLogLevelOptions(TodoyuFormElement $field) {
 		return array(
 			array(

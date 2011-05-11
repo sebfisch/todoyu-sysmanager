@@ -52,8 +52,8 @@
 			<legend>Debugging</legend>
 			<elements>
 
-				<field type="select" name="loglevel">
-					<label>sysmanager.ext.config.tab.systemconfig.loglevel</label>
+				<field type="select" name="logLevel">
+					<label>sysmanager.ext.config.tab.systemconfig.logLevel</label>
 					<source type="function">
 						<function>TodoyuSysmanagerSystemConfigViewHelper::getLogLevelOptions</function>
 					</source>
