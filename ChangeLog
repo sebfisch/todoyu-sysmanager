@@ -1,6 +1,12 @@
 todoyu sysmanager extension changelog
 
 sysmanager 1.1.0 - beta release
+	* Feature: Added todoyuURL setting in config
+	* Feature: Added classes for repository and updater
+	* Feature: Show message if no roles is selected
+	* Feature: Added update warning to extension update dialog
+	* Feature: Added system logging level configuration in sysmanager
+	* Changed: Default setting for required password strength: 5 chars miniumum length, no special chars
 	* Changed: Requires core 2.1
 	* Changed: Structure for 2.1
 	* Changed: All classes are prefixed with extension name
