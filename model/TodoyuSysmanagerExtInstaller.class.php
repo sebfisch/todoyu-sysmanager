@@ -312,10 +312,10 @@ class TodoyuSysmanagerExtInstaller {
 			$dependents	= TodoyuExtensions::getDependents($extKey);
 			$extInfos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 
-			$message	= 'Cannot uninstall extension "' . htmlentities($extInfos['title'], ENT_QUOTES, 'UTF-8') . '" (' . $extKey . ').<br>The following extensions depend on it: ' . implode(', ', $dependents);
+			$message	= 'Cannot uninstall extension "' . htmlentities($extInfos['title'], ENT_QUOTES, 'UTF-8', false) . '" (' . $extKey . ').<br>The following extensions depend on it: ' . implode(', ', $dependents);
 		} elseif( TodoyuExtensions::isSystemExtension($extKey) ) {
 			$extInfos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
-			$message	= '"' . htmlentities($extInfos['title'], ENT_QUOTES, 'UTF-8') . '" is a system extension and cannot be uninstalled';
+			$message	= '"' . htmlentities($extInfos['title'], ENT_QUOTES, 'UTF-8', false) . '" is a system extension and cannot be uninstalled';
 		}
 
 		return $message;
