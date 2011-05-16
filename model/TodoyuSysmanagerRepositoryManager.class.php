@@ -91,7 +91,6 @@ class TodoyuSysmanagerRepositoryManager {
 			TodoyuSysmanagerBackupManager::createExtensionBackup($extKey);
 
 				// Get extension information before update
-			$extInfo		= TodoyuExtensions::getExtInfo($extKey);
 			$previousVersion= TodoyuExtensions::getExtVersion($extKey);
 
 				// Callback: Before update
@@ -100,8 +99,15 @@ class TodoyuSysmanagerRepositoryManager {
 				// Download and import extension
 			self::downloadAndImportExtension($extKey, $urlArchive, true);
 
+			$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
+
+			TodoyuSysmanagerExtInstaller::callBeforeDbUpdate($extKey, $previousVersion, $currentVersion);
+
+				// Update database from files
+			TodoyuSysmanagerExtInstaller::updateDatabaseFromFiles();
+
 				// Callback: After update
-			TodoyuSysmanagerExtInstaller::callAfterUpdate($extKey, $extInfo['version']);
+			TodoyuSysmanagerExtInstaller::callAfterUpdate($extKey, $previousVersion, $currentVersion);
 		} catch(TodoyuException $e) {
 			return $e->getMessage();
 		}
