@@ -27,6 +27,76 @@
 class TodoyuSysmanagerExtInstaller {
 
 	/**
+	 * Call setup function of extension if available
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$action
+	 */
+	private static function callSetup($extKey, $action = 'install', array $params = array()) {
+		$className	= 'Todoyu' . ucfirst(strtolower(trim($extKey))) . 'Setup';
+		$method		= $action;
+
+		array_unshift($params, $extKey);
+
+		if( class_exists($className, true) ) {
+			if( method_exists($className, $method) ) {
+				call_user_func_array(array($className, $method), $params);
+			}
+		}
+	}
+
+
+
+
+	private static function callOtherSetups($ignoreExt, $action) {
+		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
+
+		foreach($extKeys as $extKey) {
+			if( $extKey !== $ignoreExt ) {
+				self::callSetup($extKey, $action, array($extKey, $ignoreExt));
+			}
+		}
+	}
+
+
+	public static function callAfterOtherExtensionInstall($extKey) {
+		self::callOtherSetups($extKey, 'afterOtherExtensionInstall');
+	}
+
+	public static function callAfterOtherExtensionUninstall($extKey) {
+		self::callOtherSetups($extKey, 'afterOtherExtensionUninstall');
+	}
+
+	public static function callBeforeUpdate($extKey, $previousVersion) {
+		self::callSetup($extKey, 'beforeUpdate', $previousVersion);
+	}
+
+
+	public static function callAfterUpdate($extKey, $previousVersion) {
+		self::callSetup($extKey, 'afterUpdate', array($previousVersion));
+	}
+
+	public static function callBeforeDbUpdate($extKey, $previousVersion) {
+		self::callSetup($extKey, 'beforeDbUpdate', $previousVersion);
+	}
+
+	public static function callAfterInstall($extKey) {
+		self::callSetup($extKey, 'firstInstall');
+		self::callAfterOtherExtensionInstall($extKey);
+	}
+
+	public static function callBeforeUninstall($extKey) {
+		self::callSetup($extKey, 'uninstall');
+	}
+
+
+
+
+
+
+
+
+	/**
 	 * Save extensions as installed in extensions.php config file
 	 *
 	 * @param	Array		$extensions
@@ -62,39 +132,27 @@ class TodoyuSysmanagerExtInstaller {
 			// Save installed extensions config file (config/extensions.php)
 		self::saveInstalledExtensions($extKeys);
 
-
 		TodoyuExtensions::addExtAutoloadPaths($extKey);
 
+		$previousVersion	= TodoyuExtensions::getExtVersion($extKey);
+
+		self::callBeforeDbUpdate($extKey, $previousVersion);
+
+		self::updateDatabaseFromFiles();
+
+		self::callAfterInstall($extKey);
+	}
+
+
+	public static function updateDatabaseFromFiles() {
 		TodoyuSQLManager::updateDatabaseFromTableFiles();
-
-		self::callExtensionSetup($extKey, 'install');
-	}
-
-
-	public static function updateExtension($extKey, $previousVersion) {
-		self::callExtensionSetup($extKey, 'update', array($previousVersion));
 	}
 
 
 
-	/**
-	 * Call setup function of extension if available
-	 *
-	 * @param	String		$extKey
-	 * @param	String		$action
-	 */
-	private static function callExtensionSetup($extKey, $action = 'install', array $params = array()) {
-		$className	= 'Todoyu' . ucfirst(strtolower(trim($extKey))) . 'Setup';
-		$method		= $action;
 
-		TodoyuDebug::printInFireBug($className, 'callExtensionInstaller');
 
-		if( class_exists($className, true) ) {
-			if( method_exists($className, $method) ) {
-				call_user_func_array(array($className, $method), $params);
-			}
-		}
-	}
+
 
 
 
@@ -104,7 +162,7 @@ class TodoyuSysmanagerExtInstaller {
 	 * @param	String		$extKey
 	 */
 	public static function uninstallExtension($extKey) {
-		self::callExtensionSetup($extKey, 'uninstall');
+		self::callBeforeUninstall($extKey);
 
 			// Get installed extensions with ext key as array key
 		$installed	= array_flip(Todoyu::$CONFIG['EXT']['installed']);
@@ -117,6 +175,7 @@ class TodoyuSysmanagerExtInstaller {
 
 			// Save installed extensions
 		self::saveInstalledExtensions($installed);
+		self::callAfterOtherExtensionUninstall($extKey);
 	}
 
 

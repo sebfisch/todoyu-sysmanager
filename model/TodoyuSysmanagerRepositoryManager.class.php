@@ -92,12 +92,16 @@ class TodoyuSysmanagerRepositoryManager {
 
 				// Get extension information before update
 			$extInfo		= TodoyuExtensions::getExtInfo($extKey);
+			$previousVersion= TodoyuExtensions::getExtVersion($extKey);
+
+				// Callback: Before update
+			TodoyuSysmanagerExtInstaller::callBeforeUpdate($extKey, $previousVersion);
 
 				// Download and import extension
 			self::downloadAndImportExtension($extKey, $urlArchive, true);
 
-				// Execute the update callback
-			TodoyuSysmanagerExtInstaller::updateExtension($extKey, $extInfo['version']);
+				// Callback: After update
+			TodoyuSysmanagerExtInstaller::callAfterUpdate($extKey, $extInfo['version']);
 		} catch(TodoyuException $e) {
 			return $e->getMessage();
 		}

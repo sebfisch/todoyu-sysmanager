@@ -22,23 +22,9 @@
  * [Enter Class Description]
  *
  * @package		Todoyu
- * @subpackage	[Subpackage]
+ * @subpackage	Sysmanager
  */
 class TodoyuSysmanagerExtImporter {
-
-	/**
-	 * Extract archive file at given path into extension folder named after given extension key
-	 *
-	 * @param	String		$extKey
-	 * @param	String		$pathArchive
-	 */
-	private static function extractExtensionFromArchive($extKey, $pathArchive) {
-		$archive	= new ZipArchive();
-		$archive->open($pathArchive);
-		$extDir		= TodoyuExtensions::getExtPath($extKey);
-
-		$archive->extractTo($extDir);
-	}
 
 
 	/**
@@ -50,7 +36,11 @@ class TodoyuSysmanagerExtImporter {
 	 * @return	Array
 	 */
 	public static function importExtensionArchive($extKey, $pathArchive) {
-		self::extractExtensionFromArchive($extKey, $pathArchive);
+		$archive	= new ZipArchive();
+		$archive->open($pathArchive);
+		$extDir		= TodoyuExtensions::getExtPath($extKey);
+
+		$archive->extractTo($extDir);
 	}
 
 
@@ -119,9 +109,6 @@ class TodoyuSysmanagerExtImporter {
 
 		return true;
 	}
-
-
-
 
 }
 

@@ -249,6 +249,7 @@ class TodoyuSysmanagerExtManager {
 
 		return TodoyuFileManager::isFile($xmlPath);
 	}
+
 }
 
 ?>
