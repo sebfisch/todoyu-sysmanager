@@ -6,7 +6,7 @@
 	</attributes>
 	<fieldsets>
 		<fieldset name="system">
-			<legend>System</legend>
+			<legend>sysmanager.form.legend.system.systemsettings</legend>
 			<elements>
 
 				<field type="text" name="name">
@@ -37,7 +37,7 @@
 		</fieldset>
 
 		<fieldset name="cli">
-			<legend>Command line interface</legend>
+			<legend>sysmanager.form.legend.system.cli</legend>
 			<elements>
 
 				<field type="text" name="todoyuURL">
@@ -49,7 +49,7 @@
 		</fieldset>
 
 		<fieldset name="debug">
-			<legend>Debugging</legend>
+			<legend>sysmanager.form.legend.system.debugging</legend>
 			<elements>
 
 				<field type="select" name="logLevel">

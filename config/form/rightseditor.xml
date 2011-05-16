@@ -6,7 +6,7 @@
 	</attributes>
 	<fieldsets>
 		<fieldset name="main">
-			<legend>Main editor data</legend>
+			<legend>sysmanager.form.legend.rightsmanager.general</legend>
 			<elements>
 
 				<field type="select" name="roles">
