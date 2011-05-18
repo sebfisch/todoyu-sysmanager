@@ -86,8 +86,23 @@ class TodoyuSysmanagerExtInstaller {
 		self::callAfterOtherExtensionInstall($extKey);
 	}
 
-	public static function callBeforeUninstall($extKey, $currentVersion) {
+	public static function callBeforeUninstall($extKey) {
+		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
+
 		self::callSetup($extKey, 'uninstall', array($currentVersion));
+	}
+
+
+	public static function callBeforeMajorUpdate($extKey, $nextVersion) {
+		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
+
+		self::callSetup($extKey, 'beforeMajorUpdate', array($currentVersion, $nextVersion));
+	}
+
+	public static function callAfterMajorUpdate($extKey, $previousVersion) {
+		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
+
+		self::callSetup($extKey, 'afterMajorUpdate', array($previousVersion, $currentVersion));
 	}
 
 
@@ -164,7 +179,7 @@ class TodoyuSysmanagerExtInstaller {
 	 */
 	public static function uninstallExtension($extKey) {
 		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
-		self::callBeforeUninstall($extKey, $currentVersion);
+		self::callBeforeUninstall($extKey);
 
 			// Get installed extensions with ext key as array key
 		$installed	= array_flip(Todoyu::$CONFIG['EXT']['installed']);

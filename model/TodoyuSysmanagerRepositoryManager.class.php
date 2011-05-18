@@ -137,7 +137,20 @@ class TodoyuSysmanagerRepositoryManager {
 
 				// Download and install extension
 			self::downloadAndImportExtension($extKey, $urlArchive);
+
+			$isMajorUpdate	= TodoyuExtensions::isInstalled($extKey);
+
+			if( $isMajorUpdate ) {
+				$previousVersion	= TodoyuExtensions::getExtVersion($extKey);
+				TodoyuSysmanagerExtInstaller::callBeforeMajorUpdate($extKey, $update['version']['version']);
+			}
+
 			TodoyuSysmanagerExtInstaller::installExtension($extKey);
+
+			if( $isMajorUpdate ) {
+				TodoyuSysmanagerExtInstaller::callAfterMajorUpdate($extKey, $previousVersion);
+			}
+
 		} catch(TodoyuException $e) {
 			return $e->getMessage();
 		}
