@@ -77,23 +77,6 @@ class TodoyuSysmanagerRepository {
 
 
 	/**
-	 * Check whether TER server is reachable
-	 *
-	 * @return	Boolean
-	 */
-	public function isServerReachable() {
-		try {
-			$this->sendRequest('checkConnection', array(), true);
-		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
-			return false;
-		}
-
-		return true;
-	}
-
-
-
-	/**
 	 * Search for extensions on the update server
 	 *
 	 * @throws	TodoyuSysmanagerRepositoryConnectionException
@@ -163,6 +146,8 @@ class TodoyuSysmanagerRepository {
 		}
 
 		TodoyuDebug::printInFireBug($postData, 'postData');
+//		TodoyuDebug::printInFireBug(serialize($postData['data']), 'data');
+//		TodoyuDebug::printInFireBug(serialize($postData['info']), 'info');
 
 		try {
 			$this->response = TodoyuRequest::sendPostRequest($config['host'], $config['get'], $postData, 'data');
@@ -198,7 +183,8 @@ class TodoyuSysmanagerRepository {
 				'mysql'	=> Todoyu::db()->getVersion(),
 				'core'	=> TODOYU_VERSION
 			),
-			'extensions'	=> array()
+			'extensions'	=> array(),
+			'imported'		=> $this->getImportedExtensions()
 		);
 
 		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
@@ -209,6 +195,22 @@ class TodoyuSysmanagerRepository {
 		}
 
 		return $info;
+	}
+
+
+	private function getImportedExtensions() {
+		$extKeys= TodoyuExtensions::getNotInstalledExtKeys();
+		$infos	= array();
+
+		foreach($extKeys as $extKey) {
+			$version	= TodoyuExtensions::getExtVersion($extKey);
+
+			if( $version !== false ) {
+				$infos[$extKey] = $version;
+			}
+		}
+
+		return $infos;
 	}
 
 }

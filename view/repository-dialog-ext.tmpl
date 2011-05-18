@@ -14,7 +14,15 @@
 
 		<table>
 			<tr>
-				<th>Extension</th>
+				<th>Title</th>
+				<td>{$info.title}</td>
+			</tr>
+			<tr>
+				<th>Ext-Key</th>
+				<td>{$info.ext_key}</td>
+			</tr>
+			<tr>
+				<th>Version</th>
 				<td>{$info.version.version}</td>
 			</tr>
 			<tr>
@@ -31,10 +39,28 @@
 
 	<div class="clear"></div>
 
+	{if $install && $info.commerical}
+		{if $license}
+			<div class="license">
+				<pre width="90">{$license}</pre>
+			</div>
+			<div class="acceptlicense">
+				<input type="checkbox" value="1" name="acceptlicense" id="acceptlicense">
+				<label for="acceptlicense">Accept License</label>
+			</div>
+		{/if}
+		{if $info.free_licenses > 0}
+			<div class="licenseinfo usedomaincoupon">You have {$info.free_licenses} free licenses for this extension. Do you want do activate one for this domain ({$domain})</div>
+		{else}
+			<div class="licenseinfo buyextension"><a href="{$info.ter_link}" target="_blank">Buy extension in todoyu extension repository</a></div>
+		{/if}
+	<div class="clear"></div>
+	{/if}
+
 	<div class="warning">New versions and extensions can contain new features which may cause problems. There may also be database changes. Make sure you have a regular backup of your files and your database.</div>
 
 	<div class="buttons">
-		{Button class="install" label="Install Extension Update" onclick="$okAction"}
-		{Button class="cancel" label="Cancel Installation of Update" onclick="Todoyu.Ext.sysmanager.Repository.closeDialog()"}
+		{Button class="install" label=$labelOk onclick=$okAction disabled=$disableOk}
+		{Button class="cancel" label=$labelCancel onclick="Todoyu.Ext.sysmanager.Repository.closeDialog()"}
 	</div>
 </div>

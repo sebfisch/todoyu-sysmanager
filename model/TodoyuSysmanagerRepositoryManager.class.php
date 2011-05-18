@@ -91,14 +91,15 @@ class TodoyuSysmanagerRepositoryManager {
 			TodoyuSysmanagerBackupManager::createExtensionBackup($extKey);
 
 				// Get extension information before update
-			$previousVersion= TodoyuExtensions::getExtVersion($extKey);
+			$currentVersion= TodoyuExtensions::getExtVersion($extKey);
 
 				// Callback: Before update
-			TodoyuSysmanagerExtInstaller::callBeforeUpdate($extKey, $previousVersion);
+			TodoyuSysmanagerExtInstaller::callBeforeUpdate($extKey, $currentVersion);
 
 				// Download and import extension
 			self::downloadAndImportExtension($extKey, $urlArchive, true);
 
+			$previousVersion= $currentVersion;
 			$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
 
 			TodoyuSysmanagerExtInstaller::callBeforeDbUpdate($extKey, $previousVersion, $currentVersion);
@@ -324,6 +325,26 @@ class TodoyuSysmanagerRepositoryManager {
 	 */
 	public static function clearRepoInfo() {
 		TodoyuSession::remove('repository/info');
+	}
+
+
+
+
+	/**
+	 * Get license text for license type
+	 *
+	 * @param	String		$license
+	 * @return	String|Boolean
+	 */
+	public static function getExtensionLicenseText($license) {
+		$license	= strtolower(trim($license));
+		$path		= TodoyuExtensions::getExtPath('sysmanager', 'asset/license/' . $license . '.html');
+
+		if( is_file($path) ) {
+			return file_get_contents($path);
+		} else {
+			return false;
+		}
 	}
 
 }

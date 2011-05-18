@@ -136,8 +136,27 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 * @param	{String}	extkey
 	 */
 	showExtensionInstallDialog: function(extkey) {
-		this.repo.showExtensionDialog(extkey, 'installDialog', 'Install New Extension');
+		this.repo.showExtensionDialog(extkey, 'installDialog', 'Install New Extension', this.onDialogLoaded.bind(this));
 	},
+
+
+
+	/**
+	 * Enable license acceptance toggle
+	 *
+	 * @param	{Ajax.Response}	response
+	 * @param	{Todoyu.Popup}	popup
+	 */
+	onDialogLoaded: function(response, popup) {
+		var accept	= popup.getContent().down('.acceptlicense input');
+
+		if( accept ) {
+			accept.on('click', function(){
+				popup.getContent().down('button.install').disabled = !accept.checked;
+			});
+		}
+	},
+
 
 
 
@@ -146,16 +165,14 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 *
 	 * @method	installExtension
 	 * @param	{String}	extkey
-	 * @param	{String}	archiveHash
 	 */
-	installExtension: function(extkey, archiveHash) {
+	installExtension: function(extkey) {
 		if( confirm('Install this extension?') ) {
 			var url		= this.repo.getUrl();
 			var options = {
 				parameters: {
 					action: 'installTerExtension',
-					extkey:	extkey,
-					archive:archiveHash
+					extkey:	extkey
 				},
 				onComplete: this.onExtensionInstalled.bind(this, extkey)
 			};

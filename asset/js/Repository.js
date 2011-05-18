@@ -70,16 +70,18 @@ Todoyu.Ext.sysmanager.Repository = {
 	 * @param	{String}	action
 	 * @param	{String}	title
 	 */
-	showExtensionDialog: function(extkey, action, title) {
+	showExtensionDialog: function(extkey, action, title, callback) {
+		callback	= callback || Prototype.emptyFunction;
 		var url		= this.getUrl();
 		var options	= {
 			parameters: {
 				action:		action,
 				extension:	extkey
-			}
+			},
+			onComplete: callback
 		};
 
-		this.dialog = Todoyu.Popups.open('update', title, 500, url, options);
+		this.dialog = Todoyu.Popups.open(action, title, 600, url, options);
 	},
 
 

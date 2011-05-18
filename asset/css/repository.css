@@ -199,7 +199,7 @@
 	background-color:#FFF;
 	padding:10px;
 	text-align:left;
-	width:240px;
+	width:300px;
 }
 
 .repositoryDialog.extensionDialog .versionInformation .subtitle {
@@ -209,7 +209,7 @@
 }
 
 .repositoryDialog.extensionDialog .versionDetails {
-	width:200px;
+	width:240px;
 	margin-left:20px;
 }
 
@@ -227,11 +227,11 @@
 }
 
 .repositoryDialog.extensionDialog .versionDetails th {
-	width:100px;
+	width:80px;
 }
 
 .repositoryDialog.extensionDialog .versionDetails td {
-	width:70px;
+	width:130px;
 }
 
 .repositoryDialog.extensionDialog .warning {
@@ -254,3 +254,35 @@
 /** --------------------------------
 	Extension Installation Dialog
 	--------------------------------*/
+.repositoryDialog.extensionDialog.extInstall .license {
+	background-color: #FFFFFF;
+    height: 200px;
+    overflow: auto;
+    padding: 10px;
+	margin-top:10px;
+	margin-bottom:10px;
+	text-align:left;
+	font-family:monospace;
+	border: 1px solid #CCCCCC;
+	font-size:12px;
+}
+
+.repositoryDialog.extensionDialog.extInstall .acceptlicense {
+	margin-bottom:5px;
+	border:1px solid #CCC;
+	padding:5px;
+	background-color:#FFF;
+	text-align:center;
+}
+
+.repositoryDialog.extensionDialog.extInstall .acceptlicense input {
+	width:20px;
+}
+
+.repositoryDialog.extensionDialog.extInstall .licenseinfo {
+	margin-bottom:5px;
+	border:1px solid #CCC;
+	padding:5px;
+	background-color: #FF0;
+	text-align:left;
+}

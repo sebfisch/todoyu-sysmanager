@@ -67,8 +67,8 @@ class TodoyuSysmanagerExtInstaller {
 		self::callOtherSetups($extKey, 'afterOtherExtensionUninstall');
 	}
 
-	public static function callBeforeUpdate($extKey, $previousVersion) {
-		self::callSetup($extKey, 'beforeUpdate', array($previousVersion));
+	public static function callBeforeUpdate($extKey, $currentVersion) {
+		self::callSetup($extKey, 'beforeUpdate', array($currentVersion));
 	}
 
 
@@ -76,9 +76,10 @@ class TodoyuSysmanagerExtInstaller {
 		self::callSetup($extKey, 'afterUpdate', array($previousVersion));
 	}
 
-	public static function callBeforeDbUpdate($extKey, $previousVersion) {
-		self::callSetup($extKey, 'beforeDbUpdate', array($previousVersion));
+	public static function callBeforeDbUpdate($extKey, $previousVersion, $currentVersion) {
+		self::callSetup($extKey, 'beforeDbUpdate', array($previousVersion, $currentVersion));
 	}
+
 
 	public static function callAfterInstall($extKey) {
 		self::callSetup($extKey, 'firstInstall');
@@ -134,9 +135,9 @@ class TodoyuSysmanagerExtInstaller {
 
 		TodoyuExtensions::addExtAutoloadPaths($extKey);
 
-		$previousVersion	= TodoyuExtensions::getExtVersion($extKey);
+		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
 
-		self::callBeforeDbUpdate($extKey, $previousVersion);
+		self::callBeforeDbUpdate($extKey, $currentVersion, $currentVersion);
 
 		self::updateDatabaseFromFiles();
 

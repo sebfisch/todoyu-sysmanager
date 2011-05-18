@@ -71,17 +71,10 @@ class TodoyuSysmanagerRepositoryRenderer {
 		try {
 			$data	= $repository->searchExtensions($query);
 		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
-			TodoyuDebug::printInFireBug('dddddddddddddddddddd');
 			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
 
-			TodoyuDebug::printInFireBug('xxx');
 			return self::renderConnectionError($e->getMessage());
 		}
-
-
-		TodoyuDebug::printInFireBug('asdfasdf');
-
-//		TodoyuDebug::printInFireBug($data['extensions'], 'extensions');
 
 		return Todoyu::render($tmpl, $data);
 	}
@@ -140,22 +133,47 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$data	= array(
 			'info'		=> TodoyuSysmanagerRepositoryManager::getRepoInfo($ext),
 			'title'		=> 'Install Extension Update',
-			'okAction'	=> 'Todoyu.Ext.sysmanager.Repository.Update.installExtensionUpdate(\'' . $ext . '\')'
+			'actionOk'	=> 'Todoyu.Ext.sysmanager.Repository.Update.installExtensionUpdate(\'' . $ext . '\')'
 		);
 
 		return self::renderExtensionDialog($data, true);
 	}
 
-	public static function renderExtensionInstallDialog($ext) {
+
+
+	/**
+	 * Render install dialog for extension
+	 *
+	 * @param	String		$extKey
+	 * @return	String
+	 */
+	public static function renderExtensionInstallDialog($extKey) {
+		$info	= TodoyuSysmanagerRepositoryManager::getRepoInfo($extKey);
+
 		$data	= array(
-			'info'		=> TodoyuSysmanagerRepositoryManager::getRepoInfo($ext),
-			'title'		=> 'Install New Extension',
-			'okAction'	=> 'Todoyu.Ext.sysmanager.Repository.Search.installExtension(\'' . $ext . '\')'
+			'info'			=> $info,
+			'title'			=> 'Install: ' . $info['title'],
+			'actionOk'		=> 'Todoyu.Ext.sysmanager.Repository.Search.installExtension(\'' . $extKey . '\')',
+			'domain'		=> TodoyuServer::getDomain(),
+			'labelCancel'	=> 'Don\'t install this extension'
 		);
 
-		return self::renderExtensionDialog($data);
+		if( $info['free_licenses'] > 0 ) {
+			$data['labelOk']	= 'Install extension (use one of my licenses)';
+			$data['disableOk']	= false;
+		} else {
+			$data['labelOk']	= 'License for extension is required';
+			$data['disableOk']	= true;
+		}
 
+		if( $info['license'] ) {
+			$data['license']	= TodoyuSysmanagerRepositoryManager::getExtensionLicenseText($info['license']);
+			$data['disableOk']	= true;
+		}
+
+		return self::renderExtensionDialog($data);
 	}
+
 
 
 	/**
@@ -169,7 +187,11 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$tmpl	= 'ext/sysmanager/view/repository-dialog-ext.tmpl';
 
 		$data['update']		= $isUpdate;
+		$data['install']	= !$isUpdate;
 		$data['dialogClass']= $isUpdate ? 'extUpdate' : 'extInstall';
+
+		TodoyuDebug::printInFireBug($data, '$data');
+
 
 		return Todoyu::render($tmpl, $data);
 	}

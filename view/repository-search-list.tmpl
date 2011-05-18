@@ -36,7 +36,7 @@
 		<div class="right">
 			<div class="rating">{for i 1 $extension.rating}* {/for}</div>
 			<div class="state">STATE: {ExtensionStatus $extension.state}</div>
-			<div class="costs">{if $extension.costs == 2}FREE{else}COMMERCIAL{/if}</div>
+			<div class="costs">{if $extension.commercial}COMMERCIAL{else}FREE{/if}</div>
 			<div class="downloads">{$extension.downloads} Downloads</div>
 			<div class="version">{$extension.version.version}</div>
 		</div>
@@ -45,7 +45,7 @@
 				{$hasDependencies = sizeof($extension.version.dependencies)}
 				{$hasConflicts = sizeof($extension.version.conflicts)}
 				{$preventInstall = $hasDependencies+$hasConflicts}
-				{Button disabled=$preventInstall class="install" label="Install Extension" onclick="Todoyu.Ext.sysmanager.Repository.Search.showExtensionInstallDialog('$extension.extkey')"}
+				{Button disabled=$preventInstall class="install" label="Install Extension" onclick="Todoyu.Ext.sysmanager.Repository.Search.showExtensionInstallDialog('$extension.ext_key')"}
 				{Button class="info" label="More infos" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extension.ter_link')"}
 		</div>
 
