@@ -109,8 +109,7 @@ class TodoyuSysmanagerRepository {
 	public function searchUpdates() {
 		TodoyuSysmanagerRepositoryManager::clearRepoInfo();
 
-		$data	= array();
-		$updates= $this->sendRequest('searchUpdates', $data);
+		$updates= $this->sendRequest('searchUpdates');
 
 		if( $updates['core'] ) {
 			TodoyuSysmanagerRepositoryManager::saveRepoInfo('core', $updates['core']);
@@ -121,6 +120,30 @@ class TodoyuSysmanagerRepository {
 		}
 
 		return $updates;
+	}
+
+
+	/**
+	 * Download file from repository
+	 *
+	 * @param	String		$type
+	 * @param	Integer		$idVersion
+	 * @return	String		Path to local saved file
+	 */
+	public function download($type, $idVersion) {
+		$data		= array(
+			'type'		=> $type,
+			'version'	=> intval($idVersion)
+		);
+
+		$responseData	= $this->sendRequest('download', $data);
+		$tempName		= md5($idVersion . time());
+		$tempFile		= TodoyuFileManager::pathAbsolute(PATH_CACHE . '/temp/' . $tempName);
+		$fileData		= base64_decode($responseData['data']);
+
+		file_put_contents($tempFile, $fileData);
+
+		return $tempFile;
 	}
 
 
@@ -162,7 +185,6 @@ class TodoyuSysmanagerRepository {
 		TodoyuDebug::printInFireBug($this->response['content'], 'response');
 
 		return $this->response['content'];
-
 	}
 
 

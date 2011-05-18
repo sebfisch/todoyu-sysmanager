@@ -195,6 +195,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 			Todoyu.notifyError(error);
 		} else {
 			Todoyu.notifySuccess('Extension was successfully installed');
+			this.ext.closeDialog();
 
 			Effect.SlideUp('repository-search-ext-' + extKey);
 		}

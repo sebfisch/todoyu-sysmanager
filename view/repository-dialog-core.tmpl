@@ -1,29 +1,38 @@
 <div class="repositoryDialog coreDialog">
 	<h1>Core Update: {$update.title}</h1>
-	<p class="subtitle">Version: {$update.version}</p>
 
+	<div class="col versionInformation">
+		<span class="subtitle">Version Information</span>
+		{if $update.description}
+			{$update.description}
+		{else}
+			No Version Information
+		{/if}
+	</div>
 
-	<table class="extUpdateInfos">
-		<tr>
-			<th>Version</th>
-			<td>{$update.version}</td>
-		</tr>
-		<tr>
-			<th>Status</th>
-			<td>{ExtensionStatus $update.state}</td>
-		</tr>
-		<tr>
-			<th>Release Date</th>
-			<td>{dateFormat $update.starttime date}</td>
-		</tr>
-	</table>
-
-	{if $info.version.version_information}
-		{$info.version.version_information}
-	{/if}
+	<div class="col versionDetails">
+		<table>
+			<tr>
+				<th>Installed</th>
+				<td>{constant(TODOYU_VERSION)}</td>
+			</tr>
+			<tr>
+				<th>New Version</th>
+				<td>{$update.version}</td>
+			</tr>
+			<tr>
+				<th>Status</th>
+				<td>{ExtensionStatus $update.state}</td>
+			</tr>
+			<tr>
+				<th>Release Date</th>
+				<td>{dateFormat $update.date_update date}</td>
+			</tr>
+		</table>
+	</div>
 
 	<div class="buttons">
-		{Button label="Install Core Update" onclick="Todoyu.Ext.sysmanager.Repository.Update.installCoreUpdate()"}
-		{Button label="Cancel Installation" onclick="Todoyu.Ext.sysmanager.Repository.closeDialog()"}
+		{Button label="Install Core Update" class="install" onclick="Todoyu.Ext.sysmanager.Repository.Update.installCoreUpdate()"}
+		{Button label="Cancel Core Update" class="cancel" onclick="Todoyu.Ext.sysmanager.Repository.closeDialog()"}
 	</div>
 </div>

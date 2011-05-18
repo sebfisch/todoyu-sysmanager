@@ -19,17 +19,31 @@
 
 Todoyu.Ext.sysmanager.Repository.Update = {
 
+	/**
+	 * @var	{Object}	Extension
+	 */
 	ext: Todoyu.Ext.sysmanager,
 
+	/**
+	 * @var	{Object}	Repository functions
+	 */
 	repo: Todoyu.Ext.sysmanager.Repository,
 
 
-
+	/**
+	 * Initialize
+	 */
 	init: function() {
 		this.repo.installWarningsObservers();
 	},
 
 
+
+	/**
+	 * Reload list with updates
+	 *
+	 * @param	{Function}	onComplete
+	 */
 	refreshUpdateList: function(onComplete) {
 		var url		= this.repo.getUrl();
 		var options	= {
@@ -43,6 +57,10 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	},
 
 
+
+	/**
+	 * Show dialog for core update
+	 */
 	showCoreUpdateDialog: function() {
 		var url		= this.repo.getUrl();
 		var options	= {
@@ -51,9 +69,16 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 			}
 		};
 
-		this.repo.dialog = Todoyu.Popups.open('update', 'Core Update', 500, url, options);
+		this.repo.dialog = Todoyu.Popups.open('coreUpdate', 'Core Update', 600, url, options);
 	},
 
+
+
+	/**
+	 * Show dialog for extension update
+	 *
+	 * @param	{String}	extkey
+	 */
 	showExtensionUpdateDialog: function(extkey) {
 		this.repo.showExtensionDialog(extkey, 'updateDialog', 'Install Extension Update');
 	},
@@ -67,16 +92,18 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * @param	{String}	extkey
 	 */
 	installExtensionUpdate: function(extkey) {
-		var url		= this.repo.getUrl();
-		var options	= {
-			parameters: {
-				action:		'installExtensionUpdate',
-				extkey:		extkey
-			},
-			onComplete: this.onExtensionUpdateInstalled.bind(this, extkey)
-		};
+		if( confirm('Install this update?') ) {
+			var url		= this.repo.getUrl();
+			var options	= {
+				parameters: {
+					action:		'installExtensionUpdate',
+					extkey:		extkey
+				},
+				onComplete: this.onExtensionUpdateInstalled.bind(this, extkey)
+			};
 
-		Todoyu.send(url, options);
+			Todoyu.send(url, options);
+		}
 	},
 
 
@@ -107,15 +134,17 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * @method	installCoreUpdate
 	 */
 	installCoreUpdate: function() {
-		var url		= this.repo.getUrl();
-		var options	= {
-			parameters: {
-				action:		'installCoreUpdate'
-			},
-			onComplete: this.onCoreUpdateInstalled.bind(this)
-		};
+		if( confirm('Install core update?') ) {
+			var url		= this.repo.getUrl();
+			var options	= {
+				parameters: {
+					action:		'installCoreUpdate'
+				},
+				onComplete: this.onCoreUpdateInstalled.bind(this)
+			};
 
-		Todoyu.send(url, options);
+			Todoyu.send(url, options);
+		}
 	},
 
 
@@ -141,7 +170,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 				show:	true
 			});
 
-			setTimeout('location.reload()', 1000);
+			setTimeout(location.reload, 1000);
 		}
 	},
 

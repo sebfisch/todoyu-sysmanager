@@ -80,12 +80,6 @@ class TodoyuSysmanagerRepositoryManager {
 	public static function installExtensionUpdate($extKey) {
 		try {
 			$update		= self::getRepoInfo($extKey);
-//			TodoyuDebug::printInFireBug($update, 'update');
-			$urlArchive	= $update['version']['archive'];
-
-			if( is_null($urlArchive) ) {
-				throw new TodoyuException('Archive download URL not found');
-			}
 
 				// Create a backup from the extension
 			TodoyuSysmanagerBackupManager::createExtensionBackup($extKey);
@@ -97,7 +91,8 @@ class TodoyuSysmanagerRepositoryManager {
 			TodoyuSysmanagerExtInstaller::callBeforeUpdate($extKey, $currentVersion);
 
 				// Download and import extension
-			self::downloadAndImportExtension($extKey, $urlArchive, true);
+			$idVersion	= intval($update['version']['id']);
+			self::downloadAndImportExtension($extKey, $idVersion, true);
 
 			$previousVersion= $currentVersion;
 			$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
@@ -129,14 +124,15 @@ class TodoyuSysmanagerRepositoryManager {
 		try {
 				// Get url from hash map
 			$update		= self::getRepoInfo($extKey);
-			$urlArchive	= $update['version']['archive'];
-
-			if( is_null($urlArchive) ) {
-				throw new TodoyuException('Archive hash not found');
-			}
+//			$urlArchive	= $update['version']['archive'];
+//
+//			if( is_null($urlArchive) ) {
+//				throw new TodoyuException('Archive hash not found');
+//			}
 
 				// Download and install extension
-			self::downloadAndImportExtension($extKey, $urlArchive);
+			$idVersion	= intval($update['version']['id']);
+			self::downloadAndImportExtension($extKey, $idVersion, true);
 
 			$isMajorUpdate	= TodoyuExtensions::isInstalled($extKey);
 
@@ -168,19 +164,19 @@ class TodoyuSysmanagerRepositoryManager {
 	 */
 	public static function installCoreUpdate() {
 		$update		= self::getRepoInfo('core');
-		$urlArchive	= $update['archive'];
+		$idVersion	= intval($update['id']);
 
 		set_time_limit(100);
 
 		try {
-			if( is_null($urlArchive) ) {
-				throw new TodoyuException('Archive hash not found');
-			}
+//			if( is_null($urlArchive) ) {
+//				throw new TodoyuException('Archive hash not found');
+//			}
 
 				// Backup Core
 			TodoyuSysmanagerBackupManager::createCoreBackup();
 				// Download and import core update
-			self::downloadAndImportCoreUpdate($urlArchive);
+			self::downloadAndImportCoreUpdate($idVersion);
 		} catch(TodoyuException $e) {
 			return $e->getMessage();
 		}
@@ -194,11 +190,11 @@ class TodoyuSysmanagerRepositoryManager {
 	 * Download and import (install) a core update
 	 *
 	 * @throws	TodoyuException
-	 * @param	String	$urlArchive
+	 * @param	String	$idVersion
 	 * @return	Boolean
 	 */
-	private static function downloadAndImportCoreUpdate($urlArchive) {
-		$pathArchive= self::downloadArchive($urlArchive);
+	private static function downloadAndImportCoreUpdate($idVersion) {
+		$pathArchive= self::downloadArchive('core', $idVersion);
 
 		self::importCoreUpdate($pathArchive);
 
@@ -231,7 +227,7 @@ class TodoyuSysmanagerRepositoryManager {
 
 			// Prepare and import update
 		$pathUpdate	= TodoyuFileManager::pathAbsolute($pathTemp . '/todoyu');
-		$pathExtract= PATH . '/cache/xxx';
+		$pathExtract= PATH . '/dummyupdate/xxx';
 
 		self::removeLocalElementsFromCoreUpdate($pathUpdate);
 
@@ -271,12 +267,12 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Download external archive file and extract it into the cache folder
 	 *
-	 * @param	String		$urlArchive
+	 * @param	Integer		$idVersion
 	 * @return	Boolean		Success
 	 */
-	private static function downloadAndImportExtension($ext, $urlArchive, $isUpdate = false) {
+	private static function downloadAndImportExtension($ext, $idVersion, $isUpdate = false) {
 		$override	= $isUpdate;
-		$pathArchive= self::downloadArchive($urlArchive);
+		$pathArchive= self::downloadArchive('ext', $idVersion);
 		$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($ext, $pathArchive, $override);
 
 		if( $canImport !== true ) {
@@ -294,17 +290,19 @@ class TodoyuSysmanagerRepositoryManager {
 	 * Download an archive from an URL to local hard drive
 	 *
 	 * @throws	TodoyuException
-	 * @param	String		$urlArchive
+	 * @param	Integer		$idVersion
 	 * @return	String		Path to local archive
 	 */
-	private static function downloadArchive($urlArchive) {
-		$localPath	= TodoyuFileManager::saveLocalCopy($urlArchive);
+	private static function downloadArchive($type, $idVersion) {
+		$repository	= new TodoyuSysmanagerRepository();
 
-		if( $localPath === false ) {
-			throw new TodoyuException('Download of update archive failed: ' . $urlArchive);
+		try {
+			return $repository->download($type, $idVersion);
+		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
+			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
+
+			throw new TodoyuException('Download of update archive failed: ' . $idVersion);
 		}
-
-		return $localPath;
 	}
 
 

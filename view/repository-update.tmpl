@@ -17,7 +17,7 @@
 				</tr>
 				<tr>
 					<th>Release date</th>
-					<td>{dateFormat $coreUpdate.starttime date}</td>
+					<td>{dateFormat $coreUpdate.date_update date}</td>
 				</tr>
 			</table>
 			<div class="installButtons">
@@ -80,7 +80,7 @@
 						{$hasConflicts = sizeof($extUpdate.version.conflicts)}
 						{$preventInstall = $hasDependencies+$hasConflicts}
 						{Button disabled=$preventInstall class="update" label="Update Extension" onclick="Todoyu.Ext.sysmanager.Repository.Update.showExtensionUpdateDialog('$extUpdate.ext_key')"}
-						{Button label="More infos" class="info" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extUpdate.ter_link}')"}
+						{Button label="More infos" class="info" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extUpdate.ter_link')"}
 				</div>
 
 				<div class="clear"></div>

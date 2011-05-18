@@ -44,23 +44,28 @@
 			<div class="license">
 				<pre width="90">{$license}</pre>
 			</div>
-			<div class="acceptlicense">
+			<div class="info acceptlicense">
 				<input type="checkbox" value="1" name="acceptlicense" id="acceptlicense">
 				<label for="acceptlicense">Accept License</label>
 			</div>
 		{/if}
+
 		{if $info.free_licenses > 0}
-			<div class="licenseinfo usedomaincoupon">You have {$info.free_licenses} free licenses for this extension. Do you want do activate one for this domain ({$domain})</div>
+			<div class="info licenseinfo usedomaincoupon">You have {$info.free_licenses} free licenses for this extension. Do you want do activate one for this domain ({$domain})</div>
 		{else}
-			<div class="licenseinfo buyextension"><a href="{$info.ter_link}" target="_blank">Buy extension in todoyu extension repository</a></div>
+			<div class="info licenseinfo buyextension"><a href="{$info.ter_link}" target="_blank">Buy extension in todoyu extension repository</a></div>
 		{/if}
-	<div class="clear"></div>
+
+		{if $isMajorUpdate}
+			<div class="info warningMajorUpdate">This is a major version update of an existing extension. The existing extension will be completely overwritten with the new one.</div>
+		{/if}
+
 	{/if}
 
-	<div class="warning">New versions and extensions can contain new features which may cause problems. There may also be database changes. Make sure you have a regular backup of your files and your database.</div>
+	<div class="info warning">New versions and extensions can contain new features which may cause problems. There may also be database changes. Make sure you have a regular backup of your files and your database.</div>
 
 	<div class="buttons">
-		{Button class="install" label=$labelOk onclick=$okAction disabled=$disableOk}
+		{Button class="install" label=$labelOk onclick=$actionOk disabled=$disableOk}
 		{Button class="cancel" label=$labelCancel onclick="Todoyu.Ext.sysmanager.Repository.closeDialog()"}
 	</div>
 </div>

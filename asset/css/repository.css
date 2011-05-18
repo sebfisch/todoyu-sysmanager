@@ -185,69 +185,74 @@
 	border-top:1px dashed #000;
 	clear:both;
 }
+.repositoryDialog .info {
+	margin-top:5px;
+	border:1px solid #CCC;
+	padding:5px;
+	text-align:center;
+}
+
+.repositoryDialog .versionDetails {
+	width:240px;
+	margin-left:20px;
+}
 
 
-/** --------------------------------
-	Extension Dialog
-	--------------------------------*/
-.repositoryDialog.extensionDialog .col {
+.repositoryDialog .versionDetails table td,
+.repositoryDialog .versionDetails table th {
+	padding:3px;
+	border-bottom:1px dashed #ccc;
+	text-align:left;
+}
+
+.repositoryDialog .versionDetails th {
+	width:80px;
+}
+
+.repositoryDialog .versionDetails td {
+	width:130px;
+}
+
+.repositoryDialog .col {
 	float:left;
 	clear:none;
 }
 
-.repositoryDialog.extensionDialog .versionInformation {
+.repositoryDialog .versionInformation {
 	background-color:#FFF;
 	padding:10px;
 	text-align:left;
 	width:300px;
 }
 
-.repositoryDialog.extensionDialog .versionInformation .subtitle {
+.repositoryDialog .versionInformation ul {
+	list-style:square inside;
+}
+
+.repositoryDialog .versionInformation .subtitle {
 	display:block;
 	font-weight:bold;
 	margin-bottom:5px;
 }
 
-.repositoryDialog.extensionDialog .versionDetails {
-	width:240px;
-	margin-left:20px;
-}
 
-
-.repositoryDialog.extensionDialog .versionDetails td,
-.repositoryDialog.extensionDialog .versionDetails th {
-	padding:3px;
-	border-bottom:1px dashed #ccc;
-	text-align:left;
-}
-
-.repositoryDialog.extensionDialog .versionDetails th,
-.repositoryDialog.extensionDialog .versionDetails td {
-	text-align:left;
-}
-
-.repositoryDialog.extensionDialog .versionDetails th {
-	width:80px;
-}
-
-.repositoryDialog.extensionDialog .versionDetails td {
-	width:130px;
-}
+/** --------------------------------
+	Extension Dialog
+	--------------------------------*/
 
 .repositoryDialog.extensionDialog .warning {
-	margin-top:10px;
-	border:1px solid #000;
-	padding:5px;
 	background-color:#FFCC00;
+}
+
+.repositoryDialog.extensionDialog button.install .icon {
+	background:url(../img/icons.png) no-repeat 0 -28px;
 }
 
 
 /** --------------------------------
 	Extension Update Dialog
 	--------------------------------*/
-.repositoryDialog.extensionDialog.extUpdate button.install .icon {
-	background:url(../img/icons.png) no-repeat 0 -28px;
-}
+
 
 
 
@@ -268,11 +273,7 @@
 }
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense {
-	margin-bottom:5px;
-	border:1px solid #CCC;
-	padding:5px;
 	background-color:#FFF;
-	text-align:center;
 }
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense input {
@@ -280,9 +281,19 @@
 }
 
 .repositoryDialog.extensionDialog.extInstall .licenseinfo {
-	margin-bottom:5px;
-	border:1px solid #CCC;
-	padding:5px;
 	background-color: #FF0;
-	text-align:left;
+}
+
+.repositoryDialog.extensionDialog.extInstall .warningMajorUpdate {
+	background-color: #F00;
+	color:#FFF;
+}
+
+
+/** --------------------------------
+	Core Update Dialog
+	--------------------------------*/
+
+.repositoryDialog.coreDialog button.install .icon {
+	background:url(../img/icons.png) no-repeat 0 -28px;
 }

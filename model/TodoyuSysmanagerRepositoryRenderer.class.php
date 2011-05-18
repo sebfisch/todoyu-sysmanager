@@ -129,11 +129,15 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * @param  $ext
 	 * @return String
 	 */
-	public static function renderExtensionUpdateDialog($ext) {
+	public static function renderExtensionUpdateDialog($extKey) {
+		$info	= TodoyuSysmanagerRepositoryManager::getRepoInfo($extKey);
+
 		$data	= array(
-			'info'		=> TodoyuSysmanagerRepositoryManager::getRepoInfo($ext),
-			'title'		=> 'Install Extension Update',
-			'actionOk'	=> 'Todoyu.Ext.sysmanager.Repository.Update.installExtensionUpdate(\'' . $ext . '\')'
+			'info'			=> $info,
+			'title'			=> 'Update: ' . $info['title'],
+			'actionOk'		=> 'Todoyu.Ext.sysmanager.Repository.Update.installExtensionUpdate(\'' . $extKey . '\')',
+			'labelCancel'	=> 'Don\'t install this extension update',
+			'labelOk'		=> 'Install extension update'
 		);
 
 		return self::renderExtensionDialog($data, true);
@@ -155,7 +159,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 			'title'			=> 'Install: ' . $info['title'],
 			'actionOk'		=> 'Todoyu.Ext.sysmanager.Repository.Search.installExtension(\'' . $extKey . '\')',
 			'domain'		=> TodoyuServer::getDomain(),
-			'labelCancel'	=> 'Don\'t install this extension'
+			'labelCancel'	=> 'Don\'t install this extension',
+			'isMajorUpdate'	=> TodoyuExtensions::isInstalled($extKey)
 		);
 
 		if( $info['free_licenses'] > 0 ) {
