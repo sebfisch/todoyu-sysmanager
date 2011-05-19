@@ -116,6 +116,7 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Install a new extension from TER
 	 *
+	 * @thorws	TodoyuException
 	 * @param	String		$extKey
 	 * @param	String		$archiveHash
 	 * @return	Boolean|String
@@ -123,22 +124,20 @@ class TodoyuSysmanagerRepositoryManager {
 	public static function installExtensionFromTER($extKey) {
 		try {
 				// Get url from hash map
-			$update		= self::getRepoInfo($extKey);
-//			$urlArchive	= $update['version']['archive'];
-//
-//			if( is_null($urlArchive) ) {
-//				throw new TodoyuException('Archive hash not found');
-//			}
+			$extInfo	= self::getRepoInfo($extKey);
+
+				// Buy extension if it's commercial
+			self::registerCommercialExtension($extInfo['ext_key']);
 
 				// Download and install extension
-			$idVersion	= intval($update['version']['id']);
+			$idVersion	= intval($extInfo['version']['id']);
 			self::downloadAndImportExtension($extKey, $idVersion, true);
 
 			$isMajorUpdate	= TodoyuExtensions::isInstalled($extKey);
 
 			if( $isMajorUpdate ) {
 				$previousVersion	= TodoyuExtensions::getExtVersion($extKey);
-				TodoyuSysmanagerExtInstaller::callBeforeMajorUpdate($extKey, $update['version']['version']);
+				TodoyuSysmanagerExtInstaller::callBeforeMajorUpdate($extKey, $extInfo['version']['version']);
 			}
 
 			TodoyuSysmanagerExtInstaller::installExtension($extKey);
@@ -267,6 +266,7 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Download external archive file and extract it into the cache folder
 	 *
+	 * @throws	TodoyuException
 	 * @param	Integer		$idVersion
 	 * @return	Boolean		Success
 	 */
@@ -280,6 +280,26 @@ class TodoyuSysmanagerRepositoryManager {
 		}
 
 		TodoyuSysmanagerExtImporter::importExtensionArchive($ext, $pathArchive);
+
+		return true;
+	}
+
+
+
+	/**
+	 * Register a commercial extension on TER server
+	 *
+	 * @throws	TodoyuException
+	 * @param	String		$extKey
+	 * @return	Boolean
+	 */
+	private static function registerCommercialExtension($extKey) {
+		$repository	= new TodoyuSysmanagerRepository();
+		$result		= $repository->registerForDomain($extKey);
+
+		if( $result !== true ) {
+			throw new TodoyuException($result);
+		}
 
 		return true;
 	}
@@ -302,6 +322,8 @@ class TodoyuSysmanagerRepositoryManager {
 			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
 
 			throw new TodoyuException('Download of update archive failed: ' . $idVersion);
+		} catch(TodoyuSysmanagerRepositoryException $e) {
+			throw new TodoyuException($e->getMessage());
 		}
 	}
 

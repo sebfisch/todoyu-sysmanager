@@ -75,4 +75,13 @@
 	<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
 	<label index="config.tab.repository">Repository</label>
 	<label index="config.tab.repository.saved">Repository configuration saved</label>
+	<label index="repository.error.downloadNoArchiveForExtVersion">The update archive for this version is missing</label>
+	<label index="repository.error.downloadNoArchiveForCoreVersion">The update archive for this version is missing</label>
+	<label index="repository.error.downloadNoFileAccess">You are not allowed to download this file</label>
+	<label index="repository.error.registerTodoyuIdMissing">todoyuID is missing. Please enter your ID in the system config screen</label>
+	<label index="repository.error.registerExtensionMissing">No extension was submitted for registration</label>
+	<label index="repository.error.registerDomainMissing">todoyu was not able to detect your domain for registration</label>
+	<label index="repository.error.registerExtNotFound">You tried to register an extension which is not available in TER</label>
+	<label index="repository.error.registerNoUserForTodoyuId">Your todoyuID doesn't match to an user from todoyu.com</label>
+	<label index="repository.error.registerNoFreeLicensesAvailable">You have no free licenses for this extension. Buy one in the shop</label>
 </labels>

@@ -137,13 +137,43 @@ class TodoyuSysmanagerRepository {
 		);
 
 		$responseData	= $this->sendRequest('download', $data);
+
+		if( $responseData['data'] === false ) {
+			$label	= Todoyu::Label('sysmanager.ext.repository.error.' . $response['message']);
+			throw new TodoyuSysmanagerRepositoryException($label);
+		}
+
 		$tempName		= md5($idVersion . time());
 		$tempFile		= TodoyuFileManager::pathAbsolute(PATH_CACHE . '/temp/' . $tempName);
 		$fileData		= base64_decode($responseData['data']);
 
-		file_put_contents($tempFile, $fileData);
+		TodoyuFileManager::saveFileContent($tempFile, $fileData);
 
 		return $tempFile;
+	}
+
+
+
+	/**
+	 * Register an extension for current domain
+	 *
+	 * @param	String		$extKey
+	 * @return	Boolean
+	 */
+	public function registerForDomain($extKey) {
+		$data	= array(
+			'todoyuid'	=> TodoyuSysmanagerRepositoryManager::getTodoyuID(),
+			'extension'	=> $extKey,
+			'domain'	=> TodoyuServer::getDomain()
+		);
+
+		$response	= $this->sendRequest('register', $data, true);
+
+		if( $response['registered'] ) {
+			return true;
+		} else {
+			return Todoyu::Label('sysmanager.ext.repository.error.' . $response['message']) ;
+		}
 	}
 
 
@@ -166,6 +196,8 @@ class TodoyuSysmanagerRepository {
 
 		if( $noInfo !== true ) {
 			$postData['info'] = $this->getInfo();
+		} else {
+			$postData['info'] = array();
 		}
 
 		TodoyuDebug::printInFireBug($postData, 'postData');
@@ -183,6 +215,7 @@ class TodoyuSysmanagerRepository {
 		$this->response['content']		= json_decode($this->response['content'], true);
 
 		TodoyuDebug::printInFireBug($this->response['content'], 'response');
+//		TodoyuDebug::printInFireBug($this->response['content_raw'], 'content_raw');
 
 		return $this->response['content'];
 	}
