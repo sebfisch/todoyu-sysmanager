@@ -107,10 +107,10 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 		$extKey		= trim($params['extkey']);
 		$archiveHash= trim($params['archive']);
 
-		try {
-			$result	= TodoyuSysmanagerRepositoryManager::installExtensionFromTER($extKey, $archiveHash);
-		} catch(TodoyuException $e) {
-			TodoyuHeader::sendTodoyuError($e->getMessage());
+		$result	= TodoyuSysmanagerRepositoryManager::installExtensionFromTER($extKey, $archiveHash);
+
+		if( $result !== true ) {
+			TodoyuHeader::sendTodoyuError($result);
 		}
 	}
 

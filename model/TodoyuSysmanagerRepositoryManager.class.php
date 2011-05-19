@@ -116,7 +116,7 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Install a new extension from TER
 	 *
-	 * @thorws	TodoyuException
+	 *
 	 * @param	String		$extKey
 	 * @param	String		$archiveHash
 	 * @return	Boolean|String
@@ -320,7 +320,6 @@ class TodoyuSysmanagerRepositoryManager {
 			return $repository->download($type, $idVersion);
 		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
 			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
-
 			throw new TodoyuException('Download of update archive failed: ' . $idVersion);
 		} catch(TodoyuSysmanagerRepositoryException $e) {
 			throw new TodoyuException($e->getMessage());

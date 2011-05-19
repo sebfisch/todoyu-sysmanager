@@ -191,7 +191,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 */
 	onExtensionInstalled: function(extKey, response) {
 		if( response.hasTodoyuError() ) {
-			var error	= response.getTodoyuHeader('message');
+			var error	= response.getTodoyuErrorMessage();
 			Todoyu.notifyError(error);
 		} else {
 			Todoyu.notifySuccess('Extension was successfully installed');
