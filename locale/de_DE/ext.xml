@@ -27,6 +27,7 @@
 	<label index="rights.notAvailable">Diese Erweiterung benötigt keine Rechtekonfiguration</label>
 	<label index="rights.require">Benötigt</label>
 	<label index="rights.dirtyChanges">Es gibt noch Änderungen. Wollen Sie diese speichern?</label>
+	<label index="rights.noRolesSelected">Keine Rollen vorhanden. Bitte erstellen Sie zuerst Rollen. Wechseln Sie dazu in den Rollen-Reiter.</label>
 	<label index="extconf.header">Extension Konfiguration</label>
 	<label index="extconf.noExtConf">Für diese Extension gibt es keine Konfiguration</label>
 	<label index="extconf.saved">Erweiterungskonfiguration gespeichert</label>
@@ -49,6 +50,8 @@
 	<label index="roles.delete.notify.success">Rolle wurde gelöscht.</label>
 	<label index="roles.edit">Rolle bearbeiten</label>
 	<label index="create.role.label">Neue Rolle</label>
+	<label index="config.logo.upload.ok">Das neue Logo wurde erfolgreich hochgeladen</label>
+	<label index="config.logo.upload.error">Hochladen des Logos ist fehlgeschlagen</label>
 	<label index="upload.selectfile">Geben Sie das Archiv der Erweiterung an (zip)</label>
 	<label index="upload.override">Vorhandene Erweiterung (Dateien) überschreiben</label>
 	<label index="upload.title">Neue Erweiterung hochladen</label>
@@ -56,12 +59,21 @@
 	<label index="upload.noArchiveSelected">Bitte wählen Sie ein Erweiterungs-Archiv zum hochladen aus</label>
 	<label index="upload.ok">Erweiterung wurde erfolgreich importiert</label>
 	<label index="upload.error">Hochladen der Erweiterung ist fehlgeschlagen</label>
-	<label index="config.logo.upload.ok">Das neue Logo wurde erfolgreich hochgeladen</label>
-	<label index="config.logo.upload.error">Hochladen des Logos ist fehlgeschlagen</label>
-	<label index="config.tab.logo">Logo auswechseln</label>
-	<label index="config.selectlogo">Logo auswählen</label>
-	<label index="config.selectlogo.info">Wählen Sie ein Bild, welches Sie als Logo verwenden möchten. Das Bild wird automatisch auf maximal 190x60 Pixel skaliert. Mögliche Bildformate: jpg, png und gif</label>
 	<label index="repository.extension.moreDetails">Mehr Details</label>
 	<label index="repository.extension.installUpdate">Update installieren</label>
 	<label index="repository.core.installUpdate">Kern Update installieren</label>
+	<label index="config.tab.logo">Logo auswechseln</label>
+	<label index="config.selectlogo">Logo auswählen</label>
+	<label index="config.selectlogo.info">Wählen Sie ein Bild, welches Sie als Logo verwenden möchten. Das Bild wird automatisch auf maximal 190x60 Pixel skaliert. Mögliche Bildformate: jpg, png und gif</label>
+	<label index="config.tab.repository">Repository</label>
+	<label index="config.tab.repository.saved">Repository Konfiguration gespeichert</label>
+	<label index="repository.error.downloadNoArchiveForExtVersion">Das Update-Archiv zu dieser Version fehlt</label>
+	<label index="repository.error.downloadNoArchiveForCoreVersion">Das Update-Archiv zu dieser Version fehlt</label>
+	<label index="repository.error.downloadNoFileAccess">Sie haben keine Berechtigung diese Datei herunterzuladen</label>
+	<label index="repository.error.registerTodoyuIdMissing">todoyuID fehlt. Bitte geben Sie Ihre ID in der System-Konfiguration an</label>
+	<label index="repository.error.registerExtensionMissing">Keine Extension zur Registrierung übermittelt</label>
+	<label index="repository.error.registerDomainMissing">todoyu konnte Ihre Registrierungs-Domain nicht ermitteln</label>
+	<label index="repository.error.registerExtNotFound">Sie haben versucht eine Extension zu registrieren, die nicht im TER verfügbar ist</label>
+	<label index="repository.error.registerNoUserForTodoyuId">Ihre todoyuID stimmt mit keinem todoyu.com Account überein</label>
+	<label index="repository.error.registerNoFreeLicensesAvailable">Ihnen fehlen Lizenzen zu dieser Extension. Im Shop können Sie diese erwerben</label>
 </labels>
