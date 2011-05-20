@@ -56,7 +56,7 @@ Todoyu.Ext.sysmanager.ExtConf = {
 
 			$('config-form').replace(response.responseText);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.ext.extconf.saved]', 3);
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.extconf.saved]');
 		}
 	}
 

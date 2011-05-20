@@ -204,44 +204,83 @@ class TodoyuSysmanagerExtInstaller {
 	 * @return	Boolean
 	 */
 	public static function canInstall($extKey) {
-			// Check whether dependencies are met
-		$canInstall = ! self::hasFailedDependencies($extKey);
+		$problems	= self::getInstallProblems($extKey);
 
-			// Check whether any conflicting extensions are already installed
-		if( $canInstall ) {
-			$canInstall	= ! self::wouldConflict($extKey);
+		return $problems === false;
+	}
+
+
+
+	/**
+	 * Collect all reasons which prevent the installation of an extension
+	 *
+	 * @param	String			$extKey
+	 * @return	Array|Boolean	False or a list of problems
+	 */
+	public static function getInstallProblems($extKey) {
+		$foundConflicts		= array();
+		$foundDependencies	= array();
+		$requiredCore		= false;
+		$extInfo			= TodoyuExtensions::getExtInfo($extKey);
+
+			// Check core version
+		if( ! self::matchesCoreVersion($extKey) ) {
+			$requiredCore	= $extInfo['constraints']['core'];
 		}
 
-		return $canInstall;
+			// Check conflicts
+		$conflicts	= TodoyuExtensions::getConflicts($extKey);
+
+		foreach($conflicts as $conflict) {
+			if( TodoyuExtensions::isInstalled($conflict) ) {
+				$foundConflicts[] = $conflict;
+			}
+		}
+
+
+			// Check dependencies
+		$dependencies	= TodoyuExtensions::getDependencies($extKey);
+
+		foreach($dependencies as $ext => $version) {
+			if( TodoyuExtensions::isInstalled($ext) ) {
+				$extInfo	= TodoyuExtensions::getExtInfo($ext);
+				if( version_compare($extInfo['version'], $version) === -1 ) {
+					$foundDependencies[$ext] = $version;
+				}
+			} else {
+				$foundDependencies[$ext] = $version;
+			}
+		}
+
+
+			// Return false if no problems were found
+		if( sizeof($foundConflicts) === 0 && sizeof($foundDependencies) === 0 && $requiredCore === false ) {
+			return false;
+		} else {
+			return array(
+				'conflicts'	=> $foundConflicts,
+				'depends'	=> $foundDependencies,
+				'core'		=> $requiredCore
+			);
+		}
 	}
 
 
 
 	/**
-	 * Check whether given extension would conflict with any other already installed extension
-	 *
-	 * @todo	not needed yet, implement
-	 * @param	String	$extKey
-	 * @return	Boolean
-	 */
-	public static function wouldConflict($extKey) {
-//		$conflicting	= self::getConflicts($extKey);
-
-		return false;
-	}
-
-
-
-	/**
-	 * Check whether all extensions which the extension of the given key depends on are installed
+	 * Check whether extension core requirement is fulfilled
 	 *
 	 * @param	String		$extKey
 	 * @return	Boolean
 	 */
-	public static function hasFailedDependencies($extKey) {
-		$missingDependencies	= self::getFailedDependencies($extKey);
+	public static function matchesCoreVersion($extKey) {
+		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
 
-		return count($missingDependencies) > 0;
+		if( $extInfo['constraints']['core'] ) {
+			return version_compare(TODOYU_VERSION, $extInfo['constraints']['core']) !== -1;
+		}
+
+		return true;
 	}
 
 

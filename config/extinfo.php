@@ -32,12 +32,10 @@ Todoyu::$CONFIG['EXT']['sysmanager']['info'] = array(
 	),
 	'state' 		=> 'stable',
 	'version'		=> '1.1.0',
-	'constraints' => array(
-		'depends' => array(
-			'admin' => '1.0.0'
-		),
-		'conflicts' => array(
-		),
+	'constraints' 	=> array(
+		'depends' 	=> array(),
+		'conflicts' => array(),
+		'core'		=> '2.1.0RC1',
 		'system'	=> true
 	),
 );
