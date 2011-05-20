@@ -35,7 +35,7 @@
 	<label index="notInstalledExtensions">Not Installed Extensions</label>
 	<label index="installedExtensions">Installed Extensions</label>
 	<label index="menu.extensions">Extensions</label>
-	<label index="menu.records">All Records</label>
+	<label index="menu.records">Manage Records</label>
 	<label index="menu.rights">Rights &amp; Roles</label>
 	<label index="menu.config">System Configuration</label>
 	<label index="rights.tab.rights">Rights</label>
