@@ -260,15 +260,15 @@
 	Extension Installation Dialog
 	--------------------------------*/
 .repositoryDialog.extensionDialog.extInstall .license {
-	background-color: #FFFFFF;
-    height: 200px;
-    overflow: auto;
-    padding: 10px;
+	background-color:#fff;
+	height:200px;
+	overflow:auto;
+	padding:10px;
 	margin-top:10px;
 	margin-bottom:10px;
 	text-align:left;
 	font-family:monospace;
-	border: 1px solid #CCCCCC;
+	border:1px solid #ccc;
 	font-size:12px;
 }
 
@@ -281,11 +281,11 @@
 }
 
 .repositoryDialog.extensionDialog.extInstall .licenseinfo {
-	background-color: #FF0;
+	background-color:#FF0;
 }
 
 .repositoryDialog.extensionDialog.extInstall .warningMajorUpdate {
-	background-color: #F00;
+	background-color:#F00;
 	color:#FFF;
 }
 
