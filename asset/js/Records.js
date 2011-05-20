@@ -253,6 +253,7 @@ Todoyu.Ext.sysmanager.Records = {
 	 */
 	save: function(form, ext, type) {
 		Todoyu.Form.disableSaveButtons(form);
+		Todoyu.Ui.saveRTE();
 
 		$(form).request ({
 			parameters: {
