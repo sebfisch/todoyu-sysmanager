@@ -74,7 +74,10 @@
 	<label index="config.selectlogo">Choose Logo</label>
 	<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
 	<label index="config.tab.repository">Repository</label>
-	<label index="config.tab.repository.saved">Repository configuration saved</label>
+	<label index="config.tab.repository.saved">Repository Konfiguration gespeichert</label>
+	<label index="repository.extension.moreDetails">More Details</label>
+	<label index="repository.extension.installUpdate">Install Update</label>
+	<label index="repository.core.installUpdate">Install Kernel Update</label>
 	<label index="repository.error.downloadNoArchiveForExtVersion">The update archive for this version is missing</label>
 	<label index="repository.error.downloadNoArchiveForCoreVersion">The update archive for this version is missing</label>
 	<label index="repository.error.downloadNoFileAccess">You are not allowed to download this file</label>

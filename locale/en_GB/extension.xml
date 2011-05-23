@@ -22,7 +22,7 @@
 	<label index="install.ok">Extension was installed successfully</label>
 	<label index="installed.notify">Extension was installed successfully:</label>
 	<label index="install.error">Installation of extension failed</label>
-	<label index="install.error.notfiy.dependencies">Extension installation failed, the following extensions must be installed before:</label>
+	<label index="install.error.notify.dependencies">Extension installation failed, the following extensions must be installed before:</label>
 	<label index="install.error.missing">Required extension is not installed</label>
 	<label index="install.error.lowVersion">Required extension is installed, but has a too low version</label>
 	<label index="install.error.conflicts">Extension conflicts with installed extensions</label>

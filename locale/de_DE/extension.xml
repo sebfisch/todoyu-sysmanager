@@ -22,7 +22,7 @@
 	<label index="install.ok">Erweiterung wurde erfolgreich installiert</label>
 	<label index="installed.notify">Erweiterung wurde erfolgreich installiert:</label>
 	<label index="install.error">Installation der Erweiterung fehlgeschlagen</label>
-	<label index="install.error.nofify.dependencies">Extension Installation fehlgeschlagen, diese anderen Extensions werden vorausgesetzt: </label>
+	<label index="install.error.notify.dependencies">Extension Installation fehlgeschlagen, diese anderen Extensions werden vorausgesetzt: </label>
 	<label index="install.error.missing">Benötigte Erweiterung ist nicht installiert</label>
 	<label index="install.error.lowVersion">Die benötigte Erweiterung ist installiert, hat aber eine zu niedrige Version</label>
 	<label index="install.error.conflicts">Die Erweiterung verursacht einen Konflikt mit bereits installierten Erweiterungen</label>
