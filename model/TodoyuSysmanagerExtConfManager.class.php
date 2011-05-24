@@ -100,7 +100,7 @@ class TodoyuSysmanagerExtConfManager {
 	/**
 	 * Save current configuration (installed extensions and their config)
 	 */
-	private static function writeExtconfFile() {
+	private static function writeExtConfFile() {
 		$file	= PATH_LOCALCONF . '/extconf.php';
 		$tmpl	= 'ext/sysmanager/asset/template/extconf.php.tmpl';
 		$data	= array(
@@ -127,10 +127,10 @@ class TodoyuSysmanagerExtConfManager {
 	 * @param	String		$extKey
 	 * @param	Array		$data
 	 */
-	public static function updateExtConf($extKey, array $data) {
+	public static function saveExtConf($extKey, array $data) {
 		self::setExtConf($extKey, $data);
 
-		self::writeExtconfFile();
+		self::writeExtConfFile();
 	}
 
 
@@ -144,6 +144,16 @@ class TodoyuSysmanagerExtConfManager {
 	public static function setExtConf($extKey, array $data) {
 		Todoyu::$CONFIG['EXT'][$extKey]['extConf'] = $data;
 	}
+
+
+	public static function updateExtConf($extKey, array $update) {
+		$extConf	= self::getExtConf($extKey);
+		$extConf	= array_merge($extConf, $update);
+
+		self::saveExtConf($extKey, $extConf);
+	}
+
+
 
 
 
