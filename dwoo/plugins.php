@@ -107,11 +107,11 @@ function Dwoo_Plugin_extMgr_isSysExt_compile(Dwoo_Compiler $compiler, $extKey) {
  * @package		Todoyu
  * @subpackage	Template
  *
- * @param	Dwoo $dwoo
- * @param	String	$extKey
+ * @param	Dwoo_Compiler	$compiler
+ * @param	String			$extKey
  * @return	String
  */
-function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $dwoo, $extKey) {
+function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $compiler, $extKey) {
 	return "'<img src=\"ext/' . " . $extKey . " . '/asset/img/exticon.png\" width=\"16\" height=\"16\" />'";
 }
 

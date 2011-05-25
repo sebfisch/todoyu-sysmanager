@@ -332,6 +332,7 @@ class TodoyuSysmanagerRepositoryManager {
 	 * Save path to archive of extension or core
 	 *
 	 * @param	String		$key
+	 * @param	Array		$data
 	 */
 	public static function saveRepoInfo($key, array $data) {
 		TodoyuSession::set('repository/info/' . $key, $data);
