@@ -33,9 +33,9 @@
  * @package		Todoyu
  * @subpackage	Template
  *
- * @param	Dwoo	$dwoo
- * @param	String	$extKey
- * @return	Boolean
+ * @param	Dwoo_Compiler	$compiler
+ * @param	String			$extKey
+ * @return	String
  */
 function Dwoo_Plugin_extMgr_hasRecords_compile(Dwoo_Compiler $compiler, $extKey) {
 	return 'sizeof(TodoyuSysmanagerExtManager::getRecordTypes(' . $extKey . ')) > 0';
@@ -65,9 +65,9 @@ function Dwoo_Plugin_extMgr_hasRighsConfig_compile(Dwoo_Compiler $compiler, $ext
  * @package		Todoyu
  * @subpackage	Template
  *
- * @param	Dwoo	$dwoo
- * @param	String	$extKey
- * @return	Boolean
+ * @param	Dwoo_Compiler	$compiler
+ * @param	String			$extKey
+ * @return	String
  */
 function Dwoo_Plugin_extMgr_hasConfig_compile(Dwoo_Compiler $compiler, $extKey) {
 	return 'TodoyuSysmanagerExtManager::extensionHasConfig(' . $extKey . ')';
@@ -81,16 +81,20 @@ function Dwoo_Plugin_extMgr_hasConfig_compile(Dwoo_Compiler $compiler, $extKey) 
  * @package		Todoyu
  * @subpackage	Template
  *
- * @param	Dwoo	$dwoo
- * @param	String	$extKey
- * @return	Boolean
+ * @param	Dwoo_Compiler	$compiler
+ * @param	String			$extKey
+ * @return	String
  */
 function Dwoo_Plugin_extMgr_hasExtInfo_compile(Dwoo_Compiler $compiler, $extKey) {
 	return 'TodoyuSysmanagerExtManager::getExtInfos(' . $extKey . ') !== false';
 }
 
 
-
+/**
+ * @param	Dwoo_Compiler	$compiler
+ * @param	String			$extKey
+ * @return	String
+ */
 function Dwoo_Plugin_extMgr_isSysExt_compile(Dwoo_Compiler $compiler, $extKey) {
 	return 'TodoyuSysmanagerExtManager::isSysExt(' . $extKey . ')';
 }
