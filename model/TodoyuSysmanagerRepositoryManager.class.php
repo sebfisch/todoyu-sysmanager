@@ -73,9 +73,8 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Install extension update
 	 *
-	 * @param	String		$urlUpdate
-	 * @param	String		$extkey
-	 * @return	Boolean
+	 * @param	String			$extKey
+	 * @return	Boolean|String
 	 */
 	public static function installExtensionUpdate($extKey) {
 		try {
@@ -114,11 +113,10 @@ class TodoyuSysmanagerRepositoryManager {
 
 
 	/**
-	 * Install a new extension from TER
+	 * Install a new extension from tER
 	 *
 	 *
 	 * @param	String		$extKey
-	 * @param	String		$archiveHash
 	 * @return	Boolean|String
 	 */
 	public static function installExtensionFromTER($extKey) {
@@ -158,7 +156,6 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Install core update. Extract update files over local files
 	 *
-	 * @param	String		$urlUpdate			URL to update archive
 	 * @return	Boolean
 	 */
 	public static function installCoreUpdate() {
@@ -266,20 +263,22 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Download external archive file and extract it into the cache folder
 	 *
-	 * @throws	TodoyuException
+	 * @param	String		$extKey
 	 * @param	Integer		$idVersion
+	 * @param	Boolean		$isUpdate
 	 * @return	Boolean		Success
+	 * @throws	TodoyuException
 	 */
-	private static function downloadAndImportExtension($ext, $idVersion, $isUpdate = false) {
+	private static function downloadAndImportExtension($extKey, $idVersion, $isUpdate = false) {
 		$override	= $isUpdate;
 		$pathArchive= self::downloadArchive('ext', $idVersion);
-		$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($ext, $pathArchive, $override);
+		$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($extKey, $pathArchive, $override);
 
 		if( $canImport !== true ) {
 			throw new TodoyuException($canImport);
 		}
 
-		TodoyuSysmanagerExtImporter::importExtensionArchive($ext, $pathArchive);
+		TodoyuSysmanagerExtImporter::importExtensionArchive($extKey, $pathArchive);
 
 		return true;
 	}
@@ -309,9 +308,10 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Download an archive from an URL to local hard drive
 	 *
-	 * @throws	TodoyuException
-	 * @param	Integer		$idVersion
+	 * @param	String		$type
+	 * @param	String		$idVersion
 	 * @return	String		Path to local archive
+	 * @throws	TodoyuException
 	 */
 	private static function downloadArchive($type, $idVersion) {
 		$repository	= new TodoyuSysmanagerRepository();

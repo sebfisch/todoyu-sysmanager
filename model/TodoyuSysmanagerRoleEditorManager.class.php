@@ -29,6 +29,7 @@ class TodoyuSysmanagerRoleEditorManager {
 	/**
 	 * Get quick create role form object
 	 *
+	 * @param	Integer		$idRole
 	 * @return	TodoyuForm
 	 */
 	public static function getQuickCreateForm($idRole = 0) {

@@ -172,8 +172,9 @@ class TodoyuSysmanagerExtConfManager {
 	/**
 	 * Get parameter value from extension configuration
 	 *
-	 * @param	String		$valKey
-	 * @return	String
+	 * @param	String		$extKey
+	 * @param	Mixed		$parameter
+	 * @return	Mixed
 	 */
 	public static function getExtConfValue($extKey, $parameter) {
 		$extConf	= self::getExtConf($extKey);

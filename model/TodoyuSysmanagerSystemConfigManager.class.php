@@ -131,7 +131,6 @@ class TodoyuSysmanagerSystemConfigManager {
 	/**
 	 * Get config array of locale options
 	 *
-	 * @param	TodoyuFormElement	$field
 	 * @return	Array
 	 */
 	public static function getLocaleOptions() {

@@ -61,6 +61,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Read an XML file into a rights array
 	 *
+	 * @param	String		$extKey
 	 * @param	String		$xmlFile		Path to XML file
 	 * @return	Array
 	 */
@@ -176,6 +177,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	 *
 	 * @param	String		$extKey		Extension key
 	 * @param	Array		$rights		Submitted rights
+	 * @param	Array		$roleIDs
 	 */
 	public static function saveRoleRights($extKey, array $rights, array $roleIDs) {
 		$extID	= TodoyuExtensions::getExtID($extKey);

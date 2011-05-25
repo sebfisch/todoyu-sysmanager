@@ -30,10 +30,8 @@ class TodoyuSysmanagerExtImporter {
 	/**
 	 * Verify as extension archive and import uploaded file into ext system
 	 *
- 	 * @throws	Exception
- 	 * @param	Array		$uploadFile
- 	 * @param	Boolean		$override
-	 * @return	Array
+ 	 * @param	String		$extKey
+ 	 * @param	String		$pathArchive
 	 */
 	public static function importExtensionArchive($extKey, $pathArchive) {
 		$archive	= new ZipArchive();
@@ -48,10 +46,11 @@ class TodoyuSysmanagerExtImporter {
 	/**
 	 * Check whether uploaded archive file can be imported into system as extension
 	 *
-	 * @throws	Exception
-	 * @param	Array		$file
+	 * @param	String		$extKey
+	 * @param	String		$pathArchive
 	 * @param	Boolean		$override
 	 * @return	Boolean
+	 * @throws	Exception
 	 */
 	public static function canImportExtension($extKey, $pathArchive, $override = false) {
 		try {

@@ -210,8 +210,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render install
 	 *
-	 * @param	String	$extKey
-	 * @param	Array $params
+	 * @param	Array	$params
 	 * @return	String
 	 */
 	public static function renderImport(array $params = array()) {

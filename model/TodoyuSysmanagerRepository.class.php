@@ -181,10 +181,11 @@ class TodoyuSysmanagerRepository {
 	/**
 	 * Send request to update server
 	 *
-	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 * @param	String		$action
 	 * @param	Array		$data
+	 * @param	Boolean		$noInfo
 	 * @return	Array
+	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 */
 	private function sendRequest($action, array $data = array(), $noInfo = false) {
 		$config	= Todoyu::$CONFIG['EXT']['sysmanager']['update'];

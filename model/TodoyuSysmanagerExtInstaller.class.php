@@ -31,6 +31,7 @@ class TodoyuSysmanagerExtInstaller {
 	 *
 	 * @param	String		$extKey
 	 * @param	String		$action
+	 * @param	Array		$params
 	 */
 	private static function callSetup($extKey, $action = 'install', array $params = array()) {
 		$className	= 'Todoyu' . ucfirst(strtolower(trim($extKey))) . 'Setup';

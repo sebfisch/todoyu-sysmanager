@@ -52,6 +52,7 @@ class TodoyuSysmanagerRightsEditorRenderer {
 	/**
 	 * Render rights module tabs
 	 *
+	 * @param	String	$tab
 	 * @return	String
 	 */
 	private static function renderTabs($tab) {

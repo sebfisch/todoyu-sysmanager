@@ -126,7 +126,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 
 	/**
 	 * Render dialog for extension update
-	 * @param  $ext
+	 *
+	 * @param  String	$extKey
 	 * @return String
 	 */
 	public static function renderExtensionUpdateDialog($extKey) {

@@ -30,6 +30,7 @@ class TodoyuSysmanagerExtManager {
 	 * Get extension module tab configuration
 	 *
 	 * @param	String		$extKey
+	 * @param	String		$tab
 	 * @return	String
 	 */
 	public static function getTabConfig($extKey = '', $tab = '') {
@@ -71,6 +72,7 @@ class TodoyuSysmanagerExtManager {
 	 * Ext information about an extension provided by the config array
 	 *
 	 * @param	String		$extKey
+	 * @param	Boolean		$load
 	 * @return	Array
 	 */
 	public static function getExtInfos($extKey, $load = false) {
@@ -105,6 +107,7 @@ class TodoyuSysmanagerExtManager {
 	 * Add record config for automatic record editing in admin extension manager
 	 *
 	 * @param	String		$extKey
+	 * @param	String		$recordName
 	 * @param	Array		$config
 	 */
 	public static function addRecordConfig($extKey, $recordName, array $config) {
