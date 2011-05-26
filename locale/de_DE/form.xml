@@ -4,4 +4,7 @@
 	<label index="legend.system.cli">Command Line Interface [DONE]</label>
 	<label index="legend.system.debugging">Debugging [DONE]</label>
 	<label index="legend.rightsmanager.general">Rollen und Rechte [DONE]</label>
+	<label index="legend.password.general">Definieren Sie die Passwortstärke [DONE]</label>
+	<label index="legend.logo.general">Ändern Sie das Logo [DONE]</label>
+	<label index="legend.repository.general">Geben Sie Ihre ID ein [DONE]</label>
 </labels>
