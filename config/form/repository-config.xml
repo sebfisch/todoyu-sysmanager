@@ -6,7 +6,7 @@
 	</attributes>
 	<fieldsets>
 		<fieldset name="main">
-			<legend>Extension Repository</legend>
+			<legend>sysmanager.form.legend.repository.general</legend>
 			<elements>
 
 				<field type="text" name="todoyuid">

@@ -4,4 +4,7 @@
 	<label index="legend.system.cli">Command Line Interface [DONE]</label>
 	<label index="legend.system.debugging">Debugging [DONE]</label>
 	<label index="legend.rightsmanager.general">Manage your roles and rights [DONE]</label>
+	<label index="legend.password.general">Define the password strength [DONE]</label>
+	<label index="legend.logo.general">Change Logo [DONE]</label>
+	<label index="legend.repository.general">Enter your todoyu ID [DONE]</label>
 </labels>

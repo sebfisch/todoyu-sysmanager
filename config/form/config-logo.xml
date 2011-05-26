@@ -13,7 +13,7 @@
 	<fieldsets>
 
 		<fieldset name="main">
-			<legend>Left form column</legend>
+			<legend>sysmanager.form.legend.logo.general</legend>
 			<class>main</class>
 			<elements>
 
