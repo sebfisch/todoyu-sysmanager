@@ -67,8 +67,8 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	/**
 	 * Save record
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	Array			$params
+	 * @return	Void|String					Failure returns re-rendered form with error messages
 	 */
 	public function saveAction(array $params) {
 		$data	= $params['record'];

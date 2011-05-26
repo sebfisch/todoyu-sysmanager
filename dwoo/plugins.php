@@ -49,8 +49,8 @@ function Dwoo_Plugin_extMgr_hasRecords_compile(Dwoo_Compiler $compiler, $extKey)
  * @package		Todoyu
  * @subpackage	Template
  *
- * @param	Dwoo	$dwoo
- * @param	String	$extKey
+ * @param	Dwoo_Compiler	$compiler
+ * @param	String			$extKey
  * @return	Boolean
  */
 function Dwoo_Plugin_extMgr_hasRighsConfig_compile(Dwoo_Compiler $compiler, $extKey) {
