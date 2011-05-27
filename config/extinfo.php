@@ -38,6 +38,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['info'] = array(
 		'core'		=> '2.1.0RC1',
 		'system'	=> true
 	),
+	'urlDocumentation'	=> 'http://doc.todoyu.com/?sysmanager'
 );
 
 ?>

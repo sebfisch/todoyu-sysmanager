@@ -163,7 +163,6 @@ class TodoyuSysmanagerExtManagerRenderer {
 		$tmpl	= 'ext/sysmanager/view/extension-list-' . $state . '.tmpl';
 
 		$data	= array(
-			'baseUrlDocumentation'=> 'http://doc.todoyu.com/',
 			'extensions' 				=> array()
 		);
 
