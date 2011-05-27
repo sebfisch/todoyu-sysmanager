@@ -95,7 +95,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 				break;
 
 			case 'imported':
-				$content = self::renderImport($params);
+				$content = self::renderListImported($params);
 				break;
 
 			case 'update':
@@ -108,7 +108,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 
 			case 'installed':
 			default:
-				$content =self::renderList($params);
+				$content =self::renderListInstalled($params);
 				break;
 		}
 
@@ -150,25 +150,56 @@ class TodoyuSysmanagerExtManagerRenderer {
 
 
 	/**
-	 * Render extension list
+	 * Render list of (installed / imported) extensions
 	 *
-	 * @param	Array		$params
+	 * @param	Array		$extKeys
+	 * @param	Boolean		$areInstalled
 	 * @return	String
 	 */
-	public static function renderList(array $params = array()) {
-		$tmpl		= 'ext/sysmanager/view/extension-list-installed.tmpl';
-		$data		= array(
-			'extensions' => array()
+	public static function renderList(array $extKeys, $areInstalled = true)	{
+		sort($extKeys);
+
+		$state	= $areInstalled ? 'installed' : 'imported';
+		$tmpl	= 'ext/sysmanager/view/extension-list-' . $state . '.tmpl';
+
+		$data	= array(
+			'baseUrlDocumentation'=> 'http://doc.todoyu.com/',
+			'extensions' 				=> array()
 		);
 
-		$extensions	= TodoyuExtensions::getInstalledExtKeys();
-		sort($extensions);
-
-		foreach($extensions as $extension) {
+		foreach($extKeys as $extension) {
 			$data['extensions'][$extension] = TodoyuExtensions::getExtInfo($extension);
 		}
 
 		return Todoyu::render($tmpl, $data);
+	}
+
+
+
+	/**
+	 * Render list of installed extensions
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	public static function renderListInstalled(array $params = array()) {
+		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
+
+		return self::renderList($extKeys, true);
+	}
+
+
+
+	/**
+	 * Render list of imported/installable extensions
+	 *
+	 * @param	Array	$params
+	 * @return	String
+	 */
+	public static function renderListImported(array $params = array()) {
+		$extKeys	= TodoyuExtensions::getNotInstalledExtKeys();
+
+		return self::renderList($extKeys, false);
 	}
 
 
@@ -208,30 +239,6 @@ class TodoyuSysmanagerExtManagerRenderer {
 
 
 	/**
-	 * Render install
-	 *
-	 * @param	Array	$params
-	 * @return	String
-	 */
-	public static function renderImport(array $params = array()) {
-		$notInstalled	= TodoyuExtensions::getNotInstalledExtKeys();
-		$tmpl			= 'ext/sysmanager/view/extension-list-imported.tmpl';
-		$data			= array(
-			'extensions' => array()
-		);
-
-		sort($notInstalled);
-
-		foreach($notInstalled as $extension) {
-			$data['extensions'][$extension] = TodoyuExtensions::getExtInfo($extension);
-		}
-
-		return Todoyu::render($tmpl, $data);
-	}
-
-
-
-	/**
 	 * Render updates listing
 	 *
 	 * @param	Array	$params
@@ -244,7 +251,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 
 
 	/**
-	 *
+	 * Render extension tER search
 	 *
 	 * @param	Array	$params
 	 * @return	String

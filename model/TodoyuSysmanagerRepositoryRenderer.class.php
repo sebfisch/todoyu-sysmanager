@@ -27,7 +27,7 @@
 class TodoyuSysmanagerRepositoryRenderer {
 
 	/**
-	 * Fetch available updates from TER server and render listing
+	 * Fetch available updates from tER server and render listing
 	 *
 	 * @param	Array	$params
 	 * @return	String

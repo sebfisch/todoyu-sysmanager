@@ -57,20 +57,7 @@
 			<span class="hidden">records</span>
 		</a>
 	</td>
-	<td class="version">{$extInfo.version}</td>
-	<td class="download">
-		{restrict 'sysmanager' 'extensions:download'}
-		<a title="{Label sysmanager.extension.download}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
-			<span class="hidden">{Label core.global.file.download}</span>
-		</a>
-		{/restrict}
-	</td>
-	<td class="doc">
-		<a title="{Label sysmanager.extension.documentation}" class="icon doc" href="javascript:void(0)">
-			<span class="hidden">{Label sysmanager.extension.documentation}</span>
-		</a>
-	</td>
-	<td class="state">{$extInfo.state}</td>
+	{include file="extension-list-cols-version_state_download_doc.tmpl"}
   </tr>
 {/foreach}
 
