@@ -1,0 +1,45 @@
+{$tabs}
+
+{block name="title"}
+	This part is replaced by the title block
+{/block}
+
+{block name="contentMessage"}
+	This part is replaced by the contentMessage block
+{/block}
+
+{if sizeof($extensions)>0}
+	<table class="list extlist">
+		{include file="extension-list-header.tmpl"}
+
+	{foreach $extensions extKey extInfo}
+	  <tr class="{cycle values="odd,even"}">
+		<td class="icon"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{extIcon $extKey}</a></td>
+		<td class="extkey">{$extKey}</td>
+		<td class="title">{htmlencode Label(cat($extKey '.ext.ext.title'))}</td>
+
+		{block name="edit"}
+			This part is replaced by the edit block
+		{/block}
+
+		<td class="version">{$extInfo.version}</td>
+		<td class="state">{$extInfo.state}</td>
+		<td class="download">
+			<a title="{Label sysmanager.extension.download}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
+				<span class="hidden">{Label core.global.file.download}</span>
+			</a>
+		</td>
+		<td class="doc">
+			<a title="{Label sysmanager.extension.documentation}" class="icon doc" href="{$baseUrlDocumentation}?{$extKey}" target="_blank">
+				<span class="hidden">{Label sysmanager.extension.documentation}</span>
+			</a>
+		</td>
+	  </tr>
+	{/foreach}
+
+	</table>
+{else}
+	{block name="noExtensions"}
+		This block is replaced if there are no extensions to be listed
+	{/block}
+{/if}

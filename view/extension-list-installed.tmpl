@@ -1,17 +1,11 @@
-{$tabs}
+{extends "extension-list.tmpl"}
 
-{Title "LLL:sysmanager.ext.installedExtensions"}
+{block name="title"}{Title "LLL:sysmanager.ext.installedExtensions"}{/block}
 
-<table class="list extlist">
-	{include file="extension-list-header.tmpl"}
+{block name="contentMessage"}{/block}
 
-{foreach $extensions extKey extInfo}
-  <tr class="{cycle values="odd,even"}">
-	<td class="icon"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{extIcon $extKey}</a></td>
-	<td class="extkey">{$extKey}</td>
-	<td class="title">{htmlencode Label(cat($extKey '.ext.ext.title'))}</td>
+{block name="edit"}
 	<td class="edit">
-
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.uninstall}"
 			{if allowed('sysmanager','extensions:uninstall') && !extMgr_isSysExt($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.Install.uninstall('{$extKey}')" class="uninstall">
@@ -57,8 +51,6 @@
 			<span class="hidden">records</span>
 		</a>
 	</td>
-	{include file="extension-list-cols-version_state_download_doc.tmpl"}
-  </tr>
-{/foreach}
+{/block}
 
-</table>
+{block name="noExtensions"}{/block}
