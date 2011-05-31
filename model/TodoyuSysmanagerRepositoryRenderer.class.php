@@ -183,7 +183,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 
 
 	/**
-	 * Render dialog window for extensio installation/update
+	 * Render dialog window for extension installation/update
 	 *
 	 * @param	Array		$data
 	 * @param	Boolean		$isUpdate
