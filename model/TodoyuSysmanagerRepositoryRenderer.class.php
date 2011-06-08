@@ -174,7 +174,10 @@ class TodoyuSysmanagerRepositoryRenderer {
 
 		if( $info['license'] ) {
 			$data['license']	= TodoyuSysmanagerRepositoryManager::getExtensionLicenseText($info['license']);
-			$data['disableOk']	= true;
+
+			if( $info['commercial'] ) {
+				$data['disableOk']	= true;
+			}
 		}
 
 		return self::renderExtensionDialog($data);

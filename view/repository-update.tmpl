@@ -39,7 +39,7 @@
 
 				<div class="main">
 					<h5>
-						<img src="{$extUpdate.icon}" width="32" height="32" border="0" />
+						<img src="{$extUpdate.icon}" border="0" />
 						<div class="title">{$extUpdate.title} {$extUpdate.version.version}</div>
 						<div class="author">From {$extUpdate.author.name}</div>
 					</h5>
@@ -71,7 +71,7 @@
 				<div class="right">
 					<div class="installed">Installed: {$extUpdate.installed}</div>
 					<div class="version">New Version {$extUpdate.version.version}</div>
-					<div class="state">STATE: {ExtensionStatus $extUpdate.version.state}</div>
+					<div class="state">{ExtensionStatusIcon $extUpdate.version.state}</div>
 					<div class="date">Date: {dateFormat $extUpdate.version.date_update date}</div>
 				</div>
 
