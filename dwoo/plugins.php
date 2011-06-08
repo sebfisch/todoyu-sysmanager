@@ -124,26 +124,28 @@ function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $compiler, $extKey) {
  * @param	Integer		$state
  * @return	String
  */
-function Dwoo_Plugin_ExtensionStatus(Dwoo $dwoo, $state) {
-	$host	= Todoyu::$CONFIG['EXT']['sysmanager']['update']['host'];
-	$baseUrl= 'http://' . $host . '/fileadmin/preset/icons/';
-
+function Dwoo_Plugin_ExtensionStatusIcon(Dwoo $dwoo, $state) {
 	switch($state) {
 		case 1:
+		case 'stable':
 			$stateKey = 'stable';
 			break;
 
 		case 2:
+		case 'beta':
 			$stateKey = 'beta';
 			break;
 
 		case 3:
+		case 'alpha':
 		default:
 			$stateKey = 'alpha';
 			break;
 	}
 
-	return '<img src="' . $baseUrl . 'state_' . $stateKey . '.jpg" />';
+	$src	= TodoyuFileManager::pathWeb('ext/sysmanager/asset/img/status/' . $stateKey . '.jpg');
+
+	return '<img src="' . $src . '" />';
 }
 
 

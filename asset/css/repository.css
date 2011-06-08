@@ -15,9 +15,9 @@
 }
 
 .extListing .extension .main {
-	margin-left:50px;
+	margin-left:30px;
 	margin-right:10px;
-	width:400px;
+	width:420px;
 }
 
 .extListing .extension .right {
@@ -48,7 +48,7 @@
 .extListing .extension h5 img {
 	position:absolute;
 	left:0;
-	top:5px;
+	top:8px;
 }
 
 .extListing .extension .right div {

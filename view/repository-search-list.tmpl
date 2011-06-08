@@ -1,11 +1,17 @@
-<div class="resultinfo">Num Results: {$numResults}</div>
+<div class="resultinfo">
+	{if $numResults == 0}
+		{Label sysmanager.ext.repository.noExtensionsFound}
+	{else}
+		{LabelFormat sysmanager.ext.repository.extensionsFound array($numResults)}
+	{/if}
+</div>
 
 {foreach $extensions extension}
 	<div class="extension" id="repository-search-ext-{$extension.ext_key}">
 
 		<div class="main">
 			<h5>
-				<img src="{$extension.icon}" width="32" height="32" border="0" />
+				<img src="{$extension.icon}" border="0" />
 				<div class="title">{$extension.title}</div>
 				<div class="author">From {$extension.author.name}</div>
 
@@ -35,9 +41,9 @@
 
 		<div class="right">
 			{*<div class="rating">{for i 1 $extension.rating}* {/for}</div>*}
-			<div class="state">STATE: {ExtensionStatus $extension.state}</div>
-			<div class="costs">{if $extension.commercial}COMMERCIAL{else}FREE{/if}</div>
-			<div class="downloads">{$extension.downloads} Downloads</div>
+			<div class="state">{ExtensionStatusIcon $extension.state}</div>
+			<div class="costs">{if $extension.commercial}{Label sysmanager.ext.repository.extension.costs.commercial}{else}{Label sysmanager.ext.repository.extension.costs.free}{/if}</div>
+			<div class="downloads">{$extension.downloads} {Label sysmanager.ext.repository.extension.downloads}</div>
 			<div class="version">{$extension.version.version}</div>
 		</div>
 
@@ -45,8 +51,8 @@
 				{$hasDependencies = sizeof($extension.version.dependencies)}
 				{$hasConflicts = sizeof($extension.version.conflicts)}
 				{$preventInstall = $hasDependencies+$hasConflicts}
-				{Button disabled=$preventInstall class="install" label="Install Extension" onclick="Todoyu.Ext.sysmanager.Repository.Search.showExtensionInstallDialog('$extension.ext_key')"}
-				{Button class="info" label="More infos" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extension.ter_link')"}
+				{Button class="install" label="sysmanager.ext.repository.extension.install" onclick="Todoyu.Ext.sysmanager.Repository.Search.showExtensionInstallDialog('$extension.ext_key')" disabled=$preventInstall }
+				{Button class="info" label="sysmanager.ext.repository.moreInfo" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extension.ter_link')"}
 		</div>
 
 		<div class="clear"></div>
