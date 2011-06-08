@@ -1,9 +1,10 @@
-{Header title="sysmanager.extension.installExtension.ok"}
+{Header title="sysmanager.extension.install.ok"}
 
-<ul class="nextInstallSteps">
-	<li><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$ext}', 'info')">{Label sysmanager.extension.showInfo}</a></li>
-	<li><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$ext}', 'config')">{Label sysmanager.extension.configure}</a></li>
-	<li><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$ext}')">{Label sysmanager.extension.download}</a></li>
-	<li><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Install.uninstall('{$ext}')">{Label sysmanager.extension.uninstall}</a></li>
-	<li><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showList()">{Label sysmanager.extension.showInstalledList}</a></li>
-</ul>
+{contentMessage label="sysmanager.extension.install.ok.info"}
+
+<div id="installed-action">
+	{Button class="extensionInfo" label="sysmanager.extension.showInfo" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('$ext', 'info')"}
+{if extMgr_hasConfig($extKey)}
+	{Button class="extensionConfig" label="sysmanager.extension.configure" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('$ext', 'config')"}
+{/if}
+</div>

@@ -141,14 +141,16 @@
 p.importInfo {
 	margin:10px 10px 10px 0;
 }
+#installed-action {
+	margin-top:10px;
+}
+#installed-action button.extensionInfo .icon {
+	background:url(../img/icons.png) no-repeat 0 -87px;
+}
+#installed-action button.extensionConfig .icon {
+	background:url(../img/icons.png) no-repeat 0 -119px;
+}
 
-ul.nextInstallSteps li {
-	list-style:inside square;
-	padding:2px;
-}
-ul.nextInstallSteps li a {
-	font-size:14px;
-}
 
 form.formImportExtension button.uploadExtension span.icon {
 	background:url(../img/icons.png) no-repeat 0 -28px;

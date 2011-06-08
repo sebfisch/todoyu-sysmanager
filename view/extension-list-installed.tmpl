@@ -7,7 +7,7 @@
 {block name="edit"}
 	<td class="edit">
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.uninstall}"
-			{if allowed('sysmanager','extensions:uninstall') && !extMgr_isSysExt($extKey)}
+			{if !extMgr_isSysExt($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.Install.uninstall('{$extKey}')" class="uninstall">
 			{else}
 				class="uninstall disabled">
@@ -16,7 +16,7 @@
 		</a>
 
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.showInfo}"
-			{if extMgr_hasExtInfo($extKey) && allowed('sysmanager','extensions:info')}
+			{if extMgr_hasExtInfo($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')" class="info">
 			{else}
 				class="info disabled">
@@ -25,7 +25,7 @@
 		</a>
 
 		<a href="javascript:void(0)" title="config"
-			{if extMgr_hasConfig($extKey) && allowed('sysmanager','extensions:config')}
+			{if extMgr_hasConfig($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'config')" class="config">
 			{else}
 				class="config disabled">
@@ -34,7 +34,7 @@
 		</a>
 
 		<a href="javascript:void(0)" title="{Label sysmanager.extension.rights}"
-			{if extMgr_hasRighsConfig($extKey) && allowed('sysmanager','extensions:rights')}
+			{if extMgr_hasRighsConfig($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showRights('{$extKey}')" class="rights">
 			{else}
 				class="rights disabled">
@@ -43,7 +43,7 @@
 		</a>
 
 		<a href="javascript:void(0)" title="records"
-			{if extMgr_hasRecords($extKey) && allowed('sysmanager','extensions:records')}
+			{if extMgr_hasRecords($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showRecords('{$extKey}')" class="records">
 			{else}
 				class="records disabled">
