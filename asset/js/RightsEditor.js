@@ -355,7 +355,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @method	observeRightsForm
 	 */
 	observeRightsForm: function() {
-		$('rightsmatix-form').observe('change', this.onRightChange.bindAsEventListener(this));
+		$('rightsmatix-form').on('change', 'input', this.onRightChange.bind(this));
 	},
 
 
@@ -366,13 +366,11 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @method	onRightChange
 	 * @param	{Event}		event
 	 */
-	onRightChange: function(event) {
+	onRightChange: function(event, element) {
 			// Set dirty flag for unsaved changes
 		this.dirty = true;
 
-		var checkbox	= event.findElement('input');
-
-		var idParts	= checkbox.id.split('-');
+		var idParts	= element.id.split('-');
 		var right	= idParts.slice(0,-1).join(':'); // Remove role ID and join section and right
 		var idRole	= idParts.last();
 
