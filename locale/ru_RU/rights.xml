@@ -4,7 +4,6 @@
 	<label index="general.extensions">Менеджер расширений</label>
 	<label index="general.allrecords">Показывать режим редактирования всех записей</label>
 	<label index="general.rights">Менеджер прав</label>
-	<label index="general.roles">Менеджер ролей</label>
 	<label index="extensions">Расширения</label>
 	<label index="extensions.info">Информация о расширении</label>
 	<label index="extensions.config">Редактировать конфигурацию</label>
