@@ -20,7 +20,7 @@
 	<label index="install">Install Extension</label>
 	<label index="install.confirm">Install Extension?</label>
 	<label index="install.ok">Extension was installed successfully</label>
-	<label index="install.ok.info">The extension is now installed on your system. Further configuration may be necessary</label>
+	<label index="install.ok.info">The extension is now installed on your system. Further configuration may be necessary. You can do that in the extensions settings. To do so change to the sub-module 'extensions'.</label>
 	<label index="installed.notify">Extension was installed successfully:</label>
 	<label index="install.error">Installation of extension failed</label>
 	<label index="install.error.notify.dependencies">Extension installation failed, the following extensions must be installed before:</label>
