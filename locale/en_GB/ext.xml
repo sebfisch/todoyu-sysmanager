@@ -4,7 +4,7 @@
 	<label index="tabs.extensions">Extensions</label>
 	<label index="tabs.extensions.back">Show Extension List</label>
 	<label index="tabs.info">Info</label>
-	<label index="tabs.config">Config</label>
+	<label index="tabs.config">Configuration</label>
 	<label index="tabs.rights">Rights</label>
 	<label index="tabs.records">Records</label>
 	<label index="tabs.imported">Install</label>
@@ -57,7 +57,7 @@
 	<label index="config.tab.systemconfig.email">System Email</label>
 	<label index="config.tab.systemconfig.locale">System Locale</label>
 	<label index="config.tab.systemconfig.timezone">System Timezone</label>
-	<label index="config.tab.systemconfig.todoyuURL">Todoyu URL</label>
+	<label index="config.tab.systemconfig.todoyuURL">todoyu URL</label>
 	<label index="config.tab.systemconfig.logLevel">Log Level</label>
 	<label index="config.tab.repository.todoyuid">todoyu ID</label>
 	<label index="config.tab.systemconfig.saved">System configuration was updated</label>
@@ -74,7 +74,7 @@
 	<label index="config.selectlogo">Choose Logo</label>
 	<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
 	<label index="config.tab.repository">Repository</label>
-	<label index="config.tab.repository.saved">Repository Konfiguration gespeichert</label>
+	<label index="config.tab.repository.saved">Repository configuration saved</label>
 	<label index="repository.noExtensionsFound">No extensions found</label>
 	<label index="repository.extensionsFound">%s extensions found</label>
 	<label index="repository.extension.moreDetails">More Details</label>
@@ -93,5 +93,5 @@
 	<label index="repository.error.registerExtNotFound">You tried to register an extension which is not available in TER</label>
 	<label index="repository.error.registerNoUserForTodoyuId">Your todoyuID doesn't match to an user from todoyu.com</label>
 	<label index="repository.error.registerNoFreeLicensesAvailable">You have no free licenses for this extension. Buy one in the shop</label>
-	<label index="repository.moreInfo">More infos</label>
+	<label index="repository.moreInfo">More information</label>
 </labels>
