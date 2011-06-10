@@ -162,17 +162,15 @@ class TodoyuSysmanagerRepositoryManager {
 		$update		= self::getRepoInfo('core');
 		$idVersion	= intval($update['id']);
 
-		set_time_limit(100);
+			// Make sure we have enough time to download and extract the update
+		set_time_limit(120);
 
 		try {
-//			if( is_null($urlArchive) ) {
-//				throw new TodoyuException('Archive hash not found');
-//			}
-
 				// Backup Core
 			TodoyuSysmanagerBackupManager::createCoreBackup();
 				// Download and import core update
 			self::downloadAndImportCoreUpdate($idVersion);
+			TodoyuInstallerManager::runCoreVersionUpdates();
 		} catch(TodoyuException $e) {
 			return $e->getMessage();
 		}
@@ -221,15 +219,16 @@ class TodoyuSysmanagerRepositoryManager {
 			throw new TodoyuException('Extraction of core update archive failed');
 		}
 
-			// Prepare and import update
-		$pathUpdate	= TodoyuFileManager::pathAbsolute($pathTemp . '/todoyu');
-		$pathExtract= PATH . '/dummyupdate/xxx';
+			// Prepare paths
+		$pathTempUpdateFolder	= TodoyuFileManager::pathAbsolute($pathTemp . '/todoyu');
+		$pathTodoyuRoot			= PATH . '/dummyupdate/xxx';
 
-		self::removeLocalElementsFromCoreUpdate($pathUpdate);
+			// Remove elements which should not be overwritten from temp update folder
+		self::removeLocalElementsFromCoreUpdate($pathTempUpdateFolder);
 
 		TodoyuDebug::printInFireBug('Updated into cache instead real core!');
 
-		TodoyuFileManager::copyRecursive($pathUpdate, $pathExtract, true, true);
+		TodoyuFileManager::moveRecursive($pathTempUpdateFolder, $pathTodoyuRoot);
 		TodoyuFileManager::deleteFolder($pathTemp);
 
 		TodoyuCacheManager::clearAllCache();
@@ -241,14 +240,14 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Remove folders and files from core update which should not be updated
 	 *
-	 * @param	String		$pathCoreUpdate			Path to temporary core update folder
+	 * @param	String		$pathTempCoreUpdate			Path to temporary core update folder
 	 */
-	private static function removeLocalElementsFromCoreUpdate($pathCoreUpdate) {
-			// Remove folders which should not be overwritten
-		$ignore	= array('cache', 'config', 'files', 'ext', 'install/config/LAST_VERSION');
+	private static function removeLocalElementsFromCoreUpdate($pathTempCoreUpdate) {
+			// Remove folders/files which should not be overwritten
+		$ignore	= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['sysmanager']['update']['ignoreElements']);
 
 		foreach($ignore as $element) {
-			$pathElement	= TodoyuFileManager::pathAbsolute($pathCoreUpdate . '/' . $element);
+			$pathElement	= TodoyuFileManager::pathAbsolute($pathTempCoreUpdate . '/' . $element);
 
 			if( is_dir($pathElement) ) {
 				TodoyuFileManager::deleteFolder($pathElement);
