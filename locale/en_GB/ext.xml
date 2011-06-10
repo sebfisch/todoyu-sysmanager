@@ -75,7 +75,8 @@
 	<label index="config.selectlogo.info">Select an image you'd like to use as your logo. The image will automatically resized to a maximum of 190x60 pixels. Allowed are jpg, png and gif</label>
 	<label index="config.tab.repository">Repository</label>
 	<label index="config.tab.repository.saved">Repository configuration saved</label>
-	<label index="repository.noExtensionsFound">No extensions found</label>
+	<label index="repository.noNewExtensionsFound">Found no new extensions. You already have everything installed from the market place</label>
+	<label index="repository.noExtensionsFoundForQuery">No extensions found in the market which are matching this query</label>
 	<label index="repository.extensionsFound">%s extensions found</label>
 	<label index="repository.extension.moreDetails">More Details</label>
 	<label index="repository.extension.install">Install Extension</label>
@@ -94,4 +95,6 @@
 	<label index="repository.error.registerNoUserForTodoyuId">Your todoyuID doesn't match to an user from todoyu.com</label>
 	<label index="repository.error.registerNoFreeLicensesAvailable">You have no free licenses for this extension. Buy one in the shop</label>
 	<label index="repository.moreInfo">More information</label>
+	<label index="repository.connectionFailed">Connection To Repository Failed</label>
+	<label index="repository.connectionFailed.info">Please make sure your sever can open a connection to the internet</label>
 </labels>
