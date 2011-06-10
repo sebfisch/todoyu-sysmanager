@@ -134,14 +134,16 @@ class TodoyuSysmanagerSystemConfigManager {
 	 * @return	Array
 	 */
 	public static function getLocaleOptions() {
-		$locales	= TodoyuLocaleManager::getLocaleKeys();
+		$locales	= TodoyuLocaleManager::getAvailableLocales();
 		$options	= array();
 		$default	= TodoyuLocaleManager::getDefaultLocale();
 
 		foreach($locales as $locale) {
+			$labelLocale	= Todoyu::Label('core.locale.' . $locale, $locale);
+			$labelDefault	= Todoyu::Label('core.locale.' . $locale, $default);
 			$options[] = array(
 				'value'	=> $locale,
-				'label'	=> Todoyu::Label('core.locale.' . $locale, $locale) . ' <=> ' . Todoyu::Label('core.locale.' . $locale, $default)
+				'label'	=> $labelLocale . ' <=> ' . $labelDefault
 			);
 		}
 
