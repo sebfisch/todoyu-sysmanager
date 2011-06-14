@@ -75,26 +75,4 @@
   <label index="config.selectlogo.info">Wählen Sie ein Bild. Das Bild wird automatisch auf ein Maximum von 190x60 Pixel reduziert. Zugelassen sind jpg, png und gif</label>
   <label index="config.tab.repository">Repository</label>
   <label index="config.tab.repository.saved">Repository Konfiguration gespeichert</label>
-  <label index="repository.noNewExtensionsFound">Keine neuen Erweiterungen gefunden. Sie haben bereit alle verfügbaren Erweiterungen installiert</label>
-  <label index="repository.noExtensionsFoundForQuery">Keine Erweiterungen gefunden die auf den Suchbegriff zutreffen</label>
-  <label index="repository.extensionsFound">%s Erweiterungen gefunden</label>
-  <label index="repository.extension.moreDetails">Mehr Details</label>
-  <label index="repository.extension.install">Erweiterung installieren</label>
-  <label index="repository.extension.installUpdate">Installiere Update</label>
-  <label index="repository.extension.downloads">Downloads</label>
-  <label index="repository.extension.costs.free">Gratis</label>
-  <label index="repository.extension.costs.commercial">Kommerziell</label>
-  <label index="repository.core.installUpdate">Installiere Kernel Update</label>
-  <label index="repository.error.downloadNoArchiveForExtVersion">Das Dateiarchiv für diese Version ist nicht vorhanden.</label>
-  <label index="repository.error.downloadNoArchiveForCoreVersion">Das Dateiarchiv für diese Version ist nicht vorhanden.</label>
-  <label index="repository.error.downloadNoFileAccess">Sie haben kein Zugriff auf diesen Download</label>
-  <label index="repository.error.registerTodoyuIdMissing">Die todoyuID ist nicht vorhanden. Bitte geben Sie eine ID in Ihrer Systemkonfiguration ein.</label>
-  <label index="repository.error.registerExtensionMissing">Für die Registrierung wurde keine Erweiterung angegeben.</label>
-  <label index="repository.error.registerDomainMissing">todoyu konnte Ihre Domain für die Registrierung nicht erkennen.</label>
-  <label index="repository.error.registerExtNotFound">Sie haben versucht eine Erweiterung zu registrieren, die im tER nicht vorhanden ist.</label>
-  <label index="repository.error.registerNoUserForTodoyuId">Ihre todoyuID stimmt keinem User auf todoyu.com überein.</label>
-  <label index="repository.error.registerNoFreeLicensesAvailable">Sie haben keine freien Lizenzen mehr für diese Erweiterung. Bitte kaufen Sie eine neue in unserem Shop.</label>
-  <label index="repository.moreInfo">Mehr Informationen</label>
-  <label index="repository.connectionFailed">Verbindung zum todoyu Server fehlgeschlagen</label>
-  <label index="repository.connectionFailed.info">Stellen Sie sicher, dass ihr Server eine Verbindung ins Internet aufbauen kann</label>
 </labels>

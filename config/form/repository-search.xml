@@ -6,11 +6,11 @@
 	</attributes>
 	<fieldsets>
 		<fieldset name="main">
-			<legend>sysmanager.extension.repository.form</legend>
+			<legend>sysmanager.repository.form</legend>
 			<elements>
 
 				<field type="text" name="query">
-					<label>sysmanager.extension.repository.query</label>
+					<label>sysmanager.repository.query</label>
 				</field>
 
 			</elements>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="extension.moreDetails">Више</label>
+	<label index="extension.installUpdate">Инсталирај обнову</label>
+	<label index="core.installUpdate">Инсталирај обнову суштине</label>
+</labels>

@@ -40,9 +40,4 @@
 	<label index="upload.ok">Расширение успешно загружено</label>
 	<label index="upload.error">Не удалось загрузить расширение</label>
 	<label index="upload.archivehint">Архив с расширением todoyu должен правильно называться: TodoyuExt_EXTNAME_VERSION.zip. Например: TodoyuExt_project_1.1.0.zip</label>
-	<label index="repository.form">Искать в репозитории расширений todoyu</label>
-	<label index="repository.query">Искать по ключевому слову</label>
-	<label index="repository.extension.moreDetails">Ещё</label>
-	<label index="repository.extension.installUpdate">Установить обновление</label>
-	<label index="repository.core.installUpdate">Установить обновления системы</label>
 </labels>

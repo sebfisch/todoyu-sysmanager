@@ -60,7 +60,4 @@
 	<label index="config.tab.logo">Измени лого</label>
 	<label index="config.selectlogo">Изабери лого</label>
 	<label index="config.selectlogo.info">Изаберите слику, коју желите да употребите као лого. Слика ће бити аутоматски скалирана на максимално 190х60 тачке. Могужо формати: јпг, пнг и гиф</label>
-	<label index="repository.extension.moreDetails">Више</label>
-	<label index="repository.extension.installUpdate">Инсталирај обнову</label>
-	<label index="repository.core.installUpdate">Инсталирај обнову суштине</label>
 </labels>

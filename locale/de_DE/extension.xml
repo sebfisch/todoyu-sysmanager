@@ -44,9 +44,4 @@
 	<label index="upload.ok">Extension erfolgreich importiert</label>
 	<label index="upload.error">Extension Hochladen schlug fehl</label>
 	<label index="upload.archivehint">Ein todoyu Extension-Archiv muss korrekt benannt sein: TodoyuExt_EXTNAME_VERSION.zip. z.B: TodoyuExt_project_1.1.0.zip</label>
-	<label index="repository.form">todoyu Extension-Repository durchsuchen</label>
-	<label index="repository.query">Nach Schlüsselwort suchen</label>
-	<label index="repository.extension.moreDetails">Mehr Details</label>
-	<label index="repository.extension.installUpdate">Update installieren</label>
-	<label index="repository.core.installUpdate">Core Update installieren</label>
 </labels>

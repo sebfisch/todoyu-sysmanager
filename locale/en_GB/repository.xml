@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="form">Search in todoyu extension repository</label>
+	<label index="query">Search by keyword</label>
+	<label index="extension.moreDetails">More Details</label>
+	<label index="extension.installUpdate">Install Update</label>
+	<label index="core.installUpdate">Install Core Update</label>
+	<label index="noNewExtensionsFound">Found no new extensions. You already have everything installed from the market place</label>
+	<label index="noExtensionsFoundForQuery">No extensions found in the market which are matching this query</label>
+	<label index="extensionsFound">%s extensions found</label>
+	<label index="extension.moreDetails">More Details</label>
+	<label index="extension.install">Install Extension</label>
+	<label index="extension.installUpdate">Install Update</label>
+	<label index="extension.downloads">Downloads</label>
+	<label index="extension.costs.free">Free</label>
+	<label index="extension.costs.commercial">Free</label>
+	<label index="core.installUpdate">Install Kernel Update</label>
+	<label index="error.downloadNoArchiveForExtVersion">The update archive for this version is missing</label>
+	<label index="error.downloadNoArchiveForCoreVersion">The update archive for this version is missing</label>
+	<label index="error.downloadNoFileAccess">You are not allowed to download this file</label>
+	<label index="error.registerTodoyuIdMissing">todoyuID is missing. Please enter your ID in the system config screen</label>
+	<label index="error.registerExtensionMissing">No extension was submitted for registration</label>
+	<label index="error.registerDomainMissing">todoyu was not able to detect your domain for registration</label>
+	<label index="error.registerExtNotFound">You tried to register an extension which is not available in TER</label>
+	<label index="error.registerNoUserForTodoyuId">Your todoyuID doesn't match to an user from todoyu.com</label>
+	<label index="error.registerNoFreeLicensesAvailable">You have no free licenses for this extension. Buy one in the shop</label>
+	<label index="moreInfo">More information</label>
+	<label index="connectionFailed">Connection To Repository Failed</label>
+	<label index="connectionFailed.info">Please make sure your sever can open a connection to the internet</label>
+</labels>

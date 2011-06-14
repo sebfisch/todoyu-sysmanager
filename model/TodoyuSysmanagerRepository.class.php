@@ -139,7 +139,7 @@ class TodoyuSysmanagerRepository {
 		$responseData	= $this->sendRequest('download', $data);
 
 		if( $responseData['data'] === false ) {
-			$label	= Todoyu::Label('sysmanager.ext.repository.error.' . $responseData['message']);
+			$label	= Todoyu::Label('sysmanager.repository.error.' . $responseData['message']);
 			throw new TodoyuSysmanagerRepositoryException($label);
 		}
 
@@ -172,7 +172,7 @@ class TodoyuSysmanagerRepository {
 		if( $response['registered'] ) {
 			return true;
 		} else {
-			return Todoyu::Label('sysmanager.ext.repository.error.' . $response['message']) ;
+			return Todoyu::Label('sysmanager.repository.error.' . $response['message']) ;
 		}
 	}
 

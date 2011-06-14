@@ -75,16 +75,4 @@
 	<label index="config.selectlogo.info">ロゴとして使用したい画像を選択してください。画像は最大で 190 X 60 ピクセルまでにサイズが変更されます。使用可能な画像は jpg, png, gif です</label>
 	<label index="config.tab.repository">リポジトリ</label>
 	<label index="config.tab.repository.saved">リポジトリの設定を保存</label>
-	<label index="repository.extension.moreDetails">もっと詳しく</label>
-	<label index="repository.extension.installUpdate">アップデートをインストール</label>
-	<label index="repository.core.installUpdate">コアアップデートをインストール</label>
-	<label index="repository.error.downloadNoArchiveForExtVersion">このバージョンに関するアップデートアーカイブが見つかりません</label>
-	<label index="repository.error.downloadNoArchiveForCoreVersion">このバージョンに関するアップデートアーカイブが見つかりません</label>
-	<label index="repository.error.downloadNoFileAccess">このファイルのダウンロードは許可されていません</label>
-	<label index="repository.error.registerTodoyuIdMissing">todoyu IDが見つかりません。あなたのIDをシステムの設定画面で入力してください。</label>
-	<label index="repository.error.registerExtensionMissing">登録のために送信された拡張機能はありません</label>
-	<label index="repository.error.registerDomainMissing">todoyuは登録するためのあなたのドメインを見つけられませんでした</label>
-	<label index="repository.error.registerExtNotFound">あなたは利用できない拡張機能のTARを登録しようとしました</label>
-	<label index="repository.error.registerNoUserForTodoyuId">あなたの todoyu ID は todoyu.com のユーザと一致しませんでした</label>
-	<label index="repository.error.registerNoFreeLicensesAvailable">あなたはこの拡張機能の無償ライセンスを持っていません。ショップで購入してください。</label>
 </labels>

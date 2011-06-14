@@ -75,16 +75,4 @@
 	<label index="config.selectlogo.info">Выберите изображение, которые Вы хотите использовать в качестве логотипа. Изобаржение будет автоматически проиведено к размеру 190x60 точек. Можно использовать jpg, png или gif форматы</label>
 	<label index="config.tab.repository">Репозиторий</label>
 	<label index="config.tab.repository.saved">Конфигурация репозитория сохранена</label>
-	<label index="repository.extension.moreDetails">Ещё</label>
-	<label index="repository.extension.installUpdate">Установить обновление</label>
-	<label index="repository.core.installUpdate">Установить обновление системы</label>
-	<label index="repository.error.downloadNoArchiveForExtVersion">Архив обновления для этой версии отсутствует</label>
-	<label index="repository.error.downloadNoArchiveForCoreVersion">Архив обновления для этой версии отсутствует</label>
-	<label index="repository.error.downloadNoFileAccess">Вам не разрешено загружать этот файл</label>
-	<label index="repository.error.registerTodoyuIdMissing">Отсутствует todoyuID. Пожалуйста, введите ID в конфигурации системы</label>
-	<label index="repository.error.registerExtensionMissing">Расширение не было отправлено для регистрации</label>
-	<label index="repository.error.registerDomainMissing">todoyu не смог определить ваш домен для регистрации</label>
-	<label index="repository.error.registerExtNotFound">Вы попытались зарегистрировать расширение, которое не доступно в репозитории</label>
-	<label index="repository.error.registerNoUserForTodoyuId">Ваш todoyuID не соответствует пользователю с todoyu.com</label>
-	<label index="repository.error.registerNoFreeLicensesAvailable">У вас нет бесплатных лицензий на это расширение. Пожалуйста, купите лицензию в магазине</label>
 </labels>

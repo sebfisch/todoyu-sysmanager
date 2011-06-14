@@ -40,9 +40,4 @@
 	<label index="upload.ok">拡張機能をインポートしました</label>
 	<label index="upload.error">拡張機能のアップロードが失敗しました</label>
 	<label index="upload.archivehint">todoyuの拡張機能アーカイブの正しい命名規則: TodoyuExt_EXTNAME_VERSION.zip. (例: TodoyuExt_project_1.1.0.zip)</label>
-	<label index="repository.form">todoyu拡張機能リポジトリで検索</label>
-	<label index="repository.query">キーワードで検索</label>
-	<label index="repository.extension.moreDetails">もっと詳しく</label>
-	<label index="repository.extension.installUpdate">アップデートをインストール</label>
-	<label index="repository.core.installUpdate">コアアップデートをインストール</label>
 </labels>

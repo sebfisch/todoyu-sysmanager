@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="form">todoyu Extension-Repository durchsuchen</label>
+	<label index="query">Nach Schlüsselwort suchen</label>
+	<label index="extension.moreDetails">Mehr Details</label>
+	<label index="extension.installUpdate">Update installieren</label>
+	<label index="core.installUpdate">Core Update installieren</label>
+	<label index="noNewExtensionsFound">Keine neuen Erweiterungen gefunden. Sie haben bereit alle verfügbaren Erweiterungen installiert</label>
+	<label index="noExtensionsFoundForQuery">Keine Erweiterungen gefunden die auf den Suchbegriff zutreffen</label>
+	<label index="extensionsFound">%s Erweiterungen gefunden</label>
+	<label index="extension.moreDetails">Mehr Details</label>
+	<label index="extension.install">Erweiterung installieren</label>
+	<label index="extension.installUpdate">Installiere Update</label>
+	<label index="extension.downloads">Downloads</label>
+	<label index="extension.costs.free">Gratis</label>
+	<label index="extension.costs.commercial">Kommerziell</label>
+	<label index="core.installUpdate">Installiere Kernel Update</label>
+	<label index="error.downloadNoArchiveForExtVersion">Das Dateiarchiv für diese Version ist nicht vorhanden.</label>
+	<label index="error.downloadNoArchiveForCoreVersion">Das Dateiarchiv für diese Version ist nicht vorhanden.</label>
+	<label index="error.downloadNoFileAccess">Sie haben kein Zugriff auf diesen Download</label>
+	<label index="error.registerTodoyuIdMissing">Die todoyuID ist nicht vorhanden. Bitte geben Sie eine ID in Ihrer Systemkonfiguration ein.</label>
+	<label index="error.registerExtensionMissing">Für die Registrierung wurde keine Erweiterung angegeben.</label>
+	<label index="error.registerDomainMissing">todoyu konnte Ihre Domain für die Registrierung nicht erkennen.</label>
+	<label index="error.registerExtNotFound">Sie haben versucht eine Erweiterung zu registrieren, die im tER nicht vorhanden ist.</label>
+	<label index="error.registerNoUserForTodoyuId">Ihre todoyuID stimmt keinem User auf todoyu.com überein.</label>
+	<label index="error.registerNoFreeLicensesAvailable">Sie haben keine freien Lizenzen mehr für diese Erweiterung. Bitte kaufen Sie eine neue in unserem Shop.</label>
+	<label index="moreInfo">Mehr Informationen</label>
+	<label index="connectionFailed">Verbindung zum todoyu Server fehlgeschlagen</label>
+	<label index="connectionFailed.info">Stellen Sie sicher, dass ihr Server eine Verbindung ins Internet aufbauen kann</label>
+</labels>
