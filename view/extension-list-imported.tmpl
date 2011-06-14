@@ -3,7 +3,9 @@
 {block name="title"}{Title "LLL:sysmanager.ext.notInstalledExtensions"}{/block}
 
 {block name="contentMessage"}
-	{contentMessage label="sysmanager.extension.imported.info" class="importInfo"}
+	{if sizeof($extensions)>0}
+		{contentMessage label="sysmanager.extension.imported.info" class="importInfo"}
+	{/if}
 {/block}
 
 {block name="edit"}
@@ -30,7 +32,7 @@
 {block name="noExtensions"}
 	<div class="contentMessage importInfo">
 		<div class="icon"></div>
-		All extensions on the server are already installed. You can import new extensions from the todoyu TER or upload an extension archive.
+		{Label sysmanager.extension.install.allinstalled}
 	</div>
 {/block}
 

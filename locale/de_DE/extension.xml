@@ -19,6 +19,7 @@
 	<label index="showInstalledList">Liste installierter Erweierungen anzeigen</label>
 	<label index="imported.info">Diese Erweiterungen befinden sich auf Ihrem Server, sind aber noch nicht installiert.</label>
 	<label index="install">Installiere Erweiterung</label>
+	<label index="install.allinstalled">Alle Erweiterungen auf dem Server sind bereits installiert. Neue Erweiterungen können vom todoyu TER importiert oder als Archiv hochgeladen werden.</label>
 	<label index="install.confirm">Erweiterung installieren?</label>
 	<label index="install.ok">Erweiterung wurde erfolgreich installiert</label>
 	<label index="install.ok.info">Die Erweiterung ist nun in Ihrem System installiert. Weitere Konfigurationen sind für den Betrieb allenfalls notwendig. Sie können diese bei der Erweiterung vornehmen. Wechseln Sie dazu in das Submodul 'Erweiterung'</label>
