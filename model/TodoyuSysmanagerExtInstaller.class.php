@@ -92,10 +92,9 @@ class TodoyuSysmanagerExtInstaller {
 	 * Call 'beforeUpdate' for the extension
 	 *
 	 * @param	String		$extKey
-	 * @param	String		$currentVersion
 	 */
-	public static function callBeforeUpdate($extKey, $currentVersion) {
-		self::callSetup($extKey, 'beforeUpdate', array($currentVersion));
+	public static function callBeforeUpdate($extKey) {
+		self::callSetup($extKey, 'beforeUpdate');
 	}
 
 

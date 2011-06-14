@@ -87,7 +87,7 @@ class TodoyuSysmanagerRepositoryManager {
 			$currentVersion= TodoyuExtensions::getExtVersion($extKey);
 
 				// Callback: Before update
-			TodoyuSysmanagerExtInstaller::callBeforeUpdate($extKey, $currentVersion);
+			TodoyuSysmanagerExtInstaller::callBeforeUpdate($extKey);
 
 				// Download and import extension
 			$idVersion	= intval($update['version']['id']);
