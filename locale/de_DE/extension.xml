@@ -17,6 +17,7 @@
 	<label index="rights">Rechte</label>
 	<label index="documentation">Dokumentation</label>
 	<label index="showInstalledList">Liste installierter Erweierungen anzeigen</label>
+	<label index="imported.info">Diese Erweiterungen befinden sich auf Ihrem Server, sind aber noch nicht installiert.</label>
 	<label index="install">Installiere Erweiterung</label>
 	<label index="install.confirm">Erweiterung installieren?</label>
 	<label index="install.ok">Erweiterung wurde erfolgreich installiert</label>

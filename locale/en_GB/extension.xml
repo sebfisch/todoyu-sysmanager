@@ -17,6 +17,7 @@
 	<label index="rights">Rights</label>
 	<label index="documentation">Documentation</label>
 	<label index="showInstalledList">Show list of installed extensions</label>
+	<label index="imported.info">These extensions are located on your server, but not installed yet.</label>
 	<label index="install">Install Extension</label>
 	<label index="install.confirm">Install Extension?</label>
 	<label index="install.ok">Extension was installed successfully</label>

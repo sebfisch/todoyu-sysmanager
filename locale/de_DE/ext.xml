@@ -7,7 +7,7 @@
   <label index="tabs.config">Einstellungen</label>
   <label index="tabs.rights">Rechte</label>
   <label index="tabs.records">Datensätze</label>
-  <label index="tabs.imported">Importieren</label>
+  <label index="tabs.imported">Installieren</label>
   <label index="tabs.update">Update</label>
   <label index="tabs.search">Markt durchsuchen</label>
   <label index="records.tab.all">Alle Datensätze</label>
