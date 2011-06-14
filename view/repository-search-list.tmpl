@@ -17,13 +17,13 @@
 			<h5>
 				<img src="{$extension.icon}" border="0" />
 				<div class="title">{$extension.title}</div>
-				<div class="author">From {$extension.author.name}</div>
+				<div class="author">{Label sysmanger.repository.by} {$extension.author.name}</div>
 
 			</h5>
 			<div class="description">{$extension.description}</div>
 			{if $extension.version.dependencies}
 				<div class="warning dependency">
-					<p>There are unresolved dependencies</p>
+					<p>{Label sysmanager.repository.error.unresolvedDependencies}</p>
 					<ul>
 						{foreach $extension.version.dependencies dependency}
 							<li id="{$extension.ext_key}-dependency-{$dependency.ext_key}">{$dependency.title_short} {$dependency.version} ({$dependency.ext_key})</li>
@@ -33,7 +33,7 @@
 			{/if}
 			{if $extension.version.conflicts}
 				<div class="warning conflicts">
-					<p>There are unresolved conflicts</p>
+					<p>{Label sysmanager.repository.error.unresolvedConflicts}</p>
 					<ul>
 						{foreach $extension.version.conflicts conflict}
 							<li id="{$extension.ext_key}-conflict-{$conflict.ext_key}">{$conflict.title_short} ({$conflict.ext_key})</li>

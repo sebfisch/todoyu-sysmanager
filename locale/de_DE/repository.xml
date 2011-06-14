@@ -2,6 +2,7 @@
 <labels>
 	<label index="form">todoyu Extension-Repository durchsuchen</label>
 	<label index="query">Nach Schlüsselwort suchen</label>
+	<label index="by">Von</label>
 	<label index="extension.moreDetails">Mehr Details</label>
 	<label index="extension.installUpdate">Update installieren</label>
 	<label index="core.installUpdate">Core Update installieren</label>
@@ -15,6 +16,9 @@
 	<label index="extension.costs.free">Gratis</label>
 	<label index="extension.costs.commercial">Kommerziell</label>
 	<label index="core.installUpdate">Installiere Kernel Update</label>
+	<label index="error.extension.noVersionInformation">Versions-Daten fehlen</label>
+	<label index="error.unresolvedDependencies">Es bestehen ungelöste Abhängigkeiten</label>
+	<label index="error.unresolvedConflicts">Es bestehen ungelöste Konflikte</label>
 	<label index="error.downloadNoArchiveForExtVersion">Das Dateiarchiv für diese Version ist nicht vorhanden.</label>
 	<label index="error.downloadNoArchiveForCoreVersion">Das Dateiarchiv für diese Version ist nicht vorhanden.</label>
 	<label index="error.downloadNoFileAccess">Sie haben kein Zugriff auf diesen Download</label>
