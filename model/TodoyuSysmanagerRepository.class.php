@@ -158,12 +158,14 @@ class TodoyuSysmanagerRepository {
 	 * Register an extension for current domain
 	 *
 	 * @param	String		$extKey
+	 * @param	Integer		$majorVersion
 	 * @return	Boolean
 	 */
-	public function registerForDomain($extKey) {
+	public function registerForDomain($extKey, $majorVersion = 1) {
 		$data	= array(
 			'todoyuid'	=> TodoyuSysmanagerRepositoryManager::getTodoyuID(),
 			'extension'	=> $extKey,
+			'major'		=> intval($majorVersion),
 			'domain'	=> TodoyuServer::getDomain()
 		);
 

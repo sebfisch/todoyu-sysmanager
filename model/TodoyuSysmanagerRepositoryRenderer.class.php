@@ -137,8 +137,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 			'info'			=> $info,
 			'title'			=> 'Update: ' . $info['title'],
 			'actionOk'		=> 'Todoyu.Ext.sysmanager.Repository.Update.installExtensionUpdate(\'' . $extKey . '\')',
-			'labelCancel'	=> 'Don\'t install this extension update',
-			'labelOk'		=> 'Install extension update'
+			'labelCancel'	=> Todoyu::Label('sysmanager.repository.extension.installUpdate.cancel'),
+			'labelOk'		=> Todoyu::Label('sysmanager.repository.extension.installUpdate')
 		);
 
 		return self::renderExtensionDialog($data, true);
@@ -155,24 +155,35 @@ class TodoyuSysmanagerRepositoryRenderer {
 	public static function renderExtensionInstallDialog($extKey) {
 		$info	= TodoyuSysmanagerRepositoryManager::getRepoInfo($extKey);
 
+		$majorVersion	= TodoyuSysmanagerExtManager::parseMajorVersion($info['version']['version']);
+
 		$data	= array(
 			'info'			=> $info,
 			'title'			=> 'Install: ' . $info['title'],
-			'actionOk'		=> 'Todoyu.Ext.sysmanager.Repository.Search.installExtension(\'' . $extKey . '\')',
+			'actionOk'		=> 'Todoyu.Ext.sysmanager.Repository.Search.installExtension(\'' . $extKey . '\', ' . $majorVersion. ')',
 			'domain'		=> TodoyuServer::getDomain(),
-			'labelCancel'	=> 'Don\'t install this extension',
+			'labelCancel'	=> Todoyu::Label('sysmanager.repository.extension.install.cancel'),
 			'isMajorUpdate'	=> TodoyuExtensions::isInstalled($extKey)
 		);
 
-		if( $info['free_licenses'] > 0 ) {
-			$data['labelOk']	= 'Install extension (use one of my licenses)';
-			$data['disableOk']	= false;
+		$labelInstall		= Todoyu::Label('sysmanager.repository.extension.install');
+
+			// Check for free licences if commercial
+		if( $info['commercial'] ) {
+			if( $info['free_licenses'] > 0 ) {
+				$labelUseLicense	= Todoyu::Label('sysmanager.repository.extension.install.useLicense');
+				$data['labelOk']	= $labelInstall . ' (' . $labelUseLicense . ')';
+				$data['disableOk']	= false;
+			} else {
+				$data['labelOk']	= Todoyu::Label('sysmanager.repository.extension.install.licenseRequired');
+				$data['disableOk']	= true;
+			}
 		} else {
-			$data['labelOk']	= 'License for extension is required';
-			$data['disableOk']	= true;
+			$data['labelOk']	= $labelInstall;
+			$data['disableOk']	= false;
 		}
 
-		if( $info['license'] ) {
+		if( $info['commercial'] && $info['license'] ) {
 			$data['license']	= TodoyuSysmanagerRepositoryManager::getExtensionLicenseText($info['license']);
 
 			if( $info['commercial'] ) {
@@ -206,12 +217,18 @@ class TodoyuSysmanagerRepositoryRenderer {
 	}
 
 
+
+	/**
+	 * Render dialog for core update
+	 *
+	 * @return	String
+	 */
 	public static function renderCoreUpdateDialog() {
 		$tmpl	= 'ext/sysmanager/view/repository-dialog-core.tmpl';
 
 		$coreUpdate	= TodoyuSysmanagerRepositoryManager::getRepoInfo('core');
 
-		TodoyuDebug::printInFireBug($coreUpdate, '$coreUpdate');
+//		TodoyuDebug::printInFireBug($coreUpdate, '$coreUpdate');
 
 		$data	= array(
 			'update'	=> $coreUpdate

@@ -253,6 +253,34 @@ class TodoyuSysmanagerExtManager {
 		return TodoyuFileManager::isFile($xmlPath);
 	}
 
+
+
+	/**
+	 * Parse major version from a version string
+	 *
+	 * @param	String	$versionString
+	 * @return	Integer
+	 */
+	public static function parseMajorVersion($versionString) {
+		$parts	= explode('.', $versionString);
+
+		return intval($parts[0]);
+	}
+
+
+
+	/**
+	 * Get major version of an extension
+	 *
+	 * @param	String		$extKey
+	 * @return	Integer
+	 */
+	public static function getMajorVersion($extKey) {
+		$extVersion	= TodoyuExtensions::getExtVersion($extKey);
+
+		return self::parseMajorVersion($extVersion);
+	}
+
 }
 
 ?>

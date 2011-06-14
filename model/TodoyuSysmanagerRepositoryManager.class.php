@@ -115,17 +115,17 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Install a new extension from tER
 	 *
-	 *
 	 * @param	String		$extKey
+	 * @param	Integer		$majorVersion
 	 * @return	Boolean|String
 	 */
-	public static function installExtensionFromTER($extKey) {
+	public static function installExtensionFromTER($extKey, $majorVersion = 1) {
 		try {
 				// Get url from hash map
 			$extInfo	= self::getRepoInfo($extKey);
 
 				// Buy extension if it's commercial
-			self::registerCommercialExtension($extInfo['ext_key']);
+			self::registerCommercialExtension($extInfo['ext_key'], $majorVersion);
 
 				// Download and install extension
 			$idVersion	= intval($extInfo['version']['id']);
@@ -289,11 +289,12 @@ class TodoyuSysmanagerRepositoryManager {
 	 *
 	 * @throws	TodoyuException
 	 * @param	String		$extKey
+	 * @param	Integer		$majorVersion
 	 * @return	Boolean
 	 */
-	private static function registerCommercialExtension($extKey) {
+	private static function registerCommercialExtension($extKey, $majorVersion = 1) {
 		$repository	= new TodoyuSysmanagerRepository();
-		$result		= $repository->registerForDomain($extKey);
+		$result		= $repository->registerForDomain($extKey, $majorVersion);
 
 		if( $result !== true ) {
 			throw new TodoyuException($result);

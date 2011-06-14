@@ -104,10 +104,10 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	 * @param	Array	$params
 	 */
 	public function installTerExtensionAction(array $params) {
-		$extKey		= trim($params['extkey']);
-		$archiveHash= trim($params['archive']);
+		$extKey			= trim($params['extkey']);
+		$majorVersion	= intval($params['major']);
 
-		$result	= TodoyuSysmanagerRepositoryManager::installExtensionFromTER($extKey, $archiveHash);
+		$result	= TodoyuSysmanagerRepositoryManager::installExtensionFromTER($extKey, $majorVersion);
 
 		if( $result !== true ) {
 			TodoyuHeader::sendTodoyuError($result);

@@ -120,7 +120,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 
 			Todoyu.notifyError(error);
 		} else {
-			Todoyu.notifySuccess('Extension update was installed');
+			Todoyu.notifySuccess('Extension update was installed', 10);
 			this.repo.dialog.close();
 			this.refreshUpdateList();
 		}

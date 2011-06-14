@@ -106,7 +106,9 @@ class TodoyuSysmanagerExtInstaller {
 	 * @param	String		$previousVersion
 	 */
 	public static function callAfterUpdate($extKey, $previousVersion) {
-		self::callSetup($extKey, 'afterUpdate', array($previousVersion));
+		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
+
+		self::callSetup($extKey, 'afterUpdate', array($previousVersion, $currentVersion));
 	}
 
 

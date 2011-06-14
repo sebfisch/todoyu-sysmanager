@@ -165,16 +165,18 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 *
 	 * @method	installExtension
 	 * @param	{String}	extkey
+	 * @param	{Number}	majorVersion
 	 */
-	installExtension: function(extkey) {
+	installExtension: function(extkey, majorVersion) {
 		if( confirm('Install this extension?') ) {
 			var url		= this.repo.getUrl();
 			var options = {
 				parameters: {
 					action: 'installTerExtension',
-					extkey:	extkey
+					extkey:	extkey,
+					major:	majorVersion
 				},
-				onComplete: this.onExtensionInstalled.bind(this, extkey)
+				onComplete: this.onExtensionInstalled.bind(this, extkey, majorVersion)
 			};
 
 			Todoyu.send(url, options);
@@ -187,17 +189,19 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 * Handler when extension was installed
 	 *
 	 * @param	{String}		extKey
+	 * @param	{Number}		majorVersion
 	 * @param	{Ajax.Response}	response
 	 */
-	onExtensionInstalled: function(extKey, response) {
+	onExtensionInstalled: function(extKey, majorVersion, response) {
 		if( response.hasTodoyuError() ) {
 			var error	= response.getTodoyuErrorMessage();
 			Todoyu.notifyError(error);
 		} else {
 			Todoyu.notifySuccess('Extension was successfully installed');
-			this.ext.closeDialog();
+			this.repo.closeDialog();
 
 			Effect.SlideUp('repository-search-ext-' + extKey);
+			this.updateResults();
 		}
 	}
 
