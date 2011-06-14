@@ -125,6 +125,12 @@ function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $compiler, $extKey) {
  * @return	String
  */
 function Dwoo_Plugin_ExtensionStatusIcon(Dwoo $dwoo, $state) {
+	if( ! in_array($state, array('alpha', 'beta', 'stable')) ) {
+		$state	= 'alpha';
+	}
+
+	return '<span class="extensionstate ' . $state . '"></span>';
+	
 	switch($state) {
 		case 1:
 		case 'stable':
@@ -143,10 +149,9 @@ function Dwoo_Plugin_ExtensionStatusIcon(Dwoo $dwoo, $state) {
 			break;
 	}
 
-	$src	= TodoyuFileManager::pathWeb('ext/sysmanager/asset/img/status/' . $stateKey . '.jpg');
+	$src	= TodoyuFileManager::pathWeb('ext/sysmanager/asset/img/status/' . $stateKey . '.png');
 
 	return '<img src="' . $src . '" />';
 }
-
 
 ?>
