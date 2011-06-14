@@ -33,6 +33,7 @@
 	<label index="uninstall.confirm">Erweiterung deinstallieren?</label>
 	<label index="uninstall.ok">Erweiterung wurde erfolgreich deinstalliert</label>
 	<label index="uninstall.error">Deinstallation der Erweiterung fehlgeschlagen</label>
+	<label index="uninstall.aftermessage">Die Erweiterung wurde deinstalliert. Die Erweiterung ist noch auf dem Server gespeichert, wird aber nicht mehr geladen.</label>
 	<label index="notify.remove.error">Löschen der Extension fehlgeschlagen</label>
 	<label index="notify.remove.success">Extension erfolgreich vom Server gelöscht</label>
 	<label index="upload.selectfile">Extension-Archive (zip) auswählen</label>

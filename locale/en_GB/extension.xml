@@ -33,6 +33,7 @@
 	<label index="uninstall.confirm">Uninstall Extension?</label>
 	<label index="uninstall.ok">Extension was uninstalled successfully</label>
 	<label index="uninstall.error">Uninstallation of extension failed</label>
+	<label index="uninstall.aftermessage">Extension was uninstalled successfully. The extension is still available on the server, but not loaded anymore.</label>
 	<label index="notify.remove.error">Removing extension failed</label>
 	<label index="notify.remove.success">Extension was sucessfully removed from server</label>
 	<label index="upload.selectfile">Select extension archive (zip)</label>
