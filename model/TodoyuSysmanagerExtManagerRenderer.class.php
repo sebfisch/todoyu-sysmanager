@@ -156,7 +156,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 	 * @param	Boolean		$areInstalled
 	 * @return	String
 	 */
-	public static function renderList(array $extKeys, $areInstalled = true)	{
+	public static function renderList(array $extKeys, $areInstalled = true) {
 		sort($extKeys);
 
 		$state	= $areInstalled ? 'installed' : 'imported';
