@@ -127,6 +127,13 @@ Todoyu.Ext.sysmanager.Config = {
 	},
 
 
+
+	/**
+	 * Save repository configuration (into config\settings.php)
+	 *
+	 * @method	saveRepositoryConfig
+	 * @param	{String}				form		form element ID
+	 */
 	saveRepositoryConfig: function(form) {
 		$(form).request({
 			parameters: {
@@ -136,6 +143,14 @@ Todoyu.Ext.sysmanager.Config = {
 		});
 	},
 
+
+
+	/**
+	 * Handler when repository config has been saved: notify success
+	 *
+	 * @method	onRepositoryConfigSaved
+	 * @param	{Ajax.response}				response
+	 */
 	onRepositoryConfigSaved: function(response) {
 		Todoyu.notifySuccess('[LLL:sysmanager.ext.config.tab.repository.saved]');
 	}

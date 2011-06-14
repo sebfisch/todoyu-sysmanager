@@ -99,7 +99,7 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 
 
 	/**
-	 * Save repository config
+	 * Save repository config (into config\settings.php)
 	 *
 	 * @param	Array	$params
 	 */

@@ -90,13 +90,13 @@ class TodoyuSysmanagerSystemConfigManager {
 
 
 	/**
-	 * Save repository config
+	 * Save repository config (into config\settings.php)
 	 *
 	 * @param	Array	$data
 	 */
 	public static function saveRepositoryConfig(array $data) {
 		Todoyu::$CONFIG['SETTINGS']['repository'] = array(
-			'todoyuid'			=> trim($data['todoyuid'])
+			'todoyuid'	=> trim($data['todoyuid'])
 		);
 
 		TodoyuConfigManager::saveSettingsConfig();
