@@ -130,28 +130,6 @@ function Dwoo_Plugin_ExtensionStatusIcon(Dwoo $dwoo, $state) {
 	}
 
 	return '<span class="extensionstate ' . $state . '"></span>';
-	
-	switch($state) {
-		case 1:
-		case 'stable':
-			$stateKey = 'stable';
-			break;
-
-		case 2:
-		case 'beta':
-			$stateKey = 'beta';
-			break;
-
-		case 3:
-		case 'alpha':
-		default:
-			$stateKey = 'alpha';
-			break;
-	}
-
-	$src	= TodoyuFileManager::pathWeb('ext/sysmanager/asset/img/status/' . $stateKey . '.png');
-
-	return '<img src="' . $src . '" />';
 }
 
 ?>
