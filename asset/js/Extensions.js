@@ -126,47 +126,6 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 
 	/**
-	 * Evoke installation of given extension
-	 *
-	 * @method	install
-	 * @param	{String}	extKey
-	 */
-	install: function(extKey) {
-		if( confirm('[LLL:sysmanager.extension.install.confirm]') ) {
-			var url		= Todoyu.getUrl('sysmanager', 'extensions');
-			var options	= {
-				parameters: {
-					action:		'install',
-					'extension':	extKey
-				},
-				onComplete: this.onInstalled.bind(this, extKey)
-			};
-
-			Todoyu.send(url, options);
-		}
-	},
-
-
-
-	/**
-	 * Handler to be called after ext. installation.
-	 * Shows list of extensions and installation response notification
-	 *
-	 * @method	onInstalled
-	 * @param	{String}			extKey
-	 * @param	{Ajax.Response}		response
-	 */
-	onInstalled: function(extKey, response) {
-		var extName	= response.responseText;
-
-		Todoyu.notifySuccess('[LLL:sysmanager.extension.install.ok]: ' + extName);
-
-		this.showList();
-	},
-
-
-
-	/**
 	 * Download given extension
 	 *
 	 * @method	download

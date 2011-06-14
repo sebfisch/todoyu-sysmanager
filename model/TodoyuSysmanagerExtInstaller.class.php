@@ -48,7 +48,12 @@ class TodoyuSysmanagerExtInstaller {
 
 
 
-
+	/**
+	 * Call and action on all other extension setup classes
+	 *
+	 * @param	String		$ignoreExt		This extension will be ignored
+	 * @param	String		$action
+	 */
 	private static function callOtherSetups($ignoreExt, $action) {
 		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
 
@@ -60,56 +65,116 @@ class TodoyuSysmanagerExtInstaller {
 	}
 
 
+
+	/**
+	 * Call 'afterOtherExtensionInstall' for all other extensions
+	 *
+	 * @param	String		$extKey
+	 */
 	public static function callAfterOtherExtensionInstall($extKey) {
 		self::callOtherSetups($extKey, 'afterOtherExtensionInstall');
 	}
 
+
+
+	/**
+	 * Call 'afterOtherExtensionUninstall' for all other extensions
+	 *
+	 * @param	String		$extKey
+	 */
 	public static function callAfterOtherExtensionUninstall($extKey) {
 		self::callOtherSetups($extKey, 'afterOtherExtensionUninstall');
 	}
 
+
+
+	/**
+	 * Call 'beforeUpdate' for the extension
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$currentVersion
+	 */
 	public static function callBeforeUpdate($extKey, $currentVersion) {
 		self::callSetup($extKey, 'beforeUpdate', array($currentVersion));
 	}
 
 
+
+	/**
+	 * Call 'afterUpdate' for the extension
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$previousVersion
+	 */
 	public static function callAfterUpdate($extKey, $previousVersion) {
 		self::callSetup($extKey, 'afterUpdate', array($previousVersion));
 	}
 
+
+
+	/**
+	 * Call 'beforeUpdate' for the extension
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$previousVersion
+	 * @param	String		$currentVersion
+	 */
 	public static function callBeforeDbUpdate($extKey, $previousVersion, $currentVersion) {
 		self::callSetup($extKey, 'beforeDbUpdate', array($previousVersion, $currentVersion));
 	}
 
 
+
+	/**
+	 * Call 'afterInstall' for the extension
+	 *
+	 * @param	String		$extKey
+	 */
 	public static function callAfterInstall($extKey) {
-		self::callSetup($extKey, 'firstInstall');
+		self::callSetup($extKey, 'afterInstall');
 		self::callAfterOtherExtensionInstall($extKey);
 	}
 
+
+
+	/**
+	 * Call 'beforeUninstall' for extension
+	 *
+	 * @param	String		$extKey
+	 */
 	public static function callBeforeUninstall($extKey) {
 		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
 
-		self::callSetup($extKey, 'uninstall', array($currentVersion));
+		self::callSetup($extKey, 'beforeUninstall', array($currentVersion));
 	}
 
 
+
+	/**
+	 * Call 'beforeMajorUpdate' for an extension
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$nextVersion
+	 */
 	public static function callBeforeMajorUpdate($extKey, $nextVersion) {
 		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
 
 		self::callSetup($extKey, 'beforeMajorUpdate', array($currentVersion, $nextVersion));
 	}
 
+
+
+	/**
+	 * Call 'afterMajorUpdate' for an extension
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$previousVersion
+	 */
 	public static function callAfterMajorUpdate($extKey, $previousVersion) {
 		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
 
 		self::callSetup($extKey, 'afterMajorUpdate', array($previousVersion, $currentVersion));
 	}
-
-
-
-
-
 
 
 
@@ -158,18 +223,19 @@ class TodoyuSysmanagerExtInstaller {
 		self::updateDatabaseFromFiles();
 
 		self::callAfterInstall($extKey);
+
+		TodoyuHookManager::callHook('sysmanager', 'extensionInstalled', array($extKey));
 	}
 
 
+
+	/**
+	 * Update the database from files of all installed extensions
+	 *
+	 */
 	public static function updateDatabaseFromFiles() {
 		TodoyuSQLManager::updateDatabaseFromTableFiles();
 	}
-
-
-
-
-
-
 
 
 
@@ -179,7 +245,6 @@ class TodoyuSysmanagerExtInstaller {
 	 * @param	String		$extKey
 	 */
 	public static function uninstallExtension($extKey) {
-		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
 		self::callBeforeUninstall($extKey);
 
 			// Get installed extensions with ext key as array key
@@ -455,6 +520,14 @@ class TodoyuSysmanagerExtInstaller {
 	}
 
 
+
+	/**
+	 * Get archive name for an extension
+	 * Pattern: TodoyuExt_{EXTKEY}_{VERSION}.zip
+	 *
+	 * @param	String		$extKey
+	 * @return	String
+	 */
 	public static function getExtensionArchiveName($extKey) {
 		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
 		$version	= TodoyuString::getVersionInfo($extInfo['version']);
@@ -505,63 +578,6 @@ class TodoyuSysmanagerExtInstaller {
 
 		return $info;
 	}
-
-
-	public static function importUploadedExtensionArchive(array $uploadFile, $override = false) {
-		try {
-				// Is file available in upload array
-			if( $uploadFile === false ) {
-				throw new TodoyuException('File not found in upload array');
-			}
-				// Has an error occurred
-			if( $uploadFile['error'] !== 0 ) {
-				throw new TodoyuException('Upload error');
-			}
-
-				// Check if import is possible with provided file
-			$fileInfo	= explode('_', $uploadFile['name']);
-			$extKey		= trim(strtolower($fileInfo[1]));
-
-			$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($extKey, $uploadFile['tmp_name'], $override);
-			if( $canImport !== true ) {
-				throw new TodoyuException('Can\'t import extension archive: ' . $canImport);
-			}
-
-			$archiveInfo	= TodoyuSysmanagerExtInstaller::parseExtensionArchiveName($uploadFile['name']);
-
-			TodoyuSysmanagerExtImporter::importExtensionArchive($archiveInfo['ext'], $uploadFile['tmp_name']);
-
-			$info	= array(
-				'success'	=> true,
-				'message'	=> '',
-				'ext'		=> $archiveInfo['ext']
-			);
-		}  catch(TodoyuException $e) {
-			$info	= array(
-				'success'	=> false,
-				'message'	=> $e->getMessage(),
-				'ext'		=> $archiveInfo['ext']
-			);
-		}
-
-		return $info;
-
-
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -101,6 +101,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 			TodoyuHeader::sendTodoyuErrorHeader();
 			TodoyuHeader::sendTodoyuHeader('info', $info);
 		}
+
+		return '';
 	}
 
 
