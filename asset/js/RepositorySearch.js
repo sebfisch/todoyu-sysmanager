@@ -161,7 +161,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 
 
 	/**
-	 * Install extension from TER
+	 * Install extension from tER
 	 *
 	 * @method	installExtension
 	 * @param	{String}	extkey

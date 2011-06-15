@@ -64,7 +64,7 @@ Todoyu.Ext.sysmanager.Repository = {
 
 
 	/**
-	 * Open TER in new browser window
+	 * Open tER in new browser window
 	 *
 	 * @method	moreExtensionInfo
 	 * @param	{String}	terLink

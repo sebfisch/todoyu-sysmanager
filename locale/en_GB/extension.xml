@@ -21,7 +21,7 @@
 	<label index="importExtArchive">Import Extension Archive</label>
 	<label index="imported.info">These extensions are located on your server, but not installed yet.</label>
 	<label index="install">Install Extension</label>
-	<label index="install.allinstalled">All extensions on the server are already installed. You can import new extensions from the todoyu TER or upload an extension archive.</label>
+	<label index="install.allinstalled">All extensions on the server are already installed. You can import new extensions from the todoyu tER or upload an extension archive.</label>
 	<label index="install.confirm">Install Extension?</label>
 	<label index="install.ok">Extension was installed successfully</label>
 	<label index="install.ok.info">The extension is now installed on your system. Further configuration may be necessary. You can do that in the extensions settings. To do so change to the sub-module 'extensions'.</label>

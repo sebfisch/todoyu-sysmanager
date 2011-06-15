@@ -86,7 +86,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 
 
 	/**
-	 * Install extension update from TER
+	 * Install extension update from tER
 	 *
 	 * @method	installExtensionUpdate
 	 * @param	{String}	extkey
@@ -177,7 +177,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 
 
 	/**
-	 * Show TER extension update details in new window
+	 * Show tER extension update details in new window
 	 *
 	 * @method	showExtensionUpdateDetails
 	 * @param	{String}	terLink

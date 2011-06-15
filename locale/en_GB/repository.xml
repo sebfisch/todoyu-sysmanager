@@ -39,7 +39,7 @@
 	<label index="error.registerTodoyuIdMissing">todoyuID is missing. Please enter your ID in the system config screen</label>
 	<label index="error.registerExtensionMissing">No extension was submitted for registration</label>
 	<label index="error.registerDomainMissing">todoyu was not able to detect your domain for registration</label>
-	<label index="error.registerExtNotFound">You tried to register an extension which is not available in TER</label>
+	<label index="error.registerExtNotFound">You tried to register an extension which is not available in tER</label>
 	<label index="error.registerNoUserForTodoyuId">Your todoyuID doesn't match to an user from todoyu.com</label>
 	<label index="error.registerNoFreeLicensesAvailable">You have no free licenses for this extension. Buy one in the shop</label>
 	<label index="error.connectionFailed">Connection To Repository Failed</label>

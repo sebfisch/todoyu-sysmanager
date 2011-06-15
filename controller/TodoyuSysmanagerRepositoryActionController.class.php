@@ -70,7 +70,7 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 
 
 	/**
-	 * Install extension update from TER
+	 * Install extension update from tER
 	 *
 	 * @param	Array	$params
 	 */
@@ -99,7 +99,7 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 
 
 	/**
-	 * Install an extension from TER
+	 * Install an extension from tER
 	 *
 	 * @param	Array	$params
 	 */
