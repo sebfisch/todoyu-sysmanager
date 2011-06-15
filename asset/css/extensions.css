@@ -63,21 +63,30 @@
 	line-height:11px;
 }
 
+.extlist td div.overflow {
+	overflow: hidden;
+	height:14px;
+	padding: 3px 0;
+}
+.extlist td.extkey .overflow {
+	width:120px;
+}
+.extlist td.title .overflow {
+	width:210px;
+}
+
 	/* list columns */
 .extlist th.icon {
 	width:20px;
 }
 .extlist th.extkey {
-	width:155px;
-}
-.extlist td.extkey div {
-	overflow: hidden;
+	width:120px;
 }
 .extlist th.title {
-	width:235px;
+	width:210px;
 }
 .extlist th.edit {
-	width:140px;
+	width:110px;
 }
 .extlist th.version {
 	width:40px;
