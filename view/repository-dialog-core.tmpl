@@ -2,30 +2,30 @@
 	<h1>Core Update: {$update.title}</h1>
 
 	<div class="col versionInformation">
-		<span class="subtitle">Version Information</span>
+		<span class="subtitle">{Label sysmanager.repository.update.versionInformation}</span>
 		{if $update.description}
 			{$update.description}
 		{else}
-			No Version Information
+			{Label sysmanger.repository.error.update.noVersionInformation}
 		{/if}
 	</div>
 
 	<div class="col versionDetails">
 		<table>
 			<tr>
-				<th>Installed</th>
+				<th>{Label sysmanager.repository.extension.installed}</th>
 				<td>{constant(TODOYU_VERSION)}</td>
 			</tr>
 			<tr>
-				<th>New Version</th>
+				<th>{Label sysmanager.repository.update.newversion}</th>
 				<td>{$update.version}</td>
 			</tr>
 			<tr>
-				<th>Status</th>
+				<th>{Label core.global.status}</th>
 				<td>{ExtensionStatusIcon $update.state}</td>
 			</tr>
 			<tr>
-				<th>Release Date</th>
+				<th>{Label sysmanager.repository.update.releasedate}</th>
 				<td>{dateFormat $update.date_update date}</td>
 			</tr>
 		</table>
