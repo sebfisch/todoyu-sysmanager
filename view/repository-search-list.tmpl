@@ -6,7 +6,7 @@
 			{Label sysmanager.repository.noExtensionsFoundForQuery}: <strong>{htmlencode $query}</strong>
 		{/if}
 	{else}
-		{LabelFormat sysmanager.repository.extensionsFound array($numResults)}
+		{LabelFormat sysmanager.repository.extensionsFound array($numResults)}: <strong>{htmlencode $query}</strong>
 	{/if}
 </div>
 
