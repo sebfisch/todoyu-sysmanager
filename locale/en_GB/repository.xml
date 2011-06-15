@@ -15,6 +15,8 @@
 	<label index="extension.installed">Installed</label>
 	<label index="extension.update">Update Extension</label>
 	<label index="extension.install.cancel">Cancel install</label>
+	<label index="extension.install.success">Extension was successfully installed</label>
+	<label index="extension.install.confirm">Install this extension?</label>
 	<label index="extension.install.useLicense">use one of my licenses</label>
 	<label index="extension.install.licenseRequired">License for extension is required!</label>
 	<label index="extension.installUpdate">Install Extension Update</label>

@@ -168,7 +168,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 * @param	{Number}	majorVersion
 	 */
 	installExtension: function(extkey, majorVersion) {
-		if( confirm('Install this extension?') ) {
+		if( confirm('[LLL:sysmanager.repository.extension.install.confirm]') ) {
 			var url		= this.repo.getUrl();
 			var options = {
 				parameters: {
@@ -197,7 +197,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 			var error	= response.getTodoyuErrorMessage();
 			Todoyu.notifyError(error);
 		} else {
-			Todoyu.notifySuccess('Extension was successfully installed');
+			Todoyu.notifySuccess('[LLL:sysmanager.repository.extension.install.success]');
 			this.repo.closeDialog();
 
 			Effect.SlideUp('repository-search-ext-' + extKey);
