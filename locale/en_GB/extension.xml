@@ -35,7 +35,10 @@
 	<label index="uninstall">Uninstall Extension</label>
 	<label index="uninstall.confirm">Uninstall Extension?</label>
 	<label index="uninstall.ok">Extension was uninstalled successfully</label>
-	<label index="uninstall.error">Uninstallation of extension failed</label>
+	<label index="uninstall.cannotuninstall">Cannot uninstall extension</label>
+	<label index="uninstall.thefollowingextdependsonit">The following extensions depend on it:</label>
+	<label index="uninstall.error.general">Uninstallation of extension failed</label>
+	<label index="uninstall.error.sysext">is a system extension and cannot be uninstalled.</label>
 	<label index="uninstall.aftermessage">Extension was uninstalled successfully. The extension is still available on the server, but not loaded anymore.</label>
 	<label index="notify.remove.error">Removing extension failed</label>
 	<label index="notify.remove.success">Extension was sucessfully removed from server</label>

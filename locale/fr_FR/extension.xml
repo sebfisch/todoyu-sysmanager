@@ -22,5 +22,5 @@
 	<label index="uninstall">Désinstaller une extension</label>
 	<label index="uninstall.confirm">Désinstaller l'extension?</label>
 	<label index="uninstall.ok">L'extension a bien été désinstallée</label>
-	<label index="uninstall.error">La désinstallation de l'extension a échoué</label>
+	<label index="uninstall.error.general">La désinstallation de l'extension a échoué</label>
 </labels>

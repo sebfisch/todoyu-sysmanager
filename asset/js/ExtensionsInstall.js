@@ -192,7 +192,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 		if( response.hasTodoyuError() ) {
 			var info	= response.getTodoyuHeader('info');
 
-			Todoyu.notifyError('[LLL:sysmanager.extension.uninstall.error]: ' + info);
+			Todoyu.notifyError('[LLL:sysmanager.extension.uninstall.error.general]: ' + info);
 		} else {
 			var extName	= response.getTodoyuHeader('extTitle');
 

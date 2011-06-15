@@ -29,7 +29,7 @@
 	<label index="uninstall">拡張機能のアンインストール</label>
 	<label index="uninstall.confirm">拡張機能をアンインストールしますか？</label>
 	<label index="uninstall.ok">拡張機能のアンインストールは成功しました</label>
-	<label index="uninstall.error">拡張機能のアンインストールは失敗しました</label>
+	<label index="uninstall.error.general">拡張機能のアンインストールは失敗しました</label>
 	<label index="notify.remove.error">拡張機能の削除に失敗しました</label>
 	<label index="notify.remove.success">拡張機能をサーバから削除しました</label>
 	<label index="upload.selectfile">拡張機能アーカイブ(zip)の選択</label>

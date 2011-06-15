@@ -22,5 +22,5 @@
 	<label index="uninstall">Odinstalovat rozšíření</label>
 	<label index="uninstall.confirm">Chcete odinstalovat toto rozšíření?</label>
 	<label index="uninstall.ok">Rozšíření bylo úspšně odinstalováno</label>
-	<label index="uninstall.error">Odistalace rozšíření selhalo</label>
+	<label index="uninstall.error.general">Odistalace rozšíření selhalo</label>
 </labels>

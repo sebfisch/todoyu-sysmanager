@@ -26,5 +26,5 @@
 	<label index="uninstall">Деинсталирај додатак</label>
 	<label index="uninstall.confirm">Додатак деинсталирати?</label>
 	<label index="uninstall.ok">Додатак је успешно деинсталиран</label>
-	<label index="uninstall.error">Деинсталација додатка није успела</label>
+	<label index="uninstall.error.general">Деинсталација додатка није успела</label>
 </labels>

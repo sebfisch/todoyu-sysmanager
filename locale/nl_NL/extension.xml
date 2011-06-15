@@ -22,5 +22,5 @@
 	<label index="uninstall">Extensie deïnstalleren</label>
 	<label index="uninstall.confirm">Extensie deïnstalleren?</label>
 	<label index="uninstall.ok">Extensie deïnstalleren is gelukt</label>
-	<label index="uninstall.error">Extensie deïnstalleren is niet gelukt</label>
+	<label index="uninstall.error.general">Extensie deïnstalleren is niet gelukt</label>
 </labels>

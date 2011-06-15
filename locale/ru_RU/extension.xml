@@ -29,7 +29,7 @@
 	<label index="uninstall">Удалить расширение</label>
 	<label index="uninstall.confirm">Удалить расширение?</label>
 	<label index="uninstall.ok">Расширение было успешно удалено</label>
-	<label index="uninstall.error">Не удалось удалить расширение</label>
+	<label index="uninstall.error.general">Не удалось удалить расширение</label>
 	<label index="notify.remove.error">Не удалось удалить расширение</label>
 	<label index="notify.remove.success">Расширение было успешно удалено с сервера</label>
 	<label index="upload.selectfile">Выбрать архив с расширением (zip)</label>
