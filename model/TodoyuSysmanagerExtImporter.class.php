@@ -98,7 +98,7 @@ class TodoyuSysmanagerExtImporter {
 				throw new TodoyuException('Can\'t open archive file');
 			}
 
-			$checkFile	= 'config\\boot.php';
+			$checkFile	= 'config/boot.php';
 
 			if( $archive->statName($checkFile) === false ) {
 				throw new TodoyuException($checkFile . ' not found in archive');
