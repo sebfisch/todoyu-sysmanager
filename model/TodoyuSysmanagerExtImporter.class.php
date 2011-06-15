@@ -85,20 +85,20 @@ class TodoyuSysmanagerExtImporter {
 
 		try {
 			if( filesize($pathArchive) < 100 ) {
-				throw new Exception('Invalid size. Too small for a real extension archive');
+				throw new TodoyuException('Invalid size. Too small for a real extension archive');
 			}
 
 			$archive= new ZipArchive();
 			if( $archive->open($pathArchive) !== true ) {
-				throw new Exception('Can\'t open archive file');
+				throw new TodoyuException('Can\'t open archive file');
 			}
 
 			$checkFile	= 'config' . DIR_SEP . 'boot.php';
 
 			if( $archive->statName($checkFile) === false ) {
-				throw new Exception($checkFile . ' not found in archive');
+				throw new TodoyuException($checkFile . ' not found in archive');
 			}
-		} catch(Exception $e) {
+		} catch(TodoyuException $e) {
 			if( isset($archive) && $archive instanceof ZipArchive ) {
 				$archive->close();
 			}
