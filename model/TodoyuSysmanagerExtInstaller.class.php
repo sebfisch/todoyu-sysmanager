@@ -494,7 +494,7 @@ class TodoyuSysmanagerExtInstaller {
 			$dependents	= TodoyuExtensions::getDependents($extKey);
 			$extInfos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 
-			$message	= Todoyu::Label('sysmanager.extension.uninstall.cannotuninstall') . ' "' . htmlentities($extInfos['title'], ENT_QUOTES, 'UTF-8', false) . '" (' . $extKey . ').<br />' . Todoyu::Label('sysmanager.extension.thefollowingextdependsonit') . implode(', ', $dependents);
+			$message	= Todoyu::Label('sysmanager.extension.uninstall.cannotuninstall') . ' "' . htmlentities($extInfos['title'], ENT_QUOTES, 'UTF-8', false) . '" (' . $extKey . ').<br />' . Todoyu::Label('sysmanager.extension.uninstall.thefollowingextdependsonit') . implode(', ', $dependents);
 		} elseif( TodoyuExtensions::isSystemExtension($extKey) ) {
 			$extInfos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 			$message	= '"' . htmlentities($extInfos['title'], ENT_QUOTES, 'UTF-8', false) . '" ' . Todoyu::Label('sysmanager.extension.uninstall.error.sysext');
