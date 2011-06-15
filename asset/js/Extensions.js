@@ -69,6 +69,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 		}
 
 		Todoyu.Ui.updateContent(url, options);
+		Todoyu.Ui.scrollToTop();
 	},
 
 

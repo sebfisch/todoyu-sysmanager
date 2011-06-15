@@ -199,9 +199,8 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 		} else {
 			Todoyu.notifySuccess('[LLL:sysmanager.repository.extension.install.success]');
 			this.repo.closeDialog();
-
 			Effect.SlideUp('repository-search-ext-' + extKey);
-			this.updateResults();
+			this.ext.Extensions.showTab(extKey, 'info');
 		}
 	}
 
