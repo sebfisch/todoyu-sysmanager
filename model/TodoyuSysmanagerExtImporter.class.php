@@ -32,13 +32,18 @@ class TodoyuSysmanagerExtImporter {
 	 *
  	 * @param	String		$extKey
  	 * @param	String		$pathArchive
+	 * @return	Boolean
 	 */
 	public static function importExtensionArchive($extKey, $pathArchive) {
-		$archive	= new ZipArchive();
-		$archive->open($pathArchive);
 		$extDir		= TodoyuExtensions::getExtPath($extKey);
 
-		$archive->extractTo($extDir);
+		try {
+			TodoyuArchiveManager::extractTo($pathArchive, $extDir);
+		} catch(TodoyuException $e) {
+			return false;
+		}
+
+		return true;
 	}
 
 
@@ -104,6 +109,10 @@ class TodoyuSysmanagerExtImporter {
 			}
 			TodoyuLogger::logError('Invalid extension import: ' . $e->getMessage());
 			return $e->getMessage();
+		}
+
+		if( isset($archive) && $archive instanceof ZipArchive ) {
+			$archive->close();
 		}
 
 		return true;
