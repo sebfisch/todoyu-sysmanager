@@ -101,7 +101,13 @@
 	width:40px;
 }
 
-	/* list icons */
+div.state dl,
+div.state dd {
+	float:left;
+}
+
+
+	/* List icons */
 .extlist td.edit a {
 	width:18px;
 	height:18px;

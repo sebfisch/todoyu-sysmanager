@@ -3,7 +3,8 @@
 	<label index="extension">Extension</label>
 	<label index="key">Erweiterungskennung</label>
 	<label index="keyAbbr">Ext-Key</label>
-	<label index="versionstate">Version / Status</label>
+	<label index="version">Version</label>
+	<label index="state">Status</label>
 	<label index="author">Autor</label>
 	<label index="dependencies">Abhängig von</label>
 	<label index="conflicts">Konflikte mit</label>

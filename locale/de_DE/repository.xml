@@ -7,10 +7,10 @@
 	<label index="core.cancelUpdate">System-Update abbrechen</label>
 	<label index="update.newversion">Neue Version</label>
 	<label index="update.yourversion">Ihre Version</label>
-	<label index="update.releasedate">Veröffentlichungsdatum</label>
+	<label index="update.releasedate">Veröffentlicht</label>
 	<label index="update.noupdatesavailable">Es liegen keine Updates zu Erweiterungen vor.</label>
 	<label index="update.warning.majorupdate">Dies ist ein bedeutendes (major) Update einer bereits installierten Erweiterung. Die vorhandene Erweiterung wird vollständig durch die neue Version ersetzt.</label>
-	<label index="update.warning.general">Aktualisierungen und Erweiterungs-Updates können neue Funktionalitäten beinhalten, welche zu Problemen führen können. Es können auch Änderungen der Datenbank vorliegen. Bitte erstellen Sie vor einer Aktualisierung Kopien Ihrer Dateien und Datenbank.</label>
+	<label index="update.warning.general">Aktualisierungen und Erweiterungs-Updates können neue Funktionalitäten beinhalten, welche unter Umständen zu Problemen führen können. Es können auch Änderungen der Datenbank vorliegen. Bitte erstellen Sie vor einer Aktualisierung Kopien Ihrer Dateien und Datenbank.</label>
 	<label index="update.versionInformation">Versions-Informationen</label>
 	<label index="noNewExtensionsFound">Keine neuen Erweiterungen gefunden. Sie haben bereit alle verfügbaren Erweiterungen installiert</label>
 	<label index="noExtensionsFoundForQuery">Keine Erweiterungen gefunden die auf den Suchbegriff zutreffen</label>
