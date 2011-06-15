@@ -11,8 +11,8 @@
 	<label index="extensionsFound">%s extensions found</label>
 	<label index="extension.moreDetails">More Details</label>
 	<label index="extension.install">Install Extension</label>
-	<label index="extension.update">Update Extension</label>
 	<label index="extension.installed">Installed</label>
+	<label index="extension.update">Update Extension</label>
 	<label index="extension.install.cancel">Cancel install</label>
 	<label index="extension.install.useLicense">use one of my licenses</label>
 	<label index="extension.install.licenseRequired">License for extension is required!</label>
@@ -20,7 +20,7 @@
 	<label index="extension.installUpdate.cancel">Cancel installation of update</label>
 	<label index="extension.downloads">Downloads</label>
 	<label index="extension.newversion">New version</label>
-	<label index="extension.newversion">Your version</label>
+	<label index="extension.yourversion">Your version</label>
 	<label index="extension.releasedate">Release date</label>
 	<label index="extension.noupdatesavailable">No extension updates available.</label>
 	<label index="extension.costs.free">Free</label>
@@ -34,7 +34,7 @@
 	<label index="core.installUpdate">Install Kernel Update</label>
 	<label index="error.extension.noVersionInformation">No Version Information</label>
 	<label index="error.unresolvedDependencies">There are unresolved dependencies</label>
-	<label index="error.unresolvedDependencies">There are unresolved conflicts</label>
+	<label index="error.unresolvedConflicts">There are unresolved conflicts</label>
 	<label index="error.downloadNoArchiveForExtVersion">The update archive for this version is missing</label>
 	<label index="error.downloadNoArchiveForCoreVersion">The update archive for this version is missing</label>
 	<label index="error.downloadNoFileAccess">You are not allowed to download this file</label>
