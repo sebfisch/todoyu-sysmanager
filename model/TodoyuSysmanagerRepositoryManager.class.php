@@ -277,7 +277,11 @@ class TodoyuSysmanagerRepositoryManager {
 			throw new TodoyuException($canImport);
 		}
 
+			// Import to todoyu extension folder
 		TodoyuSysmanagerExtImporter::importExtensionArchive($extKey, $pathArchive);
+
+			// Delete temporary file
+		TodoyuFileManager::deleteFile($pathArchive);
 
 		return true;
 	}
