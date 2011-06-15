@@ -18,6 +18,7 @@
 	<label index="extension.install.confirm">Diese Erweiterung installieren?</label>
 	<label index="extension.install.useLicense">eine meiner Lizensen verwenden</label>
 	<label index="extension.install.licenseRequired">Es wird eine Erweiterungs-Lizens benötigt!</label>
+	<label index="extension.installUpdate">Erweiterungs-Update installieren</label>
 	<label index="extension.installUpdate.cancel">Update Installation abbrechen</label>
 	<label index="extension.downloads">Downloads</label>
 	<label index="extension.newversion">Neue Version</label>
@@ -32,6 +33,7 @@
 	<label index="license.buyinrepository">Erweiterung im todoyu Erweiterungsverzeichnis (tER) kaufen</label>
 	<label index="license.question.activatefordomain">Möchten sie eine Lizens für diese Domain aktivieren:</label>
 	<label index="license.acquiredavailable">Sie besitzen %s freie Lizenzen.</label>
+	<label index="core.installUpdate">Kern-Update Installieren</label>
 	<label index="error.extension.noVersionInformation">Versions-Daten fehlen</label>
 	<label index="error.unresolvedDependencies">Es bestehen ungelöste Abhängigkeiten</label>
 	<label index="error.unresolvedConflicts">Es bestehen ungelöste Konflikte</label>

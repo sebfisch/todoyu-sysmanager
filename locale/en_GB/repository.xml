@@ -10,7 +10,6 @@
 	<label index="extension.moreDetails">More Details</label>
 	<label index="extension.installUpdate">Install Update</label>
 	<label index="extensionsFound">%s extensions found</label>
-	<label index="extension.moreDetails">More Details</label>
 	<label index="extension.install">Install Extension</label>
 	<label index="extension.installed">Installed</label>
 	<label index="extension.update">Update Extension</label>
@@ -34,7 +33,7 @@
 	<label index="license.buyinrepository">Buy extension in todoyu extension repository</label>
 	<label index="license.question.activatefordomain">Do you want do activate one for this domain:</label>
 	<label index="license.acquiredavailable">You have %s free licenses.</label>
-	<label index="core.installUpdate">Install Kernel Update</label>
+	<label index="core.installUpdate">Install Core Update</label>
 	<label index="error.extension.noVersionInformation">No Version Information</label>
 	<label index="error.unresolvedDependencies">There are unresolved dependencies</label>
 	<label index="error.unresolvedConflicts">There are unresolved conflicts</label>
