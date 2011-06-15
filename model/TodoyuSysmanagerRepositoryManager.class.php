@@ -125,7 +125,9 @@ class TodoyuSysmanagerRepositoryManager {
 			$extInfo	= self::getRepoInfo($extKey);
 
 				// Buy extension if it's commercial
-			self::registerCommercialExtension($extInfo['ext_key'], $majorVersion);
+			if( $extInfo['commercial'] ) {
+				self::registerCommercialExtension($extInfo['ext_key'], $majorVersion);
+			}
 
 				// Download and install extension
 			$idVersion	= intval($extInfo['version']['id']);
