@@ -3,14 +3,15 @@
 	<label index="form">Search in todoyu extension repository</label>
 	<label index="query">Search by keyword</label>
 	<label index="by">By</label>
-	<label index="extension.moreDetails">More Details</label>
-	<label index="extension.installUpdate">Install Update</label>
 	<label index="core.installUpdate">Install Core Update</label>
 	<label index="noNewExtensionsFound">Found no new extensions. You already have everything installed from the market place</label>
 	<label index="noExtensionsFoundForQuery">No extensions found in the market which are matching this query</label>
+	<label index="extension.moreDetails">More Details</label>
+	<label index="extension.installUpdate">Install Update</label>
 	<label index="extensionsFound">%s extensions found</label>
 	<label index="extension.moreDetails">More Details</label>
 	<label index="extension.install">Install Extension</label>
+	<label index="extension.update">Update Extension</label>
 	<label index="extension.installed">Installed</label>
 	<label index="extension.install.cancel">Cancel install</label>
 	<label index="extension.install.useLicense">use one of my licenses</label>
@@ -21,6 +22,7 @@
 	<label index="extension.newversion">New version</label>
 	<label index="extension.newversion">Your version</label>
 	<label index="extension.releasedate">Release date</label>
+	<label index="extension.noupdatesavailable">No extension updates available.</label>
 	<label index="extension.costs.free">Free</label>
 	<label index="extension.costs.commercial">Commercial</label>
 	<label index="extension.warning.majorupdate">This is a major version update of an existing extension. The existing extension will be completely overwritten with the new one.</label>
