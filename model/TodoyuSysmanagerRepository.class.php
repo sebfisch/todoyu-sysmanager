@@ -203,7 +203,7 @@ class TodoyuSysmanagerRepository {
 			$postData['info'] = array();
 		}
 
-		TodoyuDebug::printInFireBug($postData, 'postData');
+//		TodoyuDebug::printInFireBug($postData, 'postData');
 //		TodoyuDebug::printInFireBug(serialize($postData['data']), 'data');
 //		TodoyuDebug::printInFireBug(serialize($postData['info']), 'info');
 
