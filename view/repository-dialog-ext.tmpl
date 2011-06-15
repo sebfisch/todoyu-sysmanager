@@ -6,7 +6,7 @@
 		{if $info.version.version_information}
 			{$info.version.version_information}
 		{else}
-			{Label sysmanager.repository.error.extension.noVersionInformation}
+			{Label sysmanager.repository.error.noVersionInformation}
 		{/if}
 	</div>
 
@@ -21,7 +21,7 @@
 				<td>{$info.ext_key}</td>
 			</tr>
 			<tr>
-				<th>{Label core.global.title}</th>
+				<th>{Label core.global.version}</th>
 				<td>{$info.version.version}</td>
 			</tr>
 			<tr>
