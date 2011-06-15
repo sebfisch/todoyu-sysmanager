@@ -210,8 +210,6 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$data['install']	= !$isUpdate;
 		$data['dialogClass']= $isUpdate ? 'extUpdate' : 'extInstall';
 
-//		TodoyuDebug::printInFireBug($data, '$data');
-
 		return Todoyu::render($tmpl, $data);
 	}
 
@@ -223,11 +221,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * @return	String
 	 */
 	public static function renderCoreUpdateDialog() {
-		$tmpl	= 'ext/sysmanager/view/repository-dialog-core.tmpl';
-
+		$tmpl		= 'ext/sysmanager/view/repository-dialog-core.tmpl';
 		$coreUpdate	= TodoyuSysmanagerRepositoryManager::getRepoInfo('core');
-
-//		TodoyuDebug::printInFireBug($coreUpdate, '$coreUpdate');
 
 		$data	= array(
 			'update'	=> $coreUpdate

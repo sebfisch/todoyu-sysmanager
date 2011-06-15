@@ -204,8 +204,6 @@ class TodoyuSysmanagerRepository {
 		}
 
 //		TodoyuDebug::printInFireBug($postData, 'postData');
-//		TodoyuDebug::printInFireBug(serialize($postData['data']), 'data');
-//		TodoyuDebug::printInFireBug(serialize($postData['info']), 'info');
 
 		try {
 			$this->response = TodoyuRequest::sendPostRequest($config['host'], $config['get'], $postData, 'data');
@@ -218,7 +216,6 @@ class TodoyuSysmanagerRepository {
 		$this->response['content']		= json_decode($this->response['content'], true);
 
 //		TodoyuDebug::printInFireBug($this->response['content'], 'response');
-//		TodoyuDebug::printInFireBug($this->response['content_raw'], 'content_raw');
 
 		return $this->response['content'];
 	}

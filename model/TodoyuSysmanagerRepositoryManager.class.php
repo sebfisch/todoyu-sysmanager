@@ -223,12 +223,10 @@ class TodoyuSysmanagerRepositoryManager {
 
 			// Prepare paths
 		$pathTempUpdateFolder	= TodoyuFileManager::pathAbsolute($pathTemp . '/todoyu');
-		$pathTodoyuRoot			= PATH . '/dummyupdate/xxx';
+		$pathTodoyuRoot			= PATH; // . '/dummyupdate/xxx';
 
 			// Remove elements which should not be overwritten from temp update folder
 		self::removeLocalElementsFromCoreUpdate($pathTempUpdateFolder);
-
-//		TodoyuDebug::printInFireBug('Updated into cache instead real core!');
 
 		TodoyuFileManager::moveRecursive($pathTempUpdateFolder, $pathTodoyuRoot);
 		TodoyuFileManager::deleteFolder($pathTemp);
