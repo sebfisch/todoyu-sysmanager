@@ -70,7 +70,7 @@
 
 				<div class="right">
 					<div class="installed">{Label sysmanager.repository.extension.installed}: {$extUpdate.installed}</div>
-					<div class="version">{Label sysmanager.extension.newversion} {$extUpdate.version.version}</div>
+					<div class="version">{Label sysmanager.repository.extension.newversion} {$extUpdate.version.version}</div>
 					<div class="state">{ExtensionStatusIcon $extUpdate.version.state}&nbsp;</div>
 					<div class="date">{Label core.date.date}: {dateFormat $extUpdate.version.date_update date}</div>
 				</div>
@@ -79,8 +79,8 @@
 					{$hasDependencies = sizeof($extUpdate.version.dependencies)}
 					{$hasConflicts = sizeof($extUpdate.version.conflicts)}
 					{$preventInstall = $hasDependencies+$hasConflicts}
-					{Button disabled=$preventInstall class="update" label="symanager.repository.extension.update" onclick="Todoyu.Ext.sysmanager.Repository.Update.showExtensionUpdateDialog('$extUpdate.ext_key')"}
-					{Button label="symanager.repository.moreInfo" class="info" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extUpdate.ter_link')"}
+					{Button disabled=$preventInstall class="update" label="sysmanager.repository.extension.update" onclick="Todoyu.Ext.sysmanager.Repository.Update.showExtensionUpdateDialog('$extUpdate.ext_key')"}
+					{Button label="sysmanager.repository.moreInfo" class="info" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extUpdate.ter_link')"}
 				</div>
 
 				<div class="clear"></div>
