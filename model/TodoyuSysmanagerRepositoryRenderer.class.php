@@ -210,8 +210,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$data['install']	= !$isUpdate;
 		$data['dialogClass']= $isUpdate ? 'extUpdate' : 'extInstall';
 
-		TodoyuDebug::printInFireBug($data, '$data');
-
+//		TodoyuDebug::printInFireBug($data, '$data');
 
 		return Todoyu::render($tmpl, $data);
 	}

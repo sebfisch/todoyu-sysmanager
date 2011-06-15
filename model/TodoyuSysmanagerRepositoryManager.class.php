@@ -228,7 +228,7 @@ class TodoyuSysmanagerRepositoryManager {
 			// Remove elements which should not be overwritten from temp update folder
 		self::removeLocalElementsFromCoreUpdate($pathTempUpdateFolder);
 
-		TodoyuDebug::printInFireBug('Updated into cache instead real core!');
+//		TodoyuDebug::printInFireBug('Updated into cache instead real core!');
 
 		TodoyuFileManager::moveRecursive($pathTempUpdateFolder, $pathTodoyuRoot);
 		TodoyuFileManager::deleteFolder($pathTemp);

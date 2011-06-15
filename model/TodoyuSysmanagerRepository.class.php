@@ -217,7 +217,7 @@ class TodoyuSysmanagerRepository {
 		$this->response['content_raw']	= $this->response['content'];
 		$this->response['content']		= json_decode($this->response['content'], true);
 
-		TodoyuDebug::printInFireBug($this->response['content'], 'response');
+//		TodoyuDebug::printInFireBug($this->response['content'], 'response');
 //		TodoyuDebug::printInFireBug($this->response['content_raw'], 'content_raw');
 
 		return $this->response['content'];
