@@ -125,8 +125,19 @@ function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $compiler, $extKey) {
  * @return	String
  */
 function Dwoo_Plugin_ExtensionStatusIcon(Dwoo $dwoo, $state) {
-	if( ! in_array($state, array('alpha', 'beta', 'stable')) ) {
+	$states	= array(
+		0		=> 'alpha',
+		1		=> 'beta',
+		2		=> 'stable',
+		'alpha'	=> 'alpha',
+		'beta'	=> 'beta',
+		'stable'=> 'stable'
+	);
+
+	if( ! array_key_exists($state, $states) ) {
 		$state	= 'alpha';
+	} else {
+		$state	= $states[$state];
 	}
 
 	return '<span class="extensionstate ' . $state . '"></span>';
