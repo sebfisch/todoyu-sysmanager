@@ -10,6 +10,7 @@
 	<label index="showInfo">Show Extension Information</label>
 	<label index="configure">Configure Extension</label>
 	<label index="download">Download Extension</label>
+	<label index="delete">Delete extension from server</label>
 	<label index="loadfromter">Load extension from tER</label>
 	<label index="importfromarchive">Import an extension from archive</label>
 	<label index="rights">Rights</label>

@@ -4,6 +4,7 @@
 	<label index="query">Search by keyword</label>
 	<label index="by">By</label>
 	<label index="core.installUpdate">Install Core Update</label>
+	<label index="core.cancelUpdate">Cancel Core Update</label>
 	<label index="noNewExtensionsFound">Found no new extensions. You already have everything installed from the market place</label>
 	<label index="noExtensionsFoundForQuery">No extensions found in the market which are matching this query</label>
 	<label index="extension.moreDetails">More Details</label>
@@ -25,7 +26,7 @@
 	<label index="extension.noupdatesavailable">No extension updates available.</label>
 	<label index="extension.costs.free">Free</label>
 	<label index="extension.costs.commercial">Commercial</label>
-	<label index="extension.warning.majorupdate">This is a major version update of an existing extension. The existing extension will be completely overwritten with the new one.</label>
+	<label index="extension.warning.majorupdate">This is a major version update of an installed extension . The existing extension will be completely overwritten with the new one.</label>
 	<label index="extension.warning.general">New versions and extensions can contain new features which may cause problems. There may also be database changes. Make sure you have a regular backup of your files and your database.</label>
 	<label index="license.label.accept">Accept License</label>
 	<label index="license.buyinrepository">Buy extension in todoyu extension repository</label>
@@ -47,5 +48,4 @@
 	<label index="moreInfo">More information</label>
 	<label index="connectionFailed">Connection To Repository Failed</label>
 	<label index="connectionFailed.info">Please make sure your sever can open a connection to the internet</label>
-
 </labels>

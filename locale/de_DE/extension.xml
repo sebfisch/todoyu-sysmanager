@@ -10,6 +10,7 @@
 	<label index="showInfo">Zeige Infos zur Erweiterung</label>
 	<label index="configure">Erweiterung konfigurieren</label>
 	<label index="download">Erweiterung herunterladen</label>
+	<label index="delete">Erweiterung vom Server löschen</label>
 	<label index="loadfromter">Erweiterung aus dem tER laden</label>
 	<label index="importfromarchive">Eine Erweiterung aus einem Archiv importieren</label>
 	<label index="rights">Rechte</label>

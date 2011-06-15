@@ -79,8 +79,8 @@
 					{$hasDependencies = sizeof($extUpdate.version.dependencies)}
 					{$hasConflicts = sizeof($extUpdate.version.conflicts)}
 					{$preventInstall = $hasDependencies+$hasConflicts}
-					{Button disabled=$preventInstall class="update" label="LLL:symanager.repository.extension.update" onclick="Todoyu.Ext.sysmanager.Repository.Update.showExtensionUpdateDialog('$extUpdate.ext_key')"}
-					{Button label="LLL:symanager.repository.moreInfo" class="info" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extUpdate.ter_link')"}
+					{Button disabled=$preventInstall class="update" label="symanager.repository.extension.update" onclick="Todoyu.Ext.sysmanager.Repository.Update.showExtensionUpdateDialog('$extUpdate.ext_key')"}
+					{Button label="symanager.repository.moreInfo" class="info" onclick="Todoyu.Ext.sysmanager.Repository.showExtensionInTER('$extUpdate.ter_link')"}
 				</div>
 
 				<div class="clear"></div>
