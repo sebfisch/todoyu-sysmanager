@@ -210,12 +210,7 @@ class TodoyuSysmanagerRepositoryManager {
 		$pathTemp	= TodoyuFileManager::pathAbsolute('cache/update/' . md5(time()));
 
 			// Extract archive
-		$archive	= new ZipArchive();
-		$archive->open($pathArchive);
-
-		$success	= $archive->extractTo($pathTemp);
-
-		$archive->close();
+		$success	= TodoyuArchiveManager::extractTo($pathArchive, $pathTemp);
 
 		if( $success === false ) {
 			throw new TodoyuException('Extraction of core update archive failed');
