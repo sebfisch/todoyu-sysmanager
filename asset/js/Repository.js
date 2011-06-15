@@ -21,10 +21,22 @@
  * @module	Sysmanager
  */
 
+/**
+ * System manager repository connection
+ *
+ * @class		Repository
+ * @namespace	Todoyu.Ext.sysmanager
+ */
 Todoyu.Ext.sysmanager.Repository = {
 
 	ext: Todoyu.Ext.sysmanager,
 
+	/**
+	 * Dialog popup instance
+	 *
+	 * @property	dialog
+	 * @type		Todoyu.Popup
+	 */
 	dialog: null,
 
 	/**
@@ -107,6 +119,7 @@ Todoyu.Ext.sysmanager.Repository = {
 			list.on('click', 'li', this.onWarningClick.bind(this, type));
 		}, this);
 	},
+
 
 
 	/**
