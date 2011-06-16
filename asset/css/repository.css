@@ -1,8 +1,8 @@
-/** ----------------------
+/* -----------------------
 	Extension Listing
-	----------------------*/
+   -----------------------*/
 .extListing .extension {
-	border-bottom:1px solid #CCC;
+	border-bottom:1px solid #ccc;
 	margin-bottom:10px;
 	padding-bottom:10px;
 	position:relative;
@@ -23,9 +23,8 @@
 .extListing .extension .right {
 	width:180px;
 	padding-left:10px;
-	border-left:1px dashed #CCC;
+	border-left:1px dashed #ccc;
 }
-
 
 .extListing .extension h5 {
 	border-bottom:none;
@@ -53,7 +52,7 @@
 
 .extListing .extension .right div {
 	padding:5px;
-	border-bottom:1px dashed #CCC;
+	border-bottom:1px dashed #ccc;
 }
 
 .extListing .extension .bottom {
@@ -88,15 +87,14 @@
 
 
 
-/** ----------------------
+/* -----------------------
 	Warnings
-	----------------------*/
-
+   -----------------------*/
 .extListing .extension .warning {
 	margin-top:10px;
 	padding:5px;
-	border:2px dashed #F00;
-	background-color:#F0F0F0;
+	border:2px dashed #f00;
+	background-color:#f0f0f0;
 }
 
 .extListing .extension .warning ul {
@@ -105,37 +103,30 @@
 }
 
 .extListing .extension .warning ul li {
-	color:#F00;
+	color:#f00;
 	cursor:pointer;
 }
 
 
 
-
-
-
-/** ----------------------
+/* -----------------------
 	Search
-	----------------------*/
+   -----------------------*/
 .extensionSearch .control {
 	margin-bottom:10px;
 }
 
-.extensionSearch .results {
-
-}
-
 .extensionSearch .resultinfo {
 	padding:10px;
-	background-color:#EFEFEF;
+	background-color:#efefef;
 	margin-bottom:10px;
 }
 
 
 
-/** ----------------------
+/* ----------------------
 	Connection error
-	----------------------*/
+   -----------------------*/
 .extensionSearch .resultinfo.error .title {
 	font-weight: bold;
 	font-size: 16px;
@@ -151,10 +142,9 @@
 
 
 
-
-/** ----------------------
+/* -----------------------
 	Updates
-	----------------------*/
+   -----------------------*/
 
 /* Core update */
 .repositoryUpdates .coreUpdate {
@@ -181,9 +171,9 @@
 
 
 
-/** ----------------------
+/* -----------------------
 	Dialog
-	----------------------*/
+   -----------------------*/
 .repositoryDialog {
 	padding:10px;
 }
@@ -202,7 +192,7 @@
 }
 .repositoryDialog .info {
 	margin-top:5px;
-	border:1px solid #CCC;
+	border:1px solid #ccc;
 	padding:5px;
 	text-align:center;
 }
@@ -211,7 +201,6 @@
 	width:240px;
 	margin-left:20px;
 }
-
 
 .repositoryDialog .versionDetails table td,
 .repositoryDialog .versionDetails table th {
@@ -234,7 +223,7 @@
 }
 
 .repositoryDialog .versionInformation {
-	background-color:#FFF;
+	background-color:#fff;
 	padding:10px;
 	text-align:left;
 	width:300px;
@@ -251,12 +240,11 @@
 }
 
 
-/** --------------------------------
+/* ---------------------------------
 	Extension Dialog
-	--------------------------------*/
-
+   ---------------------------------*/
 .repositoryDialog.extensionDialog .warning {
-	background-color:#FFCC00;
+	background-color:#ffcc00;
 }
 
 .repositoryDialog.extensionDialog button.install .icon {
@@ -264,16 +252,10 @@
 }
 
 
-/** --------------------------------
-	Extension Update Dialog
-	--------------------------------*/
 
-
-
-
-/** --------------------------------
+/* ---------------------------------
 	Extension Installation Dialog
-	--------------------------------*/
+   ---------------------------------*/
 .repositoryDialog.extensionDialog.extInstall .license {
 	background-color:#fff;
 	height:200px;
@@ -288,7 +270,7 @@
 }
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense {
-	background-color:#FFF;
+	background-color:#fff;
 }
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense input {
@@ -296,19 +278,19 @@
 }
 
 .repositoryDialog.extensionDialog.extInstall .licenseinfo {
-	background-color:#FF0;
+	background-color:#ff0;
 }
 
 .repositoryDialog.extensionDialog.extInstall .warningMajorUpdate {
-	background-color:#F00;
-	color:#FFF;
+	background-color:#f00;
+	color:#fff;
 }
+
 
 
 /** --------------------------------
 	Core Update Dialog
 	--------------------------------*/
-
 .repositoryDialog.coreDialog button.install .icon {
 	background:url(../img/icons.png) no-repeat 0 -28px;
 }
