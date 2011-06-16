@@ -17,6 +17,16 @@
  * This copyright notice MUST APPEAR in all copies of the script.
  *****************************************************************************/
 
+/**
+ * @module	Sysmanager
+ */
+
+/**
+ * Repository Update
+ *
+ * @class		Update
+ * @namespace	Todoyu.Ext.sysmanager.Repository
+ */
 Todoyu.Ext.sysmanager.Repository.Update = {
 
 	/**
@@ -48,7 +58,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 		var url		= this.repo.getUrl();
 		var options	= {
 			parameters: {
-				action:		'refreshUpdateList'
+				action:	'refreshUpdateList'
 			},
 			onComplete:	onComplete || Prototype.emptyFunction
 		};
@@ -65,7 +75,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 		var url		= this.repo.getUrl();
 		var options	= {
 			parameters: {
-				action:		'coreUpdateDialog'
+				action:	'coreUpdateDialog'
 			}
 		};
 
@@ -92,7 +102,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * @param	{String}	extkey
 	 */
 	installExtensionUpdate: function(extkey) {
-		if( confirm('Install this update?') ) {
+		if( confirm('[LLL:sysmanager.repository.extension.update.confirm]') ) {
 			var url		= this.repo.getUrl();
 			var options	= {
 				parameters: {
@@ -120,7 +130,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 
 			Todoyu.notifyError(error);
 		} else {
-			Todoyu.notifySuccess('Extension update was installed', 10);
+			Todoyu.notifySuccess('[LLL:sysmanager.repository.extension.update.success]', 10);
 			this.repo.dialog.close();
 			this.refreshUpdateList();
 		}
@@ -134,7 +144,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * @method	installCoreUpdate
 	 */
 	installCoreUpdate: function() {
-		if( confirm('Install core update?') ) {
+		if( confirm('[LLL:sysmanager.repository.core.update.confirm]') ) {
 			var url		= this.repo.getUrl();
 			var options	= {
 				parameters: {
@@ -161,12 +171,12 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 
 			Todoyu.notifyError(error);
 		} else {
-			Todoyu.notifySuccess('Core update was installed');
+			Todoyu.notifySuccess('[LLL:sysmanager.repository.core.update.success]', 10);
 			this.repo.dialog.close();
 
 			new Todoyu.LoaderBox('update', {
 				block: 	true,
-				text: 	'Core was updated. Reload todoyu and rebuild cached. Please be patient',
+				text: 	'[LLL:sysmanager.repository.core.core.update.reload]',
 				show:	true
 			});
 

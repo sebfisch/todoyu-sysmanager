@@ -20,6 +20,8 @@
 	<label index="extension.install">Install Extension</label>
 	<label index="extension.installed">Installed</label>
 	<label index="extension.update">Update Extension</label>
+	<label index="extension.update.confirm">Install this extension update?</label>
+	<label index="extension.update.success">Extension update was installed successfully</label>
 	<label index="extension.install.cancel">Cancel install</label>
 	<label index="extension.install.success">Extension was successfully installed</label>
 	<label index="extension.install.confirm">Install this extension?</label>
@@ -30,6 +32,9 @@
 	<label index="extension.downloads">Downloads</label>
 	<label index="extension.costs.free">Free</label>
 	<label index="extension.costs.commercial">Commercial</label>
+	<label index="core.update.confirm">Install core update?</label>
+	<label index="core.update.success">Core update was installed successfully</label>
+	<label index="core.update.reload">Core was updated. Reload todoyu and rebuild cached. Please be patient</label>
 	<label index="error.noVersionInformation">No Version Information</label>
 	<label index="error.unresolvedDependencies">There are unresolved dependencies</label>
 	<label index="error.unresolvedConflicts">There are unresolved conflicts</label>
