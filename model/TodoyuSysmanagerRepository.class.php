@@ -174,7 +174,7 @@ class TodoyuSysmanagerRepository {
 		if( $response['registered'] ) {
 			return true;
 		} else {
-			return Todoyu::Label('sysmanager.repository.error.' . $response['message']) ;
+			return Todoyu::Label('sysmanager.repository.error.' . $response['message']);
 		}
 	}
 

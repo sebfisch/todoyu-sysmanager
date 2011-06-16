@@ -98,7 +98,7 @@ class TodoyuSysmanagerRightsEditorManager {
 					'require'	=> array()
 				);
 
-				$rightRequire	= $right['require'] ? explode(',', $right['require']) : array() ;
+				$rightRequire	= $right['require'] ? explode(',', $right['require']) : array();
 
 				$data[$sectionName]['rights'][$rightName]['require'] = array_merge($sectionRequire, $rightRequire);
 			}

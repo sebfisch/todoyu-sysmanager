@@ -24,7 +24,7 @@
 			<span class="hidden">info</span>
 		</a>
 
-		<a href="javascript:void(0)" title="config"
+		<a href="javascript:void(0)" title="{Label sysmanager.ext.tabs.config}"
 			{if extMgr_hasConfig($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'config')" class="config">
 			{else}
@@ -42,7 +42,7 @@
 			<span class="hidden">rights</span>
 		</a>
 
-		<a href="javascript:void(0)" title="records"
+		<a href="javascript:void(0)" title="{Label core.global.records}"
 			{if extMgr_hasRecords($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showRecords('{$extKey}')" class="records">
 			{else}

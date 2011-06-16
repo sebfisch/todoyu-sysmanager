@@ -145,6 +145,16 @@ class TodoyuSysmanagerExtManagerRenderer {
 			$active	= $extKey . '_' . $tab;
 		}
 
+			// Remove config tab if extension has no configuration
+		if( ! TodoyuSysmanagerExtManager::extensionHasConfig($extKey) ) {
+			foreach($tabs as $index => $tabConfig) {
+				if( $tabConfig['id'] === $extKey . '_config' ) {
+					unset($tabs[$index]);
+					break;
+				}
+			}
+		}
+
 		return TodoyuTabheadRenderer::renderTabs($name, $tabs, $jsHandler, $active, $class);
 	}
 
