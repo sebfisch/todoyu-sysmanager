@@ -50,7 +50,7 @@
 	<label index="roles.delete.notify.success">Rolle wurde gelöscht.</label>
 	<label index="roles.edit">Rolle bearbeiten</label>
 	<label index="create.role.label">Neue Rolle</label>
-	<label index="config.logo.upload.ok">Das neue Logo wurde erfolgreich hochgeladen</label>
+	<label index="config.logo.upload.ok">Das neue Logo wurde erfolgreich hochgeladen. Bitte leeren Sie den Browser-Cache</label>
 	<label index="config.logo.upload.error">Hochladen des Logos ist fehlgeschlagen</label>
 	<label index="config.tab.systemconfig">System Einstellungen</label>
 	<label index="config.tab.systemconfig.name">System Name</label>

@@ -50,7 +50,7 @@
 	<label index="roles.delete.notify.success">Role has been deleted.</label>
 	<label index="roles.edit">Edit Role</label>
 	<label index="create.role.label">New Role</label>
-	<label index="config.logo.upload.ok">Logo has been uploaded successfully</label>
+	<label index="config.logo.upload.ok">Logo has been uploaded successfully. Please clear your browser cache</label>
 	<label index="config.logo.upload.error">Logo Upload Failed</label>
 	<label index="config.tab.systemconfig">System Settings</label>
 	<label index="config.tab.systemconfig.name">System Name</label>
