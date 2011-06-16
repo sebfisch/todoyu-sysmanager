@@ -158,10 +158,9 @@
 
 /* Core update */
 .repositoryUpdates .coreUpdate {
-	padding:10px;
-	margin-bottom:20px;
+	padding:12px 12px 24px 12px;
+	margin:6px 0 20px 0;
 	background-color:#f8e68e;
-	border:1px solid #ccc;
 }
 
 .repositoryUpdates .coreUpdate .coreUpdateInfos {
