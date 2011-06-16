@@ -105,7 +105,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['logoUpload'] = array(
 	Settings for extension update
    ------------------------------------ */
 Todoyu::$CONFIG['EXT']['sysmanager']['update'] = array(
-	'host'			=> 'todoyuneu.srv05',
+	'host'			=> 'www.todoyu.com',
 	'get'			=> '?eID=todoyuupdate',
 	'ignoreElements'=> array(
 		'cache',

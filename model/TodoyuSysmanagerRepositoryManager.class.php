@@ -217,8 +217,8 @@ class TodoyuSysmanagerRepositoryManager {
 		}
 
 			// Prepare paths
-//		$pathTodoyuRoot			= PATH;
-		$pathTodoyuRoot			= PATH . '/dummyupdate';
+		$pathTodoyuRoot			= PATH;
+//		$pathTodoyuRoot			= PATH . '/dummyupdate';
 
 			// Remove elements which should not be overwritten from temp update folder
 		self::removeLocalElementsFromCoreUpdate($pathTemp);
