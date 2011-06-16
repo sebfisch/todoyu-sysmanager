@@ -23,6 +23,9 @@
 
 /**
  * Role manager
+ *
+ * @class		Roles
+ * @namespace	Todoyu.Ext.sysmanager
  */
 Todoyu.Ext.sysmanager.Roles = {
 

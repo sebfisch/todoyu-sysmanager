@@ -17,6 +17,16 @@
  * This copyright notice MUST APPEAR in all copies of the script.
  *****************************************************************************/
 
+/**
+ * @module	Sysmanager
+ */
+
+/**
+ * System manager repository search
+ *
+ * @class		Search
+ * @namespace	Todoyu.Ext.sysmanager.Repository
+ */
 Todoyu.Ext.sysmanager.Repository.Search = {
 
 	ext: Todoyu.Ext.sysmanager,

@@ -22,7 +22,10 @@
  */
 
 /**
- * Rights mask manager
+ * System rights mask manager
+ *
+ * @class		RightsEditor
+ * @namespace	Todoyu.Ext.sysmanager
  */
 Todoyu.Ext.sysmanager.RightsEditor = {
 

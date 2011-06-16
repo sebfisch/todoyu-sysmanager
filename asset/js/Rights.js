@@ -21,6 +21,12 @@
  * @module	Sysmanager
  */
 
+/**
+ * System manager rights
+ *
+ * @class		Rights
+ * @namespace	Todoyu.Ext.sysmanager
+ */
 Todoyu.Ext.sysmanager.Rights = {
 
 	/**
