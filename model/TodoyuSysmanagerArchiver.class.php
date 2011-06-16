@@ -36,10 +36,16 @@ class TodoyuSysmanagerArchiver {
 	public static function createExtensionArchive($extKey) {
 		$extPath	= TodoyuExtensions::getExtPath($extKey);
 
-		return TodoyuArchiveManager::createArchiveFromFolder($extPath, $extPath, true);
+		return TodoyuArchiveManager::createArchiveFromFolder($extPath);
 	}
 
 
+
+	/**
+	 * Create archive which contains the core
+	 *
+	 * @return	String
+	 */
 	public static function createCoreArchive() {
 		$exclude	= array(
 			'backup',
@@ -48,12 +54,8 @@ class TodoyuSysmanagerArchiver {
 			'files'
 		);
 
-		return TodoyuArchiveManager::createArchiveFromFolder(PATH, PATH, true, $exclude);
-
+		return TodoyuArchiveManager::createArchiveFromFolder(PATH, $exclude);
 	}
-
-
-
 
 }
 
