@@ -31,8 +31,8 @@
 	<label index="extension.downloads">Downloads</label>
 	<label index="extension.costs.free">Gratis</label>
 	<label index="extension.costs.commercial">Kommerziell</label>
-	<label index="core.update.confirm">Kern-Update</label>
-	<label index="core.update.success">System Aktualisierung wurde erfolgreich durchgeführt</label>
+	<label index="core.update.confirm">System-Aktualisierung installieren?</label>
+	<label index="core.update.success">System-Aktualisierung wurde erfolgreich durchgeführt</label>
 	<label index="core.update.reload">Das System wurde aktualisiert. Lade System neu und erstelle einen Cache. Bitte etwas Geduld</label>
 	<label index="error.noVersionInformation">Es liegen keine Versions-Informationen vor</label>
 	<label index="error.unresolvedDependencies">Es bestehen ungelöste Abhängigkeiten</label>
