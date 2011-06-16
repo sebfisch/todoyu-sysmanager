@@ -117,6 +117,14 @@ Todoyu::$CONFIG['EXT']['sysmanager']['update'] = array(
 );
 
 
+/* ----------------------------------------
+	Settings for todoyu ID registration
+   ---------------------------------------- */
+Todoyu::$CONFIG['EXT']['sysmanager']['todoyuID'] = array(
+	'url'			=> 'http://www.todoyu.com/index.php?id=todoyuid'
+);
+
+
 
 /* ------------------------------------
 	Configure listing for roles

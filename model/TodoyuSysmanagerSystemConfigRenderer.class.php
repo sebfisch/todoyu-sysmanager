@@ -149,7 +149,7 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	public static function renderTodoyuIDComment() {
 		$tmpl	= 'ext/sysmanager/view/repository-config-todoyuidcomment.tmpl';
 		$data	= array(
-			'url'	=> 'http://www.todoyu.com/index.php?id=todoyuid'
+			'url'	=> Todoyu::$CONFIG['EXT']['sysmanager']['todoyuID']['url']
 		);
 
 		return Todoyu::render($tmpl, $data);
