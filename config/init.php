@@ -134,7 +134,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 	),
 	'truncate'	=> array(
 		'title'			=> 30,
-		'description'	=> 20
+		'description'	=> 50
 	)
 );
 
