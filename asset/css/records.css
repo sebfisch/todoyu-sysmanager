@@ -2,6 +2,8 @@
 	background:url(../img/icons.png) no-repeat 1px -360px;
 }
 
+
+
 /* ----------------------------
 	Tables
    ---------------------------- */
@@ -13,6 +15,8 @@ table.recordsList td.actions div.icon {
 	cursor:pointer;
 	margin-right:5px;
 }
+
+
 
 /* ----------------------------
 	Tabs
@@ -35,7 +39,6 @@ table.recordsList td.actions div.icon {
 /* ----------------------------
 	Types of all extensions
    ---------------------------- */
-
 .typesAll td.icon {
 	width:15px;
 }
@@ -58,6 +61,7 @@ table.recordsList td.actions div.icon {
 .typesAll .actions .edit {
 	background:url(../img/icons.png) no-repeat 0 -629px;
 }
+
 
 
 /* ----------------------------
@@ -88,6 +92,7 @@ table.recordsList td.actions div.icon {
 }
 
 
+
 /* ----------------------------
 	Records listing
    ---------------------------- */
@@ -110,11 +115,6 @@ table.recordsList td.actions div.icon {
 .recordsListing .actions .delete {
 	background:url(../img/icons.png) no-repeat 0 -418px;
 }
-
-
-
-
-
 
 
 

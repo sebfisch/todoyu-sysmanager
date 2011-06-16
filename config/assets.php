@@ -105,11 +105,6 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/asset/css/recordsoverview.css',
-			'media'		=> 'all',
-			'position'	=> 102
-		),
-		array(
 			'file'		=> 'ext/sysmanager/asset/css/rights.css',
 			'media'		=> 'all',
 			'position'	=> 102
