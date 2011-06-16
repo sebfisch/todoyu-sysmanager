@@ -130,12 +130,29 @@ class TodoyuSysmanagerSystemConfigRenderer {
 		$form	= TodoyuFormManager::getForm($xml);
 
 		$data	= array(
-			'todoyuid'	=> trim(Todoyu::$CONFIG['SETTINGS']['repository']['todoyuid'])
+			'todoyuid'			=> trim(Todoyu::$CONFIG['SETTINGS']['repository']['todoyuid']),
+			'todoyuid_comment'	=> self::renderTodoyuIDComment()
 		);
 
 		$form->setFormData($data);
 
 		return $form->render();
+	}
+
+
+
+	/**
+	 * Render comment for todoyu ID field explanation with link to tER
+	 *
+	 * @return	String
+	 */
+	public static function renderTodoyuIDComment() {
+		$tmpl	= 'ext/sysmanager/view/repository-config-todoyuidcomment.tmpl';
+		$data	= array(
+			'url'	=> 'http://www.todoyu.com/index.php?id=todoyuid'
+		);
+
+		return Todoyu::render($tmpl, $data);
 	}
 
 

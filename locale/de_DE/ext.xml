@@ -60,6 +60,7 @@
 	<label index="config.tab.systemconfig.todoyuURL">todoyu URL</label>
 	<label index="config.tab.systemconfig.logLevel">Log Level</label>
 	<label index="config.tab.repository.todoyuid">todoyu ID</label>
+	<label index="config.tab.repository.todoyuid.comment">Erfahren Sie mehr und registrieren Sie Ihre persönliche todoyu ID:</label>
 	<label index="config.tab.systemconfig.saved">Systemkonfiguration wurde aktualisiert</label>
 	<label index="config.tab.systemconfig.failed">Aktualisierung der Systemkonfiguration fehlgeschlagen</label>
 	<label index="config.tab.passwordstrength">Passwort</label>
