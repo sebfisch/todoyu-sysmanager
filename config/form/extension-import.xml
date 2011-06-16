@@ -16,7 +16,7 @@
 			<elements>
 
 				<field type="upload" name="file">
-					<label>sysmanager.ext.upload.selectfile</label>
+					<label>sysmanager.extension.upload.selectfile</label>
 				</field>
 
 				<field type="comment" name="archivehint">
@@ -24,7 +24,7 @@
 				</field>
 
 				<field type="checkbox" name="override">
-					<label>sysmanager.ext.upload.override</label>
+					<label>sysmanager.extension.upload.override</label>
 				</field>
 
 
