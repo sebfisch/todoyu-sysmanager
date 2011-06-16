@@ -207,7 +207,7 @@ class TodoyuSysmanagerRepositoryManager {
 	 * @param 	String				$pathArchive
 	 */
 	private static function importCoreUpdate($pathArchive) {
-		$pathTemp	= TodoyuFileManager::pathAbsolute('cache/update/' . md5(time()));
+		$pathTemp	= TodoyuFileManager::pathAbsolute('cache/temp/' . md5(time()));
 
 			// Extract archive
 		$success	= TodoyuArchiveManager::extractTo($pathArchive, $pathTemp);
@@ -217,13 +217,13 @@ class TodoyuSysmanagerRepositoryManager {
 		}
 
 			// Prepare paths
-		$pathTempUpdateFolder	= TodoyuFileManager::pathAbsolute($pathTemp . '/todoyu');
-		$pathTodoyuRoot			= PATH; // . '/dummyupdate/xxx';
+//		$pathTodoyuRoot			= PATH;
+		$pathTodoyuRoot			= PATH . '/dummyupdate';
 
 			// Remove elements which should not be overwritten from temp update folder
-		self::removeLocalElementsFromCoreUpdate($pathTempUpdateFolder);
+		self::removeLocalElementsFromCoreUpdate($pathTemp);
 
-		TodoyuFileManager::moveRecursive($pathTempUpdateFolder, $pathTodoyuRoot);
+		TodoyuFileManager::moveRecursive($pathTemp, $pathTodoyuRoot, true);
 		TodoyuFileManager::deleteFolder($pathTemp);
 
 		TodoyuCacheManager::clearAllCache();
