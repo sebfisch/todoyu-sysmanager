@@ -5,7 +5,7 @@
 	{if $updates.core}
 		{$coreUpdate = $updates.core}
 		<div class="coreUpdate">
-			{Title "New core update available"}
+			{Title "sysmanager.repository.core.newUpdateAvailable"}
 			<table class="coreUpdateInfos">
 				<tr>
 					<th>{Label sysmanager.repository.update.newversion}</th>
@@ -32,7 +32,7 @@
 	{***************** Extension Updates *********************}
 
 	<div class="extensionUpdates extListing">
-		{Title "Extension updates"}
+		{Title "sysmanager.repository.extension.extensionUpdates"}
 
 		{foreach $updates.extensions extUpdate}
 			<div class="extension" id="repository-update-ext-{$extUpdate.ext_key}">

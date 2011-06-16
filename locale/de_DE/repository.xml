@@ -3,6 +3,7 @@
 	<label index="form">todoyu Extension-Repository durchsuchen</label>
 	<label index="query">Nach Schlüsselwort suchen</label>
 	<label index="by">Von</label>
+	<label index="core.newUpdateAvailable">System-Aktualisierung verfügbar</label>
 	<label index="core.installUpdate">System-Aktualisierung installieren</label>
 	<label index="core.cancelUpdate">System-Aktualisierung abbrechen</label>
 	<label index="update.newversion">Neue Version</label>
@@ -14,6 +15,7 @@
 	<label index="update.versionInformation">Versions-Informationen</label>
 	<label index="noNewExtensionsFound">Keine neuen Erweiterungen gefunden. Sie haben bereit alle verfügbaren Erweiterungen installiert</label>
 	<label index="noExtensionsFoundForQuery">Keine Erweiterungen gefunden die auf den Suchbegriff zutreffen</label>
+	<label index="extension.extensionUpdates">Erweiterungs-Updates</label>
 	<label index="extension.moreDetails">Mehr Details</label>
 	<label index="extension.installUpdate">Erweiterungs-Update installieren</label>
 	<label index="extensionsFound">%s Erweiterungen gefunden</label>

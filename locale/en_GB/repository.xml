@@ -3,6 +3,7 @@
 	<label index="form">Search in todoyu extension repository</label>
 	<label index="query">Search by keyword</label>
 	<label index="by">By</label>
+	<label index="core.newUpdateAvailable">New core update available</label>
 	<label index="core.installUpdate">Install Core Update</label>
 	<label index="core.cancelUpdate">Cancel Core Update</label>
 	<label index="update.newversion">New version</label>
@@ -14,6 +15,7 @@
 	<label index="update.versionInformation">Version Information</label>
 	<label index="noNewExtensionsFound">Found no new extensions. You already have everything installed from the market place</label>
 	<label index="noExtensionsFoundForQuery">No extensions found in the market which are matching this query</label>
+	<label index="extension.extensionUpdates">Extension updates</label>
 	<label index="extension.moreDetails">More Details</label>
 	<label index="extension.installUpdate">Install Update</label>
 	<label index="extensionsFound">%s extensions found</label>
