@@ -38,12 +38,10 @@ class TodoyuSysmanagerExtImporter {
 		$extDir		= TodoyuExtensions::getExtPath($extKey);
 
 		try {
-			TodoyuArchiveManager::extractTo($pathArchive, $extDir);
+			return TodoyuArchiveManager::extractTo($pathArchive, $extDir);
 		} catch(TodoyuException $e) {
 			return false;
 		}
-
-		return true;
 	}
 
 
