@@ -155,6 +155,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 	public static function renderExtensionInstallDialog($extKey) {
 		$info	= TodoyuSysmanagerRepositoryManager::getRepoInfo($extKey);
 
+		TodoyuDebug::printInFirebug($info['free_licenses'], 'free_licenses');
+
 		$majorVersion	= TodoyuSysmanagerExtManager::parseMajorVersion($info['version']['version']);
 
 		$data	= array(
@@ -191,6 +193,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 			}
 		}
 
+
+		
 		return self::renderExtensionDialog($data);
 	}
 

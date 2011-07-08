@@ -1,6 +1,9 @@
 todoyu sysmanager extension changelog
 
-sysmanager 1.1.0 - beta release
+sysmanager 1.1.1
+	* Bugfix: Fixed invalid labels in checkout dialogs
+
+sysmanager 1.1.0
 	* Feature: Added todoyuURL setting in config
 	* Feature: Added classes for repository and updater
 	* Feature: Show message if no roles is selected

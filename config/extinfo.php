@@ -31,11 +31,11 @@ Todoyu::$CONFIG['EXT']['sysmanager']['info'] = array(
 		'company'	=> 'snowflake productions GmbH, Zurich'
 	),
 	'state' 		=> 'stable',
-	'version'		=> '1.1.0',
+	'version'		=> '1.1.1',
 	'constraints' 	=> array(
 		'depends' 	=> array(),
 		'conflicts' => array(),
-		'core'		=> '2.1.0RC1',
+		'core'		=> '2.1.0',
 		'system'	=> true
 	),
 	'urlDocumentation'	=> 'http://doc.todoyu.com/?sysmanager'

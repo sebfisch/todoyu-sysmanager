@@ -50,9 +50,9 @@
 		{/if}
 
 		{if $info.free_licenses > 0}
-			<div class="info licenseinfo usedomaincoupon">{LabelFormat sysmanager.repository.license.acquiredavailable array($info.free_licenses)} {Label sysmanager.license.question.activatefordomain} ({$domain})?</div>
+			<div class="info licenseinfo usedomaincoupon">{LabelFormat sysmanager.repository.license.acquiredavailable array($info.free_licenses)} {Label sysmanager.repository.license.question.activatefordomain} ({$domain})?</div>
 		{else}
-			<div class="info licenseinfo buyextension"><a href="{$info.ter_link}" target="_blank">{Label sysmanger.repository.license.buyinrepository}</a></div>
+			<div class="info licenseinfo buyextension"><a href="{$info.ter_link}" target="_blank">{Label sysmanager.repository.license.buyinrepository}</a></div>
 		{/if}
 
 		{if $isMajorUpdate}

@@ -253,10 +253,16 @@ class TodoyuSysmanagerRepository {
 	}
 
 
-	private function getImportedExtensions() {
+
+	/**
+	 * Get extensions which are only imported but not installed yet
+	 *
+	 * @return	Array
+	 */
+	private	function getImportedExtensions() {
 		$extKeys= TodoyuExtensions::getNotInstalledExtKeys();
 		$infos	= array();
-
+		
 		foreach($extKeys as $extKey) {
 			$version	= TodoyuExtensions::getExtVersion($extKey);
 
