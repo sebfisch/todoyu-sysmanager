@@ -16,6 +16,7 @@
 	<label index="importfromarchive">Import an extension from archive</label>
 	<label index="rights">Rights</label>
 	<label index="documentation">Documentation</label>
+	<label index="missing">Extension is missing!</label>
 	<label index="remove">Remove Extension</label>
 	<label index="remove.confirm">Remove extension (all files) from server?</label>
 	<label index="showInstalledList">Show list of installed extensions</label>

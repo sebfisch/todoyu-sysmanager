@@ -16,6 +16,7 @@
 	<label index="importfromarchive">Eine Erweiterung aus einem Archiv importieren</label>
 	<label index="rights">Rechte</label>
 	<label index="documentation">Dokumentation</label>
+	<label index="missing">Erweiterung fehlt!</label>
 	<label index="remove">Erweiterung entfernen</label>
 	<label index="remove.confirm">Erweiterung (Alle Dateien) vom Server entfernen?</label>
 	<label index="showInstalledList">Liste installierter Erweierungen anzeigen</label>

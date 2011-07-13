@@ -75,6 +75,16 @@
 	width:210px;
 }
 
+/* Missing extensions */
+.extlist tr.missing td {
+	background-color: #ff9900;
+}
+.extlist tr.missing td.title div {
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
 	/* list columns */
 .extlist th.icon {
 	width:20px;

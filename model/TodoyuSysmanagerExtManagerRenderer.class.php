@@ -108,7 +108,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 
 			case 'installed':
 			default:
-				$content =self::renderListInstalled($params);
+				$content = self::renderListInstalled($params);
 				break;
 		}
 
@@ -174,13 +174,13 @@ class TodoyuSysmanagerExtManagerRenderer {
 		$tmpl	= 'ext/sysmanager/view/extension-list-' . $state . '.tmpl';
 
 		$data	= array(
-			'extensions' 				=> array()
+			'extensions' 	=> array()
 		);
 
 		foreach($extKeys as $extension) {
 			$data['extensions'][$extension] = TodoyuExtensions::getExtInfo($extension);
 		}
-
+		
 		return Todoyu::render($tmpl, $data);
 	}
 
