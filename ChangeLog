@@ -2,6 +2,8 @@ todoyu sysmanager extension changelog
 
 sysmanager 1.1.1
 	* Bugfix: Fixed invalid labels in checkout dialogs
+	* Change: Changed API to work with new tER API
+	* Added: Problem with the API are now reported to the user
 
 sysmanager 1.1.0
 	* Feature: Added todoyuURL setting in config
