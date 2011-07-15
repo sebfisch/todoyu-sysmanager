@@ -27,8 +27,6 @@
 	<label index="extension.install.cancel">Installation abbrechen</label>
 	<label index="extension.install.success">Die Erweiterung wurde erfolgreich installiert</label>
 	<label index="extension.install.confirm">Diese Erweiterung installieren?</label>
-	<label index="extension.install.useLicense">eine meiner Lizensen verwenden</label>
-	<label index="extension.install.licenseRequired">Es wird eine Erweiterungs-Lizens benötigt!</label>
 	<label index="extension.installUpdate.cancel">Update Installation abbrechen</label>
 	<label index="extension.downloads">Downloads</label>
 	<label index="extension.costs.free">Gratis</label>
@@ -52,7 +50,10 @@
 	<label index="error.connectionFailed.info">Stellen Sie sicher, dass ihr Server eine Verbindung ins Internet aufbauen kann</label>
 	<label index="license.label.accept">Lizenz akzeptieren</label>
 	<label index="license.buyinrepository">Erweiterung im todoyu Erweiterungsverzeichnis (tER) kaufen</label>
-	<label index="license.question.activatefordomain">Möchten sie eine Lizens für diese Domain aktivieren:</label>
-	<label index="license.acquiredavailable">Sie besitzen %s freie Lizenzen.</label>
+	<label index="license.useLicense">nutze eine meiner Lizenzen</label>
+	<label index="license.required">Für diese Erweiterung wird eine Lizenz benötigt</label>
+	<label index="license.status.freeLicense">Sie besitzen noch freie Lizenzen für diese Erweiterung. Eine davon wird bei der Installtion benutzt</label>
+	<label index="license.status.noLicense">Sie haben keine freien Lizenzen mehr für diese Erweiterung. Kaufen Sie eine neue Lizenz im tER auf todoyu.com</label>
+	<label index="license.status.licensed">Sie haben diese Erweiterung für die aktulle Domain schon aktiviert</label>
 	<label index="moreInfo">Mehr Informationen</label>
 </labels>

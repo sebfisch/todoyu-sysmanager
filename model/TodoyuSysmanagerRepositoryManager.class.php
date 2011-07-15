@@ -31,7 +31,12 @@ class TodoyuSysmanagerRepositoryManager {
 	 *
 	 */
 	public static function notifyConnectionError() {
-		TodoyuNotification::notifyError('Cannot connect the extension repository. Are connections to other servers blocked?');
+		TodoyuNotification::notifyError('sysmanager.repository.error.connectionFailed');
+	}
+
+
+	public static function notifyRepositoryError() {
+		TodoyuNotification::notifyError('sysmanager.repository.error.general');
 	}
 
 
@@ -377,6 +382,12 @@ class TodoyuSysmanagerRepositoryManager {
 		} else {
 			return false;
 		}
+	}
+
+
+
+	public static function hasApiProblem(array $data) {
+
 	}
 
 }

@@ -27,8 +27,6 @@
 	<label index="extension.install.cancel">Cancel install</label>
 	<label index="extension.install.success">Extension was successfully installed</label>
 	<label index="extension.install.confirm">Install this extension?</label>
-	<label index="extension.install.useLicense">use one of my licenses</label>
-	<label index="extension.install.licenseRequired">License for extension is required!</label>
 	<label index="extension.installUpdate">Install Extension Update</label>
 	<label index="extension.installUpdate.cancel">Cancel installation of update</label>
 	<label index="extension.downloads">Downloads</label>
@@ -51,10 +49,16 @@
 	<label index="error.registerNoFreeLicensesAvailable">You have no free licenses for this extension. Buy one in the shop</label>
 	<label index="error.connectionFailed">Connection To Repository Failed</label>
 	<label index="error.connectionFailed.info">Please make sure your sever can open a connection to the internet</label>
+	<label index="error.general">todoyu extension repository reported an error</label>
+	<label index="error.general.info">The todoyu extension repository could not process your request</label>
+	<label index="error.apiTooOld">Your version of the sysmanager extension seems to be too old to communicate with the tER. Please update</label>
 	<label index="license.label.accept">Accept License</label>
 	<label index="license.buyinrepository">Buy extension in todoyu extension repository</label>
-	<label index="license.question.activatefordomain">Do you want do activate one for this domain:</label>
-	<label index="license.acquiredavailable">You have %s free licenses.</label>
+	<label index="license.useLicense">use one of my licenses</label>
+	<label index="license.required">License for extension is required!</label>
+	<label index="license.status.freeLicense">You have available licenses for this extension. One will be used on installation.</label>
+	<label index="license.status.noLicense">You have no available license for this extension. Buy one in the tER on todoyu.com</label>
+	<label index="license.status.licensed">You have already activated this extension for the current domain</label>
 	<label index="core.installUpdate">Install Core Update</label>
 	<label index="moreInfo">More information</label>
 </labels>

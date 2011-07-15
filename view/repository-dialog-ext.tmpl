@@ -49,9 +49,11 @@
 			</div>
 		{/if}
 
-		{if $info.free_licenses > 0}
-			<div class="info licenseinfo usedomaincoupon">{LabelFormat sysmanager.repository.license.acquiredavailable array($info.free_licenses)} {Label sysmanager.repository.license.question.activatefordomain} ({$domain})?</div>
-		{else}
+		<div class="info licenseinfo {$info.installStatus}">
+			{$licenseInfo}
+		</div>
+
+		{if $info.installStatus == 'noLicense'}
 			<div class="info licenseinfo buyextension"><a href="{$info.ter_link}" target="_blank">{Label sysmanager.repository.license.buyinrepository}</a></div>
 		{/if}
 

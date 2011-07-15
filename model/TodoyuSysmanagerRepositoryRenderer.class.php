@@ -74,6 +74,10 @@ class TodoyuSysmanagerRepositoryRenderer {
 			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
 
 			return self::renderConnectionError($e->getMessage());
+		} catch(TodoyuSysmanagerRepositoryException $e) {
+			TodoyuSysmanagerRepositoryManager::notifyRepositoryError();
+
+			return self::renderRepositoryGeneralError($e->getMessage());
 		}
 
 		return Todoyu::render($tmpl, $data);
@@ -95,6 +99,10 @@ class TodoyuSysmanagerRepositoryRenderer {
 			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
 
 			return self::renderConnectionError($e->getMessage());
+		} catch(TodoyuSysmanagerRepositoryException $e) {
+			TodoyuSysmanagerRepositoryManager::notifyRepositoryError();
+
+			return self::renderRepositoryGeneralError($e->getMessage());
 		}
 
 		$tmpl	= 'ext/sysmanager/view/repository-update.tmpl';
@@ -113,8 +121,25 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * @param	String		$message
 	 * @return	String
 	 */
-	public static function renderConnectionError($message) {
+	private static function renderConnectionError($message) {
 		$tmpl	= 'ext/sysmanager/view/repository-connection-error.tmpl';
+		$data	= array(
+			'message'	=> $message
+		);
+
+		return Todoyu::render($tmpl, $data);
+	}
+
+
+
+	/**
+	 * Render repository general error
+	 *
+	 * @param	String		$message
+	 * @return	String
+	 */
+	private static function renderRepositoryGeneralError($message) {
+		$tmpl	= 'ext/sysmanager/view/repository-general-error.tmpl';
 		$data	= array(
 			'message'	=> $message
 		);
@@ -155,8 +180,6 @@ class TodoyuSysmanagerRepositoryRenderer {
 	public static function renderExtensionInstallDialog($extKey) {
 		$info	= TodoyuSysmanagerRepositoryManager::getRepoInfo($extKey);
 
-		TodoyuDebug::printInFirebug($info['free_licenses'], 'free_licenses');
-
 		$majorVersion	= TodoyuSysmanagerExtManager::parseMajorVersion($info['version']['version']);
 
 		$data	= array(
@@ -172,13 +195,19 @@ class TodoyuSysmanagerRepositoryRenderer {
 
 			// Check for free licences if commercial
 		if( $info['commercial'] ) {
-			if( $info['free_licenses'] > 0 ) {
-				$labelUseLicense	= Todoyu::Label('sysmanager.repository.extension.install.useLicense');
+			if( $info['installStatus'] === 'noLicense' ) {
+				$data['labelOk']	= Todoyu::Label('sysmanager.repository.license.required');
+				$data['disableOk']	= true;
+				$data['licenseInfo']= Todoyu::Label('sysmanager.repository.license.status.noLicense');
+			} elseif( $info['installStatus'] === 'licensed' ) {
+				$data['labelOk']	= $labelInstall;
+				$data['disableOk']	= false;
+				$data['licenseInfo']= Todoyu::Label('sysmanager.repository.license.status.licensed');
+			} elseif( $info['installStatus'] === 'freeLicense' ) {
+				$labelUseLicense	= Todoyu::Label('sysmanager.repository.license.useLicense');
 				$data['labelOk']	= $labelInstall . ' (' . $labelUseLicense . ')';
 				$data['disableOk']	= false;
-			} else {
-				$data['labelOk']	= Todoyu::Label('sysmanager.repository.extension.install.licenseRequired');
-				$data['disableOk']	= true;
+				$data['licenseInfo']= Todoyu::Label('sysmanager.repository.license.status.freeLicense');
 			}
 		} else {
 			$data['labelOk']	= $labelInstall;
@@ -192,8 +221,6 @@ class TodoyuSysmanagerRepositoryRenderer {
 				$data['disableOk']	= true;
 			}
 		}
-
-
 		
 		return self::renderExtensionDialog($data);
 	}
@@ -233,6 +260,11 @@ class TodoyuSysmanagerRepositoryRenderer {
 		);
 
 		return Todoyu::render($tmpl, $data);
+	}
+	
+
+	private static function renderApiProblem(array $data) {
+
 	}
 
 }

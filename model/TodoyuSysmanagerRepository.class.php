@@ -139,8 +139,7 @@ class TodoyuSysmanagerRepository {
 		$responseData	= $this->sendRequest('download', $data);
 
 		if( $responseData['data'] === false ) {
-			$label	= Todoyu::Label('sysmanager.repository.error.' . $responseData['message']);
-			throw new TodoyuSysmanagerRepositoryException($label);
+			throw new TodoyuSysmanagerRepositoryException($responseData['message']);
 		}
 
 		$tempName		= md5($idVersion . time());
@@ -188,6 +187,7 @@ class TodoyuSysmanagerRepository {
 	 * @param	Boolean		$noInfo
 	 * @return	Array
 	 * @throws	TodoyuSysmanagerRepositoryConnectionException
+	 * @throws	TodoyuSysmanagerRepositoryException
 	 */
 	private function sendRequest($action, array $data = array(), $noInfo = false) {
 		$config	= Todoyu::$CONFIG['EXT']['sysmanager']['update'];
@@ -215,6 +215,10 @@ class TodoyuSysmanagerRepository {
 		$this->response['content_raw']	= $this->response['content'];
 		$this->response['content']		= json_decode($this->response['content'], true);
 
+		if( $this->response['content']['status'] !== true ) {
+			throw new TodoyuSysmanagerRepositoryException($this->response['content']['error']);
+		}
+
 //		TodoyuDebug::printInFireBug($this->response['content'], 'response');
 
 		return $this->response['content'];
@@ -238,6 +242,7 @@ class TodoyuSysmanagerRepository {
 				'mysql'	=> Todoyu::db()->getVersion(),
 				'core'	=> TODOYU_VERSION
 			),
+			'api'			=> TodoyuExtensions::getExtVersion('sysmanager'),
 			'extensions'	=> array(),
 			'imported'		=> $this->getImportedExtensions()
 		);
