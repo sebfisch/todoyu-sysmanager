@@ -22,6 +22,7 @@
 	<label index="extension.install">Install Extension</label>
 	<label index="extension.installed">Installed</label>
 	<label index="extension.update">Update Extension</label>
+	<label index="extension.update.install.dialogtitle">Install Extension Update</label>
 	<label index="extension.update.confirm">Install this extension update?</label>
 	<label index="extension.update.success">Extension update was installed successfully</label>
 	<label index="extension.install.cancel">Cancel</label>

@@ -22,6 +22,7 @@
 	<label index="extension.install">Erweiterung installieren</label>
 	<label index="extension.installed">Installiert</label>
 	<label index="extension.update">Erweiterung aktualisieren</label>
+	<label index="extension.update.install.dialogtitle">Erweiterungs-Update installieren</label>
 	<label index="extension.update.confirm">Das Update dieser Erweiterung installieren?</label>
 	<label index="extension.update.success">Das Update der Erweiterung wurde erfolgreich installiert</label>
 	<label index="extension.install.cancel">Installation abbrechen</label>

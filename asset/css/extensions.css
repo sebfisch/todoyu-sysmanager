@@ -64,9 +64,9 @@
 }
 
 .extlist td div.overflow {
-	overflow: hidden;
+	overflow:hidden;
 	height:14px;
-	padding: 3px 0;
+	padding:3px 0;
 }
 .extlist td.extkey .overflow {
 	width:120px;
@@ -77,12 +77,12 @@
 
 /* Missing extensions */
 .extlist tr.missing td {
-	background-color: #ff9900;
+	background-color:#ff9900;
 }
 .extlist tr.missing td.title div {
-	text-transform: uppercase;
-	font-weight: bold;
-	letter-spacing: 2px;
+	text-transform:uppercase;
+	font-weight:bold;
+	letter-spacing:2px;
 }
 
 	/* list columns */

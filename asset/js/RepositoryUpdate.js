@@ -90,7 +90,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * @param	{String}	extkey
 	 */
 	showExtensionUpdateDialog: function(extkey) {
-		this.repo.showExtensionDialog(extkey, 'updateDialog', 'Install Extension Update');
+		this.repo.showExtensionDialog(extkey, 'updateDialog', '[LLL:sysmanager.repository.extension.update.install.dialogtitle]');
 	},
 
 

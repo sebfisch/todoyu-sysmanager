@@ -1,6 +1,15 @@
 <div class="repositoryDialog extensionDialog {$dialogClass}">
 	<h1>{$title}</h1>
 
+	<div class="info warning">{Label sysmanager.repository.update.warning.general}</div>
+
+	{if $isMajorUpdate}
+		<div class="info warningMajorUpdate">{Label sysmanager.repository.update.warning.majorupdate}</div>
+	{/if}
+
+	<div class="clear"></div>
+	<br />
+
 	<div class="col versionInformation">
 		<span class="subtitle">Version Information</span>
 		{if $info.version.version_information}
@@ -57,13 +66,7 @@
 			<div class="info licenseinfo buyextension"><a href="{$info.ter_link}" target="_blank">{Label sysmanager.repository.license.buyinrepository}</a></div>
 		{/if}
 
-		{if $isMajorUpdate}
-			<div class="info warningMajorUpdate">{Label sysmanager.repository.update.warning.majorupdate}</div>
-		{/if}
-
 	{/if}
-
-	<div class="info warning">{Label sysmanager.repository.update.warning.general}</div>
 
 	<div class="buttons">
 		{Button class="install" label=$labelOk onclick=$actionOk disabled=$disableOk}
