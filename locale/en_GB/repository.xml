@@ -58,7 +58,7 @@
 	<label index="license.required">License for extension is required!</label>
 	<label index="license.status.freeLicense">You have available licenses for this extension. One will be used on installation.</label>
 	<label index="license.status.noLicense">You have no available license for this extension. Buy one in the tER on todoyu.com</label>
-	<label index="license.status.licensed">You have already activated this extension for the current domain</label>
+	<label index="license.status.licensed">You already have activated this extension for the current domain. So no further license required.</label>
 	<label index="core.installUpdate">Install Core Update</label>
 	<label index="moreInfo">More information</label>
 </labels>

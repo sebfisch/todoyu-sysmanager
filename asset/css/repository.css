@@ -182,19 +182,17 @@
 	font-size:18px;
 	font-weight:bold;
 	margin-bottom:20px;
+    text-align:left;
 }
 
 .repositoryDialog .buttons {
 	margin-top:20px;
 	padding-top:10px;
-	border-top:1px dashed #000;
 	clear:both;
 }
 .repositoryDialog .info {
 	margin-top:5px;
-	border:1px solid #ccc;
 	padding:5px;
-	text-align:center;
 }
 
 .repositoryDialog .versionDetails {
@@ -205,7 +203,7 @@
 .repositoryDialog .versionDetails table td,
 .repositoryDialog .versionDetails table th {
 	padding:3px;
-	border-bottom:1px dashed #ccc;
+	border-bottom:1px solid #ccc;
 	text-align:left;
 }
 
@@ -223,7 +221,6 @@
 }
 
 .repositoryDialog .versionInformation {
-	background-color:#fff;
 	padding:10px;
 	text-align:left;
 	width:300px;
@@ -245,6 +242,7 @@
    ---------------------------------*/
 .repositoryDialog.extensionDialog .warning {
 	background-color:#ffcc00;
+    text-align: left;
 }
 
 .repositoryDialog.extensionDialog button.install .icon {
@@ -265,12 +263,12 @@
 	margin-bottom:10px;
 	text-align:left;
 	font-family:monospace;
-	border:1px solid #ccc;
+	
 	font-size:12px;
 }
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense {
-	background-color:#fff;
+    text-align:left;
 }
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense input {
@@ -278,12 +276,14 @@
 }
 
 .repositoryDialog.extensionDialog.extInstall .licenseinfo {
-	background-color:#ff0;
+	background-color: #E3EACE;
+    text-align:left;
 }
 
 .repositoryDialog.extensionDialog.extInstall .warningMajorUpdate {
 	background-color:#f00;
 	color:#fff;
+    
 }
 
 
