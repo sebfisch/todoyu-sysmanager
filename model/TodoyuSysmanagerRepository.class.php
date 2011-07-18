@@ -168,7 +168,7 @@ class TodoyuSysmanagerRepository {
 			'domain'	=> TodoyuServer::getDomain()
 		);
 
-		$response	= $this->sendRequest('register', $data, true);
+		$response	= $this->sendRequest('register', $data);
 
 		if( $response['registered'] ) {
 			return true;
@@ -189,19 +189,14 @@ class TodoyuSysmanagerRepository {
 	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 * @throws	TodoyuSysmanagerRepositoryException
 	 */
-	private function sendRequest($action, array $data = array(), $noInfo = false) {
+	private function sendRequest($action, array $data = array()) {
 		$config	= Todoyu::$CONFIG['EXT']['sysmanager']['update'];
 
 		$postData	= array(
-			'action'	=> $action,
-			'data'		=> $data
+			'action'=> $action,
+			'data'	=> $data,
+			'info'	=> $this->getInfo()
 		);
-
-		if( $noInfo !== true ) {
-			$postData['info'] = $this->getInfo();
-		} else {
-			$postData['info'] = array();
-		}
 
 //		TodoyuDebug::printInFireBug($postData, 'postData');
 
