@@ -138,8 +138,9 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	 */
 	public function installDialogAction(array $params) {
 		$ext	= trim($params['extension']);
+		$isLocal= intval($params['local']) === 1;
 
-		return TodoyuSysmanagerRepositoryRenderer::renderExtensionInstallDialog($ext);
+		return TodoyuSysmanagerRepositoryRenderer::renderExtensionInstallDialog($ext, $isLocal);
 	}
 
 

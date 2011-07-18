@@ -81,14 +81,17 @@ Todoyu.Ext.sysmanager.Repository = {
 	 * @param	{String}	extkey
 	 * @param	{String}	action
 	 * @param	{String}	title
+	 * @param	{Function}	callback
+	 * @param	{Boolean}	local
 	 */
-	showExtensionDialog: function(extkey, action, title, callback) {
+	showExtensionDialog: function(extkey, action, title, callback, local) {
 		callback	= callback || Prototype.emptyFunction;
 		var url		= this.getUrl();
 		var options	= {
 			parameters: {
 				action:		action,
-				extension:	extkey
+				extension:	extkey,
+				local:		local ? 1 : 0
 			},
 			onComplete: callback
 		};

@@ -104,6 +104,7 @@ class TodoyuSysmanagerRepository {
 	 * Search for extension updates
 	 *
 	 * @throws	TodoyuSysmanagerRepositoryConnectionException
+	 * @throws	TodoyuSysmanagerRepositoryException
 	 * @return	Array
 	 */
 	public function searchUpdates() {
@@ -122,6 +123,32 @@ class TodoyuSysmanagerRepository {
 		return $updates;
 	}
 
+
+
+	/**
+	 * Get install info about an extension
+	 *
+	 * @param	String		$extKey
+	 * @param	Integer		$major
+	 * @return	Array
+	 * @throws	TodoyuSysmanagerRepositoryConnectionException
+	 * @throws	TodoyuSysmanagerRepositoryException
+	 */
+	public function getExtInfo($extKey, $major) {
+		$extKey	= trim(strtolower($extKey));
+		$major	= intval($major);
+
+		$data	= array(
+			'extension'	=> $extKey,
+			'major'		=> $major
+		);
+
+		$response	= $this->sendRequest('getExtInfo', $data);
+
+		return TodoyuArray::assure($response['info']);
+	}
+
+	
 
 	/**
 	 * Download file from repository
@@ -176,7 +203,7 @@ class TodoyuSysmanagerRepository {
 			return Todoyu::Label('sysmanager.repository.error.' . $response['message']);
 		}
 	}
-
+	
 
 
 	/**
@@ -184,7 +211,6 @@ class TodoyuSysmanagerRepository {
 	 *
 	 * @param	String		$action
 	 * @param	Array		$data
-	 * @param	Boolean		$noInfo
 	 * @return	Array
 	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 * @throws	TodoyuSysmanagerRepositoryException
@@ -210,11 +236,11 @@ class TodoyuSysmanagerRepository {
 		$this->response['content_raw']	= $this->response['content'];
 		$this->response['content']		= json_decode($this->response['content'], true);
 
+//		TodoyuDebug::printInFireBug($this->response['content'], 'response');
+
 		if( $this->response['content']['status'] !== true ) {
 			throw new TodoyuSysmanagerRepositoryException($this->response['content']['error']);
 		}
-
-//		TodoyuDebug::printInFireBug($this->response['content'], 'response');
 
 		return $this->response['content'];
 	}

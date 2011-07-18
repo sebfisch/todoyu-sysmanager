@@ -71,12 +71,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 		try {
 			$data	= $repository->searchExtensions($query);
 		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
-			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
-
 			return self::renderConnectionError($e->getMessage());
 		} catch(TodoyuSysmanagerRepositoryException $e) {
-			TodoyuSysmanagerRepositoryManager::notifyRepositoryError();
-
 			return self::renderRepositoryGeneralError($e->getMessage());
 		}
 
@@ -96,12 +92,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 		try {
 			$updates	= $repository->searchUpdates();
 		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
-			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
-
 			return self::renderConnectionError($e->getMessage());
 		} catch(TodoyuSysmanagerRepositoryException $e) {
-			TodoyuSysmanagerRepositoryManager::notifyRepositoryError();
-
 			return self::renderRepositoryGeneralError($e->getMessage());
 		}
 
@@ -175,9 +167,10 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * Render install dialog for extension
 	 *
 	 * @param	String		$extKey
+	 * @param	Boolean		$isLocal		Is extension already imported locally?
 	 * @return	String
 	 */
-	public static function renderExtensionInstallDialog($extKey) {
+	public static function renderExtensionInstallDialog($extKey, $isLocal = false) {
 		$info	= TodoyuSysmanagerRepositoryManager::getRepoInfo($extKey);
 
 		$majorVersion	= TodoyuSysmanagerExtManager::parseMajorVersion($info['version']['version']);
@@ -185,11 +178,17 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$data	= array(
 			'info'			=> $info,
 			'title'			=> 'Install: ' . $info['title'],
-			'actionOk'		=> 'Todoyu.Ext.sysmanager.Repository.Search.installExtension(\'' . $extKey . '\', ' . $majorVersion. ')',
 			'domain'		=> TodoyuServer::getDomain(),
 			'labelCancel'	=> Todoyu::Label('sysmanager.repository.extension.install.cancel'),
 			'isMajorUpdate'	=> TodoyuExtensions::isInstalled($extKey)
 		);
+
+			// Different OK actions for TER and local extensions
+		if( $isLocal ) {
+			$data['actionOk']	= 'Todoyu.Ext.sysmanager.Extensions.Install.installAndLicenseImportedExtension(\'' . $extKey . '\')';
+		} else {
+			$data['actionOk']	= 'Todoyu.Ext.sysmanager.Repository.Search.installExtension(\'' . $extKey . '\', ' . $majorVersion. ')';
+		}
 
 		$labelInstall		= Todoyu::Label('sysmanager.repository.extension.install');
 
@@ -260,11 +259,6 @@ class TodoyuSysmanagerRepositoryRenderer {
 		);
 
 		return Todoyu::render($tmpl, $data);
-	}
-	
-
-	private static function renderApiProblem(array $data) {
-
 	}
 
 }

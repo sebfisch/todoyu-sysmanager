@@ -144,9 +144,10 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 * Show dialog to install extension
 	 *
 	 * @param	{String}	extkey
+	 * @param	{Boolean}	local
 	 */
-	showExtensionInstallDialog: function(extkey) {
-		this.repo.showExtensionDialog(extkey, 'installDialog', 'Install New Extension', this.onDialogLoaded.bind(this));
+	showExtensionInstallDialog: function(extkey, local) {
+		this.repo.showExtensionDialog(extkey, 'installDialog', 'Install New Extension', this.onDialogLoaded.bind(this), local);
 	},
 
 

@@ -24,10 +24,12 @@
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuSysmanagerRepositoryConnectionException extends TodoyuException {
+class TodoyuSysmanagerRepositoryConnectionException extends TodoyuSysmanagerRepositoryException {
 
 	public function __construct($message, $code = 0, $previous = null) {
 		parent::__construct($message, $code, $previous);
+
+		TodoyuNotification::notifyError('sysmanager.repository.error.connectionFailed');
 
 		TodoyuLogger::logError('Searching for updates failed because server was not available');
 	}

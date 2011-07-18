@@ -27,14 +27,9 @@
 class TodoyuSysmanagerRepositoryManager {
 
 	/**
-	 * Show notification about a connection error
+	 * Notify about a general repository error
 	 *
 	 */
-	public static function notifyConnectionError() {
-		TodoyuNotification::notifyError('sysmanager.repository.error.connectionFailed');
-	}
-
-
 	public static function notifyRepositoryError() {
 		TodoyuNotification::notifyError('sysmanager.repository.error.general');
 	}
@@ -124,13 +119,14 @@ class TodoyuSysmanagerRepositoryManager {
 	 * @param	Integer		$majorVersion
 	 * @return	Boolean|String
 	 */
-	public static function installExtensionFromTER($extKey, $majorVersion = 1) {
+	public static function installExtensionFromTER($extKey, $majorVersion) {
 		try {
 				// Get url from hash map
 			$extInfo	= self::getRepoInfo($extKey);
 
 				// Buy extension if it's commercial
 			if( $extInfo['commercial'] ) {
+
 				self::registerCommercialExtension($extInfo['ext_key'], $majorVersion);
 			}
 
@@ -296,12 +292,12 @@ class TodoyuSysmanagerRepositoryManager {
 	 * @param	Integer		$majorVersion
 	 * @return	Boolean
 	 */
-	private static function registerCommercialExtension($extKey, $majorVersion = 1) {
+	public static function registerCommercialExtension($extKey, $majorVersion) {
 		$repository	= new TodoyuSysmanagerRepository();
 		$result		= $repository->registerForDomain($extKey, $majorVersion);
 
 		if( $result !== true ) {
-			throw new TodoyuException($result);
+			throw new TodoyuSysmanagerRepositoryException($result);
 		}
 
 		return true;
@@ -323,7 +319,6 @@ class TodoyuSysmanagerRepositoryManager {
 		try {
 			return $repository->download($type, $idVersion);
 		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
-			TodoyuSysmanagerRepositoryManager::notifyConnectionError();
 			throw new TodoyuException('Download of update archive failed: ' . $idVersion);
 		} catch(TodoyuSysmanagerRepositoryException $e) {
 			throw new TodoyuException($e->getMessage());
@@ -386,8 +381,81 @@ class TodoyuSysmanagerRepositoryManager {
 
 
 
-	public static function hasApiProblem(array $data) {
+	/**
+	 * Get extension installation infos from repository
+	 *
+	 * @param	String		$extKey
+	 * @param	Integer		$major
+	 * @return	Array
+	 */
+	public static function getExtInfoFromRepository($extKey, $major) {
+		$repository	= new TodoyuSysmanagerRepository();
 
+		try {
+			$info	= $repository->getExtInfo($extKey, $major);
+
+			self::saveRepoInfo($extKey, $info);
+
+			return $info;
+		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
+			return array();
+		} catch(TodoyuSysmanagerRepositoryException $e) {
+			return array();
+		}
+	}
+
+
+
+	/**
+	 * Check whether extension is commercial in TER
+	 *
+	 * @param	String		$extKey
+	 * @param	Integer		$major
+	 * @return	Boolean
+	 */
+	public static function isCommercial($extKey, $major) {
+		$info	= self::getExtInfoFromRepository($extKey, $major);
+		
+		return $info['commercial'] ? true : false;
+	}
+
+
+
+	/**
+	 * Check whether a registration is required
+	 * It's required if not free and not already licensed
+	 *
+	 * @param	String		$extKey
+	 * @param	Integer		$major
+	 * @return	Boolean
+	 */
+	public static function isRegistrationRequired($extKey, $major) {
+		$info	= self::getExtInfoFromRepository($extKey, $major);
+		$status	= $info['installStatus'];
+		$required	= array(
+			'noLicense',
+			'freeLicense'
+		);
+
+		return in_array($status, $required);
+	}
+
+
+
+	/**
+	 * License an extension
+	 *
+	 * @param	String		$extKey
+	 * @param	Integer		$majorVersion
+	 * @return	Boolean
+	 */
+	public static function licenseExtension($extKey, $majorVersion) {
+		try {
+			TodoyuSysmanagerRepositoryManager::registerCommercialExtension($extKey, $majorVersion);
+			return true;
+		} catch(TodoyuException $e) {
+			return false;
+		}
 	}
 
 }

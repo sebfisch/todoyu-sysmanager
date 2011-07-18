@@ -53,6 +53,7 @@
 	<label index="error.general">todoyu extension repository reported an error</label>
 	<label index="error.general.info">The todoyu extension repository could not process your request</label>
 	<label index="error.apiTooOld">Your version of the system manager extension seems to be too old to communicate with the tER. Please update it.</label>
+	<label index="error.unknownMethod">You tried to call an unknown function on the tER. (This is a bug and should not happen)</label>
 	<label index="license.label.accept">Accept License</label>
 	<label index="license.buyinrepository">Buy extension in todoyu extension repository</label>
 	<label index="license.useLicense">use one of my licenses</label>

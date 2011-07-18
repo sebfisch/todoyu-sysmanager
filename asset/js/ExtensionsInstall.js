@@ -51,13 +51,14 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @method	install
 	 * @param	{String}	ext
 	 */
-	install: function(ext) {
+	install: function(ext, noRegister) {
 		if( confirm('[LLL:sysmanager.extension.install.confirm]') ) {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				parameters: {
 					action: 	'install',
-					extension:	ext
+					extension:	ext,
+					register:	noRegister ? 0 : 1
 				},
 				onComplete: this.onInstalled.bind(this, ext)
 			};
@@ -76,36 +77,108 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onInstalled: function(ext, response) {
+		var registrationRequired = response.getTodoyuHeader('registrationRequired') == 1;
+
+			// Registration required? The installation process was canceled
+		if( registrationRequired ) {
+			this.showLicenseDialogForImportOfCommercialExtension(ext);
+			return;
+		}
+
+			// Installation process completed
 		var extTitle	= response.getTodoyuHeader('extTitle');
 
 		if( response.hasTodoyuError() ) {
 			Todoyu.notifyInfo('Installation of Extension failed: ' + extTitle + ' (' + ext + ')');
 			var problems	= response.getTodoyuHeader('installProblems');
 
-				// Show core warning
-			if( problems.core !== false ) {
-				Todoyu.notifyError('Core version is to low. At least version ' + problems.core + ' is required');
-			}
-
-				// Show conflict warnings
-			if( $A(problems.conflicts).size() > 0 ) {
-				Todoyu.notifyError(extTitle + ' extension conflicts with: ' + $A(problems.conflicts).join(', '));
-			}
-
-				// Show dependency warnings
-			if( ! Object.isArray(problems.depends) ) {
-				var dependencies= [];
-				var msg 		= extTitle + ' extension depends on: ';
-				$H(problems.depends).each(function(pair){
-					dependencies.push(pair.key + ': ' + pair.value);
-				});
-				msg += dependencies.join(', ');
-				Todoyu.notifyError(msg);
-			}
+			this.showInstallationProblems(problems);
 		} else {
 				// Installation succeeded, notify and update screen
 			Todoyu.notifySuccess('[LLL:sysmanager.extension.installed.notify] ' + extTitle);
 			this.showUpdate(ext);
+		}
+	},
+
+
+
+	/**
+	 * Show problems which prevent an installation
+	 *
+	 * @param	{Object}	problems
+	 */
+	showInstallationProblems: function(problems) {
+			// Show core warning
+		if( problems.core !== false ) {
+			Todoyu.notifyError('Core version is to low. At least version ' + problems.core + ' is required');
+		}
+
+			// Show conflict warnings
+		if( $A(problems.conflicts).size() > 0 ) {
+			Todoyu.notifyError(extTitle + ' extension conflicts with: ' + $A(problems.conflicts).join(', '));
+		}
+
+			// Show dependency warnings
+		if( ! Object.isArray(problems.depends) ) {
+			var dependencies= [];
+			var msg 		= extTitle + ' extension depends on: ';
+			$H(problems.depends).each(function(pair){
+				dependencies.push(pair.key + ': ' + pair.value);
+			});
+			msg += dependencies.join(', ');
+			Todoyu.notifyError(msg);
+		}
+	},
+
+
+
+	/**
+	 * Show dialog to register a commercial extension which is already imported locally
+	 *
+	 * @param	{String}	ext
+	 */
+	showLicenseDialogForImportOfCommercialExtension: function(ext) {
+		this.ext.Repository.Search.showExtensionInstallDialog(ext, true);
+	},
+
+
+
+	/**
+	 * License the imported extension. If this was successful, install it
+	 * like a normal free extension
+	 *
+	 * @param	{String}	ext
+	 */
+	installAndLicenseImportedExtension: function(ext) {
+		var url		= Todoyu.getUrl('sysmanager', 'extensions');
+		var options	= {
+			parameters: {
+				action: 	'licenseImportedExtension',
+				extension:	ext
+			},
+			onComplete: this.onImportedExtensionLicensed.bind(this, ext)
+		};
+
+		Todoyu.send(url, options);
+	},
+
+
+
+	/**
+	 * Handler when commercial extension was licensed.
+	 * Close dialog and call normal installer, but prevent extra check
+	 *
+	 * @param	{String}		ext
+	 * @param	{Ajax.Response}	response
+	 */
+	onImportedExtensionLicensed: function(ext, response) {
+		var licensed = response.getTodoyuHeader('licensed');
+
+		if( licensed ) {
+			this.ext.Repository.closeDialog();
+			this.install(ext, true);
+		} else {
+			alert("ERROR");
 		}
 	},
 

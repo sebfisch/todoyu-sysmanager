@@ -52,8 +52,19 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @return	String
 	 */
 	public function installAction(array $params) {
-		$extKey = $params['extension'];
+		$extKey		= $params['extension'];
 
+			// Check whether the extension needs to be registered
+		$major					= TodoyuSysmanagerExtManager::getMajorVersion($extKey);
+		$registrationRequired	= TodoyuSysmanagerRepositoryManager::isRegistrationRequired($extKey, $major);
+			// Commercial extensions have to be activated first
+		if( $registrationRequired ) {
+			TodoyuHeader::sendTodoyuHeader('registrationRequired', 1);
+				// Stop here, force registration first
+			return;
+		}
+
+			// Normal extension installation
 		if( TodoyuSysmanagerExtInstaller::canInstall($extKey) ) {
 				// Can be installed, do it!
 			TodoyuSysmanagerExtInstaller::installExtension($extKey);
@@ -64,11 +75,6 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 			TodoyuHeader::sendTodoyuErrorHeader();
 
 			TodoyuHeader::sendTodoyuHeader('installProblems', $installProblems);
-
-
-//			$failedDependencies	= TodoyuSysmanagerExtInstaller::getFailedDependenciesList($extKey);
-
-//			TodoyuHeader::sendTodoyuHeader('failedDependencies', $failedDependencies);
 		}
 
 		$extInfos	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
@@ -76,6 +82,22 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	}
 
 
+
+	/**
+	 * License an imported extension
+	 *
+	 * @param	Array	$params
+	 */
+	public function licenseImportedExtensionAction(array $params) {
+		$extKey	= trim($params['extension']);
+		$major	= TodoyuSysmanagerExtManager::getMajorVersion($extKey);
+
+		$result	= TodoyuSysmanagerRepositoryManager::licenseExtension($extKey, $major);
+
+		TodoyuHeader::sendTodoyuHeader('licensed', $result?1:0);
+	}
+
+	
 
 	/**
 	 * Uninstall an extension
