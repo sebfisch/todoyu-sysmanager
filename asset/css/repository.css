@@ -23,7 +23,6 @@
 .extListing .extension .right {
 	width:180px;
 	padding-left:10px;
-	border-left:1px dashed #ccc;
 }
 
 .extListing .extension h5 {
@@ -52,7 +51,7 @@
 
 .extListing .extension .right div {
 	padding:5px;
-	border-bottom:1px dashed #ccc;
+	border-bottom:1px solid #ccc;
 }
 
 .extListing .extension .bottom {
