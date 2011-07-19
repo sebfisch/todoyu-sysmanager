@@ -103,6 +103,8 @@ class TodoyuSysmanagerRepositoryManager {
 
 				// Callback: After update
 			TodoyuSysmanagerExtInstaller::callAfterUpdate($extKey, $previousVersion, $currentVersion);
+		} catch(TodoyuSysmanagerRepositoryException $e) {
+			return $e->getMessage();
 		} catch(TodoyuException $e) {
 			return $e->getMessage();
 		}
@@ -270,7 +272,7 @@ class TodoyuSysmanagerRepositoryManager {
 		$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($extKey, $pathArchive, $override);
 
 		if( $canImport !== true ) {
-			throw new TodoyuException($canImport);
+			throw new TodoyuSysmanagerRepositoryException($canImport);
 		}
 
 			// Import to todoyu extension folder
@@ -320,8 +322,6 @@ class TodoyuSysmanagerRepositoryManager {
 			return $repository->download($type, $idVersion);
 		} catch(TodoyuSysmanagerRepositoryConnectionException $e) {
 			throw new TodoyuException('Download of update archive failed: ' . $idVersion);
-		} catch(TodoyuSysmanagerRepositoryException $e) {
-			throw new TodoyuException($e->getMessage());
 		}
 	}
 

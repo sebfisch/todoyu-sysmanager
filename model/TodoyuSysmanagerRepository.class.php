@@ -159,7 +159,7 @@ class TodoyuSysmanagerRepository {
 	 * @return	String		Path to local saved file
 	 */
 	public function download($type, $idVersion) {
-		$data		= array(
+		$data = array(
 			'type'		=> $type,
 			'version'	=> intval($idVersion)
 		);
@@ -170,9 +170,8 @@ class TodoyuSysmanagerRepository {
 			throw new TodoyuSysmanagerRepositoryException($responseData['message']);
 		}
 
-		$tempName		= md5($idVersion . time());
-		$tempFile		= TodoyuFileManager::pathAbsolute(PATH_CACHE . '/temp/' . $tempName);
-		$fileData		= base64_decode($responseData['data']);
+		$tempFile	= TodoyuFileManager::getTempFile(false, true);
+		$fileData	= base64_decode($responseData['data']);
 
 		TodoyuFileManager::saveFileContent($tempFile, $fileData);
 
