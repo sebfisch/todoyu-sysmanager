@@ -80,6 +80,7 @@ class TodoyuSysmanagerRepository {
 	 * Search for extensions on the update server
 	 *
 	 * @throws	TodoyuSysmanagerRepositoryConnectionException
+	 * @throws	TodoyuSysmanagerRepositoryException
 	 * @param	String		$query
 	 * @return	Array		Search results
 	 */
@@ -224,8 +225,6 @@ class TodoyuSysmanagerRepository {
 			'info'	=> $this->getInfo()
 		);
 
-//		TodoyuDebug::printInFireBug($postData, 'postData');
-
 		try {
 			$this->response = TodoyuRequest::sendPostRequest($config['host'], $config['get'], $postData, 'data');
 		} catch(TodoyuException $e) {
@@ -236,7 +235,10 @@ class TodoyuSysmanagerRepository {
 		$this->response['content_raw']	= $this->response['content'];
 		$this->response['content']		= json_decode($this->response['content'], true);
 
-//		TodoyuDebug::printInFireBug($this->response['content'], 'response');
+			// Response was no valid JSON
+		if( is_null($this->response['content']) ) {
+			throw new TodoyuSysmanagerRepositoryException('invalidResponse');
+		}
 
 		if( $this->response['content']['status'] !== true ) {
 			throw new TodoyuSysmanagerRepositoryException($this->response['content']['error']);
