@@ -279,13 +279,15 @@ Todoyu.Ext.sysmanager.Records = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onSaved: function(form, ext, type, response) {
+		var notificationIdentifier	= 'sysmanager.record.saved';
+
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('[LLL:sysmanager.ext.records.saved.fail]');
+			Todoyu.notifyError('[LLL:sysmanager.ext.records.saved.fail]', notificationIdentifier);
 			$(form.id).update(response.responseText);
 			Todoyu.Form.enableSaveButtons(form);
 		} else {
 			Todoyu.Form.enableSaveButtons(form);
-			Todoyu.notifySuccess('[LLL:sysmanager.ext.records.saved]');
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.records.saved]', notificationIdentifier);
 			this.showTypeRecords(ext, type);
 		}
 	},

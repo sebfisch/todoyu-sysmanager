@@ -201,10 +201,12 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onRemoved: function(extKey, response) {
+		var notificationIdentifier	= 'sysmanager.extension.removed';
+
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('[LLL:sysmanager.extension.notify.remove.error]')
+			Todoyu.notifyError('[LLL:sysmanager.extension.notify.remove.error]', notificationIdentifier);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.extension.notify.remove.success]');
+			Todoyu.notifySuccess('[LLL:sysmanager.extension.notify.remove.success]', notificationIdentifier);
 		}
 
 		this.Import.showList();

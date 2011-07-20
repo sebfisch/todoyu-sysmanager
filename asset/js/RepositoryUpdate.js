@@ -125,12 +125,13 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * @param	{String}	extkey
 	 */
 	onExtensionUpdateInstalled: function(extkey, response) {
+		var notificationIdentifier	= 'sysmanager.repository.extension.updateinstalled';
+
 		if( response.hasTodoyuError() ) {
 			var error	= response.getTodoyuErrorMessage();
-
-			Todoyu.notifyError(error);
+			Todoyu.notifyError(error, notificationIdentifier);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.repository.extension.update.success]', 10);
+			Todoyu.notifySuccess('[LLL:sysmanager.repository.extension.update.success]', notificationIdentifier, 10);
 			this.repo.dialog.close();
 			this.refreshUpdateList();
 		}
@@ -166,12 +167,13 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onCoreUpdateInstalled: function(response) {
+		var notificationIdentifier	= 'sysmanager.repositoryupdate.coreupdate.installed';
+
 		if( response.hasTodoyuError() ) {
 			var error	= response.getTodoyuErrorMessage();
-
-			Todoyu.notifyError(error);
+			Todoyu.notifyError(error, notificationIdentifier);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.repository.core.update.success]', 10);
+			Todoyu.notifySuccess('[LLL:sysmanager.repository.core.update.success]', notificationIdentifier, 10);
 			this.repo.dialog.close();
 
 			new Todoyu.LoaderBox('update', {

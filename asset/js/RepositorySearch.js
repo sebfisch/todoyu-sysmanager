@@ -204,11 +204,13 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 * @param	{Ajax.Response}	response
 	 */
 	onExtensionInstalled: function(extKey, majorVersion, response) {
+		var notificationIdentifier	= 'sysmanager.repository.extension.installed';
+
 		if( response.hasTodoyuError() ) {
 			var error	= response.getTodoyuErrorMessage();
-			Todoyu.notifyError(error);
+			Todoyu.notifyError(error, notificationIdentifier);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.repository.extension.install.success]');
+			Todoyu.notifySuccess('[LLL:sysmanager.repository.extension.install.success]', notificationIdentifier);
 			this.repo.closeDialog();
 			Effect.SlideUp('repository-search-ext-' + extKey);
 			this.ext.Extensions.showTab(extKey, 'info');

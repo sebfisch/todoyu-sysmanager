@@ -262,14 +262,16 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @param	{Ajax.Response}	response
 	 */
 	onUninstalled: function(extKey, response) {
+		var notificationIdentifier	= 'sysmanager.extension.uninstalled';
+
 		if( response.hasTodoyuError() ) {
 			var info	= response.getTodoyuHeader('info');
 
-			Todoyu.notifyError('[LLL:sysmanager.extension.uninstall.error.general]: ' + info);
+			Todoyu.notifyError('[LLL:sysmanager.extension.uninstall.error.general]: ' + info, notificationIdentifier);
 		} else {
 			var extName	= response.getTodoyuHeader('extTitle');
 
-			Todoyu.notifySuccess('[LLL:sysmanager.extension.uninstall.ok]: ' + extName);
+			Todoyu.notifySuccess('[LLL:sysmanager.extension.uninstall.ok]: ' + extName, notificationIdentifier);
 
 			Todoyu.Ui.setContentBody(response.responseText);
 		}

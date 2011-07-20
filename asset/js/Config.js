@@ -88,10 +88,12 @@ Todoyu.Ext.sysmanager.Config = {
 	 * @param	{Ajax.Response}	response
 	 */
 	onSystemConfigSaved: function(response) {
+		var notificationIdentifier	= 'sysmanager.systemconfig.saved';
+
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('[LLL:sysmanager.ext.config.tab.systemconfig.failed]');
+			Todoyu.notifyError('[LLL:sysmanager.ext.config.tab.systemconfig.failed]', notificationIdentifier);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.ext.config.tab.systemconfig.saved]');
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.config.tab.systemconfig.saved]', notificationIdentifier);
 		}
 
 		Todoyu.Ui.setContentBody(response.responseText);

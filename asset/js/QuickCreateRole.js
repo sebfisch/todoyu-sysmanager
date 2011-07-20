@@ -60,9 +60,11 @@ Todoyu.Ext.sysmanager.QuickCreateRole = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onSaved: function(response) {
+		var notificationIdentifier	= 'sysmanager.quickcreaterole.saved';
+
 		if( response.hasTodoyuError() ) {
 				// Saving role failed
-			Todoyu.notifyError('[LLL:sysmanager.ext.role.saved.error]');
+			Todoyu.notifyError('[LLL:sysmanager.ext.role.saved.error]', notificationIdentifier);
 			Todoyu.Headlets.getHeadlet('todoyuheadletquickcreate').updatePopupContent(response.responseText);
 		} else {
 				// Saving succeeded
@@ -71,7 +73,7 @@ Todoyu.Ext.sysmanager.QuickCreateRole = {
 
 			Todoyu.Popups.close('quickcreate');
 			Todoyu.Ext.sysmanager.RightsEditor.updateEditor();
-			Todoyu.notifySuccess('[LLL:sysmanager.ext.role.saved]');
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.role.saved]', notificationIdentifier);
 		}
 	}
 

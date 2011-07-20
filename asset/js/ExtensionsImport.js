@@ -102,16 +102,25 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	 * @param	{String}	message
 	 */
 	importFinished: function(ext, success, message) {
+		var notificationIdentifier	= 'sysmanager.extensions.import.finished';
+
 		if( success === true ) {
-			Todoyu.notifySuccess('[LLL:sysmanager.ext.upload.ok]: ' + ext);
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.upload.ok]: ' + ext, notificationIdentifier);
 
 			this.ext.Extensions.Install.showList();
 		} else {
-			Todoyu.notifyError('[LLL:sysmanager.ext.upload.error]: ' + ext + ' (' + message + ')');
+			Todoyu.notifyError('[LLL:sysmanager.ext.upload.error]: ' + ext + ' (' + message + ')', notificationIdentifier);
 		}
 	},
 
 
+
+	/**
+	 * Handler when extension import has failed
+	 *
+	 * @method	{importFailed}
+	 * @param	{String}		message
+	 */
 	importFailed: function(message) {
 		Todoyu.notifyError('[LLL:sysmanager.ext.upload.error]: ' + message);
 	}

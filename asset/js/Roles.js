@@ -152,11 +152,13 @@ Todoyu.Ext.sysmanager.Roles = {
 	 * @param	{Ajax.Response}		response
 	 */
 	onSaved: function(response) {
+		var notificationIdentifier	= 'sysmanager.roles.saved';
+
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyError('[LLL:sysmanager.ext.roles.saved.error]');
+			Todoyu.notifyError('[LLL:sysmanager.ext.roles.saved.error]', notificationIdentifier);
 			Todoyu.Ui.setContentBody(response.responseText);
 		} else {
-			Todoyu.notifySuccess('[LLL:sysmanager.ext.roles.saved.ok]');
+			Todoyu.notifySuccess('[LLL:sysmanager.ext.roles.saved.ok]', notificationIdentifier);
 			this.showList();
 		}
 	},
