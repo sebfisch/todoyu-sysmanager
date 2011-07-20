@@ -42,6 +42,8 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 
 	/**
 	 * Initialize
+	 *
+	 * @method	init
 	 */
 	init: function() {
 		this.repo.installWarningsObservers();
@@ -52,6 +54,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	/**
 	 * Reload list with updates
 	 *
+	 * @method	refreshUpdateList
 	 * @param	{Function}	onComplete
 	 */
 	refreshUpdateList: function(onComplete) {
@@ -70,6 +73,8 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 
 	/**
 	 * Show dialog for core update
+	 *
+	 * @method	showCoreUpdateDialog
 	 */
 	showCoreUpdateDialog: function() {
 		var url		= this.repo.getUrl();
@@ -87,6 +92,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	/**
 	 * Show dialog for extension update
 	 *
+	 * @method	showExtensionUpdateDialog
 	 * @param	{String}	extkey
 	 */
 	showExtensionUpdateDialog: function(extkey) {

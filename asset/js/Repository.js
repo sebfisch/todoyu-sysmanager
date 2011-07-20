@@ -78,6 +78,7 @@ Todoyu.Ext.sysmanager.Repository = {
 	/**
 	 * Show dialog for an extension
 	 *
+	 * @method	showExtensionDialog
 	 * @param	{String}	extkey
 	 * @param	{String}	action
 	 * @param	{String}	title
@@ -103,6 +104,8 @@ Todoyu.Ext.sysmanager.Repository = {
 
 	/**
 	 * Close confirm dialog
+	 *
+	 * @method	closeDialog
 	 */
 	closeDialog: function() {
 		if( this.dialog ) {
@@ -114,6 +117,8 @@ Todoyu.Ext.sysmanager.Repository = {
 
 	/**
 	 * Install observers on dependency and conflict lists
+	 *
+	 * @method	installWarningsObservers
 	 */
 	installWarningsObservers: function() {
 		$('content-body').select('.warning ul').each(function(list){
@@ -128,6 +133,7 @@ Todoyu.Ext.sysmanager.Repository = {
 	/**
 	 * Handler when clicked on a warning
 	 *
+	 * @method	onWarningClick
 	 * @param	{String}	type
 	 * @param	{Event}		event
 	 * @param	{Element}	element
@@ -154,6 +160,8 @@ Todoyu.Ext.sysmanager.Repository = {
 
 	/**
 	 * Show list with installed extensions
+	 *
+	 * @method	showInstalledExtensions
 	 */
 	showInstalledExtensions: function() {
 		this.ext.Extensions.showList();
@@ -164,6 +172,7 @@ Todoyu.Ext.sysmanager.Repository = {
 	/**
 	 * Show search with results for query
 	 *
+	 * @method	showSearch
 	 * @param	{String}	query
 	 */
 	showSearch: function(query) {
@@ -175,7 +184,10 @@ Todoyu.Ext.sysmanager.Repository = {
 
 
 	/**
-	 * Get name of current view (search or updat)
+	 * Get name of current view ("search" or "update")
+	 *
+	 * @method	getViewName
+	 * @return	{String}
 	 */
 	getViewName: function() {
 		return Todoyu.Tabs.getActiveKey('extension');

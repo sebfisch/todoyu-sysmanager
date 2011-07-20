@@ -219,6 +219,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	/**
 	 * Prevent that no roles are selected
 	 * If no role is selected, select all
+	 *
+	 * @method	preventEmptyRoleSelection
 	 */
 	preventEmptyRoleSelection: function() {
 		if( this.getRoles().size() === 0 ) {
@@ -230,6 +232,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 
 	/**
 	 * Select all role options in role selector
+	 *
+	 * @method	selectAllRoles
 	 */
 	selectAllRoles: function() {
 		$('rightseditor-field-roles').select('option').each(function(option){

@@ -105,6 +105,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	/**
 	 * Show problems which prevent an installation
 	 *
+	 * @method	showInstallationProblems
 	 * @param	{Object}	problems
 	 */
 	showInstallationProblems: function(problems) {
@@ -135,6 +136,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	/**
 	 * Show dialog to register a commercial extension which is already imported locally
 	 *
+	 * @method	showLicenseDialogForImportOfCommercialExtension
 	 * @param	{String}	ext
 	 */
 	showLicenseDialogForImportOfCommercialExtension: function(ext) {
@@ -147,6 +149,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * License the imported extension. If this was successful, install it
 	 * like a normal free extension
 	 *
+	 * @method	installAndLicenseImportedExtension
 	 * @param	{String}	ext
 	 */
 	installAndLicenseImportedExtension: function(ext) {
@@ -168,6 +171,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * Handler when commercial extension was licensed.
 	 * Close dialog and call normal installer, but prevent extra check
 	 *
+	 * @method	onImportedExtensionLicensed
 	 * @param	{String}		ext
 	 * @param	{Ajax.Response}	response
 	 */

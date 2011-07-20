@@ -29,10 +29,27 @@
  */
 Todoyu.Ext.sysmanager.Repository.Search = {
 
+	/**
+	 * Reference to extension
+	 *
+	 * @property	ext
+	 * @type		Object
+	 */
 	ext: Todoyu.Ext.sysmanager,
 
+	/**
+	 * Reference to Repository class
+	 *
+	 * @property	repo
+	 * @type		Object
+	 */
 	repo: Todoyu.Ext.sysmanager.Repository,
 
+
+
+	/**
+	 * @method	init
+	 */
 	init: function() {
 		this.observeForm();
 		this.repo.installWarningsObservers();
@@ -67,6 +84,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	/**
 	 * Get query string from search form
 	 *
+	 * @method	getQuery
 	 * @return	{String}
 	 */
 	getQuery: function() {
@@ -78,6 +96,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	/**
 	 * Set query value
 	 *
+	 * @method	setQuery
 	 * @param	{String}	query
 	 */
 	setQuery: function(query) {
@@ -131,6 +150,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	/**
 	 * Search for a query
 	 *
+	 * @method	searchFor
 	 * @param	{String}	query
 	 */
 	searchFor: function(query) {
@@ -143,6 +163,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	/**
 	 * Show dialog to install extension
 	 *
+	 * @method	showExtensionInstallDialog
 	 * @param	{String}	extkey
 	 * @param	{Boolean}	local
 	 */
@@ -155,6 +176,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	/**
 	 * Enable license acceptance toggle
 	 *
+	 * @method	onDialogLoaded
 	 * @param	{Ajax.Response}	response
 	 * @param	{Todoyu.Popup}	popup
 	 */
@@ -199,6 +221,7 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	/**
 	 * Handler when extension was installed
 	 *
+	 * @method	onExtensionInstalled
 	 * @param	{String}		extKey
 	 * @param	{Number}		majorVersion
 	 * @param	{Ajax.Response}	response
