@@ -1,6 +1,6 @@
 todoyu sysmanager extension changelog
 
-sysmanager 1.1.1
+sysmanager 1.1.1 - ???
 	* Added: Missing label, error prevention on unknown extensions
 	* Added: Testing for invalid repository response and throw exception
 	* Feature: Added functionality to register imported extensions
@@ -10,7 +10,7 @@ sysmanager 1.1.1
 	* Change: Changed API to work with new tER API
 	* Added: Problem with the API are now reported to the user
 
-sysmanager 1.1.0
+sysmanager 1.1.0 - 2011-06-17
 	* Feature: Added todoyuURL setting in config
 	* Feature: Added classes for repository and updater
 	* Feature: Show message if no roles is selected
@@ -24,5 +24,5 @@ sysmanager 1.1.0
  	* Bugfix: Added missing notification after deletion of role
 
 
-sysmanager 1.0.8 - not released yet
+sysmanager 1.0.8
 	* Added changelog
