@@ -1,6 +1,11 @@
 todoyu sysmanager extension changelog
 
 sysmanager 1.1.1
+	* Added: Missing label, error prevention on unknown extensions
+	* Added: Testing for invalid repository response and throw exception
+	* Feature: Added functionality to register imported extensions
+	* Bugfix: Send info for registration to check API version
+	* Added: German translations
 	* Bugfix: Fixed invalid labels in checkout dialogs
 	* Change: Changed API to work with new tER API
 	* Added: Problem with the API are now reported to the user
