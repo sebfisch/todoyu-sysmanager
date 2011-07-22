@@ -48,14 +48,16 @@
 	<div class="clear"></div>
 
 	{if $install && $info.commercial}
-		{if $license}
+		{if $license &&  $info.installStatus != 'noLicense'}
 			<div class="license">
 				<pre width="90">{$license}</pre>
 			</div>
-			<div class="info acceptlicense">
-				<input type="checkbox" value="1" name="acceptlicense" id="acceptlicense">
-				<label for="acceptlicense">{Label sysmanager.repository.license.label.accept}</label>
-			</div>
+			{if $info.installStatus != 'noLicense'}
+			    <div class="info acceptlicense">
+			    	<input type="checkbox" value="1" name="acceptlicense" id="acceptlicense">
+				    <label for="acceptlicense">{Label sysmanager.repository.license.label.accept}</label>
+			    </div>
+			{/if}
 		{/if}
 
 		<div class="info licenseinfo {$info.installStatus}">

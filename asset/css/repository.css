@@ -279,6 +279,24 @@
 	background-color:#e3eace;
     text-align:left;
 }
+.repositoryDialog.extensionDialog.extInstall .licenseinfo.noLicense {
+	background-color:#ff0000;
+    text-align:left;
+    color: #fff;
+}
+
+.repositoryDialog.extensionDialog.extInstall .licenseinfo.buyextension {
+    background-color:transparent;
+}
+.repositoryDialog.extensionDialog.extInstall .licenseinfo.buyextension a{
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+
+
+
 
 .repositoryDialog.extensionDialog.extInstall .warningMajorUpdate {
 	background-color:#f00;
