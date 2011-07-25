@@ -269,6 +269,7 @@
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense {
     text-align:left;
+    font-weight: bold;
 }
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense input {
@@ -292,6 +293,12 @@
     font-weight: bold;
     font-size: 16px;
     text-decoration: underline;
+    padding-left:20px;
+    background:url(../img/icons.png) no-repeat 0 -718px;
+}
+
+.repositoryDialog.extensionDialog.extInstall .licenseinfo.buyextension a:hover{
+   color:#4C4C4C;
 }
 
 

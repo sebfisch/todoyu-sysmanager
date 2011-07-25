@@ -41,7 +41,7 @@
 	<label index="error.unresolvedConflicts">There are unresolved conflicts</label>
 	<label index="error.downloadNoArchiveForExtVersion">The update archive for this version is missing</label>
 	<label index="error.downloadNoArchiveForCoreVersion">The update archive for this version is missing</label>
-	<label index="error.downloadNoFileAccess">You are not allowed to download this file</label>
+	<label index="error.downloadNoFileAccess">You are not allowed to download this file - make sure you have a valid license</label>
 	<label index="error.registerTodoyuIdMissing">todoyuID is missing. Please enter your ID in the system config screen</label>
 	<label index="error.registerExtensionMissing">No extension was submitted for registration</label>
 	<label index="error.registerDomainMissing">todoyu was not able to detect your domain for registration</label>
@@ -57,7 +57,7 @@
 	<label index="error.invalidResponse">The todoyu extension repository sent back an invalid response. Sorry, the tER seems to have a problem. Try later</label>
 	<label index="error.unknownExtension">Info: The tER doesn't recognize this extension. This is only a problem when you just tried to install a commercial extension</label>
 	<label index="license.label.accept">Accept License</label>
-	<label index="license.buyinrepository">Buy extension in todoyu extension repository</label>
+	<label index="license.buyinrepository">Buy this extension in the todoyu extension repository</label>
 	<label index="license.useLicense">use one of my licenses</label>
 	<label index="license.required">License for extension is required!</label>
 	<label index="license.status.freeLicense">You have available licenses for this extension. One will be used on installation.</label>
