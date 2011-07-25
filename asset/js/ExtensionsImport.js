@@ -109,7 +109,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 
 			this.ext.Extensions.Install.showList();
 		} else {
-			Todoyu.notifyError('[LLL:sysmanager.ext.upload.error]: ' + ext + ' (' + message + ')', notificationIdentifier);
+			Todoyu.notifyError('[LLL:sysmanager.extension.upload.error]: ' + ext + ' (' + message + ')', notificationIdentifier);
 		}
 	},
 
@@ -122,7 +122,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	 * @param	{String}		message
 	 */
 	importFailed: function(message) {
-		Todoyu.notifyError('[LLL:sysmanager.ext.upload.error]: ' + message);
+		Todoyu.notifyError('[LLL:sysmanager.extension.upload.error]: ' + message);
 	}
 
 };

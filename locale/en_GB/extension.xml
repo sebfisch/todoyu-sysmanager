@@ -45,7 +45,7 @@
 	<label index="notify.remove.error">Removing extension failed</label>
 	<label index="notify.remove.success">Extension was sucessfully removed from server</label>
 	<label index="upload.selectfile">Select extension archive (zip)</label>
-	<label index="upload.override">Override existing extension (files)</label>
+	<label index="upload.override">Overwrite existing extension (files)</label>
 	<label index="upload.title">Upload New Extension</label>
 	<label index="upload.button">Upload Extension</label>
 	<label index="upload.noArchiveSelected">Please select an extension archive to upload</label>
