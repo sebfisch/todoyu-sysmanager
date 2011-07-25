@@ -25,6 +25,7 @@
 	<label index="extension.update.install.dialogtitle">Erweiterungs-Update installieren</label>
 	<label index="extension.update.confirm">Das Update dieser Erweiterung installieren?</label>
 	<label index="extension.update.success">Das Update der Erweiterung wurde erfolgreich installiert</label>
+	<label index="extension.install.newExtension">Installiere neue Erweiterung</label>
 	<label index="extension.install.cancel">Installation abbrechen</label>
 	<label index="extension.install.success">Die Erweiterung wurde erfolgreich installiert</label>
 	<label index="extension.install.confirm">Diese Erweiterung installieren?</label>
@@ -53,7 +54,7 @@
 	<label index="error.general.info">Das todoyu Erweiterungs Repository konnte Ihre Anfrage nicht erfolgreich verarbeiten.</label>
 	<label index="error.apiTooOld">Ihre version der Systemmanager Erweiterung scheint veraltet zu sein und kann nicht mehr mit dem Erweiterungs Repository kommunizieren. Bitte installieren sie eine neuere Version</label>
 	<label index="license.label.accept">Lizenz akzeptieren</label>
-	<label index="license.buyinrepository">Erweiterung im todoyu Erweiterungsverzeichnis (tER) kaufen</label>
+	<label index="license.buyinrepository">Erweiterung im todoyu Extension Repository (tER) kaufen</label>
 	<label index="license.useLicense">nutze eine meiner Lizenzen</label>
 	<label index="license.required">Für diese Erweiterung wird eine Lizenz benötigt</label>
 	<label index="license.status.freeLicense">Sie besitzen noch freie Lizenzen für diese Erweiterung. Eine davon wird bei der Installtion benutzt</label>
