@@ -431,7 +431,7 @@ class TodoyuSysmanagerRepositoryManager {
 	 */
 	public static function isRegistrationRequired($extKey, $major) {
 		$info	= self::getExtInfoFromRepository($extKey, $major);
-		$status	= TodoyuArray::assure($info['installStatus']);
+		$status	= trim($info['installStatus']);
 		$required	= array(
 			'noLicense',
 			'freeLicense'

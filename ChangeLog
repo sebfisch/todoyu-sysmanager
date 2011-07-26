@@ -1,6 +1,10 @@
 todoyu sysmanager extension changelog
 
-sysmanager 1.1.1 - ???
+sysmanager 1.1.2
+	* Bugfix: Error label was interpolated too soon
+	* Bugfix: Uploaded extensions were not recognized as commercial without a license
+
+sysmanager 1.1.1 - 2011-07-25
 	* Added: Missing label, error prevention on unknown extensions
 	* Added: Testing for invalid repository response and throw exception
 	* Feature: Added functionality to register imported extensions

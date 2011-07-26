@@ -19,13 +19,20 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * Repository exception
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
 class TodoyuSysmanagerRepositoryException extends TodoyuException {
 
+	/**
+	 * Initialize
+	 *
+	 * @param	String		$message
+	 * @param	Integer		$code
+	 * @param	Exception	$previous
+	 */
 	public function __construct($message, $code = 0, $previous = null) {
 		$message	= Todoyu::Label('sysmanager.repository.error.' . $message);
 
