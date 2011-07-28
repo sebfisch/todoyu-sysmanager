@@ -77,8 +77,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 
 
 	/**
-	 * Start extension upload
-	 * Use an iframe to submit the file upload
+	 * Start extension upload (uses iframe to submit the file upload)
 	 *
 	 * @method	startUpload
 	 */
@@ -86,7 +85,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 		if( $F('importExtension-field-file') !== '' ) {
 			Todoyu.Form.submitToIFrame('importExtension-form', 'import');
 		} else {
-			alert('[LLL:sysmanager.ext.upload.noArchiveSelected]');
+			alert('[LLL:sysmanager.extension.upload.noArchiveSelected]');
 		}
 	},
 
@@ -105,7 +104,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 		var notificationIdentifier	= 'sysmanager.extensions.import.finished';
 
 		if( success === true ) {
-			Todoyu.notifySuccess('[LLL:sysmanager.ext.upload.ok]: ' + ext, notificationIdentifier);
+			Todoyu.notifySuccess('[LLL:sysmanager.extension.upload.ok]: ' + ext, notificationIdentifier);
 
 			this.ext.Extensions.Install.showList();
 		} else {

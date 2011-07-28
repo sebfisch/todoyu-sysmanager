@@ -49,7 +49,7 @@
 	<label index="upload.title">Upload New Extension</label>
 	<label index="upload.button">Upload Extension</label>
 	<label index="upload.noArchiveSelected">Please select an extension archive to upload</label>
-	<label index="upload.ok">Extension was successfully imported</label>
+	<label index="upload.ok">Extension was successfully imported and can now be installed</label>
 	<label index="upload.error">Extension Upload Failed</label>
 	<label index="upload.archivehint">A todoyu extension archive has to be named correctly: TodoyuExt_EXTNAME_VERSION.zip. Ex: TodoyuExt_project_1.1.0.zip</label>
 </labels>
