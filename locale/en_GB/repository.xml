@@ -26,7 +26,7 @@
 	<label index="extension.update.confirm">Install this extension update?</label>
 	<label index="extension.update.success">Extension update was installed successfully</label>
 	<label index="extension.install.cancel">Cancel</label>
-	<label index="extension.install.success">Extension was successfully installed</label>
+	<label index="extension.install.success">The extension was successfully installed</label>
 	<label index="extension.install.confirm">Install this extension?</label>
 	<label index="extension.installUpdate">Install Extension Update</label>
 	<label index="extension.installUpdate.cancel">Cancel installation of update</label>

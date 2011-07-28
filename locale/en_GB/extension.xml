@@ -25,7 +25,7 @@
 	<label index="install">Install Extension</label>
 	<label index="install.allinstalled">All extensions on the server are already installed. You can import new extensions from the todoyu tER or upload an extension archive.</label>
 	<label index="install.confirm">Install Extension?</label>
-	<label index="install.ok">Extension was installed successfully</label>
+	<label index="install.ok">The extension was installed successfully</label>
 	<label index="install.ok.info">The extension is now installed on your system. Further configuration may be necessary. You can do that in the extensions settings. To do so change to the sub-module 'extensions'.</label>
 	<label index="installed.notify">Extension was installed successfully:</label>
 	<label index="install.error">Installation of extension failed</label>
@@ -41,15 +41,15 @@
 	<label index="uninstall.thefollowingextdependsonit">The following extensions depend on it:</label>
 	<label index="uninstall.error.general">Uninstallation of extension failed</label>
 	<label index="uninstall.error.sysext">is a system extension and cannot be uninstalled.</label>
-	<label index="uninstall.aftermessage">Extension was uninstalled successfully. The extension is still available on the server, but not loaded anymore.</label>
-	<label index="notify.remove.error">Removing extension failed</label>
-	<label index="notify.remove.success">Extension was sucessfully removed from server</label>
+	<label index="uninstall.aftermessage">The extension was uninstalled successfully. The extension is still available on the server, but not loaded anymore.</label>
+	<label index="notify.remove.error">Removing the extension failed</label>
+	<label index="notify.remove.success">The extension was sucessfully removed from server</label>
 	<label index="upload.selectfile">Select extension archive (zip)</label>
 	<label index="upload.override">Overwrite existing extension (files)</label>
 	<label index="upload.title">Upload New Extension</label>
 	<label index="upload.button">Upload Extension</label>
 	<label index="upload.noArchiveSelected">Please select an extension archive to upload</label>
-	<label index="upload.ok">Extension was successfully imported and can now be installed</label>
+	<label index="upload.ok">The extension was successfully imported and can now be installed</label>
 	<label index="upload.error">Extension Upload Failed</label>
 	<label index="upload.archivehint">A todoyu extension archive has to be named correctly: TodoyuExt_EXTNAME_VERSION.zip. Ex: TodoyuExt_project_1.1.0.zip</label>
 </labels>
