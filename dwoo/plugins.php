@@ -125,6 +125,7 @@ function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $compiler, $extKey) {
  * @return	String
  */
 function Dwoo_Plugin_ExtensionStatusIcon(Dwoo $dwoo, $state) {
+	$state	= trim(strtolower($state));
 	$states	= array(
 		0		=> 'alpha',
 		1		=> 'beta',
