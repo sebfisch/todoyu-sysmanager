@@ -28,7 +28,6 @@ class TodoyuSysmanagerRepositoryManager {
 
 	/**
 	 * Notify about a general repository error
-	 *
 	 */
 	public static function notifyRepositoryError() {
 		TodoyuNotification::notifyError('sysmanager.repository.error.general');
@@ -353,7 +352,6 @@ class TodoyuSysmanagerRepositoryManager {
 
 	/**
 	 * Clear all data from repository info session
-	 *
 	 */
 	public static function clearRepoInfo() {
 		TodoyuSession::remove('repository/info');

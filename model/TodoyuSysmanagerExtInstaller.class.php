@@ -232,7 +232,6 @@ class TodoyuSysmanagerExtInstaller {
 
 	/**
 	 * Update the database from files of all installed extensions
-	 *
 	 */
 	public static function updateDatabaseFromFiles() {
 		TodoyuSQLManager::updateDatabaseFromTableFiles();
