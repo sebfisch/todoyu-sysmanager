@@ -215,7 +215,9 @@ class TodoyuSysmanagerExtInstaller {
 			// Save installed extensions config file (config/extensions.php)
 		self::saveInstalledExtensions($extKeys);
 
+		// @todo Use new format for autoload
 		TodoyuExtensions::addExtAutoloadPaths($extKey);
+		//TodoyuAutoloader::reload();
 
 		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
 
