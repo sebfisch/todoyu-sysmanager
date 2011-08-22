@@ -19,12 +19,12 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * Connection exception
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
-class TodoyuSysmanagerRepositoryConnectionException extends TodoyuSysmanagerRepositoryException {
+class TodoyuSysmanagerRepositoryConnectionException extends TodoyuException {
 
 	public function __construct($message, $code = 0, $previous = null) {
 		parent::__construct($message, $code, $previous);
