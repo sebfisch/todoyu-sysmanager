@@ -96,6 +96,13 @@ table.recordsList td.actions div.icon {
 /* ----------------------------
 	Records listing
    ---------------------------- */
+p.recordsAmount {
+	margin-top:16px
+}
+p.recordsAmount span {
+	font-weight:bold;
+}
+
 .recordsListing td.icon {
 	width:15px;
 }

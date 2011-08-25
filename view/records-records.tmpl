@@ -1,32 +1,9 @@
-{*
-<div id="list">
-	<h1 class="headerLine">
-		<span class="back" onclick="Todoyu.goTo('admin', '', { mod:'records'})">{Label sysmanager.ext.backToTypeList}</span>
-		<span class="createNew" onclick="Todoyu.Ext.sysmanager.Extensions.Records.add('{$extKey}', '{$type}')">{Label LLL:core.global.createNew} {Label $labels.typeLabel}</span>
-		<span class="rgt"><!--right--></span>
-	</h1>
-
-	<ul id="record-list" class="ulList withMouseHover">
-	{foreach $records key record}
-		<li id="listElement-{$key}" class="{cycle values='odd,even'}">
-			<span class="recordlabel" title="{$record.label}">
-				<a onclick="Todoyu.Ext.sysmanager.Records.edit('{$extKey}', '{$type}', {$record.id})">
-					{truncate Label($record.label true) 35}&nbsp;
-				</a>
-			</span>
-			<span class="additionalInformations" title="{$record.additionalInformations}">{truncate $record.additionalInformations 12}</span>
-			<span class="edit" onclick="Todoyu.Ext.sysmanager.Records.edit('{$extKey}', '{$type}', {$record.id})" title="{Label sysmanager.records.edit}"></span>
-			<span class="delete" onclick="Todoyu.Ext.sysmanager.Records.remove('{$extKey}', '{$type}', {$record.id})" title="{Label sysmanager.records.delete}"></span>
-		</li>
-	{/foreach}
-	</ul>
-</div>
-*}
-
-
-
-
 <input type="button" onclick="Todoyu.Ext.sysmanager.Records.add('{$extKey}', '{$type}')" value="{Label core.global.createNew} {Label $labels.typeLabel}" />
+
+<p class="recordsAmount">
+	<span>{count($records)} {Label core.global.records}</span>
+</p>
+
 <table cellspacing="0" cellpadding="0" class="list recordsListing recordsList">
 	<tr class="header">
 		<th scope="col" class="icon">&nbsp;</th>

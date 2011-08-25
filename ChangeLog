@@ -1,6 +1,7 @@
 todoyu sysmanager extension changelog
 
-sysmanager 1.1.2 - ???
+sysmanager 1.1.2 - Not released yet
+	* Added: Items amount in records listing
 	* Bugfix: Error label was interpolated too soon
 	* Bugfix: Uploaded extensions were not recognized as commercial without a license
 	* Change: Extension status is now also recognized when not lowercase (ex: Beta)
