@@ -236,9 +236,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @method	selectAllRoles
 	 */
 	selectAllRoles: function() {
-		$('rightseditor-field-roles').select('option').each(function(option){
-			option.selected = true;
-		});
+		$('rightseditor-field-roles').select('option').invoke('writeAttribute', 'selected', true);
+
 	},
 
 
@@ -626,19 +625,13 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @param	{Array}	checkboxes
 	 */
 	toggleCheckboxes: function(checkboxes) {
-		this.allOn	= true;
-
-			// Check if all checkboxes are currently checked
-		checkboxes.each(function(checkbox) {
-			if( checkbox.checked !== true ) {
-				this.allOn = false;
-				return;
-			}
-		}.bind(this));
+		this.allOn	= checkboxes.all(function(checkbox){
+			return checkbox.checked
+		});
 
 			// Check or uncheck all
 		checkboxes.each(function(checkbox) {
-			checkbox.checked = !this.allOn;
+			checkbox.checked = ! this.allOn;
 		}.bind(this));
 	}
 
