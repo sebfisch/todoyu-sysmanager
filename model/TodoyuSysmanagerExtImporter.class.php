@@ -19,13 +19,12 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * Sysmanager extension exporter
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
 class TodoyuSysmanagerExtImporter {
-
 
 	/**
 	 * Verify as extension archive and import uploaded file into ext system

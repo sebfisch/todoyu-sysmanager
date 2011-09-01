@@ -19,10 +19,12 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * Exception
+ * Sysmanager installer
  *
  * @package		Todoyu
- * @subpackage	[Subpackage]
+ * @subpackage	Sysmanager
+ * @link		http://php.net/manual/en/class.exception.php
  */
 class TodoyuSysmanagerInstallerException extends Exception {
 

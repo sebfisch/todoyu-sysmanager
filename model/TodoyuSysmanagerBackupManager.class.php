@@ -21,7 +21,6 @@
 /**
  * Create extension and core backups
  *
- *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
