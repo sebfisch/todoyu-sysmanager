@@ -154,6 +154,7 @@ class TodoyuSysmanagerRepository {
 	/**
 	 * Download file from repository
 	 *
+	 * @throws	TodoyuSysmanagerRepositoryException
 	 * @param	String		$type
 	 * @param	Integer		$idVersion
 	 * @return	String		Path to local saved file

@@ -429,7 +429,7 @@ class TodoyuSysmanagerExtInstaller {
 	 * Check constraints of the extension
 	 * Core version, dependent extensions, conflicts
 	 *
-	 * @throws	TodoyuInstallerException
+	 * @throws	TodoyuSysmanagerInstallerException
 	 * @param	String		$ext
 	 * @param	Array		$constraints
 	 * @return	Boolean

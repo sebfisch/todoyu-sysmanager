@@ -259,11 +259,11 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Download external archive file and extract it into the cache folder
 	 *
+	 * @throws	TodoyuSysmanagerRepositoryException
 	 * @param	String		$extKey
 	 * @param	Integer		$idVersion
 	 * @param	Boolean		$isUpdate
 	 * @return	Boolean		Success
-	 * @throws	TodoyuException
 	 */
 	private static function downloadAndImportExtension($extKey, $idVersion, $isUpdate = false) {
 		$override	= $isUpdate;

@@ -48,11 +48,11 @@ class TodoyuSysmanagerExtImporter {
 	/**
 	 * Check whether uploaded archive file can be imported into system as extension
 	 *
+	 * @throws	TodoyuException
 	 * @param	String		$extKey
 	 * @param	String		$pathArchive
 	 * @param	Boolean		$override
 	 * @return	Boolean
-	 * @throws	Exception
 	 */
 	public static function canImportExtension($extKey, $pathArchive, $override = false) {
 		try {
@@ -78,7 +78,7 @@ class TodoyuSysmanagerExtImporter {
 	/**
 	 * Check whether given archive file contains a valid todoyu extension
 	 *
-	 * @throws	Exception
+	 * @throws	TodoyuException
 	 * @param	String		$pathArchive
 	 * @return	Boolean
 	 */
