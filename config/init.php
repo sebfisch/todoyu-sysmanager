@@ -24,11 +24,11 @@
 Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 	array(
 		'id'	=> 'rights',
-		'label'	=> 'LLL:sysmanager.ext.rights.tab.rights'
+		'label'	=> 'sysmanager.ext.rights.tab.rights'
 	),
 	array(
 		'id'	=> 'roles',
-		'label'	=> 'LLL:sysmanager.ext.rights.tab.roles'
+		'label'	=> 'sysmanager.ext.rights.tab.roles'
 	)
 );
 
@@ -40,19 +40,19 @@ Todoyu::$CONFIG['EXT']['sysmanager']['rightsTabs'] = array(
 Todoyu::$CONFIG['EXT']['sysmanager']['configTabs'] = array(
 	array(
 		'id'	=> 'systemconfig',
-		'label'	=> 'LLL:sysmanager.ext.config.tab.systemconfig'
+		'label'	=> 'sysmanager.ext.config.tab.systemconfig'
 	),
 	array(
 		'id'	=> 'passwordstrength',
-		'label'	=> 'LLL:sysmanager.ext.config.tab.passwordstrength'
+		'label'	=> 'sysmanager.ext.config.tab.passwordstrength'
 	),
 	array(
 		'id'	=> 'logo',
-		'label'	=> 'LLL:sysmanager.ext.config.tab.logo'
+		'label'	=> 'sysmanager.ext.config.tab.logo'
 	),
 	array(
 		'id'	=> 'repository',
-		'label'	=> 'LLL:sysmanager.ext.config.tab.repository'
+		'label'	=> 'sysmanager.ext.config.tab.repository'
 	)
 );
 
@@ -135,9 +135,9 @@ Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 	'dataFunc'	=> 'TodoyuSysmanagerRoleEditorManager::getRoleListingData',
 	'columns'	=> array(
 		'icon'		=> '',
-		'title'		=> 'LLL:core.global.title',
-		'description'=>'LLL:core.global.description',
-		'persons'	=> 'LLL:sysmanager.ext.roles.numPersons',
+		'title'		=> 'core.global.title',
+		'description'=>'core.global.description',
+		'persons'	=> 'sysmanager.ext.roles.numPersons',
 		'actions'	=> ''
 	),
 	'truncate'	=> array(

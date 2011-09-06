@@ -43,7 +43,7 @@ class TodoyuSysmanagerExtRecordManager {
 			// List
 		$tabs[] = array(
 			'id'		=> 'all',
-			'label'		=> 'LLL:sysmanager.ext.records.tab.all'
+			'label'		=> 'sysmanager.ext.records.tab.all'
 		);
 
 			// Extension
