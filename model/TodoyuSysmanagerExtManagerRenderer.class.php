@@ -113,7 +113,8 @@ class TodoyuSysmanagerExtManagerRenderer {
 		}
 
 			// Call hook for possible content modifications
-		$hookResults	= TodoyuHookManager::callHook('sysmanager', 'renderExtContent-' . $extKey, array($tab, $params, $content));
+		$hookName		= 'renderExtContent-' . $extKey;
+		$hookResults	= TodoyuHookManager::callHook('sysmanager', $hookName, array($tab, $params, $content));
 
 		if( is_array($hookResults) && ! empty($hookResults[0]) ) {
 			$content	= $hookResults[0];

@@ -35,7 +35,7 @@
 	<label index="extension.costs.commercial">Commercial</label>
 	<label index="core.update.confirm">Install core update?</label>
 	<label index="core.update.success">Core update was installed successfully</label>
-    <label index="extension.install.newExtension">Install New Extension</label>
+	<label index="extension.install.newExtension">Install New Extension</label>
 	<label index="core.update.reload">Core was updated. Reload todoyu and rebuild cached. Please be patient</label>
 	<label index="error.noVersionInformation">No Version Information</label>
 	<label index="error.unresolvedDependencies">There are unresolved dependencies</label>

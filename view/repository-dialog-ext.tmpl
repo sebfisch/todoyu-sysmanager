@@ -1,9 +1,9 @@
 <div class="repositoryDialog extensionDialog {$dialogClass}">
 	<h1>{$title}</h1>
-    {if $info.installStatus != 'noLicense'}
-	    <div class="info warning">{Label sysmanager.repository.update.warning.general}</div>
-    {/if}
-    
+	{if $info.installStatus != 'noLicense'}
+		<div class="info warning">{Label sysmanager.repository.update.warning.general}</div>
+	{/if}
+
 	{if $isMajorUpdate}
 		<div class="info warningMajorUpdate">{Label sysmanager.repository.update.warning.majorupdate}</div>
 	{/if}
@@ -54,10 +54,10 @@
 				<pre width="90">{$license}</pre>
 			</div>
 			{if $info.installStatus != 'noLicense'}
-			    <div class="info acceptlicense">
-			    	<input type="checkbox" value="1" name="acceptlicense" id="acceptlicense">
-				    <label for="acceptlicense">{Label sysmanager.repository.license.label.accept}</label>
-			    </div>
+				<div class="info acceptlicense">
+					<input type="checkbox" value="1" name="acceptlicense" id="acceptlicense">
+					<label for="acceptlicense">{Label sysmanager.repository.license.label.accept}</label>
+				</div>
 			{/if}
 		{/if}
 
