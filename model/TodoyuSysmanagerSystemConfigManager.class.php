@@ -27,7 +27,7 @@
 class TodoyuSysmanagerSystemConfigManager {
 
 	/**
-	 * Save uploaded image as logo
+	 * Save uploaded image (automatically resized) as logo
 	 *
 	 * @param	Array		$logoUploadData
 	 * @return	Boolean
