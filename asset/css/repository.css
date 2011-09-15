@@ -72,7 +72,8 @@
 
 .coreUpdate .installButtons button.info .icon,
 .extListing .extension .bottom button.info .icon {
-	background-position:0 -748px;
+	background-position:5px -748px;
+	width:22px;
 }
 
 .coreUpdate .installButtons button.update .icon,
@@ -81,7 +82,8 @@
 }
 
 .extListing .extension .bottom button.install .icon {
-	background-position:0 -28px;
+	background-position:5px -28px;
+	width:22px;
 }
 
 
