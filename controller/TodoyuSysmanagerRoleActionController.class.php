@@ -80,8 +80,8 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	/**
 	 * Save role (new or edit)
 	 *
-	 * @param	Array		$params
-	 * @return	Void|String					Failure returns re-rendered form with error messages
+	 * @param	Array			$params
+	 * @return	Void|String		Failure returns re-rendered form with error messages
 	 */
 	public function saveAction(array $params) {
 		$data	= $params['role'];

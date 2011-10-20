@@ -270,8 +270,8 @@
 }
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense {
-    text-align:left;
-    font-weight: bold;
+	text-align:left;
+	font-weight:bold;
 }
 
 .repositoryDialog.extensionDialog.extInstall .acceptlicense input {
@@ -280,23 +280,23 @@
 
 .repositoryDialog.extensionDialog.extInstall .licenseinfo {
 	background-color:#e3eace;
-    text-align:left;
+	text-align:left;
 }
 .repositoryDialog.extensionDialog.extInstall .licenseinfo.noLicense {
 	background-color:#ff0000;
-    text-align:left;
-    color: #fff;
+	text-align:left;
+	color:#fff;
 }
 
 .repositoryDialog.extensionDialog.extInstall .licenseinfo.buyextension {
-    background-color:transparent;
+	background-color:transparent;
 }
 .repositoryDialog.extensionDialog.extInstall .licenseinfo.buyextension a{
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: underline;
-    padding-left:20px;
-    background:url(../img/icons.png) no-repeat 0 -718px;
+	font-weight:bold;
+	font-size:16px;
+	text-decoration:underline;
+	padding-left:20px;
+	background:url(../img/icons.png) no-repeat 0 -718px;
 }
 
 .repositoryDialog.extensionDialog.extInstall .licenseinfo.buyextension a:hover{
@@ -304,13 +304,9 @@
 }
 
 
-
-
-
 .repositoryDialog.extensionDialog.extInstall .warningMajorUpdate {
 	background-color:#f00;
 	color:#fff;
-    
 }
 
 
