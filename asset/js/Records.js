@@ -85,10 +85,10 @@ Todoyu.Ext.sysmanager.Records = {
 		var url		= Todoyu.getUrl('sysmanager', 'records');
 		var options	= {
 			parameters: {
-				action: 	'update',
-				'extkey':	extKey,
-				'type':		type,
-				'record':	idRecord
+				action: 'update',
+				extkey:	extKey,
+				type:	type,
+				record:	idRecord
 			},
 			onComplete: this.onUpdated.bind(this, extKey, type, idRecord, callback)
 		};

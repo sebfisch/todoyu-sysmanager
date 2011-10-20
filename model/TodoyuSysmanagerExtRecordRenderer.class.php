@@ -88,7 +88,8 @@ class TodoyuSysmanagerExtRecordRenderer {
 	 */
 	private static function renderBody($ext, $type, $idRecord) {
 		if( $idRecord !== 0 ) {
-			$body	= self::renderBodyRecord($ext, $type, $idRecord);
+			$idRecord	= $idRecord === -1 ? 0 : $idRecord;
+			$body		= self::renderBodyRecord($ext, $type, $idRecord);
 		} elseif( $type !== '' ) {
 			$body	= self::renderBodyType($ext, $type);
 		} elseif( $ext !== '' ) {

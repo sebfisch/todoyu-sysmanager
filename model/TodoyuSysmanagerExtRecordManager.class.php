@@ -129,12 +129,13 @@ class TodoyuSysmanagerExtRecordManager {
 	public static function getRecordForm($ext, $type, $idRecord) {
 		$idRecord	= intval($idRecord);
 		$config		= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
-
+		
 			// Record form
 		$form 		= TodoyuFormManager::getForm($config['form'], $idRecord);
 //		$form->setAttribute('onsubmit', "return Todoyu.Ext.sysmanager.Extensions.Records.save(this, '" . $ext . "', '" . $type . "')");
 		$form->setAction('?ext=sysmanager&amp;controller=records');
 		$form->setName('record');
+		$form->setFormData(array('id'=>$idRecord));
 
 			// Save buttons form
 		$xmlPath	= 'ext/sysmanager/config/form/record-save.xml';
