@@ -53,28 +53,7 @@
 /* -------------------
 	Extension list
    ------------------- */
-.extlist {
-	margin-top:6px;
-}
-
-.extlist th,
-.extlist td {
-	vertical-align:middle;
-	line-height:11px;
-}
-
-.extlist td div.overflow {
-	overflow:hidden;
-	height:14px;
-	padding:3px 0;
-}
-.extlist td.extkey .overflow {
-	width:120px;
-}
-.extlist td.title .overflow {
-	width:210px;
-}
-
+   
 /* Missing extensions */
 .extlist tr.missing td {
 	background-color:#ff9900;
@@ -86,36 +65,6 @@
 }
 
 	/* list columns */
-.extlist th.icon {
-	width:20px;
-}
-.extlist th.extkey {
-	width:120px;
-}
-.extlist th.title {
-	width:210px;
-}
-.extlist th.edit {
-	width:110px;
-}
-.extlist th.version {
-	width:40px;
-}
-.extlist th.download {
-	width:16px;
-}
-.extlist th.doc {
-	width:16px;
-}
-.extlist th.state {
-	width:40px;
-}
-
-div.state dl,
-div.state dd {
-	float:left;
-}
-
 
 	/* List icons */
 .extlist td.edit a {
