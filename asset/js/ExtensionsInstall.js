@@ -107,11 +107,12 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 *
 	 * @method	showInstallationProblems
 	 * @param	{Object}	problems
+	 * @todo	take locale strings from XML
 	 */
 	showInstallationProblems: function(problems) {
 			// Show core warning
 		if( problems.core !== false ) {
-			Todoyu.notifyError('Core version is to low. At least version ' + problems.core + ' is required');
+			Todoyu.notifyError('Core version is too low. At least version ' + problems.core + ' is required');
 		}
 
 			// Show conflict warnings

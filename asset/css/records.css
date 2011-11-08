@@ -57,6 +57,7 @@ table.recordsList td.actions div.icon {
    ---------------------------- */
 .typesExtension td.icon {
 	width:15px;
+	background:url(../img/icons.png) no-repeat 3px -775px;
 }
 .typesExtension td.recordtype {
 	width:170px;
@@ -69,10 +70,6 @@ table.recordsList td.actions div.icon {
 }
 .typesExtension td.actions {
 	width:50px;
-}
-
-.typesExtension td.icon {
-	background:url(../img/icons.png) no-repeat 6px -775px;
 }
 
 .typesExtension .actions .list {
@@ -102,7 +99,7 @@ p.recordsAmount span {
 }
 
 .recordsListing td.icon {
-	background:url(../img/icons.png) no-repeat 6px -325px;
+	background:url(../img/icons.png) no-repeat 3px -325px;
 }
 .recordsListing .actions .edit {
 	background:url(../img/icons.png) no-repeat 0 -358px;
