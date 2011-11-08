@@ -53,7 +53,15 @@
 /* -------------------
 	Extension list
    ------------------- */
-   
+.extlist td.state {
+	width:32px;
+}
+.extlist td.icon,
+.extlist td.download,
+.extlist td.doc {
+	width:18px;
+}
+ 
 /* Missing extensions */
 .extlist tr.missing td {
 	background-color:#ff9900;
