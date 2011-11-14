@@ -89,13 +89,13 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 		var extTitle	= response.getTodoyuHeader('extTitle');
 
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyInfo('Installation of Extension failed: ' + extTitle + ' (' + ext + ')');
+			Todoyu.notifyInfo('Installation of Extension failed: ' + extTitle + ' (' + ext + ')', 'sysmanager.install.extension');
 			var problems	= response.getTodoyuHeader('installProblems');
 
 			this.showInstallationProblems(problems);
 		} else {
 				// Installation succeeded, notify and update screen
-			Todoyu.notifySuccess('[LLL:sysmanager.extension.installed.notify] ' + extTitle);
+			Todoyu.notifySuccess('[LLL:sysmanager.extension.installed.notify] ' + extTitle, 'sysmanager.install.extension');
 			this.showUpdate(ext);
 		}
 	},
@@ -112,7 +112,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	showInstallationProblems: function(problems) {
 			// Show core warning
 		if( problems.core !== false ) {
-			Todoyu.notifyError('Core version is too low. At least version ' + problems.core + ' is required');
+			Todoyu.notifyError('Core version is too low. At least version ' + problems.core + ' is required', 'sysmanager.install.extension');
 		}
 
 			// Show conflict warnings

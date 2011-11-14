@@ -320,7 +320,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 */
 	onRightsSaved: function(callback, response) {
 		this.dirty = false;
-		Todoyu.notifySuccess('[LLL:sysmanager.ext.rights.saved]');
+		Todoyu.notifySuccess('[LLL:sysmanager.ext.rights.saved]', 'sysmanager.rights.save');
 		Todoyu.callIfExists(callback, this, response);
 	},
 

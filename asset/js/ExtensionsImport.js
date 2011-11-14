@@ -121,7 +121,7 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	 * @param	{String}		message
 	 */
 	importFailed: function(message) {
-		Todoyu.notifyError('[LLL:sysmanager.extension.upload.error]: ' + message);
+		Todoyu.notifyError('[LLL:sysmanager.extension.upload.error]: ' + message, 'sysmanager.extensions.import.finished');
 	}
 
 };
