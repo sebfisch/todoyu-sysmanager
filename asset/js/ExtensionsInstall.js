@@ -89,10 +89,10 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 		var extTitle	= response.getTodoyuHeader('extTitle');
 
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyInfo('Installation of Extension failed: ' + extTitle + ' (' + ext + ')', 'sysmanager.install.extension');
+			Todoyu.notifyInfo('Installation of Extension failed: ' + extTitle + ' (' + ext + ')');
 			var problems	= response.getTodoyuHeader('installProblems');
 
-			this.showInstallationProblems(problems);
+			this.showInstallationProblems(ext, problems, extTitle);
 		} else {
 				// Installation succeeded, notify and update screen
 			Todoyu.notifySuccess('[LLL:sysmanager.extension.installed.notify] ' + extTitle, 'sysmanager.install.extension');
@@ -109,7 +109,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @param	{Object}	problems
 	 * @todo	take locale strings from XML
 	 */
-	showInstallationProblems: function(problems) {
+	showInstallationProblems: function(extKey, problems, extTitle) {
 			// Show core warning
 		if( problems.core !== false ) {
 			Todoyu.notifyError('Core version is too low. At least version ' + problems.core + ' is required', 'sysmanager.install.extension');
