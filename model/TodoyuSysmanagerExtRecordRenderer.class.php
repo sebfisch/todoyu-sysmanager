@@ -147,6 +147,7 @@ class TodoyuSysmanagerExtRecordRenderer {
 			$data['types'][$type] = array(
 				'type'	=> $type,
 				'label'	=> Todoyu::Label($config['label']),
+				'desc'	=> Todoyu::Label($config['desc']),
 				'count'	=> TodoyuSysmanagerExtRecordManager::getRecordCount($config['table'])
 			);
 		}

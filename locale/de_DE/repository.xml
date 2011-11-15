@@ -25,7 +25,6 @@
 	<label index="extension.update.install.dialogtitle">Erweiterungs-Update installieren</label>
 	<label index="extension.update.confirm">Das Update dieser Erweiterung installieren?</label>
 	<label index="extension.update.success">Das Update der Erweiterung wurde erfolgreich installiert</label>
-	<label index="extension.install.newExtension">Installiere neue Erweiterung</label>
 	<label index="extension.install.cancel">Installation abbrechen</label>
 	<label index="extension.install.success">Die Erweiterung wurde erfolgreich installiert</label>
 	<label index="extension.install.confirm">Diese Erweiterung installieren?</label>
@@ -35,6 +34,7 @@
 	<label index="extension.costs.commercial">Kommerziell</label>
 	<label index="core.update.confirm">System-Aktualisierung installieren?</label>
 	<label index="core.update.success">System-Aktualisierung wurde erfolgreich durchgeführt</label>
+	<label index="extension.install.newExtension">Installiere neue Erweiterung</label>
 	<label index="core.update.reload">Das System wurde aktualisiert. Lade System neu und erstelle einen Cache. Bitte etwas Geduld</label>
 	<label index="error.noVersionInformation">Es liegen keine Versions-Informationen vor</label>
 	<label index="error.unresolvedDependencies">Es bestehen ungelöste Abhängigkeiten</label>
@@ -53,6 +53,9 @@
 	<label index="error.general">Das todoyu Erweiterungs Repository hat einen Fehler gemeldet</label>
 	<label index="error.general.info">Das todoyu Erweiterungs Repository konnte Ihre Anfrage nicht erfolgreich verarbeiten.</label>
 	<label index="error.apiTooOld">Ihre version der Systemmanager Erweiterung scheint veraltet zu sein und kann nicht mehr mit dem Erweiterungs Repository kommunizieren. Bitte installieren sie eine neuere Version</label>
+	<label index="error.unknownMethod">Sie haben versucht eine unbekannte Methode des tER zu nutzen. Möglicher Fehler oder Versionskonflikt</label>
+	<label index="error.invalidResponse">Das todoyu extension repository hat eine ungültige Antwort zurückgeschickt. Es scheint ein technisches Problem zu geben. Versuchen Sie es später noch einemal</label>
+	<label index="error.unknownExtension">Info: Das tER erkennt die installierte Erweiterung nicht. Das ist nur ein Problem, wenn es sich um eine offizielle kostenpflichtige Erweiterung handelt.</label>
 	<label index="license.label.accept">Lizenz akzeptieren</label>
 	<label index="license.buyinrepository">Erweiterung im todoyu Extension Repository (tER) kaufen</label>
 	<label index="license.useLicense">nutze eine meiner Lizenzen</label>
