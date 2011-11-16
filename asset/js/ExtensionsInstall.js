@@ -112,12 +112,12 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	showInstallationProblems: function(extKey, problems, extTitle) {
 			// Show core warning
 		if( problems.core !== false ) {
-			Todoyu.notifyError('Core version is too low. At least version ' + problems.core + ' is required', 'sysmanager.install.extension');
+			Todoyu.notifyError('Core version is too low. At least version ' + problems.core + ' is required', 'sysmanager.install.coreversion');
 		}
 
 			// Show conflict warnings
 		if( $A(problems.conflicts).size() > 0 ) {
-			Todoyu.notifyError(extTitle + ' extension conflicts with: ' + $A(problems.conflicts).join(', '));
+			Todoyu.notifyError(extTitle + ' extension conflicts with: ' + $A(problems.conflicts).join(', '), 'sysmanager.install.problems');
 		}
 
 			// Show dependency warnings
