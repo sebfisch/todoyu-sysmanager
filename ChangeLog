@@ -1,26 +1,27 @@
 todoyu sysmanager extension changelog
 
 sysmanager 1.1.3 - not released yet
+	* Bugfix: Set record ID, and change ID to zero for new record (instead of -1, which breaks clean field naming)
 	* Translation: Polish
-	* Set record id, and change id to zero for new record (instead of -1, which breaks clean field naming)
 
 sysmanager 1.1.2 - 2011-09-15
-	* Added: Items amount in records listing
 	* Bugfix: Error label was interpolated too soon
 	* Bugfix: Uploaded extensions were not recognized as commercial without a license
+	* Added: Items amount in records listing
 	* Changed: Extension status is now also recognized when not lowercase (ex: Beta)
 
 sysmanager 1.1.1 - 2011-07-25
+	* Bugfix: Send info for registration to check API version
+	* Bugfix: Fixed invalid labels in checkout dialogs
+	* Feature: Added functionality to register imported extensions
 	* Added: Missing label, error prevention on unknown extensions
 	* Added: Testing for invalid repository response and throw exception
-	* Feature: Added functionality to register imported extensions
-	* Bugfix: Send info for registration to check API version
 	* Added: German translations
-	* Bugfix: Fixed invalid labels in checkout dialogs
-	* Changed: Changed API to work with new tER API
 	* Added: Problem with the API are now reported to the user
+	* Changed: Changed API to work with new tER API
 
 sysmanager 1.1.0 - 2011-06-17
+ 	* Bugfix: Added missing notification after deletion of role
 	* Feature: Added todoyuURL setting in config
 	* Feature: Added classes for repository and updater
 	* Feature: Show message if no roles is selected
@@ -31,4 +32,3 @@ sysmanager 1.1.0 - 2011-06-17
 	* Changed: Structure for 2.1
 	* Changed: All classes are prefixed with extension name
 	* Changed: Sysmanager now looks for extension extconf.xml files in config\form\admin\
- 	* Bugfix: Added missing notification after deletion of role
