@@ -209,7 +209,7 @@ class TodoyuSysmanagerRepositoryManager {
 	 * @param 	String				$pathArchive
 	 */
 	private static function importCoreUpdate($pathArchive) {
-		$pathTemp	= TodoyuFileManager::pathAbsolute('cache/temp/' . md5(time()));
+		$pathTemp	= TodoyuFileManager::pathAbsolute('cache/temp/' . md5(NOW));
 
 			// Extract archive
 		$success	= TodoyuArchiveManager::extractTo($pathArchive, $pathTemp);
