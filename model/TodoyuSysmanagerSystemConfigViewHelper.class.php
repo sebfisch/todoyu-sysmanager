@@ -89,6 +89,10 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 	public static function getLogLevelOptions(TodoyuFormElement $field) {
 		return array(
 			array(
+				'value'	=> TodoyuLogger::LEVEL_CORE,
+				'label'	=> TodoyuLogger::LEVEL_CORE . ': ' . Todoyu::Label('core.global.log.core')
+			),
+			array(
 				'value'	=> TodoyuLogger::LEVEL_DEBUG,
 				'label'	=> TodoyuLogger::LEVEL_DEBUG . ': ' . Todoyu::Label('core.global.log.debug')
 			),
