@@ -79,6 +79,7 @@ class TodoyuSysmanagerRoleEditorRenderer {
 
 		$formData	= $role->getTemplateData(true);
 		$formData	= TodoyuFormHook::callLoadData($xmlPath, $formData, $idRole);
+		$formData['persons']	= TodoyuArray::sortByLabel($formData['persons'], 'lastname');
 
 		$form->setFormData($formData);
 		$form->setRecordID($idRole);

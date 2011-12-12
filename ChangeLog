@@ -2,6 +2,7 @@ todoyu sysmanager extension changelog
 
 sysmanager 1.1.3 - 2011-11-17
 	* Bugfix: Set record ID, and change ID to zero for new record (instead of -1, which breaks clean field naming)
+	* Changed: Persons in role form are now sorted alphabetically (instead of ID)
 	* Translation: Polish
 
 sysmanager 1.1.2 - 2011-09-15
