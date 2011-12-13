@@ -1,6 +1,6 @@
 todoyu sysmanager extension changelog
 
-sysmanager 1.1.4 - not released yet
+sysmanager 1.1.4 - 2011-12-13
 	* Added: Added config option for new debug level core
 	* Changed: Persons in role form are now sorted alphabetically (instead of ID)
 
