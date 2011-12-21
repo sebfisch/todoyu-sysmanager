@@ -2,15 +2,15 @@
 <table class="roles">
 	{foreach $roles key role roles}
 		<tr>
-			<td class="name roleColor{$.foreach.roles.iteration}">
+			<td class="name enumColBG{$.foreach.roles.iteration % $amountColors}">
 				<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.RightsEditor.toggleRoleRights({$role.id})">{$role.title}</a>
 			</td>
 			{for gA 1 $.foreach.roles.total-$.foreach.roles.index-1}
-				<td class="roleColor{$.foreach.roles.iteration}">&nbsp;</td>
+				<td class="enumColBG{$.foreach.roles.iteration % $amountColors}">&nbsp;</td>
 			{/for}
 			{if $.foreach.roles.iteration > 1 }
 				{for gA 1 $.foreach.roles.iteration-1}
-					<td class="roleColor{$.foreach.roles.iteration-$gA}">&nbsp;</td>
+					<td class="enumColBG{$.foreach.roles.iteration-$gA % $amountColors}">&nbsp;</td>
 				{/for}
 			{/if}
 		</tr>
@@ -32,7 +32,7 @@
 					{/if}
 				</td>
 				{foreach reverse($roles) key role roleRights}
-					<td class="roleColor{$.foreach.roleRights.total-$.foreach.roleRights.index} roleRight">
+					<td class="enumColBG{$.foreach.roleRights.total-$.foreach.roleRights.index % $amountColors} roleRight">
 						<input type="checkbox" id="{$sectionName}-{$right.right}-{$role.id}" name="rights[{$sectionName}:{$right.right}][{$role.id}]" value="1" {if $activeRights[$right.full][$role.id]}checked="checked"{/if} />
 					</td>
 				{/foreach}

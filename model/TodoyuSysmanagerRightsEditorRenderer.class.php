@@ -179,6 +179,7 @@ class TodoyuSysmanagerRightsEditorRenderer {
 
 			$tmpl	= 'ext/sysmanager/view/rightsmatrix.tmpl';
 			$data	= array(
+				'amountColors'	=> sizeof(TodoyuArray::assure(Todoyu::$CONFIG['COLORS'])),
 				'extension'		=> $ext,
 				'rights'		=> $rights,
 				'roles'			=> $roles,
