@@ -56,7 +56,9 @@
 	<label index="config.tab.systemconfig.name">System Name</label>
 	<label index="config.tab.systemconfig.email">System Email</label>
 	<label index="config.tab.systemconfig.locale">System Locale</label>
+	<label index="config.tab.systemconfig.legend.timeAndDate">Time And Date</label>
 	<label index="config.tab.systemconfig.timezone">System Timezone</label>
+	<label index="config.tab.systemconfig.firstDayOfWeek">First day of week</label>
 	<label index="config.tab.systemconfig.todoyuURL">todoyu URL</label>
 	<label index="config.tab.systemconfig.logLevel">Log Level</label>
 	<label index="config.tab.repository.todoyuid">todoyu ID</label>

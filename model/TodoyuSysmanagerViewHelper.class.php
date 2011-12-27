@@ -48,6 +48,29 @@ class TodoyuSysmanagerViewHelper {
 		return $options;
 	}
 
+
+
+	/**
+	 * Get options for first day of week options (extConf)
+	 *
+	 * @param	TodoyuFormElement	$field
+	 * @return	Array
+	 */
+	public static function getFirstDayOfWeekOptions(TodoyuFormElement $field) {
+		$options = array(
+			array(
+				'value'	=> 0,
+				'label' => Todoyu::Label('core.date.weekday.sunday')
+			),
+			array(
+				'value'	=> 1,
+				'label' => Todoyu::Label('core.date.weekday.monday')
+			)
+		);
+
+		return $options;
+	}
+
 }
 
 ?>

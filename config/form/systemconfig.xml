@@ -26,6 +26,12 @@
 					</source>
 				</field>
 
+			</elements>
+		</fieldset>
+
+		<fieldset name="timeanddate">
+			<legend>sysmanager.ext.config.tab.systemconfig.legend.timeAndDate</legend>
+			<elements>
 				<field type="selectgrouped" name="timezone">
 					<label>sysmanager.ext.config.tab.systemconfig.timezone</label>
 					<source type="function">
@@ -33,6 +39,14 @@
 					</source>
 				</field>
 
+				<field type="select" name="firstDayOfWeek">
+					<label>sysmanager.ext.config.tab.systemconfig.firstDayOfWeek</label>
+					<source type="function">
+						<function>TodoyuSysmanagerViewHelper::getFirstDayOfWeekOptions</function>
+						<lazyInit />
+					</source>
+					<noPleaseSelect />
+				</field>
 			</elements>
 		</fieldset>
 

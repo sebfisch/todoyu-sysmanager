@@ -57,12 +57,13 @@ class TodoyuSysmanagerSystemConfigManager {
 	 */
 	public static function saveSystemConfig(array $formData) {
 		$data	= array(
-			'name'		=> trim($formData['name']),
-			'email'		=> trim($formData['email']),
-			'locale'	=> trim($formData['locale']),
-			'timezone'	=> trim($formData['timezone']),
-			'todoyuURL'	=> trim($formData['todoyuURL']),
-			'logLevel'	=> intval($formData['logLevel'])
+			'name'				=> trim($formData['name']),
+			'email'				=> trim($formData['email']),
+			'locale'			=> trim($formData['locale']),
+			'timezone'			=> trim($formData['timezone']),
+			'firstDayOfWeek'	=> intval($formData['firstDayOfWeek']),
+			'todoyuURL'			=> trim($formData['todoyuURL']),
+			'logLevel'			=> intval($formData['logLevel'])
 		);
 
 		TodoyuConfigManager::saveSystemConfigConfig($data, false);
@@ -148,6 +149,17 @@ class TodoyuSysmanagerSystemConfigManager {
 		}
 
 		return $options;
+	}
+
+
+
+	/**
+	 * Get system setting of first day of week (0 = sunday, 1 = monday)
+	 *
+	 * @return	Integer
+	 */
+	public static function getFirstDayOfWeek() {
+		return intval(Todoyu::$CONFIG['SYSTEM']['firstDayOfWeek']);
 	}
 
 }
