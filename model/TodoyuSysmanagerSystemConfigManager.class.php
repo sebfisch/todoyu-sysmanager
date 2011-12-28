@@ -67,6 +67,7 @@ class TodoyuSysmanagerSystemConfigManager {
 		);
 
 		TodoyuConfigManager::saveSystemConfigConfig($data, false);
+		TodoyuConfigManager::saveJavaScriptSystemConfig($data);
 	}
 
 
