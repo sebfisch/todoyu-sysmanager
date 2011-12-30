@@ -34,6 +34,9 @@
 #extension-tabs li.search span.icon {
 	background-position:0 -836px;
 }
+#sysmanager-tabs li.nomodules span.icon {
+	background:url(../img/icons.png) no-repeat 0 -905px;
+}
 
 /* Extension tabs right */
 #extension-tabs li.info,

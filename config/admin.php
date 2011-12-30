@@ -36,5 +36,4 @@ if( Todoyu::allowed('sysmanager', 'general:config') ) {
 	TodoyuSysmanagerManager::addModule('config', 'sysmanager.ext.menu.config', 'TodoyuSysmanagerSystemConfigRenderer::renderModule', 40);
 }
 
-
 ?>

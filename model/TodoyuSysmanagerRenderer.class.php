@@ -37,7 +37,29 @@ class TodoyuSysmanagerRenderer {
 	public static function renderModule($module, array $params = array()) {
 		$renderFunc = TodoyuSysmanagerManager::getModuleRenderFunction($module);
 
+		if( empty($renderFunc) ) {
+			return self::renderModuleFallback();
+		}
+
 		return TodoyuFunction::callUserFunction($renderFunc, $params);
+	}
+
+
+
+	/**
+	 * Fallback if no module allowed: message to contact admin
+	 *
+	 * @return	String
+	 */
+	public static function renderModuleFallback() {
+		$tabConfig	= array(array(
+			'id'	=> 'nomodules',
+			'label'	=> 'Sysmanager',
+		));
+		$tabs	= TodoyuTabheadRenderer::renderTabs('sysmanager', $tabConfig, '', '');
+		$body	= Todoyu::Label('sysmanager.ext.message.nomoduleallowed');
+
+		return TodoyuRenderer::renderContent($body, $tabs);
 	}
 
 

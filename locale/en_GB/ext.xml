@@ -20,6 +20,7 @@
 	<label index="records.delete.confirm">Delete Record?</label>
 	<label index="records.delete">Delete Record</label>
 	<label index="records.edit">Edit Record</label>
+	<label index="message.nomoduleallowed">You are not authorized to use any sysmanager modules. Please contact your administrator for further assistense.</label>
 	<label index="recordType">Record Type</label>
 	<label index="browse.title">Browse extensions</label>
 	<label index="backToTypeList">Show all records</label>

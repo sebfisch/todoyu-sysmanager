@@ -37,7 +37,7 @@ class TodoyuSysmanagerPanelWidgetModules extends TodoyuPanelWidget {
 		parent::__construct(
 			'sysmanager',									// ext key
 			'sysmanagermodules',							// panel widget ID
-			'sysmanager.panelwidget-symanagermodules.title',// widget title text
+			'sysmanager.panelwidget-sysmanagermodules.title',// widget title text
 			$config,										// widget config array
 			$params											// widget parameters
 		);
