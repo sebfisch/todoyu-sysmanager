@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="ext.title">Správce systému</label>
+	<label index="page.title">Správce systému</label>
+	<label index="headlet.label">Správce systému</label>
 	<label index="tabs.extensions">Rozšíření</label>
 	<label index="tabs.extensions.back">Zobrazit seznam rozšíření</label>
 	<label index="tabs.info">Info</label>

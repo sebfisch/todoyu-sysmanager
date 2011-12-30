@@ -1,7 +1,7 @@
 /* -------------------
-	Admin modules
+	Sysmanager modules
    ------------------- */
-#panelwidget-adminmodules li.extensions a {
+#panelwidget-sysmanagermodules li.extensions a {
 	background:url(../img/icons.png) no-repeat 1px 1px;
 }
 

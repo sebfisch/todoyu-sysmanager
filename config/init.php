@@ -18,6 +18,10 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
+Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'extensions';
+
+
+
 /* ------------------------------------
 	Tabs for rights & roles
    ------------------------------------ */

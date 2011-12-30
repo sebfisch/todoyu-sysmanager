@@ -75,7 +75,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 
 	/**
-	 * Activate given tab in admin area
+	 * Activate given tab in sysmanager area
 	 *
 	 * @method	activateTab
 	 * @param	{String}	tab
@@ -148,7 +148,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	 * @param	{String}		extKey
 	 */
 	showRights: function(extKey) {
-		Todoyu.Ext.admin.loadModule('rights', {
+		Todoyu.Ext.sysmanager.loadModule('rights', {
 			extkey: extKey,
 			tab:	'rights'
 		});
@@ -157,13 +157,13 @@ Todoyu.Ext.sysmanager.Extensions = {
 
 
 	/**
-	 * Load records administration module of sysmanager
+	 * Load records module of sysmanager
 	 *
 	 * @method	showRecords
 	 * @param	{String}	extKey
 	 */
 	showRecords: function(extKey) {
-		Todoyu.Ext.admin.loadModule('records', {
+		Todoyu.Ext.sysmanager.loadModule('records', {
 			extkey: extKey
 		});
 	},

@@ -104,7 +104,7 @@ class TodoyuSysmanagerExtManager {
 
 
 	/**
-	 * Add record config for automatic record editing in admin extension manager
+	 * Add record config for automatic record editing in sysmanager extension manager
 	 *
 	 * @param	String		$extKey
 	 * @param	String		$recordName

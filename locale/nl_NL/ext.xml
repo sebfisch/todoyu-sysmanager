@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="ext.title">Systeembeheer</label>
+	<label index="page.title">Systeembeheer</label>
+	<label index="headlet.label">Systeembeheer</label>
 	<label index="tabs.extensions">Extensies</label>
 	<label index="tabs.extensions.back">Lijst extensies tonen</label>
 	<label index="tabs.info">Info</label>

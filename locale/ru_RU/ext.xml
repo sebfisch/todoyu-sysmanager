@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="ext.title">Менеджер системы</label>
+	<label index="page.title">Менеджер системы</label>
+	<label index="headlet.label">Менеджер системы</label>
 	<label index="tabs.extensions">Расширения</label>
 	<label index="tabs.extensions.back">Показать список расширений</label>
 	<label index="tabs.info">Информация</label>

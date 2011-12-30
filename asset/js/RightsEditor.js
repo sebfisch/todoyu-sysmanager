@@ -260,7 +260,7 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * @method	updateEditor
 	 */
 	updateEditor: function() {
-		Todoyu.Ui.updatePage('admin', 'ext');
+		Todoyu.Ui.updatePage('sysmanager', 'ext');
 	},
 
 

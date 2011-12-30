@@ -45,7 +45,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 		$form->setFormData($params);
 		$form->setUseRecordID(false);
 
-		$tmpl	= 'ext/sysmanager/view/repository-search.tmpl';
+		$tmpl	= 'ext/sysmanager/view/repository/search.tmpl';
 		$data	= array(
 			'query'		=> $query,
 			'form'		=> $form->render(),
@@ -66,7 +66,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 	public static function renderSearchResults($query) {
 		$repository	= new TodoyuSysmanagerRepository();
 
-		$tmpl	= 'ext/sysmanager/view/repository-search-list.tmpl';
+		$tmpl	= 'ext/sysmanager/view/repository/search-list.tmpl';
 
 		try {
 			$data	= $repository->searchExtensions($query);
@@ -97,7 +97,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 			return self::renderRepositoryGeneralError($e->getMessage());
 		}
 
-		$tmpl	= 'ext/sysmanager/view/repository-update.tmpl';
+		$tmpl	= 'ext/sysmanager/view/repository/update.tmpl';
 		$data	= array(
 			'updates'	=> $updates
 		);
@@ -114,7 +114,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * @return	String
 	 */
 	private static function renderConnectionError($message) {
-		$tmpl	= 'ext/sysmanager/view/repository-connection-error.tmpl';
+		$tmpl	= 'ext/sysmanager/view/repository/connection-error.tmpl';
 		$data	= array(
 			'message'	=> $message
 		);
@@ -131,7 +131,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * @return	String
 	 */
 	private static function renderRepositoryGeneralError($message) {
-		$tmpl	= 'ext/sysmanager/view/repository-general-error.tmpl';
+		$tmpl	= 'ext/sysmanager/view/repository/general-error.tmpl';
 		$data	= array(
 			'message'	=> $message
 		);
@@ -234,7 +234,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * @return	String
 	 */
 	private static function renderExtensionDialog(array $data, $isUpdate = false) {
-		$tmpl	= 'ext/sysmanager/view/repository-dialog-ext.tmpl';
+		$tmpl	= 'ext/sysmanager/view/repository/dialog-ext.tmpl';
 
 		$data['update']		= $isUpdate;
 		$data['install']	= !$isUpdate;
@@ -251,7 +251,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * @return	String
 	 */
 	public static function renderCoreUpdateDialog() {
-		$tmpl		= 'ext/sysmanager/view/repository-dialog-core.tmpl';
+		$tmpl		= 'ext/sysmanager/view/repository/dialog-core.tmpl';
 		$coreUpdate	= TodoyuSysmanagerRepositoryManager::getRepoInfo('core');
 
 		$data	= array(

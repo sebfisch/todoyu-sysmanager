@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="ext.title">Администрација система</label>
+	<label index="page.title">Администрација система</label>
+	<label index="headlet.label">Администрација система</label>
 	<label index="tabs.extensions">Додаци</label>
 	<label index="tabs.extensions.back">Додаци</label>
 	<label index="tabs.info">Информација</label>

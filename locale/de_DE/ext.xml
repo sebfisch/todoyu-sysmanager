@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="ext.title">System-Verwaltung</label>
+	<label index="page.title">System-Verwaltung</label>
+	<label index="headlet.label">System-Verwaltung</label>
 	<label index="tabs.extensions">Erweiterungen</label>
 	<label index="tabs.extensions.back">Erweiterungen</label>
 	<label index="tabs.info">Info</label>

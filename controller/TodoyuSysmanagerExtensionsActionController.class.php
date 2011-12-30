@@ -174,7 +174,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 		$form	= TodoyuFormManager::getForm($xmlPath);
 		$form->setUseRecordID(false);
 
-		$tmpl	= 'ext/sysmanager/view/extension-import.tmpl';
+		$tmpl	= 'ext/sysmanager/view/extension/import.tmpl';
 		$data	= array(
 			'form'	=> $form->render()
 		);

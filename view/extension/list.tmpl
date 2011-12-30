@@ -10,7 +10,7 @@
 
 {if sizeof($extensions)>0}
 	<table class="list extlist">
-		{include file="extension-list-header.tmpl"}
+		{include file="list-header.tmpl"}
 
 	{foreach $extensions extKey extInfo}
 		<tr class="{cycle values="odd,even"}{if !$extInfo} missing{/if}">

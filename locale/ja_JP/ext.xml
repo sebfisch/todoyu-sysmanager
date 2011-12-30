@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="ext.title">システム管理者</label>
+	<label index="page.title">システム管理者</label>
+	<label index="headlet.label">システム管理者</label>
 	<label index="tabs.extensions">拡張機能</label>
 	<label index="tabs.extensions.back">拡張機能のリストを表示</label>
 	<label index="tabs.info">情報</label>

@@ -89,6 +89,28 @@ class TodoyuSysmanagerPreferences {
 
 
 	/**
+	 * Save currently active sysmanager area module
+	 *
+	 * @param	String	$module
+	 */
+	public static function saveActiveModule($module) {
+		self::savePref('module', $module, 0, true);
+	}
+
+
+
+	/**
+	 * Get previously active sysmanager area module
+	 *
+	 * @return	String
+	 */
+	public static function getActiveModule() {
+		return self::getPref('module');
+	}
+
+
+
+	/**
 	 * Get currently active sysmanager tab
 	 *
 	 * @param	String		$type

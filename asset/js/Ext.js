@@ -30,9 +30,86 @@
 Todoyu.Ext.sysmanager = {
 
 	/**
+	 * @property	Headlet
+	 * @type		Object
+	 */
+	Headlet: {},
+
+	/**
 	 * @property	PanelWidget
 	 * @type		Object
 	 */
-	PanelWidget: {}
+	PanelWidget: {},
+
+
+
+	/**
+	 * Initialize sysmanager
+	 *
+	 * @method	init
+	 */
+	init: function() {
+		this.PanelWidget.SysmanagerModules.init();
+	},
+
+
+
+	/**
+	 * Load sysmanager module content
+	 *
+	 * @method	loadModule
+	 * @param	{String}	module
+	 * @param	{Object}	params
+	 */
+	loadModule: function(module, params) {
+		var url		= Todoyu.getUrl('sysmanager', 'module');
+		var options	= {
+			parameters: {
+				action: 'load',
+				'module': module
+			},
+			onComplete: this.onModuleLoaded.bind(this, module)
+		};
+
+		if( typeof(params) === 'object' ) {
+			options.parameters = $H(options.parameters).update(params).toObject();
+		}
+
+		Todoyu.Ui.updateContent(url, options);
+	},
+
+
+
+	/**
+	 * Handler when module content is loaded
+	 *
+	 * @method	onModuleLoaded
+	 * @param	{String}		module
+	 * @param	{Ajax.Response}	response
+	 */
+	onModuleLoaded: function(module, response) {
+			// Make sure the module is activated in the panel widget
+		this.PanelWidget.SysmanagerModules.activate(module);
+
+		this.updateBodyClassName(module);
+	},
+
+
+
+	/**
+	 * Set body class for easy styling
+	 *
+	 * @method	updateBodyClassName
+	 * @param	{String}	module
+	 */
+	updateBodyClassName: function(module) {
+		var moduleClass;
+		moduleClass = $w(document.body.className).detect(function(oldClass) {
+			return oldClass.substr(0, 6) === 'module';
+		});
+		var newClass = 'module' + module.capitalize();
+
+		document.body.replaceClassName(moduleClass, newClass);
+	}
 
 };

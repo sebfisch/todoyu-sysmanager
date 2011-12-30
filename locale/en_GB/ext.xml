@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="ext.title">System Manager</label>
+	<label index="page.title">System Manager</label>
+	<label index="headlet.label">System Manager</label>
 	<label index="tabs.extensions">Extensions</label>
 	<label index="tabs.extensions.back">Show Extension List</label>
 	<label index="tabs.info">Info</label>

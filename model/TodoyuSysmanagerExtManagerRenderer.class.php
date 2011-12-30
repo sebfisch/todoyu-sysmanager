@@ -134,7 +134,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 	 */
 	public static function renderTabs($extKey = '', $tab = '') {
 		$name		= 'extension';
-		$class		= 'admin';
+		$class		= 'sysmanager';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Extensions.onTabClick.bind(Todoyu.Ext.sysmanager.Extensions)';
 		$tabs		= TodoyuSysmanagerExtManager::getTabConfig($extKey, $tab);
 
@@ -172,7 +172,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 		sort($extKeys);
 
 		$state	= $areInstalled ? 'installed' : 'imported';
-		$tmpl	= 'ext/sysmanager/view/extension-list-' . $state . '.tmpl';
+		$tmpl	= 'ext/sysmanager/view/extension/list-' . $state . '.tmpl';
 
 		$data	= array(
 			'extensions' 	=> array()
@@ -225,7 +225,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 	public static function renderInfo($extKey, array $params = array()) {
 		$info	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
 
-		$tmpl	= 'ext/sysmanager/view/extension-info.tmpl';
+		$tmpl	= 'ext/sysmanager/view/extension/info.tmpl';
 		$data	= array(
 			'ext' 	=> $info,
 			'extKey'=> $extKey

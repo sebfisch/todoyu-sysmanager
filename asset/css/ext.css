@@ -10,15 +10,31 @@ h1.extIconSysmanager .title {
 }
 
 
+#sysmanager-tabs li.tabkey-welcome span.icon {
+	background:url('../img/icons.png') no-repeat 0 2px;
+}
+
+
+
+/* --------------------------
+	Sub menu
+   -------------------------- */
+#navi-main-list-todoyu li.itemSysmanager a {
+	background-image:url(../img/icons.png);
+	background-repeat:no-repeat;
+	background-position:6px 5px;
+}
+
+
 
 /* ------------------------------
 	Extension: Config
    ------------------------------ */
-#panelwidget-adminmodules li.rights a {
+#panelwidget-sysmanagermodules li.rights a {
 	background:url(../img/icons.png) no-repeat 0 -569px;
 }
 
-#panelwidget-adminmodules li.config a {
+#panelwidget-sysmanagermodules li.config a {
 	background:url(../img/icons.png) no-repeat 0 -569px;
 }
 

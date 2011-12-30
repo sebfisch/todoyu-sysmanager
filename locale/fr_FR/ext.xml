@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="ext.title">Gestion du système</label>
+	<label index="page.title">Gestion du système</label>
+	<label index="headlet.label">Gestion du système</label>
 	<label index="tabs.extensions">Extensions</label>
 	<label index="tabs.extensions.back">Afficher la liste des extensions</label>
 	<label index="tabs.info">Info</label>

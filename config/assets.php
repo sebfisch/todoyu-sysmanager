@@ -32,8 +32,16 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 100
 		),
 		array(
+			'file'		=> 'ext/sysmanager/asset/js/PanelWidgetSysmanagerModules.js',
+			'position'	=> 101
+		),
+		array(
+			'file'		=> 'ext/sysmanager/asset/js/HeadletSysmanager.js',
+			'position'	=> 101
+		),
+		array(
 			'file'		=> 'ext/sysmanager/asset/js/QuickCreateRole.js',
-			'position'	=> 100
+			'position'	=> 101
 		),
 		array(
 			'file'		=> 'ext/sysmanager/asset/js/Extensions.js',
@@ -93,6 +101,16 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'file'		=> 'ext/sysmanager/asset/css/ext.css',
 			'media'		=> 'all',
 			'position'	=> 100
+		),
+		array(
+			'file'		=> 'ext/sysmanager/asset/css/panelwidget-sysmanagermodules.css',
+			'media'		=> 'all',
+			'position'	=> 101
+		),
+		array(
+			'file'		=> 'ext/sysmanager/asset/css/headlet-sysmanager.css',
+			'media'		=> 'all',
+			'position'	=> 101
 		),
 		array(
 			'file'		=> 'ext/sysmanager/asset/css/extensions.css',
