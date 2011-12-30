@@ -18,23 +18,23 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
-	// Extension manager
+	// Register callbacks of allowed sysmanager modules
 if( Todoyu::allowed('sysmanager', 'general:extensions') ) {
+		// Extension manager
 	TodoyuSysmanagerManager::addModule('extensions', 'sysmanager.ext.menu.extensions', 'TodoyuSysmanagerExtManagerRenderer::renderModule', 10);
 }
-	// Records manager
-if( Todoyu::allowed('sysmanager', 'general:records') ) {
+if( Todoyu::allowed('sysmanager', 'general:allrecords') ) {
+		// Records manager
 	TodoyuSysmanagerManager::addModule('records', 'sysmanager.ext.menu.records', 'TodoyuSysmanagerExtRecordRenderer::renderModule', 20);
 }
-
-	// Rights manager
 if( Todoyu::allowed('sysmanager', 'general:rights') ) {
+		// Rights manager
 	TodoyuSysmanagerManager::addModule('rights', 'sysmanager.ext.menu.rights', 'TodoyuSysmanagerRightsEditorRenderer::renderModule', 30);
 }
-
-	// Config manager
 if( Todoyu::allowed('sysmanager', 'general:config') ) {
+		// Config manager
 	TodoyuSysmanagerManager::addModule('config', 'sysmanager.ext.menu.config', 'TodoyuSysmanagerSystemConfigRenderer::renderModule', 40);
 }
+
 
 ?>

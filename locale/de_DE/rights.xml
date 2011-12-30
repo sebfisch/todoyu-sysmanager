@@ -4,6 +4,7 @@
 	<label index="general.extensions">Erweiterungsmanager</label>
 	<label index="general.allrecords">'Alle Datensätze' Ansicht</label>
 	<label index="general.rights">Rechteverwaltung</label>
+	<label index="general.roles">Rollenverwaltung</label>
 	<label index="extensions">Erweiterungen</label>
 	<label index="extensions.info">Erweiterungs-Infos</label>
 	<label index="extensions.config">Konfiguration bearbeiten</label>

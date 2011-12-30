@@ -82,7 +82,7 @@ class TodoyuSysmanagerPanelWidgetModules extends TodoyuPanelWidget {
 	 * @return	Boolean
 	 */
 	public static function isAllowed() {
-		return TodoyuAuth::isAdmin();
+		return Todoyu::allowed('sysmanager', 'general:use');
 	}
 
 }

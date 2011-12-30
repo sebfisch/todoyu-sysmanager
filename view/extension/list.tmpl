@@ -28,13 +28,15 @@
 					{ExtensionStatusIcon $extInfo.state}
 				{/if}
 			</td>
-			<td class="download">
-				{if $extInfo}
-				<a title="{Label sysmanager.extension.download}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
-					<span class="hidden">{Label core.file.download}</span>
-				</a>
-				{/if}
-			</td>
+			{restrict 'sysmanager' 'extensions:download'}
+				<td class="download">
+					{if $extInfo}
+					<a title="{Label sysmanager.extension.download}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
+						<span class="hidden">{Label core.file.download}</span>
+					</a>
+					{/if}
+				</td>
+			{/restrict}
 			<td class="doc">
 				{if $extInfo}
 				<a title="{Label sysmanager.extension.documentation}" class="icon doc" href="{$extInfo.urlDocumentation}" target="_blank">

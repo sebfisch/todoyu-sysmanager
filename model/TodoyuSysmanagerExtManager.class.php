@@ -39,7 +39,9 @@ class TodoyuSysmanagerExtManager {
 		$config	= Todoyu::$CONFIG['EXT']['sysmanager']['extensionTabs'];
 
 			// Listing tab
-		$tabs[] = $config['installed'];
+		if( Todoyu::allowed('sysmanager', 'general:extensions') ) {
+			$tabs[] = $config['installed'];
+		}
 
 
 			// If an extension is selected, add editor tabs
@@ -55,12 +57,18 @@ class TodoyuSysmanagerExtManager {
 			$tab['label']	= $extKey . '.ext.ext.title';
 			$tabs[]			= $tab;
 		} else {
+				// Browse market / download tab
+			if( Todoyu::allowed('sysmanager', 'extensions:download') ) {
+				$tabs[] = $config['search'];
+			}
 				// Update tab
-			$tabs[] = $config['search'];
-				// Update tab
-			$tabs[] = $config['update'];
+			if( Todoyu::allowed('sysmanager', 'extensions:update') ) {
+				$tabs[] = $config['update'];
+			}
 				// Installer tab
-			$tabs[] = $config['imported'];
+			if( Todoyu::allowed('sysmanager', 'extensions:install') ) {
+				$tabs[] = $config['imported'];
+			}
 		}
 
 		return $tabs;
@@ -183,7 +191,7 @@ class TodoyuSysmanagerExtManager {
 
 
 	/**
-	 * Get all extensio record configurations
+	 * Get all extension record configurations
 	 *
 	 * @return	Array
 	 */

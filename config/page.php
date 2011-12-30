@@ -18,9 +18,8 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
-//if( TodoyuAuth::isAdmin() ) {
-//	TodoyuHeadManager::addHeadlet('TodoyuAdminHeadletAdmin', 20);
+if( Todoyu::allowed('sysmanager', 'general:use') ) {
 	TodoyuHeadManager::addHeadlet('TodoyuSysmanagerHeadletSysmanager', 20);
-//}
+}
 
 ?>

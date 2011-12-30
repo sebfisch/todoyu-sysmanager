@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="general">General Settings</label>
+	<label index="general.use">Use Sysmanager</label>
 	<label index="general.extensions">Extension Manager</label>
 	<label index="general.allrecords">Show all records edit view</label>
 	<label index="general.rights">Rights Manager</label>
+	<label index="general.roles">Roles Manager</label>
 	<label index="extensions">Extensions</label>
 	<label index="extensions.info">Extension Info</label>
 	<label index="extensions.config">Edit Configuration</label>

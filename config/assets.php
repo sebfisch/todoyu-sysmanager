@@ -140,5 +140,4 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 	)
 );
 
-
 ?>

@@ -2,14 +2,14 @@
 <rights>
 
 	<section name="general">
-		<right name="extensions" />
-		<right name="allrecords" />
-		<right name="rights" />
-		<right name="roles" />
+		<right name="use" />
+		<right name="extensions" require="general:use" />
+		<right name="allrecords" require="general:use" />
+		<right name="rights" require="general:use" />
+		<right name="roles" require="general:use" />
 	</section>
 
 	<section name="extensions" require="general:extensions">
-		<right name="info" />
 		<right name="config" />
 		<right name="rights" require="general:rights" />
 		<right name="records" />
