@@ -80,4 +80,5 @@
 	<label index="config.selectlogo.info">Wählen Sie ein Bild. Das Bild wird automatisch auf ein Maximum von 190x60 Pixel reduziert. Zugelassen sind jpg, png und gif</label>
 	<label index="config.tab.repository">Repository</label>
 	<label index="config.tab.repository.saved">Repository Konfiguration gespeichert</label>
+	<label index="quickinfo.right.depends">Setzt folgende Rechte voraus:</label>
 </labels>

@@ -72,6 +72,10 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 102
 		),
 		array(
+			'file'		=> 'ext/sysmanager/asset/js/QuickInfoRight.js',
+			'position'	=> 102
+		),
+		array(
 			'file'		=> 'ext/sysmanager/asset/js/Roles.js',
 			'position'	=> 102
 		),
@@ -124,6 +128,11 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 		),
 		array(
 			'file'		=> 'ext/sysmanager/asset/css/rights.css',
+			'media'		=> 'all',
+			'position'	=> 102
+		),
+		array(
+			'file'		=> 'ext/sysmanager/asset/css/quickinfo.css',
 			'media'		=> 'all',
 			'position'	=> 102
 		),

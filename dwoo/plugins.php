@@ -144,4 +144,31 @@ function Dwoo_Plugin_ExtensionStatusIcon(Dwoo $dwoo, $state) {
 	return '<span class="extensionstate ' . $state . '"></span>';
 }
 
+
+
+/**
+ * Returns a wrapped label tag of a right, evoking right-info tooltip on rollOver
+ *
+ * @param	Dwoo 			$dwoo
+ * @param	String			$extension
+ * @param	String			$sectionName
+ * @param	String			$right
+ * @param	String			$prefix	descriptive string: 'ext'_'recordtype'
+ * @param	String			$tag
+ * @param	String			$class
+ * @return	String
+ */
+function Dwoo_Plugin_rightLabel(Dwoo $dwoo, $extension, $sectionName, $right, $prefix = 'right', $tag = 'span', $class = '') {
+	$htmlID		= $prefix . '-' . $extension . '-' . $sectionName . '-' . $right;
+	$attributes	= array(
+		'id'	=> $htmlID,
+		'class'	=> 'require ' . trim('quickInfoRight ' . $class)
+	);
+
+	$rightTag		= TodoyuString::buildHtmlTag($tag, $attributes, '');
+	$quickInfoScript= TodoyuString::wrapScript('Todoyu.Ext.sysmanager.QuickInfoRight.add(\'' . $htmlID . '\');');
+
+	return $rightTag . $quickInfoScript;
+}
+
 ?>
