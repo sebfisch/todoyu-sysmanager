@@ -88,13 +88,17 @@ class TodoyuSysmanagerExtRecordRenderer {
 	 */
 	private static function renderBody($ext, $type, $idRecord) {
 		if( $idRecord !== 0 ) {
+				// Edit form of given record of given record type of extension
 			$idRecord	= $idRecord === -1 ? 0 : $idRecord;
 			$body		= self::renderBodyRecord($ext, $type, $idRecord);
 		} elseif( $type !== '' ) {
+				// List all records of given record type of extension
 			$body	= self::renderBodyType($ext, $type);
 		} elseif( $ext !== '' ) {
+				// List all record types of extension
 			$body	= self::renderBodyExtension($ext);
 		} else {
+				// List all record types of all extensions
 			$body	= self::renderBodyAll();
 		}
 
@@ -160,21 +164,21 @@ class TodoyuSysmanagerExtRecordRenderer {
 	/**
 	 * Render record listing of a type
 	 *
-	 * @param	String		$ext
-	 * @param	String		$type
+	 * @param	String		$extKey
+	 * @param	String		$recordType
 	 * @return	String
 	 */
-	private static function renderBodyType($ext, $type) {
-		$typeConfigs = TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
+	private static function renderBodyType($extKey, $recordType) {
+		$typeConfigs = TodoyuSysmanagerExtManager::getRecordConfig($extKey, $recordType);
 
 		if( TodoyuFunction::isFunctionReference($typeConfigs['list']) ) {
-			$records = TodoyuFunction::callUserFunction($typeConfigs['list']);
+			$records	= TodoyuSysmanagerExtManager::getRecordListData($extKey, $recordType);
 
 			$tmpl = 'ext/sysmanager/view/records-records.tmpl';
 			$data = array(
 				'records'	=> $records,
-				'extKey'	=> $ext,
-				'type'		=> $type,
+				'extKey'	=> $extKey,
+				'type'		=> $recordType,
 				'labels'	=> array(
 					'typeLabel' => $typeConfigs['label']
 				)
@@ -182,7 +186,7 @@ class TodoyuSysmanagerExtRecordRenderer {
 
 			return Todoyu::render($tmpl, $data);
 		} else {
-			return 'NO VALID LIST FUNCTION FOR RECORD TYPE: ' . $type . ' IN MODULE ' . $ext . '(ERROR occurs in <strong>' . __METHOD__ . '</strong> on line: ' . __LINE__ . ')';
+			return 'NO VALID LIST FUNCTION FOR RECORD TYPE: ' . $recordType . ' IN MODULE ' . $extKey . '(ERROR occurs in <strong>' . __METHOD__ . '</strong> on line: ' . __LINE__ . ')';
 		}
 	}
 

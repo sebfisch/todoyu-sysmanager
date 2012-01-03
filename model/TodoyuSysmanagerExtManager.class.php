@@ -146,6 +146,29 @@ class TodoyuSysmanagerExtManager {
 
 
 	/**
+	 * Check whether given record type defines a callback for determining per record whether it is allowed to be deleted
+	 * isDeletable not defined						=> Deletion allowed (no restriction)
+	 * isDeletable is boolean TRUE					=> Deletion allowed
+	 * isDeletable callback is function reference	=> Deletion is restricted
+	 * isDeletable is boolean FALSE					=> Deletion is forbidden
+	 *
+	 * @param	String	$extKey
+	 * @param	String	$recordName
+	 * @return	Boolean
+	 */
+	public static function isRecordConfigRestrictingDeletion($extKey, $recordName) {
+		$recordConfig	= self::getRecordConfig($extKey, $recordName);
+
+		if( ! array_key_exists('isDeletable', $recordConfig) || $recordConfig['isDeletable'] === true ) {
+			return false;
+		}
+
+		return true;
+	}
+
+
+
+	/**
 	 * Get label for a record element
 	 *
 	 * @param	String		$ext
@@ -238,8 +261,25 @@ class TodoyuSysmanagerExtManager {
 		$funcRef	= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName]['list'];
 		$data		= array();
 
+			// Get records list
 		if( TodoyuFunction::isFunctionReference($funcRef) ) {
 			$data	= TodoyuFunction::callUserFunction($funcRef, $params);
+		}
+
+			// Add isDeletable flag
+		if( self::isRecordConfigRestrictingDeletion($extKey, $recordName) ) {
+			$isDeletableFuncRef	= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName]['isDeletable'];
+			if( TodoyuFunction::isFunctionReference($isDeletableFuncRef) ) {
+					// Check deletion allowance for all records
+				foreach($data as $index => $record) {
+					$data[$index]['isDeletable']	= TodoyuFunction::callUserFunction($isDeletableFuncRef, $record['id']);
+				}
+			}
+		} else {
+				// Allow deletion for all records
+			foreach($data as $index => $record) {
+				$data[$index]['isDeletable']	= true;
+			}
 		}
 
 		return $data;

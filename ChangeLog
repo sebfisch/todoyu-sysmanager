@@ -1,6 +1,7 @@
 todoyu sysmanager extension changelog
 
 sysmanager 1.2.0 - not released yet
+	* Added: Records config can now contain function reference or categorical boolean flag for isDeletable definition
 	* Added: Quickinfo popup for right requirements
 	* Changed: Sysmanager now contains all functionality of the newly deprecated sysmanager extension
 

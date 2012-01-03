@@ -12,7 +12,6 @@
 	</tr>
 
 {foreach $records record}
-
 	<tr class="{cycle values="odd,even"}">
 		<td class="icon"></td>
 		<td class="recordtype">
@@ -22,10 +21,13 @@
 		</td>
 		<td class="actions">
 			<div class="icon edit" onclick="Todoyu.Ext.sysmanager.Records.edit('{$extKey}', '{$type}', {$record.id})"></div>
-			<div class="icon delete" onclick="Todoyu.Ext.sysmanager.Records.remove('{$extKey}', '{$type}', {$record.id})"></div>
+			{if $record.isDeletable}
+				<div class="icon delete" onclick="Todoyu.Ext.sysmanager.Records.remove('{$extKey}', '{$type}', {$record.id})"></div>
+			{else}
+				<div class="icon delete disabled"></div>
+			{/if}
 		</td>
 	</tr>
-
 {/foreach}
 
 </table>
