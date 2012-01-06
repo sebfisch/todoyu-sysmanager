@@ -160,7 +160,9 @@ class TodoyuSysmanagerSystemConfigManager {
 	 * @return	Integer
 	 */
 	public static function getFirstDayOfWeek() {
-		return intval(Todoyu::$CONFIG['SYSTEM']['firstDayOfWeek']);
+		$day	= Todoyu::$CONFIG['SYSTEM']['firstDayOfWeek'];
+
+		return $day === 0 ? 0 : 1;
 	}
 
 }
