@@ -29,8 +29,8 @@ class TodoyuSysmanagerExtImporter {
 	/**
 	 * Verify as extension archive and import uploaded file into ext system
 	 *
- 	 * @param	String		$extKey
- 	 * @param	String		$pathArchive
+	 * @param	String		$extKey
+	 * @param	String		$pathArchive
 	 * @return	Boolean
 	 */
 	public static function importExtensionArchive($extKey, $pathArchive) {

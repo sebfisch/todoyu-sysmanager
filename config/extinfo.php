@@ -24,16 +24,16 @@
 
 Todoyu::$CONFIG['EXT']['sysmanager']['info'] = array(
 	'title'			=> 'System Manager',
-	'description' 	=> 'Manage todoyu System and Server Settings. Rights and Role Configuration, Extension Management',
-	'author' 		=> array(
+	'description'	=> 'Manage todoyu System and Server Settings. Rights and Role Configuration, Extension Management',
+	'author'		=> array(
 		'name'		=> 'todoyu Core Developer Team',
 		'email'		=> 'team@todoyu.com',
 		'company'	=> 'snowflake productions GmbH, Zurich'
 	),
-	'state' 		=> 'stable',
+	'state'			=> 'stable',
 	'version'		=> '1.2.0',
-	'constraints' 	=> array(
-		'depends' 	=> array(),
+	'constraints'	=> array(
+		'depends'	=> array(),
 		'conflicts' => array(
 				'admin'	=> '1.1.2'
 		),

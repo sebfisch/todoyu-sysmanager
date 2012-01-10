@@ -21,7 +21,7 @@
 /**
  * Sysmanager renderer
  *
- * @name 		Sysmanager renderer
+ * @name		Sysmanager renderer
  * @package		Todoyu
  * @subpackage	Sysmanager
  */

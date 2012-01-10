@@ -100,7 +100,7 @@ class TodoyuSysmanagerExtRecordManager {
 		foreach($extRecords as $extKey => $records) {
 			if( Todoyu::allowed($extKey, 'general:use') ) {
 				$info[$extKey]['title']		= Todoyu::Label($extKey . '.ext.ext.title');
-				$info[$extKey]['records'] 	= array();
+				$info[$extKey]['records']	= array();
 
 				foreach($records as $type => $config) {
 					$info[$extKey]['records'][$type]['type']	= $type;
@@ -133,7 +133,7 @@ class TodoyuSysmanagerExtRecordManager {
 		$config		= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
 		
 			// Record form
-		$form 		= TodoyuFormManager::getForm($config['form'], $idRecord);
+		$form		= TodoyuFormManager::getForm($config['form'], $idRecord);
 //		$form->setAttribute('onsubmit', "return Todoyu.Ext.sysmanager.Extensions.Records.save(this, '" . $ext . "', '" . $type . "')");
 		$form->setAction('?ext=sysmanager&amp;controller=records');
 		$form->setName('record');

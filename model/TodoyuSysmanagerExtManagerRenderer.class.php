@@ -175,7 +175,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 		$tmpl	= 'ext/sysmanager/view/extension/list-' . $state . '.tmpl';
 
 		$data	= array(
-			'extensions' 	=> array()
+			'extensions'	=> array()
 		);
 
 		foreach($extKeys as $extension) {
@@ -227,7 +227,7 @@ class TodoyuSysmanagerExtManagerRenderer {
 
 		$tmpl	= 'ext/sysmanager/view/extension/info.tmpl';
 		$data	= array(
-			'ext' 	=> $info,
+			'ext'	=> $info,
 			'extKey'=> $extKey
 		);
 

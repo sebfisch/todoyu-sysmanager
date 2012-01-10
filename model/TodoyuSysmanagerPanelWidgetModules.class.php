@@ -21,7 +21,7 @@
 /**
  * Sysmanager modules panel widget
  *
- * @name 		Sysmanager renderer
+ * @name		Sysmanager renderer
  * @package		Todoyu
  * @subpackage	Sysmanager
  */

@@ -43,13 +43,12 @@ class TodoyuSysmanagerExtManager {
 			$tabs[] = $config['installed'];
 		}
 
-
 			// If an extension is selected, add editor tabs
 		if( $extKey !== '' ) {
 				// Config
 			$tab		= $config['config'];
 			$tab['id']	= $extKey . '_config';
-			$tabs[] 	= $tab;
+			$tabs[]		= $tab;
 
 				// Info
 			$tab			= $config['info'];
@@ -258,8 +257,8 @@ class TodoyuSysmanagerExtManager {
 	 * @return	unknown
 	 */
 	public static function getRecordListData($extKey, $recordName, array $params = array()) {
-		$funcRef	= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName]['list'];
-		$data		= array();
+		$funcRef= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName]['list'];
+		$data	= array();
 
 			// Get records list
 		if( TodoyuFunction::isFunctionReference($funcRef) ) {

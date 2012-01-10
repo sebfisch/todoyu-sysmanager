@@ -155,7 +155,7 @@ class TodoyuSysmanagerPreferences {
 
 		if( $ext === false ) {
 //			$extKeys= TodoyuExtensions::getInstalledExtKeys();
-			$ext 	= $ext[0];
+			$ext	= $ext[0];
 		}
 
 		return $ext;

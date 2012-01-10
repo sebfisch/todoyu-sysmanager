@@ -149,7 +149,7 @@ function Dwoo_Plugin_ExtensionStatusIcon(Dwoo $dwoo, $state) {
 /**
  * Returns a wrapped label tag of a right, evoking right-info tooltip on rollOver
  *
- * @param	Dwoo 			$dwoo
+ * @param	Dwoo			$dwoo
  * @param	String			$extension
  * @param	String			$sectionName
  * @param	String			$right

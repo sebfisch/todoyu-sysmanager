@@ -303,7 +303,6 @@ class TodoyuSysmanagerExtInstaller {
 			}
 		}
 
-
 			// Check dependencies
 		$dependencies	= TodoyuExtensions::getDependencies($extKey);
 
@@ -317,7 +316,6 @@ class TodoyuSysmanagerExtInstaller {
 				$foundDependencies[$ext] = $version;
 			}
 		}
-
 
 			// Return false if no problems were found
 		if( sizeof($foundConflicts) === 0 && sizeof($foundDependencies) === 0 && $requiredCore === false ) {

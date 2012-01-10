@@ -216,7 +216,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 			$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($archiveInfo['ext'], $uploadFile['tmp_name'], $override);
 
 			if( $canImport === true ) {
-				$success 	= true;
+				$success	= true;
 			} else {
 				$errorMsg	= $canImport;
 			}

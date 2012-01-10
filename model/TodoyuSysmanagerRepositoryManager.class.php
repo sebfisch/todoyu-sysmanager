@@ -206,7 +206,7 @@ class TodoyuSysmanagerRepositoryManager {
 	 * Import the core update from an archive
 	 *
 	 * @throws	TodoyuException
-	 * @param 	String				$pathArchive
+	 * @param	String				$pathArchive
 	 */
 	private static function importCoreUpdate($pathArchive) {
 		$pathTemp	= TodoyuFileManager::pathAbsolute('cache/temp/' . md5(NOW));

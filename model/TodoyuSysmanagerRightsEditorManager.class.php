@@ -266,7 +266,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	 */
 	public static function getCurrentActiveRights(array $rights, $ext) {
 		$roleRights		= TodoyuRightsManager::getExtRoleRights($ext);
-		$activeRights 	= array();
+		$activeRights	= array();
 
 		foreach($roleRights as $idRole => $rightKeys) {
 			foreach($rightKeys as $rightKey) {
