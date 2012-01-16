@@ -4,7 +4,7 @@
 	<span>{count($records)} {Label core.global.records}</span>
 </p>
 
-<table cellspacing="0" cellpadding="0" class="list recordsListing recordsList">
+<table cellspacing="0" cellpadding="0" class="list recordsListing recordsList recordList{ucfirst($type)}">
 	<tr class="header">
 		<th scope="col" class="icon">&nbsp;</th>
 		<th scope="col" class="label">{Label $labels.typeLabel}</th>
@@ -12,7 +12,7 @@
 	</tr>
 
 {foreach $records record}
-	<tr class="{cycle values="odd,even"}">
+	<tr class="{cycle values="odd,even"} {getRecordBooleanColumnsClassnames $record}">
 		<td class="icon"></td>
 		<td class="recordtype">
 			<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Records.edit('{$extKey}', '{$type}', {$record.id})" title="ID: {$record.id}">

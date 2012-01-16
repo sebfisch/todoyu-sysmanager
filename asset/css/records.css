@@ -103,6 +103,12 @@ p.recordsAmount span {
 .recordsListing td.icon {
 	background:url(../img/icons.png) no-repeat 3px -325px;
 }
+.recordsListing .isActive0 td.icon {
+	background:url(../img/icons.png) no-repeat 3px -936px;
+}
+.recordsListing .isPreferred1 td.icon {
+	background:url(../img/icons.png) no-repeat 3px -964px;
+}
 .recordsListing .actions .edit {
 	background:url(../img/icons.png) no-repeat 0 -358px;
 }
