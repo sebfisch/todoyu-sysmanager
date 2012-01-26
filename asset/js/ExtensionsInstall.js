@@ -199,8 +199,8 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				parameters: {
-					action: 'showUpdate',
-					'extension': ext
+					action: 	'showUpdate',
+					extension:	ext
 				},
 				onComplete: this.onUpdateShowed.bind(this, ext)
 			};
@@ -248,7 +248,7 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 			var options	= {
 				parameters: {
 					action:		'uninstall',
-					'extension':	ext
+					extension:	ext
 				},
 				onComplete: this.onUninstalled.bind(this, ext)
 			};

@@ -66,7 +66,7 @@ Todoyu.Ext.sysmanager = {
 		var options	= {
 			parameters: {
 				action: 'load',
-				'module': module
+				module:	module
 			},
 			onComplete: this.onModuleLoaded.bind(this, module)
 		};

@@ -302,9 +302,9 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	saveRights: function(callback) {
 		$('rightsmatix-form').request({
 			parameters: {
-				action:	'save',
-				'extension':this.getExtension(),
-				'roles':	this.getRoles().join(',')
+				action:		'save',
+				extension:	this.getExtension(),
+				roles:		this.getRoles().join(',')
 			},
 			onComplete:	this.onRightsSaved.bind(this, callback)
 		});

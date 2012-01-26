@@ -41,7 +41,7 @@ Todoyu.Ext.sysmanager.Config = {
 		var options	= {
 			parameters: {
 				action:	'update',
-				'tab':		tab
+				tab:	tab
 			},
 			onComplete: this.onTabLoaded.bind(this, tab)
 		};

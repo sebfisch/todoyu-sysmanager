@@ -50,7 +50,7 @@ Todoyu.Ext.sysmanager.Roles = {
 		var options	= {
 			parameters: {
 				action:	'edit',
-				'role':		idRole
+				role:	idRole
 			},
 			onComplete:	this.onEdit.bind(this, idRole)
 		};
@@ -85,7 +85,7 @@ Todoyu.Ext.sysmanager.Roles = {
 			var options	= {
 				parameters: {
 					action:	'delete',
-					'role':		idRole
+					role:	idRole
 				},
 				onComplete: this.onRemoved.bind(this, idRole)
 			};

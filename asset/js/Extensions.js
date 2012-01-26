@@ -135,7 +135,7 @@ Todoyu.Ext.sysmanager.Extensions = {
 	download: function(extKey) {
 		Todoyu.goTo('sysmanager', 'extensions', {
 			action:		'download',
-			'extension':	extKey
+			extension:	extKey
 		});
 	},
 
@@ -181,8 +181,8 @@ Todoyu.Ext.sysmanager.Extensions = {
 			var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				parameters: {
-					action:	'remove',
-					'extension':extKey
+					action:		'remove',
+					extension:	extKey
 				},
 				onComplete:	this.onRemoved.bind(this, extKey)
 			};

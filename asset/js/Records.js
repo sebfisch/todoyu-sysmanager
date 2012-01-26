@@ -151,7 +151,7 @@ Todoyu.Ext.sysmanager.Records = {
 		var options = {
 			parameters: {
 				action:	'listRecordTypes',
-				'extkey':	ext
+				extkey:	ext
 			}
 		};
 
@@ -215,9 +215,9 @@ Todoyu.Ext.sysmanager.Records = {
 			var options = {
 				parameters: {
 					action:	'delete',
-					'extkey':	ext,
-					'type':		type,
-					'record':	idRecord
+					extkey:	ext,
+					type:	type,
+					record:	idRecord
 				},
 				onComplete: this.onRemoved.bind(this, ext, type, idRecord)
 			};
@@ -258,8 +258,8 @@ Todoyu.Ext.sysmanager.Records = {
 		$(idForm).request ({
 			parameters: {
 				action:	'save',
-				'extkey':	ext,
-				'type':		type
+				extkey:	ext,
+				type:	type
 			},
 			onComplete: this.onSaved.bind(this, idForm, ext, type)
 		});
