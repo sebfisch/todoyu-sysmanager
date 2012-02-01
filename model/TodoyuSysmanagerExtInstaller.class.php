@@ -270,9 +270,7 @@ class TodoyuSysmanagerExtInstaller {
 	 * @return	Boolean
 	 */
 	public static function canInstall($extKey) {
-		$problems	= self::getInstallProblems($extKey);
-
-		return $problems === false;
+		return self::getInstallProblems($extKey) === false;
 	}
 
 
@@ -318,7 +316,7 @@ class TodoyuSysmanagerExtInstaller {
 		}
 
 			// Return false if no problems were found
-		if( sizeof($foundConflicts) === 0 && sizeof($foundDependencies) === 0 && $requiredCore === false ) {
+		if( sizeof($foundConflicts) === 0 && sizeof($foundDependencies) === 0 && !$requiredCore ) {
 			return false;
 		} else {
 			return array(
@@ -413,8 +411,8 @@ class TodoyuSysmanagerExtInstaller {
 	 * @return	Boolean
 	 */
 	public static function canUninstall($extKey) {
-		$noDependents	= TodoyuExtensions::hasDependents($extKey) === false;
-		$notSystem		= TodoyuExtensions::isSystemExtension($extKey) === false;
+		$noDependents	= !TodoyuExtensions::hasDependents($extKey);
+		$notSystem		= !TodoyuExtensions::isSystemExtension($extKey);
 
 		return $noDependents && $notSystem;
 	}
@@ -590,7 +588,7 @@ class TodoyuSysmanagerExtInstaller {
 
 		TodoyuFileManager::deleteFolder($extPath);
 
-		return is_dir($extPath) === false;
+		return !is_dir($extPath);
 	}
 
 }

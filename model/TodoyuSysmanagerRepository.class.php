@@ -167,7 +167,7 @@ class TodoyuSysmanagerRepository {
 
 		$responseData	= $this->sendRequest('download', $data);
 
-		if( $responseData['data'] === false ) {
+		if( !$responseData['data'] ) {
 			throw new TodoyuSysmanagerRepositoryException($responseData['message']);
 		}
 

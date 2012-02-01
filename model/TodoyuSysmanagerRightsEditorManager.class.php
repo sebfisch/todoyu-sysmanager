@@ -209,7 +209,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	public static function getCurrentExtension() {
 		$ext	= TodoyuPreferenceManager::getPreference(EXTID_SYSMANAGER, 'ext');
 
-		if( $ext === false ) {
+		if( !$ext ) {
 			$ext = 'sysmanager';
 		}
 
@@ -237,7 +237,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	public static function getActiveTab() {
 		$tab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
 
-		if( $tab === false ) {
+		if( !$tab ) {
 			$tab = 'rights';
 		}
 

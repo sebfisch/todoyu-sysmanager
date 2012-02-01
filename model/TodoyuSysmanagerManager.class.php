@@ -57,7 +57,7 @@ class TodoyuSysmanagerManager {
 	public static function getActiveModule() {
 		$module	= TodoyuSysmanagerPreferences::getActiveModule();
 
-		if( $module === false ) {
+		if( !$module ) {
 			$module = Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'];
 		}
 

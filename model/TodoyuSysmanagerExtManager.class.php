@@ -105,7 +105,7 @@ class TodoyuSysmanagerExtManager {
 	public static function isSysExt($extKey) {
 		$extInfos	= self::getExtInfos($extKey);
 
-		return $extInfos['constraints']['system'] === true;
+		return (boolean)$extInfos['constraints']['system'];
 	}
 
 
@@ -158,7 +158,7 @@ class TodoyuSysmanagerExtManager {
 	public static function isRecordConfigRestrictingDeletion($extKey, $recordName) {
 		$recordConfig	= self::getRecordConfig($extKey, $recordName);
 
-		if( ! array_key_exists('isDeletable', $recordConfig) || $recordConfig['isDeletable'] === true ) {
+		if( !isset($recordConfig['isDeletable']) || $recordConfig['isDeletable'] ) {
 			return false;
 		}
 

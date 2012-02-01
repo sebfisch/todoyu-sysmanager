@@ -153,7 +153,7 @@ class TodoyuSysmanagerPreferences {
 	public static function getRightsExt() {
 		$ext	= self::getPref('rights-ext');
 
-		if( $ext === false ) {
+		if( !$ext ) {
 //			$extKeys= TodoyuExtensions::getInstalledExtKeys();
 			$ext	= $ext[0];
 		}
@@ -186,13 +186,7 @@ class TodoyuSysmanagerPreferences {
 	public static function getRightsRoles() {
 		$roleList	= self::getPref('rights-roles');
 
-		if( $roleList === false ) {
-			$roles	= array();
-		} else {
-			$roles	= explode(',', $roleList);
-		}
-
-		return $roles;
+		return TodoyuArray::intExplode(',', $roleList);
 	}
 
 }
