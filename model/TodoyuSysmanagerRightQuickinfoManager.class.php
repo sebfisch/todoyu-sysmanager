@@ -45,7 +45,6 @@ class TodoyuSysmanagerRightQuickInfoManager {
 			// Add info for required rights of right
 		$rightRequirement	= TodoyuRightsManager::getRightRequirement($extKey, $sectionName, $right);
 		if( $rightRequirement !== false ) {
-			TodoyuDebug::printInFirebug($rightRequirement, 'rr');
 			list($sectionName, $right)	= explode(':', $rightRequirement);
 			$labelRequiredSection	= Todoyu::Label($extKey . '.rights.' . $sectionName);
 			$labelRequired			= Todoyu::Label($extKey . '.rights.' . $sectionName . '.' . $right);
