@@ -1,6 +1,7 @@
 todoyu sysmanager extension changelog
 
 sysmanager 1.2.0 - not released yet
+	* Bugfix: Roles listing did still count deleted persons as role members
 	* Added: Records listing highlights inactive (is_active: 0) records half-transparent and preferred (is_preferred: 1) green
 	* Added: Records config can now contain function reference or categorical boolean flag for isDeletable definition
 	* Added: Quickinfo popup for right requirements
