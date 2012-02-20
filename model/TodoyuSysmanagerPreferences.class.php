@@ -181,7 +181,7 @@ class TodoyuSysmanagerPreferences {
 	/**
 	 * Get rights and roles from prefs
 	 *
-	 * @return	Array
+	 * @return	Integer[]
 	 */
 	public static function getRightsRoles() {
 		$roleList	= self::getPref('rights-roles');

@@ -84,7 +84,7 @@ class TodoyuSysmanagerSystemConfigRenderer {
 
 
 	/**
-	 * Render content body for system config
+	 * Render content body for system config (config form)
 	 *
 	 * @param	Array		$params
 	 * @return	String

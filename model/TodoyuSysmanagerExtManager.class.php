@@ -238,7 +238,7 @@ class TodoyuSysmanagerExtManager {
 	 * Get record types
 	 *
 	 * @param	String	$extKey
-	 * @return	Array
+	 * @return	String[]
 	 */
 	public static function getRecordTypes($extKey) {
 		$config	= self::getRecordConfigs($extKey);
@@ -254,7 +254,7 @@ class TodoyuSysmanagerExtManager {
 	 * @param	String	$extKey
 	 * @param	String	$recordName
 	 * @param	Array	$params
-	 * @return	unknown
+	 * @return	Array
 	 */
 	public static function getRecordListData($extKey, $recordName, array $params = array()) {
 		$funcRef= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName]['list'];
