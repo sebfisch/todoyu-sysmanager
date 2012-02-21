@@ -59,7 +59,7 @@ class TodoyuSysmanagerRoleEditorManager {
 	 * @return	Array
 	 */
 	public static function getRoleListingData($size, $offset = 0, $searchWord = '') {
-		$roles		= TodoyuRoleManager::getAllRoles(true);
+		$roles		= TodoyuRoleManager::getAllRoles(false);
 
 		$data	= array(
 			'rows'	=> array(),
