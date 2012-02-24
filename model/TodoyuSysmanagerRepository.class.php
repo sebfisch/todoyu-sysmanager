@@ -225,6 +225,8 @@ class TodoyuSysmanagerRepository {
 			'info'	=> $this->getInfo()
 		);
 
+		//TodoyuDebug::printInFirebug($postData, 'postData');
+
 		try {
 			$this->response = TodoyuRequest::sendPostRequest($config['host'], $config['get'], $postData, 'data');
 		} catch(TodoyuException $e) {
@@ -234,6 +236,9 @@ class TodoyuSysmanagerRepository {
 
 		$this->response['content_raw']	= $this->response['content'];
 		$this->response['content']		= json_decode($this->response['content'], true);
+
+		//TodoyuDebug::printInFirebug($this->response['content_raw'], 'response raw');
+		//TodoyuDebug::printInFirebug($this->response['content'], 'response');
 
 			// Response was no valid JSON
 		if( is_null($this->response['content']) ) {
