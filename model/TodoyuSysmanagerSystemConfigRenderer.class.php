@@ -167,12 +167,8 @@ class TodoyuSysmanagerSystemConfigRenderer {
 		$name		= 'config';
 		$jsHandler	= 'Todoyu.Ext.sysmanager.Config.onTabClick.bind(Todoyu.Ext.sysmanager.Config)';
 		$tabs		= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['sysmanager']['configTabs']);
-		$active		= $tabs[0]['id'];
-
-		foreach($tabs as $tab) {
-			$active	= $tab['id'];
-			break;
-		}
+		$firstTab	= reset($tabs);
+		$active		= $firstTab['id'];
 
 		return TodoyuTabheadRenderer::renderTabs($name, $tabs, $jsHandler, $active);
 	}

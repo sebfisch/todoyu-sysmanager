@@ -33,7 +33,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * @return	String
 	 */
 	public static function renderSearch(array $params = array()) {
-		if( array_key_exists('query', $params) ) {
+		if( isset($params['query']) ) {
 			$query	= trim($params['query']);
 		} else {
 			$query	= TodoyuSysmanagerRepositoryManager::getLastSearchKeyword();

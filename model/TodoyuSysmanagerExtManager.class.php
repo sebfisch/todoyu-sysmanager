@@ -31,7 +31,7 @@ class TodoyuSysmanagerExtManager {
 	 *
 	 * @param	String		$extKey
 	 * @param	String		$tab
-	 * @return	String
+	 * @return	Array
 	 */
 	public static function getTabConfig($extKey = '', $tab = '') {
 		$extKey	= trim($extKey);
