@@ -510,9 +510,13 @@ class TodoyuSysmanagerExtInstaller {
 		$fileName	= self::getExtensionArchiveName($extKey);
 		$mimeType	= 'application/octet-stream';
 
+		try {
 			// Send file for download and delete temporary ZIP file after download
-		TodoyuFileManager::sendFile($archivePath, $mimeType, $fileName);
-		unlink($archivePath);
+			TodoyuFileManager::sendFile($archivePath, $mimeType, $fileName);
+			unlink($archivePath);
+		} catch(TodoyuExceptionFileDownload $e) {
+			// @todo catch error
+		}
 	}
 
 
