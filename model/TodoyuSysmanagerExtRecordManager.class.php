@@ -94,17 +94,17 @@ class TodoyuSysmanagerExtRecordManager {
 	 * @return	Array
 	 */
 	public static function getAllRecordsList() {
-		$info		= array();
-		$extRecords	= TodoyuSysmanagerExtManager::getAllRecordsConfig();
+		$info				= array();
+		$allRecordsConfig	= TodoyuSysmanagerExtManager::getAllRecordsConfig();
 
-		foreach($extRecords as $extKey => $records) {
+		foreach($allRecordsConfig as $extKey => $records) {
 			if( Todoyu::allowed($extKey, 'general:use') ) {
 				$info[$extKey]['title']		= Todoyu::Label($extKey . '.ext.ext.title');
 				$info[$extKey]['records']	= array();
 
 				foreach($records as $type => $config) {
-					$info[$extKey]['records'][$type]['type']	= $type;
-					$info[$extKey]['records'][$type]['title']	= Todoyu::Label($config['label']);
+					$info[$extKey]['records'][$type]['type']		= $type;
+					$info[$extKey]['records'][$type]['config']		= $config;
 
 					if( isset($config['table']) ) {
 						$info[$extKey]['records'][$type]['count']	= TodoyuSysmanagerExtRecordManager::getRecordCount($config['table']);

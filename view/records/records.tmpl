@@ -1,13 +1,17 @@
-<input type="button" onclick="Todoyu.Ext.sysmanager.Records.add('{$extKey}', '{$type}')" value="{Label core.global.createNew} {Label $labels.typeLabel}" />
+{$createLabel = Label('core.global.createNew')}
+{$typeLabel = Label($config.label)}
+{$buttonLabel = cat($createLabel ': '  $typeLabel)}
 
-<p class="recordsAmount">
-	<span>{count($records)} {Label core.global.records}</span>
-</p>
+<div class="recordTypeInfo">
+	<div class="add">{Button label=$buttonLabel class="add" onclick="Todoyu.Ext.sysmanager.Records.add('$extKey', '$type')"}</div>
+	{Label $config.description}<br />
+	{count($records)} {Label core.global.records}
+</div>
 
 <table cellspacing="0" cellpadding="0" class="list recordsListing recordsList recordList{ucfirst($type)}">
 	<tr class="header">
 		<th scope="col" class="icon">&nbsp;</th>
-		<th scope="col" class="label">{Label $labels.typeLabel}</th>
+		<th scope="col" class="label">{Label $config.label}</th>
 		<th scope="col" class="actions last">&nbsp;</th>
 	</tr>
 

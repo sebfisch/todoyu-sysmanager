@@ -122,7 +122,7 @@ class TodoyuSysmanagerExtRecordRenderer {
 	private static function renderBodyAll() {
 		$recordsList	= TodoyuSysmanagerExtRecordManager::getAllRecordsList();
 
-		$tmpl	= 'ext/sysmanager/view/records-all.tmpl';
+		$tmpl	= 'ext/sysmanager/view/records/all.tmpl';
 		$data	= array(
 			'list'	=> $recordsList
 		);
@@ -139,7 +139,7 @@ class TodoyuSysmanagerExtRecordRenderer {
 	 * @return	String
 	 */
 	private static function renderBodyExtension($ext) {
-		$tmpl	= 'ext/sysmanager/view/records-extension.tmpl';
+		$tmpl	= 'ext/sysmanager/view/records/extension.tmpl';
 		$data	= array(
 			'extKey'	=> $ext,
 			'types'		=> array()
@@ -149,10 +149,10 @@ class TodoyuSysmanagerExtRecordRenderer {
 
 		foreach($typeConfigs as $type => $config) {
 			$data['types'][$type] = array(
-				'type'	=> $type,
-				'label'	=> Todoyu::Label($config['label']),
-				'desc'	=> Todoyu::Label($config['desc']),
-				'count'	=> TodoyuSysmanagerExtRecordManager::getRecordCount($config['table'])
+				'type'			=> $type,
+				'label'			=> Todoyu::Label($config['label']),
+				'description'	=> Todoyu::Label($config['description']),
+				'count'			=> TodoyuSysmanagerExtRecordManager::getRecordCount($config['table'])
 			);
 		}
 
@@ -169,19 +169,17 @@ class TodoyuSysmanagerExtRecordRenderer {
 	 * @return	String
 	 */
 	private static function renderBodyType($extKey, $recordType) {
-		$typeConfigs = TodoyuSysmanagerExtManager::getRecordConfig($extKey, $recordType);
+		$typeConfig = TodoyuSysmanagerExtManager::getRecordConfig($extKey, $recordType);
 
-		if( TodoyuFunction::isFunctionReference($typeConfigs['list']) ) {
+		if( TodoyuFunction::isFunctionReference($typeConfig['list']) ) {
 			$records	= TodoyuSysmanagerExtManager::getRecordListData($extKey, $recordType);
 
-			$tmpl = 'ext/sysmanager/view/records-records.tmpl';
+			$tmpl = 'ext/sysmanager/view/records/records.tmpl';
 			$data = array(
 				'records'	=> $records,
 				'extKey'	=> $extKey,
 				'type'		=> $recordType,
-				'labels'	=> array(
-					'typeLabel' => $typeConfigs['label']
-				)
+				'config'	=> $typeConfig
 			);
 
 			return Todoyu::render($tmpl, $data);

@@ -133,13 +133,7 @@ class TodoyuSysmanagerExtManager {
 	public static function getRecordConfig($extKey, $recordName) {
 		TodoyuExtensions::loadAllAdmin();
 
-		$config = Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName];
-
-		if( ! is_array($config) ) {
-			$config = array();
-		}
-
-		return $config;
+		return TodoyuArray::assure(Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName]);
 	}
 
 
@@ -258,7 +252,6 @@ class TodoyuSysmanagerExtManager {
 	 * @return	Array
 	 */
 	private static function addDeletableFlag(array $list, $isDeletable) {
-		TodoyuDebug::printInFirebug($isDeletable, 'xxxx');
 			// Add isDeletable flag
 		if( TodoyuFunction::isFunctionReference($isDeletable) ) {
 			foreach($list as $index => $record) {
