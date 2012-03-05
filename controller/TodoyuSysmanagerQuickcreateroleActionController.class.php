@@ -30,7 +30,7 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 	 * @param	Array	$params
 	 */
 	public function init(array $params) {
-		Todoyu::restrict('sysmanager', 'general:roles');
+		Todoyu::restrictAdmin();
 	}
 
 

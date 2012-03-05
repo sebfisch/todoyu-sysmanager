@@ -2,7 +2,7 @@
 <labels>
 	<label index="general">Impostazioni generali</label>
 	<label index="general.extensions">Gestore estensioni</label>
-	<label index="general.allrecords">Mostra tutti i record nella visualizzazione di modifica</label>
+	<label index="general.records">Mostra tutti i record nella visualizzazione di modifica</label>
 	<label index="general.rights">Gestore diritti</label>
 	<label index="general.roles">Gestore ruoli</label>
 	<label index="extensions">Estensioni</label>

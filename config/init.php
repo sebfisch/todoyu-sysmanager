@@ -18,25 +18,6 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
-/* ---------------------------------
-	Set default sysmanager module
-   --------------------------------- */
-if( Todoyu::allowed('sysmanager', 'general:extensions') ) {
-		// Extension manager
-	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'extensions';
-} elseif( Todoyu::allowed('sysmanager', 'general:records') ) {
-		// Records manager
-	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'records';
-} elseif( Todoyu::allowed('sysmanager', 'general:rights') ) {
-		// Rights manager
-	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'rights';
-} elseif( Todoyu::allowed('sysmanager', 'general:config') ) {
-		// Config manager
-	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'config';
-}
-
-
-
 /* ---------------------------------------------
 	Add quickInfo callback for right labels
    --------------------------------------------- */

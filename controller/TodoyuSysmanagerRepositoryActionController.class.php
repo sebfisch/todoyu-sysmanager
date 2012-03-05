@@ -32,7 +32,7 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	 * @param	Array	$params
 	 */
 	public function init(array $params) {
-		Todoyu::restrict('sysmanager', 'general:extensions');
+		Todoyu::restrict('sysmanager', 'extensions:modify');
 	}
 
 

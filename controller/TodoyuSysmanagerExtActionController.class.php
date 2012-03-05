@@ -50,11 +50,11 @@ class TodoyuSysmanagerExtActionController extends TodoyuActionController {
 		TodoyuFrontend::setActiveTab('none');
 
 			// Load config
-		TodoyuExtensions::loadAllAdmin();
+		TodoyuExtensions::loadAllSysmanager();
 
 			// Get current sysmanager module
-		$module	= $params['mod'];
-		if( ! TodoyuSysmanagerManager::isModule($module) ) {
+		$module	= trim($params['mod']);
+		if( !$module || !TodoyuSysmanagerManager::isModule($module) ) {
 			$module = TodoyuSysmanagerManager::getActiveModule();
 		} else {
 				// Save current module
@@ -79,14 +79,18 @@ class TodoyuSysmanagerExtActionController extends TodoyuActionController {
 
 
 	/**
-	 * Handle unknown actions (call default action)
+	 * Load and display module
 	 *
-	 * @param	String	$actionName
 	 * @param	Array	$params
 	 * @return	String
 	 */
-	public function _unknownAction($actionName, array $params) {
-		return $this->defaultAction($params);
+	public function moduleAction(array $params) {
+		$module	= trim($params['module']);
+
+			// Save current module
+		TodoyuSysmanagerPreferences::saveActiveModule($module);
+
+		return TodoyuSysmanagerRenderer::renderModule($module, $params);
 	}
 
 }

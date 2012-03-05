@@ -2,7 +2,7 @@
 <labels>
 	<label index="general">Општа подешавања</label>
 	<label index="general.extensions">Управа додатка</label>
-	<label index="general.allrecords">Поглед 'сви снимци'</label>
+	<label index="general.records">Поглед 'сви снимци'</label>
 	<label index="general.rights">Администрација права</label>
 	<label index="extensions">Додаци</label>
 	<label index="extensions.info">Информације додатка</label>

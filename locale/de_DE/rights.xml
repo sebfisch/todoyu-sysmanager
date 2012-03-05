@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="general">Allgemeine Einstellungen</label>
+	<label index="general.use">Systemmanager nutzen</label>
 	<label index="general.extensions">Erweiterungsmanager</label>
-	<label index="general.allrecords">'Alle Datensätze' Ansicht</label>
-	<label index="general.rights">Rechteverwaltung</label>
-	<label index="general.roles">Rollenverwaltung</label>
+	<label index="general.records">Datensätze bearbeiten</label>
+	<label index="general.config">System Config</label>
 	<label index="extensions">Erweiterungen</label>
-	<label index="extensions.info">Erweiterungs-Infos</label>
-	<label index="extensions.config">Konfiguration bearbeiten</label>
-	<label index="extensions.rights">Rechte bearbeiten</label>
-	<label index="extensions.records">Datensätze bearbeiten</label>
-	<label index="extensions.uninstall">Erweiterungen deinstallieren</label>
-	<label index="extensions.install">Erweiterungen installieren</label>
-	<label index="extensions.download">Erweiterung als Archiv herunterladen</label>
-	<label index="extensions.update">Erweiterungen aktualisieren</label>
-	<label index="roles">Rollen</label>
-	<label index="roles.edit">Rollen bearbeiten</label>
-	<label index="roles.delete">Rollen löschen</label>
+	<label index="extensions.download">Als Archiv herunterladen</label>
+	<label index="extensions.modify">Installieren / Deinstallieren / Aktualisieren</label>
 </labels>

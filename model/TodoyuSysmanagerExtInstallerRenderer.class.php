@@ -32,8 +32,8 @@ class TodoyuSysmanagerExtInstallerRenderer {
 	 * @param	String		$ext
 	 * @return	String
 	 */
-	public static function renderUpdateDialog($ext) {
-		$tmpl	= 'ext/sysmanager/view/extension/installed.tmpl';
+	public static function renderMessageInstallSuccess($ext) {
+		$tmpl	= 'ext/sysmanager/view/extension/message-install-success.tmpl';
 		$data	= array(
 			'ext'	=> $ext
 		);
@@ -49,8 +49,8 @@ class TodoyuSysmanagerExtInstallerRenderer {
 	 * @param	String	$ext
 	 * @return	String
 	 */
-	public static function renderUninstalledDialog($ext) {
-		$tmpl	= 'ext/sysmanager/view/extension/uninstalled.tmpl';
+	public static function renderMessageUninstalledSuccess($ext) {
+		$tmpl	= 'ext/sysmanager/view/extension/message-uninstall-success.tmpl';
 		$data	= array(
 			'ext'	=> $ext
 		);
@@ -65,10 +65,10 @@ class TodoyuSysmanagerExtInstallerRenderer {
 	 *
 	 * @param	String	$extKey
 	 * @return	String
+	 * @todo	Template is hard coded html
 	 */
-	public static function renderInstallationErrorMessage($extKey) {
-// @todo	template was missing. added dummy now. check functionality + necessity of template.
-		$tmpl	= 'ext/sysmanager/view/extension/install-error.tmpl';
+	public static function renderMessageInstallError($extKey) {
+		$tmpl	= 'ext/sysmanager/view/extension/message-install-error.tmpl';
 		$data	= array(
 			'extInfo'				=> TodoyuExtensions::getExtInfo($extKey),
 			'missingDependencies'	=> TodoyuSysmanagerExtInstaller::getFailedDependencies($extKey)

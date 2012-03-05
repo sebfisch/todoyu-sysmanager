@@ -33,7 +33,7 @@ class TodoyuSysmanagerExtConfRenderer {
 	 * @return	String
 	 */
 	public static function renderConfig($extKey) {
-		$tmpl	= 'ext/sysmanager/view/extension/config.tmpl';
+		$tmpl	= 'ext/sysmanager/view/extension/dialog-extconf.tmpl';
 		$data	= array(
 			'hasConf'	=> false
 		);

@@ -37,13 +37,13 @@ Todoyu.Ext.sysmanager.Extensions.Import = {
 	/**
 	 * Show for for extension upload
 	 *
-	 * @method	showUploadForm
+	 * @method	showImportDialog
 	 */
-	showUploadForm: function() {
+	showImportDialog: function() {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 		var options	= {
 			parameters: {
-				action: 'showimport'
+				action: 'dialogImport'
 			},
 			onComplete: this.onImportShowed.bind(this)
 		};

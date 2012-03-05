@@ -2,7 +2,7 @@
 <labels>
 	<label index="general">Ogólne ustawienia</label>
 	<label index="general.extensions">Zarządzanie rozszerzeniami</label>
-	<label index="general.allrecords">Show all records edit view</label>
+	<label index="general.records">Show all records edit view</label>
 	<label index="general.rights">Zarządzanie uprawnieniami</label>
 	<label index="extensions">Rozszerzenia</label>
 	<label index="extensions.info">Informacje o rozszerzeniach</label>

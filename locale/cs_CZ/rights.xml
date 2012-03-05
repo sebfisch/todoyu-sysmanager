@@ -2,7 +2,7 @@
 <labels>
 	<label index="general">Obecné nastavení</label>
 	<label index="general.extensions">Správce rozšíření</label>
-	<label index="general.allrecords">Zobrazit všechny záznamy</label>
+	<label index="general.records">Zobrazit všechny záznamy</label>
 	<label index="general.rights">Správce práv</label>
 	<label index="general.roles">Správce rolí</label>
 	<label index="extensions">Rozšíření</label>

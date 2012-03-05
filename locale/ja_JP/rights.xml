@@ -2,7 +2,7 @@
 <labels>
 	<label index="general">一般設定</label>
 	<label index="general.extensions">拡張機能の管理者</label>
-	<label index="general.allrecords">全レコードの編集画面を表示</label>
+	<label index="general.records">全レコードの編集画面を表示</label>
 	<label index="general.rights">権限管理者</label>
 	<label index="extensions">拡張機能</label>
 	<label index="extensions.info">拡張機能の情報</label>

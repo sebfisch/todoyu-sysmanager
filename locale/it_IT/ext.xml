@@ -31,7 +31,7 @@
 	<label index="notInstalledExtensions">Nessuna estensione installata</label>
 	<label index="installedExtensions">Estensioni installate</label>
 	<label index="menu.extensions">Estensioni</label>
-	<label index="menu.allRecords">Tutti i record</label>
+	<label index="menu.records">Tutti i record</label>
 	<label index="menu.rights">Permessi &amp; ruoli</label>
 	<label index="menu.config">Configurazione di sistema</label>
 	<label index="rights.tab.rights">Permessi</label>

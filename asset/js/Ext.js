@@ -62,10 +62,10 @@ Todoyu.Ext.sysmanager = {
 	 * @param	{Object}	params
 	 */
 	loadModule: function(module, params) {
-		var url		= Todoyu.getUrl('sysmanager', 'module');
+		var url		= Todoyu.getUrl('sysmanager', 'ext');
 		var options	= {
 			parameters: {
-				action: 'load',
+				action: 'module',
 				module:	module
 			},
 			onComplete: this.onModuleLoaded.bind(this, module)

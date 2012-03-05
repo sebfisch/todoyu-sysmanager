@@ -1,4 +1,4 @@
-{extends "list.tmpl"}
+{extends "list-base.tmpl"}
 
 {block name="title"}{Title "LLL:sysmanager.ext.installedExtensions"}{/block}
 
@@ -6,7 +6,7 @@
 
 {block name="edit"}
 	<td class="edit">
-		{restrict 'sysmanager' 'extensions:uninstall'}
+		{restrict 'sysmanager' 'extensions:modify'}
 			<a href="javascript:void(0)" title="{Label sysmanager.extension.uninstall}"
 				{if !extMgr_isSysExt($extKey)}
 					onclick="Todoyu.Ext.sysmanager.Extensions.Install.uninstall('{$extKey}')" class="uninstall">
@@ -37,7 +37,7 @@
 			</a>
 		{/restrict}
 
-		{restrict 'sysmanager' 'extensions:rights'}
+		{restrictAdmin}
 			<a href="javascript:void(0)" title="{Label sysmanager.extension.rights}"
 				{if extMgr_hasRighsConfig($extKey)}
 					onclick="Todoyu.Ext.sysmanager.Extensions.showRights('{$extKey}')" class="rights">
@@ -46,9 +46,9 @@
 				{/if}
 				<span class="hidden">rights</span>
 			</a>
-		{/restrict}
+		{/restrictAdmin}
 
-		{restrict 'sysmanager' 'extensions:records'}
+		{restrict 'sysmanager' 'general:records'}
 			<a href="javascript:void(0)" title="{Label core.global.records}"
 				{if extMgr_hasRecords($extKey)}
 					onclick="Todoyu.Ext.sysmanager.Extensions.showRecords('{$extKey}')" class="records">

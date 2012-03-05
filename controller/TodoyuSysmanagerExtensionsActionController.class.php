@@ -32,7 +32,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	public function init(array $params) {
 		Todoyu::restrict('sysmanager', 'general:extensions');
 
-		TodoyuExtensions::loadAllAdmin();
+		TodoyuExtensions::loadAllSysmanager();
 	}
 
 
@@ -56,6 +56,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @return	String
 	 */
 	public function installAction(array $params) {
+		Todoyu::restrict('sysmanager', 'extensions:modify');
+
 		$extKey		= $params['extension'];
 
 			// Check whether the extension needs to be registered
@@ -93,6 +95,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @param	Array	$params
 	 */
 	public function licenseImportedExtensionAction(array $params) {
+		Todoyu::restrict('sysmanager', 'extensions:modify');
+
 		$extKey	= trim($params['extension']);
 		$major	= TodoyuSysmanagerExtManager::getMajorVersion($extKey);
 
@@ -110,6 +114,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @return	String
 	 */
 	public function uninstallAction(array $params) {
+		Todoyu::restrict('sysmanager', 'extensions:modify');
+
 		$extKey			= $params['extension'];
 		$canUninstall	= TodoyuSysmanagerExtInstaller::canUninstall($extKey);
 
@@ -120,7 +126,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 			TodoyuHeader::sendTodoyuHeader('extTitle', $extInfos['title']);
 
-			return TodoyuSysmanagerExtInstallerRenderer::renderUninstalledDialog($extKey);
+			return TodoyuSysmanagerExtInstallerRenderer::renderMessageUninstalledSuccess($extKey);
 		} else {
 			$info	= TodoyuSysmanagerExtInstaller::getUninstallFailReason($extKey);
 
@@ -139,6 +145,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @param	Array		$params
 	 */
 	public function downloadAction(array $params) {
+		Todoyu::restrict('sysmanager', 'extensions:download');
+
 		$extKey	= $params['extension'];
 
 		TodoyuSysmanagerExtInstaller::downloadExtension($extKey);
@@ -152,11 +160,12 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @param	Array		$params
 	 */
 	public function removeAction(array $params) {
+		Todoyu::restrict('sysmanager', 'extensions:modify');
+
 		$extKey	= $params['extension'];
+		$result	= TodoyuSysmanagerExtInstaller::removeExtensionFromServer($extKey);
 
-		$status	= TodoyuSysmanagerExtInstaller::removeExtensionFromServer($extKey);
-
-		if( $status === false ) {
+		if( !$result ) {
 			TodoyuHeader::sendTodoyuErrorHeader();
 		}
 	}
@@ -169,12 +178,14 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @param	Array		$params
 	 * @return	String
 	 */
-	public function showImportAction(array $params) {
+	public function dialogImportAction(array $params) {
+		Todoyu::restrict('sysmanager', 'extensions:modify');
+
 		$xmlPath= 'ext/sysmanager/config/form/extension-import.xml';
 		$form	= TodoyuFormManager::getForm($xmlPath);
 		$form->setUseRecordID(false);
 
-		$tmpl	= 'ext/sysmanager/view/extension/import.tmpl';
+		$tmpl	= 'ext/sysmanager/view/extension/dialog-import.tmpl';
 		$data	= array(
 			'form'	=> $form->render()
 		);
@@ -190,10 +201,12 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @param	Array	$params
 	 * @return	String
 	 */
-	public function showUpdateAction(array $params) {
+	public function dialogUpdateAction(array $params) {
+		Todoyu::restrict('sysmanager', 'extensions:modify');
+
 		$ext	= $params['extension'];
 
-		return TodoyuSysmanagerExtInstallerRenderer::renderUpdateDialog($ext);
+		return TodoyuSysmanagerExtInstallerRenderer::renderMessageInstallSuccess($ext);
 	}
 
 
@@ -205,27 +218,39 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	 * @return	String
 	 */
 	public function uploadAction(array $params) {
+		Todoyu::restrict('sysmanager', 'extensions:modify');
+
 		$uploadFile	= TodoyuRequest::getUploadFile('file', 'importExtension');
 		$data		= $params['importExtension'];
 		$override	= intval($data['override']) === 1;
 
-		$success	= false;
-		$archiveInfo= TodoyuSysmanagerExtInstaller::parseExtensionArchiveName($uploadFile['name']);
+		$importPossible		= false;
+		$importSuccessful	= false;
+		$archiveInfo		= TodoyuSysmanagerExtInstaller::parseExtensionArchiveName($uploadFile['name']);
 
 		if( $archiveInfo !== false ) {
-			$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($archiveInfo['ext'], $uploadFile['tmp_name'], $override);
+			$extKey		= $archiveInfo['ext'];
+			$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($extKey, $uploadFile['tmp_name'], $override);
 
-			if( $canImport === true ) {
-				$success	= true;
+			if( $canImport ) {
+				$importPossible = true;
 			} else {
 				$errorMsg	= $canImport;
 			}
 
-			if( $success ) {
-				TodoyuSysmanagerExtImporter::importExtensionArchive($archiveInfo['ext'], $uploadFile['tmp_name'], $override);
+			if( $importPossible ) {
+				$previousVersion	= TodoyuExtensions::getExtVersion($extKey);
+				$importSuccessful 	= TodoyuSysmanagerExtImporter::importExtensionArchive($extKey, $uploadFile['tmp_name']);
+
+					// Was extension imported
+				if( $importSuccessful ) {
+					TodoyuExtensions::loadConfig($extKey, 'extinfo');
+					$currentVersion		= TodoyuExtensions::getExtVersion($extKey);
+					TodoyuSysmanagerExtInstaller::callAfterUpdate($extKey, $previousVersion, $currentVersion);
+				}
 			}
 
-			$command	= 'window.parent.Todoyu.Ext.sysmanager.Extensions.Import.importFinished("' . $archiveInfo['ext'] . '", ' . ($success?'true':'false') . ', "' . $errorMsg . '");';
+			$command	= 'window.parent.Todoyu.Ext.sysmanager.Extensions.Import.importFinished("' . $extKey . '", ' . ($importSuccessful?'true':'false') . ', "' . $errorMsg . '");';
 		} else {
 			$errorMsg	= 'Name format of extension archive is invalid';
 			$command	= 'window.parent.Todoyu.Ext.sysmanager.Extensions.Import.importFailed("' . $errorMsg . '");';

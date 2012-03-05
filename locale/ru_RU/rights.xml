@@ -2,7 +2,7 @@
 <labels>
 	<label index="general">Общие</label>
 	<label index="general.extensions">Менеджер расширений</label>
-	<label index="general.allrecords">Показывать режим редактирования всех записей</label>
+	<label index="general.records">Показывать режим редактирования всех записей</label>
 	<label index="general.rights">Менеджер прав</label>
 	<label index="extensions">Расширения</label>
 	<label index="extensions.info">Информация о расширении</label>

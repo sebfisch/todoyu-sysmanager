@@ -32,7 +32,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	 * @param	Array	$params
 	 */
 	public function init(array $params) {
-		Todoyu::restrict('sysmanager', 'general:allrecords');
+		Todoyu::restrict('sysmanager', 'general:records');
 	}
 
 

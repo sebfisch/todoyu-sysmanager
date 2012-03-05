@@ -57,15 +57,9 @@ class TodoyuSysmanagerExtManager {
 			$tabs[]			= $tab;
 		} else {
 				// Browse market / download tab
-			if( Todoyu::allowed('sysmanager', 'extensions:download') ) {
-				$tabs[] = $config['search'];
-			}
-				// Update tab
-			if( Todoyu::allowed('sysmanager', 'extensions:update') ) {
+			if( Todoyu::allowed('sysmanager', 'extensions:modify') ) {
 				$tabs[] = $config['update'];
-			}
-				// Installer tab
-			if( Todoyu::allowed('sysmanager', 'extensions:install') ) {
+				$tabs[] = $config['search'];
 				$tabs[] = $config['imported'];
 			}
 		}
@@ -131,7 +125,7 @@ class TodoyuSysmanagerExtManager {
 	 * @return	Array
 	 */
 	public static function getRecordConfig($extKey, $recordName) {
-		TodoyuExtensions::loadAllAdmin();
+		TodoyuExtensions::loadAllSysmanager();
 
 		return TodoyuArray::assure(Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName]);
 	}
@@ -170,7 +164,7 @@ class TodoyuSysmanagerExtManager {
 	 * @return	Array
 	 */
 	public static function getRecordConfigs($extKey) {
-		TodoyuExtensions::loadAllAdmin();
+		TodoyuExtensions::loadAllSysmanager();
 
 		$config	= Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey];
 

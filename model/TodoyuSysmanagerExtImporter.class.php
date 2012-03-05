@@ -61,9 +61,7 @@ class TodoyuSysmanagerExtImporter {
 				throw new TodoyuException('Invalid extension archive: ' . $checkResult);
 			}
 
-			$extDir		= TodoyuExtensions::getExtPath($extKey);
-
-			if( ! $override && is_dir($extDir) ) {
+			if( self::extensionDirExists($extKey) && !$override ) {
 				throw new TodoyuException('Extension already exists');
 			}
 		} catch(TodoyuException $e) {
@@ -71,6 +69,19 @@ class TodoyuSysmanagerExtImporter {
 		}
 
 		return true;
+	}
+
+
+	/**
+	 * Check whether an extension directory exists
+	 *
+	 * @param $extKey
+	 * @return bool
+	 */
+	public static function extensionDirExists($extKey) {
+		$extDir		= TodoyuExtensions::getExtPath($extKey);
+
+		return is_dir($extDir);
 	}
 
 
@@ -97,7 +108,7 @@ class TodoyuSysmanagerExtImporter {
 
 			$checkFile	= 'config/boot.php';
 
-			if( $archive->statName($checkFile) === false ) {
+			if( !$archive->statName($checkFile) ) {
 				throw new TodoyuException($checkFile . ' not found in archive');
 			}
 		} catch(TodoyuException $e) {

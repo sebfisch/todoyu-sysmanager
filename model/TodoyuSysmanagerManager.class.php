@@ -37,7 +37,7 @@ class TodoyuSysmanagerManager {
 	public static function addModule($module, $label, $renderFunction, $position = 100) {
 		$position	= intval($position);
 
-		TodoyuExtensions::loadAllAdmin();
+		TodoyuExtensions::loadAllSysmanager();
 
 		Todoyu::$CONFIG['EXT']['sysmanager']['modules'][$module] = array(
 			'key'			=> $module,
@@ -58,10 +58,15 @@ class TodoyuSysmanagerManager {
 		$module	= TodoyuSysmanagerPreferences::getActiveModule();
 
 		if( !$module ) {
-			$module = Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'];
+			$module = self::getDefaultModule();
 		}
 
 		return $module;
+	}
+
+
+	public static function getDefaultModule() {
+		return Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'];
 	}
 
 
@@ -72,10 +77,10 @@ class TodoyuSysmanagerManager {
 	 * @return	Array
 	 */
 	public static function getModules() {
-		TodoyuExtensions::loadAllAdmin();
+		TodoyuExtensions::loadAllSysmanager();
 
 		if( is_array( Todoyu::$CONFIG['EXT']['sysmanager']['modules'] ) ) {
-			return TodoyuArray::sortByLabel(Todoyu::$CONFIG['EXT']['sysmanager']['modules']);
+			return TodoyuArray::sortByLabel(Todoyu::$CONFIG['EXT']['sysmanager']['modules'], 'position');
 		} else {
 			return array();
 		}
@@ -90,7 +95,7 @@ class TodoyuSysmanagerManager {
 	 * @return	String					'class::method'
 	 */
 	public static function getModuleRenderFunction($module) {
-		TodoyuExtensions::loadAllAdmin();
+		TodoyuExtensions::loadAllSysmanager();
 
 		return Todoyu::$CONFIG['EXT']['sysmanager']['modules'][$module]['render'];
 	}
@@ -104,10 +109,17 @@ class TodoyuSysmanagerManager {
 	 * @return	Boolean
 	 */
 	public static function isModule($module) {
-		TodoyuExtensions::loadAllAdmin();
+		TodoyuExtensions::loadAllSysmanager();
 
-		return is_string($module) && is_array(Todoyu::$CONFIG['EXT']['sysmanager']['modules'][$module]);
+		return isset(Todoyu::$CONFIG['EXT']['sysmanager']['modules'][$module]);
 	}
+
+
+	public static function getActiveModuleKey($moduleKey) {
+
+
+	}
+
 }
 
 ?>

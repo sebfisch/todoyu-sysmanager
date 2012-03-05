@@ -2,7 +2,7 @@
 <labels>
 	<label index="general">Configurações Gerais</label>
 	<label index="general.extensions">Gerenciador de Extensões</label>
-	<label index="general.allrecords">Exibir Todos os Registros Editar Visão</label>
+	<label index="general.records">Exibir Todos os Registros Editar Visão</label>
 	<label index="general.rights">Gestão de Permissões</label>
 	<label index="general.roles">Gestão de Perfil</label>
 	<label index="extensions">Extensões</label>

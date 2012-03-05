@@ -19,21 +19,21 @@
 *****************************************************************************/
 
 	// Register callbacks of allowed sysmanager modules
-if( Todoyu::allowed('sysmanager', 'general:extensions') ) {
-		// Extension manager
-	TodoyuSysmanagerManager::addModule('extensions', 'sysmanager.ext.menu.extensions', 'TodoyuSysmanagerExtManagerRenderer::renderModule', 10);
-}
-if( Todoyu::allowed('sysmanager', 'general:allrecords') ) {
-		// Records manager
-	TodoyuSysmanagerManager::addModule('records', 'sysmanager.ext.menu.records', 'TodoyuSysmanagerExtRecordRenderer::renderModule', 20);
-}
-if( Todoyu::allowed('sysmanager', 'general:rights') ) {
-		// Rights manager
-	TodoyuSysmanagerManager::addModule('rights', 'sysmanager.ext.menu.rights', 'TodoyuSysmanagerRightsEditorRenderer::renderModule', 30);
-}
-if( Todoyu::allowed('sysmanager', 'general:config') ) {
-		// Config manager
+if( TodoyuAuth::isAdmin() ) { // Config manager
 	TodoyuSysmanagerManager::addModule('config', 'sysmanager.ext.menu.config', 'TodoyuSysmanagerSystemConfigRenderer::renderModule', 40);
+	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'config';
+}
+if( TodoyuAuth::isAdmin() ) { // Rights manager
+	TodoyuSysmanagerManager::addModule('rights', 'sysmanager.ext.menu.rights', 'TodoyuSysmanagerRightsEditorRenderer::renderModule', 30);
+	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'rights';
+}
+if( Todoyu::allowed('sysmanager', 'general:records') ) { // Records manager
+	TodoyuSysmanagerManager::addModule('records', 'sysmanager.ext.menu.records', 'TodoyuSysmanagerExtRecordRenderer::renderModule', 20);
+	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'records';
+}
+if( Todoyu::allowed('sysmanager', 'general:extensions') ) { // Extension manager
+	TodoyuSysmanagerManager::addModule('extensions', 'sysmanager.ext.menu.extensions', 'TodoyuSysmanagerExtManagerRenderer::renderModule', 10);
+	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'extensions';
 }
 
 ?>

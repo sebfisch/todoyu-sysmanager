@@ -73,15 +73,15 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * Handler when extension installation has finished (successfully or not)
 	 *
 	 * @method	onInstalled
-	 * @param	{String}			ext
+	 * @param	{String}			extKey
 	 * @param	{Ajax.Response}		response
 	 */
-	onInstalled: function(ext, response) {
+	onInstalled: function(extKey, response) {
 		var registrationRequired = response.getTodoyuHeader('registrationRequired') == 1;
 
 			// Registration required? The installation process was canceled
 		if( registrationRequired ) {
-			this.showLicenseDialogForImportOfCommercialExtension(ext);
+			this.showLicenseDialogForImportOfCommercialExtension(extKey);
 			return;
 		}
 
@@ -89,14 +89,14 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 		var extTitle	= response.getTodoyuHeader('extTitle');
 
 		if( response.hasTodoyuError() ) {
-			Todoyu.notifyInfo('Installation of Extension failed: ' + extTitle + ' (' + ext + ')');
+			Todoyu.notifyInfo('Installation of Extension failed: ' + extTitle + ' (' + extKey + ')');
 			var problems	= response.getTodoyuHeader('installProblems');
 
-			this.showInstallationProblems(ext, problems, extTitle);
+			this.showInstallationProblems(extKey, problems, extTitle);
 		} else {
 				// Installation succeeded, notify and update screen
 			Todoyu.notifySuccess('[LLL:sysmanager.extension.installed.notify] ' + extTitle, 'sysmanager.install.extension');
-			this.showUpdate(ext);
+			this.showUpdateDialog(extKey);
 		}
 	},
 
@@ -195,11 +195,11 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	 * @method	showUpdate
 	 * @param	{String}	ext
 	 */
-	showUpdate: function(ext) {
+	showUpdateDialog: function(ext) {
 		var url		= Todoyu.getUrl('sysmanager', 'extensions');
 			var options	= {
 				parameters: {
-					action: 	'showUpdate',
+					action: 	'dialogUpdate',
 					extension:	ext
 				},
 				onComplete: this.onUpdateShowed.bind(this, ext)

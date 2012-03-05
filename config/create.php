@@ -19,7 +19,7 @@
 *****************************************************************************/
 
 	// Add quick create types
-if( Todoyu::allowed('sysmanager', 'roles:edit') ) {
+if( TodoyuAuth::isAdmin() ) {
 	TodoyuQuickCreateManager::addEngine('sysmanager', 'role', 'sysmanager.ext.create.role.label', 150, array('sysmanager'), true);
 }
 

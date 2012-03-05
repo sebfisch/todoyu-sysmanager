@@ -2,7 +2,7 @@
 <labels>
 	<label index="general">Paramètres généraux</label>
 	<label index="general.extensions">Gestion des extensions</label>
-	<label index="general.allrecords">Afficher/modifier/voir tous les enregistrements</label>
+	<label index="general.records">Afficher/modifier/voir tous les enregistrements</label>
 	<label index="general.rights">Gestion des permissions</label>
 	<label index="general.roles">Gestion des rôles</label>
 	<label index="extensions">Extensions</label>

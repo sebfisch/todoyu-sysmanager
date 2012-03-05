@@ -133,7 +133,7 @@ class TodoyuSysmanagerRepositoryManager {
 
 				// Download and install extension
 			$idVersion	= intval($extInfo['version']['id']);
-			self::downloadAndImportExtension($extKey, $idVersion, true);
+			self::downloadAndImportExtension($extKey, $idVersion, false);
 
 			$isMajorUpdate	= TodoyuExtensions::isInstalled($extKey);
 
@@ -167,7 +167,9 @@ class TodoyuSysmanagerRepositoryManager {
 		$idVersion	= intval($update['id']);
 
 			// Make sure we have enough time to download and extract the update
-		set_time_limit(120);
+		if( function_exists('set_time_limit') ) {
+			set_time_limit(120);
+		}
 
 		try {
 				// Backup Core
@@ -214,7 +216,7 @@ class TodoyuSysmanagerRepositoryManager {
 			// Extract archive
 		$success	= TodoyuArchiveManager::extractTo($pathArchive, $pathTemp);
 
-		if( $success === false ) {
+		if( !$success ) {
 			throw new TodoyuException('Extraction of core update archive failed');
 		}
 

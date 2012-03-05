@@ -32,7 +32,7 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 	 * @param	Array	$params
 	 */
 	public function init(array $params) {
-		Todoyu::restrict('sysmanager', 'general:rights');
+		Todoyu::restrictAdmin();
 	}
 
 

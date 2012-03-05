@@ -2,7 +2,7 @@
 <labels>
 	<label index="general">Algemene instellingen</label>
 	<label index="general.extensions">Extensiebeheer</label>
-	<label index="general.allrecords">Alle records voor bewerken weergeven</label>
+	<label index="general.records">Alle records voor bewerken weergeven</label>
 	<label index="general.rights">Rechtenbeheer</label>
 	<label index="general.roles">Rollenbeheer</label>
 	<label index="extensions">Extensies</label>

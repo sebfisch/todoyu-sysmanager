@@ -4,24 +4,13 @@
 	<section name="general">
 		<right name="use" />
 		<right name="extensions" require="general:use" />
-		<right name="allrecords" require="general:use" />
-		<right name="rights" require="general:use" />
-		<right name="roles" require="general:use" />
+		<right name="records" require="general:use" />
 	</section>
 
 	<section name="extensions" require="general:extensions">
 		<right name="config" />
-		<right name="rights" require="general:rights" />
-		<right name="records" />
-		<right name="install" />
-		<right name="uninstall" />
-		<right name="update" />
 		<right name="download" />
-	</section>
-
-	<section name="roles" require="general:roles">
-		<right name="edit" />
-		<right name="delete" />
+		<right name="modify" require="extensions:download" />
 	</section>
 
 </rights>
