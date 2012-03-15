@@ -151,10 +151,10 @@ class TodoyuSysmanagerExtRecordManager {
 		$data	= $form->getFormData();
 
 		if( $idRecord !== 0 ) {
-			if( ! empty($config['object']) ) {
+			if( isset($config['object']) ) {
 				$className	= $config['object'];
 				$record		= new $className($idRecord);
-			} elseif( ! empty($config['table']) ) {
+			} elseif( isset($config['table']) ) {
 				$record = new TodoyuBaseObject($idRecord, $config['table']);
 			}
 
