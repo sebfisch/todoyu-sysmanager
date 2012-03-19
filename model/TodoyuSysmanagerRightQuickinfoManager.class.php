@@ -68,7 +68,7 @@ class TodoyuSysmanagerRightQuickInfoManager {
 	 * Add JS onload function to page (hooked into TodoyuPage::render())
 	 */
 	public static function addJSonloadFunction() {
-		TodoyuPage::addJsOnloadedFunction('Todoyu.Ext.sysmanager.QuickinfoRight.init', 100, true);
+		TodoyuPage::addJsInit('Todoyu.Ext.sysmanager.QuickinfoRight.init()');
 	}
 
 }
