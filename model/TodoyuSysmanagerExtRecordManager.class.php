@@ -135,7 +135,7 @@ class TodoyuSysmanagerExtRecordManager {
 			// Record form
 		$form		= TodoyuFormManager::getForm($config['form'], $idRecord);
 //		$form->setAttribute('onsubmit', "return Todoyu.Ext.sysmanager.Extensions.Records.save(this, '" . $ext . "', '" . $type . "')");
-		$form->setAction('?ext=sysmanager&amp;controller=records');
+		$form->setAction('index.php?ext=sysmanager&amp;controller=records');
 		$form->setName('record');
 		$form->setFormData(array('id'=>$idRecord));
 

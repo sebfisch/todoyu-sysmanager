@@ -40,7 +40,7 @@ class TodoyuSysmanagerRoleEditorManager {
 		$form		= TodoyuFormManager::getForm($xmlPath, $idRole);
 
 			// Adjust form to needs of quick creation wizard
-		$form->setAttribute('action', '?ext=sysmanager&amp;controller=quickcreaterole');
+		$form->setAttribute('action', 'index.php?ext=sysmanager&amp;controller=quickcreaterole');
 		$form->setAttribute('onsubmit', 'return false');
 		$form->getFieldset('buttons')->getField('save')->setAttribute('onclick', 'Todoyu.Ext.sysmanager.QuickCreateRole.save(this.form)');
 		$form->getFieldset('buttons')->getField('cancel')->setAttribute('onclick', 'Todoyu.Popups.close(\'quickcreate\')');

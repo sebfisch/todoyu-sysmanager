@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
 	<attributes>
-		<attribute name="action">?ext=sysmanager&amp;controller=config</attribute>
+		<attribute name="action">index.php?ext=sysmanager&amp;controller=config</attribute>
 		<attribute name="name">logo</attribute>
 		<attribute name="enctype">multipart/form-data</attribute>
 
