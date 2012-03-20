@@ -25,7 +25,7 @@
 	<label index="install">Installiere Erweiterung</label>
 	<label index="install.allinstalled">Alle Erweiterungen auf dem Server sind bereits installiert. Neue Erweiterungen können vom todoyu tER importiert oder als Archiv hochgeladen werden.</label>
 	<label index="install.confirm">Erweiterung installieren?</label>
-	<label index="install.ok">Erweiterung wurde erfolgreich installiert</label>
+	<label index="install.ok">Erweiterung wurde erfolgreich installiert.</label>
 	<label index="install.ok.info">Die Erweiterung ist nun in Ihrem System installiert. Weitere Konfigurationen sind für den Betrieb allenfalls notwendig. Sie können diese bei der Erweiterung vornehmen. Wechseln Sie dazu in das Submodul 'Erweiterung'</label>
 	<label index="installed.notify">Erweiterung wurde erfolgreich installiert:</label>
 	<label index="install.error">Installation der Erweiterung fehlgeschlagen</label>
@@ -36,7 +36,7 @@
 	<label index="install.error.core">Die Kernversion ist zu niedrig</label>
 	<label index="uninstall">Deinstalliere Erweiterung</label>
 	<label index="uninstall.confirm">Erweiterung deinstallieren?</label>
-	<label index="uninstall.ok">Erweiterung wurde erfolgreich deinstalliert</label>
+	<label index="uninstall.ok">Erweiterung wurde erfolgreich deinstalliert.</label>
 	<label index="uninstall.cannotuninstall">Erweiterung kann nicht deinstalliert werden</label>
 	<label index="uninstall.thefollowingextdependsonit">Die folgenden Erweiterungen setzen die Erweiterung voraus:</label>
 	<label index="uninstall.error.general">Deinstallation der Erweiterung fehlgeschlagen</label>

@@ -25,7 +25,7 @@
 	<label index="backToTypeList">Alle Datensätze anzeigen</label>
 	<label index="rights.header">Rechtemanager</label>
 	<label index="rights.save">Rechte speichern</label>
-	<label index="rights.saved">Rechte wurden gespeichert</label>
+	<label index="rights.saved">Rechte wurden gespeichert.</label>
 	<label index="rights.notAvailable">Diese Erweiterung benötigt keine Rechtekonfiguration</label>
 	<label index="rights.require">Benötigt</label>
 	<label index="rights.dirtyChanges">Es gibt noch Änderungen. Wollen Sie diese speichern?</label>
@@ -52,7 +52,7 @@
 	<label index="roles.delete.notify.success">Rolle wurde gelöscht.</label>
 	<label index="roles.edit">Rolle bearbeiten</label>
 	<label index="create.role.label">Neue Rolle</label>
-	<label index="config.logo.upload.ok">Das neue Logo wurde erfolgreich hochgeladen. Bitte leeren Sie den Browser-Cache</label>
+	<label index="config.logo.upload.ok">Das neue Logo wurde erfolgreich hochgeladen. Bitte leeren Sie das Browser-Cache.</label>
 	<label index="config.logo.upload.error">Hochladen des Logos ist fehlgeschlagen</label>
 	<label index="config.tab.systemconfig">System Einstellungen</label>
 	<label index="config.tab.systemconfig.name">System Name</label>
@@ -65,7 +65,7 @@
 	<label index="config.tab.systemconfig.logLevel">Log Level</label>
 	<label index="config.tab.repository.todoyuid">todoyu ID</label>
 	<label index="config.tab.repository.todoyuid.comment">Erfahren Sie mehr und registrieren Sie Ihre persönliche todoyu ID:</label>
-	<label index="config.tab.systemconfig.saved">Systemkonfiguration wurde aktualisiert</label>
+	<label index="config.tab.systemconfig.saved">Systemkonfiguration wurde aktualisiert.</label>
 	<label index="config.tab.systemconfig.failed">Aktualisierung der Systemkonfiguration fehlgeschlagen</label>
 	<label index="config.tab.passwordstrength">Passwort</label>
 	<label index="config.tab.passwordstrength.minLenth">Minimale Länge</label>
