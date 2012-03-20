@@ -137,7 +137,8 @@ Todoyu.Ext.sysmanager.Roles = {
 	save: function(form) {
 		$(form).request({
 			parameters: {
-				action:	'save'
+				action:	'save',
+				area:	Todoyu.getArea()
 			},
 			onComplete: this.onSaved.bind(this)
 		});

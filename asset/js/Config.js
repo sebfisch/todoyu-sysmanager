@@ -73,7 +73,8 @@ Todoyu.Ext.sysmanager.Config = {
 	saveSystemConfig: function(form) {
 		$(form).request({
 			parameters: {
-				action: 'saveSystemConfig'
+				action: 'saveSystemConfig',
+				area:	Todoyu.getArea()
 			},
 			onComplete: this.onSystemConfigSaved.bind(this)
 		});
@@ -110,7 +111,8 @@ Todoyu.Ext.sysmanager.Config = {
 	savePasswordStrength: function(form) {
 		$(form).request({
 			parameters: {
-				action: 'savePasswordStrength'
+				action: 'savePasswordStrength',
+				area:	Todoyu.getArea()
 			},
 			onComplete: this.onPasswordStrengthSaved.bind(this)
 		});
@@ -139,7 +141,8 @@ Todoyu.Ext.sysmanager.Config = {
 	saveRepositoryConfig: function(form) {
 		$(form).request({
 			parameters: {
-				action: 'saveRepositoryConfig'
+				action: 'saveRepositoryConfig',
+				area:	Todoyu.getArea()
 			},
 			onComplete: this.onRepositoryConfigSaved.bind(this)
 		});

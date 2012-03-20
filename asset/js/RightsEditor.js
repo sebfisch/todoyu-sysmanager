@@ -273,7 +273,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	updateMatrix: function() {
 		$('rightseditor-form').request({
 			parameters: {
-				action:	'matrix'
+				action:	'matrix',
+				area:	Todoyu.getArea()
 			},
 			onComplete: this.onMatrixUpdated.bind(this)
 		});
@@ -304,7 +305,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 			parameters: {
 				action:		'save',
 				extension:	this.getExtension(),
-				roles:		this.getRoles().join(',')
+				roles:		this.getRoles().join(','),
+				area:		Todoyu.getArea()
 			},
 			onComplete:	this.onRightsSaved.bind(this, callback)
 		});

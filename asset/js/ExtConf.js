@@ -34,7 +34,8 @@ Todoyu.Ext.sysmanager.ExtConf = {
 
 		$(form).request({
 			parameters: {
-				action:	'save'
+				action:	'save',
+				area:	Todoyu.getArea()
 			},
 			onComplete: this.onSaved.bind(this)
 		});
