@@ -19,6 +19,14 @@
 
 
 
+.saveButtonBox {
+	text-align: right;
+}
+#rightseditor-form {
+	margin-bottom: 10px;
+}
+
+
 /* --------------------
 	Rights Matrix
    --------------------*/
