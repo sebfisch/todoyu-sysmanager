@@ -54,7 +54,7 @@ class TodoyuSysmanagerRoleEditorRenderer {
 
 			// Preset (empty) form data
 		$formData	= $form->getFormData();
-		$formData	= TodoyuFormHook::callLoadData('core/config/form/role.xml', $formData, 0);
+		$formData	= TodoyuFormHook::callLoadData('ext/sysmanager/config/form/role.xml', $formData, 0);
 
 		$form->setFormData($formData);
 
@@ -71,7 +71,7 @@ class TodoyuSysmanagerRoleEditorRenderer {
 	 */
 	public static function renderEdit($idRole) {
 		$idRole		= intval($idRole);
-		$xmlPath	= 'core/config/form/role.xml';
+		$xmlPath	= 'ext/sysmanager/config/form/role.xml';
 
 		$form	= TodoyuFormManager::getForm($xmlPath, $idRole);
 

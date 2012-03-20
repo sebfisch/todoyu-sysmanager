@@ -36,7 +36,7 @@ class TodoyuSysmanagerRoleEditorManager {
 		$idRole	= intval($idRole);
 
 			// Construct form object
-		$xmlPath	= 'core/config/form/role.xml';
+		$xmlPath	= 'ext/sysmanager/config/form/role.xml';
 		$form		= TodoyuFormManager::getForm($xmlPath, $idRole);
 
 			// Adjust form to needs of quick creation wizard

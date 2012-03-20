@@ -87,7 +87,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 		$idRole	= intval($data['id']);
 
 			// Construct form object
-		$xmlPath= 'core/config/form/role.xml';
+		$xmlPath= 'ext/sysmanager/config/form/role.xml';
 		$form	= TodoyuFormManager::getForm($xmlPath, $idRole);
 
 			// Set form data
@@ -117,7 +117,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	 * @return	String
 	 */
 	public function addSubformAction(array $params) {
-		$xmlPath	= 'core/config/form/role.xml';
+		$xmlPath	= 'ext/sysmanager/config/form/role.xml';
 
 		$formName	= $params['form'];
 		$fieldName	= $params['field'];

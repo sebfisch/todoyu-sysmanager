@@ -59,7 +59,7 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 
 			// Get form, call save hooks, set data
 		$form	= TodoyuSysmanagerRoleEditorManager::getQuickCreateForm($idRole);
-		$data	= TodoyuFormHook::callSaveData('core/config/form/role.xml', $data, $idRole);
+		$data	= TodoyuFormHook::callSaveData('ext/sysmanager/config/form/role.xml', $data, $idRole);
 		$form->setFormData($data);
 
 			// Validate, render
