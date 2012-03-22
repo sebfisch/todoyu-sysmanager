@@ -84,13 +84,13 @@ table.recordsList td.actions div.icon {
 	Records listing
    ---------------------------- */
 .recordTypeInfo {
-	margin: 10px 0;
+	margin:10px 0;
 }
 .recordTypeInfo .add {
-	float: right;
+	float:right;
 }
 .recordTypeInfo .add button .icon {
-	background: url(../img/icons.png) no-repeat 0 -388px;
+	background:url(../img/icons.png) no-repeat 0 -388px;
 }
 
 .recordsListing td.icon {
