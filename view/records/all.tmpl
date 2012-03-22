@@ -18,7 +18,9 @@
 		<td class="extension">
 			<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Records.showExtensionTypes('{$extKey}')">{$extension.title}</a>
 		</td>
-		<td class="records">{$record.count} {Label core.global.records}</td>
+		<td class="records">
+			<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Records.showTypeRecords('{$extKey}', '{$type}')">{$record.count} {Label core.global.records}</a>
+		</td>
 		<td class="actions">
 			<div class="icon list" onclick="Todoyu.Ext.sysmanager.Records.showTypeRecords('{$extKey}', '{$type}')"></div>
 		</td>
