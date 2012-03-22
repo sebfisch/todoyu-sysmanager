@@ -33,12 +33,11 @@ Todoyu::$CONFIG['EXT']['sysmanager']['info'] = array(
 	'state'			=> 'stable',
 	'version'		=> '1.2.0',
 	'constraints'	=> array(
-		'depends'	=> array(),
-		'conflicts' => array(
-				'admin'	=> '1.1.2'
-		),
 		'core'		=> '2.1.2',
-		'system'	=> true
+		'system'	=> true,
+		'conflicts' => array(
+			'admin'	=> '1.1.2'
+		)
 	),
 	'urlDocumentation'	=> 'http://doc.todoyu.com/?sysmanager'
 );
