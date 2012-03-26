@@ -44,7 +44,7 @@
 	<label index="rights.tab.roles">Rollen</label>
 	<label index="rights.form.roles">Rollen</label>
 	<label index="rights.form.extension">Erweiterung</label>
-	<label index="roles.numPersons">Persons</label>
+	<label index="roles.numPersons">Personen</label>
 	<label index="roles.saved.ok">Rolle gespeichert</label>
 	<label index="roles.saved.error">Speichern der Rolle fehlgeschlagen</label>
 	<label index="roles.delete.confirm">Wollen Sie diese Rolle wirklich löschen?</label>
