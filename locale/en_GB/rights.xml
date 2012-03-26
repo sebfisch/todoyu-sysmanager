@@ -6,6 +6,7 @@
 	<label index="general.records">Edit Records</label>
 	<label index="general.config">System Config</label>
 	<label index="extensions">Extensions</label>
-	<label index="extensions.download">Download as archive</label>
+	<label index="extensions.config">Configure Extensions</label>
+	<label index="extensions.download">Download extension as archive</label>
 	<label index="extensions.modify">Install / Uninstall / Update</label>
 </labels>

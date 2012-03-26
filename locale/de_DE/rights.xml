@@ -6,6 +6,7 @@
 	<label index="general.records">Datensätze bearbeiten</label>
 	<label index="general.config">System Config</label>
 	<label index="extensions">Erweiterungen</label>
-	<label index="extensions.download">Als Archiv herunterladen</label>
+	<label index="extensions.config">Extensions kofigurieren</label>
+	<label index="extensions.download">Extension als Archiv herunterladen</label>
 	<label index="extensions.modify">Installieren / Deinstallieren / Aktualisieren</label>
 </labels>
