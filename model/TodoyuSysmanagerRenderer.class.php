@@ -41,6 +41,8 @@ class TodoyuSysmanagerRenderer {
 			return self::renderModuleFallback();
 		}
 
+//		TodoyuDebug::printInFirebug($renderFunc, 'renderFunc');
+
 		return TodoyuFunction::callUserFunction($renderFunc, $params);
 	}
 

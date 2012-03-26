@@ -69,11 +69,14 @@ class TodoyuSysmanagerRoleEditorManager {
 			// Add all roles to list
 		foreach($roles as $role) {
 			$data['rows'][] = array(
-				'icon'			=> '',
-				'title'			=> $role['title'],
-				'description'	=> $role['description'],
-				'persons'		=> TodoyuRoleManager::getNumPersons($role['id']) . ' ' . Todoyu::Label('contact.ext.persons'),
-				'actions'		=> TodoyuSysmanagerRoleEditorRenderer::renderRoleActions($role['id'])
+				'id'		=> $role['id'],
+				'columns'	=> array(
+					'icon'			=> '',
+					'title'			=> $role['title'],
+					'description'	=> $role['description'],
+					'persons'		=> TodoyuRoleManager::getNumPersons($role['id']) . ' ' . Todoyu::Label('contact.ext.persons'),
+					'actions'		=> TodoyuSysmanagerRoleEditorRenderer::renderRoleActions($role['id'])
+				)
 			);
 		}
 
