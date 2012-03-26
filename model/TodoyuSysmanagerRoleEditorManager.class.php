@@ -73,7 +73,7 @@ class TodoyuSysmanagerRoleEditorManager {
 				'columns'	=> array(
 					'icon'			=> '',
 					'title'			=> $role['title'],
-					'description'	=> $role['description'],
+					'description'	=> empty($role['description']) ? '-' : $role['description'],
 					'persons'		=> TodoyuRoleManager::getNumPersons($role['id']) . ' ' . Todoyu::Label('contact.ext.persons'),
 					'actions'		=> TodoyuSysmanagerRoleEditorRenderer::renderRoleActions($role['id'])
 				)
