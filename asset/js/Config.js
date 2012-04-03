@@ -154,7 +154,7 @@ Todoyu.Ext.sysmanager.Config = {
 	 * Handler when repository config has been saved: notify success
 	 *
 	 * @method	onRepositoryConfigSaved
-	 * @param	{Ajax.response}				response
+	 * @param	{Ajax.Response}				response
 	 */
 	onRepositoryConfigSaved: function(response) {
 		Todoyu.notifySuccess('[LLL:sysmanager.ext.config.tab.repository.saved]');
