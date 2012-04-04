@@ -27,6 +27,15 @@
 class TodoyuSysmanagerRightsEditorManager {
 
 	/**
+	 * Cache for loaded ext rights
+	 *
+	 * @var	Array
+	 */
+	private static $extRights = array();
+
+
+
+	/**
 	 * Check whether an extension has a rights config XML file
 	 * File: ext/EXTKEY/config/rights.xml
 	 *
@@ -45,15 +54,30 @@ class TodoyuSysmanagerRightsEditorManager {
 	 * @param	String		$extKey		Extension key
 	 * @return	Array
 	 */
-	public static function readExtRights($extKey) {
+	public static function getExtRights($extKey) {
 		if( self::hasRightsConfig($extKey) ) {
-			$xmlFile	= TodoyuExtensions::getExtPath($extKey) . '/config/rights.xml';
-			$rights		= self::readXML($extKey, $xmlFile);
-		} else {
-			$rights		= array();
+			$xmlFile		= TodoyuExtensions::getExtPath($extKey) . '/config/rights.xml';
+			self::$extRights= self::readXML($extKey, $xmlFile);
 		}
 
-		return $rights;
+		return self::$extRights;
+	}
+
+	
+
+	/**
+	 * Check whether extension defines a specific right
+	 * This doesn't mean the user has grant for this right
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$right
+	 * @return	Boolean
+	 */
+	public static function hasRight($extKey, $right) {
+		$extRights					= self::getExtRights($extKey);
+		list($section, $rightName)	= explode(':', $right, 2);
+
+		return isset($extRights[$section]['rights'][$rightName]);
 	}
 
 

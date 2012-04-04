@@ -166,7 +166,7 @@ class TodoyuSysmanagerRightsEditorRenderer {
 			$data	= array();
 		} else {
 				// Read rights XML file
-			$rights		= TodoyuSysmanagerRightsEditorManager::readExtRights($ext);
+			$rights		= TodoyuSysmanagerRightsEditorManager::getExtRights($ext);
 
 				// Get required chain
 			$required	= TodoyuSysmanagerRightsEditorManager::extractRequiredInfos($rights);
