@@ -31,9 +31,9 @@ Todoyu::$CONFIG['EXT']['sysmanager']['info'] = array(
 		'company'	=> 'snowflake productions GmbH, Zurich'
 	),
 	'state'			=> 'stable',
-	'version'		=> '1.2.0',
+	'version'		=> '1.2.0b',
 	'constraints'	=> array(
-		'core'		=> '2.1.2',
+		'core'		=> '2.2.0b',
 		'system'	=> true,
 		'conflicts' => array(
 			'admin'	=> '1.1.2'
