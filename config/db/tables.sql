@@ -9,4 +9,4 @@ CREATE TABLE `ext_sysmanager_extension` (
 	`ext` int(10) unsigned NOT NULL,
 	`version` varchar(16) NOT NULL,
 	PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
