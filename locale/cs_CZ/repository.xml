@@ -4,7 +4,7 @@
 	<label index="query">Hledat podle klíčového slova</label>
 	<label index="by">Podle</label>
 	<label index="core.newUpdateAvailable">Nalezena nová aktualizace jádra</label>
-	<label index="core.installUpdate">Nainstalovat aktualizaci jádra</label>
+	<label index="core.installUpdate">Instalovat aktualizaci jádra</label>
 	<label index="core.cancelUpdate">Zrušit aktualizaci jádra</label>
 	<label index="update.newversion">Nová verze</label>
 	<label index="update.yourversion">Vaše verze</label>
@@ -17,7 +17,7 @@
 	<label index="noExtensionsFoundForQuery">pro toto zadání nebylo nalezeno žádné rozšíření</label>
 	<label index="extension.extensionUpdates">Aktualizace rozšíření</label>
 	<label index="extension.moreDetails">Více podrobností</label>
-	<label index="extension.installUpdate">Instalovat aktualizace</label>
+	<label index="extension.installUpdate">Instalovat aktualizaci rozšíření</label>
 	<label index="extensionsFound">%s rozšíření nalezeno</label>
 	<label index="extension.install">Instalovat rozšíření</label>
 	<label index="extension.installed">Instalováno</label>
@@ -28,9 +28,8 @@
 	<label index="extension.install.cancel">Storno</label>
 	<label index="extension.install.success">Rozšíření bylo úspěšně nainstalováno</label>
 	<label index="extension.install.confirm">Opravdu chcete, nainstalovat toto rozšíření?</label>
-	<label index="extension.installUpdate">Instalovat aktualizaci rozšíření</label>
 	<label index="extension.installUpdate.cancel">Zrušit aktualizaci rozšíření</label>
-	<label index="extension.downloads">Ke stažení</label>
+	<label index="extension.downloads">stažení</label>
 	<label index="extension.costs.free">Zdarma</label>
 	<label index="extension.costs.commercial">Komerční</label>
 	<label index="core.update.confirm">Opravdu chcete nainstalovat aktualizaci jádra?</label>
@@ -64,6 +63,5 @@
 	<label index="license.status.freeLicense">Máte potřebnou licenci pro toto rozšíření. Jedna bude automaticky použita pro instalaci.</label>
 	<label index="license.status.noLicense">Nemáte potřebnou licenci pro toto rozšíření.</label>
 	<label index="license.status.licensed">Rozšíření je již pro tuto doménu aktivováno. Žádná další licence nebude použita.</label>
-	<label index="core.installUpdate">Instalovat aktualizaci jádra</label>
 	<label index="moreInfo">Další informace</label>
 </labels>

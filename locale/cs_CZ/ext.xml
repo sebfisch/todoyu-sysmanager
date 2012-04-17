@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
 	<label index="ext.title">Správce systému</label>
+	<label index="page.title">Správce systému</label>
+	<label index="headlet.label">Správce systému</label>
 	<label index="tabs.extensions">Rozšíření</label>
 	<label index="tabs.extensions.back">Zobrazit seznam rozšíření</label>
 	<label index="tabs.info">Info</label>
@@ -18,6 +20,7 @@
 	<label index="records.delete.confirm">Odstranit záznam?</label>
 	<label index="records.delete">Odstranit záznam</label>
 	<label index="records.edit">Upravit záznam</label>
+	<label index="message.nomoduleallowed">Nemáte povolení k použití modulů pro správce systému. Prosím kontaktujte svého administrátora.</label>
 	<label index="recordType">Typ záznamu</label>
 	<label index="browse.title">Procházet rozšíření</label>
 	<label index="backToTypeList">Zobrazit všechny záznamy</label>
@@ -56,7 +59,9 @@
 	<label index="config.tab.systemconfig.name">Systémové jméno</label>
 	<label index="config.tab.systemconfig.email">Systémový Email</label>
 	<label index="config.tab.systemconfig.locale">Jazykové nastavení systému</label>
+	<label index="config.tab.systemconfig.legend.timeAndDate">Čas a datum</label>
 	<label index="config.tab.systemconfig.timezone">Časová zóna systému</label>
+	<label index="config.tab.systemconfig.firstDayOfWeek">První den v týdnu</label>
 	<label index="config.tab.systemconfig.todoyuURL">Adresa todoyu</label>
 	<label index="config.tab.systemconfig.logLevel">Úroveň protokolování chyb</label>
 	<label index="config.tab.repository.todoyuid">todoyu ID</label>
@@ -76,4 +81,5 @@
 	<label index="config.selectlogo.info">Zvolte obrázek který chcete použít jako vaše logo. Velikost obrázku bude automaticky změněna na maximálně 190x60 bodů. Povoleny jsou pouze jpg, png a gif obrázky</label>
 	<label index="config.tab.repository">Repozitář</label>
 	<label index="config.tab.repository.saved">Nastavení repozitáře bylo uloženo</label>
+	<label index="quickinfo.right.depends">Vyžaduje následující práva:</label>
 </labels>

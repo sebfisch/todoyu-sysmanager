@@ -7,7 +7,7 @@
 	<label index="state">Stav</label>
 	<label index="author">Autor</label>
 	<label index="dependencies">Závislý na</label>
-	<label index="conflicts">Konfliktní s</label>
+	<label index="conflicts">Koliduje s</label>
 	<label index="showInfo">Informace o rozšíření</label>
 	<label index="configure">Nastavit rozšíření</label>
 	<label index="download">Stáhnout rozšíření</label>
