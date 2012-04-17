@@ -105,7 +105,7 @@ class TodoyuSysmanagerManagerTest extends PHPUnit_Framework_TestCase {
 
 			// Assert at least 5 modules (of sysmanager, which unittest is one of) present
 		$amountModules	= sizeof($activeModules);
-		$this->assertTrue($amountModules > 4);
+		$this->assertTrue($amountModules > 3);
 
 			// Assert presence of sysmanager module keys
 		$reformConfig	= array('key'	=> 'key');
