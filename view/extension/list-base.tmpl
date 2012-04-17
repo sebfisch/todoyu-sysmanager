@@ -19,7 +19,7 @@
 			{$extTitle = 'sysmanager.extension.missing'}
 		{/if}
 		{$extTitle = Label($extTitle)}
-		<tr class="{cycle values="odd,even"}{if !$extInfo} missing{/if}">
+		<tr class="{cycle values="odd,even"} {$extKey}{if !$extInfo} missing{/if}">
 			<td class="icon"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{extIcon $extKey}</a></td>
 			<td class="extkey" title="{$extKey}"><div class="overflow">{$extKey}</div></td>
 			<td class="title"><div class="overflow">{htmlencode(truncate($extTitle, 45))}</div></td>
