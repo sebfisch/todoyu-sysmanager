@@ -146,14 +146,17 @@ class TodoyuSysmanagerExtConfManager {
 	}
 
 
+
+	/**
+	 * @param	String	$extKey
+	 * @param	Array	$update
+	 */
 	public static function updateExtConf($extKey, array $update) {
 		$extConf	= self::getExtConf($extKey);
 		$extConf	= array_merge($extConf, $update);
 
 		self::saveExtConf($extKey, $extConf);
 	}
-
-
 
 
 
