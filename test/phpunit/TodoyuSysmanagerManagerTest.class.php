@@ -26,11 +26,6 @@
  */
 class TodoyuSysmanagerManagerTest extends PHPUnit_Framework_TestCase {
 
-	/**
-	 * @var Array
-	 */
-	private $array;
-
 
 	protected $testModuleKeys;
 
@@ -103,13 +98,12 @@ class TodoyuSysmanagerManagerTest extends PHPUnit_Framework_TestCase {
 		$expected	= 'array';
 		$this->assertInternalType($expected, $activeModules);
 
-			// Assert at least 5 modules (of sysmanager, which unittest is one of) present
-		$amountModules	= sizeof($activeModules);
-		$this->assertTrue($amountModules > 3);
+			// Assert modles are present
+		$this->assertGreaterThan(0, sizeof($activeModules));
 
 			// Assert presence of sysmanager module keys
 		$reformConfig	= array('key'	=> 'key');
-		$index	= 'key';
+		$index			= 'key';
 		$moduleKeys		= TodoyuArray::reformWithFieldAsIndex($activeModules, $reformConfig, false, $index);
 
 		foreach($this->testModuleKeys as $expectedModuleKey) {
@@ -133,8 +127,10 @@ class TodoyuSysmanagerManagerTest extends PHPUnit_Framework_TestCase {
 	 * Test getModuleRenderFunction
 	 */
 	public function testGetModuleRenderFunction() {
-		foreach($this->testModuleKeys as $moduleKey) {
-			$renderFunction	= TodoyuSysmanagerManager::getModuleRenderFunction($moduleKey);
+		$modules	= TodoyuSysmanagerManager::getModules();
+
+		foreach($modules as $module) {
+			$renderFunction	= TodoyuSysmanagerManager::getModuleRenderFunction($module['key']);
 
 			$this->assertNotNull($renderFunction);
 
@@ -150,13 +146,10 @@ class TodoyuSysmanagerManagerTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function testIsModule() {
 			// Check sysmanager modules
-		foreach($this->testModuleKeys as $moduleKey) {
-			$this->assertTrue(TodoyuSysmanagerManager::isModule($moduleKey));
-		}
+		$this->assertTrue(TodoyuSysmanagerManager::isModule('extensions'));
 
 			// Check bogus module to fail verification
-		$bogusModuleKey	= 'definitelynomodulekey';
-		$this->assertFalse(TodoyuSysmanagerManager::isModule($bogusModuleKey));
+		$this->assertFalse(TodoyuSysmanagerManager::isModule('definitelynomodulekey'));
 	}
 
 }
