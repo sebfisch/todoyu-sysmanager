@@ -101,15 +101,6 @@ class TodoyuSysmanagerManagerTest extends PHPUnit_Framework_TestCase {
 			// Assert modles are present
 		$this->assertGreaterThan(0, sizeof($activeModules));
 
-			// Assert presence of sysmanager module keys
-		$reformConfig	= array('key'	=> 'key');
-		$index			= 'key';
-		$moduleKeys		= TodoyuArray::reformWithFieldAsIndex($activeModules, $reformConfig, false, $index);
-
-		foreach($this->testModuleKeys as $expectedModuleKey) {
-			$this->assertArrayHasKey($expectedModuleKey, $moduleKeys);
-		}
-
 			// Assert config of each module to contain: key, label and render callback
 		foreach($activeModules as $activeModule) {
 			$expected	= 'array';
