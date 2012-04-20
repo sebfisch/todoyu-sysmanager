@@ -33,7 +33,8 @@
 	<label index="install.error.missing">Required extension is not installed</label>
 	<label index="install.error.lowVersion">Required extension is installed, but has a too low version</label>
 	<label index="install.error.conflicts">Extension conflicts with installed extensions</label>
-	<label index="install.error.core">Core version is too low</label>
+	<label index="install.error.core">Core version is too low.</label>
+	<label index="install.error.core.atLeastVersion">Required version at least:</label>
 	<label index="uninstall">Uninstall Extension</label>
 	<label index="uninstall.confirm">Uninstall Extension?</label>
 	<label index="uninstall.ok">Extension was uninstalled successfully</label>

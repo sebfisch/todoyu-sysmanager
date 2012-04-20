@@ -112,7 +112,8 @@ Todoyu.Ext.sysmanager.Extensions.Install = {
 	showInstallationProblems: function(extKey, problems, extTitle) {
 			// Show core warning
 		if( problems.core !== false ) {
-			Todoyu.notifyError('Core version is too low. At least version ' + problems.core + ' is required', 'sysmanager.install.coreversion');
+			Todoyu.notifyError('[LLL:sysmanager.extension.install.error.core] [LLL:sysmanager.extension.install.error.core.atLeastVersion]' + ' ' + problems.core, 'sysmanager.install.coreversion');
+
 		}
 
 			// Show conflict warnings
