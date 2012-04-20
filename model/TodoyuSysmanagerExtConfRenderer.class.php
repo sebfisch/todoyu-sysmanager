@@ -39,9 +39,9 @@ class TodoyuSysmanagerExtConfRenderer {
 		);
 
 		if( TodoyuSysmanagerExtConfManager::hasExtConf($extKey) ) {
-			$form	= TodoyuSysmanagerExtConfManager::getForm($extKey);
+			$form				= TodoyuSysmanagerExtConfManager::getForm($extKey);
 			$data['hasConf']	= true;
-			$data['form']		=  $form->render();
+			$data['form']		= $form->render();
 		} else {
 
 		}
