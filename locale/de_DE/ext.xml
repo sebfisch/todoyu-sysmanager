@@ -21,6 +21,7 @@
 	<label index="records.delete">Datensatz löschen</label>
 	<label index="records.edit">Datensatz bearbeiten</label>
 	<label index="recordType">Datensatz-Typ</label>
+	<label index="message.nomoduleallowed">Sie dürfen aktuell keine Bereiche in der Verwaltung nutzen. Bitte kontaktieren Sie Ihren Administrator</label>
 	<label index="browse.title">Erweiterungen durchsuchen</label>
 	<label index="backToTypeList">Alle Datensätze anzeigen</label>
 	<label index="rights.header">Rechtemanager</label>
