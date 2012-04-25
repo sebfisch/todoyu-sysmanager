@@ -52,5 +52,5 @@
 	<label index="upload.noArchiveSelected">Please select an extension archive to upload</label>
 	<label index="upload.ok">The extension was successfully imported and can now be installed</label>
 	<label index="upload.error">Extension Upload Failed</label>
-	<label index="upload.archivehint">A todoyu extension archive has to be named correctly: TodoyuExt_EXTNAME_VERSION.zip. Ex: TodoyuExt_project_1.1.0.zip</label>
+	<label index="upload.archivehint">A todoyu extension archive has to be named correctly: todoyuExt_EXTNAME_VERSION.zip. Ex: todoyuExt_project_1.1.0.zip</label>
 </labels>

@@ -39,5 +39,5 @@
 	<label index="upload.noArchiveSelected">アップロードする拡張機能アーカイブを選択してください</label>
 	<label index="upload.ok">拡張機能をインポートしました</label>
 	<label index="upload.error">拡張機能のアップロードが失敗しました</label>
-	<label index="upload.archivehint">todoyuの拡張機能アーカイブの正しい命名規則: TodoyuExt_EXTNAME_VERSION.zip. (例: TodoyuExt_project_1.1.0.zip)</label>
+	<label index="upload.archivehint">todoyuの拡張機能アーカイブの正しい命名規則: todoyuExt_EXTNAME_VERSION.zip. (例: todoyuExt_project_1.1.0.zip)</label>
 </labels>

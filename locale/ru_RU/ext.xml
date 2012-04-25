@@ -59,9 +59,9 @@
 	<label index="config.tab.systemconfig.email">Адрес эл. почты системы</label>
 	<label index="config.tab.systemconfig.locale">Настройки форматов (locale)</label>
 	<label index="config.tab.systemconfig.timezone">Временная зона</label>
-	<label index="config.tab.systemconfig.todoyuURL">Todoyu URL</label>
+	<label index="config.tab.systemconfig.todoyuURL">todoyu URL</label>
 	<label index="config.tab.systemconfig.logLevel">Уровень логов</label>
-	<label index="config.tab.repository.todoyuid">Todoyu ID</label>
+	<label index="config.tab.repository.todoyuid">todoyu ID</label>
 	<label index="config.tab.systemconfig.saved">Системная конфигурация обновлена</label>
 	<label index="config.tab.systemconfig.failed">Не удалось обновить системную конфигурацию</label>
 	<label index="config.tab.passwordstrength">Пароль</label>

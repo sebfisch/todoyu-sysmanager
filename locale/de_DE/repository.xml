@@ -46,7 +46,7 @@
 	<label index="error.registerExtensionMissing">Für die Registrierung wurde keine Erweiterung angegeben.</label>
 	<label index="error.registerDomainMissing">todoyu konnte Ihre Domain für die Registrierung nicht erkennen.</label>
 	<label index="error.registerExtNotFound">Sie haben versucht eine Erweiterung zu registrieren, die im tER nicht vorhanden ist.</label>
-	<label index="error.registerNoUserForTodoyuId">Ihre todoyuID stimmt keinem User auf todoyu.com überein.</label>
+	<label index="error.registerNoUserForTodoyuId">Ihre todoyuID stimmt mit keinem User auf todoyu.com überein.</label>
 	<label index="error.registerNoFreeLicensesAvailable">Sie haben keine freien Lizenzen mehr für diese Erweiterung. Bitte kaufen Sie eine neue in unserem Shop.</label>
 	<label index="error.connectionFailed">Verbindung zum todoyu Server fehlgeschlagen</label>
 	<label index="error.connectionFailed.info">Stellen Sie sicher, dass ihr Server eine Verbindung ins Internet aufbauen kann</label>

@@ -51,5 +51,5 @@
 	<label index="upload.noArchiveSelected">Изаберите архиву екстенције за уплоад.</label>
 	<label index="upload.ok">Екстенција је успешно импортована и може сад бити инсталирана</label>
 	<label index="upload.error">Уплоад екстенције није био успешан</label>
-	<label index="upload.archivehint">todoyu архива екстенције мора да је именована коректно: TodoyuExt_EXTNAME_VERSION.zip. Ex: TodoyuExt_project_1.1.0.zip</label>
+	<label index="upload.archivehint">todoyu архива екстенције мора да је именована коректно: todoyuExt_EXTNAME_VERSION.zip. Ex: todoyuExt_project_1.1.0.zip</label>
 </labels>

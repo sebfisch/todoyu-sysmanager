@@ -51,5 +51,5 @@
 	<label index="upload.noArchiveSelected">Vyberte prosím soubor obsahující rozšíření</label>
 	<label index="upload.ok">Rozšíření bylo úspěšně nahráno a může být nainstalováno</label>
 	<label index="upload.error">Nahrávání rozšíření se nezdařilo</label>
-	<label index="upload.archivehint">Todoyu rozšíření musí být pojmenováno následovně: TodoyuExt_JMÉNO_VERZE.zip. Např: TodoyuExt_project_1.1.0.zip</label>
+	<label index="upload.archivehint">todoyu rozšíření musí být pojmenováno následovně: todoyuExt_JMÉNO_VERZE.zip. Např: todoyuExt_project_1.1.0.zip</label>
 </labels>

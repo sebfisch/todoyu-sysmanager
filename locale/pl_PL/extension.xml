@@ -51,5 +51,5 @@
 	<label index="upload.noArchiveSelected">Wybierz plik (zip) rozszerzenia do przesłania</label>
 	<label index="upload.ok">Rozszerzenie zostało prawidłowo zaimportowane i może zostać zainstalowane</label>
 	<label index="upload.error">Przesyłanie rozszerzenia zakończyło się niepowodzeniem</label>
-	<label index="upload.archivehint">Rozszerzenie todoyu musi zostać prawidłowo nazwane: TodoyuExt_EXTNAME_VERSION.zip. Np: TodoyuExt_project_1.1.0.zip</label>
+	<label index="upload.archivehint">Rozszerzenie todoyu musi zostać prawidłowo nazwane: todoyuExt_EXTNAME_VERSION.zip. Np: todoyuExt_project_1.1.0.zip</label>
 </labels>

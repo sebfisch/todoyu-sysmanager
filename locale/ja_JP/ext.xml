@@ -59,9 +59,9 @@
 	<label index="config.tab.systemconfig.email">システムのメール</label>
 	<label index="config.tab.systemconfig.locale">システムの場所</label>
 	<label index="config.tab.systemconfig.timezone">システムのタイムゾーン</label>
-	<label index="config.tab.systemconfig.todoyuURL">Todoyu の URL</label>
+	<label index="config.tab.systemconfig.todoyuURL">todoyu の URL</label>
 	<label index="config.tab.systemconfig.logLevel">ログレベル</label>
-	<label index="config.tab.repository.todoyuid">Todoyu の ID</label>
+	<label index="config.tab.repository.todoyuid">todoyu の ID</label>
 	<label index="config.tab.systemconfig.saved">システムの設定は更新されました</label>
 	<label index="config.tab.systemconfig.failed">システムの設定を更新できませんでした</label>
 	<label index="config.tab.passwordstrength">パスワード</label>
