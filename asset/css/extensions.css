@@ -1,6 +1,10 @@
 /* -------------------
 	Sysmanager modules
    ------------------- */
+#todoyu-sysmanager h1.headerLine span.title {
+	margin-left:-14px;
+}
+
 #panelwidget-sysmanagermodules li.extensions a {
 	background:url(../img/icons.png) no-repeat 1px 1px;
 }
