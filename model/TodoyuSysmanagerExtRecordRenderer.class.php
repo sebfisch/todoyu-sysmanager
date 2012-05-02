@@ -103,7 +103,7 @@ class TodoyuSysmanagerExtRecordRenderer {
 		}
 
 			// Call hook for possible body modifications
-		$hookName		= 'renderRecordsBody-' . $type;
+		$hookName		= 'renderRecordsBody.' . $type;
 		$bodyModified	= TodoyuHookManager::callHook('sysmanager', $hookName, array($idRecord, $body));
 		if( is_array($bodyModified) && ! empty($bodyModified[0]) ) {
 			$body	= $bodyModified[0];
