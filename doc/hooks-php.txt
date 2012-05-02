@@ -11,13 +11,13 @@ Event Hooks
 
 
 #sysmanager.renderRecordsBody.[TYPE]
-	Render record content body in sysmanager
+	Render record content body for TYPE in sysmanager
 	@param	Integer		$idRecord
 	@param	String		$contentBody
 
 
-#sysmanager.renderExtContent.[TYPE]
-	Render record content body in sysmanager
+#sysmanager.renderExtContent.[EXTKEY]
+	Render extension content body for EXTKEY in sysmanager
 	@param	String		$tab
 	@param	Array		$params
 	@param	String		$content
