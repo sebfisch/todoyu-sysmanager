@@ -1,6 +1,6 @@
 todoyu sysmanager extension changelog
 
-sysmanager 1.2.0 - not released yet
+sysmanager 1.2.0 - 2012-05-03
 	* Feature: Grant access to sysmanager with normal rights configuration (no admin rights required anymore)
 	* Added: Records listing highlights inactive (is_active: 0) records half-transparent and preferred (is_preferred: 1) green
 	* Added: Records config can now contain function reference or categorical boolean flag for isDeletable definition
