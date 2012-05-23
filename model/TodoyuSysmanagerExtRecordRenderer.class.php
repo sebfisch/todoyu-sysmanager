@@ -162,7 +162,7 @@ class TodoyuSysmanagerExtRecordRenderer {
 
 
 	/**
-	 * Render record listing of a type
+	 * Render listing of given record type
 	 *
 	 * @param	String		$extKey
 	 * @param	String		$recordType
