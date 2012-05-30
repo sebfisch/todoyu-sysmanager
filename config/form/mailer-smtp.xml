@@ -29,7 +29,7 @@
 
 				<field type="text" name="smtp_port">
 					<label>sysmanager.ext.config.tab.systemconfig.mailer.smtp.port</label>
-					<default>143</default>
+					<default>587</default>
 					<extraAttributes>onkeyup="Todoyu.Form.assistNumericInput(this,true)"</extraAttributes>
 					<required />
 				</field>
