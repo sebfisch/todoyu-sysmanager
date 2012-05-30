@@ -88,6 +88,10 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 103
 		),
 		array(
+			'file'		=> 'ext/sysmanager/asset/js/ConfigMailer.js',
+			'position'	=> 103
+		),
+		array(
 			'file'		=> 'ext/sysmanager/asset/js/Repository.js',
 			'position'	=> 104
 		),

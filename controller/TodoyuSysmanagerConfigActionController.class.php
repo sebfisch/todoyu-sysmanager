@@ -48,6 +48,22 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 
 
 	/**
+	 * Update system config content body
+	 *
+	 * @param	Array		$params
+	 * @return	String
+	 */
+	public function changeMailerAction(array $params) {
+		$mailer	= $params['mailer'];
+
+		$fieldset	= TodoyuSysmanagerSystemConfigManager::getMailerFieldset($mailer);
+
+		return $fieldset->render();
+	}
+
+
+
+	/**
 	 * Save system configuration form
 	 *
 	 * @param	Array	$params
@@ -55,6 +71,10 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	 */
 	public function saveSystemConfigAction(array $params) {
 		$data	= TodoyuArray::assure($params['systemconfig']);
+
+		$mailer	= trim($data['mailermethod']);
+		Todoyu::$CONFIG['SYSTEM']['mailer']	= $mailer;
+
 		$xml	= 'ext/sysmanager/config/form/systemconfig.xml';
 		$form	= TodoyuFormManager::getForm($xml);
 		$form->setFormData($data);

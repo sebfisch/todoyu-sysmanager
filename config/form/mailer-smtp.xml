@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form	xmlns="http://www.todoyu.com/schema/form"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.todoyu.com/schema/form ../../../../core/config/form.xsd">
+	<attributes>
+		<attribute name="action">index.php?ext=sysmanager&amp;controller=config</attribute>
+		<attribute name="name">systemconfig</attribute>
+	</attributes>
+
+	<fieldsets>
+
+		<fieldset name="mailer">
+			<legend>sysmanager.ext.config.tab.systemconfig.legend.mailer</legend>
+			<elements>
+				<field type="select" name="mailermethod">
+					<label>sysmanager.ext.config.tab.systemconfig.mailer.method</label>
+					<source type="function">
+						<function>TodoyuSysmanagerSystemConfigViewHelper::getMailerOptions</function>
+					</source>
+					<noPleaseSelect />
+					<extraAttributes>onchange="Todoyu.Ext.sysmanager.Config.Mailer.onChangeMailer(this);"</extraAttributes>
+					<required />
+				</field>
+
+				<field type="text" name="smtp_host">
+					<label>sysmanager.ext.config.tab.systemconfig.mailer.smtp.host</label>
+					<required />
+				</field>
+
+				<field type="text" name="smtp_port">
+					<label>sysmanager.ext.config.tab.systemconfig.mailer.smtp.port</label>
+					<default>143</default>
+					<extraAttributes>onkeyup="Todoyu.Form.assistNumericInput(this,true)"</extraAttributes>
+					<required />
+				</field>
+
+				<field type="checkbox" name="smtp_authentication">
+					<label>sysmanager.ext.config.tab.systemconfig.mailer.smtp.authentication</label>
+					<default>1</default>
+					<extraAttributes>onchange="Todoyu.Ext.sysmanager.Config.Mailer.onChangeSmtpRequiresAuth(this);"</extraAttributes>
+				</field>
+
+				<field type="text" name="smtp_username">
+					<label>sysmanager.ext.config.tab.systemconfig.mailer.smtp.username</label>
+					<validate>
+						<requiredIfNotEmpty>
+							<fields>smtp_authentication</fields>
+						</requiredIfNotEmpty>
+					</validate>
+				</field>
+
+				<field type="text" name="smtp_password">
+					<label>sysmanager.ext.config.tab.systemconfig.mailer.smtp.password</label>
+					<validate>
+						<requiredIfNotEmpty>
+							<fields>smtp_authentication</fields>
+						</requiredIfNotEmpty>
+					</validate>
+				</field>
+
+			</elements>
+		</fieldset>
+
+	</fieldsets>
+</form>

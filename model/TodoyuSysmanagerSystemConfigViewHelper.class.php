@@ -115,6 +115,31 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 		);
 	}
 
+
+
+	/**
+	 * Get options for mailer protocol
+	 *
+	 * @param	TodoyuFormElement	$field
+	 * @return	Array
+	 */
+	public static function getMailerOptions(TodoyuFormElement $field) {
+		return array(
+			array(
+				'value'	=> 'mail',
+				'label'	=> Todoyu::Label('sysmanager.ext.config.mailer.method.mail'),
+			),
+//			array(
+//				'value'	=> 'sendmail',
+//				'label'	=> Todoyu::Label('sysmanager.ext.config.mailer.method.sendmail'),
+//			),
+			array(
+				'value'	=> 'smtp',
+				'label'	=> Todoyu::Label('sysmanager.ext.config.mailer.method.smtp'),
+			)
+		);
+	}
+
 }
 
 ?>

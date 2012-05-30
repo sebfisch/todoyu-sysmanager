@@ -7,17 +7,13 @@
 		<attribute name="name">systemconfig</attribute>
 	</attributes>
 	<fieldsets>
+
 		<fieldset name="system">
 			<legend>sysmanager.form.legend.system.systemsettings</legend>
 			<elements>
 
 				<field type="text" name="name">
 					<label>sysmanager.ext.config.tab.systemconfig.name</label>
-					<required />
-				</field>
-
-				<field type="text" name="email">
-					<label>sysmanager.ext.config.tab.systemconfig.email</label>
 					<required />
 				</field>
 
@@ -28,8 +24,34 @@
 					</source>
 				</field>
 
+				<field type="text" name="email">
+					<label>sysmanager.ext.config.tab.systemconfig.email</label>
+					<required />
+				</field>
+
 			</elements>
 		</fieldset>
+
+
+
+		<fieldset name="mailer">
+			<legend>sysmanager.ext.config.tab.systemconfig.legend.mailer</legend>
+			<elements>
+				<field type="select" name="mailermethod">
+					<label>sysmanager.ext.config.tab.systemconfig.mailer.method</label>
+					<source type="function">
+						<function>TodoyuSysmanagerSystemConfigViewHelper::getMailerOptions</function>
+					</source>
+					<noPleaseSelect />
+					<extraAttributes>onchange="Todoyu.Ext.sysmanager.Config.Mailer.onChangeMailer(this);"</extraAttributes>
+					<required />
+				</field>
+
+				<!-- Further fields of chosen mailer are injected here -->
+			</elements>
+		</fieldset>
+
+
 
 		<fieldset name="timeanddate">
 			<legend>sysmanager.ext.config.tab.systemconfig.legend.timeAndDate</legend>
@@ -52,6 +74,8 @@
 			</elements>
 		</fieldset>
 
+
+
 		<fieldset name="cli">
 			<legend>sysmanager.form.legend.system.cli</legend>
 			<elements>
@@ -63,6 +87,8 @@
 
 			</elements>
 		</fieldset>
+
+
 
 		<fieldset name="debug">
 			<legend>sysmanager.form.legend.system.debugging</legend>
@@ -78,6 +104,7 @@
 
 			</elements>
 		</fieldset>
+
 
 
 		<fieldset name="buttons">

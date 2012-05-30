@@ -56,6 +56,7 @@ class TodoyuSysmanagerSystemConfigManager {
 	 * @param	Array		$formData
 	 */
 	public static function saveSystemConfig(array $formData) {
+
 		$data	= array(
 			'name'				=> trim($formData['name']),
 			'email'				=> trim($formData['email']),
@@ -63,8 +64,19 @@ class TodoyuSysmanagerSystemConfigManager {
 			'timezone'			=> trim($formData['timezone']),
 			'firstDayOfWeek'	=> intval($formData['firstDayOfWeek']),
 			'todoyuURL'			=> trim($formData['todoyuURL']),
-			'logLevel'			=> intval($formData['logLevel'])
+			'logLevel'			=> intval($formData['logLevel']),
 		);
+
+		$mailer	= trim($formData['mailermethod']);
+		$data['mailer']	= $mailer;
+
+		if( $mailer === 'smtp' ) {
+			$data['smtp_host']			= trim($formData['smtp_host']);
+			$data['smtp_port']			= intval($formData['smtp_port']);
+			$data['smtp_authentication']= trim($formData['smtp_authentication']);
+			$data['smtp_username']		= trim($formData['smtp_username']);
+			$data['smtp_password']		= trim($formData['smtp_password']);
+		}
 
 		TodoyuConfigManager::saveSystemConfigConfig($data, false);
 		TodoyuConfigManager::clearJavaScriptConfig();
@@ -164,6 +176,55 @@ class TodoyuSysmanagerSystemConfigManager {
 		$day	= Todoyu::$CONFIG['SYSTEM']['firstDayOfWeek'];
 
 		return $day === 0 ? 0 : 1;
+	}
+
+
+
+	/**
+	 * Get fieldset with mailer options to be inserted into system config.
+	 *
+	 * @param	String				$mailer
+	 * @return	TodoyuFormFieldset
+	 */
+	public static function getMailerFieldset($mailer = 'mail') {
+		switch($mailer) {
+			case 'smtp':
+				$xml	= 'ext/sysmanager/config/form/mailer-smtp.xml';
+				break;
+
+			case 'mail':
+			default:
+				$xml	= 'ext/sysmanager/config/form/mailer-mail.xml';
+				break;
+		}
+
+		$form	= TodoyuFormManager::getForm($xml);
+
+		$data	= array(
+			'mailermethod'	=> $mailer
+		);
+
+		$form->setFormData($data);
+
+		return $form->getFieldset('mailer');
+	}
+
+
+
+	/**
+	 * Hooked in build system config form - inject selected (MAIL / SMTP) mailer fieldset
+	 *
+	 * @param	TodoyuForm $form
+	 * @return	TodoyuForm
+	 */
+	public static function hookBuildForm(TodoyuForm $form) {
+		$mailer		= Todoyu::$CONFIG['SYSTEM']['mailer'];
+
+		$fieldset	= TodoyuSysmanagerSystemConfigManager::getMailerFieldset($mailer);
+		$form->removeFieldset('mailer');
+		$form->injectFieldset($fieldset, 'after:system');
+
+		return $form;
 	}
 
 }
