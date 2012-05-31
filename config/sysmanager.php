@@ -30,7 +30,20 @@ if( TodoyuAuth::isAdmin() ) { // Rights manager
 if( Todoyu::allowed('sysmanager', 'general:records') ) { // Records manager
 	TodoyuSysmanagerManager::addModule('records', 'sysmanager.ext.menu.records', 'TodoyuSysmanagerExtRecordRenderer::renderModule', 20);
 	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'records';
+
+		// Add SMTP account record configuration to DB records management
+	TodoyuSysmanagerExtManager::addRecordConfig('sysmanager', 'smtpaccount', array(
+		'label'			=> 'sysmanager.ext.record.smtpaccount.title',
+		'description'	=> 'sysmanager.ext.record.smtpaccount.description',
+		'list'			=> 'TodoyuSysmanagerSmtpAccountManager::getRecordsListingItems',
+		'form'			=> 'ext/sysmanager/config/form/admin/smtp-account.xml',
+		'object'		=> 'TodoyuSysmanagerSmtpAccount',
+		'delete'		=> 'TodoyuSysmanagerSmtpAccountManager::removeAccount',
+		'save'			=> 'TodoyuSysmanagerSmtpAccountManager::saveAccount',
+		'table'			=> 'ext_sysmanager_smtpaccount'
+	));
 }
+
 if( Todoyu::allowed('sysmanager', 'general:extensions') ) { // Extension manager
 	TodoyuSysmanagerManager::addModule('extensions', 'sysmanager.ext.menu.extensions', 'TodoyuSysmanagerExtManagerRenderer::renderModule', 10);
 	Todoyu::$CONFIG['EXT']['sysmanager']['defaultModule'] = 'extensions';

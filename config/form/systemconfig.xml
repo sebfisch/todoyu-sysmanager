@@ -29,25 +29,15 @@
 					<required />
 				</field>
 
-			</elements>
-		</fieldset>
-
-
-
-		<fieldset name="mailer">
-			<legend>sysmanager.ext.config.tab.systemconfig.legend.mailer</legend>
-			<elements>
 				<field type="select" name="mailermethod">
 					<label>sysmanager.ext.config.tab.systemconfig.mailer.method</label>
 					<source type="function">
 						<function>TodoyuSysmanagerSystemConfigViewHelper::getMailerOptions</function>
 					</source>
 					<noPleaseSelect />
-					<extraAttributes>onchange="Todoyu.Ext.sysmanager.Config.Mailer.onChangeMailer(this);"</extraAttributes>
 					<required />
 				</field>
 
-				<!-- Further fields of chosen mailer are injected here -->
 			</elements>
 		</fieldset>
 

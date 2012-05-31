@@ -5,6 +5,10 @@ span.Sysmanager {
 	background:url('../img/exticon.png') no-repeat 0 0;
 }
 
+span.extIconSysmanager {
+	background:url('../img/exticon.png') no-repeat 0 0;
+}
+
 h1.extIconSysmanager .title {
 	background:url('../img/exticon.png') no-repeat 0 5px;
 }

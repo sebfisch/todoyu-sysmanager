@@ -87,9 +87,4 @@
 	<label index="config.mailer.method.mail">MAIL</label>
 	<label index="config.mailer.method.sendmail">SENDMAIL</label>
 	<label index="config.mailer.method.smtp">SMTP</label>
-	<label index="config.tab.systemconfig.mailer.smtp.host">SMTP Hostname, z.B: mail.example.com</label>
-	<label index="config.tab.systemconfig.mailer.smtp.port">SMTP Port</label>
-	<label index="config.tab.systemconfig.mailer.smtp.authentication">Benötigt Authentifizierung</label>
-	<label index="config.tab.systemconfig.mailer.smtp.username">SMTP Benutzername</label>
-	<label index="config.tab.systemconfig.mailer.smtp.password">SMTP Passwort</label>
 </labels>
