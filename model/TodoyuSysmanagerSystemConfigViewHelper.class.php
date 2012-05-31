@@ -132,13 +132,9 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 		);
 
 			// Add options for existing SMTP account records
-		$smtpAccounts	= TodoyuSysmanagerSmtpAccountManager::getAllAccounts();
-		foreach($smtpAccounts as $smtpAccount) {
-			$options[]	= array(
-				'value'	=> 'smtp_' . $smtpAccount->getID(),
-				'label'	=> 'SMTP: ' . $smtpAccount->getLabel()
-			);
-		}
+		$accountOptions	= TodoyuSysmanagerSmtpAccountManager::getAllAccountsOptions();
+
+		$options	= array_merge($options, $accountOptions);
 
 		return $options;
 	}

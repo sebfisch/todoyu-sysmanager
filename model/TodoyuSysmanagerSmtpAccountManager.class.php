@@ -97,6 +97,27 @@ class TodoyuSysmanagerSmtpAccountManager {
 
 
 	/**
+	 * Get options configuration for all SMTP account records
+	 *
+	 * @return	Array
+	 */
+	public static function getAllAccountsOptions() {
+		$smtpAccounts	= TodoyuSysmanagerSmtpAccountManager::getAllAccounts();
+
+		$options	= array();
+		foreach($smtpAccounts as $smtpAccount) {
+			$options[]	= array(
+				'value'	=> 'smtp_' . $smtpAccount->getID(),
+				'label'	=> 'SMTP: ' . $smtpAccount->getLabel()
+			);
+		}
+
+		return $options;
+	}
+
+
+
+	/**
 	 * Removes given IMAP account record from the database
 	 *
 	 * @param	Integer	$idAccount
