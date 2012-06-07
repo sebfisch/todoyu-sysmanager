@@ -18,9 +18,4 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
-$xmlPath = 'ext/sysmanager/config/form/systemconfig.xml';
-TodoyuFormHook::registerBuildForm($xmlPath, 'TodoyuSysmanagerSystemConfigManager::hookBuildForm');
-TodoyuFormHook::registerLoadData($xmlPath, 'TodoyuSysmanagerSystemConfigManager::hookLoadData');
-TodoyuFormHook::registerSaveData($xmlPath, 'TodoyuSysmanagerSystemConfigManager::hookSaveData');
-
 ?>
