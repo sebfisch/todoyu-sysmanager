@@ -122,12 +122,12 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 101
 		),
 		array(
-			'file'		=> 'ext/sysmanager/asset/css/records.css',
+			'file'		=> 'ext/sysmanager/asset/css/records.scss',
 			'media'		=> 'all',
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/asset/css/rights.css',
+			'file'		=> 'ext/sysmanager/asset/css/rights.scss',
 			'media'		=> 'all',
 			'position'	=> 102
 		),
@@ -142,7 +142,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 102
 		),
 		array(
-			'file'		=> 'ext/sysmanager/asset/css/repository.css',
+			'file'		=> 'ext/sysmanager/asset/css/repository.scss',
 			'media'		=> 'all',
 			'position'	=> 102
 		)

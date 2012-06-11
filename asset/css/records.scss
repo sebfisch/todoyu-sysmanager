@@ -1,3 +1,7 @@
+@import "../../../../core/config/theme.scss";
+
+
+
 /* ----------------------------
 	Tables
    ---------------------------- */
@@ -119,7 +123,7 @@ table.recordsList td.actions div.icon {
 #record-list li {
 	padding:5px 10px;
 	position:relative;
-	border-bottom:1px dotted #aaa;
+	border-bottom:1px dotted $grey05;
 }
 
 #record-type-list li {

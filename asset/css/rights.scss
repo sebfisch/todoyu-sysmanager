@@ -1,3 +1,7 @@
+@import "../../../../core/config/theme.scss";
+
+
+
 #panelwidget-sysmanagermodules li.rights a {
 	background:url(../img/icons.png) no-repeat 1px -240px;
 }
@@ -59,8 +63,8 @@
 #rightsmatix-form {
 	max-height:500px;
 	padding-top:10px;
-	border-top:2px #bbb solid;
-	border-bottom:2px #bbb solid;
+	border-top:2px $grey04 solid;
+	border-bottom:2px $grey04 solid;
 	overflow:scroll;
 	overflow-x:hidden;
 	overflow-y:scroll;
@@ -68,7 +72,7 @@
 
 #rightsmatix-form fieldset {
 	width:610px;
-	border:1px solid #aaa;
+	border:1px solid $grey05;
 	padding:0 10px 10px;
 	margin-bottom:10px;
 }
@@ -84,7 +88,7 @@
 	width:250px;
 	/*font-weight:bold;*/
 	text-align:left;
-	border-bottom:1px dashed #ddd;
+	border-bottom:1px dashed $grey02;
 }
 
 #rightsmatix-form td.label a {

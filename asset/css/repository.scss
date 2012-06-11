@@ -1,8 +1,12 @@
+@import "../../../../core/config/theme.scss";
+
+
+
 /* -----------------------
 	Extension Listing
    -----------------------*/
 .extListing .extension {
-	border-bottom:1px solid #ccc;
+	border-bottom:1px solid $grey03;
 	margin-bottom:10px;
 	padding-bottom:10px;
 	position:relative;
@@ -51,7 +55,7 @@
 
 .extListing .extension .right div {
 	padding:5px;
-	border-bottom:1px solid #ccc;
+	border-bottom:1px solid $grey03;
 }
 
 .extListing .extension .bottom {
@@ -204,7 +208,7 @@
 .repositoryDialog .versionDetails table td,
 .repositoryDialog .versionDetails table th {
 	padding:3px;
-	border-bottom:1px solid #ccc;
+	border-bottom:1px solid $grey03;
 	text-align:left;
 }
 
@@ -257,7 +261,7 @@
 	Extension Installation Dialog
    ---------------------------------*/
 .repositoryDialog.extensionDialog.extInstall .license {
-	background-color:#fff;
+	background-color:$white;
 	height:200px;
 	overflow:auto;
 	padding:10px;
@@ -285,7 +289,7 @@
 .repositoryDialog.extensionDialog.extInstall .licenseinfo.noLicense {
 	background-color:#ff0000;
 	text-align:left;
-	color:#fff;
+	color:$white;
 }
 
 .repositoryDialog.extensionDialog.extInstall .licenseinfo.buyextension {
@@ -306,7 +310,7 @@
 
 .repositoryDialog.extensionDialog.extInstall .warningMajorUpdate {
 	background-color:#f00;
-	color:#fff;
+	color:$white;
 }
 
 
