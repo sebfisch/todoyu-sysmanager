@@ -63,8 +63,8 @@
 #rightsmatix-form {
 	max-height:500px;
 	padding-top:10px;
-	border-top:2px $grey04 solid;
-	border-bottom:2px $grey04 solid;
+	border-top:2px $colorNeutral04 solid;
+	border-bottom:2px $colorNeutral04 solid;
 	overflow:scroll;
 	overflow-x:hidden;
 	overflow-y:scroll;
@@ -72,7 +72,7 @@
 
 #rightsmatix-form fieldset {
 	width:610px;
-	border:1px solid $grey05;
+	border:1px solid $colorNeutral05;
 	padding:0 10px 10px;
 	margin-bottom:10px;
 }
@@ -88,7 +88,7 @@
 	width:250px;
 	/*font-weight:bold;*/
 	text-align:left;
-	border-bottom:1px dashed $grey02;
+	border-bottom:1px dashed $colorNeutral02;
 }
 
 #rightsmatix-form td.label a {

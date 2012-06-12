@@ -6,7 +6,7 @@
 	Extension Listing
    -----------------------*/
 .extListing .extension {
-	border-bottom:1px solid $grey03;
+	border-bottom:1px solid $colorNeutral03;
 	margin-bottom:10px;
 	padding-bottom:10px;
 	position:relative;
@@ -55,7 +55,7 @@
 
 .extListing .extension .right div {
 	padding:5px;
-	border-bottom:1px solid $grey03;
+	border-bottom:1px solid $colorNeutral03;
 }
 
 .extListing .extension .bottom {
@@ -208,7 +208,7 @@
 .repositoryDialog .versionDetails table td,
 .repositoryDialog .versionDetails table th {
 	padding:3px;
-	border-bottom:1px solid $grey03;
+	border-bottom:1px solid $colorNeutral03;
 	text-align:left;
 }
 
@@ -283,7 +283,7 @@
 }
 
 .repositoryDialog.extensionDialog.extInstall .licenseinfo {
-	background-color:#e3eace;
+	background-color:$colorCorporate02;
 	text-align:left;
 }
 .repositoryDialog.extensionDialog.extInstall .licenseinfo.noLicense {

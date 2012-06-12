@@ -1,3 +1,7 @@
+@import "../../../../core/config/theme.scss";
+
+
+
 #panelwidget-sysmanagermodules li.records a {
 	background:url(../img/icons.png) no-repeat 1px -360px;
 }
@@ -9,5 +13,5 @@
 #panelwidget-sysmanagermodules li {}
 
 #panelwidget-sysmanagermodules li:hover {
-	background-color:#e3eace;
+	background-color:$colorCorporate02;
 }

@@ -107,7 +107,7 @@ Todoyu::$CONFIG['EXT']['sysmanager']['assets'] = array(
 			'position'	=> 100
 		),
 		array(
-			'file'		=> 'ext/sysmanager/asset/css/panelwidget-sysmanagermodules.css',
+			'file'		=> 'ext/sysmanager/asset/css/panelwidget-sysmanagermodules.scss',
 			'media'		=> 'all',
 			'position'	=> 101
 		),
