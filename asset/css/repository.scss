@@ -98,7 +98,7 @@
 .extListing .extension .warning {
 	margin-top:10px;
 	padding:5px;
-	border:2px dashed #f00;
+	border:2px dashed $colorAlert00;
 	background-color:#f0f0f0;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .extListing .extension .warning ul li {
-	color:#f00;
+	color:$colorAlert00;
 	cursor:pointer;
 }
 
@@ -155,7 +155,7 @@
 .repositoryUpdates .coreUpdate {
 	padding:12px 12px 24px 12px;
 	margin:6px 0 20px 0;
-	background-color:#ffffdb;
+	background-color:$colorHighlight03;
 }
 
 .repositoryUpdates .coreUpdate .coreUpdateInfos {
@@ -309,7 +309,7 @@
 
 
 .repositoryDialog.extensionDialog.extInstall .warningMajorUpdate {
-	background-color:#f00;
+	background-color:$colorAlert00;
 	color:$white;
 }
 
