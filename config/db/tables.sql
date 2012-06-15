@@ -23,10 +23,12 @@ CREATE TABLE `ext_sysmanager_smtpaccount` (
 	`date_update` int(10) unsigned NOT NULL DEFAULT '0',
 	`id_person_create` int(10) unsigned NOT NULL DEFAULT '0',
 	`deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
-	`host` varchar(100) NOT NULL,
+	`host` varchar(100) NOT NULL DEFAULT '',
 	`port` int(10) unsigned NOT NULL DEFAULT '0',
 	`authentication` tinyint(1) unsigned NOT NULL DEFAULT '0',
-	`username` varchar(100) NOT NULL,
-	`password` varchar(100) NOT NULL
+	`username` varchar(100) NOT NULL DEFAULT '',
+	`password` varchar(100) NOT NULL DEFAULT '',
+	`forcename` varchar(100) NOT NULL DEFAULT '',
+	`comment` text NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

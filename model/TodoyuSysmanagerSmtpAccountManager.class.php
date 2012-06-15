@@ -99,15 +99,17 @@ class TodoyuSysmanagerSmtpAccountManager {
 	/**
 	 * Get options configuration for all SMTP account records
 	 *
+	 * @param	Boolean		$withPrefix
 	 * @return	Array
 	 */
-	public static function getAllAccountsOptions() {
+	public static function getAllAccountsOptions($withPrefix = false) {
 		$smtpAccounts	= TodoyuSysmanagerSmtpAccountManager::getAllAccounts();
+		$options		= array();
+		$prefix			= $withPrefix ? 'smtp_' : '';
 
-		$options	= array();
-		foreach($smtpAccounts as $smtpAccount) {
+		foreach($smtpAccounts as $idAccount => $smtpAccount) {
 			$options[]	= array(
-				'value'	=> 'smtp_' . $smtpAccount->getID(),
+				'value'	=> $prefix . $idAccount,
 				'label'	=> 'SMTP: ' . $smtpAccount->getLabel()
 			);
 		}

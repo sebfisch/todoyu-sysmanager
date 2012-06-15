@@ -80,10 +80,12 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 
 
 	/**
-	 * @return	Integer
+	 * Check whether authentication is required
+	 *
+	 * @return	Boolean
 	 */
-	public function getAuthentication() {
-		return $this->getInt('authentication') ? 1:0;
+	public function isAuthenticationRequired() {
+		return $this->isFlagSet('authentication');
 	}
 
 
@@ -105,7 +107,40 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	 * @return	String
 	 */
 	public function getLabel() {
-		return $this->getHost() . ': ' . $this->getUsername();
+		return $this->getUsername() . ' (' . $this->getHost() . ')';
+	}
+
+
+
+	/**
+	 * Check whether forced name is set
+	 *
+	 * @return	Boolean
+	 */
+	public function hasForcedName() {
+		return trim($this->getForcedName()) !== '';
+	}
+
+
+
+	/**
+	 * Get forced name
+	 *
+	 * @return	String
+	 */
+	public function getForcedName() {
+		return $this->get('forcename');
+	}
+
+
+
+	/**
+	 * Get comment
+	 *
+	 * @return	String
+	 */
+	public function getComment() {
+		return $this->get('comment');
 	}
 
 

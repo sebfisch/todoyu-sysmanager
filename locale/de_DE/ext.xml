@@ -82,9 +82,6 @@
 	<label index="config.tab.repository">Repository</label>
 	<label index="config.tab.repository.saved">Repository Konfiguration gespeichert</label>
 	<label index="quickinfo.right.depends">Setzt folgende Rechte voraus:</label>
-	<label index="config.tab.systemconfig.legend.mailer">Mailer Einstellungen</label>
-	<label index="config.tab.systemconfig.mailer.method">Mailer</label>
-	<label index="config.mailer.method.mail">MAIL</label>
-	<label index="config.mailer.method.sendmail">SENDMAIL</label>
-	<label index="config.mailer.method.smtp">SMTP</label>
+	<label index="config.tab.systemconfig.mailer">Email Versand</label>
+	<label index="config.mailer.mail">PHP mail() Funktion</label>
 </labels>

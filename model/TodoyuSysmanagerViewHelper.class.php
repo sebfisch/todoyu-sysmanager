@@ -71,20 +71,6 @@ class TodoyuSysmanagerViewHelper {
 		return $options;
 	}
 
-
-
-	/**
-	 * Get options of SMTP account records
-	 *
-	 * @param	TodoyuFormElement $field
-	 * @return	Array
-	 */
-	public static function getSmtpAccountOptions(TodoyuFormElement $field) {
-		$optionsConfig	= TodoyuSysmanagerSmtpAccountManager::getAllAccountsOptions();
-
-		return $optionsConfig;
-	}
-
 }
 
 ?>

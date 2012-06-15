@@ -82,16 +82,16 @@
 	<label index="config.tab.repository">Repository</label>
 	<label index="config.tab.repository.saved">Repository configuration saved</label>
 	<label index="quickinfo.right.depends">Requires the following rights:</label>
-	<label index="config.tab.systemconfig.legend.mailer">Mailer Settings</label>
-	<label index="config.tab.systemconfig.mailer.method">Mailer</label>
-	<label index="config.mailer.method.mail">MAIL</label>
-	<label index="config.mailer.method.sendmail">SENDMAIL</label>
+	<label index="config.tab.systemconfig.mailer">Mailer</label>
+	<label index="config.mailer.mail">PHP mail() function</label>
 	<label index="record.smtpaccount.title">SMTP Account</label>
 	<label index="record.smtpaccount.description">SMTP based email account</label>
 	<label index="record.smtpaccount.legend">SMTP Account</label>
-	<label index="record.smtpaccount.attr.host">SMTP Hostname, e.g mail.example.com</label>
+	<label index="record.smtpaccount.attr.host">SMTP Server</label>
 	<label index="record.smtpaccount.attr.port">SMTP Port</label>
 	<label index="record.smtpaccount.attr.authentication">Requires Authentication</label>
 	<label index="record.smtpaccount.attr.username">SMTP Username</label>
 	<label index="record.smtpaccount.attr.password">SMTP Password</label>
+	<label index="record.smtpaccount.attr.name">Force name (empty=user)</label>
+	<label index="record.smtpaccount.attr.comment">Comment</label>
 </labels>

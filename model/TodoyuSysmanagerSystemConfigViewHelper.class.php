@@ -124,19 +124,7 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 	 * @return	Array
 	 */
 	public static function getMailerOptions(TodoyuFormElement $field) {
-		$options	= array(
-			array(
-				'value'	=> 'mail',
-				'label'	=> Todoyu::Label('sysmanager.ext.config.mailer.method.mail'),
-			)
-		);
-
-			// Add options for existing SMTP account records
-		$accountOptions	= TodoyuSysmanagerSmtpAccountManager::getAllAccountsOptions();
-
-		$options	= array_merge($options, $accountOptions);
-
-		return $options;
+		return TodoyuSysmanagerSmtpAccountManager::getAllAccountsOptions(true);
 	}
 
 }

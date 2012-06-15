@@ -29,12 +29,12 @@
 					<required />
 				</field>
 
-				<field type="select" name="mailermethod">
-					<label>sysmanager.ext.config.tab.systemconfig.mailer.method</label>
+				<field type="select" name="mailer">
+					<label>sysmanager.ext.config.tab.systemconfig.mailer</label>
 					<source type="function">
 						<function>TodoyuSysmanagerSystemConfigViewHelper::getMailerOptions</function>
 					</source>
-					<noPleaseSelect />
+					<pleaseSelectLabel>sysmanager.ext.config.mailer.mail</pleaseSelectLabel>
 					<required />
 				</field>
 

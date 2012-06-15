@@ -65,18 +65,8 @@ class TodoyuSysmanagerSystemConfigManager {
 			'firstDayOfWeek'	=> intval($formData['firstDayOfWeek']),
 			'todoyuURL'			=> trim($formData['todoyuURL']),
 			'logLevel'			=> intval($formData['logLevel']),
+			'mailer'			=> trim($formData['mailer'])
 		);
-
-		$mailer	= trim($formData['mailermethod']);
-
-		if( $mailer === 'mail' ) {
-			$data['mailer']	= 'mail';
-		} elseif( TodoyuString::startsWith($mailer, 'smtp') ) {
-			$data['mailer']	= 'smtp';
-
-			list($prefix, $idSmtpAccount)	= explode('_', $mailer);
-			$data['idSmtpAccount']	= $idSmtpAccount;
-		}
 
 		TodoyuConfigManager::saveSystemConfigConfig($data, false);
 		TodoyuConfigManager::clearJavaScriptConfig();

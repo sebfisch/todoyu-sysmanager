@@ -56,9 +56,6 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	public function saveSystemConfigAction(array $params) {
 		$data	= TodoyuArray::assure($params['systemconfig']);
 
-		$mailer	= trim($data['mailermethod']);
-		Todoyu::$CONFIG['SYSTEM']['mailer']	= $mailer;
-
 		$xml	= 'ext/sysmanager/config/form/systemconfig.xml';
 		$form	= TodoyuFormManager::getForm($xml);
 		$form->setFormData($data);

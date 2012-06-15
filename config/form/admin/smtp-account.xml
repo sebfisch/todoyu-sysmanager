@@ -49,6 +49,14 @@
 					</validate>
 				</field>
 
+				<field type="text" name="forcename">
+					<label>sysmanager.ext.record.smtpaccount.attr.name</label>
+				</field>
+
+				<field type="textarea" name="comment">
+					<label>sysmanager.ext.record.smtpaccount.attr.comment</label>
+				</field>
+
 			</elements>
 		</fieldset>
 
