@@ -140,7 +140,7 @@
 }
 
 .resultinfo.error .message {
-	font-family:monospace;
+	font-family:$fontFamilyCode;
 	font-size:14px;
 	margin-bottom:5px;
 }
@@ -268,7 +268,7 @@
 	margin-top:10px;
 	margin-bottom:10px;
 	text-align:left;
-	font-family:monospace;
+	font-family:$fontFamilyCode;
 	
 	font-size:12px;
 }
