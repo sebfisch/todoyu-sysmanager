@@ -149,7 +149,12 @@ class TodoyuSysmanagerSmtpAccountManager {
 
 		$xmlPath= 'ext/sysmanager/config/form/admin/smtp-account.xml';
 
-		$data['password']	= TodoyuCrypto::encrypt($data['password']);
+		if( !empty($data['password']) ) {
+			$data['password'] = TodoyuCrypto::encrypt($data['password']);
+		} else {
+			unset($data['password']);
+		}
+
 			// Call hooked save data functions
 		$data	= TodoyuFormHook::callSaveData($xmlPath, $data, $idAccount);
 

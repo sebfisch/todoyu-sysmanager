@@ -42,11 +42,12 @@
 
 				<field type="text" name="password">
 					<label>sysmanager.ext.record.smtpaccount.attr.password</label>
-					<validate>
-						<requiredIfNotEmpty>
-							<fields>authentication</fields>
-						</requiredIfNotEmpty>
-					</validate>
+					<type>password</type>
+					<!--<validate>-->
+						<!--<requiredIfNotEmpty>-->
+							<!--<fields>authentication</fields>-->
+						<!--</requiredIfNotEmpty>-->
+					<!--</validate>-->
 				</field>
 
 				<field type="text" name="forcename">
