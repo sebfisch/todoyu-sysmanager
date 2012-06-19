@@ -36,7 +36,7 @@ Todoyu.Ext.sysmanager.Headlet.Sysmanager = Class.create(Todoyu.Headlet, {
 	 * @param	{Event}		event
 	 */
 	onButtonClick: function(event) {
-		Todoyu.goTo('sysmanager');
+		Todoyu.goTo('sysmanager', '', {}, '', !!event.ctrlKey);
 	}
 
 });
