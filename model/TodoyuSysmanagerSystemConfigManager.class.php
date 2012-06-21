@@ -152,7 +152,7 @@ class TodoyuSysmanagerSystemConfigManager {
 			);
 		}
 
-		return $options;
+		return TodoyuArray::sortByLabel($options, 'label');
 	}
 
 
