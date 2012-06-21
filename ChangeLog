@@ -4,6 +4,7 @@ sysmanager 1.3.0 - not released yet
 	* Feature: Support for SMTP account as default system email sending method (before there was only mail())
 	* Changed: Press CTRL when click in the sysmanager headlet to open it in a new window/tab
     * Added: SMTP accounts
+    * Added: record config option onRecordDisplayJsCallback to register a js callback when form is displayed
     * Require: todoyu 2.2.1
     * Changed: Sort locales by label for option list
 

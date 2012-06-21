@@ -164,6 +164,10 @@ class TodoyuSysmanagerExtRecordManager {
 			}
 		}
 
+		if( $config['onRecordDisplayJsCallback'] ) {
+			$form->addOnDisplayJsCallback($config['onRecordDisplayJsCallback']);
+		}
+
 		$data	= TodoyuFormHook::callLoadData($config['form'], $data, $idRecord);
 
 		$data['record-extkey']	= $ext;
