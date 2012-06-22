@@ -137,11 +137,13 @@ class TodoyuSysmanagerExtRecordManager {
 //		$form->setAttribute('onsubmit', "return Todoyu.Ext.sysmanager.Extensions.Records.save(this, '" . $ext . "', '" . $type . "')");
 		$form->setAction('index.php?ext=sysmanager&amp;controller=records');
 		$form->setName('record');
-		$form->setFormData(array('id'=>$idRecord));
+		$form->setFormData(array(
+			'id' => $idRecord
+		));
 
 			// Save buttons form
 		$xmlPath	= 'ext/sysmanager/config/form/record-save.xml';
-		$saveForm	= TodoyuFormManager::getForm($xmlPath);
+		$saveForm	= TodoyuFormManager::getForm($xmlPath, $idRecord);
 		$saveButtons= $saveForm->getFieldset('buttons');
 
 			// Add save buttons
