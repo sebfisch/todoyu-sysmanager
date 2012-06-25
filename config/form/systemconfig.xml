@@ -20,7 +20,7 @@
 				<field type="select" name="locale">
 					<label>sysmanager.ext.config.tab.systemconfig.locale</label>
 					<source type="function">
-						<function>TodoyuViewHelper::getLocaleOptions</function>
+						<function>TodoyuViewHelper::getAvailableLocaleOptions</function>
 					</source>
 				</field>
 

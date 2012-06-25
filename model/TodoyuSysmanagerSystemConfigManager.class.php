@@ -134,11 +134,24 @@ class TodoyuSysmanagerSystemConfigManager {
 
 
 	/**
-	 * Get config array of locale options
+	 * Get locale options
 	 *
-	 * @return	Array
+	 * @return		Array
+	 * @deprecated
+	 * @see			getAvailableLocaleOptions()
 	 */
 	public static function getLocaleOptions() {
+		return self::getAvailableLocaleOptions();
+	}
+
+
+
+	/**
+	 * Get config array of locale options
+	 *
+	 * @return	Array[]
+	 */
+	public static function getAvailableLocaleOptions() {
 		$locales	= TodoyuLocaleManager::getAvailableLocales();
 		$options	= array();
 		$default	= TodoyuLocaleManager::getDefaultLocale();

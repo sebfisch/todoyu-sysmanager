@@ -19,24 +19,12 @@
 *****************************************************************************/
 
 /**
- * [Enter Class Description]
+ * System config view helper
  *
  * @package		Todoyu
  * @subpackage	Sysmanager
  */
 class TodoyuSysmanagerSystemConfigViewHelper {
-
-	/**
-	 * Get options for locale selector
-	 *
-	 * @param	TodoyuFormElement	$field
-	 * @return	Array
-	 * @deprecated
-	 */
-	public static function getLocaleOptions(TodoyuFormElement $field) {
-		return TodoyuViewHelper::getLocaleOptions($field);
-	}
-
 
 
 	/**
