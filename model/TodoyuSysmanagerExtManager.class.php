@@ -78,11 +78,9 @@ class TodoyuSysmanagerExtManager {
 	 */
 	public static function getExtInfos($extKey, $load = false) {
 		if( $load ) {
-			$path	= TodoyuExtensions::getExtPath($extKey, 'config/extinfo.php');
+			$pathFile	= TodoyuExtensions::getExtPath($extKey, 'config/extinfo.php');
 
-			if( is_file($path) ) {
-				include_once($path);
-			}
+			TodoyuFileManager::includeFile($pathFile, true, true);
 		}
 
 		return TodoyuExtensions::getExtInfo($extKey);
