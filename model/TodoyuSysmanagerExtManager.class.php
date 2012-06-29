@@ -250,8 +250,9 @@ class TodoyuSysmanagerExtManager {
 				$list[$index]['isDeletable'] = TodoyuFunction::callUserFunction($isDeletable, $record['id']);
 			}
 		} else {
+			$isDeletable = is_bool($isDeletable) ? $isDeletable :  true;
 			foreach($list as $index => $record) {
-				$list[$index]['isDeletable'] = (boolean)$isDeletable;
+				$list[$index]['isDeletable'] = $isDeletable;
 			}
 		}
 

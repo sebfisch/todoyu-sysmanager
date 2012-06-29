@@ -2,6 +2,7 @@ todoyu sysmanager extension changelog
 
 sysmanager 1.3.0 - not released yet
 	* Feature: Support for SMTP account as default system email sending method (before there was only mail())
+	* Bugfix: Records without isDeletable config are now always deletable
 	* Added: SMTP accounts
 	* Added: record config option onRecordDisplayJsCallback to register a js callback when form is displayed
 	* Changed: Press CTRL when click in the sysmanager headlet to open it in a new window/tab
