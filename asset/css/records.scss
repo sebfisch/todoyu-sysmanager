@@ -6,12 +6,15 @@
 	Tables
    ---------------------------- */
 table.recordsList {
-	width:650px;
+	width:918px;
 	border:0;
-}
-table.recordsList td.actions div.icon {
-	cursor:pointer;
-	margin-right:5px;
+
+	.actions {
+		.icon {
+			cursor:pointer;
+			margin-right:5px;
+		}
+	}
 }
 
 
@@ -19,61 +22,78 @@ table.recordsList td.actions div.icon {
 /* ----------------------------
 	Tabs
    ---------------------------- */
-#records-tabs .all .icon {
-	background:url(../img/icons.png) no-repeat 0 -625px;
+#records-tabs {
+	.icon {
+		background-image:url(../img/icons.png);
+		background-repeat: no-repeat;
+	}
+	.all .icon {
+		background-position:0 -625px;
+	}
+	.extTypes .icon {
+		background-position:0 5px;
+	}
+	.typeRecords .icon {
+		background-position:0 -775px;
+	}
+	.openRecord .icon {
+		background-position:0 -325px;
+	}
 }
-#records-tabs .extTypes .icon {
-	background:url(../img/icons.png) no-repeat 0 5px;
-}
-#records-tabs .typeRecords .icon {
-	background:url(../img/icons.png) no-repeat 0 -775px;
-}
-#records-tabs .openRecord .icon {
-	background:url(../img/icons.png) no-repeat 0 -325px;
-}
-
 
 
 /* ----------------------------
 	Types of all extensions
    ---------------------------- */
-.typesAll td.icon {
-	width:18px;
-}
-.typesAll td.exticon {
-	width:18px;
-}
-.typesAll td.icon {
-	background:url(../img/icons.png) no-repeat 2px -775px;
-}
-.typesAll .actions .edit {
-	background:url(../img/icons.png) no-repeat 0 -629px;
-}
+.typesAll {
+	td.icon {
+		width:10px;
+		background:url(../img/icons.png) no-repeat 2px -775px;
+	}
+	.recordtype {
+		width: 250px;
+	}
+	.exticon {
+		width:10px;
+	}
+	.records {
+		width: 100px;
+	}
+	.actions {
+		width: 30px;
 
+		.list {
+			background:url(../img/icons.png) no-repeat 0 -629px;
+		}
+	}
+}
 
 
 /* ----------------------------
 	Types of one extension
    ---------------------------- */
-.typesExtension td.icon {
-	width:15px;
-	background:url(../img/icons.png) no-repeat 3px -775px;
-}
-.typesExtension td.recordtype {
-	width:170px;
-}
-.typesExtension td.description {
-	width:250px;
-}
-.typesExtension td.records {
-	width:80px;
-}
-.typesExtension td.actions {
-	width:50px;
-}
-
-.typesExtension .actions .list {
-	background:url(../img/icons.png) no-repeat 0 -628px;
+.typesExtension {
+	td.icon {
+		width:15px;
+		background:url(../img/icons.png) no-repeat 3px -775px;
+	}
+	td.recordtype {
+		width:200px;
+	}
+	td.description {
+		width:450px;
+	}
+	td.records {
+		width:80px;
+	}
+	td.actions {
+		width:50px;
+	}
+	.actions {
+		.list {
+			background:url(../img/icons.png) no-repeat 0 -628px;
+		}
+	}
 }
 
 
@@ -83,38 +103,40 @@ table.recordsList td.actions div.icon {
    ---------------------------- */
 .recordTypeInfo {
 	margin:10px 0;
-}
-.recordTypeInfo .add {
-	float:right;
-}
-.recordTypeInfo .add button .icon {
-	background:url(../img/icons.png) no-repeat 0 -388px;
-}
 
-.recordsListing td.icon {
-	width:15px;
-}
-.recordsListing td.label {
-	width:505px;
-}
-.recordsListing td.actions {
-	width:50px;
-}
+	.add {
+		float:right;
 
-.recordsListing td.icon {
-	background:url(../img/icons.png) no-repeat 3px -325px;
-}
-.recordsListing .isActive0 td.icon {
-	background:url(../img/icons.png) no-repeat 3px -936px;
-}
-.recordsListing .isPreferred1 td.icon {
-	background:url(../img/icons.png) no-repeat 3px -964px;
-}
-.recordsListing .actions .edit {
-	background:url(../img/icons.png) no-repeat 0 -358px;
-}
-.recordsListing .actions .delete {
-	background:url(../img/icons.png) no-repeat 0 -418px;
+		button .icon {
+			background:url(../img/icons.png) no-repeat 0 -388px;
+		}
+	}
+	td.icon {
+		width:15px;
+	}
+	td.label {
+		width:505px;
+	}
+	td.actions {
+		width:50px;
+	}
+	td.icon {
+		background:url(../img/icons.png) no-repeat 3px -325px;
+	}
+	.isActive0 td.icon {
+		background:url(../img/icons.png) no-repeat 3px -936px;
+	}
+	.isPreferred1 td.icon {
+		background:url(../img/icons.png) no-repeat 3px -964px;
+	}
+	.actions {
+		.edit {
+			background:url(../img/icons.png) no-repeat 0 -358px;
+		}
+		.delete {
+			background:url(../img/icons.png) no-repeat 0 -418px;
+		}
+	}
 }
 
 
@@ -131,46 +153,52 @@ table.recordsList td.actions div.icon {
 	background:url(../img/icons.png) no-repeat 5px -627px;
 }
 
-#record-list li span.additionalInformations {
-	position:absolute;
-	right:400px;
+#record-list {
+	li {
+		span.additionalInformations {
+			position:absolute;
+			right:400px;
+		}
+		span.delete {
+			cursor:pointer;
+			height:16px;
+			position:absolute;
+			right:5px;
+			top:4px;
+			width:16px;
+			background:transparent url(../img/icons.png) no-repeat 0 -420px;
+		}
+		span.edit {
+			cursor:pointer;
+			height:16px;
+			position:absolute;
+			right:30px;
+			top:4px;
+			width:16px;
+			background:transparent url(../img/icons.png) no-repeat 0 -360px;
+		}
+	}
 }
 
-#record-list li span.delete {
-	cursor:pointer;
-	height:16px;
-	position:absolute;
-	right:5px;
-	top:4px;
-	width:16px;
-	background:transparent url(../img/icons.png) no-repeat 0 -420px;
-}
 
-#record-list li span.edit {
-	cursor:pointer;
-	height:16px;
-	position:absolute;
-	right:30px;
-	top:4px;
-	width:16px;
-	background:transparent url(../img/icons.png) no-repeat 0 -360px;
-}
 
-#list .headerLine .createNew	{
-	padding-left:20px;
-	background:transparent url(../img/icons.png) no-repeat 0 -384px;
-	cursor:pointer;
-	position:absolute;
-	right:10px;
-}
-
-#list form fieldset {
-	float:left;
-	width:100%;
-}
-
-#list .headerLine .back {
-	padding-left:20px;
-	background:transparent url(../img/icons.png) no-repeat 0 -440px;
-	cursor:pointer;
+#list {
+	.headerLine {
+		.createNew	{
+			padding-left:20px;
+			background:transparent url(../img/icons.png) no-repeat 0 -384px;
+			cursor:pointer;
+			position:absolute;
+			right:10px;
+		}
+		.back {
+			padding-left:20px;
+			background:transparent url(../img/icons.png) no-repeat 0 -440px;
+			cursor:pointer;
+		}
+	}
+	form fieldset {
+		float:left;
+		width:100%;
+	}
 }
