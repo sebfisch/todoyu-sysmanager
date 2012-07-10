@@ -35,7 +35,6 @@
 						<function>TodoyuSysmanagerSystemConfigViewHelper::getMailerOptions</function>
 					</source>
 					<pleaseSelectLabel>sysmanager.ext.config.mailer.mail</pleaseSelectLabel>
-					<required />
 				</field>
 
 			</elements>
