@@ -34,15 +34,7 @@ class TodoyuSysmanagerSystemConfigViewHelper {
 	 * @return	Array
 	 */
 	public static function getTimezoneOptionsGrouped(TodoyuFormElement $field) {
-		$timezones	= TodoyuContactViewHelper::getTimezoneOptionsGrouped($field);
-
-		foreach($timezones as $group => $options) {
-			foreach($options as $index => $option) {
-				$timezones[$group][$index]['value'] = $option['label'];
-			}
-		}
-
-		return $timezones;
+		return TodoyuTimezoneManager::getTimezonesGroupedOptions(true);
 	}
 
 
