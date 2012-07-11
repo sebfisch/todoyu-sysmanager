@@ -77,7 +77,7 @@ class TodoyuSysmanagerExtRecordManager {
 
 			$tabs[] = array(
 				'id'	=> $ext . '-' . $type . '-record',
-				'label'	=> TodoyuString::crop($recordLabel, 18, '..', false),
+				'label'	=> $recordLabel,
 				'class'	=> 'openRecord'
 			);
 		}
@@ -157,6 +157,7 @@ class TodoyuSysmanagerExtRecordManager {
 				$className	= $config['object'];
 				$record		= new $className($idRecord);
 			} elseif( isset($config['table']) ) {
+				TodoyuLogger::logDebug('Record in table ' . $config['table'] . ' has no object class!');
 				$record = new TodoyuBaseObject($idRecord, $config['table']);
 			}
 
