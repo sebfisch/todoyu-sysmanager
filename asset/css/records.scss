@@ -1,24 +1,6 @@
 @import "../../../../core/config/theme.scss";
 
 
-
-/* ----------------------------
-	Tables
-   ---------------------------- */
-table.recordsList {
-	width:918px;
-	border:0;
-
-	.actions {
-		.icon {
-			cursor:pointer;
-			margin-right:5px;
-		}
-	}
-}
-
-
-
 /* ----------------------------
 	Tabs
    ---------------------------- */
@@ -43,12 +25,33 @@ table.recordsList {
 
 
 /* ----------------------------
+	Tables
+   ---------------------------- */
+.recordsList {
+	width: 918px;
+	border: 0;
+
+	td.icon {
+		width: 10px;
+
+	}
+
+	.actions {
+		.icon {
+			cursor: pointer;
+			margin-right: 5px;
+		}
+	}
+}
+
+
+
+/* ----------------------------
 	Types of all extensions
    ---------------------------- */
-.typesAll {
+.recordsList.typeAll {
 	td.icon {
-		width:10px;
-		background:url(../img/icons.png) no-repeat 2px -775px;
+		background:url(../img/icons.png) no-repeat 10px -777px;
 	}
 	.recordtype {
 		width: 250px;
@@ -63,7 +66,7 @@ table.recordsList {
 		width: 30px;
 
 		.list {
-			background:url(../img/icons.png) no-repeat 0 -629px;
+			background:url(../img/icons.png) no-repeat 0 -630px;
 		}
 	}
 }
@@ -72,26 +75,40 @@ table.recordsList {
 /* ----------------------------
 	Types of one extension
    ---------------------------- */
-.typesExtension {
+.recordsList.typeExtension {
 	td.icon {
-		width:15px;
-		background:url(../img/icons.png) no-repeat 3px -775px;
+		background:url(../img/icons.png) no-repeat 10px -777px;
 	}
-	td.recordtype {
+	.recordtype {
 		width:200px;
 	}
-	td.description {
-		width:450px;
+	.description {
+		//width:450px;
 	}
-	td.records {
+	.records {
 		width:80px;
 	}
-	td.actions {
-		width:50px;
+	.actions {
+		width: 30px;
+
+		.list {
+			background:url(../img/icons.png) no-repeat 0 -630px;
+		}
+	}
+}
+
+.recordsList.typeRecords {
+	td.icon {
+		background:url(../img/icons.png) no-repeat 10px -327px;
 	}
 	.actions {
-		.list {
-			background:url(../img/icons.png) no-repeat 0 -628px;
+		width: 50px;
+
+		.edit {
+			background:url(../img/icons.png) no-repeat 0 -360px;
+		}
+		.delete {
+			background:url(../img/icons.png) no-repeat 0 -420px;
 		}
 	}
 }

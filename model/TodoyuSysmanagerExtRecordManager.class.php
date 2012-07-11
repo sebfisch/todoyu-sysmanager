@@ -52,7 +52,7 @@ class TodoyuSysmanagerExtRecordManager {
 
 			$tabs[] = array(
 				'id'	=> $ext,
-				'label'	=> TodoyuString::crop($extLabel, 18, '..', false),
+				'label'	=> $extLabel,
 				'class'	=> 'extTypes'
 			);
 		}
@@ -62,7 +62,7 @@ class TodoyuSysmanagerExtRecordManager {
 			$typeConfig	= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
 			$tabs[] = array(
 				'id'	=> $ext . '-' . $type,
-				'label'	=> TodoyuString::crop(Todoyu::Label($typeConfig['label']), 18, '..', false),
+				'label'	=> Todoyu::Label($typeConfig['label']),
 				'class'	=> 'typeRecords'
 			);
 		}
