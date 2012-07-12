@@ -8,5 +8,5 @@
 	<label index="extensions">插件</label>
 	<label index="extensions.config">管理配置</label>
 	<label index="extensions.download">下载插件</label>
-    <label index="extensions.modify">安装/删除/更新</label>
+	<label index="extensions.modify">安装/删除/更新</label>
 </labels>
