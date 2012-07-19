@@ -290,7 +290,7 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Register a commercial extension on tER server
 	 *
-	 * @throws	TodoyuException
+	 * @throws	TodoyuSysmanagerRepositoryException
 	 * @param	String		$extKey
 	 * @param	Integer		$majorVersion
 	 * @return	Boolean

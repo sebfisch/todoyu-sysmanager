@@ -49,10 +49,10 @@ class TodoyuSysmanagerExtImporter {
 	 * Check whether uploaded archive file can be imported into system as extension
 	 *
 	 * @throws	TodoyuException
-	 * @param	String		$extKey
-	 * @param	String		$pathArchive
-	 * @param	Boolean		$override
-	 * @return	Boolean
+	 * @param	String			$extKey
+	 * @param	String			$pathArchive
+	 * @param	Boolean			$override
+	 * @return	Boolean|String	True or error emssage
 	 */
 	public static function canImportExtension($extKey, $pathArchive, $override = false) {
 		try {
@@ -64,12 +64,69 @@ class TodoyuSysmanagerExtImporter {
 			if( self::extensionDirExists($extKey) && !$override ) {
 				throw new TodoyuException('Extension already exists');
 			}
+
+			$requirements = self::areRequirementsFulfilled($extKey, $pathArchive);
+			if( $requirements !== true ) {
+				$errorParts	= array();
+
+					// Convert requirements errors into error string
+				foreach($requirements as $type => $infos) {
+					if( $infos ) {
+						if( is_array($infos) ) {
+							foreach($infos as $key => $value) {
+								$errorParts[] = $type . ': ' . $key . '(' . $value . ')';
+							}
+						} else {
+							$errorParts[] = $type . ': ' . $infos;
+						}
+					}
+				}
+
+				throw new TodoyuException('Requirements not fulfilled: ' . implode(', ', $errorParts));
+			}
 		} catch(TodoyuException $e) {
 			return $e->getMessage();
 		}
 
 		return true;
 	}
+
+
+
+	/**
+	 * Check whether requirements of an uploaded extension (archive) are fulfilled
+	 *
+	 * @param	String		$extKey
+	 * @param	String		$pathArchive
+	 * @return	Array|Boolean	True or an array with problem informations
+	 */
+	public static function areRequirementsFulfilled($extKey, $pathArchive) {
+		$pathArchive= TodoyuFileManager::pathAbsolute($pathArchive);
+		$tempDir	= TodoyuFileManager::pathAbsolute(PATH_CACHE . '/temp/' . md5(time() . 'requirementscheck'));
+		$fulfilled	= true;
+
+		TodoyuFileManager::makeDirDeep($tempDir);
+		TodoyuArchiveManager::extractTo($pathArchive, $tempDir);
+
+		$pathExtInfo	= TodoyuFileManager::pathAbsolute($tempDir . '/config/extinfo.php');
+
+		if( TodoyuFileManager::isFile($pathExtInfo) ) {
+				// Make sure ext info is already loaded (prevent loading/override)
+			TodoyuExtensions::loadConfig($extKey, 'extinfo');
+			$currentExtInfo	= Todoyu::$CONFIG['EXT'][$extKey]['info'];
+			include($pathExtInfo);
+
+			$installProblems= TodoyuSysmanagerExtInstaller::getInstallProblems($extKey);
+			$fulfilled		= $installProblems === false ? true : $installProblems;
+
+				// Cleanup
+			Todoyu::$CONFIG['EXT'][$extKey]['info'] = $currentExtInfo;
+			TodoyuFileManager::deleteFolder($tempDir);
+		}
+
+		return $fulfilled;
+	}
+
 
 
 	/**

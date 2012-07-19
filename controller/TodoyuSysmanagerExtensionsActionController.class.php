@@ -226,13 +226,14 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 
 		$importPossible		= false;
 		$importSuccessful	= false;
+		$errorMsg			= '';
 		$archiveInfo		= TodoyuSysmanagerExtInstaller::parseExtensionArchiveName($uploadFile['name']);
 
 		if( $archiveInfo !== false ) {
 			$extKey		= $archiveInfo['ext'];
 			$canImport	= TodoyuSysmanagerExtImporter::canImportExtension($extKey, $uploadFile['tmp_name'], $override);
 
-			if( $canImport ) {
+			if( $canImport === true ) {
 				$importPossible = true;
 			} else {
 				$errorMsg	= $canImport;

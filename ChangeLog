@@ -6,6 +6,7 @@ sysmanager 1.3.0 - not released yet
 	* Bugfix: fixed problem with mailer system config
 	* Added: SMTP accounts
 	* Added: record config option onRecordDisplayJsCallback to register a js callback when form is displayed
+	* Added: Check extension requirements for manual upload
 	* Changed: Press CTRL when click in the sysmanager headlet to open it in a new window/tab
 	* Changed: Sort locales by label for option list
 	* Require: todoyu 2.3.0
