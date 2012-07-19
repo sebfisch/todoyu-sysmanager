@@ -127,9 +127,9 @@ function Dwoo_Plugin_extIcon_compile(Dwoo_Compiler $compiler, $extKey) {
 function Dwoo_Plugin_ExtensionStatusIcon(Dwoo $dwoo, $state) {
 	$state	= trim(strtolower($state));
 	$states	= array(
-		0		=> 'alpha',
-		1		=> 'beta',
-		2		=> 'stable',
+		1		=> 'stable',
+		2		=> 'beta',
+		3		=> 'alpha',
 		'alpha'	=> 'alpha',
 		'beta'	=> 'beta',
 		'stable'=> 'stable'
