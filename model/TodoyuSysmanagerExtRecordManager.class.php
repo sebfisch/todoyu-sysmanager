@@ -128,13 +128,12 @@ class TodoyuSysmanagerExtRecordManager {
 	 * @param	Integer		$idRecord
 	 * @return	TodoyuForm
 	 */
-	public static function getRecordForm($ext, $type, $idRecord) {
+	public static function getRecordForm($ext, $type, $idRecord = 0) {
 		$idRecord	= intval($idRecord);
 		$config		= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
 		
 			// Record form
 		$form		= TodoyuFormManager::getForm($config['form'], $idRecord);
-//		$form->setAttribute('onsubmit', "return Todoyu.Ext.sysmanager.Extensions.Records.save(this, '" . $ext . "', '" . $type . "')");
 		$form->setAction('index.php?ext=sysmanager&amp;controller=records');
 		$form->setName('record');
 		$form->setFormData(array(
@@ -142,9 +141,9 @@ class TodoyuSysmanagerExtRecordManager {
 		));
 
 			// Save buttons form
-		$xmlPath	= 'ext/sysmanager/config/form/record-save.xml';
-		$saveForm	= TodoyuFormManager::getForm($xmlPath, $idRecord);
-		$saveButtons= $saveForm->getFieldset('buttons');
+		$buttonsXmlPath	= 'ext/sysmanager/config/form/record-save.xml';
+		$buttonsForm	= TodoyuFormManager::getForm($buttonsXmlPath, $idRecord);
+		$saveButtons	= $buttonsForm->getFieldset('buttons');
 
 			// Add save buttons
 		$form->addFieldset('buttons', $saveButtons);
@@ -157,8 +156,8 @@ class TodoyuSysmanagerExtRecordManager {
 				$className	= $config['object'];
 				$record		= new $className($idRecord);
 			} elseif( isset($config['table']) ) {
-				TodoyuLogger::logDebug('Record in table ' . $config['table'] . ' has no object class!');
-				$record = new TodoyuBaseObject($idRecord, $config['table']);
+				TodoyuLogger::logError('Record in table ' . $config['table'] . ' has no object class!');
+//				$record = new TodoyuBaseObject($idRecord, $config['table']);
 			}
 
 				// If record object created, get data

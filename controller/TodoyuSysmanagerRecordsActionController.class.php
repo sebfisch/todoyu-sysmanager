@@ -71,12 +71,10 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	 * @return	Void|String		Failure returns re-rendered form with error messages
 	 */
 	public function saveAction(array $params) {
-		$data	= $params['record'];
+		$data	= TodoyuArray::assure($params['record']);
 		$ext	= trim($params['extkey']);
 		$type	= trim($params['type']);
-
-		$idRecord	= intval($data['id']);
-		$form		= TodoyuSysmanagerExtRecordManager::getRecordForm($ext, $type, $idRecord);
+		$form	= TodoyuSysmanagerExtRecordManager::getRecordForm($ext, $type);
 
 		$form->setFormData($data);
 
