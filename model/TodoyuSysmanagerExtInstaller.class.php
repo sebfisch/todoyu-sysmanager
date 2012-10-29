@@ -203,8 +203,9 @@ class TodoyuSysmanagerExtInstaller {
 	 * Install an extension (update extension config file)
 	 *
 	 * @param	String		$extKey
+	 * @param	Boolean		$noDbUpdate		Don't update database
 	 */
-	public static function installExtension($extKey) {
+	public static function installExtension($extKey, $noDbUpdate = false) {
 			// Add given ext key to  list of installed extensions
 		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
 		$extKeys[]	= $extKey;
@@ -221,11 +222,13 @@ class TodoyuSysmanagerExtInstaller {
 
 		self::callBeforeDbUpdate($extKey, $currentVersion, $currentVersion);
 
-		self::updateDatabaseFromFiles();
+		if( !$noDbUpdate ) {
+			self::updateDatabaseFromFiles();
+		}
 
 		self::callAfterInstall($extKey);
 
-		TodoyuHookManager::callHook('sysmanager', 'extensionInstalled', array($extKey));
+		TodoyuHookManager::callHook('sysmanager', 'extensionInstalled', array($extKey, $noDbUpdate));
 	}
 
 
