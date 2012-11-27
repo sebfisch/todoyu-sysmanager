@@ -1,7 +1,12 @@
 <div class="repositoryDialog extensionDialog {$dialogClass}">
 	<h1>{$title}</h1>
 	{if $info.installStatus != 'noLicense'}
-		<div class="info warning">{Label sysmanager.repository.update.warning.general}</div>
+		<div class="warningMessage">
+			<span class="icon"></span>
+			<span class="label">
+				{Label sysmanager.repository.update.warning.general}
+			</span>
+		</div>
 	{/if}
 
 	{if $isMajorUpdate}
