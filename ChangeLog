@@ -1,6 +1,7 @@
 todoyu sysmanager extension changelog
 
 sysmanager 1.3.0 - not released yet
+	* Changed: replace cropping with css
 	* Changed: Adapted warning message to new global style
 	* Feature: Support for SMTP account as default system email sending method (before there was only mail())
 	* Bugfix: Records without isDeletable config are now always deletable
