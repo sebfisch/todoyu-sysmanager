@@ -109,8 +109,8 @@ Todoyu.Ext.sysmanager.Repository.Search = {
 	 * Update search results from given query
 	 *
 	 * @method	updateResults
-	 * @param	{String}	order
-	 * @param	{Number}	offset
+	 * @param	{String}	[order]
+	 * @param	{Number}	[offset]
 	 */
 	updateResults: function(order, offset) {
 		order	= order || '';

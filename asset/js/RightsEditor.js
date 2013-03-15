@@ -144,8 +144,8 @@ Todoyu.Ext.sysmanager.RightsEditor = {
 	 * Store the parameters or the current values of the elements as last values
 	 *
 	 * @method	storeLastFormValues
-	 * @param	{Array}		roles
-	 * @param	{String}	ext
+	 * @param	{Array}		[roles]
+	 * @param	{String}	[ext]
 	 */
 	storeLastFormValues: function(roles, ext) {
 		this.lastFormValues = {

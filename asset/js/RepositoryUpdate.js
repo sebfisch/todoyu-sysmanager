@@ -56,7 +56,7 @@ Todoyu.Ext.sysmanager.Repository.Update = {
 	 * Reload list with updates
 	 *
 	 * @method	refreshUpdateList
-	 * @param	{Function}	onComplete
+	 * @param	{Function}	[onComplete]
 	 */
 	refreshUpdateList: function(onComplete) {
 		var url		= this.repo.getUrl();

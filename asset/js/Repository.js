@@ -82,8 +82,8 @@ Todoyu.Ext.sysmanager.Repository = {
 	 * @param	{String}	extkey
 	 * @param	{String}	action
 	 * @param	{String}	title
-	 * @param	{Function}	callback
-	 * @param	{Boolean}	local
+	 * @param	{Function}	[callback]
+	 * @param	{Boolean}	[local]
 	 */
 	showExtensionDialog: function(extkey, action, title, callback, local) {
 		callback	= callback || Prototype.emptyFunction;
