@@ -146,10 +146,6 @@ Todoyu::$CONFIG['EXT']['sysmanager']['listing']['roles'] = array(
 		'description'=>'core.global.description',
 		'persons'	=> 'sysmanager.ext.roles.numPersons',
 		'actions'	=> ''
-	),
-	'truncate'	=> array(
-		'title'			=> 30,
-		'description'	=> 50
 	)
 );
 

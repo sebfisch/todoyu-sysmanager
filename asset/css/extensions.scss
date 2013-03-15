@@ -1,3 +1,5 @@
+@import "../../../../core/config/theme.scss";
+
 /* -------------------
 	Sysmanager modules
    ------------------- */
@@ -60,73 +62,98 @@
 /* -------------------
 	Extension list
    ------------------- */
-.extlist td.state {
-	width:32px;
-}
+.extlist {
+	
+	col.icon {
+		width: 30px;
+	}
 
-.extlist td.icon,
-.extlist td.download,
-.extlist td.doc {
-	width:20px;
-}
- 
-/* Missing extensions */
-.extlist tr.missing td {
-	background-color:#ff9900;
-}
-.extlist tr.missing td.title div {
-	text-transform:uppercase;
-	font-weight:bold;
-	letter-spacing:2px;
-}
+	.extkey {
+		width: 15.795%
+	}
+	
+	.version {
+		width: 9.477%;
+	}
+	
+	.edit {
+		width: 17.211%;
+	}
 
-	/* list columns */
+	.state {
+		width:45px;
+	}
 
-	/* List icons */
-.extlist td.edit a {
-	width:18px;
-	height:18px;
-	display:inline-block;
-	background:url(../img/icons.png) no-repeat;
-}
-.extlist td.edit a.disabled {
-	opacity:0.3;
-	cursor:default !important;
-}
+	.download,
+	.doc {
+		width:30px;
+	}
 
-.extlist td.edit a.uninstall {
-	background-position:0 -58px;
-}
-.extlist td.edit a.install {
-	background-position:0 -29px;
-}
-.extlist td.edit a.remove {
-	background-position:0 -660px;
-}
+	tr {
 
-.extlist td.edit a.info {
-	background-position:0 -88px;
-}
-.extlist td.edit a.config {
-	background-position:0 -119px;
-}
-.extlist td.edit a.records {
-	background-position:0 -329px;
-}
-.extlist td.edit a.rights {
-	background-position:0 -150px;
-}
+		&.missing {
+			td {
+				background-color: $colorNotice01;
 
+				&.title div {
+						text-transform:uppercase;
+						font-weight:bold;
+						letter-spacing:2px;
+				}
+			}
+		}
 
+		td {
+			&.edit a {
+				width:18px;
+				height:18px;
+				display:inline-block;
+				background:url(../img/icons.png) no-repeat;
 
-.extlist td.doc a {
-	background:url(../img/icons.png) no-repeat 0 -510px;
+				&.disabled {
+					opacity:0.3;
+					cursor:default !important;
+				}
+
+				&.uninstall {
+					background-position:0 -58px;
+				}
+
+				&.install {
+					background-position:0 -29px;
+				}
+
+				&.remove {
+					background-position:0 -660px;
+				}
+
+				&.info {
+					background-position:0 -88px;
+				}
+
+				&.config {
+					background-position:0 -119px;
+				}
+
+				&.records {
+					background-position:0 -329px;
+				}
+
+				&.rights {
+					background-position:0 -150px;
+				}
+			}
+
+			&.doc a {
+				background:url(../img/icons.png) no-repeat 0 -510px;
+			}
+
+			&.download a.download {
+				background:url(../img/icons.png) no-repeat 0 -480px;
+			}
+		}
+	}
 }
-
-.extlist td.download a.download {
-	background:url(../img/icons.png) no-repeat 0 -480px;
-}
-
 
 
 /* ----------------------

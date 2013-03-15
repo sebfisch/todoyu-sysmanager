@@ -31,11 +31,6 @@
 	width: 918px;
 	border: 0;
 
-	td.icon {
-		width: 10px;
-
-	}
-
 	.actions {
 		.icon {
 			cursor: pointer;
@@ -50,20 +45,20 @@
 	Types of all extensions
    ---------------------------- */
 .recordsList.typeAll {
+	.recordtype {
+		width: 29.847%;
+	}
+	
 	td.icon {
 		background:url(../img/icons.png) no-repeat 10px -777px;
 	}
-	.recordtype {
-		width: 250px;
+
+	col.exticon {
+		width: 35px;
 	}
-	.exticon {
-		width:10px;
-	}
-	.records {
-		width: 100px;
-	}
+
 	.actions {
-		width: 30px;
+		width: 54px;
 
 		.list {
 			background:url(../img/icons.png) no-repeat 0 -630px;
@@ -79,18 +74,10 @@
 	td.icon {
 		background:url(../img/icons.png) no-repeat 10px -777px;
 	}
-	.recordtype {
-		width:200px;
-	}
-	.description {
-		//width:450px;
-	}
-	.records {
-		width:80px;
-	}
+
 	.actions {
 		width: 30px;
-
+		
 		.list {
 			background:url(../img/icons.png) no-repeat 0 -630px;
 		}
