@@ -22,6 +22,8 @@
 					<source type="function">
 						<function>TodoyuViewHelper::getAvailableLocaleOptions</function>
 					</source>
+					<noPleaseSelect />
+					<required />
 				</field>
 
 				<field type="text" name="email">
