@@ -195,7 +195,6 @@ class TodoyuSysmanagerExtRecordManager {
 		$idRecord	= intval($data['id']);
 
 		if( TodoyuFunction::isFunctionReference($config['save']) ) {
-//			TodoyuDebug::printInFirebug($config['save'], 'save callback');
 			$idRecord = TodoyuFunction::callUserFunction($config['save'], $data);
 		} else {
 			TodoyuLogger::logError('Save function for record ' . $ext . '/' . $type . ' is missing');
@@ -218,7 +217,6 @@ class TodoyuSysmanagerExtRecordManager {
 		$idRecord	= intval($idRecord);
 
 		if( TodoyuFunction::isFunctionReference($config['delete']) ) {
-//			TodoyuDebug::printInFirebug($config['save'], 'delete callback');
 			TodoyuFunction::callUserFunction($config['delete'], $idRecord);
 		} else {
 			TodoyuLogger::logError('Delete function for record ' . $ext . '/' . $type . ' is missing');
