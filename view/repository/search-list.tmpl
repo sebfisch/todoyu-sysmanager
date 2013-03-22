@@ -46,11 +46,7 @@
 		<div class="right">
 			{*<div class="rating">{for i 1 $extension.rating}* {/for}</div>*}
 			<div class="version">{Label sysmanager.extension.version}: {$extension.version.version}</div>
-			<div class="state">
-				<dl>{Label sysmanager.extension.state}: </dl>
-				<dd>{ExtensionStatusIcon $extension.version.state}</dd>
-				<br />
-			</div>
+			<div class="state">{Label sysmanager.extension.state}: {ExtensionStatusIcon $extension.version.state}</div>
 			<div class="costs">{if $extension.commercial}{Label sysmanager.repository.extension.costs.commercial}{else}{Label sysmanager.repository.extension.costs.free}{/if}</div>
 			{if ! $extension.commercial}
 				<div class="downloads">{$extension.downloads} {Label sysmanager.repository.extension.downloads}</div>

@@ -71,11 +71,7 @@
 				<div class="right">
 					<div class="installed">{Label sysmanager.repository.extension.installed}: {$extUpdate.installed}</div>
 					<div class="version">{Label sysmanager.repository.update.newversion} {$extUpdate.version.version}</div>
-					<div class="state">
-						<dl>{Label sysmanager.extension.state}: </dl>
-						<dd>{ExtensionStatusIcon $extUpdate.version.state}</dd>
-						<br />
-					</div>
+					<div class="state">{Label sysmanager.extension.state}: {ExtensionStatusIcon $extension.version.state}</div>
 					<div class="date">{Label sysmanager.repository.update.releasedate}: {dateFormat $extUpdate.version.date_update date}</div>
 				</div>
 

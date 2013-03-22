@@ -8,9 +8,11 @@
 .extListing .extension {
 	border-bottom:1px solid $colorNeutral03;
 	display:inline-block;
-	margin-bottom:10px;
+	margin-bottom:20px;
+	margin-left: 20px;
 	padding-bottom:10px;
 	position:relative;
+	width: 870px;
 
 	h5 {
 		border-bottom:none;
@@ -47,7 +49,7 @@
 		}
 	}
 
-	.extension .warning {
+	.warning {
 		background-color:$colorNeutral00;
 		border:2px dashed $colorAlert00;
 		margin-top:10px;
@@ -66,12 +68,12 @@
 
 	.main {
 		margin-left:30px;
-		margin-right:10px;
-		width:420px;
+		margin-right:50px;
+		width:560px;
 	}
 
 	.right {
-		width:180px;
+		width:200px;
 		padding-left:10px;
 
 		div {
