@@ -11,6 +11,7 @@
 					<label>contact.ext.person</label>
 					<source type="function">
 						<function>TodoyuContactViewHelper::getPersonOptions</function>
+						<lazyInit />
 					</source>
 				</field>
 
