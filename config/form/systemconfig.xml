@@ -52,6 +52,7 @@
 					<source type="function">
 						<function>TodoyuSysmanagerSystemConfigViewHelper::getTimezoneOptionsGrouped</function>
 					</source>
+					<required />
 				</field>
 
 				<field type="select" name="firstDayOfWeek">
