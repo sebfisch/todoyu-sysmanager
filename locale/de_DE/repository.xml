@@ -54,7 +54,7 @@
 	<label index="error.general.info">Das todoyu Erweiterungs Repository konnte Ihre Anfrage nicht erfolgreich verarbeiten.</label>
 	<label index="error.apiTooOld">Ihre version der Systemmanager Erweiterung scheint veraltet zu sein und kann nicht mehr mit dem Erweiterungs Repository kommunizieren. Bitte installieren sie eine neuere Version</label>
 	<label index="error.unknownMethod">Sie haben versucht eine unbekannte Methode des tER zu nutzen. Möglicher Fehler oder Versionskonflikt</label>
-	<label index="error.invalidResponse">Das todoyu extension repository hat eine ungültige Antwort zurückgeschickt. Es scheint ein technisches Problem zu geben. Versuchen Sie es später noch einemal</label>
+	<label index="error.invalidResponse">Das todoyu extension repository hat eine ungültige Antwort zurückgeschickt. Es scheint ein technisches Problem zu geben. Versuchen Sie es später noch einmal</label>
 	<label index="error.unknownExtension">Info: Das tER erkennt die installierte Erweiterung nicht. Das ist nur ein Problem, wenn es sich um eine offizielle kostenpflichtige Erweiterung handelt.</label>
 	<label index="license.label.accept">Lizenz akzeptieren</label>
 	<label index="license.buyinrepository">Erweiterung im todoyu Extension Repository (tER) kaufen</label>
