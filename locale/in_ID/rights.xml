@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="general">Pengaturan Umum</label>
+	<label index="general.use">Use Sysmanager</label>
+	<label index="general.extensions">Extension Manager</label>
+	<label index="general.records">Ubah Rekaman</label>
+	<label index="general.config">Konfigurasi Sistem</label>
+	<label index="extensions">Ekstensi</label>
+	<label index="extensions.config">Konfigurasi Ekstensi</label>
+	<label index="extensions.download">Unduh ekstensi sebagai arsip</label>
+	<label index="extensions.modify">Pemasang / Copot Pemasangan / Pembaruan</label>
+</labels>

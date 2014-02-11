@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+	<label index="legend.system.systemsettings">pengaturan sistem</label>
+	<label index="legend.system.cli">Perintah yang Baris Antarmuka</label>
+	<label index="legend.system.debugging">Debugging</label>
+	<label index="legend.rightsmanager.general">Mengelola peran dan hak-hak</label>
+	<label index="legend.password.general">Tentukan kekuatan sandi</label>
+	<label index="legend.logo.general">Ubah Logo</label>
+	<label index="legend.repository.general">Masukkan ID todoyu Anda</label>
+</labels>
